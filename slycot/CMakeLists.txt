@@ -209,13 +209,15 @@ src/SLICOT-Reference/src/MB03AG.f
 src/SLICOT-Reference/src/MB03AH.f
 src/SLICOT-Reference/src/MB03AI.f
 src/SLICOT-Reference/src/MB03BA.f
-src/SLICOT-Reference/src/MB03BB.f
+# REQUIRES ZLARTG
+# src/SLICOT-Reference/src/MB03BB.f
 src/SLICOT-Reference/src/MB03BC.f
 src/SLICOT-Reference/src/MB03BD.f
 src/SLICOT-Reference/src/MB03BE.f
 src/SLICOT-Reference/src/MB03BF.f
 src/SLICOT-Reference/src/MB03BG.f
-src/SLICOT-Reference/src/MB03BZ.f
+# REQUIRES ZLARTG
+# src/SLICOT-Reference/src/MB03BZ.f
 src/SLICOT-Reference/src/MB03CD.f
 src/SLICOT-Reference/src/MB03CZ.f
 src/SLICOT-Reference/src/MB03DD.f
@@ -521,8 +523,10 @@ src/SLICOT-Reference/src/SG03AX.f
 src/SLICOT-Reference/src/SG03AY.f
 src/SLICOT-Reference/src/SG03BD.f
 src/SLICOT-Reference/src/SG03BR.f
-src/SLICOT-Reference/src/SG03BS.f
-src/SLICOT-Reference/src/SG03BT.f
+# REQUIRES ZAXPY
+# src/SLICOT-Reference/src/SG03BS.f
+# REQUIRES ZAXPY
+# src/SLICOT-Reference/src/SG03BT.f
 src/SLICOT-Reference/src/SG03BU.f
 src/SLICOT-Reference/src/SG03BV.f
 src/SLICOT-Reference/src/SG03BW.f
@@ -617,8 +621,8 @@ src/SLICOT-Reference/src/UE01MD.f
 src/SLICOT-Reference/src/delctg.f
 src/SLICOT-Reference/src/select.f
 
-src/SLICOT-Reference/src/SLCT_DLATZM.f
-src/SLICOT-Reference/src/SLCT_ZLATZM.f
+src/SLICOT-Reference/src_aux/dlatzm.f
+src/SLICOT-Reference/src_aux/zlatzm.f
 
 )
 
@@ -645,7 +649,7 @@ set(GENERATED_MODULE
   ${CMAKE_CURRENT_BINARY_DIR}/${SLYCOT_MODULE}${PYTHON_EXTENSION_MODULE_SUFFIX})
 
 
-set(CMAKE_Fortran_FLAGS )
+set(CMAKE_Fortran_FLAGS -fdefault-real-16)
 
 add_custom_target(wrapper ALL DEPENDS ${SLICOT_FSOURCE} ${SLYCOT_FSOURCE})
 add_custom_command(
