@@ -6,6 +6,10 @@
 # 
 set(SLICOT_FSOURCE
 
+# Alternatives to compile
+lapack_blas_alt/ZAXPY.f
+lapack_blas_alt/ZLARFG.f
+
 src/SLICOT-Reference/src/AB01MD.f
 src/SLICOT-Reference/src/AB01ND.f
 src/SLICOT-Reference/src/AB01OD.f
