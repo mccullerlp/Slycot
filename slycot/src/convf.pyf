@@ -2,16 +2,16 @@
 ! Note: the context of this file is case sensitive.
 
 subroutine convf(lda,a,e,f) ! in CONVF.f
-    integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
-    double precision intent(in),dimension(lda) :: a
-    real*16 intent(out),dimension(lda),depend(lda) :: e
-    real*10 intent(out),dimension(lda),depend(lda) :: f
+    integer, optional,check(shape(a, 1) == lda),check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
+    double precision intent(in),dimension(lda,lda) :: a
+    real*16 intent(out),dimension(lda,lda),depend(lda) :: e
+    real*10 intent(out),dimension(lda,lda),depend(lda) :: f
 end subroutine convf
 subroutine convff(lda,a,e,f) ! in CONVFF.f
-    integer, optional,check(shape(f, 0) == lda),depend(f) :: lda=shape(f, 0)
-    double precision intent(out),dimension(lda),depend(lda) :: a
-    real*16 intent(out),dimension(lda),depend(lda) :: e
-    real*10 intent(in),dimension(lda) :: f
+    integer, optional,check(shape(f, 0) == lda),check(shape(f, 0) == lda),depend(f) :: lda=shape(f, 0)
+    double precision intent(out),dimension(lda,lda),depend(lda) :: a
+    real*16 intent(out),dimension(lda,lda),depend(lda) :: e
+    real*10 intent(in,out,copy),dimension(lda,lda) :: f
 end subroutine convff
 subroutine convfe(lda,a,e,f) ! in CONVFE.f
     integer, optional,check(shape(e, 0) == lda),depend(e) :: lda=shape(e, 0)
