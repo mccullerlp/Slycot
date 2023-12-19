@@ -214,14 +214,14 @@ src/SLICOT-Reference/src/MB03AH.f
 src/SLICOT-Reference/src/MB03AI.f
 src/SLICOT-Reference/src/MB03BA.f
 # REQUIRES ZLARTG
-# src/SLICOT-Reference/src/MB03BB.f
+src/SLICOT-Reference/src/MB03BB.f
 src/SLICOT-Reference/src/MB03BC.f
 src/SLICOT-Reference/src/MB03BD.f
 src/SLICOT-Reference/src/MB03BE.f
 src/SLICOT-Reference/src/MB03BF.f
 src/SLICOT-Reference/src/MB03BG.f
 # REQUIRES ZLARTG
-# src/SLICOT-Reference/src/MB03BZ.f
+src/SLICOT-Reference/src/MB03BZ.f
 src/SLICOT-Reference/src/MB03CD.f
 src/SLICOT-Reference/src/MB03CZ.f
 src/SLICOT-Reference/src/MB03DD.f
@@ -528,9 +528,9 @@ src/SLICOT-Reference/src/SG03AY.f
 src/SLICOT-Reference/src/SG03BD.f
 src/SLICOT-Reference/src/SG03BR.f
 # REQUIRES ZAXPY
-# src/SLICOT-Reference/src/SG03BS.f
+src/SLICOT-Reference/src/SG03BS.f
 # REQUIRES ZAXPY
-# src/SLICOT-Reference/src/SG03BT.f
+src/SLICOT-Reference/src/SG03BT.f
 src/SLICOT-Reference/src/SG03BU.f
 src/SLICOT-Reference/src/SG03BV.f
 src/SLICOT-Reference/src/SG03BW.f

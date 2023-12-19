@@ -4,7 +4,7 @@
 python module _wrapper ! in
     interface  ! in :wrapper
 		include "analysis.pyf"
-		include "math.pyf"
+		!include "math.pyf"
 		include "synthesis.pyf"
 		include "transform.pyf"
 		include "_helper.pyf"
