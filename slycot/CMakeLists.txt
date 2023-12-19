@@ -631,6 +631,8 @@ src/SLICOT-Reference/src_aux/zlatzm.f
 
 )
 
+set(CMAKE_BUILD_TYPE Debug)
+
 set(SLYCOT_FSOURCE  src/ftruefalse.f src/XERBLA.f)
 
 set(F2PYSOURCE src/_wrapper.pyf)

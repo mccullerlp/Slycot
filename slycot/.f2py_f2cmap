@@ -1,4 +1,4 @@
 {
-# 'real':{'10':'long_double', '16':'long_double', 'DOUBLE':'long_double', 'DOUBLE PRECISION':'long_double'},
+'real':{'10':'long_double'},
 # 'complex':{'20':'complex_long_double'}
 }

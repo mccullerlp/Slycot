@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.14.0)
 cmake_policy(SET CMP0074 NEW)
 
 project(slycot LANGUAGES NONE)
+set(CMAKE_BUILD_TYPE Debug)
 
 enable_language(C)
 enable_language(Fortran)
