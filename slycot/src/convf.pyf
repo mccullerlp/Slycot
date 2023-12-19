@@ -3,21 +3,34 @@
 
 subroutine convf(lda,a,e,f) ! in CONVF.f
     integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
-    double precision dimension(lda) :: a
-    real*16 dimension(lda),depend(lda) :: e
-    real*10 dimension(lda),depend(lda) :: f
+    double precision intent(in),dimension(lda) :: a
+    real*16 intent(out),dimension(lda),depend(lda) :: e
+    real*10 intent(out),dimension(lda),depend(lda) :: f
 end subroutine convf
 subroutine convff(lda,a,e,f) ! in CONVFF.f
-    integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
-    double precision dimension(lda) :: a
-    real*16 dimension(lda),depend(lda) :: e
-    real*10 dimension(lda),depend(lda) :: f
+    integer, optional,check(shape(f, 0) == lda),depend(f) :: lda=shape(f, 0)
+    double precision intent(out),dimension(lda),depend(lda) :: a
+    real*16 intent(out),dimension(lda),depend(lda) :: e
+    real*10 intent(in),dimension(lda) :: f
 end subroutine convff
 subroutine convfe(lda,a,e,f) ! in CONVFE.f
-    integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
-    double precision dimension(lda) :: a
-    real*16 dimension(lda),depend(lda) :: e
-    real*10 dimension(lda),depend(lda) :: f
+    integer, optional,check(shape(e, 0) == lda),depend(e) :: lda=shape(e, 0)
+    double precision intent(out),dimension(lda),depend(lda) :: a
+    real*16 intent(in),dimension(lda) :: e
+    real*10 intent(out),dimension(lda),depend(lda) :: f
+end subroutine convfe
+
+subroutine cona(a,f) ! in CONVF.f
+  double precision intent(in) :: a
+  real*10 intent(out),dimension(1) :: f
+end subroutine convf
+subroutine cone(a,e) ! in CONVFF.f
+  double precision intent(out) :: a
+  real*16 intent(in) :: e
+end subroutine convff
+subroutine conf(a,f) ! in CONVFE.f
+  double precision intent(out) :: a
+  real*10 intent(in) :: f
 end subroutine convfe
 
 ! This file was auto-generated with f2py (version:1.23.5).

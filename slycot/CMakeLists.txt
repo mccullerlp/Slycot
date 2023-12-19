@@ -6,6 +6,9 @@
 # 
 set(SLICOT_FSOURCE
 
+src/CONA.f
+src/CONE.f
+src/CONF.f
 src/CONVF.f
 src/CONVFF.f
 src/CONVFE.f
@@ -629,6 +632,7 @@ set(SLYCOT_FSOURCE  src/ftruefalse.f src/XERBLA.f)
 
 set(F2PYSOURCE src/_wrapper.pyf)
 set(F2PYSOURCE_DEPS
+  src/convf.pyf
   src/analysis.pyf
   src/math.pyf
   src/transform.pyf
@@ -653,7 +657,7 @@ set(CMAKE_Fortran_FLAGS )
 add_custom_target(wrapper ALL DEPENDS ${SLICOT_FSOURCE} ${SLYCOT_FSOURCE})
 add_custom_command(
   OUTPUT _wrappermodule.c _wrapper-f2pywrappers.f
-  COMMAND ${F2PY_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${F2PYSOURCE}
+  COMMAND ${F2PY_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${F2PYSOURCE} --f2cmap ${CMAKE_CURRENT_SOURCE_DIR}/.f2py_f2cmap
   DEPENDS ${F2PYSOURCE_DEPS} ${F2PYSOURCE}
 )
 
