@@ -6,6 +6,9 @@
 # 
 set(SLICOT_FSOURCE
 
+src/CONVF.f
+src/CONVFF.f
+src/CONVFE.f
 src/SLICOT-Reference/src/AB01MD.f
 src/SLICOT-Reference/src/AB01ND.f
 src/SLICOT-Reference/src/AB01OD.f

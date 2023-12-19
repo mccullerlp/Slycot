@@ -1,0 +1,25 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+subroutine convf(lda,a,e,f) ! in CONVF.f
+    integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
+    double precision dimension(lda) :: a
+    real*16 dimension(lda),depend(lda) :: e
+    real*10 dimension(lda),depend(lda) :: f
+end subroutine convf
+subroutine convff(lda,a,e,f) ! in CONVFF.f
+    integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
+    double precision dimension(lda) :: a
+    real*16 dimension(lda),depend(lda) :: e
+    real*10 dimension(lda),depend(lda) :: f
+end subroutine convff
+subroutine convfe(lda,a,e,f) ! in CONVFE.f
+    integer, optional,check(shape(a, 0) == lda),depend(a) :: lda=shape(a, 0)
+    double precision dimension(lda) :: a
+    real*16 dimension(lda),depend(lda) :: e
+    real*10 dimension(lda),depend(lda) :: f
+end subroutine convfe
+
+! This file was auto-generated with f2py (version:1.23.5).
+! See:
+! https://web.archive.org/web/20140822061353/http://cens.ioc.ee/projects/f2py2e
