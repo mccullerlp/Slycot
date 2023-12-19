@@ -71,7 +71,7 @@ src/SLICOT-Reference/src/AG08BY.f
 src/SLICOT-Reference/src/AG08BZ.f
 src/SLICOT-Reference/src/AG8BYZ.f
 src/SLICOT-Reference/src/BB01AD.f
-src/SLICOT-Reference/src/BB02AD.f
+# src/SLICOT-Reference/src/BB02AD.f
 src/SLICOT-Reference/src/BB03AD.f
 src/SLICOT-Reference/src/BB04AD.f
 src/SLICOT-Reference/src/BD01AD.f
@@ -536,7 +536,8 @@ src/SLICOT-Reference/src/SG03BV.f
 src/SLICOT-Reference/src/SG03BW.f
 src/SLICOT-Reference/src/SG03BX.f
 src/SLICOT-Reference/src/SG03BY.f
-src/SLICOT-Reference/src/SG03BZ.f
+# UNSURE
+# src/SLICOT-Reference/src/SG03BZ.f
 src/SLICOT-Reference/src/TB01ID.f
 src/SLICOT-Reference/src/TB01IZ.f
 src/SLICOT-Reference/src/TB01KD.f
@@ -653,12 +654,13 @@ set(GENERATED_MODULE
   ${CMAKE_CURRENT_BINARY_DIR}/${SLYCOT_MODULE}${PYTHON_EXTENSION_MODULE_SUFFIX})
 
 
-set(CMAKE_Fortran_FLAGS -fdefault-real-16)
+# set(CMAKE_Fortran_FLAGS -fdefault-real-16)
+set(CMAKE_Fortran_FLAGS)
 
 add_custom_target(wrapper ALL DEPENDS ${SLICOT_FSOURCE} ${SLYCOT_FSOURCE})
 add_custom_command(
   OUTPUT _wrappermodule.c _wrapper-f2pywrappers.f
-  COMMAND ${F2PY_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${F2PYSOURCE}
+  COMMAND ${F2PY_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${F2PYSOURCE} --f2cmap ${CMAKE_CURRENT_SOURCE_DIR}/.f2py_f2cmap
   DEPENDS ${F2PYSOURCE_DEPS} ${F2PYSOURCE}
 )
 
