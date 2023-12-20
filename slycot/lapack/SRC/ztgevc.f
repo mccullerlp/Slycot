@@ -262,13 +262,13 @@
       EXTERNAL           DLABAD, XERBLA, ZGEMV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, MIN
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( X ) = ABS( DBLE( X ) ) + ABS( IMAGPART( X ) )
+      ABS1( X ) = ABS( REAL( X ) ) + ABS( IMAGPART( X ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -412,7 +412,7 @@
                IEIG = IEIG + 1
 *
                IF( ABS1( S( JE, JE ) ).LE.SAFMIN .AND.
-     $             ABS( DBLE( P( JE, JE ) ) ).LE.SAFMIN ) THEN
+     $             ABS( REAL( P( JE, JE ) ) ).LE.SAFMIN ) THEN
 *
 *                 Singular matrix pencil -- return unit eigenvector
 *
@@ -429,9 +429,9 @@
 *                 y  ( a A - b B ) = 0
 *
                TEMP = ONE / MAX( ABS1( S( JE, JE ) )*ASCALE,
-     $                ABS( DBLE( P( JE, JE ) ) )*BSCALE, SAFMIN )
+     $                ABS( REAL( P( JE, JE ) ) )*BSCALE, SAFMIN )
                SALPHA = ( TEMP*S( JE, JE ) )*ASCALE
-               SBETA = ( TEMP*DBLE( P( JE, JE ) ) )*BSCALE
+               SBETA = ( TEMP*REAL( P( JE, JE ) ) )*BSCALE
                ACOEFF = SBETA*ASCALE
                BCOEFF = SALPHA*BSCALE
 *
@@ -578,7 +578,7 @@
                IEIG = IEIG - 1
 *
                IF( ABS1( S( JE, JE ) ).LE.SAFMIN .AND.
-     $             ABS( DBLE( P( JE, JE ) ) ).LE.SAFMIN ) THEN
+     $             ABS( REAL( P( JE, JE ) ) ).LE.SAFMIN ) THEN
 *
 *                 Singular matrix pencil -- return unit eigenvector
 *
@@ -595,9 +595,9 @@
 *              ( a A - b B ) x  = 0
 *
                TEMP = ONE / MAX( ABS1( S( JE, JE ) )*ASCALE,
-     $                ABS( DBLE( P( JE, JE ) ) )*BSCALE, SAFMIN )
+     $                ABS( REAL( P( JE, JE ) ) )*BSCALE, SAFMIN )
                SALPHA = ( TEMP*S( JE, JE ) )*ASCALE
-               SBETA = ( TEMP*DBLE( P( JE, JE ) ) )*BSCALE
+               SBETA = ( TEMP*REAL( P( JE, JE ) ) )*BSCALE
                ACOEFF = SBETA*ASCALE
                BCOEFF = SALPHA*BSCALE
 *

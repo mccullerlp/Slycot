@@ -179,7 +179,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG,MAX
+      INTRINSIC REAL,CONJG,MAX
 *     ..
 *
 *     Test the input parameters.
@@ -239,10 +239,10 @@
                       DO 10 I = 1,J - 1
                           A(I,J) = A(I,J) + X(I)*TEMP1 + Y(I)*TEMP2
    10                 CONTINUE
-                      A(J,J) = DBLE(A(J,J)) +
-     +                         DBLE(X(J)*TEMP1+Y(J)*TEMP2)
+                      A(J,J) = REAL(A(J,J)) +
+     +                         REAL(X(J)*TEMP1+Y(J)*TEMP2)
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
    20         CONTINUE
           ELSE
@@ -257,10 +257,10 @@
                           IX = IX + INCX
                           IY = IY + INCY
    30                 CONTINUE
-                      A(J,J) = DBLE(A(J,J)) +
-     +                         DBLE(X(JX)*TEMP1+Y(JY)*TEMP2)
+                      A(J,J) = REAL(A(J,J)) +
+     +                         REAL(X(JX)*TEMP1+Y(JY)*TEMP2)
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
                   JX = JX + INCX
                   JY = JY + INCY
@@ -275,13 +275,13 @@
                   IF ((X(J).NE.ZERO) .OR. (Y(J).NE.ZERO)) THEN
                       TEMP1 = ALPHA*CONJG(Y(J))
                       TEMP2 = CONJG(ALPHA*X(J))
-                      A(J,J) = DBLE(A(J,J)) +
-     +                         DBLE(X(J)*TEMP1+Y(J)*TEMP2)
+                      A(J,J) = REAL(A(J,J)) +
+     +                         REAL(X(J)*TEMP1+Y(J)*TEMP2)
                       DO 50 I = J + 1,N
                           A(I,J) = A(I,J) + X(I)*TEMP1 + Y(I)*TEMP2
    50                 CONTINUE
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
    60         CONTINUE
           ELSE
@@ -289,8 +289,8 @@
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
                       TEMP1 = ALPHA*CONJG(Y(JY))
                       TEMP2 = CONJG(ALPHA*X(JX))
-                      A(J,J) = DBLE(A(J,J)) +
-     +                         DBLE(X(JX)*TEMP1+Y(JY)*TEMP2)
+                      A(J,J) = REAL(A(J,J)) +
+     +                         REAL(X(JX)*TEMP1+Y(JY)*TEMP2)
                       IX = JX
                       IY = JY
                       DO 70 I = J + 1,N
@@ -299,7 +299,7 @@
                           A(I,J) = A(I,J) + X(IX)*TEMP1 + Y(IY)*TEMP2
    70                 CONTINUE
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
                   JX = JX + INCX
                   JY = JY + INCY

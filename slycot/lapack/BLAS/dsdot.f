@@ -139,7 +139,7 @@
       INTEGER I,KX,KY,NS
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE
+      INTRINSIC REAL
 *     ..
       DSDOT = 0.0D0
       IF (N.LE.0) RETURN
@@ -149,7 +149,7 @@
 *
          NS = N*INCX
          DO I = 1,NS,INCX
-            DSDOT = DSDOT + DBLE(SX(I))*DBLE(SY(I))
+            DSDOT = DSDOT + REAL(SX(I))*REAL(SY(I))
          END DO
       ELSE
 *
@@ -160,7 +160,7 @@
          IF (INCX.LT.0) KX = 1 + (1-N)*INCX
          IF (INCY.LT.0) KY = 1 + (1-N)*INCY
          DO I = 1,N
-            DSDOT = DSDOT + DBLE(SX(KX))*DBLE(SY(KY))
+            DSDOT = DSDOT + REAL(SX(KX))*REAL(SY(KY))
             KX = KX + INCX
             KY = KY + INCY
          END DO

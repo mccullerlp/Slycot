@@ -268,7 +268,7 @@
 *     ..
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, CONJG, MAX, DBLE, MIN, SIGN, SQRT
+      INTRINSIC          ABS, CONJG, MAX, REAL, MIN, SIGN, SQRT
 *     ..
 *     .. External Functions ..
       REAL*10   DZNRM2
@@ -332,7 +332,7 @@
       SMALL = SFMIN / EPS
       BIG = ONE / SFMIN
       ROOTBIG = ONE / ROOTSFMIN
-*     LARGE = BIG / SQRT( DBLE( M*N ) )
+*     LARGE = BIG / SQRT( REAL( M*N ) )
       BIGTHETA = ONE / ROOTEPS
       ROOTTOL = SQRT( TOL )
 *
@@ -658,8 +658,8 @@
          IF( ( i.LT.SWBAND ) .AND. ( ( MXAAPQ.LE.ROOTTOL ) .OR.
      $       ( ISWROT.LE.N ) ) )SWBAND = i
 *
-         IF( ( i.GT.SWBAND+1 ) .AND. ( MXAAPQ.LT.SQRT( DBLE( N ) )*
-     $       TOL ) .AND. ( DBLE( N )*MXAAPQ*MXSINJ.LT.TOL ) ) THEN
+         IF( ( i.GT.SWBAND+1 ) .AND. ( MXAAPQ.LT.SQRT( REAL( N ) )*
+     $       TOL ) .AND. ( REAL( N )*MXAAPQ*MXSINJ.LT.TOL ) ) THEN
             GO TO 1994
          END IF
 *

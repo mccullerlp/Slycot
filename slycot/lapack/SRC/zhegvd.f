@@ -280,7 +280,7 @@
       EXTERNAL           XERBLA, ZHEEVD, ZHEGST, ZPOTRF, ZTRMM, ZTRSM
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX
+      INTRINSIC          REAL, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -360,9 +360,9 @@
       CALL ZHEGST( ITYPE, UPLO, N, A, LDA, B, LDB, INFO )
       CALL ZHEEVD( JOBZ, UPLO, N, A, LDA, W, WORK, LWORK, RWORK, LRWORK,
      $             IWORK, LIWORK, INFO )
-      LOPT = INT( MAX( DBLE( LOPT ), DBLE( WORK( 1 ) ) ) )
-      LROPT = INT( MAX( DBLE( LROPT ), DBLE( RWORK( 1 ) ) ) )
-      LIOPT = INT( MAX( DBLE( LIOPT ), DBLE( IWORK( 1 ) ) ) )
+      LOPT = INT( MAX( REAL( LOPT ), REAL( WORK( 1 ) ) ) )
+      LROPT = INT( MAX( REAL( LROPT ), REAL( RWORK( 1 ) ) ) )
+      LIOPT = INT( MAX( REAL( LIOPT ), REAL( IWORK( 1 ) ) ) )
 *
       IF( WANTZ .AND. INFO.EQ.0 ) THEN
 *

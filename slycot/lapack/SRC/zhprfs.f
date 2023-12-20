@@ -220,7 +220,7 @@
       EXTERNAL           XERBLA, ZAXPY, ZCOPY, ZHPMV, ZHPTRS, ZLACN2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX
+      INTRINSIC          ABS, REAL, IMAGPART, MAX
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -231,7 +231,7 @@
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -314,7 +314,7 @@
                   S = S + CABS1( AP( IK ) )*CABS1( X( I, J ) )
                   IK = IK + 1
    40          CONTINUE
-               RWORK( K ) = RWORK( K ) + ABS( DBLE( AP( KK+K-1 ) ) )*
+               RWORK( K ) = RWORK( K ) + ABS( REAL( AP( KK+K-1 ) ) )*
      $                      XK + S
                KK = KK + K
    50       CONTINUE
@@ -322,7 +322,7 @@
             DO 70 K = 1, N
                S = ZERO
                XK = CABS1( X( K, J ) )
-               RWORK( K ) = RWORK( K ) + ABS( DBLE( AP( KK ) ) )*XK
+               RWORK( K ) = RWORK( K ) + ABS( REAL( AP( KK ) ) )*XK
                IK = KK + 1
                DO 60 I = K + 1, N
                   RWORK( I ) = RWORK( I ) + CABS1( AP( IK ) )*XK

@@ -121,7 +121,7 @@
       INTEGER            MM( LV, 4 )
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MIN, MOD
+      INTRINSIC          REAL, MIN, MOD
 *     ..
 *     .. Data statements ..
       DATA               ( MM( 1, J ), J = 1, 4 ) / 494, 322, 2508,
@@ -409,8 +409,8 @@
 *
 *        Convert 48-bit integer to a real number in the interval (0,1)
 *
-         X( I ) = R*( DBLE( IT1 )+R*( DBLE( IT2 )+R*( DBLE( IT3 )+R*
-     $            DBLE( IT4 ) ) ) )
+         X( I ) = R*( REAL( IT1 )+R*( REAL( IT2 )+R*( REAL( IT3 )+R*
+     $            REAL( IT4 ) ) ) )
 *
          IF (X( I ).EQ.1.0D0) THEN
 *           If a real number has n bits of precision, and the first

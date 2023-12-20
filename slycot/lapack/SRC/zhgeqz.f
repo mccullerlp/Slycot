@@ -329,14 +329,14 @@
       EXTERNAL           XERBLA, ZLARTG, ZLASET, ZROT, ZSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, MIN,
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX, MIN,
      $                   SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( X ) = ABS( DBLE( X ) ) + ABS( IMAGPART( X ) )
+      ABS1( X ) = ABS( REAL( X ) ) + ABS( IMAGPART( X ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -746,7 +746,7 @@
                TEMP = MAX( TEMP, ABS1( X ) )
                Y = TEMP*SQRT( ( X / TEMP )**2+( CTEMP / TEMP )**2 )
                IF( TEMP2.GT.ZERO ) THEN
-                  IF( DBLE( X / TEMP2 )*DBLE( Y )+
+                  IF( REAL( X / TEMP2 )*REAL( Y )+
      $              IMAGPART( X / TEMP2 )*IMAGPART( Y ).LT.ZERO )Y = -Y
                END IF
                SHIFT = SHIFT - CTEMP*ZLADIV( CTEMP, ( X+Y ) )

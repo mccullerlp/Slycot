@@ -164,7 +164,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG,MAX
+      INTRINSIC REAL,CONJG,MAX
 *     ..
 *
 *     Test the input parameters.
@@ -186,7 +186,7 @@
 *
 *     Quick return if possible.
 *
-      IF ((N.EQ.0) .OR. (ALPHA.EQ.DBLE(ZERO))) RETURN
+      IF ((N.EQ.0) .OR. (ALPHA.EQ.REAL(ZERO))) RETURN
 *
 *     Set the start point in X if the increment is not unity.
 *
@@ -211,9 +211,9 @@
                       DO 10 I = 1,J - 1
                           A(I,J) = A(I,J) + X(I)*TEMP
    10                 CONTINUE
-                      A(J,J) = DBLE(A(J,J)) + DBLE(X(J)*TEMP)
+                      A(J,J) = REAL(A(J,J)) + REAL(X(J)*TEMP)
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
    20         CONTINUE
           ELSE
@@ -226,9 +226,9 @@
                           A(I,J) = A(I,J) + X(IX)*TEMP
                           IX = IX + INCX
    30                 CONTINUE
-                      A(J,J) = DBLE(A(J,J)) + DBLE(X(JX)*TEMP)
+                      A(J,J) = REAL(A(J,J)) + REAL(X(JX)*TEMP)
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
                   JX = JX + INCX
    40         CONTINUE
@@ -241,12 +241,12 @@
               DO 60 J = 1,N
                   IF (X(J).NE.ZERO) THEN
                       TEMP = ALPHA*CONJG(X(J))
-                      A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(J))
+                      A(J,J) = REAL(A(J,J)) + REAL(TEMP*X(J))
                       DO 50 I = J + 1,N
                           A(I,J) = A(I,J) + X(I)*TEMP
    50                 CONTINUE
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
    60         CONTINUE
           ELSE
@@ -254,14 +254,14 @@
               DO 80 J = 1,N
                   IF (X(JX).NE.ZERO) THEN
                       TEMP = ALPHA*CONJG(X(JX))
-                      A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(JX))
+                      A(J,J) = REAL(A(J,J)) + REAL(TEMP*X(JX))
                       IX = JX
                       DO 70 I = J + 1,N
                           IX = IX + INCX
                           A(I,J) = A(I,J) + X(IX)*TEMP
    70                 CONTINUE
                   ELSE
-                      A(J,J) = DBLE(A(J,J))
+                      A(J,J) = REAL(A(J,J))
                   END IF
                   JX = JX + INCX
    80         CONTINUE

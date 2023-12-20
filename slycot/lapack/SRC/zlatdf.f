@@ -209,7 +209,7 @@
       EXTERNAL           DZASUM, ZDOTC
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, SQRT
+      INTRINSIC          ABS, REAL, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -230,10 +230,10 @@
 *           Lockahead for L- part RHS(1:N-1) = +-1
 *           SPLUS and SMIN computed more efficiently than in BSOLVE[1].
 *
-            SPLUS = SPLUS + DBLE( ZDOTC( N-J, Z( J+1, J ), 1, Z( J+1,
+            SPLUS = SPLUS + REAL( ZDOTC( N-J, Z( J+1, J ), 1, Z( J+1,
      $              J ), 1 ) )
-            SMINU = DBLE( ZDOTC( N-J, Z( J+1, J ), 1, RHS( J+1 ), 1 ) )
-            SPLUS = SPLUS*DBLE( RHS( J ) )
+            SMINU = REAL( ZDOTC( N-J, Z( J+1, J ), 1, RHS( J+1 ), 1 ) )
+            SPLUS = SPLUS*REAL( RHS( J ) )
             IF( SPLUS.GT.SMINU ) THEN
                RHS( J ) = BP
             ELSE IF( SMINU.GT.SPLUS ) THEN

@@ -205,7 +205,7 @@
      $                   XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          CEILING, DBLE, MAX, MIN
+      INTRINSIC          CEILING, REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -245,7 +245,7 @@
             NB1LOCAL = MIN( NB1, N )
 *
             NUM_ALL_ROW_BLOCKS = MAX( 1,
-     $                   CEILING( DBLE( M - N ) / DBLE( MB1 - N ) ) )
+     $                   CEILING( REAL( M - N ) / REAL( MB1 - N ) ) )
 *
 *           Length and leading dimension of WORK array to place
 *           T array in TSQR.
@@ -277,14 +277,14 @@
          CALL XERBLA( 'DGETSQRHRT', -INFO )
          RETURN
       ELSE IF ( LQUERY ) THEN
-         WORK( 1 ) = DBLE( LWORKOPT )
+         WORK( 1 ) = REAL( LWORKOPT )
          RETURN
       END IF
 *
 *     Quick return if possible
 *
       IF( MIN( M, N ).EQ.0 ) THEN
-         WORK( 1 ) = DBLE( LWORKOPT )
+         WORK( 1 ) = REAL( LWORKOPT )
          RETURN
       END IF
 *
@@ -341,7 +341,7 @@
          END IF
       END DO
 *
-      WORK( 1 ) = DBLE( LWORKOPT )
+      WORK( 1 ) = REAL( LWORKOPT )
       RETURN
 *
 *     End of DGETSQRHRT

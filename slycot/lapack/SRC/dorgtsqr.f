@@ -199,7 +199,7 @@
       EXTERNAL           DCOPY, DLAMTSQR, DLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -256,14 +256,14 @@
          CALL XERBLA( 'DORGTSQR', -INFO )
          RETURN
       ELSE IF ( LQUERY ) THEN
-         WORK( 1 ) = DBLE( LWORKOPT )
+         WORK( 1 ) = REAL( LWORKOPT )
          RETURN
       END IF
 *
 *     Quick return if possible
 *
       IF( MIN( M, N ).EQ.0 ) THEN
-         WORK( 1 ) = DBLE( LWORKOPT )
+         WORK( 1 ) = REAL( LWORKOPT )
          RETURN
       END IF
 *
@@ -296,7 +296,7 @@
          CALL DCOPY( M, WORK( (J-1)*LDC + 1 ), 1, A( 1, J ), 1 )
       END DO
 *
-      WORK( 1 ) = DBLE( LWORKOPT )
+      WORK( 1 ) = REAL( LWORKOPT )
       RETURN
 *
 *     End of DORGTSQR

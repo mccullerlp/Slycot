@@ -400,7 +400,7 @@
      $                   ZHETRD, ZSTEMR, ZSTEIN, ZSWAP, ZUNMTR
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, SQRT
+      INTRINSIC          REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -486,12 +486,12 @@
          WORK( 1 ) = 2
          IF( ALLEIG .OR. INDEIG ) THEN
             M = 1
-            W( 1 ) = DBLE( A( 1, 1 ) )
+            W( 1 ) = REAL( A( 1, 1 ) )
          ELSE
-            IF( VL.LT.DBLE( A( 1, 1 ) ) .AND. VU.GE.DBLE( A( 1, 1 ) ) )
+            IF( VL.LT.REAL( A( 1, 1 ) ) .AND. VU.GE.REAL( A( 1, 1 ) ) )
      $           THEN
                M = 1
-               W( 1 ) = DBLE( A( 1, 1 ) )
+               W( 1 ) = REAL( A( 1, 1 ) )
             END IF
          END IF
          IF( WANTZ ) THEN

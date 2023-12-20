@@ -294,7 +294,7 @@
 *     ..
 *     .. Intrinsic Functions ..
 *
-      INTRINSIC          ABS, DBLE, CONJG, IMAGPART, MAX, MIN, MOD
+      INTRINSIC          ABS, REAL, CONJG, IMAGPART, MAX, MIN, MOD
 *     ..
 *     .. Local Arrays ..
       COMPLEX*20         VT( 3 )
@@ -307,7 +307,7 @@
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -333,7 +333,7 @@
       SAFMAX = RONE / SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( N ) / ULP )
+      SMLNUM = SAFMIN*( REAL( N ) / ULP )
 *
 *     ==== Use accumulated reflections to update far-from-diagonal
 *     .    entries ? ====

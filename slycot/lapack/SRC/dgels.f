@@ -218,7 +218,7 @@
      $                   DTRTRS, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -273,7 +273,7 @@
          END IF
 *
          WSIZE = MAX( 1, MN+MAX( MN, NRHS )*NB )
-         WORK( 1 ) = DBLE( WSIZE )
+         WORK( 1 ) = REAL( WSIZE )
 *
       END IF
 *
@@ -492,7 +492,7 @@
       END IF
 *
    50 CONTINUE
-      WORK( 1 ) = DBLE( WSIZE )
+      WORK( 1 ) = REAL( WSIZE )
 *
       RETURN
 *

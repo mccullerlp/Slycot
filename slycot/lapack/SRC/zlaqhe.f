@@ -162,7 +162,7 @@
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE
+      INTRINSIC          REAL
 *     ..
 *     .. Executable Statements ..
 *
@@ -196,7 +196,7 @@
                DO 10 I = 1, J - 1
                   A( I, J ) = CJ*S( I )*A( I, J )
    10          CONTINUE
-               A( J, J ) = CJ*CJ*DBLE( A( J, J ) )
+               A( J, J ) = CJ*CJ*REAL( A( J, J ) )
    20       CONTINUE
          ELSE
 *
@@ -204,7 +204,7 @@
 *
             DO 40 J = 1, N
                CJ = S( J )
-               A( J, J ) = CJ*CJ*DBLE( A( J, J ) )
+               A( J, J ) = CJ*CJ*REAL( A( J, J ) )
                DO 30 I = J + 1, N
                   A( I, J ) = CJ*S( I )*A( I, J )
    30          CONTINUE

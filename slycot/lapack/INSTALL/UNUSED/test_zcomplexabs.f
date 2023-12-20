@@ -66,7 +66,7 @@
       double complex    Y, cInf( nInf ), cNaN( nNaN )
 *
 *     .. Intrinsic Functions ..
-      intrinsic         ABS, DBLE, RADIX, CEILING, TINY, DIGITS, SQRT,
+      intrinsic         ABS, REAL, RADIX, CEILING, TINY, DIGITS, SQRT,
      $                  MAXEXPONENT, MINEXPONENT, FLOOR, HUGE, CMPLX,
      $                  EPSILON
 
@@ -82,16 +82,16 @@
       min = MINEXPONENT(0.0d0)
       Max = MAXEXPONENT(0.0d0)
       m = DIGITS(0.0d0)
-      b = DBLE(RADIX(0.0d0))
+      b = REAL(RADIX(0.0d0))
       eps = EPSILON(0.0d0)
       blueMin = b**CEILING( (min - 1) * 0.5d0 )
       blueMax = b**FLOOR( (Max - m + 1) * 0.5d0 )
 *
 *     .. Vector X ..
-      X(1) = TINY(0.0d0) * b**( DBLE(1-m) )
+      X(1) = TINY(0.0d0) * b**( REAL(1-m) )
       X(2) = TINY(0.0d0)
       X(3) = HUGE(0.0d0)
-      X(4) = b**( DBLE(Max-1) )
+      X(4) = b**( REAL(Max-1) )
 *
 *     .. Then modify X using the step ..
       stepX(1) = 2.0

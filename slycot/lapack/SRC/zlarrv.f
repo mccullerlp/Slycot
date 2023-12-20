@@ -338,7 +338,7 @@
      $                   ZLASET
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC ABS, DBLE, MAX, MIN
+      INTRINSIC ABS, REAL, MAX, MIN
       INTRINSIC CMPLX
 *     ..
 *     .. Executable Statements ..
@@ -554,13 +554,13 @@
                      ENDIF
                   ENDIF
                   DO 45 K = 1, IN - 1
-                     D( IBEGIN+K-1 ) = DBLE( Z( IBEGIN+K-1,
+                     D( IBEGIN+K-1 ) = REAL( Z( IBEGIN+K-1,
      $                                 J ) )
-                     L( IBEGIN+K-1 ) = DBLE( Z( IBEGIN+K-1,
+                     L( IBEGIN+K-1 ) = REAL( Z( IBEGIN+K-1,
      $                                 J+1 ) )
    45             CONTINUE
-                  D( IEND ) = DBLE( Z( IEND, J ) )
-                  SIGMA = DBLE( Z( IEND, J+1 ) )
+                  D( IEND ) = REAL( Z( IEND, J ) )
+                  SIGMA = REAL( Z( IEND, J+1 ) )
 
 *                 Set the corresponding entries in Z to zero
                   CALL ZLASET( 'Full', IN, 2, CZERO, CZERO,
@@ -779,7 +779,7 @@
 *
                      ITER = 0
 *
-                     TOL = FOUR * LOG(DBLE(IN)) * EPS
+                     TOL = FOUR * LOG(REAL(IN)) * EPS
 *
                      K = NEWFST
                      WINDEX = WBEGIN + K - 1

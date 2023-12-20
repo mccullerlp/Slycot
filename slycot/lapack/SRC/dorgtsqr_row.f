@@ -217,7 +217,7 @@
       EXTERNAL           DLARFB_GETT, DLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -255,14 +255,14 @@
          CALL XERBLA( 'DORGTSQR_ROW', -INFO )
          RETURN
       ELSE IF ( LQUERY ) THEN
-         WORK( 1 ) = DBLE( LWORKOPT )
+         WORK( 1 ) = REAL( LWORKOPT )
          RETURN
       END IF
 *
 *     Quick return if possible
 *
       IF( MIN( M, N ).EQ.0 ) THEN
-         WORK( 1 ) = DBLE( LWORKOPT )
+         WORK( 1 ) = REAL( LWORKOPT )
          RETURN
       END IF
 *
@@ -371,7 +371,7 @@
 *
       END DO
 *
-      WORK( 1 ) = DBLE( LWORKOPT )
+      WORK( 1 ) = REAL( LWORKOPT )
       RETURN
 *
 *     End of DORGTSQR_ROW

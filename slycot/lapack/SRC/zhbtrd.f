@@ -196,7 +196,7 @@
      $                   ZLASET, ZROT, ZSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG, MAX, MIN
+      INTRINSIC          ABS, REAL, CONJG, MAX, MIN
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -262,7 +262,7 @@
             J1 = KDN + 2
             J2 = 1
 *
-            AB( KD1, 1 ) = DBLE( AB( KD1, 1 ) )
+            AB( KD1, 1 ) = REAL( AB( KD1, 1 ) )
             DO 90 I = 1, N - 2
 *
 *              Reduce i-th row of matrix to tridiagonal form
@@ -456,7 +456,7 @@
 *        copy diagonal elements to D
 *
          DO 120 I = 1, N
-            D( I ) = DBLE( AB( KD1, I ) )
+            D( I ) = REAL( AB( KD1, I ) )
   120    CONTINUE
 *
       ELSE
@@ -470,7 +470,7 @@
             J1 = KDN + 2
             J2 = 1
 *
-            AB( 1, 1 ) = DBLE( AB( 1, 1 ) )
+            AB( 1, 1 ) = REAL( AB( 1, 1 ) )
             DO 210 I = 1, N - 2
 *
 *              Reduce i-th column of matrix to tridiagonal form
@@ -663,7 +663,7 @@
 *        copy diagonal elements to D
 *
          DO 240 I = 1, N
-            D( I ) = DBLE( AB( 1, I ) )
+            D( I ) = REAL( AB( 1, I ) )
   240    CONTINUE
       END IF
 *

@@ -455,7 +455,7 @@
 *     ..
 *     .. Intrinsic Functions ..
 *
-      INTRINSIC   ABS, MAX, MIN, DBLE, SQRT
+      INTRINSIC   ABS, MAX, MIN, REAL, SQRT
 *
 *     Test the input arguments
 *
@@ -797,10 +797,10 @@
                RETURN
             END IF
 *
-            IF ( RWORK(1) .GT. BIG / SQRT(DBLE(M)) ) THEN
+            IF ( RWORK(1) .GT. BIG / SQRT(REAL(M)) ) THEN
 *               .. to prevent overflow in the QR factorization, scale the
 *               matrix by 1/sqrt(M) if too large entry detected
-                CALL DLASCL('G',0,0,SQRT(DBLE(M)),ONE, M,N, A,LDA, IERR)
+                CALL DLASCL('G',0,0,SQRT(REAL(M)),ONE, M,N, A,LDA, IERR)
                 ASCALED = .TRUE.
             END IF
             CALL DLASWP( N, A, LDA, 1, M-1, IWORK(N+1), 1 )
@@ -819,10 +819,10 @@
                CALL XERBLA( 'DGESVDQ', -INFO )
                RETURN
           END IF
-          IF ( RTMP .GT. BIG / SQRT(DBLE(M)) ) THEN
+          IF ( RTMP .GT. BIG / SQRT(REAL(M)) ) THEN
 *             .. to prevent overflow in the QR factorization, scale the
 *             matrix by 1/sqrt(M) if too large entry detected
-              CALL DLASCL('G',0,0, SQRT(DBLE(M)),ONE, M,N, A,LDA, IERR)
+              CALL DLASCL('G',0,0, SQRT(REAL(M)),ONE, M,N, A,LDA, IERR)
               ASCALED = .TRUE.
           END IF
       END IF
@@ -855,7 +855,7 @@
 *        aggressive enforcement of lower numerical rank by introducing a
 *        backward error of the order of N*EPS*||A||_F.
          NR = 1
-         RTMP = SQRT(DBLE(N))*EPSLN
+         RTMP = SQRT(REAL(N))*EPSLN
          DO 3001 p = 2, N
             IF ( ABS(A(p,p)) .LT. (RTMP*ABS(A(1,1))) ) GO TO 3002
                NR = NR + 1
@@ -1368,7 +1368,7 @@
 *     .. undo scaling; this may cause overflow in the largest singular
 *     values.
       IF ( ASCALED )
-     $   CALL DLASCL( 'G',0,0, ONE,SQRT(DBLE(M)), NR,1, S, N, IERR )
+     $   CALL DLASCL( 'G',0,0, ONE,SQRT(REAL(M)), NR,1, S, N, IERR )
       IF ( CONDA ) RWORK(1) = SCONDA
       RWORK(2) = p - NR
 *     .. p-NR is the number of singular values that are computed as

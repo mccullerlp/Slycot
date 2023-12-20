@@ -335,7 +335,7 @@
       EXTERNAL           XERBLA, ZGEMM, ZLACPY, ZLASET, ZSCAL, ZTGSY2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, MAX, SQRT
+      INTRINSIC          REAL, CMPLX, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -441,9 +441,9 @@
      $                   INFO )
             IF( DSCALE.NE.ZERO ) THEN
                IF( IJOB.EQ.1 .OR. IJOB.EQ.3 ) THEN
-                  DIF = SQRT( DBLE( 2*M*N ) ) / ( DSCALE*SQRT( DSUM ) )
+                  DIF = SQRT( REAL( 2*M*N ) ) / ( DSCALE*SQRT( DSUM ) )
                ELSE
-                  DIF = SQRT( DBLE( PQ ) ) / ( DSCALE*SQRT( DSUM ) )
+                  DIF = SQRT( REAL( PQ ) ) / ( DSCALE*SQRT( DSUM ) )
                END IF
             END IF
             IF( ISOLVE.EQ.2 .AND. IROUND.EQ.1 ) THEN
@@ -588,9 +588,9 @@
   130       CONTINUE
             IF( DSCALE.NE.ZERO ) THEN
                IF( IJOB.EQ.1 .OR. IJOB.EQ.3 ) THEN
-                  DIF = SQRT( DBLE( 2*M*N ) ) / ( DSCALE*SQRT( DSUM ) )
+                  DIF = SQRT( REAL( 2*M*N ) ) / ( DSCALE*SQRT( DSUM ) )
                ELSE
-                  DIF = SQRT( DBLE( PQ ) ) / ( DSCALE*SQRT( DSUM ) )
+                  DIF = SQRT( REAL( PQ ) ) / ( DSCALE*SQRT( DSUM ) )
                END IF
             END IF
             IF( ISOLVE.EQ.2 .AND. IROUND.EQ.1 ) THEN

@@ -243,7 +243,7 @@
          RETURN
       END IF
 *
-      FACT = DBLE(2**KTRYMAX)
+      FACT = REAL(2**KTRYMAX)
       EPS = DLAMCH( 'Precision' )
       SHIFT = 0
       FORCER = .FALSE.
@@ -267,7 +267,7 @@
 
 *     Compute the average gap length of the cluster
       CLWDTH = ABS(W(CLEND)-W(CLSTRT)) + WERR(CLEND) + WERR(CLSTRT)
-      AVGAP = CLWDTH / DBLE(CLEND-CLSTRT)
+      AVGAP = CLWDTH / REAL(CLEND-CLSTRT)
       MINGAP = MIN(CLGAPL, CLGAPR)
 *     Initial values for shifts to both ends of cluster
       LSIGMA = MIN(W( CLSTRT ),W( CLEND )) - WERR( CLSTRT )
@@ -288,8 +288,8 @@
 *
       S = DLAMCH( 'S' )
       SMLGROWTH = ONE / S
-      FAIL = DBLE(N-1)*MINGAP/(SPDIAM*EPS)
-      FAIL2 = DBLE(N-1)*MINGAP/(SPDIAM*SQRT(EPS))
+      FAIL = REAL(N-1)*MINGAP/(SPDIAM*EPS)
+      FAIL2 = REAL(N-1)*MINGAP/(SPDIAM*SQRT(EPS))
       BESTSHIFT = LSIGMA
 *
 *     while (KTRY <= KTRYMAX)
@@ -395,7 +395,7 @@
 *     we may still accept the representation, if it passes a
 *     refined test for RRR. This test supposes that no NaN occurred.
 *     Moreover, we use the refined RRR test only for isolated clusters.
-      IF((CLWDTH.LT.MINGAP/DBLE(128)) .AND.
+      IF((CLWDTH.LT.MINGAP/REAL(128)) .AND.
      $   (MIN(MAX1,MAX2).LT.FAIL2)
      $  .AND.(.NOT.SAWNAN1).AND.(.NOT.SAWNAN2)) THEN
          DORRR1 = .TRUE.

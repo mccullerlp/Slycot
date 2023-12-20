@@ -454,13 +454,13 @@
       REAL*10   DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN
+      INTRINSIC          ABS, REAL, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -470,7 +470,7 @@
 *     Force HUGEVAL to Inf
       HUGEVAL = HUGEVAL * HUGEVAL
 *     Using HUGEVAL may lead to spurious underflows.
-      INCR_THRESH = DBLE(N) * EPS
+      INCR_THRESH = REAL(N) * EPS
 
       IF (LSAME (UPLO, 'L')) THEN
          UPLO2 = ILAUPLO( 'L' )

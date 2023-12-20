@@ -217,13 +217,13 @@
       EXTERNAL           DAXPY, DSCAL, XERBLA, ZDSCAL, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, INT, LOG10, MAX, MIN, SIGN
+      INTRINSIC          ABS, REAL, IMAGPART, INT, LOG10, MAX, MIN, SIGN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -418,7 +418,7 @@
   230    CONTINUE
   240 CONTINUE
 *
-      COEF = ONE / DBLE( 2*NR )
+      COEF = ONE / REAL( 2*NR )
       COEF2 = COEF*COEF
       COEF5 = HALF*COEF2
       NRP2 = NR + 2
@@ -474,7 +474,7 @@
             KOUNT = KOUNT + 1
             SUM = SUM + WORK( J )
   290    CONTINUE
-         WORK( I+2*N ) = DBLE( KOUNT )*WORK( I+N ) + SUM
+         WORK( I+2*N ) = REAL( KOUNT )*WORK( I+N ) + SUM
   300 CONTINUE
 *
       DO 330 J = ILO, IHI
@@ -491,7 +491,7 @@
             KOUNT = KOUNT + 1
             SUM = SUM + WORK( I+N )
   320    CONTINUE
-         WORK( J+3*N ) = DBLE( KOUNT )*WORK( J ) + SUM
+         WORK( J+3*N ) = REAL( KOUNT )*WORK( J ) + SUM
   330 CONTINUE
 *
       SUM = DDOT( NR, WORK( ILO+N ), 1, WORK( ILO+2*N ), 1 ) +

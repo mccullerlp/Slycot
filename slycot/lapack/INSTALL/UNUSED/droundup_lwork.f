@@ -68,11 +68,11 @@
 * =====================================================================
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC         EPSILON, DBLE, INT
+      INTRINSIC         EPSILON, REAL, INT
 *     ..
 *     .. Executable Statements ..
 *     ..
-      DROUNDUP_LWORK = DBLE( LWORK )
+      DROUNDUP_LWORK = REAL( LWORK )
 *
       IF( INT( DROUNDUP_LWORK ) .LT. LWORK ) THEN
 *         Force round up of LWORK

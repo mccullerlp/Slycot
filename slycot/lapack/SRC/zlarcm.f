@@ -134,7 +134,7 @@
       INTEGER            I, J, L
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, IMAGPART
+      INTRINSIC          REAL, CMPLX, IMAGPART
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEMM
@@ -148,7 +148,7 @@
 *
       DO 20 J = 1, N
          DO 10 I = 1, M
-            RWORK( ( J-1 )*M+I ) = DBLE( B( I, J ) )
+            RWORK( ( J-1 )*M+I ) = REAL( B( I, J ) )
    10    CONTINUE
    20 CONTINUE
 *
@@ -170,7 +170,7 @@
      $            RWORK( L ), M )
       DO 80 J = 1, N
          DO 70 I = 1, M
-            C( I, J ) = CMPLX( DBLE( C( I, J ) ),
+            C( I, J ) = CMPLX( REAL( C( I, J ) ),
      $                  RWORK( L+( J-1 )*M+I-1 ) )
    70    CONTINUE
    80 CONTINUE

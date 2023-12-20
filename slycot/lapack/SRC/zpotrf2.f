@@ -137,7 +137,7 @@
       EXTERNAL           ZHERK, ZTRSM, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          MAX, DBLE, SQRT
+      INTRINSIC          MAX, REAL, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -168,7 +168,7 @@
 *
 *        Test for non-positive-definiteness
 *
-         AJJ = DBLE( A( 1, 1 ) )
+         AJJ = REAL( A( 1, 1 ) )
          IF( AJJ.LE.ZERO.OR.DISNAN( AJJ ) ) THEN
             INFO = 1
             RETURN

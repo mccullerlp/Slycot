@@ -254,12 +254,12 @@
       EXTERNAL           IZAMAX, DLAMCH, ZLANHE, LSAME
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, SQRT
+      INTRINSIC          ABS, REAL, MAX, SQRT
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -303,7 +303,7 @@
 *
       ANRM = ZLANHE( 'I', UPLO, N, A, LDA, RWORK )
       EPS = DLAMCH( 'Epsilon' )
-      CTE = ANRM*EPS*SQRT( DBLE( N ) )*BWDMAX
+      CTE = ANRM*EPS*SQRT( REAL( N ) )*BWDMAX
 *
 *     Set the indices PTSA, PTSX for referencing SA and SX in SWORK.
 *

@@ -222,7 +222,7 @@
      $                   DSTEQR, DSTERF, DSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, INT, LOG, MAX, MOD, SQRT
+      INTRINSIC          ABS, REAL, INT, LOG, MAX, MOD, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -261,7 +261,7 @@
             LIWMIN = 1
             LWMIN = 2*( N - 1 )
          ELSE
-            LGN = INT( LOG( DBLE( N ) )/LOG( TWO ) )
+            LGN = INT( LOG( REAL( N ) )/LOG( TWO ) )
             IF( 2**LGN.LT.N )
      $         LGN = LGN + 1
             IF( 2**LGN.LT.N )

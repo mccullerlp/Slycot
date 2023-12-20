@@ -256,13 +256,13 @@
       EXTERNAL           XERBLA, ZCOPY, ZDSCAL, ZGEMV, ZLATRS, DLABAD
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

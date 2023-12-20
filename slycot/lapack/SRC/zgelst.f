@@ -232,7 +232,7 @@
      $                   ZLASCL, ZLASET, ZTRTRS, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -270,7 +270,7 @@
 *
          MNNRHS = MAX( MN, NRHS )
          LWOPT = MAX( 1, (MN+MNNRHS)*NB )
-         WORK( 1 ) = DBLE( LWOPT )
+         WORK( 1 ) = REAL( LWOPT )
 *
       END IF
 *
@@ -285,7 +285,7 @@
 *
       IF( MIN( M, N, NRHS ).EQ.0 ) THEN
          CALL ZLASET( 'Full', MAX( M, N ), NRHS, CZERO, CZERO, B, LDB )
-         WORK( 1 ) = DBLE( LWOPT )
+         WORK( 1 ) = REAL( LWOPT )
          RETURN
       END IF
 *
@@ -334,7 +334,7 @@
 *        Matrix all zero. Return zero solution.
 *
          CALL ZLASET( 'Full', MAX( M, N ), NRHS, CZERO, CZERO, B, LDB )
-         WORK( 1 ) = DBLE( LWOPT )
+         WORK( 1 ) = REAL( LWOPT )
          RETURN
       END IF
 *
@@ -524,7 +524,7 @@
      $                INFO )
       END IF
 *
-      WORK( 1 ) = DBLE( LWOPT )
+      WORK( 1 ) = REAL( LWOPT )
 *
       RETURN
 *

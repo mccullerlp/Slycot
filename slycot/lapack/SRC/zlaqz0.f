@@ -390,7 +390,7 @@
 *     Quick return if possible
 *
       IF( N.LE.0 ) THEN
-         WORK( 1 ) = DBLE( 1 )
+         WORK( 1 ) = REAL( 1 )
          RETURN
       END IF
 
@@ -414,7 +414,7 @@
       NSR = MAX( 2, NSR-MOD( NSR, 2 ) )
 
       RCOST = ILAENV( 17, 'ZLAQZ0', JBCMPZ, N, ILO, IHI, LWORK )
-      ITEMP1 = INT( NSR/SQRT( 1+2*NSR/( DBLE( RCOST )/100*N ) ) )
+      ITEMP1 = INT( NSR/SQRT( 1+2*NSR/( REAL( RCOST )/100*N ) ) )
       ITEMP1 = ( ( ITEMP1-1 )/4 )*4+4
       NBR = NSR+ITEMP1
 
@@ -444,7 +444,7 @@
 
       LWORKREQ = MAX( ITEMP1+2*NW**2, ITEMP2+2*NBR**2 )
       IF ( LWORK .EQ.-1 ) THEN
-         WORK( 1 ) = DBLE( LWORKREQ )
+         WORK( 1 ) = REAL( LWORKREQ )
          RETURN
       ELSE IF ( LWORK .LT. LWORKREQ ) THEN
          INFO = -19
@@ -466,7 +466,7 @@
       SAFMAX = ONE/SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( N )/ULP )
+      SMLNUM = SAFMIN*( REAL( N )/ULP )
 
       BNORM = ZLANHS( 'F', IHI-ILO+1, B( ILO, ILO ), LDB, RWORK )
       BTOL = MAX( SAFMIN, ULP*BNORM )
@@ -652,11 +652,11 @@
 * 
 *           Exceptional shift.  Chosen for no particularly good reason.
 *
-            IF( ( DBLE( MAXIT )*SAFMIN )*ABS( A( ISTOP,
+            IF( ( REAL( MAXIT )*SAFMIN )*ABS( A( ISTOP,
      $         ISTOP-1 ) ).LT.ABS( A( ISTOP-1, ISTOP-1 ) ) ) THEN
                ESHIFT = A( ISTOP, ISTOP-1 )/B( ISTOP-1, ISTOP-1 )
             ELSE
-               ESHIFT = ESHIFT+CONE/( SAFMIN*DBLE( MAXIT ) )
+               ESHIFT = ESHIFT+CONE/( SAFMIN*REAL( MAXIT ) )
             END IF
             ALPHA( SHIFTPOS ) = CONE
             BETA( SHIFTPOS ) = ESHIFT

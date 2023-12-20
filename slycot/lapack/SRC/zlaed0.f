@@ -179,7 +179,7 @@
       EXTERNAL           ILAENV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, INT, LOG, MAX
+      INTRINSIC          ABS, REAL, INT, LOG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -248,7 +248,7 @@
 *     Set up workspaces for eigenvalues only/accumulate new vectors
 *     routine
 *
-      TEMP = LOG( DBLE( N ) ) / LOG( TWO )
+      TEMP = LOG( REAL( N ) ) / LOG( TWO )
       LGN = INT( TEMP )
       IF( 2**LGN.LT.N )
      $   LGN = LGN + 1

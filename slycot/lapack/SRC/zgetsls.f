@@ -199,7 +199,7 @@
      $                   ZTRTRS, XERBLA, ZGELQ, ZGEMLQ
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, INT
+      INTRINSIC          REAL, MAX, MIN, INT
 *     ..
 *     .. Executable Statements ..
 *
@@ -265,7 +265,7 @@
           INFO = -10
        END IF
 *
-       WORK( 1 ) = DBLE( WSIZEO )
+       WORK( 1 ) = REAL( WSIZEO )
 *
       END IF
 *
@@ -274,7 +274,7 @@
         RETURN
       END IF
       IF( LQUERY ) THEN
-        IF( LWORK.EQ.-2 ) WORK( 1 ) = DBLE( WSIZEM )
+        IF( LWORK.EQ.-2 ) WORK( 1 ) = REAL( WSIZEM )
         RETURN
       END IF
       IF( LWORK.LT.WSIZEO ) THEN
@@ -485,7 +485,7 @@
       END IF
 *
    50 CONTINUE
-      WORK( 1 ) = DBLE( TSZO + LWO )
+      WORK( 1 ) = REAL( TSZO + LWO )
       RETURN
 *
 *     End of ZGETSLS

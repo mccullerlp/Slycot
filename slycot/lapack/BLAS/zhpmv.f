@@ -180,7 +180,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG
+      INTRINSIC REAL,CONJG
 *     ..
 *
 *     Test the input parameters.
@@ -264,7 +264,7 @@
                       TEMP2 = TEMP2 + CONJG(AP(K))*X(I)
                       K = K + 1
    50             CONTINUE
-                  Y(J) = Y(J) + TEMP1*DBLE(AP(KK+J-1)) + ALPHA*TEMP2
+                  Y(J) = Y(J) + TEMP1*REAL(AP(KK+J-1)) + ALPHA*TEMP2
                   KK = KK + J
    60         CONTINUE
           ELSE
@@ -281,7 +281,7 @@
                       IX = IX + INCX
                       IY = IY + INCY
    70             CONTINUE
-                  Y(JY) = Y(JY) + TEMP1*DBLE(AP(KK+J-1)) + ALPHA*TEMP2
+                  Y(JY) = Y(JY) + TEMP1*REAL(AP(KK+J-1)) + ALPHA*TEMP2
                   JX = JX + INCX
                   JY = JY + INCY
                   KK = KK + J
@@ -295,7 +295,7 @@
               DO 100 J = 1,N
                   TEMP1 = ALPHA*X(J)
                   TEMP2 = ZERO
-                  Y(J) = Y(J) + TEMP1*DBLE(AP(KK))
+                  Y(J) = Y(J) + TEMP1*REAL(AP(KK))
                   K = KK + 1
                   DO 90 I = J + 1,N
                       Y(I) = Y(I) + TEMP1*AP(K)
@@ -311,7 +311,7 @@
               DO 120 J = 1,N
                   TEMP1 = ALPHA*X(JX)
                   TEMP2 = ZERO
-                  Y(JY) = Y(JY) + TEMP1*DBLE(AP(KK))
+                  Y(JY) = Y(JY) + TEMP1*REAL(AP(KK))
                   IX = JX
                   IY = JY
                   DO 110 K = KK + 1,KK + N - J

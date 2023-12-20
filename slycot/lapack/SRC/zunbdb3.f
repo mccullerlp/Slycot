@@ -285,7 +285,7 @@
 *
          CALL ZLACGV( Q-I+1, X21(I,I), LDX21 )
          CALL ZLARFGP( Q-I+1, X21(I,I), X21(I,I+1), LDX21, TAUQ1(I) )
-         S = DBLE( X21(I,I) )
+         S = REAL( X21(I,I) )
          X21(I,I) = ONE
          CALL ZLARF( 'R', P-I+1, Q-I+1, X21(I,I), LDX21, TAUQ1(I),
      $               X11(I,I), LDX11, WORK(ILARF) )
@@ -302,7 +302,7 @@
          CALL ZLARFGP( P-I+1, X11(I,I), X11(I+1,I), 1, TAUP1(I) )
          IF( I .LT. M-P ) THEN
             CALL ZLARFGP( M-P-I, X21(I+1,I), X21(I+2,I), 1, TAUP2(I) )
-            PHI(I) = ATAN2( DBLE( X21(I+1,I) ), DBLE( X11(I,I) ) )
+            PHI(I) = ATAN2( REAL( X21(I+1,I) ), REAL( X11(I,I) ) )
             C = COS( PHI(I) )
             S = SIN( PHI(I) )
             X21(I+1,I) = ONE

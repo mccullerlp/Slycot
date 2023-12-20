@@ -132,7 +132,7 @@
       EXTERNAL           DLAMCH, DLAPY3, DZNRM2, ZLADIV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, SIGN
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART, SIGN
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZDSCAL, ZSCAL
@@ -145,7 +145,7 @@
       END IF
 *
       XNORM = DZNRM2( N-1, X, INCX )
-      ALPHR = DBLE( ALPHA )
+      ALPHR = REAL( ALPHA )
       ALPHI = IMAGPART( ALPHA )
 *
       IF( XNORM.EQ.ZERO .AND. ALPHI.EQ.ZERO ) THEN

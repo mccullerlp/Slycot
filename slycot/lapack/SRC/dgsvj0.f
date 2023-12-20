@@ -250,7 +250,7 @@
       REAL*10   FASTR( 5 )
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, MAX, DBLE, MIN, DSIGN, DSQRT
+      INTRINSIC          ABS, MAX, REAL, MIN, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
       REAL*10   DDOT, DNRM2
@@ -1033,8 +1033,8 @@
          IF( ( i.LT.SWBAND ) .AND. ( ( MXAAPQ.LE.ROOTTOL ) .OR.
      $       ( ISWROT.LE.N ) ) )SWBAND = i
 *
-         IF( ( i.GT.SWBAND+1 ) .AND. ( MXAAPQ.LT.DBLE( N )*TOL ) .AND.
-     $       ( DBLE( N )*MXAAPQ*MXSINJ.LT.TOL ) ) THEN
+         IF( ( i.GT.SWBAND+1 ) .AND. ( MXAAPQ.LT.REAL( N )*TOL ) .AND.
+     $       ( REAL( N )*MXAAPQ*MXSINJ.LT.TOL ) ) THEN
             GO TO 1994
          END IF
 *

@@ -300,13 +300,13 @@
      $                   ZLASET, ZUNG2R, ZUNM2R, ZUNMR2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN
+      INTRINSIC          ABS, REAL, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( T ) = ABS( DBLE( T ) ) + ABS( IMAGPART( T ) )
+      CABS1( T ) = ABS( REAL( T ) ) + ABS( IMAGPART( T ) )
 *     ..
 *     .. Executable Statements ..
 *

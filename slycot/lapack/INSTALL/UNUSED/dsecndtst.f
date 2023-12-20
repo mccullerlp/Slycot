@@ -49,18 +49,18 @@
       EXTERNAL           MYSUB
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE
+      INTRINSIC          REAL
 *     ..
 *     .. Executable Statements ..
 *
 *    .. Figure TOTAL flops ..
-      TOTAL = DBLE(NMAX) * DBLE(ITS) * 2.0
+      TOTAL = REAL(NMAX) * REAL(ITS) * 2.0
 *
 *     Initialize X and Y
 *
       DO 10 I = 1, NMAX
-         X( I ) = DBLE( 1 ) / DBLE( I )
-         Y( I ) = DBLE( NMAX-I ) / DBLE( NMAX )
+         X( I ) = REAL( 1 ) / REAL( I )
+         Y( I ) = REAL( NMAX-I ) / REAL( NMAX )
    10 CONTINUE
       ALPHA = 0.315D0
 *
@@ -97,7 +97,7 @@
 *     to DSECND.
 *
       WRITE( 6, 9997 )T2 - T1
-      AVG = ( ( T2-T1 ) - TNOSEC ) * 1000.0D+00/DBLE( ITS )
+      AVG = ( ( T2-T1 ) - TNOSEC ) * 1000.0D+00/REAL( ITS )
       IF( AVG.GT.0.0)
      $   WRITE( 6, 9996 )AVG
 *

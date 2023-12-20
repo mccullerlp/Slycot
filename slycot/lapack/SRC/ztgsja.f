@@ -421,7 +421,7 @@
      $                   ZLASET, ZROT
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG, MAX, MIN, HUGE
+      INTRINSIC          ABS, REAL, CONJG, MAX, MIN, HUGE
       PARAMETER          ( HUGENUM = HUGE(ZERO) )
 *     ..
 *     .. Executable Statements ..
@@ -489,12 +489,12 @@
                A2 = CZERO
                A3 = ZERO
                IF( K+I.LE.M )
-     $            A1 = DBLE( A( K+I, N-L+I ) )
+     $            A1 = REAL( A( K+I, N-L+I ) )
                IF( K+J.LE.M )
-     $            A3 = DBLE( A( K+J, N-L+J ) )
+     $            A3 = REAL( A( K+J, N-L+J ) )
 *
-               B1 = DBLE( B( I, N-L+I ) )
-               B3 = DBLE( B( J, N-L+J ) )
+               B1 = REAL( B( I, N-L+I ) )
+               B3 = REAL( B( J, N-L+J ) )
 *
                IF( UPPER ) THEN
                   IF( K+I.LE.M )
@@ -542,11 +542,11 @@
 *              Ensure that the diagonal elements of A and B are real.
 *
                IF( K+I.LE.M )
-     $            A( K+I, N-L+I ) = DBLE( A( K+I, N-L+I ) )
+     $            A( K+I, N-L+I ) = REAL( A( K+I, N-L+I ) )
                IF( K+J.LE.M )
-     $            A( K+J, N-L+J ) = DBLE( A( K+J, N-L+J ) )
-               B( I, N-L+I ) = DBLE( B( I, N-L+I ) )
-               B( J, N-L+J ) = DBLE( B( J, N-L+J ) )
+     $            A( K+J, N-L+J ) = REAL( A( K+J, N-L+J ) )
+               B( I, N-L+I ) = REAL( B( I, N-L+I ) )
+               B( J, N-L+J ) = REAL( B( J, N-L+J ) )
 *
 *              Update unitary matrices U, V, Q, if desired.
 *
@@ -606,8 +606,8 @@
 *
       DO 70 I = 1, MIN( L, M-K )
 *
-         A1 = DBLE( A( K+I, N-L+I ) )
-         B1 = DBLE( B( I, N-L+I ) )
+         A1 = REAL( A( K+I, N-L+I ) )
+         B1 = REAL( B( I, N-L+I ) )
          GAMMA = B1 / A1
 *
          IF( (GAMMA.LE.HUGENUM).AND.(GAMMA.GE.-HUGENUM) ) THEN

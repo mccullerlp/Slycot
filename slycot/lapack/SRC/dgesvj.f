@@ -373,7 +373,7 @@
       REAL*10   FASTR( 5 )
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, MAX, MIN, DBLE, DSIGN, DSQRT
+      INTRINSIC          ABS, MAX, MIN, REAL, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
 *     ..
@@ -456,9 +456,9 @@
       ELSE
 *        ... default
          IF( LSVEC .OR. RSVEC .OR. APPLV ) THEN
-            CTOL = DSQRT( DBLE( M ) )
+            CTOL = DSQRT( REAL( M ) )
          ELSE
-            CTOL = DBLE( M )
+            CTOL = REAL( M )
          END IF
       END IF
 *     ... and the machine dependent parameters are
@@ -472,13 +472,13 @@
       BIG = DLAMCH( 'Overflow' )
 *     BIG         = ONE    / SFMIN
       ROOTBIG = ONE / ROOTSFMIN
-      LARGE = BIG / DSQRT( DBLE( M*N ) )
+      LARGE = BIG / DSQRT( REAL( M*N ) )
       BIGTHETA = ONE / ROOTEPS
 *
       TOL = CTOL*EPSLN
       ROOTTOL = DSQRT( TOL )
 *
-      IF( DBLE( M )*EPSLN.GE.ONE ) THEN
+      IF( REAL( M )*EPSLN.GE.ONE ) THEN
          INFO = -4
          CALL XERBLA( 'DGESVJ', -INFO )
          RETURN
@@ -503,7 +503,7 @@
 *     DSQRT(N)*max_i SVA(i) does not overflow. If INFinite entries
 *     in A are detected, the procedure returns with INFO=-6.
 *
-      SKL= ONE / DSQRT( DBLE( M )*DBLE( N ) )
+      SKL= ONE / DSQRT( REAL( M )*REAL( N ) )
       NOSCALE = .TRUE.
       GOSCALE = .TRUE.
 *
@@ -632,14 +632,14 @@
 *     avoid underflows/overflows in computing Jacobi rotations.
 *
       SN = DSQRT( SFMIN / EPSLN )
-      TEMP1 = DSQRT( BIG / DBLE( N ) )
+      TEMP1 = DSQRT( BIG / REAL( N ) )
       IF( ( AAPP.LE.SN ) .OR. ( AAQQ.GE.TEMP1 ) .OR.
      $    ( ( SN.LE.AAQQ ) .AND. ( AAPP.LE.TEMP1 ) ) ) THEN
          TEMP1 = MIN( BIG, TEMP1 / AAPP )
 *         AAQQ  = AAQQ*TEMP1
 *         AAPP  = AAPP*TEMP1
       ELSE IF( ( AAQQ.LE.SN ) .AND. ( AAPP.LE.TEMP1 ) ) THEN
-         TEMP1 = MIN( SN / AAQQ, BIG / ( AAPP*DSQRT( DBLE( N ) ) ) )
+         TEMP1 = MIN( SN / AAQQ, BIG / ( AAPP*DSQRT( REAL( N ) ) ) )
 *         AAQQ  = AAQQ*TEMP1
 *         AAPP  = AAPP*TEMP1
       ELSE IF( ( AAQQ.GE.SN ) .AND. ( AAPP.GE.TEMP1 ) ) THEN
@@ -647,7 +647,7 @@
 *         AAQQ  = AAQQ*TEMP1
 *         AAPP  = AAPP*TEMP1
       ELSE IF( ( AAQQ.LE.SN ) .AND. ( AAPP.GE.TEMP1 ) ) THEN
-         TEMP1 = MIN( SN / AAQQ, BIG / ( DSQRT( DBLE( N ) )*AAPP ) )
+         TEMP1 = MIN( SN / AAQQ, BIG / ( DSQRT( REAL( N ) )*AAPP ) )
 *         AAQQ  = AAQQ*TEMP1
 *         AAPP  = AAPP*TEMP1
       ELSE
@@ -1499,8 +1499,8 @@
          IF( ( i.LT.SWBAND ) .AND. ( ( MXAAPQ.LE.ROOTTOL ) .OR.
      $       ( ISWROT.LE.N ) ) )SWBAND = i
 *
-         IF( ( i.GT.SWBAND+1 ) .AND. ( MXAAPQ.LT.DSQRT( DBLE( N ) )*
-     $       TOL ) .AND. ( DBLE( N )*MXAAPQ*MXSINJ.LT.TOL ) ) THEN
+         IF( ( i.GT.SWBAND+1 ) .AND. ( MXAAPQ.LT.DSQRT( REAL( N ) )*
+     $       TOL ) .AND. ( REAL( N )*MXAAPQ*MXSINJ.LT.TOL ) ) THEN
             GO TO 1994
          END IF
 *
@@ -1586,15 +1586,15 @@
 *     then some of the singular values may overflow or underflow and
 *     the spectrum is given in this factored representation.
 *
-      WORK( 2 ) = DBLE( N4 )
+      WORK( 2 ) = REAL( N4 )
 *     N4 is the number of computed nonzero singular values of A.
 *
-      WORK( 3 ) = DBLE( N2 )
+      WORK( 3 ) = REAL( N2 )
 *     N2 is the number of singular values of A greater than SFMIN.
 *     If N2<N, SVA(N2:N) contains ZEROS and/or denormalized numbers
 *     that may carry some information.
 *
-      WORK( 4 ) = DBLE( i )
+      WORK( 4 ) = REAL( i )
 *     i is the index of the last sweep before declaring convergence.
 *
       WORK( 5 ) = MXAAPQ

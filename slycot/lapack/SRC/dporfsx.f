@@ -474,7 +474,7 @@
 *
 *     Set default parameters.
 *
-      ILLRCOND_THRESH = DBLE( N ) * DLAMCH( 'Epsilon' )
+      ILLRCOND_THRESH = REAL( N ) * DLAMCH( 'Epsilon' )
       ITHRESH = INT( ITHRESH_DEFAULT )
       RTHRESH = RTHRESH_DEFAULT
       UNSTABLE_THRESH = DZTHRESH_DEFAULT
@@ -595,7 +595,7 @@
      $        INFO )
       END IF
 
-      ERR_LBND = MAX( 10.0D+0, SQRT( DBLE( N ) ) ) * DLAMCH( 'Epsilon' )
+      ERR_LBND = MAX( 10.0D+0, SQRT( REAL( N ) ) ) * DLAMCH( 'Epsilon' )
       IF ( N_ERR_BNDS .GE. 1 .AND. N_NORMS .GE. 1 ) THEN
 *
 *     Compute scaled normwise condition number cond(A*C).

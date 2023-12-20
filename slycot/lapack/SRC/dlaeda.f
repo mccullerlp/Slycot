@@ -191,7 +191,7 @@
       EXTERNAL           DCOPY, DGEMV, DROT, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, INT, SQRT
+      INTRINSIC          REAL, INT, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -229,8 +229,8 @@
 *     the SQRT in case the machine underestimates one of these square
 *     roots.
 *
-      BSIZ1 = INT( HALF+SQRT( DBLE( QPTR( CURR+1 )-QPTR( CURR ) ) ) )
-      BSIZ2 = INT( HALF+SQRT( DBLE( QPTR( CURR+2 )-QPTR( CURR+1 ) ) ) )
+      BSIZ1 = INT( HALF+SQRT( REAL( QPTR( CURR+1 )-QPTR( CURR ) ) ) )
+      BSIZ2 = INT( HALF+SQRT( REAL( QPTR( CURR+2 )-QPTR( CURR+1 ) ) ) )
       DO 10 K = 1, MID - BSIZ1 - 1
          Z( K ) = ZERO
    10 CONTINUE
@@ -279,8 +279,8 @@
 *        the SQRT in case the machine underestimates one of these
 *        square roots.
 *
-         BSIZ1 = INT( HALF+SQRT( DBLE( QPTR( CURR+1 )-QPTR( CURR ) ) ) )
-         BSIZ2 = INT( HALF+SQRT( DBLE( QPTR( CURR+2 )-QPTR( CURR+
+         BSIZ1 = INT( HALF+SQRT( REAL( QPTR( CURR+1 )-QPTR( CURR ) ) ) )
+         BSIZ2 = INT( HALF+SQRT( REAL( QPTR( CURR+2 )-QPTR( CURR+
      $           1 ) ) ) )
          IF( BSIZ1.GT.0 ) THEN
             CALL DGEMV( 'T', BSIZ1, BSIZ1, ONE, Q( QPTR( CURR ) ),

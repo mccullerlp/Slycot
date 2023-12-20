@@ -244,7 +244,7 @@
      $                   DLASET, DLASR, DSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, INT, LOG, SIGN
+      INTRINSIC          ABS, REAL, INT, LOG, SIGN
 *     ..
 *     .. Executable Statements ..
 *
@@ -380,7 +380,7 @@
 *
       EPS = (0.9D+0)*DLAMCH( 'Epsilon' )
 *
-      MLVL = INT( LOG( DBLE( N ) / DBLE( SMLSIZ+1 ) ) / LOG( TWO ) ) + 1
+      MLVL = INT( LOG( REAL( N ) / REAL( SMLSIZ+1 ) ) / LOG( TWO ) ) + 1
       SMLSZP = SMLSIZ + 1
 *
       IF( ICOMPQ.EQ.1 ) THEN

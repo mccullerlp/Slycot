@@ -267,7 +267,7 @@
      $                   ZGEMV, ZTRMV, ZLACPY, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, CONJG, MAX
+      INTRINSIC          REAL, CMPLX, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -506,7 +506,7 @@
 *
                IF( JJ.GT.0 ) THEN
                   DO I = JJ, 1, -1
-                     C = DBLE( A( J+1+I, J ) )
+                     C = REAL( A( J+1+I, J ) )
                      CALL ZROT( IHI-TOP, A( TOP+1, J+I+1 ), 1,
      $                          A( TOP+1, J+I ), 1, C,
      $                          -CONJG( B( J+1+I, J ) ) )

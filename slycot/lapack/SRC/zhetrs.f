@@ -151,7 +151,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZGEMV, ZGERU, ZLACGV, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CONJG, MAX
+      INTRINSIC          REAL, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -213,7 +213,7 @@
 *
 *           Multiply by the inverse of the diagonal block.
 *
-            S = DBLE( ONE ) / DBLE( A( K, K ) )
+            S = REAL( ONE ) / REAL( A( K, K ) )
             CALL ZDSCAL( NRHS, S, B( K, 1 ), LDB )
             K = K - 1
          ELSE
@@ -351,7 +351,7 @@
 *
 *           Multiply by the inverse of the diagonal block.
 *
-            S = DBLE( ONE ) / DBLE( A( K, K ) )
+            S = REAL( ONE ) / REAL( A( K, K ) )
             CALL ZDSCAL( NRHS, S, B( K, 1 ), LDB )
             K = K + 1
          ELSE

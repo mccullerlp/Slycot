@@ -171,7 +171,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZHER, ZLACGV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, SQRT
+      INTRINSIC          REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -208,7 +208,7 @@
 *
 *           Compute U(J,J) and test for non-positive-definiteness.
 *
-            AJJ = DBLE( AB( KD+1, J ) )
+            AJJ = REAL( AB( KD+1, J ) )
             IF( AJJ.LE.ZERO ) THEN
                AB( KD+1, J ) = AJJ
                GO TO 30
@@ -236,7 +236,7 @@
 *
 *           Compute L(J,J) and test for non-positive-definiteness.
 *
-            AJJ = DBLE( AB( 1, J ) )
+            AJJ = REAL( AB( 1, J ) )
             IF( AJJ.LE.ZERO ) THEN
                AB( 1, J ) = AJJ
                GO TO 30

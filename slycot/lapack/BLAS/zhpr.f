@@ -159,7 +159,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG
+      INTRINSIC REAL,CONJG
 *     ..
 *
 *     Test the input parameters.
@@ -179,7 +179,7 @@
 *
 *     Quick return if possible.
 *
-      IF ((N.EQ.0) .OR. (ALPHA.EQ.DBLE(ZERO))) RETURN
+      IF ((N.EQ.0) .OR. (ALPHA.EQ.REAL(ZERO))) RETURN
 *
 *     Set the start point in X if the increment is not unity.
 *
@@ -206,9 +206,9 @@
                           AP(K) = AP(K) + X(I)*TEMP
                           K = K + 1
    10                 CONTINUE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1)) + DBLE(X(J)*TEMP)
+                      AP(KK+J-1) = REAL(AP(KK+J-1)) + REAL(X(J)*TEMP)
                   ELSE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1))
+                      AP(KK+J-1) = REAL(AP(KK+J-1))
                   END IF
                   KK = KK + J
    20         CONTINUE
@@ -222,9 +222,9 @@
                           AP(K) = AP(K) + X(IX)*TEMP
                           IX = IX + INCX
    30                 CONTINUE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1)) + DBLE(X(JX)*TEMP)
+                      AP(KK+J-1) = REAL(AP(KK+J-1)) + REAL(X(JX)*TEMP)
                   ELSE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1))
+                      AP(KK+J-1) = REAL(AP(KK+J-1))
                   END IF
                   JX = JX + INCX
                   KK = KK + J
@@ -238,14 +238,14 @@
               DO 60 J = 1,N
                   IF (X(J).NE.ZERO) THEN
                       TEMP = ALPHA*CONJG(X(J))
-                      AP(KK) = DBLE(AP(KK)) + DBLE(TEMP*X(J))
+                      AP(KK) = REAL(AP(KK)) + REAL(TEMP*X(J))
                       K = KK + 1
                       DO 50 I = J + 1,N
                           AP(K) = AP(K) + X(I)*TEMP
                           K = K + 1
    50                 CONTINUE
                   ELSE
-                      AP(KK) = DBLE(AP(KK))
+                      AP(KK) = REAL(AP(KK))
                   END IF
                   KK = KK + N - J + 1
    60         CONTINUE
@@ -254,14 +254,14 @@
               DO 80 J = 1,N
                   IF (X(JX).NE.ZERO) THEN
                       TEMP = ALPHA*CONJG(X(JX))
-                      AP(KK) = DBLE(AP(KK)) + DBLE(TEMP*X(JX))
+                      AP(KK) = REAL(AP(KK)) + REAL(TEMP*X(JX))
                       IX = JX
                       DO 70 K = KK + 1,KK + N - J
                           IX = IX + INCX
                           AP(K) = AP(K) + X(IX)*TEMP
    70                 CONTINUE
                   ELSE
-                      AP(KK) = DBLE(AP(KK))
+                      AP(KK) = REAL(AP(KK))
                   END IF
                   JX = JX + INCX
                   KK = KK + N - J + 1

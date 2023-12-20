@@ -168,13 +168,13 @@
       EXTERNAL           ZLASSQ, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, INT, LOG, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, IMAGPART, INT, LOG, MAX, MIN, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -263,7 +263,7 @@
 *        avg = s^T beta / n
          AVG = 0.0D0
          DO I = 1, N
-            AVG = AVG + S( I ) * DBLE( WORK( I ) )
+            AVG = AVG + S( I ) * REAL( WORK( I ) )
          END DO
          AVG = AVG / N
 
@@ -280,8 +280,8 @@
             T = CABS1( A( I, I ) )
             SI = S( I )
             C2 = ( N-1 ) * T
-            C1 = ( N-2 ) * ( DBLE( WORK( I ) ) - T*SI )
-            C0 = -(T*SI)*SI + 2 * DBLE( WORK( I ) ) * SI - N*AVG
+            C1 = ( N-2 ) * ( REAL( WORK( I ) ) - T*SI )
+            C0 = -(T*SI)*SI + 2 * REAL( WORK( I ) ) * SI - N*AVG
             D = C1*C1 - 4*C0*C2
 
             IF ( D .LE. 0 ) THEN
@@ -316,7 +316,7 @@
                END DO
             END IF
 
-            AVG = AVG + ( U + DBLE( WORK( I ) ) ) * D / N
+            AVG = AVG + ( U + REAL( WORK( I ) ) ) * D / N
             S( I ) = SI
          END DO
       END DO

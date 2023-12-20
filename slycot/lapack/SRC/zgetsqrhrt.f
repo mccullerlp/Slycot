@@ -205,7 +205,7 @@
      $                   XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          CEILING, DBLE, CMPLX, MAX, MIN
+      INTRINSIC          CEILING, REAL, CMPLX, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -245,7 +245,7 @@
             NB1LOCAL = MIN( NB1, N )
 *
             NUM_ALL_ROW_BLOCKS = MAX( 1,
-     $                   CEILING( DBLE( M - N ) / DBLE( MB1 - N ) ) )
+     $                   CEILING( REAL( M - N ) / REAL( MB1 - N ) ) )
 *
 *           Length and leading dimension of WORK array to place
 *           T array in TSQR.

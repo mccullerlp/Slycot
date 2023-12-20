@@ -144,7 +144,7 @@
       EXTERNAL           ZLASSQ
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, SQRT
+      INTRINSIC          ABS, REAL, IMAGPART, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -234,8 +234,8 @@
          SUM = 2*SUM
          K = 1
          DO 130 I = 1, N
-            IF( DBLE( AP( K ) ).NE.ZERO ) THEN
-               ABSA = ABS( DBLE( AP( K ) ) )
+            IF( REAL( AP( K ) ).NE.ZERO ) THEN
+               ABSA = ABS( REAL( AP( K ) ) )
                IF( SCALE.LT.ABSA ) THEN
                   SUM = ONE + SUM*( SCALE / ABSA )**2
                   SCALE = ABSA

@@ -218,7 +218,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG,MAX,MIN
+      INTRINSIC REAL,CONJG,MAX,MIN
 *     ..
 *
 *     Test the input parameters.
@@ -305,7 +305,7 @@
                       Y(I) = Y(I) + TEMP1*A(L+I,J)
                       TEMP2 = TEMP2 + CONJG(A(L+I,J))*X(I)
    50             CONTINUE
-                  Y(J) = Y(J) + TEMP1*DBLE(A(KPLUS1,J)) + ALPHA*TEMP2
+                  Y(J) = Y(J) + TEMP1*REAL(A(KPLUS1,J)) + ALPHA*TEMP2
    60         CONTINUE
           ELSE
               JX = KX
@@ -322,7 +322,7 @@
                       IX = IX + INCX
                       IY = IY + INCY
    70             CONTINUE
-                  Y(JY) = Y(JY) + TEMP1*DBLE(A(KPLUS1,J)) + ALPHA*TEMP2
+                  Y(JY) = Y(JY) + TEMP1*REAL(A(KPLUS1,J)) + ALPHA*TEMP2
                   JX = JX + INCX
                   JY = JY + INCY
                   IF (J.GT.K) THEN
@@ -339,7 +339,7 @@
               DO 100 J = 1,N
                   TEMP1 = ALPHA*X(J)
                   TEMP2 = ZERO
-                  Y(J) = Y(J) + TEMP1*DBLE(A(1,J))
+                  Y(J) = Y(J) + TEMP1*REAL(A(1,J))
                   L = 1 - J
                   DO 90 I = J + 1,MIN(N,J+K)
                       Y(I) = Y(I) + TEMP1*A(L+I,J)
@@ -353,7 +353,7 @@
               DO 120 J = 1,N
                   TEMP1 = ALPHA*X(JX)
                   TEMP2 = ZERO
-                  Y(JY) = Y(JY) + TEMP1*DBLE(A(1,J))
+                  Y(JY) = Y(JY) + TEMP1*REAL(A(1,J))
                   L = 1 - J
                   IX = JX
                   IY = JY

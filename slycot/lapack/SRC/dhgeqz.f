@@ -354,7 +354,7 @@
      $                   XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -434,7 +434,7 @@
 *     Quick return if possible
 *
       IF( N.LE.0 ) THEN
-         WORK( 1 ) = DBLE( 1 )
+         WORK( 1 ) = REAL( 1 )
          RETURN
       END IF
 *
@@ -740,12 +740,12 @@
 *           Exceptional shift.  Chosen for no particularly good reason.
 *           (Single shift only.)
 *
-            IF( ( DBLE( MAXIT )*SAFMIN )*ABS( H( ILAST, ILAST-1 ) ).LT.
+            IF( ( REAL( MAXIT )*SAFMIN )*ABS( H( ILAST, ILAST-1 ) ).LT.
      $          ABS( T( ILAST-1, ILAST-1 ) ) ) THEN
                ESHIFT = H( ILAST, ILAST-1 ) /
      $                  T( ILAST-1, ILAST-1 )
             ELSE
-               ESHIFT = ESHIFT + ONE / ( SAFMIN*DBLE( MAXIT ) )
+               ESHIFT = ESHIFT + ONE / ( SAFMIN*REAL( MAXIT ) )
             END IF
             S1 = ONE
             WR = ESHIFT
@@ -1360,7 +1360,7 @@
 *     Exit (other than argument error) -- return optimal workspace size
 *
   420 CONTINUE
-      WORK( 1 ) = DBLE( N )
+      WORK( 1 ) = REAL( N )
       RETURN
 *
 *     End of DHGEQZ

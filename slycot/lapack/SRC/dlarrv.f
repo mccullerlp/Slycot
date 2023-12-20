@@ -341,7 +341,7 @@
      $                   DSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC ABS, DBLE, MAX, MIN
+      INTRINSIC ABS, REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *     ..
@@ -764,7 +764,7 @@
 *
                      ITER = 0
 *
-                     TOL = FOUR * LOG(DBLE(IN)) * EPS
+                     TOL = FOUR * LOG(REAL(IN)) * EPS
 *
                      K = NEWFST
                      WINDEX = WBEGIN + K - 1

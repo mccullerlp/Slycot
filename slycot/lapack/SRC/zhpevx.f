@@ -280,7 +280,7 @@
      $                   ZHPTRD, ZSTEIN, ZSTEQR, ZSWAP, ZUPGTR, ZUPMTR
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, SQRT
+      INTRINSIC          REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -332,11 +332,11 @@
       IF( N.EQ.1 ) THEN
          IF( ALLEIG .OR. INDEIG ) THEN
             M = 1
-            W( 1 ) = DBLE( AP( 1 ) )
+            W( 1 ) = REAL( AP( 1 ) )
          ELSE
-            IF( VL.LT.DBLE( AP( 1 ) ) .AND. VU.GE.DBLE( AP( 1 ) ) ) THEN
+            IF( VL.LT.REAL( AP( 1 ) ) .AND. VU.GE.REAL( AP( 1 ) ) ) THEN
                M = 1
-               W( 1 ) = DBLE( AP( 1 ) )
+               W( 1 ) = REAL( AP( 1 ) )
             END IF
          END IF
          IF( WANTZ )

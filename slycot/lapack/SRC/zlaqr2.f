@@ -306,14 +306,14 @@
      $                   ZLARF, ZLARFG, ZLASET, ZTREXC, ZUNMHR
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, INT, MAX, MIN,
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, INT, MAX, MIN,
      $     IMAGPART
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -364,7 +364,7 @@
       SAFMAX = RONE / SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( N ) / ULP )
+      SMLNUM = SAFMIN*( REAL( N ) / ULP )
 *
 *     ==== Setup deflation window ====
 *

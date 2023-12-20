@@ -116,7 +116,7 @@
       EXTERNAL           XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, IMAGPART, MOD
+      INTRINSIC          REAL, CMPLX, IMAGPART, MOD
 *     ..
 *     .. Executable Statements ..
 *
@@ -142,7 +142,7 @@
             INFO = I
             GO TO 30
          END IF
-         EIR = DBLE( E( I ) )
+         EIR = REAL( E( I ) )
          EII = IMAGPART( E( I ) )
          F = EIR / D( I )
          G = EII / D( I )
@@ -162,7 +162,7 @@
 *
 *        Solve for e(i) and d(i+1).
 *
-         EIR = DBLE( E( I ) )
+         EIR = REAL( E( I ) )
          EII = IMAGPART( E( I ) )
          F = EIR / D( I )
          G = EII / D( I )
@@ -176,7 +176,7 @@
 *
 *        Solve for e(i+1) and d(i+2).
 *
-         EIR = DBLE( E( I+1 ) )
+         EIR = REAL( E( I+1 ) )
          EII = IMAGPART( E( I+1 ) )
          F = EIR / D( I+1 )
          G = EII / D( I+1 )
@@ -190,7 +190,7 @@
 *
 *        Solve for e(i+2) and d(i+3).
 *
-         EIR = DBLE( E( I+2 ) )
+         EIR = REAL( E( I+2 ) )
          EII = IMAGPART( E( I+2 ) )
          F = EIR / D( I+2 )
          G = EII / D( I+2 )
@@ -204,7 +204,7 @@
 *
 *        Solve for e(i+3) and d(i+4).
 *
-         EIR = DBLE( E( I+3 ) )
+         EIR = REAL( E( I+3 ) )
          EII = IMAGPART( E( I+3 ) )
          F = EIR / D( I+3 )
          G = EII / D( I+3 )

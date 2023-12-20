@@ -147,7 +147,7 @@
       EXTERNAL           DCOPY
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, NINT, SIGN
+      INTRINSIC          ABS, REAL, NINT, SIGN
 *     ..
 *     .. Save statement ..
       SAVE
@@ -156,7 +156,7 @@
 *
       IF( KASE.EQ.0 ) THEN
          DO 10 I = 1, N
-            X( I ) = ONE / DBLE( N )
+            X( I ) = ONE / REAL( N )
    10    CONTINUE
          KASE = 1
          JUMP = 1
@@ -246,7 +246,7 @@
   120 CONTINUE
       ALTSGN = ONE
       DO 130 I = 1, N
-         X( I ) = ALTSGN*( ONE+DBLE( I-1 ) / DBLE( N-1 ) )
+         X( I ) = ALTSGN*( ONE+REAL( I-1 ) / REAL( N-1 ) )
          ALTSGN = -ALTSGN
   130 CONTINUE
       KASE = 1
@@ -257,7 +257,7 @@
 *     X HAS BEEN OVERWRITTEN BY A*X.
 *
   140 CONTINUE
-      TEMP = TWO*( DASUM( N, X, 1 ) / DBLE( 3*N ) )
+      TEMP = TWO*( DASUM( N, X, 1 ) / REAL( 3*N ) )
       IF( TEMP.GT.EST ) THEN
          CALL DCOPY( N, X, 1, V, 1 )
          EST = TEMP

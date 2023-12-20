@@ -230,7 +230,7 @@
       EXTERNAL           XERBLA, ZGEBD2, ZGEMM, ZLABRD
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
@@ -243,7 +243,7 @@
       INFO = 0
       NB = MAX( 1, ILAENV( 1, 'ZGEBRD', ' ', M, N, -1, -1 ) )
       LWKOPT = ( M+N )*NB
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
       LQUERY = ( LWORK.EQ.-1 )
       IF( M.LT.0 ) THEN
          INFO = -1

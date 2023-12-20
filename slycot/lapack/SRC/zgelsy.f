@@ -251,7 +251,7 @@
       EXTERNAL           ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, MAX, MIN
+      INTRINSIC          ABS, REAL, CMPLX, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -351,7 +351,7 @@
 *
       CALL ZGEQP3( M, N, A, LDA, JPVT, WORK( 1 ), WORK( MN+1 ),
      $             LWORK-MN, RWORK, INFO )
-      WSIZE = MN + DBLE( WORK( MN+1 ) )
+      WSIZE = MN + REAL( WORK( MN+1 ) )
 *
 *     complex workspace: MN+NB*(N+1). real workspace 2*N.
 *     Details of Householder rotations stored in WORK(1:MN).
@@ -411,7 +411,7 @@
 *
       CALL ZUNMQR( 'Left', 'Conjugate transpose', M, NRHS, MN, A, LDA,
      $             WORK( 1 ), B, LDB, WORK( 2*MN+1 ), LWORK-2*MN, INFO )
-      WSIZE = MAX( WSIZE, 2*MN+DBLE( WORK( 2*MN+1 ) ) )
+      WSIZE = MAX( WSIZE, 2*MN+REAL( WORK( 2*MN+1 ) ) )
 *
 *     complex workspace: 2*MN+NB*NRHS.
 *

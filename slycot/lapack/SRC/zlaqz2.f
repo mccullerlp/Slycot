@@ -299,7 +299,7 @@
       SAFMAX = ONE/SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( N )/ULP )
+      SMLNUM = SAFMIN*( REAL( N )/ULP )
 
       IF ( IHI .EQ. KWTOP ) THEN
 *        1 by 1 deflation window, just try a regular deflation

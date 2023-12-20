@@ -248,7 +248,7 @@
      $                   ZHETRD_2STAGE, ZHETRD_HB2ST
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, SQRT
+      INTRINSIC          REAL, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -306,9 +306,9 @@
 *
       IF( N.EQ.1 ) THEN
          IF( LOWER ) THEN
-            W( 1 ) = DBLE( AB( 1, 1 ) )
+            W( 1 ) = REAL( AB( 1, 1 ) )
          ELSE
-            W( 1 ) = DBLE( AB( KD+1, 1 ) )
+            W( 1 ) = REAL( AB( KD+1, 1 ) )
          END IF
          IF( WANTZ )
      $      Z( 1, 1 ) = ONE

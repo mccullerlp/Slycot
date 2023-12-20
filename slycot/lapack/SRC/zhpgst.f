@@ -142,7 +142,7 @@
      $                   ZTPSV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE
+      INTRINSIC          REAL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -181,8 +181,8 @@
 *
 *              Compute the j-th column of the upper triangle of A
 *
-               AP( JJ ) = DBLE( AP( JJ ) )
-               BJJ = DBLE( BP( JJ ) )
+               AP( JJ ) = REAL( AP( JJ ) )
+               BJJ = REAL( BP( JJ ) )
                CALL ZTPSV( UPLO, 'Conjugate transpose', 'Non-unit', J,
      $                     BP, AP( J1 ), 1 )
                CALL ZHPMV( UPLO, J-1, -CONE, AP, BP( J1 ), 1, CONE,
@@ -203,8 +203,8 @@
 *
 *              Update the lower triangle of A(k:n,k:n)
 *
-               AKK = DBLE( AP( KK ) )
-               BKK = DBLE( BP( KK ) )
+               AKK = REAL( AP( KK ) )
+               BKK = REAL( BP( KK ) )
                AKK = AKK / BKK**2
                AP( KK ) = AKK
                IF( K.LT.N ) THEN
@@ -234,8 +234,8 @@
 *
 *              Update the upper triangle of A(1:k,1:k)
 *
-               AKK = DBLE( AP( KK ) )
-               BKK = DBLE( BP( KK ) )
+               AKK = REAL( AP( KK ) )
+               BKK = REAL( BP( KK ) )
                CALL ZTPMV( UPLO, 'No transpose', 'Non-unit', K-1, BP,
      $                     AP( K1 ), 1 )
                CT = HALF*AKK
@@ -258,8 +258,8 @@
 *
 *              Compute the j-th column of the lower triangle of A
 *
-               AJJ = DBLE( AP( JJ ) )
-               BJJ = DBLE( BP( JJ ) )
+               AJJ = REAL( AP( JJ ) )
+               BJJ = REAL( BP( JJ ) )
                AP( JJ ) = AJJ*BJJ + ZDOTC( N-J, AP( JJ+1 ), 1,
      $                    BP( JJ+1 ), 1 )
                CALL ZDSCAL( N-J, BJJ, AP( JJ+1 ), 1 )

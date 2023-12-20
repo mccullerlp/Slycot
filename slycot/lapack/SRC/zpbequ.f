@@ -161,7 +161,7 @@
       EXTERNAL           XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, SQRT
+      INTRINSIC          REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -199,14 +199,14 @@
 *
 *     Initialize SMIN and AMAX.
 *
-      S( 1 ) = DBLE( AB( J, 1 ) )
+      S( 1 ) = REAL( AB( J, 1 ) )
       SMIN = S( 1 )
       AMAX = S( 1 )
 *
 *     Find the minimum and maximum diagonal elements.
 *
       DO 10 I = 2, N
-         S( I ) = DBLE( AB( J, I ) )
+         S( I ) = REAL( AB( J, I ) )
          SMIN = MIN( SMIN, S( I ) )
          AMAX = MAX( AMAX, S( I ) )
    10 CONTINUE

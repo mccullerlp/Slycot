@@ -194,7 +194,7 @@
       EXTERNAL           ZGEMM, ZHESWAPR, ZTRTRI, ZTRMM, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, CONJG, DBLE, MAX
+      INTRINSIC          ABS, CONJG, REAL, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -274,13 +274,13 @@
          DO WHILE( K.LE.N )
             IF( IPIV( K ).GT.0 ) THEN
 *              1 x 1 diagonal NNB
-               WORK( K, INVD ) = ONE / DBLE( A( K, K ) )
+               WORK( K, INVD ) = ONE / REAL( A( K, K ) )
                WORK( K, INVD+1 ) = CZERO
             ELSE
 *              2 x 2 diagonal NNB
                T = ABS( WORK( K+1, 1 ) )
-               AK = DBLE( A( K, K ) ) / T
-               AKP1 = DBLE( A( K+1, K+1 ) ) / T
+               AK = REAL( A( K, K ) ) / T
+               AKP1 = REAL( A( K+1, K+1 ) ) / T
                AKKP1 = WORK( K+1, 1 )  / T
                D = T*( AK*AKP1-CONE )
                WORK( K, INVD ) = AKP1 / D
@@ -455,13 +455,13 @@
          DO WHILE ( K .GE. 1 )
             IF( IPIV( K ).GT.0 ) THEN
 *              1 x 1 diagonal NNB
-               WORK( K, INVD ) = ONE / DBLE( A( K, K ) )
+               WORK( K, INVD ) = ONE / REAL( A( K, K ) )
                WORK( K, INVD+1 ) = CZERO
             ELSE
 *              2 x 2 diagonal NNB
                T = ABS( WORK( K-1, 1 ) )
-               AK = DBLE( A( K-1, K-1 ) ) / T
-               AKP1 = DBLE( A( K, K ) ) / T
+               AK = REAL( A( K-1, K-1 ) ) / T
+               AKP1 = REAL( A( K, K ) ) / T
                AKKP1 = WORK( K-1, 1 ) / T
                D = T*( AK*AKP1-CONE )
                WORK( K-1, INVD ) = AKP1 / D

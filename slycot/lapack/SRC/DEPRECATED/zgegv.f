@@ -329,13 +329,13 @@
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, INT, MAX
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART, INT, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( X ) = ABS( DBLE( X ) ) + ABS( IMAGPART( X ) )
+      ABS1( X ) = ABS( REAL( X ) ) + ABS( IMAGPART( X ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -636,12 +636,12 @@
 *     if they are significant.
 *
       DO 70 JC = 1, N
-         ABSAR = ABS( DBLE( ALPHA( JC ) ) )
+         ABSAR = ABS( REAL( ALPHA( JC ) ) )
          ABSAI = ABS( IMAGPART( ALPHA( JC ) ) )
-         ABSB = ABS( DBLE( BETA( JC ) ) )
-         SALFAR = ANRM*DBLE( ALPHA( JC ) )
+         ABSB = ABS( REAL( BETA( JC ) ) )
+         SALFAR = ANRM*REAL( ALPHA( JC ) )
          SALFAI = ANRM*IMAGPART( ALPHA( JC ) )
-         SBETA = BNRM*DBLE( BETA( JC ) )
+         SBETA = BNRM*REAL( BETA( JC ) )
          ILIMIT = .FALSE.
          SCALE = ONE
 *
@@ -685,7 +685,7 @@
 *        Recompute un-scaled ALPHA, BETA if necessary.
 *
          IF( ILIMIT ) THEN
-            SALFAR = ( SCALE*DBLE( ALPHA( JC ) ) )*ANRM
+            SALFAR = ( SCALE*REAL( ALPHA( JC ) ) )*ANRM
             SALFAI = ( SCALE*IMAGPART( ALPHA( JC ) ) )*ANRM
             SBETA = ( SCALE*BETA( JC ) )*BNRM
          END IF

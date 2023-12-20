@@ -266,7 +266,7 @@
       EXTERNAL           DISNAN, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE
+      INTRINSIC          ABS, REAL
 *     ..
 *     .. Executable Statements ..
 *
@@ -416,7 +416,7 @@
                ISUPPZ( 1 ) = I + 1
                GOTO 220
             ENDIF
-            ZTZ = ZTZ + DBLE( Z( I )*Z( I ) )
+            ZTZ = ZTZ + REAL( Z( I )*Z( I ) )
  210     CONTINUE
  220     CONTINUE
       ELSE
@@ -433,7 +433,7 @@
                ISUPPZ( 1 ) = I + 1
                GO TO 240
             END IF
-            ZTZ = ZTZ + DBLE( Z( I )*Z( I ) )
+            ZTZ = ZTZ + REAL( Z( I )*Z( I ) )
  230     CONTINUE
  240     CONTINUE
       ENDIF
@@ -448,7 +448,7 @@
                ISUPPZ( 2 ) = I
                GO TO 260
             END IF
-            ZTZ = ZTZ + DBLE( Z( I+1 )*Z( I+1 ) )
+            ZTZ = ZTZ + REAL( Z( I+1 )*Z( I+1 ) )
  250     CONTINUE
  260     CONTINUE
       ELSE
@@ -465,7 +465,7 @@
                ISUPPZ( 2 ) = I
                GO TO 280
             END IF
-            ZTZ = ZTZ + DBLE( Z( I+1 )*Z( I+1 ) )
+            ZTZ = ZTZ + REAL( Z( I+1 )*Z( I+1 ) )
  270     CONTINUE
  280     CONTINUE
       END IF

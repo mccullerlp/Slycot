@@ -184,7 +184,7 @@
       EXTERNAL           LSAME, ZDOTC
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE
+      INTRINSIC          REAL
 *     ..
 *     .. Executable Statements ..
 *
@@ -213,7 +213,7 @@
 *        I1 is the index in AP of A(1,I+1).
 *
          I1 = N*( N-1 ) / 2 + 1
-         AP( I1+N-1 ) = DBLE( AP( I1+N-1 ) )
+         AP( I1+N-1 ) = REAL( AP( I1+N-1 ) )
          DO 10 I = N - 1, 1, -1
 *
 *           Generate elementary reflector H(i) = I - tau * v * v**H
@@ -221,7 +221,7 @@
 *
             ALPHA = AP( I1+I-1 )
             CALL ZLARFG( I, ALPHA, AP( I1 ), 1, TAUI )
-            E( I ) = DBLE( ALPHA )
+            E( I ) = REAL( ALPHA )
 *
             IF( TAUI.NE.ZERO ) THEN
 *
@@ -246,18 +246,18 @@
 *
             END IF
             AP( I1+I-1 ) = E( I )
-            D( I+1 ) = DBLE( AP( I1+I ) )
+            D( I+1 ) = REAL( AP( I1+I ) )
             TAU( I ) = TAUI
             I1 = I1 - I
    10    CONTINUE
-         D( 1 ) = DBLE( AP( 1 ) )
+         D( 1 ) = REAL( AP( 1 ) )
       ELSE
 *
 *        Reduce the lower triangle of A. II is the index in AP of
 *        A(i,i) and I1I1 is the index of A(i+1,i+1).
 *
          II = 1
-         AP( 1 ) = DBLE( AP( 1 ) )
+         AP( 1 ) = REAL( AP( 1 ) )
          DO 20 I = 1, N - 1
             I1I1 = II + N - I + 1
 *
@@ -266,7 +266,7 @@
 *
             ALPHA = AP( II+1 )
             CALL ZLARFG( N-I, ALPHA, AP( II+2 ), 1, TAUI )
-            E( I ) = DBLE( ALPHA )
+            E( I ) = REAL( ALPHA )
 *
             IF( TAUI.NE.ZERO ) THEN
 *
@@ -293,11 +293,11 @@
 *
             END IF
             AP( II+1 ) = E( I )
-            D( I ) = DBLE( AP( II ) )
+            D( I ) = REAL( AP( II ) )
             TAU( I ) = TAUI
             II = I1I1
    20    CONTINUE
-         D( N ) = DBLE( AP( II ) )
+         D( N ) = REAL( AP( II ) )
       END IF
 *
       RETURN

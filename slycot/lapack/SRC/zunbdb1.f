@@ -283,7 +283,7 @@
 *
          CALL ZLARFGP( P-I+1, X11(I,I), X11(I+1,I), 1, TAUP1(I) )
          CALL ZLARFGP( M-P-I+1, X21(I,I), X21(I+1,I), 1, TAUP2(I) )
-         THETA(I) = ATAN2( DBLE( X21(I,I) ), DBLE( X11(I,I) ) )
+         THETA(I) = ATAN2( REAL( X21(I,I) ), REAL( X11(I,I) ) )
          C = COS( THETA(I) )
          S = SIN( THETA(I) )
          X11(I,I) = ONE
@@ -298,7 +298,7 @@
      $                  S )
             CALL ZLACGV( Q-I, X21(I,I+1), LDX21 )
             CALL ZLARFGP( Q-I, X21(I,I+1), X21(I,I+2), LDX21, TAUQ1(I) )
-            S = DBLE( X21(I,I+1) )
+            S = REAL( X21(I,I+1) )
             X21(I,I+1) = ONE
             CALL ZLARF( 'R', P-I, Q-I, X21(I,I+1), LDX21, TAUQ1(I),
      $                  X11(I+1,I+1), LDX11, WORK(ILARF) )

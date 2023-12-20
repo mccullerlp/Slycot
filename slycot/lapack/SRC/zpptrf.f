@@ -149,7 +149,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZHPR, ZTPSV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, SQRT
+      INTRINSIC          REAL, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -189,7 +189,7 @@
 *
 *           Compute U(J,J) and test for non-positive-definiteness.
 *
-            AJJ = DBLE( AP( JJ ) ) - DBLE( ZDOTC( J-1,
+            AJJ = REAL( AP( JJ ) ) - REAL( ZDOTC( J-1,
      $            AP( JC ), 1, AP( JC ), 1 ) )
             IF( AJJ.LE.ZERO ) THEN
                AP( JJ ) = AJJ
@@ -206,7 +206,7 @@
 *
 *           Compute L(J,J) and test for non-positive-definiteness.
 *
-            AJJ = DBLE( AP( JJ ) )
+            AJJ = REAL( AP( JJ ) )
             IF( AJJ.LE.ZERO ) THEN
                AP( JJ ) = AJJ
                GO TO 30

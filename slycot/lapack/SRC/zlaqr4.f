@@ -310,14 +310,14 @@
       EXTERNAL           ZLACPY, ZLAHQR, ZLAQR2, ZLAQR5
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, INT, MAX, MIN, MOD,
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART, INT, MAX, MIN, MOD,
      $                   SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
       INFO = 0

@@ -174,7 +174,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG
+      INTRINSIC REAL,CONJG
 *     ..
 *
 *     Test the input parameters.
@@ -234,10 +234,10 @@
                           AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
                           K = K + 1
    10                 CONTINUE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1)) +
-     +                             DBLE(X(J)*TEMP1+Y(J)*TEMP2)
+                      AP(KK+J-1) = REAL(AP(KK+J-1)) +
+     +                             REAL(X(J)*TEMP1+Y(J)*TEMP2)
                   ELSE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1))
+                      AP(KK+J-1) = REAL(AP(KK+J-1))
                   END IF
                   KK = KK + J
    20         CONTINUE
@@ -253,10 +253,10 @@
                           IX = IX + INCX
                           IY = IY + INCY
    30                 CONTINUE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1)) +
-     +                             DBLE(X(JX)*TEMP1+Y(JY)*TEMP2)
+                      AP(KK+J-1) = REAL(AP(KK+J-1)) +
+     +                             REAL(X(JX)*TEMP1+Y(JY)*TEMP2)
                   ELSE
-                      AP(KK+J-1) = DBLE(AP(KK+J-1))
+                      AP(KK+J-1) = REAL(AP(KK+J-1))
                   END IF
                   JX = JX + INCX
                   JY = JY + INCY
@@ -272,15 +272,15 @@
                   IF ((X(J).NE.ZERO) .OR. (Y(J).NE.ZERO)) THEN
                       TEMP1 = ALPHA*CONJG(Y(J))
                       TEMP2 = CONJG(ALPHA*X(J))
-                      AP(KK) = DBLE(AP(KK)) +
-     +                         DBLE(X(J)*TEMP1+Y(J)*TEMP2)
+                      AP(KK) = REAL(AP(KK)) +
+     +                         REAL(X(J)*TEMP1+Y(J)*TEMP2)
                       K = KK + 1
                       DO 50 I = J + 1,N
                           AP(K) = AP(K) + X(I)*TEMP1 + Y(I)*TEMP2
                           K = K + 1
    50                 CONTINUE
                   ELSE
-                      AP(KK) = DBLE(AP(KK))
+                      AP(KK) = REAL(AP(KK))
                   END IF
                   KK = KK + N - J + 1
    60         CONTINUE
@@ -289,8 +289,8 @@
                   IF ((X(JX).NE.ZERO) .OR. (Y(JY).NE.ZERO)) THEN
                       TEMP1 = ALPHA*CONJG(Y(JY))
                       TEMP2 = CONJG(ALPHA*X(JX))
-                      AP(KK) = DBLE(AP(KK)) +
-     +                         DBLE(X(JX)*TEMP1+Y(JY)*TEMP2)
+                      AP(KK) = REAL(AP(KK)) +
+     +                         REAL(X(JX)*TEMP1+Y(JY)*TEMP2)
                       IX = JX
                       IY = JY
                       DO 70 K = KK + 1,KK + N - J
@@ -299,7 +299,7 @@
                           AP(K) = AP(K) + X(IX)*TEMP1 + Y(IY)*TEMP2
    70                 CONTINUE
                   ELSE
-                      AP(KK) = DBLE(AP(KK))
+                      AP(KK) = REAL(AP(KK))
                   END IF
                   JX = JX + INCX
                   JY = JY + INCY

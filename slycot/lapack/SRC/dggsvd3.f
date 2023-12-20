@@ -429,7 +429,7 @@
          LWKOPT = N + INT( WORK( 1 ) )
          LWKOPT = MAX( 2*N, LWKOPT )
          LWKOPT = MAX( 1, LWKOPT )
-         WORK( 1 ) = DBLE( LWKOPT )
+         WORK( 1 ) = REAL( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -492,7 +492,7 @@
          END IF
    20 CONTINUE
 *
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
       RETURN
 *
 *     End of DGGSVD3

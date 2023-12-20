@@ -247,7 +247,7 @@
       EXTERNAL           DCOPY, DLABAD, DLANV2, DLARFG, DROT
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -280,7 +280,7 @@
       SAFMAX = ONE / SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( NH ) / ULP )
+      SMLNUM = SAFMIN*( REAL( NH ) / ULP )
 *
 *     I1 and I2 are the indices of the first row and last column of H
 *     to which transformations must be applied. If eigenvalues only are

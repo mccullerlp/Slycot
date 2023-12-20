@@ -143,7 +143,7 @@
       EXTERNAL           XERBLA, ZCOPY, ZHPMV, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG
+      INTRINSIC          ABS, REAL, CONJG
 *     ..
 *     .. Executable Statements ..
 *
@@ -214,7 +214,7 @@
 *
 *           Invert the diagonal block.
 *
-            AP( KC+K-1 ) = ONE / DBLE( AP( KC+K-1 ) )
+            AP( KC+K-1 ) = ONE / REAL( AP( KC+K-1 ) )
 *
 *           Compute column K of the inverse.
 *
@@ -223,7 +223,7 @@
                CALL ZHPMV( UPLO, K-1, -CONE, AP, WORK, 1, ZERO,
      $                     AP( KC ), 1 )
                AP( KC+K-1 ) = AP( KC+K-1 ) -
-     $                        DBLE( ZDOTC( K-1, WORK, 1, AP( KC ), 1 ) )
+     $                        REAL( ZDOTC( K-1, WORK, 1, AP( KC ), 1 ) )
             END IF
             KSTEP = 1
          ELSE
@@ -233,8 +233,8 @@
 *           Invert the diagonal block.
 *
             T = ABS( AP( KCNEXT+K-1 ) )
-            AK = DBLE( AP( KC+K-1 ) ) / T
-            AKP1 = DBLE( AP( KCNEXT+K ) ) / T
+            AK = REAL( AP( KC+K-1 ) ) / T
+            AKP1 = REAL( AP( KCNEXT+K ) ) / T
             AKKP1 = AP( KCNEXT+K-1 ) / T
             D = T*( AK*AKP1-ONE )
             AP( KC+K-1 ) = AKP1 / D
@@ -248,7 +248,7 @@
                CALL ZHPMV( UPLO, K-1, -CONE, AP, WORK, 1, ZERO,
      $                     AP( KC ), 1 )
                AP( KC+K-1 ) = AP( KC+K-1 ) -
-     $                        DBLE( ZDOTC( K-1, WORK, 1, AP( KC ), 1 ) )
+     $                        REAL( ZDOTC( K-1, WORK, 1, AP( KC ), 1 ) )
                AP( KCNEXT+K-1 ) = AP( KCNEXT+K-1 ) -
      $                            ZDOTC( K-1, AP( KC ), 1, AP( KCNEXT ),
      $                            1 )
@@ -256,7 +256,7 @@
                CALL ZHPMV( UPLO, K-1, -CONE, AP, WORK, 1, ZERO,
      $                     AP( KCNEXT ), 1 )
                AP( KCNEXT+K ) = AP( KCNEXT+K ) -
-     $                          DBLE( ZDOTC( K-1, WORK, 1, AP( KCNEXT ),
+     $                          REAL( ZDOTC( K-1, WORK, 1, AP( KCNEXT ),
      $                          1 ) )
             END IF
             KSTEP = 2
@@ -318,7 +318,7 @@
 *
 *           Invert the diagonal block.
 *
-            AP( KC ) = ONE / DBLE( AP( KC ) )
+            AP( KC ) = ONE / REAL( AP( KC ) )
 *
 *           Compute column K of the inverse.
 *
@@ -326,7 +326,7 @@
                CALL ZCOPY( N-K, AP( KC+1 ), 1, WORK, 1 )
                CALL ZHPMV( UPLO, N-K, -CONE, AP( KC+N-K+1 ), WORK, 1,
      $                     ZERO, AP( KC+1 ), 1 )
-               AP( KC ) = AP( KC ) - DBLE( ZDOTC( N-K, WORK, 1,
+               AP( KC ) = AP( KC ) - REAL( ZDOTC( N-K, WORK, 1,
      $                    AP( KC+1 ), 1 ) )
             END IF
             KSTEP = 1
@@ -337,8 +337,8 @@
 *           Invert the diagonal block.
 *
             T = ABS( AP( KCNEXT+1 ) )
-            AK = DBLE( AP( KCNEXT ) ) / T
-            AKP1 = DBLE( AP( KC ) ) / T
+            AK = REAL( AP( KCNEXT ) ) / T
+            AKP1 = REAL( AP( KC ) ) / T
             AKKP1 = AP( KCNEXT+1 ) / T
             D = T*( AK*AKP1-ONE )
             AP( KCNEXT ) = AKP1 / D
@@ -351,7 +351,7 @@
                CALL ZCOPY( N-K, AP( KC+1 ), 1, WORK, 1 )
                CALL ZHPMV( UPLO, N-K, -CONE, AP( KC+( N-K+1 ) ), WORK,
      $                     1, ZERO, AP( KC+1 ), 1 )
-               AP( KC ) = AP( KC ) - DBLE( ZDOTC( N-K, WORK, 1,
+               AP( KC ) = AP( KC ) - REAL( ZDOTC( N-K, WORK, 1,
      $                    AP( KC+1 ), 1 ) )
                AP( KCNEXT+1 ) = AP( KCNEXT+1 ) -
      $                          ZDOTC( N-K, AP( KC+1 ), 1,
@@ -360,7 +360,7 @@
                CALL ZHPMV( UPLO, N-K, -CONE, AP( KC+( N-K+1 ) ), WORK,
      $                     1, ZERO, AP( KCNEXT+2 ), 1 )
                AP( KCNEXT ) = AP( KCNEXT ) -
-     $                        DBLE( ZDOTC( N-K, WORK, 1, AP( KCNEXT+2 ),
+     $                        REAL( ZDOTC( N-K, WORK, 1, AP( KCNEXT+2 ),
      $                        1 ) )
             END IF
             KSTEP = 2

@@ -198,13 +198,13 @@
       EXTERNAL           ZGEMM, ZSCAL, ZTRSM, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, DSIGN, MAX, MIN
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART, DSIGN, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( IMAGPART( Z ) )
+      CABS1( Z ) = ABS( REAL( Z ) ) + ABS( IMAGPART( Z ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -235,7 +235,7 @@
 *
 *        Transfer the sign
 *
-         D( 1 ) = CMPLX( -DSIGN( ONE, DBLE( A( 1, 1 ) ) ) )
+         D( 1 ) = CMPLX( -DSIGN( ONE, REAL( A( 1, 1 ) ) ) )
 *
 *        Construct the row of U
 *
@@ -248,7 +248,7 @@
 *
 *        Transfer the sign
 *
-         D( 1 ) = CMPLX( -DSIGN( ONE, DBLE( A( 1, 1 ) ) ) )
+         D( 1 ) = CMPLX( -DSIGN( ONE, REAL( A( 1, 1 ) ) ) )
 *
 *        Construct the row of U
 *

@@ -322,7 +322,7 @@
       EXTERNAL           DLACPY, DLAHQR, DLANV2, DLAQR2, DLAQR5
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, INT, MAX, MIN, MOD
+      INTRINSIC          ABS, REAL, INT, MAX, MIN, MOD
 *     ..
 *     .. Executable Statements ..
       INFO = 0
@@ -398,7 +398,7 @@
 *        ==== Quick return in case of workspace query. ====
 *
          IF( LWORK.EQ.-1 ) THEN
-            WORK( 1 ) = DBLE( LWKOPT )
+            WORK( 1 ) = REAL( LWKOPT )
             RETURN
          END IF
 *
@@ -729,7 +729,7 @@
 *
 *     ==== Return the optimal value of LWORK. ====
 *
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
 *
 *     ==== End of DLAQR4 ====
 *

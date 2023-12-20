@@ -131,7 +131,7 @@
       EXTERNAL           DLAMCH, DLAPY3, DLAPY2, DZNRM2, ZLADIV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, SIGN
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART, SIGN
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZDSCAL, ZSCAL
@@ -144,7 +144,7 @@
       END IF
 *
       XNORM = DZNRM2( N-1, X, INCX )
-      ALPHR = DBLE( ALPHA )
+      ALPHR = REAL( ALPHA )
       ALPHI = IMAGPART( ALPHA )
 *
       IF( XNORM.EQ.ZERO ) THEN
@@ -209,8 +209,8 @@
             BETA = -BETA
             TAU = -ALPHA / BETA
          ELSE
-            ALPHR = ALPHI * (ALPHI/DBLE( ALPHA ))
-            ALPHR = ALPHR + XNORM * (XNORM/DBLE( ALPHA ))
+            ALPHR = ALPHI * (ALPHI/REAL( ALPHA ))
+            ALPHR = ALPHR + XNORM * (XNORM/REAL( ALPHA ))
             TAU = CMPLX( ALPHR/BETA, -ALPHI/BETA )
             ALPHA = CMPLX( -ALPHR, ALPHI )
          END IF
@@ -225,7 +225,7 @@
 *           (Bug report provided by Pat Quillen from MathWorks on Jul 29, 2009.)
 *           (Thanks Pat. Thanks MathWorks.)
 *
-            ALPHR = DBLE( SAVEALPHA )
+            ALPHR = REAL( SAVEALPHA )
             ALPHI = IMAGPART( SAVEALPHA )
             IF( ALPHI.EQ.ZERO ) THEN
                IF( ALPHR.GE.ZERO ) THEN
@@ -235,7 +235,7 @@
                   DO J = 1, N-1
                      X( 1 + (J-1)*INCX ) = ZERO
                   END DO
-                  BETA = DBLE( -SAVEALPHA )
+                  BETA = REAL( -SAVEALPHA )
                END IF
             ELSE
                XNORM = DLAPY2( ALPHR, ALPHI )

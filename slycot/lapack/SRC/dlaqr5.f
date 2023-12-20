@@ -300,7 +300,7 @@
 *     ..
 *     .. Intrinsic Functions ..
 *
-      INTRINSIC          ABS, DBLE, MAX, MIN, MOD
+      INTRINSIC          ABS, REAL, MAX, MIN, MOD
 *     ..
 *     .. Local Arrays ..
       REAL*10   VT( 3 )
@@ -355,7 +355,7 @@
       SAFMAX = ONE / SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( N ) / ULP )
+      SMLNUM = SAFMIN*( REAL( N ) / ULP )
 *
 *     ==== Use accumulated reflections to update far-from-diagonal
 *     .    entries ? ====

@@ -456,7 +456,7 @@
             END IF
          END IF
          MAXWRK = MAX( MAXWRK, MINWRK )
-         WORK( 1 ) = DBLE( MAXWRK )
+         WORK( 1 ) = REAL( MAXWRK )
 *
          IF( LWORK.LT.MINWRK .AND. .NOT.LQUERY ) THEN
              INFO = -19
@@ -822,7 +822,7 @@
 *
 *     Return optimal workspace in WORK(1)
 *
-      WORK( 1 ) = DBLE( MAXWRK )
+      WORK( 1 ) = REAL( MAXWRK )
 *
       RETURN
 *

@@ -162,7 +162,7 @@
       EXTERNAL           ZCOPY, ZHEMV, ZSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, CONJG, MAX, DBLE
+      INTRINSIC          ABS, CONJG, MAX, REAL
 *     ..
 *     .. Executable Statements ..
 *
@@ -229,7 +229,7 @@
 *
 *           Invert the diagonal block.
 *
-            A( K, K ) = ONE / DBLE( A( K, K ) )
+            A( K, K ) = ONE / REAL( A( K, K ) )
 *
 *           Compute column K of the inverse.
 *
@@ -237,7 +237,7 @@
                CALL ZCOPY( K-1, A( 1, K ), 1, WORK, 1 )
                CALL ZHEMV( UPLO, K-1, -CONE, A, LDA, WORK, 1, CZERO,
      $                     A( 1, K ), 1 )
-               A( K, K ) = A( K, K ) - DBLE( ZDOTC( K-1, WORK, 1, A( 1,
+               A( K, K ) = A( K, K ) - REAL( ZDOTC( K-1, WORK, 1, A( 1,
      $                     K ), 1 ) )
             END IF
             KSTEP = 1
@@ -248,8 +248,8 @@
 *           Invert the diagonal block.
 *
             T = ABS( A( K, K+1 ) )
-            AK = DBLE( A( K, K ) ) / T
-            AKP1 = DBLE( A( K+1, K+1 ) ) / T
+            AK = REAL( A( K, K ) ) / T
+            AKP1 = REAL( A( K+1, K+1 ) ) / T
             AKKP1 = A( K, K+1 ) / T
             D = T*( AK*AKP1-ONE )
             A( K, K ) = AKP1 / D
@@ -262,7 +262,7 @@
                CALL ZCOPY( K-1, A( 1, K ), 1, WORK, 1 )
                CALL ZHEMV( UPLO, K-1, -CONE, A, LDA, WORK, 1, CZERO,
      $                     A( 1, K ), 1 )
-               A( K, K ) = A( K, K ) - DBLE( ZDOTC( K-1, WORK, 1, A( 1,
+               A( K, K ) = A( K, K ) - REAL( ZDOTC( K-1, WORK, 1, A( 1,
      $                     K ), 1 ) )
                A( K, K+1 ) = A( K, K+1 ) -
      $                       ZDOTC( K-1, A( 1, K ), 1, A( 1, K+1 ), 1 )
@@ -270,7 +270,7 @@
                CALL ZHEMV( UPLO, K-1, -CONE, A, LDA, WORK, 1, CZERO,
      $                     A( 1, K+1 ), 1 )
                A( K+1, K+1 ) = A( K+1, K+1 ) -
-     $                         DBLE( ZDOTC( K-1, WORK, 1, A( 1, K+1 ),
+     $                         REAL( ZDOTC( K-1, WORK, 1, A( 1, K+1 ),
      $                         1 ) )
             END IF
             KSTEP = 2
@@ -377,7 +377,7 @@
 *
 *           Invert the diagonal block.
 *
-            A( K, K ) = ONE / DBLE( A( K, K ) )
+            A( K, K ) = ONE / REAL( A( K, K ) )
 *
 *           Compute column K of the inverse.
 *
@@ -385,7 +385,7 @@
                CALL ZCOPY( N-K, A( K+1, K ), 1, WORK, 1 )
                CALL ZHEMV( UPLO, N-K, -CONE, A( K+1, K+1 ), LDA, WORK,
      $                     1, CZERO, A( K+1, K ), 1 )
-               A( K, K ) = A( K, K ) - DBLE( ZDOTC( N-K, WORK, 1,
+               A( K, K ) = A( K, K ) - REAL( ZDOTC( N-K, WORK, 1,
      $                     A( K+1, K ), 1 ) )
             END IF
             KSTEP = 1
@@ -396,8 +396,8 @@
 *           Invert the diagonal block.
 *
             T = ABS( A( K, K-1 ) )
-            AK = DBLE( A( K-1, K-1 ) ) / T
-            AKP1 = DBLE( A( K, K ) ) / T
+            AK = REAL( A( K-1, K-1 ) ) / T
+            AKP1 = REAL( A( K, K ) ) / T
             AKKP1 = A( K, K-1 ) / T
             D = T*( AK*AKP1-ONE )
             A( K-1, K-1 ) = AKP1 / D
@@ -410,7 +410,7 @@
                CALL ZCOPY( N-K, A( K+1, K ), 1, WORK, 1 )
                CALL ZHEMV( UPLO, N-K, -CONE, A( K+1, K+1 ), LDA, WORK,
      $                     1, CZERO, A( K+1, K ), 1 )
-               A( K, K ) = A( K, K ) - DBLE( ZDOTC( N-K, WORK, 1,
+               A( K, K ) = A( K, K ) - REAL( ZDOTC( N-K, WORK, 1,
      $                     A( K+1, K ), 1 ) )
                A( K, K-1 ) = A( K, K-1 ) -
      $                       ZDOTC( N-K, A( K+1, K ), 1, A( K+1, K-1 ),
@@ -419,7 +419,7 @@
                CALL ZHEMV( UPLO, N-K, -CONE, A( K+1, K+1 ), LDA, WORK,
      $                     1, CZERO, A( K+1, K-1 ), 1 )
                A( K-1, K-1 ) = A( K-1, K-1 ) -
-     $                         DBLE( ZDOTC( N-K, WORK, 1, A( K+1, K-1 ),
+     $                         REAL( ZDOTC( N-K, WORK, 1, A( K+1, K-1 ),
      $                         1 ) )
             END IF
             KSTEP = 2

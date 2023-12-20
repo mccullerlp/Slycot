@@ -164,7 +164,7 @@
 *>     Jeremy Du Croz, Numerical Algorithms Group Ltd.
 *>     Sven Hammarling, Numerical Algorithms Group Ltd.
 *>
-*>  -- Modified 8-Nov-93 to set C(J,J) to DBLE( C(J,J) ) when BETA = 1.
+*>  -- Modified 8-Nov-93 to set C(J,J) to REAL( C(J,J) ) when BETA = 1.
 *>     Ed Anderson, Cray Research Inc.
 *> \endverbatim
 *>
@@ -194,7 +194,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CMPLX,CONJG,MAX
+      INTRINSIC REAL,CMPLX,CONJG,MAX
 *     ..
 *     .. Local Scalars ..
       COMPLEX*20 TEMP
@@ -256,7 +256,7 @@
                       DO 30 I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
    30                 CONTINUE
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
    40             CONTINUE
               END IF
           ELSE
@@ -268,7 +268,7 @@
    60             CONTINUE
               ELSE
                   DO 80 J = 1,N
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
                       DO 70 I = J + 1,N
                           C(I,J) = BETA*C(I,J)
    70                 CONTINUE
@@ -294,9 +294,9 @@
                       DO 100 I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
   100                 CONTINUE
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
                   ELSE
-                      C(J,J) = DBLE(C(J,J))
+                      C(J,J) = REAL(C(J,J))
                   END IF
                   DO 120 L = 1,K
                       IF (A(J,L).NE.CMPLX(ZERO)) THEN
@@ -304,7 +304,7 @@
                           DO 110 I = 1,J - 1
                               C(I,J) = C(I,J) + TEMP*A(I,L)
   110                     CONTINUE
-                          C(J,J) = DBLE(C(J,J)) + DBLE(TEMP*A(I,L))
+                          C(J,J) = REAL(C(J,J)) + REAL(TEMP*A(I,L))
                       END IF
   120             CONTINUE
   130         CONTINUE
@@ -315,17 +315,17 @@
                           C(I,J) = ZERO
   140                 CONTINUE
                   ELSE IF (BETA.NE.ONE) THEN
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
                       DO 150 I = J + 1,N
                           C(I,J) = BETA*C(I,J)
   150                 CONTINUE
                   ELSE
-                      C(J,J) = DBLE(C(J,J))
+                      C(J,J) = REAL(C(J,J))
                   END IF
                   DO 170 L = 1,K
                       IF (A(J,L).NE.CMPLX(ZERO)) THEN
                           TEMP = ALPHA*CONJG(A(J,L))
-                          C(J,J) = DBLE(C(J,J)) + DBLE(TEMP*A(J,L))
+                          C(J,J) = REAL(C(J,J)) + REAL(TEMP*A(J,L))
                           DO 160 I = J + 1,N
                               C(I,J) = C(I,J) + TEMP*A(I,L)
   160                     CONTINUE
@@ -352,24 +352,24 @@
   200             CONTINUE
                   RTEMP = ZERO
                   DO 210 L = 1,K
-                      RTEMP = RTEMP + DBLE(CONJG(A(L,J))*A(L,J))
+                      RTEMP = RTEMP + REAL(CONJG(A(L,J))*A(L,J))
   210             CONTINUE
                   IF (BETA.EQ.ZERO) THEN
                       C(J,J) = ALPHA*RTEMP
                   ELSE
-                      C(J,J) = ALPHA*RTEMP + BETA*DBLE(C(J,J))
+                      C(J,J) = ALPHA*RTEMP + BETA*REAL(C(J,J))
                   END IF
   220         CONTINUE
           ELSE
               DO 260 J = 1,N
                   RTEMP = ZERO
                   DO 230 L = 1,K
-                      RTEMP = RTEMP + DBLE(CONJG(A(L,J))*A(L,J))
+                      RTEMP = RTEMP + REAL(CONJG(A(L,J))*A(L,J))
   230             CONTINUE
                   IF (BETA.EQ.ZERO) THEN
                       C(J,J) = ALPHA*RTEMP
                   ELSE
-                      C(J,J) = ALPHA*RTEMP + BETA*DBLE(C(J,J))
+                      C(J,J) = ALPHA*RTEMP + BETA*REAL(C(J,J))
                   END IF
                   DO 250 I = J + 1,N
                       TEMP = ZERO

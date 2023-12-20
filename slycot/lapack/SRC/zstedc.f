@@ -247,7 +247,7 @@
      $                   ZLACPY, ZLACRM, ZLAED0, ZSTEQR, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, INT, LOG, MAX, MOD, SQRT
+      INTRINSIC          ABS, REAL, INT, LOG, MAX, MOD, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -288,7 +288,7 @@
             LIWMIN = 1
             LRWMIN = 2*( N - 1 )
          ELSE IF( ICOMPZ.EQ.1 ) THEN
-            LGN = INT( LOG( DBLE( N ) ) / LOG( TWO ) )
+            LGN = INT( LOG( REAL( N ) ) / LOG( TWO ) )
             IF( 2**LGN.LT.N )
      $         LGN = LGN + 1
             IF( 2**LGN.LT.N )

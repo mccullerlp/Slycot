@@ -213,13 +213,13 @@
       EXTERNAL           ZCOPY, ZDSCAL, ZGEMM, ZGEMV, ZLACGV, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG, IMAGPART, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, CONJG, IMAGPART, MAX, MIN, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( IMAGPART( Z ) )
+      CABS1( Z ) = ABS( REAL( Z ) ) + ABS( IMAGPART( Z ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -253,17 +253,17 @@
 *        Copy column K of A to column KW of W and update it
 *
          CALL ZCOPY( K-1, A( 1, K ), 1, W( 1, KW ), 1 )
-         W( K, KW ) = DBLE( A( K, K ) )
+         W( K, KW ) = REAL( A( K, K ) )
          IF( K.LT.N ) THEN
             CALL ZGEMV( 'No transpose', K, N-K, -CONE, A( 1, K+1 ), LDA,
      $                  W( K, KW+1 ), LDW, CONE, W( 1, KW ), 1 )
-            W( K, KW ) = DBLE( W( K, KW ) )
+            W( K, KW ) = REAL( W( K, KW ) )
          END IF
 *
 *        Determine rows and columns to be interchanged and whether
 *        a 1-by-1 or 2-by-2 pivot block will be used
 *
-         ABSAKK = ABS( DBLE( W( K, KW ) ) )
+         ABSAKK = ABS( REAL( W( K, KW ) ) )
 *
 *        IMAX is the row-index of the largest off-diagonal element in
 *        column K, and COLMAX is its absolute value.
@@ -283,7 +283,7 @@
             IF( INFO.EQ.0 )
      $         INFO = K
             KP = K
-            A( K, K ) = DBLE( A( K, K ) )
+            A( K, K ) = REAL( A( K, K ) )
          ELSE
 *
 *           ============================================================
@@ -304,7 +304,7 @@
 *              Copy column IMAX to column KW-1 of W and update it
 *
                CALL ZCOPY( IMAX-1, A( 1, IMAX ), 1, W( 1, KW-1 ), 1 )
-               W( IMAX, KW-1 ) = DBLE( A( IMAX, IMAX ) )
+               W( IMAX, KW-1 ) = REAL( A( IMAX, IMAX ) )
                CALL ZCOPY( K-IMAX, A( IMAX, IMAX+1 ), LDA,
      $                     W( IMAX+1, KW-1 ), 1 )
                CALL ZLACGV( K-IMAX, W( IMAX+1, KW-1 ), 1 )
@@ -312,7 +312,7 @@
                   CALL ZGEMV( 'No transpose', K, N-K, -CONE,
      $                        A( 1, K+1 ), LDA, W( IMAX, KW+1 ), LDW,
      $                        CONE, W( 1, KW-1 ), 1 )
-                  W( IMAX, KW-1 ) = DBLE( W( IMAX, KW-1 ) )
+                  W( IMAX, KW-1 ) = REAL( W( IMAX, KW-1 ) )
                END IF
 *
 *              JMAX is the column-index of the largest off-diagonal
@@ -334,7 +334,7 @@
                   KP = K
 *
 *              Case(3)
-               ELSE IF( ABS( DBLE( W( IMAX, KW-1 ) ) ).GE.ALPHA*ROWMAX )
+               ELSE IF( ABS( REAL( W( IMAX, KW-1 ) ) ).GE.ALPHA*ROWMAX )
      $                   THEN
 *
 *                 interchange rows and columns K and IMAX, use 1-by-1
@@ -383,7 +383,7 @@
 *              (or K and K-1 for 2-by-2 pivot) of A, since these columns
 *              will be later overwritten.
 *
-               A( KP, KP ) = DBLE( A( KK, KK ) )
+               A( KP, KP ) = REAL( A( KK, KK ) )
                CALL ZCOPY( KK-1-KP, A( KP+1, KK ), 1, A( KP, KP+1 ),
      $                     LDA )
                CALL ZLACGV( KK-1-KP, A( KP, KP+1 ), LDA )
@@ -418,7 +418,7 @@
 *                 A(1:k-1,k) := U(1:k-1,k) = W(1:k-1,kw)/D(k,k)
 *
 *              (NOTE: No need to use for Hermitian matrix
-*              A( K, K ) = DBLE( W( K, K) ) to separately copy diagonal
+*              A( K, K ) = REAL( W( K, K) ) to separately copy diagonal
 *              element D(k,k) from W (potentially saves only one load))
                CALL ZCOPY( K, W( 1, KW ), 1, A( 1, K ), 1 )
                IF( K.GT.1 ) THEN
@@ -427,7 +427,7 @@
 *                  since that was ensured earlier in pivot search:
 *                  case A(k,k) = 0 falls into 2x2 pivot case(4))
 *
-                  R1 = ONE / DBLE( A( K, K ) )
+                  R1 = ONE / REAL( A( K, K ) )
                   CALL ZDSCAL( K-1, R1, A( 1, K ), 1 )
 *
 *                 (2) Conjugate column W(kw)
@@ -499,7 +499,7 @@
                   D21 = W( K-1, KW )
                   D11 = W( K, KW ) / CONJG( D21 )
                   D22 = W( K-1, KW-1 ) / D21
-                  T = ONE / ( DBLE( D11*D22 )-ONE )
+                  T = ONE / ( REAL( D11*D22 )-ONE )
                   D21 = T / D21
 *
 *                 Update elements in columns A(k-1) and A(k) as
@@ -557,11 +557,11 @@
 *           Update the upper triangle of the diagonal block
 *
             DO 40 JJ = J, J + JB - 1
-               A( JJ, JJ ) = DBLE( A( JJ, JJ ) )
+               A( JJ, JJ ) = REAL( A( JJ, JJ ) )
                CALL ZGEMV( 'No transpose', JJ-J+1, N-K, -CONE,
      $                     A( J, K+1 ), LDA, W( JJ, KW+1 ), LDW, CONE,
      $                     A( J, JJ ), 1 )
-               A( JJ, JJ ) = DBLE( A( JJ, JJ ) )
+               A( JJ, JJ ) = REAL( A( JJ, JJ ) )
    40       CONTINUE
 *
 *           Update the rectangular superdiagonal block
@@ -620,17 +620,17 @@
 *
 *        Copy column K of A to column K of W and update it
 *
-         W( K, K ) = DBLE( A( K, K ) )
+         W( K, K ) = REAL( A( K, K ) )
          IF( K.LT.N )
      $      CALL ZCOPY( N-K, A( K+1, K ), 1, W( K+1, K ), 1 )
          CALL ZGEMV( 'No transpose', N-K+1, K-1, -CONE, A( K, 1 ), LDA,
      $               W( K, 1 ), LDW, CONE, W( K, K ), 1 )
-         W( K, K ) = DBLE( W( K, K ) )
+         W( K, K ) = REAL( W( K, K ) )
 *
 *        Determine rows and columns to be interchanged and whether
 *        a 1-by-1 or 2-by-2 pivot block will be used
 *
-         ABSAKK = ABS( DBLE( W( K, K ) ) )
+         ABSAKK = ABS( REAL( W( K, K ) ) )
 *
 *        IMAX is the row-index of the largest off-diagonal element in
 *        column K, and COLMAX is its absolute value.
@@ -650,7 +650,7 @@
             IF( INFO.EQ.0 )
      $         INFO = K
             KP = K
-            A( K, K ) = DBLE( A( K, K ) )
+            A( K, K ) = REAL( A( K, K ) )
          ELSE
 *
 *           ============================================================
@@ -672,14 +672,14 @@
 *
                CALL ZCOPY( IMAX-K, A( IMAX, K ), LDA, W( K, K+1 ), 1 )
                CALL ZLACGV( IMAX-K, W( K, K+1 ), 1 )
-               W( IMAX, K+1 ) = DBLE( A( IMAX, IMAX ) )
+               W( IMAX, K+1 ) = REAL( A( IMAX, IMAX ) )
                IF( IMAX.LT.N )
      $            CALL ZCOPY( N-IMAX, A( IMAX+1, IMAX ), 1,
      $                        W( IMAX+1, K+1 ), 1 )
                CALL ZGEMV( 'No transpose', N-K+1, K-1, -CONE, A( K, 1 ),
      $                     LDA, W( IMAX, 1 ), LDW, CONE, W( K, K+1 ),
      $                     1 )
-               W( IMAX, K+1 ) = DBLE( W( IMAX, K+1 ) )
+               W( IMAX, K+1 ) = REAL( W( IMAX, K+1 ) )
 *
 *              JMAX is the column-index of the largest off-diagonal
 *              element in row IMAX, and ROWMAX is its absolute value.
@@ -700,7 +700,7 @@
                   KP = K
 *
 *              Case(3)
-               ELSE IF( ABS( DBLE( W( IMAX, K+1 ) ) ).GE.ALPHA*ROWMAX )
+               ELSE IF( ABS( REAL( W( IMAX, K+1 ) ) ).GE.ALPHA*ROWMAX )
      $                   THEN
 *
 *                 interchange rows and columns K and IMAX, use 1-by-1
@@ -745,7 +745,7 @@
 *              (or K and K+1 for 2-by-2 pivot) of A, since these columns
 *              will be later overwritten.
 *
-               A( KP, KP ) = DBLE( A( KK, KK ) )
+               A( KP, KP ) = REAL( A( KK, KK ) )
                CALL ZCOPY( KP-KK-1, A( KK+1, KK ), 1, A( KP, KK+1 ),
      $                     LDA )
                CALL ZLACGV( KP-KK-1, A( KP, KK+1 ), LDA )
@@ -778,7 +778,7 @@
 *                 A(k+1:N,k) := L(k+1:N,k) = W(k+1:N,k)/D(k,k)
 *
 *              (NOTE: No need to use for Hermitian matrix
-*              A( K, K ) = DBLE( W( K, K) ) to separately copy diagonal
+*              A( K, K ) = REAL( W( K, K) ) to separately copy diagonal
 *              element D(k,k) from W (potentially saves only one load))
                CALL ZCOPY( N-K+1, W( K, K ), 1, A( K, K ), 1 )
                IF( K.LT.N ) THEN
@@ -787,7 +787,7 @@
 *                  since that was ensured earlier in pivot search:
 *                  case A(k,k) = 0 falls into 2x2 pivot case(4))
 *
-                  R1 = ONE / DBLE( A( K, K ) )
+                  R1 = ONE / REAL( A( K, K ) )
                   CALL ZDSCAL( N-K, R1, A( K+1, K ), 1 )
 *
 *                 (2) Conjugate column W(k)
@@ -859,7 +859,7 @@
                   D21 = W( K+1, K )
                   D11 = W( K+1, K+1 ) / D21
                   D22 = W( K, K ) / CONJG( D21 )
-                  T = ONE / ( DBLE( D11*D22 )-ONE )
+                  T = ONE / ( REAL( D11*D22 )-ONE )
                   D21 = T / D21
 *
 *                 Update elements in columns A(k) and A(k+1) as
@@ -917,11 +917,11 @@
 *           Update the lower triangle of the diagonal block
 *
             DO 100 JJ = J, J + JB - 1
-               A( JJ, JJ ) = DBLE( A( JJ, JJ ) )
+               A( JJ, JJ ) = REAL( A( JJ, JJ ) )
                CALL ZGEMV( 'No transpose', J+JB-JJ, K-1, -CONE,
      $                     A( JJ, 1 ), LDA, W( JJ, 1 ), LDW, CONE,
      $                     A( JJ, JJ ), 1 )
-               A( JJ, JJ ) = DBLE( A( JJ, JJ ) )
+               A( JJ, JJ ) = REAL( A( JJ, JJ ) )
   100       CONTINUE
 *
 *           Update the rectangular subdiagonal block

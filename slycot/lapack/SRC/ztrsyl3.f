@@ -192,7 +192,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZGEMM, ZLASCL, ZTRSYL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, EXPONENT, MAX, MIN
+      INTRINSIC          ABS, REAL, IMAGPART, EXPONENT, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -314,7 +314,7 @@
          END DO
       END DO
 *
-      SGN = DBLE( ISGN )
+      SGN = REAL( ISGN )
       CSGN = CMPLX( SGN, ZERO )
 *
       IF( NOTRNA .AND. NOTRNB ) THEN
@@ -1109,11 +1109,11 @@
 *
 *        How much can the normwise largest entry be upscaled?
 *
-         SCAL = MAX( ABS( DBLE( C( 1, 1 ) ) ),
+         SCAL = MAX( ABS( REAL( C( 1, 1 ) ) ),
      $               ABS( IMAGPART( C ( 1, 1 ) ) ) )
          DO K = 1, M
             DO L = 1, N
-               SCAL = MAX( SCAL, ABS( DBLE ( C( K, L ) ) ),
+               SCAL = MAX( SCAL, ABS( REAL ( C( K, L ) ) ),
      $                     ABS( IMAGPART ( C( K, L ) ) ) )
             END DO
          END DO

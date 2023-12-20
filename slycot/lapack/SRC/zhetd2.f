@@ -208,7 +208,7 @@
       EXTERNAL           LSAME, ZDOTC
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -237,7 +237,7 @@
 *
 *        Reduce the upper triangle of A
 *
-         A( N, N ) = DBLE( A( N, N ) )
+         A( N, N ) = REAL( A( N, N ) )
          DO 10 I = N - 1, 1, -1
 *
 *           Generate elementary reflector H(i) = I - tau * v * v**H
@@ -245,7 +245,7 @@
 *
             ALPHA = A( I, I+1 )
             CALL ZLARFG( I, ALPHA, A( 1, I+1 ), 1, TAUI )
-            E( I ) = DBLE( ALPHA )
+            E( I ) = REAL( ALPHA )
 *
             IF( TAUI.NE.ZERO ) THEN
 *
@@ -270,18 +270,18 @@
      $                     LDA )
 *
             ELSE
-               A( I, I ) = DBLE( A( I, I ) )
+               A( I, I ) = REAL( A( I, I ) )
             END IF
             A( I, I+1 ) = E( I )
-            D( I+1 ) = DBLE( A( I+1, I+1 ) )
+            D( I+1 ) = REAL( A( I+1, I+1 ) )
             TAU( I ) = TAUI
    10    CONTINUE
-         D( 1 ) = DBLE( A( 1, 1 ) )
+         D( 1 ) = REAL( A( 1, 1 ) )
       ELSE
 *
 *        Reduce the lower triangle of A
 *
-         A( 1, 1 ) = DBLE( A( 1, 1 ) )
+         A( 1, 1 ) = REAL( A( 1, 1 ) )
          DO 20 I = 1, N - 1
 *
 *           Generate elementary reflector H(i) = I - tau * v * v**H
@@ -289,7 +289,7 @@
 *
             ALPHA = A( I+1, I )
             CALL ZLARFG( N-I, ALPHA, A( MIN( I+2, N ), I ), 1, TAUI )
-            E( I ) = DBLE( ALPHA )
+            E( I ) = REAL( ALPHA )
 *
             IF( TAUI.NE.ZERO ) THEN
 *
@@ -315,13 +315,13 @@
      $                     A( I+1, I+1 ), LDA )
 *
             ELSE
-               A( I+1, I+1 ) = DBLE( A( I+1, I+1 ) )
+               A( I+1, I+1 ) = REAL( A( I+1, I+1 ) )
             END IF
             A( I+1, I ) = E( I )
-            D( I ) = DBLE( A( I, I ) )
+            D( I ) = REAL( A( I, I ) )
             TAU( I ) = TAUI
    20    CONTINUE
-         D( N ) = DBLE( A( N, N ) )
+         D( N ) = REAL( A( N, N ) )
       END IF
 *
       RETURN

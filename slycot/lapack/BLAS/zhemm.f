@@ -212,7 +212,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG,MAX
+      INTRINSIC REAL,CONJG,MAX
 *     ..
 *     .. Local Scalars ..
       COMPLEX*20 TEMP1,TEMP2
@@ -298,9 +298,9 @@
                           TEMP2 = TEMP2 + B(K,J)*CONJG(A(K,I))
    50                 CONTINUE
                       IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = TEMP1*DBLE(A(I,I)) + ALPHA*TEMP2
+                          C(I,J) = TEMP1*REAL(A(I,I)) + ALPHA*TEMP2
                       ELSE
-                          C(I,J) = BETA*C(I,J) + TEMP1*DBLE(A(I,I)) +
+                          C(I,J) = BETA*C(I,J) + TEMP1*REAL(A(I,I)) +
      +                             ALPHA*TEMP2
                       END IF
    60             CONTINUE
@@ -315,9 +315,9 @@
                           TEMP2 = TEMP2 + B(K,J)*CONJG(A(K,I))
    80                 CONTINUE
                       IF (BETA.EQ.ZERO) THEN
-                          C(I,J) = TEMP1*DBLE(A(I,I)) + ALPHA*TEMP2
+                          C(I,J) = TEMP1*REAL(A(I,I)) + ALPHA*TEMP2
                       ELSE
-                          C(I,J) = BETA*C(I,J) + TEMP1*DBLE(A(I,I)) +
+                          C(I,J) = BETA*C(I,J) + TEMP1*REAL(A(I,I)) +
      +                             ALPHA*TEMP2
                       END IF
    90             CONTINUE
@@ -328,7 +328,7 @@
 *        Form  C := alpha*B*A + beta*C.
 *
           DO 170 J = 1,N
-              TEMP1 = ALPHA*DBLE(A(J,J))
+              TEMP1 = ALPHA*REAL(A(J,J))
               IF (BETA.EQ.ZERO) THEN
                   DO 110 I = 1,M
                       C(I,J) = TEMP1*B(I,J)

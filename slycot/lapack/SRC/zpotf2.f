@@ -141,7 +141,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZGEMV, ZLACGV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, SQRT
+      INTRINSIC          REAL, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -174,7 +174,7 @@
 *
 *           Compute U(J,J) and test for non-positive-definiteness.
 *
-            AJJ = DBLE( A( J, J ) ) - DBLE( ZDOTC( J-1, A( 1, J ), 1,
+            AJJ = REAL( A( J, J ) ) - REAL( ZDOTC( J-1, A( 1, J ), 1,
      $            A( 1, J ), 1 ) )
             IF( AJJ.LE.ZERO.OR.DISNAN( AJJ ) ) THEN
                A( J, J ) = AJJ
@@ -201,7 +201,7 @@
 *
 *           Compute L(J,J) and test for non-positive-definiteness.
 *
-            AJJ = DBLE( A( J, J ) ) - DBLE( ZDOTC( J-1, A( J, 1 ), LDA,
+            AJJ = REAL( A( J, J ) ) - REAL( ZDOTC( J-1, A( J, 1 ), LDA,
      $            A( J, 1 ), LDA ) )
             IF( AJJ.LE.ZERO.OR.DISNAN( AJJ ) ) THEN
                A( J, J ) = AJJ

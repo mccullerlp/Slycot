@@ -269,7 +269,7 @@
       EXTERNAL           DSTEVX, DCOPY, DLASET, DSCAL, DSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, SIGN, SQRT
+      INTRINSIC          ABS, REAL, SIGN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -367,7 +367,7 @@
             IF( SMIN.EQ.ZERO ) EXIT
          END DO
       END IF
-      SMIN = SMIN / SQRT( DBLE( N ) )
+      SMIN = SMIN / SQRT( REAL( N ) )
       THRESH = TOL*SMIN
 *
 *     Check for zeros in D and E (splits), i.e. submatrices.

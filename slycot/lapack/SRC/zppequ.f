@@ -148,7 +148,7 @@
       EXTERNAL           XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, SQRT
+      INTRINSIC          REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -176,7 +176,7 @@
 *
 *     Initialize SMIN and AMAX.
 *
-      S( 1 ) = DBLE( AP( 1 ) )
+      S( 1 ) = REAL( AP( 1 ) )
       SMIN = S( 1 )
       AMAX = S( 1 )
 *
@@ -188,7 +188,7 @@
          JJ = 1
          DO 10 I = 2, N
             JJ = JJ + I
-            S( I ) = DBLE( AP( JJ ) )
+            S( I ) = REAL( AP( JJ ) )
             SMIN = MIN( SMIN, S( I ) )
             AMAX = MAX( AMAX, S( I ) )
    10    CONTINUE
@@ -201,7 +201,7 @@
          JJ = 1
          DO 20 I = 2, N
             JJ = JJ + N - I + 2
-            S( I ) = DBLE( AP( JJ ) )
+            S( I ) = REAL( AP( JJ ) )
             SMIN = MIN( SMIN, S( I ) )
             AMAX = MAX( AMAX, S( I ) )
    20    CONTINUE

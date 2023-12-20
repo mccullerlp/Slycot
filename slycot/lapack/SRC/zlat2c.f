@@ -130,7 +130,7 @@
       LOGICAL            UPPER
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, IMAGPART, CMPLX
+      INTRINSIC          REAL, IMAGPART, CMPLX
 *     ..
 *     .. External Functions ..
       REAL               SLAMCH
@@ -144,8 +144,8 @@
       IF( UPPER ) THEN
          DO 20 J = 1, N
             DO 10 I = 1, J
-               IF( ( DBLE( A( I, J ) ).LT.-RMAX ) .OR.
-     $             ( DBLE( A( I, J ) ).GT.RMAX ) .OR.
+               IF( ( REAL( A( I, J ) ).LT.-RMAX ) .OR.
+     $             ( REAL( A( I, J ) ).GT.RMAX ) .OR.
      $             ( IMAGPART( A( I, J ) ).LT.-RMAX ) .OR.
      $             ( IMAGPART( A( I, J ) ).GT.RMAX ) ) THEN
                   INFO = 1
@@ -157,8 +157,8 @@
       ELSE
          DO 40 J = 1, N
             DO 30 I = J, N
-               IF( ( DBLE( A( I, J ) ).LT.-RMAX ) .OR.
-     $             ( DBLE( A( I, J ) ).GT.RMAX ) .OR.
+               IF( ( REAL( A( I, J ) ).LT.-RMAX ) .OR.
+     $             ( REAL( A( I, J ) ).GT.RMAX ) .OR.
      $             ( IMAGPART( A( I, J ) ).LT.-RMAX ) .OR.
      $             ( IMAGPART( A( I, J ) ).GT.RMAX ) ) THEN
                   INFO = 1

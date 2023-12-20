@@ -213,13 +213,13 @@
       EXTERNAL           ZCOPY, ZGEMM, ZGEMV, ZSCAL, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, IMAGPART, MAX, MIN, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( IMAGPART( Z ) )
+      CABS1( Z ) = ABS( REAL( Z ) ) + ABS( IMAGPART( Z ) )
 *     ..
 *     .. Executable Statements ..
 *

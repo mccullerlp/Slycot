@@ -196,13 +196,13 @@
       EXTERNAL           XERBLA, ZDSCAL, ZHPR, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, SQRT
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -245,7 +245,7 @@
 *        Determine rows and columns to be interchanged and whether
 *        a 1-by-1 or 2-by-2 pivot block will be used
 *
-         ABSAKK = ABS( DBLE( AP( KC+K-1 ) ) )
+         ABSAKK = ABS( REAL( AP( KC+K-1 ) ) )
 *
 *        IMAX is the row-index of the largest off-diagonal element in
 *        column K, and COLMAX is its absolute value
@@ -264,7 +264,7 @@
             IF( INFO.EQ.0 )
      $         INFO = K
             KP = K
-            AP( KC+K-1 ) = DBLE( AP( KC+K-1 ) )
+            AP( KC+K-1 ) = REAL( AP( KC+K-1 ) )
          ELSE
             IF( ABSAKK.GE.ALPHA*COLMAX ) THEN
 *
@@ -297,7 +297,7 @@
 *                 no interchange, use 1-by-1 pivot block
 *
                   KP = K
-               ELSE IF( ABS( DBLE( AP( KPC+IMAX-1 ) ) ).GE.ALPHA*
+               ELSE IF( ABS( REAL( AP( KPC+IMAX-1 ) ) ).GE.ALPHA*
      $                  ROWMAX ) THEN
 *
 *                 interchange rows and columns K and IMAX, use 1-by-1
@@ -331,19 +331,19 @@
                   AP( KX ) = T
    30          CONTINUE
                AP( KX+KK-1 ) = CONJG( AP( KX+KK-1 ) )
-               R1 = DBLE( AP( KNC+KK-1 ) )
-               AP( KNC+KK-1 ) = DBLE( AP( KPC+KP-1 ) )
+               R1 = REAL( AP( KNC+KK-1 ) )
+               AP( KNC+KK-1 ) = REAL( AP( KPC+KP-1 ) )
                AP( KPC+KP-1 ) = R1
                IF( KSTEP.EQ.2 ) THEN
-                  AP( KC+K-1 ) = DBLE( AP( KC+K-1 ) )
+                  AP( KC+K-1 ) = REAL( AP( KC+K-1 ) )
                   T = AP( KC+K-2 )
                   AP( KC+K-2 ) = AP( KC+KP-1 )
                   AP( KC+KP-1 ) = T
                END IF
             ELSE
-               AP( KC+K-1 ) = DBLE( AP( KC+K-1 ) )
+               AP( KC+K-1 ) = REAL( AP( KC+K-1 ) )
                IF( KSTEP.EQ.2 )
-     $            AP( KC-1 ) = DBLE( AP( KC-1 ) )
+     $            AP( KC-1 ) = REAL( AP( KC-1 ) )
             END IF
 *
 *           Update the leading submatrix
@@ -360,7 +360,7 @@
 *
 *              A := A - U(k)*D(k)*U(k)**H = A - W(k)*1/D(k)*W(k)**H
 *
-               R1 = ONE / DBLE( AP( KC+K-1 ) )
+               R1 = ONE / REAL( AP( KC+K-1 ) )
                CALL ZHPR( UPLO, K-1, -R1, AP( KC ), 1, AP )
 *
 *              Store U(k) in column k
@@ -382,10 +382,10 @@
 *
                IF( K.GT.2 ) THEN
 *
-                  D = DLAPY2( DBLE( AP( K-1+( K-1 )*K / 2 ) ),
+                  D = DLAPY2( REAL( AP( K-1+( K-1 )*K / 2 ) ),
      $                IMAGPART( AP( K-1+( K-1 )*K / 2 ) ) )
-                  D22 = DBLE( AP( K-1+( K-2 )*( K-1 ) / 2 ) ) / D
-                  D11 = DBLE( AP( K+( K-1 )*K / 2 ) ) / D
+                  D22 = REAL( AP( K-1+( K-2 )*( K-1 ) / 2 ) ) / D
+                  D11 = REAL( AP( K+( K-1 )*K / 2 ) ) / D
                   TT = ONE / ( D11*D22-ONE )
                   D12 = AP( K-1+( K-1 )*K / 2 ) / D
                   D = TT / D
@@ -402,7 +402,7 @@
    40                CONTINUE
                      AP( J+( K-1 )*K / 2 ) = WK
                      AP( J+( K-2 )*( K-1 ) / 2 ) = WKM1
-                     AP( J+( J-1 )*J / 2 ) = CMPLX( DBLE( AP( J+( J-
+                     AP( J+( J-1 )*J / 2 ) = CMPLX( REAL( AP( J+( J-
      $                                       1 )*J / 2 ) ), 0.0D+0 )
    50             CONTINUE
 *
@@ -448,7 +448,7 @@
 *        Determine rows and columns to be interchanged and whether
 *        a 1-by-1 or 2-by-2 pivot block will be used
 *
-         ABSAKK = ABS( DBLE( AP( KC ) ) )
+         ABSAKK = ABS( REAL( AP( KC ) ) )
 *
 *        IMAX is the row-index of the largest off-diagonal element in
 *        column K, and COLMAX is its absolute value
@@ -467,7 +467,7 @@
             IF( INFO.EQ.0 )
      $         INFO = K
             KP = K
-            AP( KC ) = DBLE( AP( KC ) )
+            AP( KC ) = REAL( AP( KC ) )
          ELSE
             IF( ABSAKK.GE.ALPHA*COLMAX ) THEN
 *
@@ -499,7 +499,7 @@
 *                 no interchange, use 1-by-1 pivot block
 *
                   KP = K
-               ELSE IF( ABS( DBLE( AP( KPC ) ) ).GE.ALPHA*ROWMAX ) THEN
+               ELSE IF( ABS( REAL( AP( KPC ) ) ).GE.ALPHA*ROWMAX ) THEN
 *
 *                 interchange rows and columns K and IMAX, use 1-by-1
 *                 pivot block
@@ -534,19 +534,19 @@
                   AP( KX ) = T
    80          CONTINUE
                AP( KNC+KP-KK ) = CONJG( AP( KNC+KP-KK ) )
-               R1 = DBLE( AP( KNC ) )
-               AP( KNC ) = DBLE( AP( KPC ) )
+               R1 = REAL( AP( KNC ) )
+               AP( KNC ) = REAL( AP( KPC ) )
                AP( KPC ) = R1
                IF( KSTEP.EQ.2 ) THEN
-                  AP( KC ) = DBLE( AP( KC ) )
+                  AP( KC ) = REAL( AP( KC ) )
                   T = AP( KC+1 )
                   AP( KC+1 ) = AP( KC+KP-K )
                   AP( KC+KP-K ) = T
                END IF
             ELSE
-               AP( KC ) = DBLE( AP( KC ) )
+               AP( KC ) = REAL( AP( KC ) )
                IF( KSTEP.EQ.2 )
-     $            AP( KNC ) = DBLE( AP( KNC ) )
+     $            AP( KNC ) = REAL( AP( KNC ) )
             END IF
 *
 *           Update the trailing submatrix
@@ -565,7 +565,7 @@
 *
 *                 A := A - L(k)*D(k)*L(k)**H = A - W(k)*(1/D(k))*W(k)**H
 *
-                  R1 = ONE / DBLE( AP( KC ) )
+                  R1 = ONE / REAL( AP( KC ) )
                   CALL ZHPR( UPLO, N-K, -R1, AP( KC+1 ), 1,
      $                       AP( KC+N-K+1 ) )
 *
@@ -592,10 +592,10 @@
 *                 where L(k) and L(k+1) are the k-th and (k+1)-th
 *                 columns of L
 *
-                  D = DLAPY2( DBLE( AP( K+1+( K-1 )*( 2*N-K ) / 2 ) ),
+                  D = DLAPY2( REAL( AP( K+1+( K-1 )*( 2*N-K ) / 2 ) ),
      $                IMAGPART( AP( K+1+( K-1 )*( 2*N-K ) / 2 ) ) )
-                  D11 = DBLE( AP( K+1+K*( 2*N-K-1 ) / 2 ) ) / D
-                  D22 = DBLE( AP( K+( K-1 )*( 2*N-K ) / 2 ) ) / D
+                  D11 = REAL( AP( K+1+K*( 2*N-K-1 ) / 2 ) ) / D
+                  D22 = REAL( AP( K+( K-1 )*( 2*N-K ) / 2 ) ) / D
                   TT = ONE / ( D11*D22-ONE )
                   D21 = AP( K+1+( K-1 )*( 2*N-K ) / 2 ) / D
                   D = TT / D
@@ -615,7 +615,7 @@
                      AP( J+( K-1 )*( 2*N-K ) / 2 ) = WK
                      AP( J+K*( 2*N-K-1 ) / 2 ) = WKP1
                      AP( J+( J-1 )*( 2*N-J ) / 2 )
-     $                  = CMPLX( DBLE( AP( J+( J-1 )*( 2*N-J ) / 2 ) ),
+     $                  = CMPLX( REAL( AP( J+( J-1 )*( 2*N-J ) / 2 ) ),
      $                  0.0D+0 )
   100             CONTINUE
                END IF

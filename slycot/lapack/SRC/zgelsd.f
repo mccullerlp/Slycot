@@ -263,7 +263,7 @@
       EXTERNAL           ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          INT, LOG, MAX, MIN, DBLE
+      INTRINSIC          INT, LOG, MAX, MIN, REAL
 *     ..
 *     .. Executable Statements ..
 *
@@ -300,7 +300,7 @@
          IF( MINMN.GT.0 ) THEN
             SMLSIZ = ILAENV( 9, 'ZGELSD', ' ', 0, 0, 0, 0 )
             MNTHR = ILAENV( 6, 'ZGELSD', ' ', M, N, NRHS, -1 )
-            NLVL = MAX( INT( LOG( DBLE( MINMN ) / DBLE( SMLSIZ + 1 ) ) /
+            NLVL = MAX( INT( LOG( REAL( MINMN ) / REAL( SMLSIZ + 1 ) ) /
      $                  LOG( TWO ) ) + 1, 0 )
             LIWORK = 3*MINMN*NLVL + 11*MINMN
             MM = M

@@ -97,7 +97,7 @@
       PARAMETER (ONE=1.0D+0)
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE, CMPLX, IMAGPART
+      INTRINSIC REAL, CMPLX, IMAGPART
 *     ..
       IF (N.LE.0 .OR. INCX.LE.0 .OR. DA.EQ.ONE) RETURN
       IF (INCX.EQ.1) THEN
@@ -105,7 +105,7 @@
 *        code for increment equal to 1
 *
          DO I = 1,N
-            ZX(I) = CMPLX(DA*DBLE(ZX(I)),DA*IMAGPART(ZX(I)))
+            ZX(I) = CMPLX(DA*REAL(ZX(I)),DA*IMAGPART(ZX(I)))
          END DO
       ELSE
 *
@@ -113,7 +113,7 @@
 *
          NINCX = N*INCX
          DO I = 1,NINCX,INCX
-            ZX(I) = CMPLX(DA*DBLE(ZX(I)),DA*IMAGPART(ZX(I)))
+            ZX(I) = CMPLX(DA*REAL(ZX(I)),DA*IMAGPART(ZX(I)))
          END DO
       END IF
       RETURN

@@ -169,7 +169,7 @@
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -203,7 +203,7 @@
                DO 10 I = MAX( 1, J-KD ), J - 1
                   AB( KD+1+I-J, J ) = CJ*S( I )*AB( KD+1+I-J, J )
    10          CONTINUE
-               AB( KD+1, J ) = CJ*CJ*DBLE( AB( KD+1, J ) )
+               AB( KD+1, J ) = CJ*CJ*REAL( AB( KD+1, J ) )
    20       CONTINUE
          ELSE
 *
@@ -211,7 +211,7 @@
 *
             DO 40 J = 1, N
                CJ = S( J )
-               AB( 1, J ) = CJ*CJ*DBLE( AB( 1, J ) )
+               AB( 1, J ) = CJ*CJ*REAL( AB( 1, J ) )
                DO 30 I = J + 1, MIN( N, J+KD )
                   AB( 1+I-J, J ) = CJ*S( I )*AB( 1+I-J, J )
    30          CONTINUE

@@ -148,7 +148,7 @@
       EXTERNAL           ZCOPY
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART
 *     ..
 *     .. Save statement ..
       SAVE
@@ -158,7 +158,7 @@
       SAFMIN = DLAMCH( 'Safe minimum' )
       IF( KASE.EQ.0 ) THEN
          DO 10 I = 1, N
-            X( I ) = CMPLX( ONE / DBLE( N ) )
+            X( I ) = CMPLX( ONE / REAL( N ) )
    10    CONTINUE
          KASE = 1
          JUMP = 1
@@ -182,7 +182,7 @@
       DO 30 I = 1, N
          ABSXI = ABS( X( I ) )
          IF( ABSXI.GT.SAFMIN ) THEN
-            X( I ) = CMPLX( DBLE( X( I ) ) / ABSXI,
+            X( I ) = CMPLX( REAL( X( I ) ) / ABSXI,
      $               IMAGPART( X( I ) ) / ABSXI )
          ELSE
             X( I ) = CONE
@@ -225,7 +225,7 @@
       DO 80 I = 1, N
          ABSXI = ABS( X( I ) )
          IF( ABSXI.GT.SAFMIN ) THEN
-            X( I ) = CMPLX( DBLE( X( I ) ) / ABSXI,
+            X( I ) = CMPLX( REAL( X( I ) ) / ABSXI,
      $               IMAGPART( X( I ) ) / ABSXI )
          ELSE
             X( I ) = CONE
@@ -252,7 +252,7 @@
   100 CONTINUE
       ALTSGN = ONE
       DO 110 I = 1, N
-         X( I ) = CMPLX( ALTSGN*( ONE+DBLE( I-1 ) / DBLE( N-1 ) ) )
+         X( I ) = CMPLX( ALTSGN*( ONE+REAL( I-1 ) / REAL( N-1 ) ) )
          ALTSGN = -ALTSGN
   110 CONTINUE
       KASE = 1
@@ -263,7 +263,7 @@
 *     X HAS BEEN OVERWRITTEN BY A*X.
 *
   120 CONTINUE
-      TEMP = TWO*( DZSUM1( N, X, 1 ) / DBLE( 3*N ) )
+      TEMP = TWO*( DZSUM1( N, X, 1 ) / REAL( 3*N ) )
       IF( TEMP.GT.EST ) THEN
          CALL ZCOPY( N, X, 1, V, 1 )
          EST = TEMP

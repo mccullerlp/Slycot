@@ -297,7 +297,7 @@
       EXTERNAL           DGEMM, DLASDT, XERBLA, ZCOPY, ZLALS0
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, IMAGPART
+      INTRINSIC          REAL, CMPLX, IMAGPART
 *     ..
 *     .. Executable Statements ..
 *
@@ -374,7 +374,7 @@
          DO 20 JCOL = 1, NRHS
             DO 10 JROW = NLF, NLF + NL - 1
                J = J + 1
-               RWORK( J ) = DBLE( B( JROW, JCOL ) )
+               RWORK( J ) = REAL( B( JROW, JCOL ) )
    10       CONTINUE
    20    CONTINUE
          CALL DGEMM( 'T', 'N', NL, NRHS, NL, ONE, U( NLF, 1 ), LDU,
@@ -410,7 +410,7 @@
          DO 80 JCOL = 1, NRHS
             DO 70 JROW = NRF, NRF + NR - 1
                J = J + 1
-               RWORK( J ) = DBLE( B( JROW, JCOL ) )
+               RWORK( J ) = REAL( B( JROW, JCOL ) )
    70       CONTINUE
    80    CONTINUE
          CALL DGEMM( 'T', 'N', NR, NRHS, NR, ONE, U( NRF, 1 ), LDU,
@@ -557,7 +557,7 @@
          DO 210 JCOL = 1, NRHS
             DO 200 JROW = NLF, NLF + NLP1 - 1
                J = J + 1
-               RWORK( J ) = DBLE( B( JROW, JCOL ) )
+               RWORK( J ) = REAL( B( JROW, JCOL ) )
   200       CONTINUE
   210    CONTINUE
          CALL DGEMM( 'T', 'N', NLP1, NRHS, NLP1, ONE, VT( NLF, 1 ), LDU,
@@ -594,7 +594,7 @@
          DO 270 JCOL = 1, NRHS
             DO 260 JROW = NRF, NRF + NRP1 - 1
                J = J + 1
-               RWORK( J ) = DBLE( B( JROW, JCOL ) )
+               RWORK( J ) = REAL( B( JROW, JCOL ) )
   260       CONTINUE
   270    CONTINUE
          CALL DGEMM( 'T', 'N', NRP1, NRHS, NRP1, ONE, VT( NRF, 1 ), LDU,

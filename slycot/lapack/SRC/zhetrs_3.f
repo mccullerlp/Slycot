@@ -196,7 +196,7 @@
       EXTERNAL           ZDSCAL, ZSWAP, ZTRSM, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG, MAX
+      INTRINSIC          ABS, REAL, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -254,7 +254,7 @@
          I = N
          DO WHILE ( I.GE.1 )
             IF( IPIV( I ).GT.0 ) THEN
-               S = DBLE( ONE ) / DBLE( A( I, I ) )
+               S = REAL( ONE ) / REAL( A( I, I ) )
                CALL ZDSCAL( NRHS, S, B( I, 1 ), LDB )
             ELSE IF ( I.GT.1 ) THEN
                AKM1K = E( I )
@@ -322,7 +322,7 @@
          I = 1
          DO WHILE ( I.LE.N )
             IF( IPIV( I ).GT.0 ) THEN
-               S = DBLE( ONE ) / DBLE( A( I, I ) )
+               S = REAL( ONE ) / REAL( A( I, I ) )
                CALL ZDSCAL( NRHS, S, B( I, 1 ), LDB )
             ELSE IF( I.LT.N ) THEN
                AKM1K = E( I )

@@ -124,7 +124,7 @@
       REAL*10   RMAX
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, IMAGPART, CMPLX
+      INTRINSIC          REAL, IMAGPART, CMPLX
 *     ..
 *     .. External Functions ..
       REAL               SLAMCH
@@ -135,8 +135,8 @@
       RMAX = SLAMCH( 'O' )
       DO 20 J = 1, N
          DO 10 I = 1, M
-            IF( ( DBLE( A( I, J ) ).LT.-RMAX ) .OR.
-     $          ( DBLE( A( I, J ) ).GT.RMAX ) .OR.
+            IF( ( REAL( A( I, J ) ).LT.-RMAX ) .OR.
+     $          ( REAL( A( I, J ) ).GT.RMAX ) .OR.
      $          ( IMAGPART( A( I, J ) ).LT.-RMAX ) .OR.
      $          ( IMAGPART( A( I, J ) ).GT.RMAX ) ) THEN
                INFO = 1

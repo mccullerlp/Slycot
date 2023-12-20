@@ -183,13 +183,13 @@
       EXTERNAL           DLASV2, ZLARTG
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( T ) = ABS( DBLE( T ) ) + ABS( IMAGPART( T ) )
+      ABS1( T ) = ABS( REAL( T ) ) + ABS( IMAGPART( T ) )
 *     ..
 *     .. Executable Statements ..
 *

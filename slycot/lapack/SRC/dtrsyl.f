@@ -199,7 +199,7 @@
       EXTERNAL           DLABAD, DLALN2, DLASY2, DSCAL, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN
+      INTRINSIC          ABS, REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -245,7 +245,7 @@
       SMLNUM = DLAMCH( 'S' )
       BIGNUM = ONE / SMLNUM
       CALL DLABAD( SMLNUM, BIGNUM )
-      SMLNUM = SMLNUM*DBLE( M*N ) / EPS
+      SMLNUM = SMLNUM*REAL( M*N ) / EPS
       BIGNUM = ONE / SMLNUM
 *
       SMIN = MAX( SMLNUM, EPS*DLANGE( 'M', M, M, A, LDA, DUM ),

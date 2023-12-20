@@ -194,7 +194,7 @@
       EXTERNAL           DLABAD, XERBLA, ZDSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, MIN
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -238,7 +238,7 @@
       SMLNUM = DLAMCH( 'S' )
       BIGNUM = ONE / SMLNUM
       CALL DLABAD( SMLNUM, BIGNUM )
-      SMLNUM = SMLNUM*DBLE( M*N ) / EPS
+      SMLNUM = SMLNUM*REAL( M*N ) / EPS
       BIGNUM = ONE / SMLNUM
       SMIN = MAX( SMLNUM, EPS*ZLANGE( 'M', M, M, A, LDA, DUM ),
      $       EPS*ZLANGE( 'M', N, N, B, LDB, DUM ) )
@@ -268,13 +268,13 @@
 *
                SCALOC = ONE
                A11 = A( K, K ) + SGN*B( L, L )
-               DA11 = ABS( DBLE( A11 ) ) + ABS( IMAGPART( A11 ) )
+               DA11 = ABS( REAL( A11 ) ) + ABS( IMAGPART( A11 ) )
                IF( DA11.LE.SMIN ) THEN
                   A11 = SMIN
                   DA11 = SMIN
                   INFO = 1
                END IF
-               DB = ABS( DBLE( VEC ) ) + ABS( IMAGPART( VEC ) )
+               DB = ABS( REAL( VEC ) ) + ABS( IMAGPART( VEC ) )
                IF( DA11.LT.ONE .AND. DB.GT.ONE ) THEN
                   IF( DB.GT.BIGNUM*DA11 )
      $               SCALOC = ONE / DB
@@ -315,13 +315,13 @@
 *
                SCALOC = ONE
                A11 = CONJG( A( K, K ) ) + SGN*B( L, L )
-               DA11 = ABS( DBLE( A11 ) ) + ABS( IMAGPART( A11 ) )
+               DA11 = ABS( REAL( A11 ) ) + ABS( IMAGPART( A11 ) )
                IF( DA11.LE.SMIN ) THEN
                   A11 = SMIN
                   DA11 = SMIN
                   INFO = 1
                END IF
-               DB = ABS( DBLE( VEC ) ) + ABS( IMAGPART( VEC ) )
+               DB = ABS( REAL( VEC ) ) + ABS( IMAGPART( VEC ) )
                IF( DA11.LT.ONE .AND. DB.GT.ONE ) THEN
                   IF( DB.GT.BIGNUM*DA11 )
      $               SCALOC = ONE / DB
@@ -367,13 +367,13 @@
 *
                SCALOC = ONE
                A11 = CONJG( A( K, K )+SGN*B( L, L ) )
-               DA11 = ABS( DBLE( A11 ) ) + ABS( IMAGPART( A11 ) )
+               DA11 = ABS( REAL( A11 ) ) + ABS( IMAGPART( A11 ) )
                IF( DA11.LE.SMIN ) THEN
                   A11 = SMIN
                   DA11 = SMIN
                   INFO = 1
                END IF
-               DB = ABS( DBLE( VEC ) ) + ABS( IMAGPART( VEC ) )
+               DB = ABS( REAL( VEC ) ) + ABS( IMAGPART( VEC ) )
                IF( DA11.LT.ONE .AND. DB.GT.ONE ) THEN
                   IF( DB.GT.BIGNUM*DA11 )
      $               SCALOC = ONE / DB
@@ -417,13 +417,13 @@
 *
                SCALOC = ONE
                A11 = A( K, K ) + SGN*CONJG( B( L, L ) )
-               DA11 = ABS( DBLE( A11 ) ) + ABS( IMAGPART( A11 ) )
+               DA11 = ABS( REAL( A11 ) ) + ABS( IMAGPART( A11 ) )
                IF( DA11.LE.SMIN ) THEN
                   A11 = SMIN
                   DA11 = SMIN
                   INFO = 1
                END IF
-               DB = ABS( DBLE( VEC ) ) + ABS( IMAGPART( VEC ) )
+               DB = ABS( REAL( VEC ) ) + ABS( IMAGPART( VEC ) )
                IF( DA11.LT.ONE .AND. DB.GT.ONE ) THEN
                   IF( DB.GT.BIGNUM*DA11 )
      $               SCALOC = ONE / DB

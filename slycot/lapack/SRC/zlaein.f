@@ -186,13 +186,13 @@
       EXTERNAL           ZDSCAL, ZLATRS
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX, SQRT
+      INTRINSIC          ABS, REAL, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -201,7 +201,7 @@
 *     GROWTO is the threshold used in the acceptance test for an
 *     eigenvector.
 *
-      ROOTN = SQRT( DBLE( N ) )
+      ROOTN = SQRT( REAL( N ) )
       GROWTO = TENTH / ROOTN
       NRMSML = MAX( ONE, EPS3*ROOTN )*SMLNUM
 *

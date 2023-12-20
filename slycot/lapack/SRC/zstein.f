@@ -225,7 +225,7 @@
       EXTERNAL           DCOPY, DLAGTF, DLAGTS, DLARNV, DSCAL, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, MAX, SQRT
+      INTRINSIC          ABS, REAL, CMPLX, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -402,11 +402,11 @@
                   ZTR = ZERO
                   DO 80 JR = 1, BLKSIZ
                      ZTR = ZTR + WORK( INDRV1+JR )*
-     $                     DBLE( Z( B1-1+JR, I ) )
+     $                     REAL( Z( B1-1+JR, I ) )
    80             CONTINUE
                   DO 90 JR = 1, BLKSIZ
                      WORK( INDRV1+JR ) = WORK( INDRV1+JR ) -
-     $                                   ZTR*DBLE( Z( B1-1+JR, I ) )
+     $                                   ZTR*REAL( Z( B1-1+JR, I ) )
    90             CONTINUE
   100          CONTINUE
             END IF

@@ -315,7 +315,7 @@
      $                   ZLASET, ZUNG2R, ZUNM2R, ZUNMR2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN
+      INTRINSIC          ABS, REAL, IMAGPART, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *

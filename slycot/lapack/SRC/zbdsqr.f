@@ -272,7 +272,7 @@
      $                   ZDSCAL, ZLASR, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN, SIGN, SQRT
+      INTRINSIC          ABS, REAL, MAX, MIN, SIGN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -388,7 +388,7 @@
      $         GO TO 50
    40    CONTINUE
    50    CONTINUE
-         SMINOA = SMINOA / SQRT( DBLE( N ) )
+         SMINOA = SMINOA / SQRT( REAL( N ) )
          THRESH = MAX( TOL*SMINOA, MAXITR*N*N*UNFL )
       ELSE
 *

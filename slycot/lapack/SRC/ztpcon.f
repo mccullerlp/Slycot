@@ -168,13 +168,13 @@
       EXTERNAL           XERBLA, ZDRSCL, ZLACN2, ZLATPS
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, IMAGPART, MAX
+      INTRINSIC          ABS, REAL, IMAGPART, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -207,7 +207,7 @@
       END IF
 *
       RCOND = ZERO
-      SMLNUM = DLAMCH( 'Safe minimum' )*DBLE( MAX( 1, N ) )
+      SMLNUM = DLAMCH( 'Safe minimum' )*REAL( MAX( 1, N ) )
 *
 *     Compute the norm of the triangular matrix A.
 *

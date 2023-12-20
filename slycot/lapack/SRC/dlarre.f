@@ -683,7 +683,7 @@
          ELSE
             IF(MB.GT.1) THEN
                CLWDTH = W(WEND) + WERR(WEND) - W(WBEGIN) - WERR(WBEGIN)
-               AVGAP = ABS(CLWDTH / DBLE(WEND-WBEGIN))
+               AVGAP = ABS(CLWDTH / REAL(WEND-WBEGIN))
                IF( SGNDEF.EQ.ONE ) THEN
                   TAU = HALF*MAX(WGAP(WBEGIN),AVGAP)
                   TAU = MAX(TAU,WERR(WBEGIN))
@@ -835,7 +835,7 @@
 *           This is an ESTIMATED error, the worst case bound is 4*N*EPS
 *           which is usually too large and requires unnecessary work to be
 *           done by bisection when computing the eigenvectors
-            RTOL = LOG(DBLE(IN)) * FOUR * EPS
+            RTOL = LOG(REAL(IN)) * FOUR * EPS
             J = IBEGIN
             DO 140 I = 1, IN - 1
                WORK( 2*I-1 ) = ABS( D( J ) )

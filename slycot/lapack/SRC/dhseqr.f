@@ -364,7 +364,7 @@
       EXTERNAL           DLACPY, DLAHQR, DLAQR0, DLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -373,7 +373,7 @@
       WANTT = LSAME( JOB, 'S' )
       INITZ = LSAME( COMPZ, 'I' )
       WANTZ = INITZ .OR. LSAME( COMPZ, 'V' )
-      WORK( 1 ) = DBLE( MAX( 1, N ) )
+      WORK( 1 ) = REAL( MAX( 1, N ) )
       LQUERY = LWORK.EQ.-1
 *
       INFO = 0
@@ -416,7 +416,7 @@
      $                IHI, Z, LDZ, WORK, LWORK, INFO )
 *        ==== Ensure reported workspace size is backward-compatible with
 *        .    previous LAPACK versions. ====
-         WORK( 1 ) = MAX( DBLE( MAX( 1, N ) ), WORK( 1 ) )
+         WORK( 1 ) = MAX( REAL( MAX( 1, N ) ), WORK( 1 ) )
          RETURN
 *
       ELSE
@@ -505,7 +505,7 @@
 *        ==== Ensure reported workspace size is backward-compatible with
 *        .    previous LAPACK versions. ====
 *
-         WORK( 1 ) = MAX( DBLE( MAX( 1, N ) ), WORK( 1 ) )
+         WORK( 1 ) = MAX( REAL( MAX( 1, N ) ), WORK( 1 ) )
       END IF
 *
 *     ==== End of DHSEQR ====

@@ -123,7 +123,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZHPR, ZTPMV, ZTPTRI
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE
+      INTRINSIC          REAL
 *     ..
 *     .. Executable Statements ..
 *
@@ -161,7 +161,7 @@
             JJ = JJ + J
             IF( J.GT.1 )
      $         CALL ZHPR( 'Upper', J-1, ONE, AP( JC ), 1, AP )
-            AJJ = DBLE( AP( JJ ) )
+            AJJ = REAL( AP( JJ ) )
             CALL ZDSCAL( J, AJJ, AP( JC ), 1 )
    10    CONTINUE
 *
@@ -172,7 +172,7 @@
          JJ = 1
          DO 20 J = 1, N
             JJN = JJ + N - J + 1
-            AP( JJ ) = DBLE( ZDOTC( N-J+1, AP( JJ ), 1, AP( JJ ), 1 ) )
+            AP( JJ ) = REAL( ZDOTC( N-J+1, AP( JJ ), 1, AP( JJ ), 1 ) )
             IF( J.LT.N )
      $         CALL ZTPMV( 'Lower', 'Conjugate transpose', 'Non-unit',
      $                     N-J, AP( JJN ), AP( JJ+1 ), 1 )

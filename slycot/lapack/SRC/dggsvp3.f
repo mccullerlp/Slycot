@@ -365,7 +365,7 @@
          CALL DGEQP3( M, N, A, LDA, IWORK, TAU, WORK, -1, INFO )
          LWKOPT = MAX( LWKOPT, INT( WORK ( 1 ) ) )
          LWKOPT = MAX( 1, LWKOPT )
-         WORK( 1 ) = DBLE( LWKOPT )
+         WORK( 1 ) = REAL( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -560,7 +560,7 @@
 *
       END IF
 *
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
       RETURN
 *
 *     End of DGGSVP3

@@ -232,7 +232,7 @@
       EXTERNAL           ZLACPY, ZLARTG, ZLASSQ, ZROT
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG, MAX, SQRT
+      INTRINSIC          ABS, REAL, CONJG, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -256,14 +256,14 @@
 *
       EPS = DLAMCH( 'P' )
       SMLNUM = DLAMCH( 'S' ) / EPS
-      SCALE = DBLE( CZERO )
-      SUM = DBLE( CONE )
+      SCALE = REAL( CZERO )
+      SUM = REAL( CONE )
       CALL ZLACPY( 'Full', M, M, S, LDST, WORK, M )
       CALL ZLACPY( 'Full', M, M, T, LDST, WORK( M*M+1 ), M )
       CALL ZLASSQ( M*M, WORK, 1, SCALE, SUM )
       SA = SCALE*SQRT( SUM )
-      SCALE = DBLE( CZERO )
-      SUM = DBLE( CONE )
+      SCALE = REAL( CZERO )
+      SUM = REAL( CONE )
       CALL ZLASSQ( M*M, WORK(M*M+1), 1, SCALE, SUM )
       SB = SCALE*SQRT( SUM )
 *
@@ -324,12 +324,12 @@
             WORK( I+4 ) = WORK( I+4 ) - B( J1+I-1, J1 )
             WORK( I+6 ) = WORK( I+6 ) - B( J1+I-1, J1+1 )
    10    CONTINUE
-         SCALE = DBLE( CZERO )
-         SUM = DBLE( CONE )
+         SCALE = REAL( CZERO )
+         SUM = REAL( CONE )
          CALL ZLASSQ( M*M, WORK, 1, SCALE, SUM )
          SA = SCALE*SQRT( SUM )
-         SCALE = DBLE( CZERO )
-         SUM = DBLE( CONE )
+         SCALE = REAL( CZERO )
+         SUM = REAL( CONE )
          CALL ZLASSQ( M*M, WORK(M*M+1), 1, SCALE, SUM )
          SB = SCALE*SQRT( SUM )
          STRONG = SA.LE.THRESHA .AND. SB.LE.THRESHB

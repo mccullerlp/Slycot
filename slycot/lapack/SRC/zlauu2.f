@@ -132,7 +132,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZGEMV, ZLACGV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, MAX
+      INTRINSIC          REAL, CMPLX, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -162,9 +162,9 @@
 *        Compute the product U * U**H.
 *
          DO 10 I = 1, N
-            AII = DBLE( A( I, I ) )
+            AII = REAL( A( I, I ) )
             IF( I.LT.N ) THEN
-               A( I, I ) = AII*AII + DBLE( ZDOTC( N-I, A( I, I+1 ), LDA,
+               A( I, I ) = AII*AII + REAL( ZDOTC( N-I, A( I, I+1 ), LDA,
      $                     A( I, I+1 ), LDA ) )
                CALL ZLACGV( N-I, A( I, I+1 ), LDA )
                CALL ZGEMV( 'No transpose', I-1, N-I, ONE, A( 1, I+1 ),
@@ -181,9 +181,9 @@
 *        Compute the product L**H * L.
 *
          DO 20 I = 1, N
-            AII = DBLE( A( I, I ) )
+            AII = REAL( A( I, I ) )
             IF( I.LT.N ) THEN
-               A( I, I ) = AII*AII + DBLE( ZDOTC( N-I, A( I+1, I ), 1,
+               A( I, I ) = AII*AII + REAL( ZDOTC( N-I, A( I+1, I ), 1,
      $                     A( I+1, I ), 1 ) )
                CALL ZLACGV( I-1, A( I, 1 ), LDA )
                CALL ZGEMV( 'Conjugate transpose', N-I, I-1, ONE,

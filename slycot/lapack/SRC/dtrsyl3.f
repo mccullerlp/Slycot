@@ -215,7 +215,7 @@
       EXTERNAL           DGEMM, DLASCL, DSCAL, DTRSYL, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, EXPONENT, MAX, MIN
+      INTRINSIC          ABS, REAL, EXPONENT, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -412,7 +412,7 @@
          END DO
       END DO
 *
-      SGN = DBLE( ISGN )
+      SGN = REAL( ISGN )
 *
       IF( NOTRNA .AND. NOTRNB ) THEN
 *

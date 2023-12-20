@@ -468,7 +468,7 @@
 *     Force HUGEVAL to Inf
       HUGEVAL = HUGEVAL * HUGEVAL
 *     Using HUGEVAL may lead to spurious underflows.
-      INCR_THRESH = DBLE( N ) * EPS
+      INCR_THRESH = REAL( N ) * EPS
 *
       DO J = 1, NRHS
          Y_PREC_STATE = EXTRA_RESIDUAL

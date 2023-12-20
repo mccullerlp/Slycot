@@ -376,7 +376,7 @@
      $                   ZSWAP, ZHETRD_HB2ST
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN, SQRT
+      INTRINSIC          REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -460,13 +460,13 @@
          ELSE
             CTMP1 = AB( KD+1, 1 )
          END IF
-         TMP1 = DBLE( CTMP1 )
+         TMP1 = REAL( CTMP1 )
          IF( VALEIG ) THEN
             IF( .NOT.( VL.LT.TMP1 .AND. VU.GE.TMP1 ) )
      $         M = 0
          END IF
          IF( M.EQ.1 ) THEN
-            W( 1 ) = DBLE( CTMP1 )
+            W( 1 ) = REAL( CTMP1 )
             IF( WANTZ )
      $         Z( 1, 1 ) = CONE
          END IF

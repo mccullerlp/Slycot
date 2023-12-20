@@ -334,7 +334,7 @@
       EXTERNAL           LSAME, IDAMAX, ILAENV, DLAMCH, DZNRM2, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, CONJG, AIMAG, MAX, SQRT
+      INTRINSIC          REAL, CMPLX, CONJG, AIMAG, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -609,13 +609,13 @@
             SCL = ONE / DZNRM2( N, VL( 1, I ), 1 )
             CALL ZDSCAL( N, SCL, VL( 1, I ), 1 )
             DO 10 K = 1, N
-               RWORK( K ) = DBLE( VL( K, I ) )**2 +
+               RWORK( K ) = REAL( VL( K, I ) )**2 +
      $                      AIMAG( VL( K, I ) )**2
    10       CONTINUE
             K = IDAMAX( N, RWORK, 1 )
             TMP = CONJG( VL( K, I ) ) / SQRT( RWORK( K ) )
             CALL ZSCAL( N, TMP, VL( 1, I ), 1 )
-            VL( K, I ) = CMPLX( DBLE( VL( K, I ) ), ZERO )
+            VL( K, I ) = CMPLX( REAL( VL( K, I ) ), ZERO )
    20    CONTINUE
       END IF
 *
@@ -632,13 +632,13 @@
             SCL = ONE / DZNRM2( N, VR( 1, I ), 1 )
             CALL ZDSCAL( N, SCL, VR( 1, I ), 1 )
             DO 30 K = 1, N
-               RWORK( K ) = DBLE( VR( K, I ) )**2 +
+               RWORK( K ) = REAL( VR( K, I ) )**2 +
      $                      AIMAG( VR( K, I ) )**2
    30       CONTINUE
             K = IDAMAX( N, RWORK, 1 )
             TMP = CONJG( VR( K, I ) ) / SQRT( RWORK( K ) )
             CALL ZSCAL( N, TMP, VR( 1, I ), 1 )
-            VR( K, I ) = CMPLX( DBLE( VR( K, I ) ), ZERO )
+            VR( K, I ) = CMPLX( REAL( VR( K, I ) ), ZERO )
    40    CONTINUE
       END IF
 *

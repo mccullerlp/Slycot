@@ -273,7 +273,7 @@
       EXTERNAL           ZHB2ST_KERNELS, ZLACPY, ZLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          MIN, MAX, CEILING, DBLE, REAL
+      INTRINSIC          MIN, MAX, CEILING, REAL, REAL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -375,7 +375,7 @@
 *
       IF( KD.EQ.0 ) THEN
           DO 30 I = 1, N
-              D( I ) = DBLE( AB( ABDPOS, I ) )
+              D( I ) = REAL( AB( ABDPOS, I ) )
    30     CONTINUE
           DO 40 I = 1, N-1
               E( I ) = RZERO
@@ -398,7 +398,7 @@
 *      
       IF( KD.EQ.1 ) THEN
           DO 50 I = 1, N
-              D( I ) = DBLE( AB( ABDPOS, I ) )
+              D( I ) = REAL( AB( ABDPOS, I ) )
    50     CONTINUE
 *
 *         make off-diagonal elements real and copy them to E
@@ -559,7 +559,7 @@ C                 END IF
 *     the Real part is needed, the imaginary part should be zero.
 *
       DO 150 I = 1, N
-          D( I ) = DBLE( WORK( DPOS+(I-1)*LDA ) )
+          D( I ) = REAL( WORK( DPOS+(I-1)*LDA ) )
   150 CONTINUE
 *      
 *     Copy the off diagonal from A to E. Note that E is REAL thus only
@@ -567,11 +567,11 @@ C                 END IF
 *
       IF( UPPER ) THEN
           DO 160 I = 1, N-1
-             E( I ) = DBLE( WORK( OFDPOS+I*LDA ) )
+             E( I ) = REAL( WORK( OFDPOS+I*LDA ) )
   160     CONTINUE
       ELSE
           DO 170 I = 1, N-1
-             E( I ) = DBLE( WORK( OFDPOS+(I-1)*LDA ) )
+             E( I ) = REAL( WORK( OFDPOS+(I-1)*LDA ) )
   170     CONTINUE
       ENDIF
 *

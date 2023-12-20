@@ -267,7 +267,7 @@
      $                   DGEMV, DTRMV, DLACPY, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX
+      INTRINSIC          REAL, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -276,7 +276,7 @@
       INFO = 0
       NB = ILAENV( 1, 'DGGHD3', ' ', N, ILO, IHI, -1 )
       LWKOPT = MAX( 6*N*NB, 1 )
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
       INITQ = LSAME( COMPQ, 'I' )
       WANTQ = INITQ .OR. LSAME( COMPQ, 'V' )
       INITZ = LSAME( COMPZ, 'I' )
@@ -885,7 +885,7 @@
       IF ( JCOL.LT.IHI )
      $   CALL DGGHRD( COMPQ2, COMPZ2, N, JCOL, IHI, A, LDA, B, LDB, Q,
      $                LDQ, Z, LDZ, IERR )
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
 *
       RETURN
 *

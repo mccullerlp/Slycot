@@ -178,7 +178,7 @@
       EXTERNAL           ZDSCAL, ZGEMV, ZLACGV, ZSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CONJG, MAX, SQRT
+      INTRINSIC          REAL, CONJG, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -212,10 +212,10 @@
 *     Compute stopping value
 *
       DO 110 I = 1, N
-         WORK( I ) = DBLE( A( I, I ) )
+         WORK( I ) = REAL( A( I, I ) )
   110 CONTINUE
       PVT = MAXLOC( WORK( 1:N ), 1 )
-      AJJ = DBLE( A( PVT, PVT ) )
+      AJJ = REAL( A( PVT, PVT ) )
       IF( AJJ.LE.ZERO.OR.DISNAN( AJJ ) ) THEN
          RANK = 0
          INFO = 1
@@ -250,10 +250,10 @@
 *
                IF( J.GT.1 ) THEN
                   WORK( I ) = WORK( I ) +
-     $                        DBLE( CONJG( A( J-1, I ) )*
+     $                        REAL( CONJG( A( J-1, I ) )*
      $                              A( J-1, I ) )
                END IF
-               WORK( N+I ) = DBLE( A( I, I ) ) - WORK( I )
+               WORK( N+I ) = REAL( A( I, I ) ) - WORK( I )
 *
   130       CONTINUE
 *
@@ -322,10 +322,10 @@
 *
                IF( J.GT.1 ) THEN
                   WORK( I ) = WORK( I ) +
-     $                        DBLE( CONJG( A( I, J-1 ) )*
+     $                        REAL( CONJG( A( I, J-1 ) )*
      $                              A( I, J-1 ) )
                END IF
-               WORK( N+I ) = DBLE( A( I, I ) ) - WORK( I )
+               WORK( N+I ) = REAL( A( I, I ) ) - WORK( I )
 *
   160       CONTINUE
 *

@@ -297,7 +297,7 @@
      $                   ZSTEDC, ZUNMTR, ZHETRD_2STAGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, SQRT 
+      INTRINSIC          REAL, MAX, SQRT 
 *     ..
 *     .. Executable Statements ..
 *
@@ -368,7 +368,7 @@
      $   RETURN
 *
       IF( N.EQ.1 ) THEN
-         W( 1 ) = DBLE( A( 1, 1 ) )
+         W( 1 ) = REAL( A( 1, 1 ) )
          IF( WANTZ )
      $      A( 1, 1 ) = CONE
          RETURN

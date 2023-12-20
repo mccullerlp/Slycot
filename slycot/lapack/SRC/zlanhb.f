@@ -161,7 +161,7 @@
       EXTERNAL           ZLASSQ
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -178,12 +178,12 @@
                   SUM = ABS( AB( I, J ) )
                   IF( VALUE .LT. SUM .OR. DISNAN( SUM ) ) VALUE = SUM
    10          CONTINUE
-               SUM = ABS( DBLE( AB( K+1, J ) ) )
+               SUM = ABS( REAL( AB( K+1, J ) ) )
                IF( VALUE .LT. SUM .OR. DISNAN( SUM ) ) VALUE = SUM
    20       CONTINUE
          ELSE
             DO 40 J = 1, N
-               SUM = ABS( DBLE( AB( 1, J ) ) )
+               SUM = ABS( REAL( AB( 1, J ) ) )
                IF( VALUE .LT. SUM .OR. DISNAN( SUM ) ) VALUE = SUM
                DO 30 I = 2, MIN( N+1-J, K+1 )
                   SUM = ABS( AB( I, J ) )
@@ -206,7 +206,7 @@
                   SUM = SUM + ABSA
                   WORK( I ) = WORK( I ) + ABSA
    50          CONTINUE
-               WORK( J ) = SUM + ABS( DBLE( AB( K+1, J ) ) )
+               WORK( J ) = SUM + ABS( REAL( AB( K+1, J ) ) )
    60       CONTINUE
             DO 70 I = 1, N
                SUM = WORK( I )
@@ -217,7 +217,7 @@
                WORK( I ) = ZERO
    80       CONTINUE
             DO 100 J = 1, N
-               SUM = WORK( J ) + ABS( DBLE( AB( 1, J ) ) )
+               SUM = WORK( J ) + ABS( REAL( AB( 1, J ) ) )
                L = 1 - J
                DO 90 I = J + 1, MIN( N, J+K )
                   ABSA = ABS( AB( L+I, J ) )
@@ -252,8 +252,8 @@
             L = 1
          END IF
          DO 130 J = 1, N
-            IF( DBLE( AB( L, J ) ).NE.ZERO ) THEN
-               ABSA = ABS( DBLE( AB( L, J ) ) )
+            IF( REAL( AB( L, J ) ).NE.ZERO ) THEN
+               ABSA = ABS( REAL( AB( L, J ) ) )
                IF( SCALE.LT.ABSA ) THEN
                   SUM = ONE + SUM*( SCALE / ABSA )**2
                   SCALE = ABSA

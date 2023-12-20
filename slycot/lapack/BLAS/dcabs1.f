@@ -56,9 +56,9 @@
 *  =====================================================================
 *
 *     .. Intrinsic Functions ..
-      INTRINSIC ABS,DBLE,IMAGPART
+      INTRINSIC ABS,REAL,IMAGPART
 *
-      DCABS1 = ABS(DBLE(Z)) + ABS(IMAGPART(Z))
+      DCABS1 = ABS(REAL(Z)) + ABS(IMAGPART(Z))
       RETURN
 *
 *     End of DCABS1

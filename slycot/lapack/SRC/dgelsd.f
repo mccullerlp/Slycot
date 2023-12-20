@@ -243,7 +243,7 @@
       EXTERNAL           ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, INT, LOG, MAX, MIN
+      INTRINSIC          REAL, INT, LOG, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -278,7 +278,7 @@
       MINWRK = 1
       LIWORK = 1
       MINMN = MAX( 1, MINMN )
-      NLVL = MAX( INT( LOG( DBLE( MINMN ) / DBLE( SMLSIZ+1 ) ) /
+      NLVL = MAX( INT( LOG( REAL( MINMN ) / REAL( SMLSIZ+1 ) ) /
      $       LOG( TWO ) ) + 1, 0 )
 *
       IF( INFO.EQ.0 ) THEN

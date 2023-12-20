@@ -312,7 +312,7 @@
      $                   DTREXC
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, INT, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, INT, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -348,7 +348,7 @@
 *     ==== Quick return in case of workspace query. ====
 *
       IF( LWORK.EQ.-1 ) THEN
-         WORK( 1 ) = DBLE( LWKOPT )
+         WORK( 1 ) = REAL( LWKOPT )
          RETURN
       END IF
 *
@@ -369,7 +369,7 @@
       SAFMAX = ONE / SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( N ) / ULP )
+      SMLNUM = SAFMIN*( REAL( N ) / ULP )
 *
 *     ==== Setup deflation window ====
 *
@@ -685,7 +685,7 @@
 *
 *      ==== Return optimal workspace. ====
 *
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
 *
 *     ==== End of DLAQR3 ====
 *

@@ -165,7 +165,7 @@
       EXTERNAL     ZLAHEF_AA, ZGEMM, ZGEMV, ZCOPY, ZSCAL, ZSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC    DBLE, CONJG, MAX
+      INTRINSIC    REAL, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -207,7 +207,7 @@
       ENDIF
       IPIV( 1 ) = 1
       IF ( N.EQ.1 ) THEN
-         A( 1, 1 ) = DBLE( A( 1, 1 ) )
+         A( 1, 1 ) = REAL( A( 1, 1 ) )
          RETURN
       END IF
 *

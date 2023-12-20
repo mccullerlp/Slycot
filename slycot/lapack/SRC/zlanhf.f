@@ -275,7 +275,7 @@
       EXTERNAL           ZLASSQ
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, SQRT
+      INTRINSIC          ABS, REAL, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -283,7 +283,7 @@
          ZLANHF = ZERO
          RETURN
       ELSE IF( N.EQ.1 ) THEN
-         ZLANHF = ABS(DBLE(A(0)))
+         ZLANHF = ABS(REAL(A(0)))
          RETURN
       END IF
 *
@@ -335,7 +335,7 @@
 *                 uplo ='L'
                   J = 0
 *                 -> L(0,0)
-                  TEMP = ABS( DBLE( A( J+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( J+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
                   DO I = 1, N - 1
@@ -351,12 +351,12 @@
                      END DO
                      I = J - 1
 *                    L(k+j,k+j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = J
 *                    -> L(j,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = J + 1, N - 1
@@ -375,12 +375,12 @@
                      END DO
                      I = K + J - 1
 *                    -> U(i,i)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = I + 1
 *                    =k+j; i -> U(j,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = K + J + 1, N - 1
@@ -396,7 +396,7 @@
 *                    j=k-1
                   END DO
 *                 i=n-1 -> U(n-1,n-1)
-                  TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( I+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
                END IF
@@ -412,12 +412,12 @@
                      END DO
                      I = J
 *                    L(i,i)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = J + 1
 *                    L(j+k,j+k)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = J + 2, K - 1
@@ -434,7 +434,7 @@
                   END DO
                   I = K - 1
 *                 -> L(i,i) is at A(i,j)
-                  TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                   DO J = K, N - 1
@@ -455,7 +455,7 @@
                   END DO
                   J = K - 1
 *                 -> U(j,j) is at A(0,j)
-                  TEMP = ABS( DBLE( A( 0+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( 0+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                   DO I = 1, K - 1
@@ -471,12 +471,12 @@
                      END DO
                      I = J - K
 *                    -> U(i,i) at A(i,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = J - K + 1
 *                    U(j,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = J - K + 2, K - 1
@@ -495,10 +495,10 @@
 *                 uplo ='L'
                   J = 0
 *                 -> L(k,k) & j=1 -> L(0,0)
-                  TEMP = ABS( DBLE( A( J+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( J+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
-                  TEMP = ABS( DBLE( A( J+1+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( J+1+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
                   DO I = 2, N
@@ -514,12 +514,12 @@
                      END DO
                      I = J
 *                    L(k+j,k+j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = J + 1
 *                    -> L(j,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = J + 2, N
@@ -538,12 +538,12 @@
                      END DO
                      I = K + J
 *                    -> U(i,i)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = I + 1
 *                    =k+j+1; i -> U(j,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = K + J + 2, N
@@ -559,12 +559,12 @@
 *                    j=k-1
                   END DO
 *                 i=n-1 -> U(n-1,n-1)
-                  TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                   I = N
 *                 -> U(k-1,k-1)
-                  TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                END IF
@@ -574,7 +574,7 @@
 *                 uplo ='L'
                   J = 0
 *                 -> L(k,k) at A(0,0)
-                  TEMP = ABS( DBLE( A( J+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( J+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                   DO I = 1, K - 1
@@ -590,12 +590,12 @@
                      END DO
                      I = J - 1
 *                    L(i,i)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = J
 *                    L(j+k,j+k)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = J + 1, K - 1
@@ -612,7 +612,7 @@
                   END DO
                   I = K - 1
 *                 -> L(i,i) is at A(i,j)
-                  TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( I+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
                   DO J = K + 1, N
@@ -633,7 +633,7 @@
                   END DO
                   J = K
 *                 -> U(j,j) is at A(0,j)
-                  TEMP = ABS( DBLE( A( 0+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( 0+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
                   DO I = 1, K - 1
@@ -649,12 +649,12 @@
                      END DO
                      I = J - K - 1
 *                    -> U(i,i) at A(i,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      I = J - K
 *                    U(j,j)
-                     TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                     TEMP = ABS( REAL( A( I+J*LDA ) ) )
                      IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                    VALUE = TEMP
                      DO I = J - K + 1, K - 1
@@ -671,7 +671,7 @@
                   END DO
                   I = K - 1
 *                 U(k,k) at A(i,j)
-                  TEMP = ABS( DBLE( A( I+J*LDA ) ) )
+                  TEMP = ABS( REAL( A( I+J*LDA ) ) )
                   IF( VALUE .LT. TEMP .OR. DISNAN( TEMP ) )
      $                 VALUE = TEMP
                END IF
@@ -700,13 +700,13 @@
                         S = S + AA
                         WORK( I ) = WORK( I ) + AA
                      END DO
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j+k,j+k)
                      WORK( J+K ) = S + AA
                      IF( I.EQ.K+K )
      $                  GO TO 10
                      I = I + 1
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j,j)
                      WORK( J ) = WORK( J ) + AA
                      S = ZERO
@@ -742,14 +742,14 @@
                         WORK( I+K ) = WORK( I+K ) + AA
                      END DO
                      IF( J.GT.0 ) THEN
-                        AA = ABS( DBLE( A( I+J*LDA ) ) )
+                        AA = ABS( REAL( A( I+J*LDA ) ) )
 *                       -> A(j+k,j+k)
                         S = S + AA
                         WORK( I+K ) = WORK( I+K ) + S
 *                       i=j
                         I = I + 1
                      END IF
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j,j)
                      WORK( J ) = AA
                      S = ZERO
@@ -784,11 +784,11 @@
                         S = S + AA
                         WORK( I ) = WORK( I ) + AA
                      END DO
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j+k,j+k)
                      WORK( J+K ) = S + AA
                      I = I + 1
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j,j)
                      WORK( J ) = WORK( J ) + AA
                      S = ZERO
@@ -820,13 +820,13 @@
                         S = S + AA
                         WORK( I+K ) = WORK( I+K ) + AA
                      END DO
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j+k,j+k)
                      S = S + AA
                      WORK( I+K ) = WORK( I+K ) + S
 *                    i=j
                      I = I + 1
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    -> A(j,j)
                      WORK( J ) = AA
                      S = ZERO
@@ -872,7 +872,7 @@
                      WORK( J ) = S
                   END DO
 *                 j=n1=k-1 is special
-                  S = ABS( DBLE( A( 0+J*LDA ) ) )
+                  S = ABS( REAL( A( 0+J*LDA ) ) )
 *                 A(k-1,k-1)
                   DO I = 1, K - 1
                      AA = ABS( A( I+J*LDA ) )
@@ -890,12 +890,12 @@
                         S = S + AA
                      END DO
 *                    i=j-k
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    A(j-k,j-k)
                      S = S + AA
                      WORK( J-K ) = WORK( J-K ) + S
                      I = I + 1
-                     S = ABS( DBLE( A( I+J*LDA ) ) )
+                     S = ABS( REAL( A( I+J*LDA ) ) )
 *                    A(j,j)
                      DO L = J + 1, N - 1
                         I = I + 1
@@ -928,14 +928,14 @@
                         WORK( I ) = WORK( I ) + AA
                         S = S + AA
                      END DO
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    i=j so process of A(j,j)
                      S = S + AA
                      WORK( J ) = S
 *                    is initialised here
                      I = I + 1
 *                    i=j process A(j+k,j+k)
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
                      S = AA
                      DO L = K + J + 1, N - 1
                         I = I + 1
@@ -955,7 +955,7 @@
                      S = S + AA
                   END DO
 *                 i=k-1
-                  AA = ABS( DBLE( A( I+J*LDA ) ) )
+                  AA = ABS( REAL( A( I+J*LDA ) ) )
 *                 A(k-1,k-1)
                   S = S + AA
                   WORK( I ) = S
@@ -996,7 +996,7 @@
                      WORK( J ) = S
                   END DO
 *                 j=k
-                  AA = ABS( DBLE( A( 0+J*LDA ) ) )
+                  AA = ABS( REAL( A( 0+J*LDA ) ) )
 *                 A(k,k)
                   S = AA
                   DO I = 1, K - 1
@@ -1015,12 +1015,12 @@
                         S = S + AA
                      END DO
 *                    i=j-1-k
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    A(j-k-1,j-k-1)
                      S = S + AA
                      WORK( J-K-1 ) = WORK( J-K-1 ) + S
                      I = I + 1
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    A(j,j)
                      S = AA
                      DO L = J + 1, N - 1
@@ -1041,7 +1041,7 @@
                      S = S + AA
                   END DO
 *                 i=k-1
-                  AA = ABS( DBLE( A( I+J*LDA ) ) )
+                  AA = ABS( REAL( A( I+J*LDA ) ) )
 *                 A(k-1,k-1)
                   S = S + AA
                   WORK( I ) = WORK( I ) + S
@@ -1057,7 +1057,7 @@
                      WORK( I ) = ZERO
                   END DO
 *                 j=0 is special :process col A(k:n-1,k)
-                  S = ABS( DBLE( A( 0 ) ) )
+                  S = ABS( REAL( A( 0 ) ) )
 *                 A(k,k)
                   DO I = 1, K - 1
                      AA = ABS( A( I ) )
@@ -1075,14 +1075,14 @@
                         WORK( I ) = WORK( I ) + AA
                         S = S + AA
                      END DO
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
 *                    i=j-1 so process of A(j-1,j-1)
                      S = S + AA
                      WORK( J-1 ) = S
 *                    is initialised here
                      I = I + 1
 *                    i=j process A(j+k,j+k)
-                     AA = ABS( DBLE( A( I+J*LDA ) ) )
+                     AA = ABS( REAL( A( I+J*LDA ) ) )
                      S = AA
                      DO L = K + J + 1, N - 1
                         I = I + 1
@@ -1103,7 +1103,7 @@
                   END DO
 *
 *                 i=k-1
-                  AA = ABS( DBLE( A( I+J*LDA ) ) )
+                  AA = ABS( REAL( A( I+J*LDA ) ) )
 *                 A(k-1,k-1)
                   S = S + AA
                   WORK( I ) = S
@@ -1155,7 +1155,7 @@
                   L = K - 1
 *                 -> U(k,k) at A(k-1,0)
                   DO I = 0, K - 2
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    U(k+i,k+i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1165,7 +1165,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    U(i,i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1177,7 +1177,7 @@
                      END IF
                      L = L + LDA + 1
                   END DO
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 U(n-1,n-1)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1199,7 +1199,7 @@
                   END DO
                   S = S + S
 *                 double s for the off diagonal elements
-                  AA = DBLE( A( 0 ) )
+                  AA = REAL( A( 0 ) )
 *                 L(0,0) at A(0,0)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1212,7 +1212,7 @@
                   L = LDA
 *                 -> L(k,k) at A(0,1)
                   DO I = 1, K - 1
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    L(k-1+i,k-1+i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1222,7 +1222,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    L(i,i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1256,7 +1256,7 @@
 *                 double s for the off diagonal elements
                   L = 0 + K*LDA - LDA
 *                 -> U(k-1,k-1) at A(0,k-1)
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 U(k-1,k-1)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1269,7 +1269,7 @@
                   L = L + LDA
 *                 -> U(0,0) at A(0,k)
                   DO J = K, N - 1
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    -> U(j-k,j-k)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1279,7 +1279,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    -> U(j,j)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1310,7 +1310,7 @@
                   L = 0
 *                 -> L(0,0) at A(0,0)
                   DO I = 0, K - 2
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    L(i,i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1320,7 +1320,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    L(k+i,k+i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1333,7 +1333,7 @@
                      L = L + LDA + 1
                   END DO
 *                 L-> k-1 + (k-1)*lda or L(k-1,k-1) at A(k-1,k-1)
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 L(k-1,k-1) at A(k-1,k-1)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1364,7 +1364,7 @@
                   L = K
 *                 -> U(k,k) at A(k,0)
                   DO I = 0, K - 1
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    U(k+i,k+i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1374,7 +1374,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    U(i,i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1401,7 +1401,7 @@
                   L = 0
 *                 -> L(k,k) at A(0,0)
                   DO I = 0, K - 1
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    L(k-1+i,k-1+i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1411,7 +1411,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    L(i,i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1445,7 +1445,7 @@
 *                 double s for the off diagonal elements
                   L = 0 + K*LDA
 *                 -> U(k,k) at A(0,k)
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 U(k,k)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1458,7 +1458,7 @@
                   L = L + LDA
 *                 -> U(0,0) at A(0,k+1)
                   DO J = K + 1, N - 1
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    -> U(j-k-1,j-k-1)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1468,7 +1468,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    -> U(j,j)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1482,7 +1482,7 @@
                   END DO
 *                 L=k-1+n*lda
 *                 -> U(k-1,k-1) at A(k-1,n)
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 U(k,k)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1510,7 +1510,7 @@
 *                 double s for the off diagonal elements
                   L = 0
 *                 -> L(k,k) at A(0,0)
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 L(k,k) at A(0,0)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN
@@ -1523,7 +1523,7 @@
                   L = LDA
 *                 -> L(0,0) at A(0,1)
                   DO I = 0, K - 2
-                     AA = DBLE( A( L ) )
+                     AA = REAL( A( L ) )
 *                    L(i,i)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1533,7 +1533,7 @@
                            S = S + ( AA / SCALE )**2
                         END IF
                      END IF
-                     AA = DBLE( A( L+1 ) )
+                     AA = REAL( A( L+1 ) )
 *                    L(k+i+1,k+i+1)
                      IF( AA.NE.ZERO ) THEN
                         IF( SCALE.LT.AA ) THEN
@@ -1546,7 +1546,7 @@
                      L = L + LDA + 1
                   END DO
 *                 L-> k - 1 + k*lda or L(k-1,k-1) at A(k-1,k)
-                  AA = DBLE( A( L ) )
+                  AA = REAL( A( L ) )
 *                 L(k-1,k-1) at A(k-1,k)
                   IF( AA.NE.ZERO ) THEN
                      IF( SCALE.LT.AA ) THEN

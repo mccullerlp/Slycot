@@ -149,7 +149,7 @@
       EXTERNAL           DLAMCH, ILAENV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, MAX, MIN, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -576,9 +576,9 @@
 *
       Z( 2*N+1 ) = TRACE
       Z( 2*N+2 ) = E
-      Z( 2*N+3 ) = DBLE( ITER )
-      Z( 2*N+4 ) = DBLE( NDIV ) / DBLE( N**2 )
-      Z( 2*N+5 ) = HUNDRD*NFAIL / DBLE( ITER )
+      Z( 2*N+3 ) = REAL( ITER )
+      Z( 2*N+4 ) = REAL( NDIV ) / REAL( N**2 )
+      Z( 2*N+5 ) = HUNDRD*NFAIL / REAL( ITER )
       RETURN
 *
 *     End of DLASQ2

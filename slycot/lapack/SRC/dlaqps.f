@@ -202,7 +202,7 @@
       EXTERNAL           DGEMM, DGEMV, DLARFG, DSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, MIN, NINT, SQRT
+      INTRINSIC          ABS, REAL, MAX, MIN, NINT, SQRT
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
@@ -304,7 +304,7 @@
                   TEMP = MAX( ZERO, ( ONE+TEMP )*( ONE-TEMP ) )
                   TEMP2 = TEMP*( VN1( J ) / VN2( J ) )**2
                   IF( TEMP2 .LE. TOL3Z ) THEN
-                     VN2( J ) = DBLE( LSTICC )
+                     VN2( J ) = REAL( LSTICC )
                      LSTICC = J
                   ELSE
                      VN1( J ) = VN1( J )*SQRT( TEMP )

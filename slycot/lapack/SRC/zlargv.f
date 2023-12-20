@@ -153,7 +153,7 @@
       EXTERNAL           DLAMCH, DLAPY2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, INT, LOG,
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, INT, LOG,
      $                   MAX, SQRT
 *     ..
 *     .. Statement Functions ..
@@ -166,8 +166,8 @@
 *     DATA               FIRST / .TRUE. /
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( FF ) = MAX( ABS( DBLE( FF ) ), ABS( IMAGPART( FF ) ) )
-      ABSSQ( FF ) = DBLE( FF )**2 + IMAGPART( FF )**2
+      ABS1( FF ) = MAX( ABS( REAL( FF ) ), ABS( IMAGPART( FF ) ) )
+      ABSSQ( FF ) = REAL( FF )**2 + IMAGPART( FF )**2
 *     ..
 *     .. Executable Statements ..
 *
@@ -223,14 +223,14 @@
 *
             IF( F.EQ.CZERO ) THEN
                CS = ZERO
-               R = DLAPY2( DBLE( G ), IMAGPART( G ) )
+               R = DLAPY2( REAL( G ), IMAGPART( G ) )
 *              Do complex/real division explicitly with two real
 *              divisions
-               D = DLAPY2( DBLE( GS ), IMAGPART( GS ) )
-               SN = CMPLX( DBLE( GS ) / D, -IMAGPART( GS ) / D )
+               D = DLAPY2( REAL( GS ), IMAGPART( GS ) )
+               SN = CMPLX( REAL( GS ) / D, -IMAGPART( GS ) / D )
                GO TO 50
             END IF
-            F2S = DLAPY2( DBLE( FS ), IMAGPART( FS ) )
+            F2S = DLAPY2( REAL( FS ), IMAGPART( FS ) )
 *           G2 and G2S are accurate
 *           G2 is at least SAFMIN, and G2S is at least SAFMN2
             G2S = SQRT( G2 )
@@ -245,15 +245,15 @@
 *           Make sure abs(FF) = 1
 *           Do complex/real division explicitly with 2 real divisions
             IF( ABS1( F ).GT.ONE ) THEN
-               D = DLAPY2( DBLE( F ), IMAGPART( F ) )
-               FF = CMPLX( DBLE( F ) / D, IMAGPART( F ) / D )
+               D = DLAPY2( REAL( F ), IMAGPART( F ) )
+               FF = CMPLX( REAL( F ) / D, IMAGPART( F ) / D )
             ELSE
-               DR = SAFMX2*DBLE( F )
+               DR = SAFMX2*REAL( F )
                DI = SAFMX2*IMAGPART( F )
                D = DLAPY2( DR, DI )
                FF = CMPLX( DR / D, DI / D )
             END IF
-            SN = FF*CMPLX( DBLE( GS ) / G2S, -IMAGPART( GS ) / G2S )
+            SN = FF*CMPLX( REAL( GS ) / G2S, -IMAGPART( GS ) / G2S )
             R = CS*F + SN*G
          ELSE
 *
@@ -264,11 +264,11 @@
             F2S = SQRT( ONE+G2 / F2 )
 *           Do the F2S(real)*FS(complex) multiply with two real
 *           multiplies
-            R = CMPLX( F2S*DBLE( FS ), F2S*IMAGPART( FS ) )
+            R = CMPLX( F2S*REAL( FS ), F2S*IMAGPART( FS ) )
             CS = ONE / F2S
             D = F2 + G2
 *           Do complex/real division explicitly with two real divisions
-            SN = CMPLX( DBLE( R ) / D, IMAGPART( R ) / D )
+            SN = CMPLX( REAL( R ) / D, IMAGPART( R ) / D )
             SN = SN*CONJG( GS )
             IF( COUNT.NE.0 ) THEN
                IF( COUNT.GT.0 ) THEN

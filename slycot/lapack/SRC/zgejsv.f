@@ -614,7 +614,7 @@
       REAL*10   RDUMMY(1)
 *
 *     .. Intrinsic Functions ..
-      INTRINSIC ABS, CMPLX, CONJG, DLOG, MAX, MIN, DBLE, NINT, SQRT
+      INTRINSIC ABS, CMPLX, CONJG, DLOG, MAX, MIN, REAL, NINT, SQRT
 *     ..
 *     .. External Functions ..
       REAL*10      DLAMCH, DZNRM2
@@ -987,7 +987,7 @@
 *     overflow. It is possible that this scaling pushes the smallest
 *     column norm left from the underflow threshold (extreme case).
 *
-      SCALEM  = ONE / SQRT(DBLE(M)*DBLE(N))
+      SCALEM  = ONE / SQRT(REAL(M)*REAL(N))
       NOSCAL  = .TRUE.
       GOSCAL  = .TRUE.
       DO 1874 p = 1, N
@@ -1159,7 +1159,7 @@
             BIG1  = ( ( SVA(p) / XSC )**2 ) * TEMP1
             IF ( BIG1 .NE. ZERO ) ENTRA = ENTRA + BIG1 * DLOG(BIG1)
  1113    CONTINUE
-         ENTRA = - ENTRA / DLOG(DBLE(N))
+         ENTRA = - ENTRA / DLOG(REAL(N))
 *
 *        Now, SVA().^2/Trace(A^* * A) is a point in the probability simplex.
 *        It is derived from the diagonal of  A^* * A.  Do the same with the
@@ -1172,7 +1172,7 @@
             BIG1 = ( ( RWORK(p) / XSC )**2 ) * TEMP1
             IF ( BIG1 .NE. ZERO ) ENTRAT = ENTRAT + BIG1 * DLOG(BIG1)
  1114    CONTINUE
-         ENTRAT = - ENTRAT / DLOG(DBLE(M))
+         ENTRAT = - ENTRAT / DLOG(REAL(M))
 *
 *        Analyze the entropies and decide A or A^*. Smaller entropy
 *        usually means better input for the algorithm.
@@ -1228,8 +1228,8 @@
 *     >> change in the April 2016 update: allow bigger range, i.e. the
 *     largest column is allowed up to BIG/N and ZGESVJ will do the rest.
       BIG1   = SQRT( BIG )
-      TEMP1  = SQRT( BIG / DBLE(N) ) 
-*      TEMP1  = BIG/DBLE(N)
+      TEMP1  = SQRT( BIG / REAL(N) ) 
+*      TEMP1  = BIG/REAL(N)
 *
       CALL DLASCL( 'G', 0, 0, AAPP, TEMP1, N, 1, SVA, N, IERR )
       IF ( AAQQ .GT. (AAPP * SFMIN) ) THEN
@@ -1337,7 +1337,7 @@
 *        sigma_i < N*EPSLN*||A|| are flushed to zero. This is an
 *        aggressive enforcement of lower numerical rank by introducing a
 *        backward error of the order of N*EPSLN*||A||.
-         TEMP1 = SQRT(DBLE(N))*EPSLN
+         TEMP1 = SQRT(REAL(N))*EPSLN
          DO 3001 p = 2, N
             IF ( ABS(A(p,p)) .GE. (TEMP1*ABS(A(1,1))) ) THEN
                NR = NR + 1
@@ -1384,7 +1384,7 @@
             TEMP1  = ABS(A(p,p)) / SVA(IWORK(p))
             MAXPRJ = MIN( MAXPRJ, TEMP1 )
  3051    CONTINUE
-         IF ( MAXPRJ**2 .GE. ONE - DBLE(N)*EPSLN ) ALMORT = .TRUE.
+         IF ( MAXPRJ**2 .GE. ONE - REAL(N)*EPSLN ) ALMORT = .TRUE.
       END IF
 *
 *
@@ -1479,7 +1479,7 @@
 *
             IF ( L2PERT ) THEN
 *              XSC = SQRT(SMALL)
-               XSC = EPSLN / DBLE(N)
+               XSC = EPSLN / REAL(N)
                DO 4947 q = 1, NR
                   CTEMP = CMPLX(XSC*ABS(A(q,q)),ZERO)
                   DO 4949 p = 1, N
@@ -1511,7 +1511,7 @@
 *           to drown denormals
             IF ( L2PERT ) THEN
 *              XSC = SQRT(SMALL)
-               XSC = EPSLN / DBLE(N)
+               XSC = EPSLN / REAL(N)
                DO 1947 q = 1, NR
                   CTEMP = CMPLX(XSC*ABS(A(q,q)),ZERO)
                   DO 1949 p = 1, NR
@@ -1719,10 +1719,10 @@
             CONDR1 = ONE / SQRT(TEMP1)
 *           .. here need a second opinion on the condition number
 *           .. then assume worst case scenario
-*           R1 is OK for inverse <=> CONDR1 .LT. DBLE(N)
-*           more conservative    <=> CONDR1 .LT. SQRT(DBLE(N))
+*           R1 is OK for inverse <=> CONDR1 .LT. REAL(N)
+*           more conservative    <=> CONDR1 .LT. SQRT(REAL(N))
 *
-            COND_OK = SQRT(SQRT(DBLE(NR)))
+            COND_OK = SQRT(SQRT(REAL(NR)))
 *[TP]       COND_OK is a tuning parameter.
 *
             IF ( CONDR1 .LT. COND_OK ) THEN
@@ -1961,7 +1961,7 @@
 *           first QRF. Also, scale the columns to make them unit in
 *           Euclidean norm. This applies to all cases.
 *
-            TEMP1 = SQRT(DBLE(N)) * EPSLN
+            TEMP1 = SQRT(REAL(N)) * EPSLN
             DO 1972 q = 1, N
                DO 972 p = 1, N
                   CWORK(2*N+N*NR+NR+IWORK(p)) = V(p,q)
@@ -1991,7 +1991,7 @@
      $           LDU, CWORK(N+1), LWORK-N, IERR )
 
 *           The columns of U are normalized. The cost is O(M*N) flops.
-            TEMP1 = SQRT(DBLE(M)) * EPSLN
+            TEMP1 = SQRT(REAL(M)) * EPSLN
             DO 1973 p = 1, NR
                XSC = ONE / DZNRM2( M, U(1,p), 1 )
                IF ( (XSC .LT. (ONE-TEMP1)) .OR. (XSC .GT. (ONE+TEMP1)) )
@@ -2040,7 +2040,7 @@
             DO 6972 p = 1, N
                CALL ZCOPY( N, CWORK(N+p), N, V(IWORK(p),1), LDV )
  6972       CONTINUE
-            TEMP1 = SQRT(DBLE(N))*EPSLN
+            TEMP1 = SQRT(REAL(N))*EPSLN
             DO 6971 p = 1, N
                XSC = ONE / DZNRM2( N, V(1,p), 1 )
                IF ( (XSC .LT. (ONE-TEMP1)) .OR. (XSC .GT. (ONE+TEMP1)) )
@@ -2058,7 +2058,7 @@
             END IF
             CALL ZUNMQR( 'L', 'N', M, N1, N, A, LDA, CWORK, U,
      $           LDU, CWORK(N+1), LWORK-N, IERR )
-            TEMP1 = SQRT(DBLE(M))*EPSLN
+            TEMP1 = SQRT(REAL(M))*EPSLN
             DO 6973 p = 1, N1
                XSC = ONE / DZNRM2( M, U(1,p), 1 )
                IF ( (XSC .LT. (ONE-TEMP1)) .OR. (XSC .GT. (ONE+TEMP1)) )
@@ -2148,7 +2148,7 @@
 *           first QRF. Also, scale the columns to make them unit in
 *           Euclidean norm. This applies to all cases.
 *
-            TEMP1 = SQRT(DBLE(N)) * EPSLN
+            TEMP1 = SQRT(REAL(N)) * EPSLN
             DO 7972 q = 1, N
                DO 8972 p = 1, N
                   CWORK(2*N+N*NR+NR+IWORK(p)) = V(p,q)

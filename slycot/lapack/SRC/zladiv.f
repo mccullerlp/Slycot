@@ -79,11 +79,11 @@
       EXTERNAL           DLADIV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, IMAGPART
+      INTRINSIC          REAL, CMPLX, IMAGPART
 *     ..
 *     .. Executable Statements ..
 *
-      CALL DLADIV( DBLE( X ), IMAGPART( X ), DBLE( Y ), IMAGPART( Y ), ZR,
+      CALL DLADIV( REAL( X ), IMAGPART( X ), REAL( Y ), IMAGPART( Y ), ZR,
      $             ZI )
       ZLADIV = CMPLX( ZR, ZI )
 *

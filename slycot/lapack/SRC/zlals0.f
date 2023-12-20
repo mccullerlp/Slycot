@@ -304,7 +304,7 @@
       EXTERNAL           DLAMC3, DNRM2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, IMAGPART, MAX
+      INTRINSIC          REAL, CMPLX, IMAGPART, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -420,7 +420,7 @@
                DO 60 JCOL = 1, NRHS
                   DO 50 JROW = 1, K
                      I = I + 1
-                     RWORK( I ) = DBLE( BX( JROW, JCOL ) )
+                     RWORK( I ) = REAL( BX( JROW, JCOL ) )
    50             CONTINUE
    60          CONTINUE
                CALL DGEMV( 'T', K, NRHS, ONE, RWORK( 1+K+NRHS*2 ), K,
@@ -495,7 +495,7 @@
                DO 140 JCOL = 1, NRHS
                   DO 130 JROW = 1, K
                      I = I + 1
-                     RWORK( I ) = DBLE( B( JROW, JCOL ) )
+                     RWORK( I ) = REAL( B( JROW, JCOL ) )
   130             CONTINUE
   140          CONTINUE
                CALL DGEMV( 'T', K, NRHS, ONE, RWORK( 1+K+NRHS*2 ), K,

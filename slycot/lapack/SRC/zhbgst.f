@@ -201,7 +201,7 @@
      $                   ZLARGV, ZLARTG, ZLARTV, ZLASET, ZROT
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CONJG, MAX, MIN
+      INTRINSIC          REAL, CONJG, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -342,8 +342,8 @@
 *
 *           Form  inv(S(i))**H * A * inv(S(i))
 *
-            BII = DBLE( BB( KB1, I ) )
-            AB( KA1, I ) = ( DBLE( AB( KA1, I ) ) / BII ) / BII
+            BII = REAL( BB( KB1, I ) )
+            AB( KA1, I ) = ( REAL( AB( KA1, I ) ) / BII ) / BII
             DO 20 J = I + 1, I1
                AB( I-J+KA1, J ) = AB( I-J+KA1, J ) / BII
    20       CONTINUE
@@ -357,7 +357,7 @@
      $                               CONJG( AB( K-I+KA1, I ) ) -
      $                               CONJG( BB( K-I+KB1, I ) )*
      $                               AB( J-I+KA1, I ) +
-     $                               DBLE( AB( KA1, I ) )*
+     $                               REAL( AB( KA1, I ) )*
      $                               BB( J-I+KB1, I )*
      $                               CONJG( BB( K-I+KB1, I ) )
    40          CONTINUE
@@ -610,8 +610,8 @@
 *
 *           Form  inv(S(i))**H * A * inv(S(i))
 *
-            BII = DBLE( BB( 1, I ) )
-            AB( 1, I ) = ( DBLE( AB( 1, I ) ) / BII ) / BII
+            BII = REAL( BB( 1, I ) )
+            AB( 1, I ) = ( REAL( AB( 1, I ) ) / BII ) / BII
             DO 250 J = I + 1, I1
                AB( J-I+1, I ) = AB( J-I+1, I ) / BII
   250       CONTINUE
@@ -623,7 +623,7 @@
                   AB( K-J+1, J ) = AB( K-J+1, J ) -
      $                             BB( I-J+1, J )*CONJG( AB( I-K+1,
      $                             K ) ) - CONJG( BB( I-K+1, K ) )*
-     $                             AB( I-J+1, J ) + DBLE( AB( 1, I ) )*
+     $                             AB( I-J+1, J ) + REAL( AB( 1, I ) )*
      $                             BB( I-J+1, J )*CONJG( BB( I-K+1,
      $                             K ) )
   270          CONTINUE
@@ -925,8 +925,8 @@
 *
 *           Form  inv(S(i))**H * A * inv(S(i))
 *
-            BII = DBLE( BB( KB1, I ) )
-            AB( KA1, I ) = ( DBLE( AB( KA1, I ) ) / BII ) / BII
+            BII = REAL( BB( KB1, I ) )
+            AB( KA1, I ) = ( REAL( AB( KA1, I ) ) / BII ) / BII
             DO 500 J = I1, I - 1
                AB( J-I+KA1, I ) = AB( J-I+KA1, I ) / BII
   500       CONTINUE
@@ -940,7 +940,7 @@
      $                               CONJG( AB( I-K+KA1, K ) ) -
      $                               CONJG( BB( I-K+KB1, K ) )*
      $                               AB( I-J+KA1, J ) +
-     $                               DBLE( AB( KA1, I ) )*
+     $                               REAL( AB( KA1, I ) )*
      $                               BB( I-J+KB1, J )*
      $                               CONJG( BB( I-K+KB1, K ) )
   520          CONTINUE
@@ -1197,8 +1197,8 @@
 *
 *           Form  inv(S(i))**H * A * inv(S(i))
 *
-            BII = DBLE( BB( 1, I ) )
-            AB( 1, I ) = ( DBLE( AB( 1, I ) ) / BII ) / BII
+            BII = REAL( BB( 1, I ) )
+            AB( 1, I ) = ( REAL( AB( 1, I ) ) / BII ) / BII
             DO 730 J = I1, I - 1
                AB( I-J+1, J ) = AB( I-J+1, J ) / BII
   730       CONTINUE
@@ -1210,7 +1210,7 @@
                   AB( J-K+1, K ) = AB( J-K+1, K ) -
      $                             BB( J-I+1, I )*CONJG( AB( K-I+1,
      $                             I ) ) - CONJG( BB( K-I+1, I ) )*
-     $                             AB( J-I+1, I ) + DBLE( AB( 1, I ) )*
+     $                             AB( J-I+1, I ) + REAL( AB( 1, I ) )*
      $                             BB( J-I+1, I )*CONJG( BB( K-I+1,
      $                             I ) )
   750          CONTINUE

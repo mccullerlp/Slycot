@@ -206,7 +206,7 @@
       EXTERNAL           DLADIV, DLATRS, DSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, SQRT
+      INTRINSIC          ABS, REAL, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -215,7 +215,7 @@
 *     GROWTO is the threshold used in the acceptance test for an
 *     eigenvector.
 *
-      ROOTN = SQRT( DBLE( N ) )
+      ROOTN = SQRT( REAL( N ) )
       GROWTO = TENTH / ROOTN
       NRMSML = MAX( ONE, EPS3*ROOTN )*SMLNUM
 *

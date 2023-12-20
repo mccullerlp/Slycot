@@ -232,13 +232,13 @@
       EXTERNAL           XERBLA, ZDSCAL, ZHER, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, SQRT
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( IMAGPART( Z ) )
+      CABS1( Z ) = ABS( REAL( Z ) ) + ABS( IMAGPART( Z ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -286,7 +286,7 @@
 *        Determine rows and columns to be interchanged and whether
 *        a 1-by-1 or 2-by-2 pivot block will be used
 *
-         ABSAKK = ABS( DBLE( A( K, K ) ) )
+         ABSAKK = ABS( REAL( A( K, K ) ) )
 *
 *        IMAX is the row-index of the largest off-diagonal element in
 *        column K, and COLMAX is its absolute value.
@@ -306,7 +306,7 @@
             IF( INFO.EQ.0 )
      $         INFO = K
             KP = K
-            A( K, K ) = DBLE( A( K, K ) )
+            A( K, K ) = REAL( A( K, K ) )
          ELSE
 *
 *           ============================================================
@@ -357,10 +357,10 @@
 *
 *                 Case(2)
 *                 Equivalent to testing for
-*                 ABS( DBLE( W( IMAX,KW-1 ) ) ).GE.ALPHA*ROWMAX
+*                 ABS( REAL( W( IMAX,KW-1 ) ) ).GE.ALPHA*ROWMAX
 *                 (used to handle NaN and Inf)
 *
-                  IF( .NOT.( ABS( DBLE( A( IMAX, IMAX ) ) )
+                  IF( .NOT.( ABS( REAL( A( IMAX, IMAX ) ) )
      $                       .LT.ALPHA*ROWMAX ) ) THEN
 *
 *                    interchange rows and columns K and IMAX,
@@ -423,8 +423,8 @@
 *              (3) Swap and conjugate corner elements at row-col interserction
                A( P, K ) = CONJG( A( P, K ) )
 *              (4) Swap diagonal elements at row-col intersection
-               R1 = DBLE( A( K, K ) )
-               A( K, K ) = DBLE( A( P, P ) )
+               R1 = REAL( A( K, K ) )
+               A( K, K ) = REAL( A( P, P ) )
                A( P, P ) = R1
             END IF
 *
@@ -444,13 +444,13 @@
 *              (3) Swap and conjugate corner elements at row-col interserction
                A( KP, KK ) = CONJG( A( KP, KK ) )
 *              (4) Swap diagonal elements at row-col intersection
-               R1 = DBLE( A( KK, KK ) )
-               A( KK, KK ) = DBLE( A( KP, KP ) )
+               R1 = REAL( A( KK, KK ) )
+               A( KK, KK ) = REAL( A( KP, KP ) )
                A( KP, KP ) = R1
 *
                IF( KSTEP.EQ.2 ) THEN
 *                 (*) Make sure that diagonal element of pivot is real
-                  A( K, K ) = DBLE( A( K, K ) )
+                  A( K, K ) = REAL( A( K, K ) )
 *                 (5) Swap row elements
                   T = A( K-1, K )
                   A( K-1, K ) = A( KP, K )
@@ -458,9 +458,9 @@
                END IF
             ELSE
 *              (*) Make sure that diagonal element of pivot is real
-               A( K, K ) = DBLE( A( K, K ) )
+               A( K, K ) = REAL( A( K, K ) )
                IF( KSTEP.EQ.2 )
-     $            A( K-1, K-1 ) = DBLE( A( K-1, K-1 ) )
+     $            A( K-1, K-1 ) = REAL( A( K-1, K-1 ) )
             END IF
 *
 *           Update the leading submatrix
@@ -478,13 +478,13 @@
 *                 Perform a rank-1 update of A(1:k-1,1:k-1) and
 *                 store U(k) in column k
 *
-                  IF( ABS( DBLE( A( K, K ) ) ).GE.SFMIN ) THEN
+                  IF( ABS( REAL( A( K, K ) ) ).GE.SFMIN ) THEN
 *
 *                    Perform a rank-1 update of A(1:k-1,1:k-1) as
 *                    A := A - U(k)*D(k)*U(k)**T
 *                       = A - W(k)*1/D(k)*W(k)**T
 *
-                     D11 = ONE / DBLE( A( K, K ) )
+                     D11 = ONE / REAL( A( K, K ) )
                      CALL ZHER( UPLO, K-1, -D11, A( 1, K ), 1, A, LDA )
 *
 *                    Store U(k) in column k
@@ -494,7 +494,7 @@
 *
 *                    Store L(k) in column K
 *
-                     D11 = DBLE( A( K, K ) )
+                     D11 = REAL( A( K, K ) )
                      DO 16 II = 1, K - 1
                         A( II, K ) = A( II, K ) / D11
    16                CONTINUE
@@ -526,10 +526,10 @@
 *
                IF( K.GT.2 ) THEN
 *                 D = |A12|
-                  D = DLAPY2( DBLE( A( K-1, K ) ),
+                  D = DLAPY2( REAL( A( K-1, K ) ),
      $                IMAGPART( A( K-1, K ) ) )
-                  D11 = DBLE( A( K, K ) / D )
-                  D22 = DBLE( A( K-1, K-1 ) / D )
+                  D11 = REAL( A( K, K ) / D )
+                  D22 = REAL( A( K-1, K-1 ) / D )
                   D12 = A( K-1, K ) / D
                   TT = ONE / ( D11*D22-ONE )
 *
@@ -554,7 +554,7 @@
                      A( J, K ) = WK / D
                      A( J, K-1 ) = WKM1 / D
 *                    (*) Make sure that diagonal element of pivot is real
-                     A( J, J ) = CMPLX( DBLE( A( J, J ) ), ZERO )
+                     A( J, J ) = CMPLX( REAL( A( J, J ) ), ZERO )
 *
    30             CONTINUE
 *
@@ -598,7 +598,7 @@
 *        Determine rows and columns to be interchanged and whether
 *        a 1-by-1 or 2-by-2 pivot block will be used
 *
-         ABSAKK = ABS( DBLE( A( K, K ) ) )
+         ABSAKK = ABS( REAL( A( K, K ) ) )
 *
 *        IMAX is the row-index of the largest off-diagonal element in
 *        column K, and COLMAX is its absolute value.
@@ -618,7 +618,7 @@
             IF( INFO.EQ.0 )
      $         INFO = K
             KP = K
-            A( K, K ) = DBLE( A( K, K ) )
+            A( K, K ) = REAL( A( K, K ) )
          ELSE
 *
 *           ============================================================
@@ -669,10 +669,10 @@
 *
 *                 Case(2)
 *                 Equivalent to testing for
-*                 ABS( DBLE( W( IMAX,KW-1 ) ) ).GE.ALPHA*ROWMAX
+*                 ABS( REAL( W( IMAX,KW-1 ) ) ).GE.ALPHA*ROWMAX
 *                 (used to handle NaN and Inf)
 *
-                  IF( .NOT.( ABS( DBLE( A( IMAX, IMAX ) ) )
+                  IF( .NOT.( ABS( REAL( A( IMAX, IMAX ) ) )
      $                       .LT.ALPHA*ROWMAX ) ) THEN
 *
 *                    interchange rows and columns K and IMAX,
@@ -736,8 +736,8 @@
 *              (3) Swap and conjugate corner elements at row-col interserction
                A( P, K ) = CONJG( A( P, K ) )
 *              (4) Swap diagonal elements at row-col intersection
-               R1 = DBLE( A( K, K ) )
-               A( K, K ) = DBLE( A( P, P ) )
+               R1 = REAL( A( K, K ) )
+               A( K, K ) = REAL( A( P, P ) )
                A( P, P ) = R1
             END IF
 *
@@ -757,13 +757,13 @@
 *              (3) Swap and conjugate corner elements at row-col interserction
                A( KP, KK ) = CONJG( A( KP, KK ) )
 *              (4) Swap diagonal elements at row-col intersection
-               R1 = DBLE( A( KK, KK ) )
-               A( KK, KK ) = DBLE( A( KP, KP ) )
+               R1 = REAL( A( KK, KK ) )
+               A( KK, KK ) = REAL( A( KP, KP ) )
                A( KP, KP ) = R1
 *
                IF( KSTEP.EQ.2 ) THEN
 *                 (*) Make sure that diagonal element of pivot is real
-                  A( K, K ) = DBLE( A( K, K ) )
+                  A( K, K ) = REAL( A( K, K ) )
 *                 (5) Swap row elements
                   T = A( K+1, K )
                   A( K+1, K ) = A( KP, K )
@@ -771,9 +771,9 @@
                END IF
             ELSE
 *              (*) Make sure that diagonal element of pivot is real
-               A( K, K ) = DBLE( A( K, K ) )
+               A( K, K ) = REAL( A( K, K ) )
                IF( KSTEP.EQ.2 )
-     $            A( K+1, K+1 ) = DBLE( A( K+1, K+1 ) )
+     $            A( K+1, K+1 ) = REAL( A( K+1, K+1 ) )
             END IF
 *
 *           Update the trailing submatrix
@@ -793,13 +793,13 @@
 *
 *                 Handle division by a small number
 *
-                  IF( ABS( DBLE( A( K, K ) ) ).GE.SFMIN ) THEN
+                  IF( ABS( REAL( A( K, K ) ) ).GE.SFMIN ) THEN
 *
 *                    Perform a rank-1 update of A(k+1:n,k+1:n) as
 *                    A := A - L(k)*D(k)*L(k)**T
 *                       = A - W(k)*(1/D(k))*W(k)**T
 *
-                     D11 = ONE / DBLE( A( K, K ) )
+                     D11 = ONE / REAL( A( K, K ) )
                      CALL ZHER( UPLO, N-K, -D11, A( K+1, K ), 1,
      $                          A( K+1, K+1 ), LDA )
 *
@@ -810,7 +810,7 @@
 *
 *                    Store L(k) in column k
 *
-                     D11 = DBLE( A( K, K ) )
+                     D11 = REAL( A( K, K ) )
                      DO 46 II = K + 1, N
                         A( II, K ) = A( II, K ) / D11
    46                CONTINUE
@@ -844,10 +844,10 @@
 *
                IF( K.LT.N-1 ) THEN
 *                 D = |A21|
-                  D = DLAPY2( DBLE( A( K+1, K ) ),
+                  D = DLAPY2( REAL( A( K+1, K ) ),
      $                IMAGPART( A( K+1, K ) ) )
-                  D11 = DBLE( A( K+1, K+1 ) ) / D
-                  D22 = DBLE( A( K, K ) ) / D
+                  D11 = REAL( A( K+1, K+1 ) ) / D
+                  D22 = REAL( A( K, K ) ) / D
                   D21 = A( K+1, K ) / D
                   TT = ONE / ( D11*D22-ONE )
 *
@@ -872,7 +872,7 @@
                      A( J, K ) = WK / D
                      A( J, K+1 ) = WKP1 / D
 *                    (*) Make sure that diagonal element of pivot is real
-                     A( J, J ) = CMPLX( DBLE( A( J, J ) ), ZERO )
+                     A( J, J ) = CMPLX( REAL( A( J, J ) ), ZERO )
 *
    60             CONTINUE
 *

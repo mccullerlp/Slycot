@@ -193,7 +193,7 @@
       EXTERNAL           DGEMM, DLACPY, DTRMM, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, MAX, MIN
+      INTRINSIC          REAL, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -237,7 +237,7 @@
 *
       IF( INFO.EQ.0 ) THEN
          LWKOPT = M*N
-         WORK( 1 ) = DBLE( LWKOPT )
+         WORK( 1 ) = REAL( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -430,7 +430,7 @@
          END IF
       END IF
 *
-      WORK( 1 ) = DBLE( LWKOPT )
+      WORK( 1 ) = REAL( LWKOPT )
       RETURN
 *
 *     End of DORM22

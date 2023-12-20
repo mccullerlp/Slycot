@@ -228,7 +228,7 @@
      $                   ZLASCL, ZLASET
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, INT, LOG, SIGN
+      INTRINSIC          ABS, REAL, CMPLX, IMAGPART, INT, LOG, SIGN
 *     ..
 *     .. Executable Statements ..
 *
@@ -340,7 +340,7 @@
          DO 50 JCOL = 1, NRHS
             DO 40 JROW = 1, N
                J = J + 1
-               RWORK( J ) = DBLE( B( JROW, JCOL ) )
+               RWORK( J ) = REAL( B( JROW, JCOL ) )
    40       CONTINUE
    50    CONTINUE
          CALL DGEMM( 'T', 'N', N, NRHS, N, ONE, RWORK( IRWU ), N,
@@ -387,7 +387,7 @@
          DO 120 JCOL = 1, NRHS
             DO 110 JROW = 1, N
                J = J + 1
-               RWORK( J ) = DBLE( B( JROW, JCOL ) )
+               RWORK( J ) = REAL( B( JROW, JCOL ) )
   110       CONTINUE
   120    CONTINUE
          CALL DGEMM( 'T', 'N', N, NRHS, N, ONE, RWORK( IRWVT ), N,
@@ -423,7 +423,7 @@
 *
 *     Book-keeping and setting up some constants.
 *
-      NLVL = INT( LOG( DBLE( N ) / DBLE( SMLSIZ+1 ) ) / LOG( TWO ) ) + 1
+      NLVL = INT( LOG( REAL( N ) / REAL( SMLSIZ+1 ) ) / LOG( TWO ) ) + 1
 *
       SMLSZP = SMLSIZ + 1
 *
@@ -526,7 +526,7 @@
                DO 190 JCOL = 1, NRHS
                   DO 180 JROW = ST, ST + NSIZE - 1
                      J = J + 1
-                     RWORK( J ) = DBLE( B( JROW, JCOL ) )
+                     RWORK( J ) = REAL( B( JROW, JCOL ) )
   180             CONTINUE
   190          CONTINUE
                CALL DGEMM( 'T', 'N', NSIZE, NRHS, NSIZE, ONE,
@@ -633,7 +633,7 @@
                J = J + N
                DO 260 JROW = 1, NSIZE
                   JREAL = JREAL + 1
-                  RWORK( JREAL ) = DBLE( WORK( J+JROW ) )
+                  RWORK( JREAL ) = REAL( WORK( J+JROW ) )
   260          CONTINUE
   270       CONTINUE
             CALL DGEMM( 'T', 'N', NSIZE, NRHS, NSIZE, ONE,

@@ -189,7 +189,7 @@
 *>     Jeremy Du Croz, Numerical Algorithms Group Ltd.
 *>     Sven Hammarling, Numerical Algorithms Group Ltd.
 *>
-*>  -- Modified 8-Nov-93 to set C(J,J) to DBLE( C(J,J) ) when BETA = 1.
+*>  -- Modified 8-Nov-93 to set C(J,J) to REAL( C(J,J) ) when BETA = 1.
 *>     Ed Anderson, Cray Research Inc.
 *> \endverbatim
 *>
@@ -220,7 +220,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,CONJG,MAX
+      INTRINSIC REAL,CONJG,MAX
 *     ..
 *     .. Local Scalars ..
       COMPLEX*20 TEMP1,TEMP2
@@ -274,7 +274,7 @@
 *
       IF (ALPHA.EQ.ZERO) THEN
           IF (UPPER) THEN
-              IF (BETA.EQ.DBLE(ZERO)) THEN
+              IF (BETA.EQ.REAL(ZERO)) THEN
                   DO 20 J = 1,N
                       DO 10 I = 1,J
                           C(I,J) = ZERO
@@ -285,11 +285,11 @@
                       DO 30 I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
    30                 CONTINUE
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
    40             CONTINUE
               END IF
           ELSE
-              IF (BETA.EQ.DBLE(ZERO)) THEN
+              IF (BETA.EQ.REAL(ZERO)) THEN
                   DO 60 J = 1,N
                       DO 50 I = J,N
                           C(I,J) = ZERO
@@ -297,7 +297,7 @@
    60             CONTINUE
               ELSE
                   DO 80 J = 1,N
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
                       DO 70 I = J + 1,N
                           C(I,J) = BETA*C(I,J)
    70                 CONTINUE
@@ -316,7 +316,7 @@
 *
           IF (UPPER) THEN
               DO 130 J = 1,N
-                  IF (BETA.EQ.DBLE(ZERO)) THEN
+                  IF (BETA.EQ.REAL(ZERO)) THEN
                       DO 90 I = 1,J
                           C(I,J) = ZERO
    90                 CONTINUE
@@ -324,9 +324,9 @@
                       DO 100 I = 1,J - 1
                           C(I,J) = BETA*C(I,J)
   100                 CONTINUE
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
                   ELSE
-                      C(J,J) = DBLE(C(J,J))
+                      C(J,J) = REAL(C(J,J))
                   END IF
                   DO 120 L = 1,K
                       IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
@@ -336,14 +336,14 @@
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 +
      +                                 B(I,L)*TEMP2
   110                     CONTINUE
-                          C(J,J) = DBLE(C(J,J)) +
-     +                             DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
+                          C(J,J) = REAL(C(J,J)) +
+     +                             REAL(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       END IF
   120             CONTINUE
   130         CONTINUE
           ELSE
               DO 180 J = 1,N
-                  IF (BETA.EQ.DBLE(ZERO)) THEN
+                  IF (BETA.EQ.REAL(ZERO)) THEN
                       DO 140 I = J,N
                           C(I,J) = ZERO
   140                 CONTINUE
@@ -351,9 +351,9 @@
                       DO 150 I = J + 1,N
                           C(I,J) = BETA*C(I,J)
   150                 CONTINUE
-                      C(J,J) = BETA*DBLE(C(J,J))
+                      C(J,J) = BETA*REAL(C(J,J))
                   ELSE
-                      C(J,J) = DBLE(C(J,J))
+                      C(J,J) = REAL(C(J,J))
                   END IF
                   DO 170 L = 1,K
                       IF ((A(J,L).NE.ZERO) .OR. (B(J,L).NE.ZERO)) THEN
@@ -363,8 +363,8 @@
                               C(I,J) = C(I,J) + A(I,L)*TEMP1 +
      +                                 B(I,L)*TEMP2
   160                     CONTINUE
-                          C(J,J) = DBLE(C(J,J)) +
-     +                             DBLE(A(J,L)*TEMP1+B(J,L)*TEMP2)
+                          C(J,J) = REAL(C(J,J)) +
+     +                             REAL(A(J,L)*TEMP1+B(J,L)*TEMP2)
                       END IF
   170             CONTINUE
   180         CONTINUE
@@ -384,16 +384,16 @@
                           TEMP2 = TEMP2 + CONJG(B(L,I))*A(L,J)
   190                 CONTINUE
                       IF (I.EQ.J) THEN
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
-                              C(J,J) = DBLE(ALPHA*TEMP1+
+                          IF (BETA.EQ.REAL(ZERO)) THEN
+                              C(J,J) = REAL(ALPHA*TEMP1+
      +                                 CONJG(ALPHA)*TEMP2)
                           ELSE
-                              C(J,J) = BETA*DBLE(C(J,J)) +
-     +                                 DBLE(ALPHA*TEMP1+
+                              C(J,J) = BETA*REAL(C(J,J)) +
+     +                                 REAL(ALPHA*TEMP1+
      +                                 CONJG(ALPHA)*TEMP2)
                           END IF
                       ELSE
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
+                          IF (BETA.EQ.REAL(ZERO)) THEN
                               C(I,J) = ALPHA*TEMP1 + CONJG(ALPHA)*TEMP2
                           ELSE
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 +
@@ -412,16 +412,16 @@
                           TEMP2 = TEMP2 + CONJG(B(L,I))*A(L,J)
   220                 CONTINUE
                       IF (I.EQ.J) THEN
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
-                              C(J,J) = DBLE(ALPHA*TEMP1+
+                          IF (BETA.EQ.REAL(ZERO)) THEN
+                              C(J,J) = REAL(ALPHA*TEMP1+
      +                                 CONJG(ALPHA)*TEMP2)
                           ELSE
-                              C(J,J) = BETA*DBLE(C(J,J)) +
-     +                                 DBLE(ALPHA*TEMP1+
+                              C(J,J) = BETA*REAL(C(J,J)) +
+     +                                 REAL(ALPHA*TEMP1+
      +                                 CONJG(ALPHA)*TEMP2)
                           END IF
                       ELSE
-                          IF (BETA.EQ.DBLE(ZERO)) THEN
+                          IF (BETA.EQ.REAL(ZERO)) THEN
                               C(I,J) = ALPHA*TEMP1 + CONJG(ALPHA)*TEMP2
                           ELSE
                               C(I,J) = BETA*C(I,J) + ALPHA*TEMP1 +

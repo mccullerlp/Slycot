@@ -130,21 +130,21 @@
       COMPLEX*20         SI, T2, T3, T4, ZI
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, CMPLX, CONJG, IMAGPART
+      INTRINSIC          REAL, CMPLX, CONJG, IMAGPART
 *     ..
 *     .. Executable Statements ..
 *
       IX = 1
       IC = 1
       DO 10 I = 1, N
-         XI = DBLE( X( IX ) )
-         YI = DBLE( Y( IX ) )
+         XI = REAL( X( IX ) )
+         YI = REAL( Y( IX ) )
          ZI = Z( IX )
-         ZIR = DBLE( ZI )
+         ZIR = REAL( ZI )
          ZII = IMAGPART( ZI )
          CI = C( IC )
          SI = S( IC )
-         SIR = DBLE( SI )
+         SIR = REAL( SI )
          SII = IMAGPART( SI )
          T1R = SIR*ZIR - SII*ZII
          T1I = SIR*ZII + SII*ZIR
@@ -153,8 +153,8 @@
          T4 = CONJG( T2 ) + SI*YI
          T5 = CI*XI + T1R
          T6 = CI*YI - T1R
-         X( IX ) = CI*T5 + ( SIR*DBLE( T4 )+SII*IMAGPART( T4 ) )
-         Y( IX ) = CI*T6 - ( SIR*DBLE( T3 )-SII*IMAGPART( T3 ) )
+         X( IX ) = CI*T5 + ( SIR*REAL( T4 )+SII*IMAGPART( T4 ) )
+         Y( IX ) = CI*T6 - ( SIR*REAL( T3 )-SII*IMAGPART( T3 ) )
          Z( IX ) = CI*T3 + CONJG( SI )*CMPLX( T6, T1I )
          IX = IX + INCX
          IC = IC + INCC

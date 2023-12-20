@@ -242,10 +242,10 @@
       REAL*10   CABS1
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CONJG, IMAGPART, MAX, MIN, SQRT
+      INTRINSIC          ABS, REAL, CONJG, IMAGPART, MAX, MIN, SQRT
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
+      CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -300,7 +300,7 @@
       SAFMAX = RONE / SAFMIN
       CALL DLABAD( SAFMIN, SAFMAX )
       ULP = DLAMCH( 'PRECISION' )
-      SMLNUM = SAFMIN*( DBLE( NH ) / ULP )
+      SMLNUM = SAFMIN*( REAL( NH ) / ULP )
 *
 *     I1 and I2 are the indices of the first row and last column of H
 *     to which transformations must be applied. If eigenvalues only are
@@ -345,15 +345,15 @@
             TST = CABS1( H( K-1, K-1 ) ) + CABS1( H( K, K ) )
             IF( TST.EQ.ZERO ) THEN
                IF( K-2.GE.ILO )
-     $            TST = TST + ABS( DBLE( H( K-1, K-2 ) ) )
+     $            TST = TST + ABS( REAL( H( K-1, K-2 ) ) )
                IF( K+1.LE.IHI )
-     $            TST = TST + ABS( DBLE( H( K+1, K ) ) )
+     $            TST = TST + ABS( REAL( H( K+1, K ) ) )
             END IF
 *           ==== The following is a conservative small subdiagonal
 *           .    deflation criterion due to Ahues & Tisseur (LAWN 122,
 *           .    1997). It has better mathematical foundation and
 *           .    improves accuracy in some examples.  ====
-            IF( ABS( DBLE( H( K, K-1 ) ) ).LE.ULP*TST ) THEN
+            IF( ABS( REAL( H( K, K-1 ) ) ).LE.ULP*TST ) THEN
                AB = MAX( CABS1( H( K, K-1 ) ), CABS1( H( K-1, K ) ) )
                BA = MIN( CABS1( H( K, K-1 ) ), CABS1( H( K-1, K ) ) )
                AA = MAX( CABS1( H( K, K ) ),
@@ -393,13 +393,13 @@
 *
 *           Exceptional shift.
 *
-            S = DAT1*ABS( DBLE( H( I, I-1 ) ) )
+            S = DAT1*ABS( REAL( H( I, I-1 ) ) )
             T = S + H( I, I )
          ELSE IF( MOD(KDEFL,KEXSH).EQ.0 ) THEN
 *
 *           Exceptional shift.
 *
-            S = DAT1*ABS( DBLE( H( L+1, L ) ) )
+            S = DAT1*ABS( REAL( H( L+1, L ) ) )
             T = S + H( L, L )
          ELSE
 *
@@ -414,7 +414,7 @@
                S = MAX( S, CABS1( X ) )
                Y = S*SQRT( ( X / S )**2+( U / S )**2 )
                IF( SX.GT.RZERO ) THEN
-                  IF( DBLE( X / SX )*DBLE( Y )+IMAGPART( X / SX )*
+                  IF( REAL( X / SX )*REAL( Y )+IMAGPART( X / SX )*
      $                IMAGPART( Y ).LT.RZERO )Y = -Y
                END IF
                T = T - U*ZLADIV( U, ( X+Y ) )
@@ -432,13 +432,13 @@
             H11 = H( M, M )
             H22 = H( M+1, M+1 )
             H11S = H11 - T
-            H21 = DBLE( H( M+1, M ) )
+            H21 = REAL( H( M+1, M ) )
             S = CABS1( H11S ) + ABS( H21 )
             H11S = H11S / S
             H21 = H21 / S
             V( 1 ) = H11S
             V( 2 ) = H21
-            H10 = DBLE( H( M, M-1 ) )
+            H10 = REAL( H( M, M-1 ) )
             IF( ABS( H10 )*ABS( H21 ).LE.ULP*
      $          ( CABS1( H11S )*( CABS1( H11 )+CABS1( H22 ) ) ) )
      $          GO TO 70
@@ -446,7 +446,7 @@
          H11 = H( L, L )
          H22 = H( L+1, L+1 )
          H11S = H11 - T
-         H21 = DBLE( H( L+1, L ) )
+         H21 = REAL( H( L+1, L ) )
          S = CABS1( H11S ) + ABS( H21 )
          H11S = H11S / S
          H21 = H21 / S
@@ -478,7 +478,7 @@
                H( K+1, K-1 ) = ZERO
             END IF
             V2 = V( 2 )
-            T2 = DBLE( T1*V2 )
+            T2 = REAL( T1*V2 )
 *
 *           Apply G from the left to transform the rows of the matrix
 *           in columns K to I2.

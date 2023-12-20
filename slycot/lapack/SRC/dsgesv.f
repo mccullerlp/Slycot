@@ -236,7 +236,7 @@
       EXTERNAL           IDAMAX, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, MAX, SQRT
+      INTRINSIC          ABS, REAL, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -278,7 +278,7 @@
 *
       ANRM = DLANGE( 'I', N, N, A, LDA, WORK )
       EPS = DLAMCH( 'Epsilon' )
-      CTE = ANRM*EPS*SQRT( DBLE( N ) )*BWDMAX
+      CTE = ANRM*EPS*SQRT( REAL( N ) )*BWDMAX
 *
 *     Set the indices PTSA, PTSX for referencing SA and SX in SWORK.
 *

@@ -176,7 +176,7 @@
      $             ZLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC    DBLE, CONJG, MAX
+      INTRINSIC    REAL, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -246,7 +246,7 @@
 *
 *        Set A(J, J) = T(J, J)
 *
-         A( K, J ) = DBLE( WORK( 1 ) )
+         A( K, J ) = REAL( WORK( 1 ) )
 *
          IF( J.LT.M ) THEN
 *
@@ -401,7 +401,7 @@
 *
 *        Set A(J, J) = T(J, J)
 *
-         A( J, K ) = DBLE( WORK( 1 ) )
+         A( J, K ) = REAL( WORK( 1 ) )
 *
          IF( J.LT.M ) THEN
 *

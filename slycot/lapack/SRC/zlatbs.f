@@ -281,14 +281,14 @@
       EXTERNAL           DSCAL, XERBLA, ZAXPY, ZDSCAL, ZTBSV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, MIN
+      INTRINSIC          ABS, REAL, CMPLX, CONJG, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1, CABS2
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
-      CABS2( ZDUM ) = ABS( DBLE( ZDUM ) / 2.D0 ) +
+      CABS1( ZDUM ) = ABS( REAL( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
+      CABS2( ZDUM ) = ABS( REAL( ZDUM ) / 2.D0 ) +
      $                ABS( IMAGPART( ZDUM ) / 2.D0 )
 *     ..
 *     .. Executable Statements ..

@@ -125,14 +125,14 @@
       REAL*10   TEMP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, INT, LOG, MAX
+      INTRINSIC          REAL, INT, LOG, MAX
 *     ..
 *     .. Executable Statements ..
 *
 *     Find the number of levels on the tree.
 *
       MAXN = MAX( 1, N )
-      TEMP = LOG( DBLE( MAXN ) / DBLE( MSUB+1 ) ) / LOG( TWO )
+      TEMP = LOG( REAL( MAXN ) / REAL( MSUB+1 ) ) / LOG( TWO )
       LVL = INT( TEMP ) + 1
 *
       I = N / 2
