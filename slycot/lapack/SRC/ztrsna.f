@@ -292,13 +292,13 @@
      $                   DLABAD
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

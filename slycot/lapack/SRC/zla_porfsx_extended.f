@@ -454,13 +454,13 @@
       REAL*10   DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX, MIN
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -508,14 +508,14 @@
 *
             CALL ZCOPY( N, B( 1, J ), 1, RES, 1 )
             IF (Y_PREC_STATE .EQ. BASE_RESIDUAL) THEN
-               CALL ZHEMV(UPLO, N, DCMPLX(-1.0D+0), A, LDA, Y(1,J), 1,
-     $              DCMPLX(1.0D+0), RES, 1)
+               CALL ZHEMV(UPLO, N, CMPLX(-1.0D+0), A, LDA, Y(1,J), 1,
+     $              CMPLX(1.0D+0), RES, 1)
             ELSE IF (Y_PREC_STATE .EQ. EXTRA_RESIDUAL) THEN
-               CALL BLAS_ZHEMV_X(UPLO2, N, DCMPLX(-1.0D+0), A, LDA,
-     $              Y( 1, J ), 1, DCMPLX(1.0D+0), RES, 1, PREC_TYPE)
+               CALL BLAS_ZHEMV_X(UPLO2, N, CMPLX(-1.0D+0), A, LDA,
+     $              Y( 1, J ), 1, CMPLX(1.0D+0), RES, 1, PREC_TYPE)
             ELSE
-               CALL BLAS_ZHEMV2_X(UPLO2, N, DCMPLX(-1.0D+0), A, LDA,
-     $              Y(1, J), Y_TAIL, 1, DCMPLX(1.0D+0), RES, 1,
+               CALL BLAS_ZHEMV2_X(UPLO2, N, CMPLX(-1.0D+0), A, LDA,
+     $              Y(1, J), Y_TAIL, 1, CMPLX(1.0D+0), RES, 1,
      $     PREC_TYPE)
             END IF
 
@@ -629,7 +629,7 @@
 *           Update soluton.
 *
             IF (Y_PREC_STATE .LT. EXTRA_Y) THEN
-               CALL ZAXPY( N, DCMPLX(1.0D+0), DY, 1, Y(1,J), 1 )
+               CALL ZAXPY( N, CMPLX(1.0D+0), DY, 1, Y(1,J), 1 )
             ELSE
                CALL ZLA_WWADDW(N, Y(1,J), Y_TAIL, DY)
             END IF
@@ -663,8 +663,8 @@
 *            op(A) = A, A**T, or A**H depending on TRANS (and type).
 *
          CALL ZCOPY( N, B( 1, J ), 1, RES, 1 )
-         CALL ZHEMV(UPLO, N, DCMPLX(-1.0D+0), A, LDA, Y(1,J), 1,
-     $        DCMPLX(1.0D+0), RES, 1)
+         CALL ZHEMV(UPLO, N, CMPLX(-1.0D+0), A, LDA, Y(1,J), 1,
+     $        CMPLX(1.0D+0), RES, 1)
 
          DO I = 1, N
             AYB( I ) = CABS1( B( I, J ) )

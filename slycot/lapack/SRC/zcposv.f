@@ -259,7 +259,7 @@
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

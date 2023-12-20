@@ -176,7 +176,7 @@
      $             ZLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC    DBLE, DCONJG, MAX
+      INTRINSIC    DBLE, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -240,7 +240,7 @@
 *           Compute WORK := WORK - L(J-1, J:N) * T(J-1,J),
 *            where A(J-1, J) stores T(J-1, J) and A(J-2, J:N) stores U(J-1, J:N)
 *
-            ALPHA = -DCONJG( A( K-1, J ) )
+            ALPHA = -CONJG( A( K-1, J ) )
             CALL ZAXPY( MJ, ALPHA, A( K-2, J ), LDA, WORK( 1 ), 1 )
          END IF
 *
@@ -395,7 +395,7 @@
 *           Compute WORK := WORK - L(J:N, J-1) * T(J-1,J),
 *            where A(J-1, J) = T(J-1, J) and A(J, J-2) = L(J, J-1)
 *
-            ALPHA = -DCONJG( A( J, K-1 ) )
+            ALPHA = -CONJG( A( J, K-1 ) )
             CALL ZAXPY( MJ, ALPHA, A( J, K-2 ), 1, WORK( 1 ), 1 )
          END IF
 *

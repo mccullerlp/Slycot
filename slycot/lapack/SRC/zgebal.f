@@ -199,7 +199,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX, MIN
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN
 *
 *     Test the input parameters
 *
@@ -263,7 +263,7 @@
          DO 60 I = 1, L
             IF( I.EQ.J )
      $         GO TO 60
-            IF( DBLE( A( J, I ) ).NE.ZERO .OR. DIMAG( A( J, I ) ).NE.
+            IF( DBLE( A( J, I ) ).NE.ZERO .OR. IMAGPART( A( J, I ) ).NE.
      $          ZERO )GO TO 70
    60    CONTINUE
 *
@@ -285,7 +285,7 @@
          DO 100 I = K, L
             IF( I.EQ.J )
      $         GO TO 100
-            IF( DBLE( A( I, J ) ).NE.ZERO .OR. DIMAG( A( I, J ) ).NE.
+            IF( DBLE( A( I, J ) ).NE.ZERO .OR. IMAGPART( A( I, J ) ).NE.
      $          ZERO )GO TO 110
   100    CONTINUE
 *

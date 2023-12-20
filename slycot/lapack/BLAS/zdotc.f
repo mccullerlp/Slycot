@@ -99,7 +99,7 @@
       INTEGER I,IX,IY
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DCONJG
+      INTRINSIC CONJG
 *     ..
       ZTEMP = (0.0d0,0.0d0)
       ZDOTC = (0.0d0,0.0d0)
@@ -109,7 +109,7 @@
 *        code for both increments equal to 1
 *
          DO I = 1,N
-            ZTEMP = ZTEMP + DCONJG(ZX(I))*ZY(I)
+            ZTEMP = ZTEMP + CONJG(ZX(I))*ZY(I)
          END DO
       ELSE
 *
@@ -121,7 +121,7 @@
          IF (INCX.LT.0) IX = (-N+1)*INCX + 1
          IF (INCY.LT.0) IY = (-N+1)*INCY + 1
          DO I = 1,N
-            ZTEMP = ZTEMP + DCONJG(ZX(IX))*ZY(IY)
+            ZTEMP = ZTEMP + CONJG(ZX(IX))*ZY(IY)
             IX = IX + INCX
             IY = IY + INCY
          END DO

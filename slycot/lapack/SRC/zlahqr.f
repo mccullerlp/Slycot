@@ -242,10 +242,10 @@
       REAL*10   CABS1
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCONJG, DIMAG, MAX, MIN, SQRT
+      INTRINSIC          ABS, DBLE, CONJG, IMAGPART, MAX, MIN, SQRT
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -276,18 +276,18 @@
          JHI = IHI
       END IF
       DO 20 I = ILO + 1, IHI
-         IF( DIMAG( H( I, I-1 ) ).NE.RZERO ) THEN
+         IF( IMAGPART( H( I, I-1 ) ).NE.RZERO ) THEN
 *           ==== The following redundant normalization
 *           .    avoids problems with both gradual and
 *           .    sudden underflow in ABS(H(I,I-1)) ====
             SC = H( I, I-1 ) / CABS1( H( I, I-1 ) )
-            SC = DCONJG( SC ) / ABS( SC )
+            SC = CONJG( SC ) / ABS( SC )
             H( I, I-1 ) = ABS( H( I, I-1 ) )
             CALL ZSCAL( JHI-I+1, SC, H( I, I ), LDH )
-            CALL ZSCAL( MIN( JHI, I+1 )-JLO+1, DCONJG( SC ),
+            CALL ZSCAL( MIN( JHI, I+1 )-JLO+1, CONJG( SC ),
      $                  H( JLO, I ), 1 )
             IF( WANTZ )
-     $         CALL ZSCAL( IHIZ-ILOZ+1, DCONJG( SC ), Z( ILOZ, I ), 1 )
+     $         CALL ZSCAL( IHIZ-ILOZ+1, CONJG( SC ), Z( ILOZ, I ), 1 )
          END IF
    20 CONTINUE
 *
@@ -414,8 +414,8 @@
                S = MAX( S, CABS1( X ) )
                Y = S*SQRT( ( X / S )**2+( U / S )**2 )
                IF( SX.GT.RZERO ) THEN
-                  IF( DBLE( X / SX )*DBLE( Y )+DIMAG( X / SX )*
-     $                DIMAG( Y ).LT.RZERO )Y = -Y
+                  IF( DBLE( X / SX )*DBLE( Y )+IMAGPART( X / SX )*
+     $                IMAGPART( Y ).LT.RZERO )Y = -Y
                END IF
                T = T - U*ZLADIV( U, ( X+Y ) )
             END IF
@@ -484,7 +484,7 @@
 *           in columns K to I2.
 *
             DO 80 J = K, I2
-               SUM = DCONJG( T1 )*H( K, J ) + T2*H( K+1, J )
+               SUM = CONJG( T1 )*H( K, J ) + T2*H( K+1, J )
                H( K, J ) = H( K, J ) - SUM
                H( K+1, J ) = H( K+1, J ) - SUM*V2
    80       CONTINUE
@@ -495,7 +495,7 @@
             DO 90 J = I1, MIN( K+2, I )
                SUM = T1*H( J, K ) + T2*H( J, K+1 )
                H( J, K ) = H( J, K ) - SUM
-               H( J, K+1 ) = H( J, K+1 ) - SUM*DCONJG( V2 )
+               H( J, K+1 ) = H( J, K+1 ) - SUM*CONJG( V2 )
    90       CONTINUE
 *
             IF( WANTZ ) THEN
@@ -505,7 +505,7 @@
                DO 100 J = ILOZ, IHIZ
                   SUM = T1*Z( J, K ) + T2*Z( J, K+1 )
                   Z( J, K ) = Z( J, K ) - SUM
-                  Z( J, K+1 ) = Z( J, K+1 ) - SUM*DCONJG( V2 )
+                  Z( J, K+1 ) = Z( J, K+1 ) - SUM*CONJG( V2 )
   100          CONTINUE
             END IF
 *
@@ -518,16 +518,16 @@
 *
                TEMP = ONE - T1
                TEMP = TEMP / ABS( TEMP )
-               H( M+1, M ) = H( M+1, M )*DCONJG( TEMP )
+               H( M+1, M ) = H( M+1, M )*CONJG( TEMP )
                IF( M+2.LE.I )
      $            H( M+2, M+1 ) = H( M+2, M+1 )*TEMP
                DO 110 J = M, I
                   IF( J.NE.M+1 ) THEN
                      IF( I2.GT.J )
      $                  CALL ZSCAL( I2-J, TEMP, H( J, J+1 ), LDH )
-                     CALL ZSCAL( J-I1, DCONJG( TEMP ), H( I1, J ), 1 )
+                     CALL ZSCAL( J-I1, CONJG( TEMP ), H( I1, J ), 1 )
                      IF( WANTZ ) THEN
-                        CALL ZSCAL( NZ, DCONJG( TEMP ), Z( ILOZ, J ),
+                        CALL ZSCAL( NZ, CONJG( TEMP ), Z( ILOZ, J ),
      $                              1 )
                      END IF
                   END IF
@@ -538,12 +538,12 @@
 *        Ensure that H(I,I-1) is real.
 *
          TEMP = H( I, I-1 )
-         IF( DIMAG( TEMP ).NE.RZERO ) THEN
+         IF( IMAGPART( TEMP ).NE.RZERO ) THEN
             RTEMP = ABS( TEMP )
             H( I, I-1 ) = RTEMP
             TEMP = TEMP / RTEMP
             IF( I2.GT.I )
-     $         CALL ZSCAL( I2-I, DCONJG( TEMP ), H( I, I+1 ), LDH )
+     $         CALL ZSCAL( I2-I, CONJG( TEMP ), H( I, I+1 ), LDH )
             CALL ZSCAL( I-I1, TEMP, H( I1, I ), 1 )
             IF( WANTZ ) THEN
                CALL ZSCAL( NZ, TEMP, Z( ILOZ, I ), 1 )

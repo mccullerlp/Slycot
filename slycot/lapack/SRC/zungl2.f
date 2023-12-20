@@ -136,7 +136,7 @@
       EXTERNAL           XERBLA, ZLACGV, ZLARF, ZSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX
+      INTRINSIC          CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -184,12 +184,12 @@
             IF( I.LT.M ) THEN
                A( I, I ) = ONE
                CALL ZLARF( 'Right', M-I, N-I+1, A( I, I ), LDA,
-     $                     DCONJG( TAU( I ) ), A( I+1, I ), LDA, WORK )
+     $                     CONJG( TAU( I ) ), A( I+1, I ), LDA, WORK )
             END IF
             CALL ZSCAL( N-I, -TAU( I ), A( I, I+1 ), LDA )
             CALL ZLACGV( N-I, A( I, I+1 ), LDA )
          END IF
-         A( I, I ) = ONE - DCONJG( TAU( I ) )
+         A( I, I ) = ONE - CONJG( TAU( I ) )
 *
 *        Set A(i,1:i-1) to zero
 *

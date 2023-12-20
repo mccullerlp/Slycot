@@ -262,13 +262,13 @@
       EXTERNAL           LSAME, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX, SQRT
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )
+      ABS1( X ) = ABS( DBLE( X ) ) + ABS( IMAGPART( X ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -348,7 +348,7 @@
      $                   RWORK, 0, IERR )
             LWKOPT = MAX( LWKOPT, N+INT( WORK( 1 ) ) )
          END IF
-         WORK( 1 ) = DCMPLX( LWKOPT )
+         WORK( 1 ) = CMPLX( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -548,7 +548,7 @@
       IF( ILBSCL )
      $   CALL ZLASCL( 'G', 0, 0, BNRMTO, BNRM, N, 1, BETA, N, IERR )
 *
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
       RETURN
 *
 *     End of ZGGEV3

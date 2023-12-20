@@ -227,13 +227,13 @@
       EXTERNAL           XERBLA, ZDSCAL, ZHER, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX, SQRT
+      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -356,11 +356,11 @@
 *
                CALL ZSWAP( KP-1, A( 1, KK ), 1, A( 1, KP ), 1 )
                DO 20 J = KP + 1, KK - 1
-                  T = DCONJG( A( J, KK ) )
-                  A( J, KK ) = DCONJG( A( KP, J ) )
+                  T = CONJG( A( J, KK ) )
+                  A( J, KK ) = CONJG( A( KP, J ) )
                   A( KP, J ) = T
    20          CONTINUE
-               A( KP, KK ) = DCONJG( A( KP, KK ) )
+               A( KP, KK ) = CONJG( A( KP, KK ) )
                R1 = DBLE( A( KK, KK ) )
                A( KK, KK ) = DBLE( A( KP, KP ) )
                A( KP, KP ) = R1
@@ -413,7 +413,7 @@
                IF( K.GT.2 ) THEN
 *
                   D = DLAPY2( DBLE( A( K-1, K ) ),
-     $                DIMAG( A( K-1, K ) ) )
+     $                IMAGPART( A( K-1, K ) ) )
                   D22 = DBLE( A( K-1, K-1 ) ) / D
                   D11 = DBLE( A( K, K ) ) / D
                   TT = ONE / ( D11*D22-ONE )
@@ -421,16 +421,16 @@
                   D = TT / D
 *
                   DO 40 J = K - 2, 1, -1
-                     WKM1 = D*( D11*A( J, K-1 )-DCONJG( D12 )*
+                     WKM1 = D*( D11*A( J, K-1 )-CONJG( D12 )*
      $                      A( J, K ) )
                      WK = D*( D22*A( J, K )-D12*A( J, K-1 ) )
                      DO 30 I = J, 1, -1
-                        A( I, J ) = A( I, J ) - A( I, K )*DCONJG( WK ) -
-     $                              A( I, K-1 )*DCONJG( WKM1 )
+                        A( I, J ) = A( I, J ) - A( I, K )*CONJG( WK ) -
+     $                              A( I, K-1 )*CONJG( WKM1 )
    30                CONTINUE
                      A( J, K ) = WK
                      A( J, K-1 ) = WKM1
-                     A( J, J ) = DCMPLX( DBLE( A( J, J ) ), 0.0D+0 )
+                     A( J, J ) = CMPLX( DBLE( A( J, J ) ), 0.0D+0 )
    40             CONTINUE
 *
                END IF
@@ -552,11 +552,11 @@
                IF( KP.LT.N )
      $            CALL ZSWAP( N-KP, A( KP+1, KK ), 1, A( KP+1, KP ), 1 )
                DO 60 J = KK + 1, KP - 1
-                  T = DCONJG( A( J, KK ) )
-                  A( J, KK ) = DCONJG( A( KP, J ) )
+                  T = CONJG( A( J, KK ) )
+                  A( J, KK ) = CONJG( A( KP, J ) )
                   A( KP, J ) = T
    60          CONTINUE
-               A( KP, KK ) = DCONJG( A( KP, KK ) )
+               A( KP, KK ) = CONJG( A( KP, KK ) )
                R1 = DBLE( A( KK, KK ) )
                A( KK, KK ) = DBLE( A( KP, KP ) )
                A( KP, KP ) = R1
@@ -611,7 +611,7 @@
 *                 columns of L
 *
                   D = DLAPY2( DBLE( A( K+1, K ) ),
-     $                DIMAG( A( K+1, K ) ) )
+     $                IMAGPART( A( K+1, K ) ) )
                   D11 = DBLE( A( K+1, K+1 ) ) / D
                   D22 = DBLE( A( K, K ) ) / D
                   TT = ONE / ( D11*D22-ONE )
@@ -620,15 +620,15 @@
 *
                   DO 80 J = K + 2, N
                      WK = D*( D11*A( J, K )-D21*A( J, K+1 ) )
-                     WKP1 = D*( D22*A( J, K+1 )-DCONJG( D21 )*
+                     WKP1 = D*( D22*A( J, K+1 )-CONJG( D21 )*
      $                      A( J, K ) )
                      DO 70 I = J, N
-                        A( I, J ) = A( I, J ) - A( I, K )*DCONJG( WK ) -
-     $                              A( I, K+1 )*DCONJG( WKP1 )
+                        A( I, J ) = A( I, J ) - A( I, K )*CONJG( WK ) -
+     $                              A( I, K+1 )*CONJG( WKP1 )
    70                CONTINUE
                      A( J, K ) = WK
                      A( J, K+1 ) = WKP1
-                     A( J, J ) = DCMPLX( DBLE( A( J, J ) ), 0.0D+0 )
+                     A( J, J ) = CMPLX( DBLE( A( J, J ) ), 0.0D+0 )
    80             CONTINUE
                END IF
             END IF

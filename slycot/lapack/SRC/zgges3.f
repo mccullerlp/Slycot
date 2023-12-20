@@ -398,7 +398,7 @@
      $                   PVSL, PVSR, DIF, WORK, -1, IDUM, 1, IERR )
             LWKOPT = MAX( LWKOPT, INT ( WORK( 1 ) ) )
          END IF
-         WORK( 1 ) = DCMPLX( LWKOPT )
+         WORK( 1 ) = CMPLX( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -583,7 +583,7 @@
 *
    30 CONTINUE
 *
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
 *
       RETURN
 *

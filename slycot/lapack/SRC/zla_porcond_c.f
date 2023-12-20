@@ -164,13 +164,13 @@
       EXTERNAL           ZLACN2, ZPOTRS, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, MAX, REAL, DIMAG
+      INTRINSIC          ABS, MAX, REAL, IMAGPART
 *     ..
 *     .. Statement Functions ..
       REAL*10 CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

@@ -226,7 +226,7 @@
       EXTERNAL           ZCOPY, ZGEMM, ZLACGV, ZTRMM
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG
+      INTRINSIC          CONJG
 *     ..
 *     .. Executable Statements ..
 *
@@ -301,7 +301,7 @@
 *
                DO 30 J = 1, K
                   DO 20 I = 1, N
-                     C( J, I ) = C( J, I ) - DCONJG( WORK( I, J ) )
+                     C( J, I ) = C( J, I ) - CONJG( WORK( I, J ) )
    20             CONTINUE
    30          CONTINUE
 *
@@ -420,7 +420,7 @@
                DO 90 J = 1, K
                   DO 80 I = 1, N
                      C( M-K+J, I ) = C( M-K+J, I ) -
-     $                               DCONJG( WORK( I, J ) )
+     $                               CONJG( WORK( I, J ) )
    80             CONTINUE
    90          CONTINUE
 *
@@ -541,7 +541,7 @@
 *
                DO 150 J = 1, K
                   DO 140 I = 1, N
-                     C( J, I ) = C( J, I ) - DCONJG( WORK( I, J ) )
+                     C( J, I ) = C( J, I ) - CONJG( WORK( I, J ) )
   140             CONTINUE
   150          CONTINUE
 *
@@ -660,7 +660,7 @@
                DO 210 J = 1, K
                   DO 200 I = 1, N
                      C( M-K+J, I ) = C( M-K+J, I ) -
-     $                               DCONJG( WORK( I, J ) )
+     $                               CONJG( WORK( I, J ) )
   200             CONTINUE
   210          CONTINUE
 *

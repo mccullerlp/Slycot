@@ -217,13 +217,13 @@
       EXTERNAL           DAXPY, DSCAL, XERBLA, ZDSCAL, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, INT, LOG10, MAX, MIN, SIGN
+      INTRINSIC          ABS, DBLE, IMAGPART, INT, LOG10, MAX, MIN, SIGN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

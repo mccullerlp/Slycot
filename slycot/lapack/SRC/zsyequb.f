@@ -168,13 +168,13 @@
       EXTERNAL           ZLASSQ, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, INT, LOG, MAX, MIN, SQRT
+      INTRINSIC          ABS, DBLE, IMAGPART, INT, LOG, MAX, MIN, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

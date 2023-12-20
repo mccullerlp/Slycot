@@ -79,13 +79,13 @@
       EXTERNAL           DLADIV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, DIMAG
+      INTRINSIC          DBLE, CMPLX, IMAGPART
 *     ..
 *     .. Executable Statements ..
 *
-      CALL DLADIV( DBLE( X ), DIMAG( X ), DBLE( Y ), DIMAG( Y ), ZR,
+      CALL DLADIV( DBLE( X ), IMAGPART( X ), DBLE( Y ), IMAGPART( Y ), ZR,
      $             ZI )
-      ZLADIV = DCMPLX( ZR, ZI )
+      ZLADIV = CMPLX( ZR, ZI )
 *
       RETURN
 *

@@ -304,14 +304,14 @@
       EXTERNAL           ZLACPY, ZLAHQR, ZLAQR3, ZLAQR4, ZLAQR5
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DIMAG, INT, MAX, MIN, MOD,
+      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, INT, MAX, MIN, MOD,
      $                   SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
       INFO = 0
@@ -387,7 +387,7 @@
 *        ==== Quick return in case of workspace query. ====
 *
          IF( LWORK.EQ.-1 ) THEN
-            WORK( 1 ) = DCMPLX( LWKOPT, 0 )
+            WORK( 1 ) = CMPLX( LWKOPT, 0 )
             RETURN
          END IF
 *
@@ -693,7 +693,7 @@
 *
 *     ==== Return the optimal value of LWORK. ====
 *
-      WORK( 1 ) = DCMPLX( LWKOPT, 0 )
+      WORK( 1 ) = CMPLX( LWKOPT, 0 )
 *
 *     ==== End of ZLAQR0 ====
 *

@@ -196,7 +196,7 @@
      $                   ZHEGST, ZSWAP, ZTRSM 
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MIN, MAX
+      INTRINSIC          CONJG, MIN, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -346,7 +346,7 @@
      $            = REAL( TB( TD+1 + (J*NB+I-1)*LDTB ) )
                DO K = I+1, KB
                   TB( TD+(K-I)+1 + (J*NB+I-1)*LDTB )
-     $               = DCONJG( TB( TD-(K-(I+1)) + (J*NB+K-1)*LDTB ) )
+     $               = CONJG( TB( TD-(K-(I+1)) + (J*NB+K-1)*LDTB ) )
                END DO
             END DO
 *
@@ -431,7 +431,7 @@ c               END IF
                DO K = 1, NB
                   DO I = 1, KB
                      TB( TD-NB+K-I+1 + (J*NB+NB+I-1)*LDTB )
-     $                  = DCONJG( TB( TD+NB+I-K+1 + (J*NB+K-1)*LDTB ) )
+     $                  = CONJG( TB( TD+NB+I-K+1 + (J*NB+K-1)*LDTB ) )
                   END DO
                END DO
                CALL ZLASET( 'Lower', KB, NB, ZERO, ONE, 
@@ -549,7 +549,7 @@ c               END IF
      $            = REAL( TB( TD+1 + (J*NB+I-1)*LDTB ) )
                DO K = I+1, KB
                   TB( TD-(K-(I+1)) + (J*NB+K-1)*LDTB )
-     $               = DCONJG( TB( TD+(K-I)+1 + (J*NB+I-1)*LDTB ) )
+     $               = CONJG( TB( TD+(K-I)+1 + (J*NB+I-1)*LDTB ) )
                END DO
             END DO
 *
@@ -611,7 +611,7 @@ c               END IF
                DO K = 1, NB
                   DO I = 1, KB
                      TB( TD-NB+K-I+1 + (J*NB+NB+I-1)*LDTB )
-     $                  = DCONJG( TB( TD+NB+I-K+1 + (J*NB+K-1)*LDTB ) )
+     $                  = CONJG( TB( TD+NB+I-K+1 + (J*NB+K-1)*LDTB ) )
                   END DO
                END DO
                CALL ZLASET( 'Upper', KB, NB, ZERO, ONE, 

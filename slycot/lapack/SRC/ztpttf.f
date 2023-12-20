@@ -234,7 +234,7 @@
       EXTERNAL           XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MOD
+      INTRINSIC          CONJG, MOD
 *     ..
 *     .. Executable Statements ..
 *
@@ -264,7 +264,7 @@
          IF( NORMALTRANSR ) THEN
             ARF( 0 ) = AP( 0 )
          ELSE
-            ARF( 0 ) = DCONJG( AP( 0 ) )
+            ARF( 0 ) = CONJG( AP( 0 ) )
          END IF
          RETURN
       END IF
@@ -332,7 +332,7 @@
                DO I = 0, N2 - 1
                   DO J = 1 + I, N2
                      IJ = I + J*LDA
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                   END DO
                END DO
@@ -347,7 +347,7 @@
                DO J = 0, N1 - 1
                   IJ = N2 + J
                   DO I = 0, J
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                      IJ = IJ + LDA
                   END DO
@@ -377,7 +377,7 @@
                IJP = 0
                DO I = 0, N2
                   DO IJ = I*( LDA+1 ), N*LDA - 1, LDA
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                   END DO
                END DO
@@ -407,7 +407,7 @@
                END DO
                DO I = 0, N1
                   DO IJ = I, I + ( N1+I )*LDA, LDA
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                   END DO
                END DO
@@ -443,7 +443,7 @@
                DO I = 0, K - 1
                   DO J = I, K - 1
                      IJ = I + J*LDA
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                   END DO
                END DO
@@ -458,7 +458,7 @@
                DO J = 0, K - 1
                   IJ = K + 1 + J
                   DO I = 0, J
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                      IJ = IJ + LDA
                   END DO
@@ -488,7 +488,7 @@
                IJP = 0
                DO I = 0, K - 1
                   DO IJ = I + ( I+1 )*LDA, ( N+1 )*LDA - 1, LDA
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                   END DO
                END DO
@@ -518,7 +518,7 @@
                END DO
                DO I = 0, K - 1
                   DO IJ = I, I + ( K+I )*LDA, LDA
-                     ARF( IJ ) = DCONJG( AP( IJP ) )
+                     ARF( IJ ) = CONJG( AP( IJP ) )
                      IJP = IJP + 1
                   END DO
                END DO

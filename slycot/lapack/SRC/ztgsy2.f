@@ -296,7 +296,7 @@
       EXTERNAL           XERBLA, ZAXPY, ZGESC2, ZGETC2, ZLATDF, ZSCAL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCMPLX, DCONJG, MAX
+      INTRINSIC          CMPLX, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -369,9 +369,9 @@
                   CALL ZGESC2( LDZ, Z, LDZ, RHS, IPIV, JPIV, SCALOC )
                   IF( SCALOC.NE.ONE ) THEN
                      DO 10 K = 1, N
-                        CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M, CMPLX( SCALOC, ZERO ),
      $                              C( 1, K ), 1 )
-                        CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M, CMPLX( SCALOC, ZERO ),
      $                              F( 1, K ), 1 )
    10                CONTINUE
                      SCALE = SCALE*SCALOC
@@ -416,10 +416,10 @@
 *
 *              Build 2 by 2 system Z**H
 *
-               Z( 1, 1 ) = DCONJG( A( I, I ) )
-               Z( 2, 1 ) = -DCONJG( B( J, J ) )
-               Z( 1, 2 ) = DCONJG( D( I, I ) )
-               Z( 2, 2 ) = -DCONJG( E( J, J ) )
+               Z( 1, 1 ) = CONJG( A( I, I ) )
+               Z( 2, 1 ) = -CONJG( B( J, J ) )
+               Z( 1, 2 ) = CONJG( D( I, I ) )
+               Z( 2, 2 ) = -CONJG( E( J, J ) )
 *
 *
 *              Set up right hand side(s)
@@ -435,9 +435,9 @@
                CALL ZGESC2( LDZ, Z, LDZ, RHS, IPIV, JPIV, SCALOC )
                IF( SCALOC.NE.ONE ) THEN
                   DO 40 K = 1, N
-                     CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ), C( 1, K ),
+                     CALL ZSCAL( M, CMPLX( SCALOC, ZERO ), C( 1, K ),
      $                           1 )
-                     CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ), F( 1, K ),
+                     CALL ZSCAL( M, CMPLX( SCALOC, ZERO ), F( 1, K ),
      $                           1 )
    40             CONTINUE
                   SCALE = SCALE*SCALOC
@@ -451,12 +451,12 @@
 *              Substitute R(I, J) and L(I, J) into remaining equation.
 *
                DO 50 K = 1, J - 1
-                  F( I, K ) = F( I, K ) + RHS( 1 )*DCONJG( B( K, J ) ) +
-     $                        RHS( 2 )*DCONJG( E( K, J ) )
+                  F( I, K ) = F( I, K ) + RHS( 1 )*CONJG( B( K, J ) ) +
+     $                        RHS( 2 )*CONJG( E( K, J ) )
    50          CONTINUE
                DO 60 K = I + 1, M
-                  C( K, J ) = C( K, J ) - DCONJG( A( I, K ) )*RHS( 1 ) -
-     $                        DCONJG( D( I, K ) )*RHS( 2 )
+                  C( K, J ) = C( K, J ) - CONJG( A( I, K ) )*RHS( 1 ) -
+     $                        CONJG( D( I, K ) )*RHS( 2 )
    60          CONTINUE
 *
    70       CONTINUE

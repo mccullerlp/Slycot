@@ -286,13 +286,13 @@
      $                   ZGEMM, DLABAD, ZLASET, ZLACPY
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, CONJG, DIMAG, MAX
+      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -454,7 +454,7 @@
 *              version 1: back-transform each vector with GEMV, Q*x.
                IF( KI.GT.1 )
      $            CALL ZGEMV( 'N', N, KI-1, CONE, VR, LDVR,
-     $                        WORK( 1 + IV*N ), 1, DCMPLX( SCALE ),
+     $                        WORK( 1 + IV*N ), 1, CMPLX( SCALE ),
      $                        VR( 1, KI ), 1 )
 *
                II = IZAMAX( N, VR( 1, KI ), 1 )
@@ -569,7 +569,7 @@
 *              version 1: back-transform each vector with GEMV, Q*x.
                IF( KI.LT.N )
      $            CALL ZGEMV( 'N', N, N-KI, CONE, VL( 1, KI+1 ), LDVL,
-     $                        WORK( KI+1 + IV*N ), 1, DCMPLX( SCALE ),
+     $                        WORK( KI+1 + IV*N ), 1, CMPLX( SCALE ),
      $                        VL( 1, KI ), 1 )
 *
                II = IZAMAX( N, VL( 1, KI ), 1 )

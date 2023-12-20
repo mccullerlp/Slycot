@@ -262,13 +262,13 @@
       EXTERNAL           DLABAD, XERBLA, ZGEMV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX, MIN
+      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )
+      ABS1( X ) = ABS( DBLE( X ) ) + ABS( IMAGPART( X ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -339,7 +339,7 @@
 *
       ILBBAD = .FALSE.
       DO 20 J = 1, N
-         IF( DIMAG( P( J, J ) ).NE.ZERO )
+         IF( IMAGPART( P( J, J ) ).NE.ZERO )
      $      ILBBAD = .TRUE.
    20 CONTINUE
 *
@@ -498,18 +498,18 @@
                   SUMB = CZERO
 *
                   DO 80 JR = JE, J - 1
-                     SUMA = SUMA + DCONJG( S( JR, J ) )*WORK( JR )
-                     SUMB = SUMB + DCONJG( P( JR, J ) )*WORK( JR )
+                     SUMA = SUMA + CONJG( S( JR, J ) )*WORK( JR )
+                     SUMB = SUMB + CONJG( P( JR, J ) )*WORK( JR )
    80             CONTINUE
-                  SUM = ACOEFF*SUMA - DCONJG( BCOEFF )*SUMB
+                  SUM = ACOEFF*SUMA - CONJG( BCOEFF )*SUMB
 *
 *                 Form x(j) = - SUM / conjg( a*S(j,j) - b*P(j,j) )
 *
 *                 with scaling and perturbation of the denominator
 *
-                  D = DCONJG( ACOEFF*S( J, J )-BCOEFF*P( J, J ) )
+                  D = CONJG( ACOEFF*S( J, J )-BCOEFF*P( J, J ) )
                   IF( ABS1( D ).LE.DMIN )
-     $               D = DCMPLX( DMIN )
+     $               D = CMPLX( DMIN )
 *
                   IF( ABS1( D ).LT.ONE ) THEN
                      IF( ABS1( SUM ).GE.BIGNUM*ABS1( D ) ) THEN
@@ -655,7 +655,7 @@
 *
                   D = ACOEFF*S( J, J ) - BCOEFF*P( J, J )
                   IF( ABS1( D ).LE.DMIN )
-     $               D = DCMPLX( DMIN )
+     $               D = CMPLX( DMIN )
 *
                   IF( ABS1( D ).LT.ONE ) THEN
                      IF( ABS1( WORK( J ) ).GE.BIGNUM*ABS1( D ) ) THEN

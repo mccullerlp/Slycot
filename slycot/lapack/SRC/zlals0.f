@@ -304,7 +304,7 @@
       EXTERNAL           DLAMC3, DNRM2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, DIMAG, MAX
+      INTRINSIC          DBLE, CMPLX, IMAGPART, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -429,13 +429,13 @@
                DO 80 JCOL = 1, NRHS
                   DO 70 JROW = 1, K
                      I = I + 1
-                     RWORK( I ) = DIMAG( BX( JROW, JCOL ) )
+                     RWORK( I ) = IMAGPART( BX( JROW, JCOL ) )
    70             CONTINUE
    80          CONTINUE
                CALL DGEMV( 'T', K, NRHS, ONE, RWORK( 1+K+NRHS*2 ), K,
      $                     RWORK( 1 ), 1, ZERO, RWORK( 1+K+NRHS ), 1 )
                DO 90 JCOL = 1, NRHS
-                  B( J, JCOL ) = DCMPLX( RWORK( JCOL+K ),
+                  B( J, JCOL ) = CMPLX( RWORK( JCOL+K ),
      $                           RWORK( JCOL+K+NRHS ) )
    90          CONTINUE
                CALL ZLASCL( 'G', 0, 0, TEMP, ONE, 1, NRHS, B( J, 1 ),
@@ -504,13 +504,13 @@
                DO 160 JCOL = 1, NRHS
                   DO 150 JROW = 1, K
                      I = I + 1
-                     RWORK( I ) = DIMAG( B( JROW, JCOL ) )
+                     RWORK( I ) = IMAGPART( B( JROW, JCOL ) )
   150             CONTINUE
   160          CONTINUE
                CALL DGEMV( 'T', K, NRHS, ONE, RWORK( 1+K+NRHS*2 ), K,
      $                     RWORK( 1 ), 1, ZERO, RWORK( 1+K+NRHS ), 1 )
                DO 170 JCOL = 1, NRHS
-                  BX( J, JCOL ) = DCMPLX( RWORK( JCOL+K ),
+                  BX( J, JCOL ) = CMPLX( RWORK( JCOL+K ),
      $                            RWORK( JCOL+K+NRHS ) )
   170          CONTINUE
   180       CONTINUE

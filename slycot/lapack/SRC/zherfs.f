@@ -232,7 +232,7 @@
       EXTERNAL           XERBLA, ZAXPY, ZCOPY, ZHEMV, ZHETRS, ZLACN2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -243,7 +243,7 @@
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

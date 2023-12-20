@@ -131,13 +131,13 @@
       LOGICAL            LSAME
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, MAX, MIN, REAL, DIMAG
+      INTRINSIC          ABS, MAX, MIN, REAL, IMAGPART
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
       UPPER = LSAME( 'Upper', UPLO )

@@ -121,7 +121,7 @@
       COMPLEX*20         STEMP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG
+      INTRINSIC          CONJG
 *     ..
 *     .. Executable Statements ..
 *
@@ -140,7 +140,7 @@
      $   IY = ( -N+1 )*INCY + 1
       DO 10 I = 1, N
          STEMP = C*CX( IX ) + S*CY( IY )
-         CY( IY ) = C*CY( IY ) - DCONJG( S )*CX( IX )
+         CY( IY ) = C*CY( IY ) - CONJG( S )*CX( IX )
          CX( IX ) = STEMP
          IX = IX + INCX
          IY = IY + INCY
@@ -152,7 +152,7 @@
    20 CONTINUE
       DO 30 I = 1, N
          STEMP = C*CX( I ) + S*CY( I )
-         CY( I ) = C*CY( I ) - DCONJG( S )*CX( I )
+         CY( I ) = C*CY( I ) - CONJG( S )*CX( I )
          CX( I ) = STEMP
    30 CONTINUE
       RETURN

@@ -132,7 +132,7 @@
       EXTERNAL           XERBLA, ZDSCAL, ZGEMV, ZLACGV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, MAX
+      INTRINSIC          DBLE, CMPLX, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -168,7 +168,7 @@
      $                     A( I, I+1 ), LDA ) )
                CALL ZLACGV( N-I, A( I, I+1 ), LDA )
                CALL ZGEMV( 'No transpose', I-1, N-I, ONE, A( 1, I+1 ),
-     $                     LDA, A( I, I+1 ), LDA, DCMPLX( AII ),
+     $                     LDA, A( I, I+1 ), LDA, CMPLX( AII ),
      $                     A( 1, I ), 1 )
                CALL ZLACGV( N-I, A( I, I+1 ), LDA )
             ELSE
@@ -188,7 +188,7 @@
                CALL ZLACGV( I-1, A( I, 1 ), LDA )
                CALL ZGEMV( 'Conjugate transpose', N-I, I-1, ONE,
      $                     A( I+1, 1 ), LDA, A( I+1, I ), 1,
-     $                     DCMPLX( AII ), A( I, 1 ), LDA )
+     $                     CMPLX( AII ), A( I, 1 ), LDA )
                CALL ZLACGV( I-1, A( I, 1 ), LDA )
             ELSE
                CALL ZDSCAL( I, AII, A( I, 1 ), LDA )

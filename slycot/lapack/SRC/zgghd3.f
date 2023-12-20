@@ -267,7 +267,7 @@
      $                   ZGEMV, ZTRMV, ZLACPY, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, DCONJG, MAX
+      INTRINSIC          DBLE, CMPLX, CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -276,7 +276,7 @@
       INFO = 0
       NB = ILAENV( 1, 'ZGGHD3', ' ', N, ILO, IHI, -1 )
       LWKOPT = MAX( 6*N*NB, 1 )
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
       INITQ = LSAME( COMPQ, 'I' )
       WANTQ = INITQ .OR. LSAME( COMPQ, 'V' )
       INITZ = LSAME( COMPZ, 'I' )
@@ -401,7 +401,7 @@
                DO I = IHI, J+2, -1
                   TEMP = A( I-1, J )
                   CALL ZLARTG( TEMP, A( I, J ), C, S, A( I-1, J ) )
-                  A( I, J ) = DCMPLX( C )
+                  A( I, J ) = CMPLX( C )
                   B( I, J ) = S
                END DO
 *
@@ -416,7 +416,7 @@
                   DO JJ = PPW, PPW+LEN-1
                      TEMP = WORK( JJ + NBLST )
                      WORK( JJ + NBLST ) = CTEMP*TEMP - S*WORK( JJ )
-                     WORK( JJ ) = DCONJG( S )*TEMP + CTEMP*WORK( JJ )
+                     WORK( JJ ) = CONJG( S )*TEMP + CTEMP*WORK( JJ )
                   END DO
                   LEN = LEN + 1
                   PPW = PPW - NBLST - 1
@@ -433,7 +433,7 @@
                      DO JJ = PPW, PPW+LEN-1
                         TEMP = WORK( JJ + 2*NNB )
                         WORK( JJ + 2*NNB ) = CTEMP*TEMP - S*WORK( JJ )
-                        WORK( JJ ) = DCONJG( S )*TEMP + CTEMP*WORK( JJ )
+                        WORK( JJ ) = CONJG( S )*TEMP + CTEMP*WORK( JJ )
                      END DO
                      LEN = LEN + 1
                      PPW = PPW - 2*NNB - 1
@@ -461,7 +461,7 @@
                      CTEMP = A( I, J )
                      S = B( I, J )
                      TEMP = B( I, JJ )
-                     B( I, JJ ) = CTEMP*TEMP - DCONJG( S )*B( I-1, JJ )
+                     B( I, JJ ) = CTEMP*TEMP - CONJG( S )*B( I-1, JJ )
                      B( I-1, JJ ) = S*TEMP + CTEMP*B( I-1, JJ )
                   END DO
 *
@@ -474,8 +474,8 @@
                      B( JJ+1, JJ ) = CZERO
                      CALL ZROT( JJ-TOP, B( TOP+1, JJ+1 ), 1,
      $                          B( TOP+1, JJ ), 1, C, S )
-                     A( JJ+1, J ) = DCMPLX( C )
-                     B( JJ+1, J ) = -DCONJG( S )
+                     A( JJ+1, J ) = CMPLX( C )
+                     B( JJ+1, J ) = -CONJG( S )
                   END IF
                END DO
 *
@@ -495,11 +495,11 @@
                      TEMP1 = A( K, J+I+1 )
                      TEMP2 = A( K, J+I+2 )
                      TEMP3 = A( K, J+I+3 )
-                     A( K, J+I+3 ) = C2*TEMP3 + DCONJG( S2 )*TEMP2
+                     A( K, J+I+3 ) = C2*TEMP3 + CONJG( S2 )*TEMP2
                      TEMP2 = -S2*TEMP3 + C2*TEMP2
-                     A( K, J+I+2 ) = C1*TEMP2 + DCONJG( S1 )*TEMP1
+                     A( K, J+I+2 ) = C1*TEMP2 + CONJG( S1 )*TEMP1
                      TEMP1 = -S1*TEMP2 + C1*TEMP1
-                     A( K, J+I+1 ) = CTEMP*TEMP1 + DCONJG( S )*TEMP
+                     A( K, J+I+1 ) = CTEMP*TEMP1 + CONJG( S )*TEMP
                      A( K, J+I ) = -S*TEMP1 + CTEMP*TEMP
                   END DO
                END DO
@@ -509,7 +509,7 @@
                      C = DBLE( A( J+1+I, J ) )
                      CALL ZROT( IHI-TOP, A( TOP+1, J+I+1 ), 1,
      $                          A( TOP+1, J+I ), 1, C,
-     $                          -DCONJG( B( J+1+I, J ) ) )
+     $                          -CONJG( B( J+1+I, J ) ) )
                   END DO
                END IF
 *
@@ -717,7 +717,7 @@
                      DO JJ = PPW, PPW+LEN-1
                         TEMP = WORK( JJ + NBLST )
                         WORK( JJ + NBLST ) = CTEMP*TEMP -
-     $                                       DCONJG( S )*WORK( JJ )
+     $                                       CONJG( S )*WORK( JJ )
                         WORK( JJ ) = S*TEMP + CTEMP*WORK( JJ )
                      END DO
                      LEN = LEN + 1
@@ -737,7 +737,7 @@
                         DO JJ = PPW, PPW+LEN-1
                            TEMP = WORK( JJ + 2*NNB )
                            WORK( JJ + 2*NNB ) = CTEMP*TEMP -
-     $                                          DCONJG( S )*WORK( JJ )
+     $                                          CONJG( S )*WORK( JJ )
                            WORK( JJ ) = S*TEMP + CTEMP*WORK( JJ )
                         END DO
                         LEN = LEN + 1
@@ -883,7 +883,7 @@
       IF ( JCOL.LT.IHI )
      $   CALL ZGGHRD( COMPQ2, COMPZ2, N, JCOL, IHI, A, LDA, B, LDB, Q,
      $                LDQ, Z, LDZ, IERR )
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
 *
       RETURN
 *

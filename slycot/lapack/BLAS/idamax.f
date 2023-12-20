@@ -87,7 +87,7 @@
       INTEGER I,IX
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DABS
+      INTRINSIC ABS
 *     ..
       IDAMAX = 0
       IF (N.LT.1 .OR. INCX.LE.0) RETURN
@@ -97,11 +97,11 @@
 *
 *        code for increment equal to 1
 *
-         DMAX = DABS(DX(1))
+         DMAX = ABS(DX(1))
          DO I = 2,N
-            IF (DABS(DX(I)).GT.DMAX) THEN
+            IF (ABS(DX(I)).GT.DMAX) THEN
                IDAMAX = I
-               DMAX = DABS(DX(I))
+               DMAX = ABS(DX(I))
             END IF
          END DO
       ELSE
@@ -109,12 +109,12 @@
 *        code for increment not equal to 1
 *
          IX = 1
-         DMAX = DABS(DX(1))
+         DMAX = ABS(DX(1))
          IX = IX + INCX
          DO I = 2,N
-            IF (DABS(DX(IX)).GT.DMAX) THEN
+            IF (ABS(DX(IX)).GT.DMAX) THEN
                IDAMAX = I
-               DMAX = DABS(DX(IX))
+               DMAX = ABS(DX(IX))
             END IF
             IX = IX + INCX
          END DO

@@ -250,7 +250,7 @@
       EXTERNAL           XERBLA, ZAXPY, ZCOPY, ZGTTRS, ZLACN2, ZLAGTM
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DIMAG, MAX
+      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, MAX
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -261,7 +261,7 @@
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -403,7 +403,7 @@
 *
             CALL ZGTTRS( TRANS, N, 1, DLF, DF, DUF, DU2, IPIV, WORK, N,
      $                   INFO )
-            CALL ZAXPY( N, DCMPLX( ONE ), WORK, 1, X( 1, J ), 1 )
+            CALL ZAXPY( N, CMPLX( ONE ), WORK, 1, X( 1, J ), 1 )
             LSTRES = BERR( J )
             COUNT = COUNT + 1
             GO TO 20

@@ -164,7 +164,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCONJG,MAX
+      INTRINSIC DBLE,CONJG,MAX
 *     ..
 *
 *     Test the input parameters.
@@ -207,7 +207,7 @@
           IF (INCX.EQ.1) THEN
               DO 20 J = 1,N
                   IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(J))
+                      TEMP = ALPHA*CONJG(X(J))
                       DO 10 I = 1,J - 1
                           A(I,J) = A(I,J) + X(I)*TEMP
    10                 CONTINUE
@@ -220,7 +220,7 @@
               JX = KX
               DO 40 J = 1,N
                   IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(JX))
+                      TEMP = ALPHA*CONJG(X(JX))
                       IX = KX
                       DO 30 I = 1,J - 1
                           A(I,J) = A(I,J) + X(IX)*TEMP
@@ -240,7 +240,7 @@
           IF (INCX.EQ.1) THEN
               DO 60 J = 1,N
                   IF (X(J).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(J))
+                      TEMP = ALPHA*CONJG(X(J))
                       A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(J))
                       DO 50 I = J + 1,N
                           A(I,J) = A(I,J) + X(I)*TEMP
@@ -253,7 +253,7 @@
               JX = KX
               DO 80 J = 1,N
                   IF (X(JX).NE.ZERO) THEN
-                      TEMP = ALPHA*DCONJG(X(JX))
+                      TEMP = ALPHA*CONJG(X(JX))
                       A(J,J) = DBLE(A(J,J)) + DBLE(TEMP*X(JX))
                       IX = JX
                       DO 70 I = J + 1,N

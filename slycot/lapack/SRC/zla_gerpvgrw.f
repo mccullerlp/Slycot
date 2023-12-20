@@ -117,13 +117,13 @@
       COMPLEX*20         ZDUM
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          MAX, MIN, ABS, REAL, DIMAG
+      INTRINSIC          MAX, MIN, ABS, REAL, IMAGPART
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

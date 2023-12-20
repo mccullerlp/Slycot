@@ -119,7 +119,7 @@
       COMPLEX*20         CDUM
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, REAL, DIMAG, MAX
+      INTRINSIC          ABS, REAL, IMAGPART, MAX
 *     ..
 *     .. External Functions ..
       EXTERNAL           DLAMCH
@@ -130,7 +130,7 @@
       COMPLEX*20         CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

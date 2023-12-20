@@ -146,7 +146,7 @@
       EXTERNAL           IZAMAX, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX
+      INTRINSIC          ABS, DBLE, CMPLX
 *     ..
 *     .. Executable Statements ..
 *
@@ -177,12 +177,12 @@
 *
       I = IZAMAX( N, RHS, 1 )
       IF( TWO*SMLNUM*ABS( RHS( I ) ).GT.ABS( A( N, N ) ) ) THEN
-         TEMP = DCMPLX( ONE / TWO, ZERO ) / ABS( RHS( I ) )
+         TEMP = CMPLX( ONE / TWO, ZERO ) / ABS( RHS( I ) )
          CALL ZSCAL( N, TEMP, RHS( 1 ), 1 )
          SCALE = SCALE*DBLE( TEMP )
       END IF
       DO 40 I = N, 1, -1
-         TEMP = DCMPLX( ONE, ZERO ) / A( I, I )
+         TEMP = CMPLX( ONE, ZERO ) / A( I, I )
          RHS( I ) = RHS( I )*TEMP
          DO 30 J = I + 1, N
             RHS( I ) = RHS( I ) - RHS( J )*( A( I, J )*TEMP )

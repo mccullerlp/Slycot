@@ -69,8 +69,8 @@
       parameter       ( threeFourth = 3.0d0 / 4,
      $                  fiveFourth = 5.0d0 / 4 )
       double complex    czero, cone
-      parameter       ( czero = DCMPLX( 0.0d0, 0.0d0 ),
-     $                  cone  = DCMPLX( 1.0d0, 0.0d0 ) )
+      parameter       ( czero = CMPLX( 0.0d0, 0.0d0 ),
+     $                  cone  = CMPLX( 1.0d0, 0.0d0 ) )
 *     ..
 *     .. Local Variables ..
       integer           i, min, Max, m,
@@ -81,8 +81,8 @@
       double complex    Y, Y2, R, cInf( nInf ), cNaN( nNaN )
 *
 *     .. Intrinsic Functions ..
-      intrinsic         DCONJG, DBLE, RADIX, CEILING, TINY, DIGITS,
-     $                  MAXEXPONENT, MINEXPONENT, FLOOR, HUGE, DCMPLX,
+      intrinsic         CONJG, DBLE, RADIX, CEILING, TINY, DIGITS,
+     $                  MAXEXPONENT, MINEXPONENT, FLOOR, HUGE, CMPLX,
      $                  EPSILON
 
 *
@@ -125,17 +125,17 @@
 *
 *     .. Inf entries ..
       aInf = OV * 2
-      cInf(1) = DCMPLX( aInf, 0.0d0 )
-      cInf(2) = DCMPLX(-aInf, 0.0d0 )
-      cInf(3) = DCMPLX( 0.0d0, aInf )
-      cInf(4) = DCMPLX( 0.0d0,-aInf )
-      cInf(5) = DCMPLX( aInf,  aInf )
+      cInf(1) = CMPLX( aInf, 0.0d0 )
+      cInf(2) = CMPLX(-aInf, 0.0d0 )
+      cInf(3) = CMPLX( 0.0d0, aInf )
+      cInf(4) = CMPLX( 0.0d0,-aInf )
+      cInf(5) = CMPLX( aInf,  aInf )
 *
 *     .. NaN entries ..
       aNaN = aInf / aInf
-      cNaN(1) = DCMPLX( aNaN, 0.0d0 )
-      cNaN(2) = DCMPLX( 0.0d0, aNaN )
-      cNaN(3) = DCMPLX( aNaN,  aNaN )
+      cNaN(1) = CMPLX( aNaN, 0.0d0 )
+      cNaN(2) = CMPLX( 0.0d0, aNaN )
+      cNaN(3) = CMPLX( aNaN,  aNaN )
 
 *
 *     .. Tests ..
@@ -174,7 +174,7 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y = DCMPLX( Xj, 0.0d0 )
+                Y = CMPLX( Xj, 0.0d0 )
                 R = Y / Y
                 if( R .ne. 1.0D0 ) then
                     caseAFails = caseAFails + 1
@@ -199,7 +199,7 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y = DCMPLX( 0.0d0, Xj )
+                Y = CMPLX( 0.0d0, Xj )
                 R = Y / Y
                 if( R .ne. 1.0D0 ) then
                     caseBFails = caseBFails + 1
@@ -224,7 +224,7 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y = DCMPLX( Xj, Xj )
+                Y = CMPLX( Xj, Xj )
                 R = Y / Y
                 if( R .ne. 1.0D0 ) then
                     caseCFails = caseCFails + 1
@@ -249,16 +249,16 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y  = DCMPLX( 0.0d0, Xj )
-                Y2 = DCMPLX( Xj, 0.0d0 )
+                Y  = CMPLX( 0.0d0, Xj )
+                Y2 = CMPLX( Xj, 0.0d0 )
                 R = Y / Y2
-                if( R .ne. DCMPLX(0.0D0,1.0D0) ) then
+                if( R .ne. CMPLX(0.0D0,1.0D0) ) then
                     caseDFails = caseDFails + 1
                     if( caseDFails .eq. 1 ) then
                         print *, "!! Some (0+x*I)/(x+0*I) differ from I"
                     endif
                     WRITE( 0, FMT = 9999 ) 'd',i, Xj, '(0+x*I)/(x+0*I)',
-     $                                      R, DCMPLX(0.0D0,1.0D0)
+     $                                      R, CMPLX(0.0D0,1.0D0)
                 endif
                 Xj = Xj * stepX(i)
             end do
@@ -275,16 +275,16 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y  = DCMPLX( 0.0d0, Xj )
-                Y2 = DCMPLX( Xj, 0.0d0 )
+                Y  = CMPLX( 0.0d0, Xj )
+                Y2 = CMPLX( Xj, 0.0d0 )
                 R = Y2 / Y
-                if( R .ne. DCMPLX(0.0D0,-1.0D0) ) then
+                if( R .ne. CMPLX(0.0D0,-1.0D0) ) then
                     caseEFails = caseEFails + 1
                     if( caseEFails .eq. 1 ) then
                         print *,"!! Some (x+0*I)/(0+x*I) differ from -I"
                     endif
                     WRITE( 0, FMT = 9999 ) 'e',i, Xj, '(x+0*I)/(0+x*I)',
-     $                                      R, DCMPLX(0.0D0,-1.0D0)
+     $                                      R, CMPLX(0.0D0,-1.0D0)
                 endif
                 Xj = Xj * stepX(i)
             end do
@@ -301,15 +301,15 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y  = DCMPLX( Xj, Xj )
-                R = Y / DCONJG( Y )
-                if( R .ne. DCMPLX(0.0D0,1.0D0) ) then
+                Y  = CMPLX( Xj, Xj )
+                R = Y / CONJG( Y )
+                if( R .ne. CMPLX(0.0D0,1.0D0) ) then
                     caseFFails = caseFFails + 1
                     if( caseFFails .eq. 1 ) then
                         print *, "!! Some (x+x*I)/(x-x*I) differ from I"
                     endif
                     WRITE( 0, FMT = 9999 ) 'f',i, Xj, '(x+x*I)/(x-x*I)',
-     $                                      R, DCMPLX(0.0D0,1.0D0)
+     $                                      R, CMPLX(0.0D0,1.0D0)
                 endif
                 Xj = Xj * stepX(i)
             end do

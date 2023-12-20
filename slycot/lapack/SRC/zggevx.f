@@ -425,13 +425,13 @@
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX, SQRT
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
-      ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )
+      ABS1( X ) = ABS( DBLE( X ) ) + ABS( IMAGPART( X ) )
 *     ..
 *     .. Executable Statements ..
 *

@@ -243,7 +243,7 @@
       EXTERNAL           XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX, MOD
+      INTRINSIC          CONJG, MAX, MOD
 *     ..
 *     .. Executable Statements ..
 *
@@ -273,7 +273,7 @@
             IF( NORMALTRANSR ) THEN
                A( 0, 0 ) = ARF( 0 )
             ELSE
-               A( 0, 0 ) = DCONJG( ARF( 0 ) )
+               A( 0, 0 ) = CONJG( ARF( 0 ) )
             END IF
          END IF
          RETURN
@@ -325,7 +325,7 @@
                IJ = 0
                DO J = 0, N2
                   DO I = N1, N2 + J
-                     A( N2+J, I ) = DCONJG( ARF( IJ ) )
+                     A( N2+J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                   DO I = J, N - 1
@@ -347,7 +347,7 @@
                      IJ = IJ + 1
                   END DO
                   DO L = J - N1, N1 - 1
-                     A( J-N1, L ) = DCONJG( ARF( IJ ) )
+                     A( J-N1, L ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                   IJ = IJ - NX2
@@ -368,7 +368,7 @@
                IJ = 0
                DO J = 0, N2 - 1
                   DO I = 0, J
-                     A( J, I ) = DCONJG( ARF( IJ ) )
+                     A( J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                   DO I = N1 + J, N - 1
@@ -378,7 +378,7 @@
                END DO
                DO J = N2, N - 1
                   DO I = 0, N1 - 1
-                     A( J, I ) = DCONJG( ARF( IJ ) )
+                     A( J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                END DO
@@ -392,7 +392,7 @@
                IJ = 0
                DO J = 0, N1
                   DO I = N1, N - 1
-                     A( J, I ) = DCONJG( ARF( IJ ) )
+                     A( J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                END DO
@@ -402,7 +402,7 @@
                      IJ = IJ + 1
                   END DO
                   DO L = N2 + J, N - 1
-                     A( N2+J, L ) = DCONJG( ARF( IJ ) )
+                     A( N2+J, L ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                END DO
@@ -428,7 +428,7 @@
                IJ = 0
                DO J = 0, K - 1
                   DO I = K, K + J
-                     A( K+J, I ) = DCONJG( ARF( IJ ) )
+                     A( K+J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                   DO I = J, N - 1
@@ -450,7 +450,7 @@
                      IJ = IJ + 1
                   END DO
                   DO L = J - K, K - 1
-                     A( J-K, L ) = DCONJG( ARF( IJ ) )
+                     A( J-K, L ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                   IJ = IJ - NP1X2
@@ -476,7 +476,7 @@
                END DO
                DO J = 0, K - 2
                   DO I = 0, J
-                     A( J, I ) = DCONJG( ARF( IJ ) )
+                     A( J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                   DO I = K + 1 + J, N - 1
@@ -486,7 +486,7 @@
                END DO
                DO J = K - 1, N - 1
                   DO I = 0, K - 1
-                     A( J, I ) = DCONJG( ARF( IJ ) )
+                     A( J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                END DO
@@ -500,7 +500,7 @@
                IJ = 0
                DO J = 0, K
                   DO I = K, N - 1
-                     A( J, I ) = DCONJG( ARF( IJ ) )
+                     A( J, I ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                END DO
@@ -510,7 +510,7 @@
                      IJ = IJ + 1
                   END DO
                   DO L = K + 1 + J, N - 1
-                     A( K+1+J, L ) = DCONJG( ARF( IJ ) )
+                     A( K+1+J, L ) = CONJG( ARF( IJ ) )
                      IJ = IJ + 1
                   END DO
                END DO

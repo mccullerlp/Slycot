@@ -614,7 +614,7 @@
       REAL*10   RDUMMY(1)
 *
 *     .. Intrinsic Functions ..
-      INTRINSIC ABS, DCMPLX, CONJG, DLOG, MAX, MIN, DBLE, NINT, SQRT
+      INTRINSIC ABS, CMPLX, CONJG, DLOG, MAX, MIN, DBLE, NINT, SQRT
 *     ..
 *     .. External Functions ..
       REAL*10      DLAMCH, DZNRM2
@@ -1481,7 +1481,7 @@
 *              XSC = SQRT(SMALL)
                XSC = EPSLN / DBLE(N)
                DO 4947 q = 1, NR
-                  CTEMP = DCMPLX(XSC*ABS(A(q,q)),ZERO)
+                  CTEMP = CMPLX(XSC*ABS(A(q,q)),ZERO)
                   DO 4949 p = 1, N
                      IF ( ( (p.GT.q) .AND. (ABS(A(p,q)).LE.TEMP1) )
      $                    .OR. ( p .LT. q ) )
@@ -1513,7 +1513,7 @@
 *              XSC = SQRT(SMALL)
                XSC = EPSLN / DBLE(N)
                DO 1947 q = 1, NR
-                  CTEMP = DCMPLX(XSC*ABS(A(q,q)),ZERO)
+                  CTEMP = CMPLX(XSC*ABS(A(q,q)),ZERO)
                   DO 1949 p = 1, NR
                      IF ( ( (p.GT.q) .AND. (ABS(A(p,q)).LE.TEMP1) )
      $                       .OR. ( p .LT. q ) )
@@ -1692,7 +1692,7 @@
             IF ( L2PERT ) THEN
                XSC = SQRT(SMALL)
                DO 2969 q = 1, NR
-                  CTEMP = DCMPLX(XSC*ABS( V(q,q) ),ZERO)
+                  CTEMP = CMPLX(XSC*ABS( V(q,q) ),ZERO)
                   DO 2968 p = 1, N
                      IF ( ( p .GT. q ) .AND. ( ABS(V(p,q)) .LE. TEMP1 )
      $                   .OR. ( p .LT. q ) )
@@ -1737,7 +1737,7 @@
                   XSC = SQRT(SMALL)/EPSLN
                   DO 3959 p = 2, NR
                      DO 3958 q = 1, p - 1
-                        CTEMP=DCMPLX(XSC*MIN(ABS(V(p,p)),ABS(V(q,q))),
+                        CTEMP=CMPLX(XSC*MIN(ABS(V(p,p)),ABS(V(q,q))),
      $                              ZERO)
                         IF ( ABS(V(q,p)) .LE. TEMP1 )
 *     $                     V(q,p) = TEMP1 * ( V(q,p) / ABS(V(q,p)) )
@@ -1780,7 +1780,7 @@
                   XSC = SQRT(SMALL)
                   DO 3969 p = 2, NR
                      DO 3968 q = 1, p - 1
-                        CTEMP=DCMPLX(XSC*MIN(ABS(V(p,p)),ABS(V(q,q))),
+                        CTEMP=CMPLX(XSC*MIN(ABS(V(p,p)),ABS(V(q,q))),
      $                                ZERO)
                         IF ( ABS(V(q,p)) .LE. TEMP1 )
 *     $                     V(q,p) = TEMP1 * ( V(q,p) / ABS(V(q,p)) )
@@ -1795,7 +1795,7 @@
                   XSC = SQRT(SMALL)
                   DO 8970 p = 2, NR
                      DO 8971 q = 1, p - 1
-                        CTEMP=DCMPLX(XSC*MIN(ABS(V(p,p)),ABS(V(q,q))),
+                        CTEMP=CMPLX(XSC*MIN(ABS(V(p,p)),ABS(V(q,q))),
      $                               ZERO)
 *                        V(p,q) = - TEMP1*( V(q,p) / ABS(V(q,p)) )
                         V(p,q) = - CTEMP
@@ -2093,7 +2093,7 @@
          IF ( L2PERT ) THEN
             XSC = SQRT(SMALL/EPSLN)
             DO 5969 q = 1, NR
-               CTEMP = DCMPLX(XSC*ABS( V(q,q) ),ZERO)
+               CTEMP = CMPLX(XSC*ABS( V(q,q) ),ZERO)
                DO 5968 p = 1, N
                   IF ( ( p .GT. q ) .AND. ( ABS(V(p,q)) .LE. TEMP1 )
      $                .OR. ( p .LT. q ) )
@@ -2119,7 +2119,7 @@
             XSC = SQRT(SMALL/EPSLN)
             DO 9970 q = 2, NR
                DO 9971 p = 1, q - 1
-                  CTEMP = DCMPLX(XSC * MIN(ABS(U(p,p)),ABS(U(q,q))),
+                  CTEMP = CMPLX(XSC * MIN(ABS(U(p,p)),ABS(U(q,q))),
      $                            ZERO)
 *                  U(p,q) = - TEMP1 * ( U(q,p) / ABS(U(q,p)) )
                   U(p,q) = - CTEMP

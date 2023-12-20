@@ -106,7 +106,7 @@
      $                 DU,GAM,GAMSQ,ONE,RGAMSQ,TWO,ZERO
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DABS
+      INTRINSIC ABS
 *     ..
 *     .. Data statements ..
 *
@@ -138,7 +138,7 @@
          DQ2 = DP2*DY1
          DQ1 = DP1*DX1
 *
-         IF (DABS(DQ1).GT.DABS(DQ2)) THEN
+         IF (ABS(DQ1).GT.ABS(DQ2)) THEN
             DH21 = -DY1/DX1
             DH12 = DP2/DP1
 *
@@ -215,7 +215,7 @@
          END IF
 
          IF (DD2.NE.ZERO) THEN
-            DO WHILE ( (DABS(DD2).LE.RGAMSQ) .OR. (DABS(DD2).GE.GAMSQ) )
+            DO WHILE ( (ABS(DD2).LE.RGAMSQ) .OR. (ABS(DD2).GE.GAMSQ) )
                IF (DFLAG.EQ.ZERO) THEN
                   DH11 = ONE
                   DH22 = ONE
@@ -225,7 +225,7 @@
                   DH12 = ONE
                   DFLAG = -ONE
                END IF
-               IF (DABS(DD2).LE.RGAMSQ) THEN
+               IF (ABS(DD2).LE.RGAMSQ) THEN
                   DD2 = DD2*GAM**2
                   DH21 = DH21/GAM
                   DH22 = DH22/GAM

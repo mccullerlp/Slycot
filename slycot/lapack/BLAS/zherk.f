@@ -194,7 +194,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DBLE,DCMPLX,DCONJG,MAX
+      INTRINSIC DBLE,CMPLX,CONJG,MAX
 *     ..
 *     .. Local Scalars ..
       COMPLEX*20 TEMP
@@ -299,8 +299,8 @@
                       C(J,J) = DBLE(C(J,J))
                   END IF
                   DO 120 L = 1,K
-                      IF (A(J,L).NE.DCMPLX(ZERO)) THEN
-                          TEMP = ALPHA*DCONJG(A(J,L))
+                      IF (A(J,L).NE.CMPLX(ZERO)) THEN
+                          TEMP = ALPHA*CONJG(A(J,L))
                           DO 110 I = 1,J - 1
                               C(I,J) = C(I,J) + TEMP*A(I,L)
   110                     CONTINUE
@@ -323,8 +323,8 @@
                       C(J,J) = DBLE(C(J,J))
                   END IF
                   DO 170 L = 1,K
-                      IF (A(J,L).NE.DCMPLX(ZERO)) THEN
-                          TEMP = ALPHA*DCONJG(A(J,L))
+                      IF (A(J,L).NE.CMPLX(ZERO)) THEN
+                          TEMP = ALPHA*CONJG(A(J,L))
                           C(J,J) = DBLE(C(J,J)) + DBLE(TEMP*A(J,L))
                           DO 160 I = J + 1,N
                               C(I,J) = C(I,J) + TEMP*A(I,L)
@@ -342,7 +342,7 @@
                   DO 200 I = 1,J - 1
                       TEMP = ZERO
                       DO 190 L = 1,K
-                          TEMP = TEMP + DCONJG(A(L,I))*A(L,J)
+                          TEMP = TEMP + CONJG(A(L,I))*A(L,J)
   190                 CONTINUE
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP
@@ -352,7 +352,7 @@
   200             CONTINUE
                   RTEMP = ZERO
                   DO 210 L = 1,K
-                      RTEMP = RTEMP + DBLE(DCONJG(A(L,J))*A(L,J))
+                      RTEMP = RTEMP + DBLE(CONJG(A(L,J))*A(L,J))
   210             CONTINUE
                   IF (BETA.EQ.ZERO) THEN
                       C(J,J) = ALPHA*RTEMP
@@ -364,7 +364,7 @@
               DO 260 J = 1,N
                   RTEMP = ZERO
                   DO 230 L = 1,K
-                      RTEMP = RTEMP + DBLE(DCONJG(A(L,J))*A(L,J))
+                      RTEMP = RTEMP + DBLE(CONJG(A(L,J))*A(L,J))
   230             CONTINUE
                   IF (BETA.EQ.ZERO) THEN
                       C(J,J) = ALPHA*RTEMP
@@ -374,7 +374,7 @@
                   DO 250 I = J + 1,N
                       TEMP = ZERO
                       DO 240 L = 1,K
-                          TEMP = TEMP + DCONJG(A(L,I))*A(L,J)
+                          TEMP = TEMP + CONJG(A(L,I))*A(L,J)
   240                 CONTINUE
                       IF (BETA.EQ.ZERO) THEN
                           C(I,J) = ALPHA*TEMP

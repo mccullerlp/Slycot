@@ -288,9 +288,9 @@
          S = SIN( THETA(I) )
          X11(I,I) = ONE
          X21(I,I) = ONE
-         CALL ZLARF( 'L', P-I+1, Q-I, X11(I,I), 1, DCONJG(TAUP1(I)),
+         CALL ZLARF( 'L', P-I+1, Q-I, X11(I,I), 1, CONJG(TAUP1(I)),
      $               X11(I,I+1), LDX11, WORK(ILARF) )
-         CALL ZLARF( 'L', M-P-I+1, Q-I, X21(I,I), 1, DCONJG(TAUP2(I)),
+         CALL ZLARF( 'L', M-P-I+1, Q-I, X21(I,I), 1, CONJG(TAUP2(I)),
      $               X21(I,I+1), LDX21, WORK(ILARF) )
 *
          IF( I .LT. Q ) THEN

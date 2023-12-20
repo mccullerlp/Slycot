@@ -226,13 +226,13 @@
       EXTERNAL           XERBLA, ZAXPY, ZPTTRS
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX
+      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( IMAGPART( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -302,7 +302,7 @@
      $                      CABS1( E( 1 ) )*CABS1( X( 2, J ) )
                DO 30 I = 2, N - 1
                   BI = B( I, J )
-                  CX = DCONJG( E( I-1 ) )*X( I-1, J )
+                  CX = CONJG( E( I-1 ) )*X( I-1, J )
                   DX = D( I )*X( I, J )
                   EX = E( I )*X( I+1, J )
                   WORK( I ) = BI - CX - DX - EX
@@ -312,7 +312,7 @@
      $                         CABS1( X( I+1, J ) )
    30          CONTINUE
                BI = B( N, J )
-               CX = DCONJG( E( N-1 ) )*X( N-1, J )
+               CX = CONJG( E( N-1 ) )*X( N-1, J )
                DX = D( N )*X( N, J )
                WORK( N ) = BI - CX - DX
                RWORK( N ) = CABS1( BI ) + CABS1( E( N-1 ) )*
@@ -327,7 +327,7 @@
             ELSE
                BI = B( 1, J )
                DX = D( 1 )*X( 1, J )
-               EX = DCONJG( E( 1 ) )*X( 2, J )
+               EX = CONJG( E( 1 ) )*X( 2, J )
                WORK( 1 ) = BI - DX - EX
                RWORK( 1 ) = CABS1( BI ) + CABS1( DX ) +
      $                      CABS1( E( 1 ) )*CABS1( X( 2, J ) )
@@ -335,7 +335,7 @@
                   BI = B( I, J )
                   CX = E( I-1 )*X( I-1, J )
                   DX = D( I )*X( I, J )
-                  EX = DCONJG( E( I ) )*X( I+1, J )
+                  EX = CONJG( E( I ) )*X( I+1, J )
                   WORK( I ) = BI - CX - DX - EX
                   RWORK( I ) = CABS1( BI ) +
      $                         CABS1( E( I-1 ) )*CABS1( X( I-1, J ) ) +
@@ -383,7 +383,7 @@
 *           Update solution and try again.
 *
             CALL ZPTTRS( UPLO, N, 1, DF, EF, WORK, N, INFO )
-            CALL ZAXPY( N, DCMPLX( ONE ), WORK, 1, X( 1, J ), 1 )
+            CALL ZAXPY( N, CMPLX( ONE ), WORK, 1, X( 1, J ), 1 )
             LSTRES = BERR( J )
             COUNT = COUNT + 1
             GO TO 20

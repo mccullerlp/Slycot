@@ -447,7 +447,7 @@
             END IF
          END IF
          MAXWRK = MAX( MAXWRK, MINWRK )
-         WORK( 1 ) = DCMPLX( DBLE( MAXWRK ), ZERO )
+         WORK( 1 ) = CMPLX( DBLE( MAXWRK ), ZERO )
 *
          IF( LWORK.LT.MINWRK .AND. .NOT.LQUERY ) THEN
             INFO = -19
@@ -554,7 +554,7 @@
                K = ITGKZ
                DO I = 1, NS
                   DO J = 1, N
-                     U( J, I ) = DCMPLX( RWORK( K ), ZERO )
+                     U( J, I ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + N
@@ -582,7 +582,7 @@
                K = ITGKZ + N
                DO I = 1, NS
                   DO J = 1, N
-                     VT( I, J ) = DCMPLX( RWORK( K ), ZERO )
+                     VT( I, J ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + N
@@ -630,7 +630,7 @@
                K = ITGKZ
                DO I = 1, NS
                   DO J = 1, N
-                     U( J, I ) = DCMPLX( RWORK( K ), ZERO )
+                     U( J, I ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + N
@@ -651,7 +651,7 @@
                K = ITGKZ + N
                DO I = 1, NS
                   DO J = 1, N
-                     VT( I, J ) = DCMPLX( RWORK( K ), ZERO )
+                     VT( I, J ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + N
@@ -717,7 +717,7 @@
                K = ITGKZ
                DO I = 1, NS
                   DO J = 1, M
-                     U( J, I ) = DCMPLX( RWORK( K ), ZERO )
+                     U( J, I ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + M
@@ -737,7 +737,7 @@
                K = ITGKZ + M
                DO I = 1, NS
                   DO J = 1, M
-                     VT( I, J ) = DCMPLX( RWORK( K ), ZERO )
+                     VT( I, J ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + M
@@ -794,7 +794,7 @@
                K = ITGKZ
                DO I = 1, NS
                   DO J = 1, M
-                     U( J, I ) = DCMPLX( RWORK( K ), ZERO )
+                     U( J, I ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + M
@@ -814,7 +814,7 @@
                K = ITGKZ + M
                DO I = 1, NS
                   DO J = 1, M
-                     VT( I, J ) = DCMPLX( RWORK( K ), ZERO )
+                     VT( I, J ) = CMPLX( RWORK( K ), ZERO )
                      K = K + 1
                   END DO
                   K = K + M
@@ -845,7 +845,7 @@
 *
 *     Return optimal workspace in WORK(1)
 *
-      WORK( 1 ) = DCMPLX( DBLE( MAXWRK ), ZERO )
+      WORK( 1 ) = CMPLX( DBLE( MAXWRK ), ZERO )
 *
       RETURN
 *

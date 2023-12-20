@@ -146,7 +146,7 @@
       EXTERNAL           XERBLA, ZLARF, ZLARFG
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX, MIN
+      INTRINSIC          CONJG, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -179,7 +179,7 @@
 *
          A( M-K+I, N-K+I ) = ONE
          CALL ZLARF( 'Left', M-K+I, N-K+I-1, A( 1, N-K+I ), 1,
-     $               DCONJG( TAU( I ) ), A, LDA, WORK )
+     $               CONJG( TAU( I ) ), A, LDA, WORK )
          A( M-K+I, N-K+I ) = ALPHA
    10 CONTINUE
       RETURN

@@ -175,7 +175,7 @@
       EXTERNAL           XERBLA, ZGTTRS, ZLACN2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCMPLX
+      INTRINSIC          CMPLX
 *     ..
 *     .. Executable Statements ..
 *
@@ -208,7 +208,7 @@
 *     Check that D(1:N) is non-zero.
 *
       DO 10 I = 1, N
-         IF( D( I ).EQ.DCMPLX( ZERO ) )
+         IF( D( I ).EQ.CMPLX( ZERO ) )
      $      RETURN
    10 CONTINUE
 *

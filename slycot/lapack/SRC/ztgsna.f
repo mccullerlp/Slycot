@@ -351,7 +351,7 @@
       EXTERNAL           DLABAD, XERBLA, ZGEMV, ZLACPY, ZTGEXC, ZTGSYL
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DCMPLX, MAX
+      INTRINSIC          ABS, CMPLX, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -449,11 +449,11 @@
 *
             RNRM = DZNRM2( N, VR( 1, KS ), 1 )
             LNRM = DZNRM2( N, VL( 1, KS ), 1 )
-            CALL ZGEMV( 'N', N, N, DCMPLX( ONE, ZERO ), A, LDA,
-     $                  VR( 1, KS ), 1, DCMPLX( ZERO, ZERO ), WORK, 1 )
+            CALL ZGEMV( 'N', N, N, CMPLX( ONE, ZERO ), A, LDA,
+     $                  VR( 1, KS ), 1, CMPLX( ZERO, ZERO ), WORK, 1 )
             YHAX = ZDOTC( N, WORK, 1, VL( 1, KS ), 1 )
-            CALL ZGEMV( 'N', N, N, DCMPLX( ONE, ZERO ), B, LDB,
-     $                  VR( 1, KS ), 1, DCMPLX( ZERO, ZERO ), WORK, 1 )
+            CALL ZGEMV( 'N', N, N, CMPLX( ONE, ZERO ), B, LDB,
+     $                  VR( 1, KS ), 1, CMPLX( ZERO, ZERO ), WORK, 1 )
             YHBX = ZDOTC( N, WORK, 1, VL( 1, KS ), 1 )
             COND = DLAPY2( ABS( YHAX ), ABS( YHBX ) )
             IF( COND.EQ.ZERO ) THEN

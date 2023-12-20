@@ -256,13 +256,13 @@
       EXTERNAL           XERBLA, ZCOPY, ZDSCAL, ZGEMV, ZLATRS, DLABAD
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX
+      INTRINSIC          ABS, DBLE, CMPLX, CONJG, IMAGPART, MAX
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -389,7 +389,7 @@
             ELSE
                IF( KI.GT.1 )
      $            CALL ZGEMV( 'N', N, KI-1, CMONE, VR, LDVR, WORK( 1 ),
-     $                        1, DCMPLX( SCALE ), VR( 1, KI ), 1 )
+     $                        1, CMPLX( SCALE ), VR( 1, KI ), 1 )
 *
                II = IZAMAX( N, VR( 1, KI ), 1 )
                REMAX = ONE / CABS1( VR( II, KI ) )
@@ -424,7 +424,7 @@
 *           Form right-hand side.
 *
             DO 90 K = KI + 1, N
-               WORK( K ) = -DCONJG( T( KI, K ) )
+               WORK( K ) = -CONJG( T( KI, K ) )
    90       CONTINUE
 *
 *           Solve the triangular system:
@@ -458,7 +458,7 @@
             ELSE
                IF( KI.LT.N )
      $            CALL ZGEMV( 'N', N, N-KI, CMONE, VL( 1, KI+1 ), LDVL,
-     $                        WORK( KI+1 ), 1, DCMPLX( SCALE ),
+     $                        WORK( KI+1 ), 1, CMPLX( SCALE ),
      $                        VL( 1, KI ), 1 )
 *
                II = IZAMAX( N, VL( 1, KI ), 1 )

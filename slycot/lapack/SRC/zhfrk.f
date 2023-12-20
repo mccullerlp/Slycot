@@ -200,7 +200,7 @@
       EXTERNAL           XERBLA, ZGEMM, ZHERK
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          MAX, DCMPLX
+      INTRINSIC          MAX, CMPLX
 *     ..
 *     .. Executable Statements ..
 *
@@ -251,8 +251,8 @@
          RETURN
       END IF
 *
-      CALPHA = DCMPLX( ALPHA, ZERO )
-      CBETA = DCMPLX( BETA, ZERO )
+      CALPHA = CMPLX( ALPHA, ZERO )
+      CBETA = CMPLX( BETA, ZERO )
 *
 *     C is N-by-N.
 *     If N is odd, set NISODD = .TRUE., and N1 and N2.

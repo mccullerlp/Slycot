@@ -214,7 +214,7 @@
       EXTERNAL           XERBLA, ZLACGV, ZLARF, ZLARFG
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX, MIN
+      INTRINSIC          CONJG, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -251,7 +251,7 @@
 *
             IF( I.LT.N )
      $         CALL ZLARF( 'Left', M-I+1, N-I, A( I, I ), 1,
-     $                     DCONJG( TAUQ( I ) ), A( I, I+1 ), LDA, WORK )
+     $                     CONJG( TAUQ( I ) ), A( I, I+1 ), LDA, WORK )
             A( I, I ) = D( I )
 *
             IF( I.LT.N ) THEN
@@ -313,7 +313,7 @@
 *              Apply H(i)**H to A(i+1:m,i+1:n) from the left
 *
                CALL ZLARF( 'Left', M-I, N-I, A( I+1, I ), 1,
-     $                     DCONJG( TAUQ( I ) ), A( I+1, I+1 ), LDA,
+     $                     CONJG( TAUQ( I ) ), A( I+1, I+1 ), LDA,
      $                     WORK )
                A( I+1, I ) = E( I )
             ELSE

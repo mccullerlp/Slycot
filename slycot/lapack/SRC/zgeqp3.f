@@ -217,7 +217,7 @@
             NB = ILAENV( INB, 'ZGEQRF', ' ', M, N, -1, -1 )
             LWKOPT = ( N + 1 )*NB
          END IF
-         WORK( 1 ) = DCMPLX( LWKOPT )
+         WORK( 1 ) = CMPLX( LWKOPT )
 *
          IF( ( LWORK.LT.IWS ) .AND. .NOT.LQUERY ) THEN
             INFO = -8
@@ -361,7 +361,7 @@
 *
       END IF
 *
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
       RETURN
 *
 *     End of ZGEQP3

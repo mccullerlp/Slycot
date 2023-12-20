@@ -150,7 +150,7 @@
       EXTERNAL           ZLARF
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG
+      INTRINSIC          CONJG
 *     ..
 *     .. Executable Statements ..
 *
@@ -171,7 +171,7 @@
 *
 *        Special code for 1 x 1 Householder
 *
-         T1 = ONE - TAU*V( 1 )*DCONJG( V( 1 ) )
+         T1 = ONE - TAU*V( 1 )*CONJG( V( 1 ) )
          DO 20 J = 1, N
             C( 1, J ) = T1*C( 1, J )
    20    CONTINUE
@@ -180,10 +180,10 @@
 *
 *        Special code for 2 x 2 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
          DO 40 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J )
             C( 1, J ) = C( 1, J ) - SUM*T1
@@ -194,12 +194,12 @@
 *
 *        Special code for 3 x 3 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
          DO 60 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J )
             C( 1, J ) = C( 1, J ) - SUM*T1
@@ -211,14 +211,14 @@
 *
 *        Special code for 4 x 4 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
          DO 80 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J )
@@ -232,16 +232,16 @@
 *
 *        Special code for 5 x 5 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
-         V5 = DCONJG( V( 5 ) )
-         T5 = TAU*DCONJG( V5 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
+         V5 = CONJG( V( 5 ) )
+         T5 = TAU*CONJG( V5 )
          DO 100 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J ) + V5*C( 5, J )
@@ -256,18 +256,18 @@
 *
 *        Special code for 6 x 6 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
-         V5 = DCONJG( V( 5 ) )
-         T5 = TAU*DCONJG( V5 )
-         V6 = DCONJG( V( 6 ) )
-         T6 = TAU*DCONJG( V6 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
+         V5 = CONJG( V( 5 ) )
+         T5 = TAU*CONJG( V5 )
+         V6 = CONJG( V( 6 ) )
+         T6 = TAU*CONJG( V6 )
          DO 120 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J ) + V5*C( 5, J ) + V6*C( 6, J )
@@ -283,20 +283,20 @@
 *
 *        Special code for 7 x 7 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
-         V5 = DCONJG( V( 5 ) )
-         T5 = TAU*DCONJG( V5 )
-         V6 = DCONJG( V( 6 ) )
-         T6 = TAU*DCONJG( V6 )
-         V7 = DCONJG( V( 7 ) )
-         T7 = TAU*DCONJG( V7 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
+         V5 = CONJG( V( 5 ) )
+         T5 = TAU*CONJG( V5 )
+         V6 = CONJG( V( 6 ) )
+         T6 = TAU*CONJG( V6 )
+         V7 = CONJG( V( 7 ) )
+         T7 = TAU*CONJG( V7 )
          DO 140 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J ) + V5*C( 5, J ) + V6*C( 6, J ) +
@@ -314,22 +314,22 @@
 *
 *        Special code for 8 x 8 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
-         V5 = DCONJG( V( 5 ) )
-         T5 = TAU*DCONJG( V5 )
-         V6 = DCONJG( V( 6 ) )
-         T6 = TAU*DCONJG( V6 )
-         V7 = DCONJG( V( 7 ) )
-         T7 = TAU*DCONJG( V7 )
-         V8 = DCONJG( V( 8 ) )
-         T8 = TAU*DCONJG( V8 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
+         V5 = CONJG( V( 5 ) )
+         T5 = TAU*CONJG( V5 )
+         V6 = CONJG( V( 6 ) )
+         T6 = TAU*CONJG( V6 )
+         V7 = CONJG( V( 7 ) )
+         T7 = TAU*CONJG( V7 )
+         V8 = CONJG( V( 8 ) )
+         T8 = TAU*CONJG( V8 )
          DO 160 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J ) + V5*C( 5, J ) + V6*C( 6, J ) +
@@ -348,24 +348,24 @@
 *
 *        Special code for 9 x 9 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
-         V5 = DCONJG( V( 5 ) )
-         T5 = TAU*DCONJG( V5 )
-         V6 = DCONJG( V( 6 ) )
-         T6 = TAU*DCONJG( V6 )
-         V7 = DCONJG( V( 7 ) )
-         T7 = TAU*DCONJG( V7 )
-         V8 = DCONJG( V( 8 ) )
-         T8 = TAU*DCONJG( V8 )
-         V9 = DCONJG( V( 9 ) )
-         T9 = TAU*DCONJG( V9 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
+         V5 = CONJG( V( 5 ) )
+         T5 = TAU*CONJG( V5 )
+         V6 = CONJG( V( 6 ) )
+         T6 = TAU*CONJG( V6 )
+         V7 = CONJG( V( 7 ) )
+         T7 = TAU*CONJG( V7 )
+         V8 = CONJG( V( 8 ) )
+         T8 = TAU*CONJG( V8 )
+         V9 = CONJG( V( 9 ) )
+         T9 = TAU*CONJG( V9 )
          DO 180 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J ) + V5*C( 5, J ) + V6*C( 6, J ) +
@@ -385,26 +385,26 @@
 *
 *        Special code for 10 x 10 Householder
 *
-         V1 = DCONJG( V( 1 ) )
-         T1 = TAU*DCONJG( V1 )
-         V2 = DCONJG( V( 2 ) )
-         T2 = TAU*DCONJG( V2 )
-         V3 = DCONJG( V( 3 ) )
-         T3 = TAU*DCONJG( V3 )
-         V4 = DCONJG( V( 4 ) )
-         T4 = TAU*DCONJG( V4 )
-         V5 = DCONJG( V( 5 ) )
-         T5 = TAU*DCONJG( V5 )
-         V6 = DCONJG( V( 6 ) )
-         T6 = TAU*DCONJG( V6 )
-         V7 = DCONJG( V( 7 ) )
-         T7 = TAU*DCONJG( V7 )
-         V8 = DCONJG( V( 8 ) )
-         T8 = TAU*DCONJG( V8 )
-         V9 = DCONJG( V( 9 ) )
-         T9 = TAU*DCONJG( V9 )
-         V10 = DCONJG( V( 10 ) )
-         T10 = TAU*DCONJG( V10 )
+         V1 = CONJG( V( 1 ) )
+         T1 = TAU*CONJG( V1 )
+         V2 = CONJG( V( 2 ) )
+         T2 = TAU*CONJG( V2 )
+         V3 = CONJG( V( 3 ) )
+         T3 = TAU*CONJG( V3 )
+         V4 = CONJG( V( 4 ) )
+         T4 = TAU*CONJG( V4 )
+         V5 = CONJG( V( 5 ) )
+         T5 = TAU*CONJG( V5 )
+         V6 = CONJG( V( 6 ) )
+         T6 = TAU*CONJG( V6 )
+         V7 = CONJG( V( 7 ) )
+         T7 = TAU*CONJG( V7 )
+         V8 = CONJG( V( 8 ) )
+         T8 = TAU*CONJG( V8 )
+         V9 = CONJG( V( 9 ) )
+         T9 = TAU*CONJG( V9 )
+         V10 = CONJG( V( 10 ) )
+         T10 = TAU*CONJG( V10 )
          DO 200 J = 1, N
             SUM = V1*C( 1, J ) + V2*C( 2, J ) + V3*C( 3, J ) +
      $            V4*C( 4, J ) + V5*C( 5, J ) + V6*C( 6, J ) +
@@ -437,7 +437,7 @@
 *
 *        Special code for 1 x 1 Householder
 *
-         T1 = ONE - TAU*V( 1 )*DCONJG( V( 1 ) )
+         T1 = ONE - TAU*V( 1 )*CONJG( V( 1 ) )
          DO 220 J = 1, M
             C( J, 1 ) = T1*C( J, 1 )
   220    CONTINUE
@@ -447,9 +447,9 @@
 *        Special code for 2 x 2 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          DO 240 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 )
             C( J, 1 ) = C( J, 1 ) - SUM*T1
@@ -461,11 +461,11 @@
 *        Special code for 3 x 3 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          DO 260 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 )
             C( J, 1 ) = C( J, 1 ) - SUM*T1
@@ -478,13 +478,13 @@
 *        Special code for 4 x 4 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          DO 280 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 )
@@ -499,15 +499,15 @@
 *        Special code for 5 x 5 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          V5 = V( 5 )
-         T5 = TAU*DCONJG( V5 )
+         T5 = TAU*CONJG( V5 )
          DO 300 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 ) + V5*C( J, 5 )
@@ -523,17 +523,17 @@
 *        Special code for 6 x 6 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          V5 = V( 5 )
-         T5 = TAU*DCONJG( V5 )
+         T5 = TAU*CONJG( V5 )
          V6 = V( 6 )
-         T6 = TAU*DCONJG( V6 )
+         T6 = TAU*CONJG( V6 )
          DO 320 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 ) + V5*C( J, 5 ) + V6*C( J, 6 )
@@ -550,19 +550,19 @@
 *        Special code for 7 x 7 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          V5 = V( 5 )
-         T5 = TAU*DCONJG( V5 )
+         T5 = TAU*CONJG( V5 )
          V6 = V( 6 )
-         T6 = TAU*DCONJG( V6 )
+         T6 = TAU*CONJG( V6 )
          V7 = V( 7 )
-         T7 = TAU*DCONJG( V7 )
+         T7 = TAU*CONJG( V7 )
          DO 340 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 ) + V5*C( J, 5 ) + V6*C( J, 6 ) +
@@ -581,21 +581,21 @@
 *        Special code for 8 x 8 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          V5 = V( 5 )
-         T5 = TAU*DCONJG( V5 )
+         T5 = TAU*CONJG( V5 )
          V6 = V( 6 )
-         T6 = TAU*DCONJG( V6 )
+         T6 = TAU*CONJG( V6 )
          V7 = V( 7 )
-         T7 = TAU*DCONJG( V7 )
+         T7 = TAU*CONJG( V7 )
          V8 = V( 8 )
-         T8 = TAU*DCONJG( V8 )
+         T8 = TAU*CONJG( V8 )
          DO 360 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 ) + V5*C( J, 5 ) + V6*C( J, 6 ) +
@@ -615,23 +615,23 @@
 *        Special code for 9 x 9 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          V5 = V( 5 )
-         T5 = TAU*DCONJG( V5 )
+         T5 = TAU*CONJG( V5 )
          V6 = V( 6 )
-         T6 = TAU*DCONJG( V6 )
+         T6 = TAU*CONJG( V6 )
          V7 = V( 7 )
-         T7 = TAU*DCONJG( V7 )
+         T7 = TAU*CONJG( V7 )
          V8 = V( 8 )
-         T8 = TAU*DCONJG( V8 )
+         T8 = TAU*CONJG( V8 )
          V9 = V( 9 )
-         T9 = TAU*DCONJG( V9 )
+         T9 = TAU*CONJG( V9 )
          DO 380 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 ) + V5*C( J, 5 ) + V6*C( J, 6 ) +
@@ -652,25 +652,25 @@
 *        Special code for 10 x 10 Householder
 *
          V1 = V( 1 )
-         T1 = TAU*DCONJG( V1 )
+         T1 = TAU*CONJG( V1 )
          V2 = V( 2 )
-         T2 = TAU*DCONJG( V2 )
+         T2 = TAU*CONJG( V2 )
          V3 = V( 3 )
-         T3 = TAU*DCONJG( V3 )
+         T3 = TAU*CONJG( V3 )
          V4 = V( 4 )
-         T4 = TAU*DCONJG( V4 )
+         T4 = TAU*CONJG( V4 )
          V5 = V( 5 )
-         T5 = TAU*DCONJG( V5 )
+         T5 = TAU*CONJG( V5 )
          V6 = V( 6 )
-         T6 = TAU*DCONJG( V6 )
+         T6 = TAU*CONJG( V6 )
          V7 = V( 7 )
-         T7 = TAU*DCONJG( V7 )
+         T7 = TAU*CONJG( V7 )
          V8 = V( 8 )
-         T8 = TAU*DCONJG( V8 )
+         T8 = TAU*CONJG( V8 )
          V9 = V( 9 )
-         T9 = TAU*DCONJG( V9 )
+         T9 = TAU*CONJG( V9 )
          V10 = V( 10 )
-         T10 = TAU*DCONJG( V10 )
+         T10 = TAU*CONJG( V10 )
          DO 400 J = 1, M
             SUM = V1*C( J, 1 ) + V2*C( J, 2 ) + V3*C( J, 3 ) +
      $            V4*C( J, 4 ) + V5*C( J, 5 ) + V6*C( J, 6 ) +

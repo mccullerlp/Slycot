@@ -177,7 +177,7 @@
       EXTERNAL           ZLARF, ZLARFG, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DCONJG, MAX, MIN, SQRT
+      INTRINSIC          ABS, CONJG, MAX, MIN, SQRT
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
@@ -224,7 +224,7 @@
             AII = A( OFFPI, I )
             A( OFFPI, I ) = CONE
             CALL ZLARF( 'Left', M-OFFPI+1, N-I, A( OFFPI, I ), 1,
-     $                  DCONJG( TAU( I ) ), A( OFFPI, I+1 ), LDA,
+     $                  CONJG( TAU( I ) ), A( OFFPI, I+1 ), LDA,
      $                  WORK( 1 ) )
             A( OFFPI, I ) = AII
          END IF

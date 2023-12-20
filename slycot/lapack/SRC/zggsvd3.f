@@ -433,7 +433,7 @@
          LWKOPT = N + INT( WORK( 1 ) )
          LWKOPT = MAX( 2*N, LWKOPT )
          LWKOPT = MAX( 1, LWKOPT )
-         WORK( 1 ) = DCMPLX( LWKOPT )
+         WORK( 1 ) = CMPLX( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -494,7 +494,7 @@
          END IF
    20 CONTINUE
 *
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
       RETURN
 *
 *     End of ZGGSVD3

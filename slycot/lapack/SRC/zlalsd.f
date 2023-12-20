@@ -228,7 +228,7 @@
      $                   ZLASCL, ZLASET
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DIMAG, INT, LOG, SIGN
+      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, INT, LOG, SIGN
 *     ..
 *     .. Executable Statements ..
 *
@@ -349,7 +349,7 @@
          DO 70 JCOL = 1, NRHS
             DO 60 JROW = 1, N
                J = J + 1
-               RWORK( J ) = DIMAG( B( JROW, JCOL ) )
+               RWORK( J ) = IMAGPART( B( JROW, JCOL ) )
    60       CONTINUE
    70    CONTINUE
          CALL DGEMM( 'T', 'N', N, NRHS, N, ONE, RWORK( IRWU ), N,
@@ -360,7 +360,7 @@
             DO 80 JROW = 1, N
                JREAL = JREAL + 1
                JIMAG = JIMAG + 1
-               B( JROW, JCOL ) = DCMPLX( RWORK( JREAL ),
+               B( JROW, JCOL ) = CMPLX( RWORK( JREAL ),
      $                           RWORK( JIMAG ) )
    80       CONTINUE
    90    CONTINUE
@@ -396,7 +396,7 @@
          DO 140 JCOL = 1, NRHS
             DO 130 JROW = 1, N
                J = J + 1
-               RWORK( J ) = DIMAG( B( JROW, JCOL ) )
+               RWORK( J ) = IMAGPART( B( JROW, JCOL ) )
   130       CONTINUE
   140    CONTINUE
          CALL DGEMM( 'T', 'N', N, NRHS, N, ONE, RWORK( IRWVT ), N,
@@ -407,7 +407,7 @@
             DO 150 JROW = 1, N
                JREAL = JREAL + 1
                JIMAG = JIMAG + 1
-               B( JROW, JCOL ) = DCMPLX( RWORK( JREAL ),
+               B( JROW, JCOL ) = CMPLX( RWORK( JREAL ),
      $                           RWORK( JIMAG ) )
   150       CONTINUE
   160    CONTINUE
@@ -536,7 +536,7 @@
                DO 210 JCOL = 1, NRHS
                   DO 200 JROW = ST, ST + NSIZE - 1
                      J = J + 1
-                     RWORK( J ) = DIMAG( B( JROW, JCOL ) )
+                     RWORK( J ) = IMAGPART( B( JROW, JCOL ) )
   200             CONTINUE
   210          CONTINUE
                CALL DGEMM( 'T', 'N', NSIZE, NRHS, NSIZE, ONE,
@@ -548,7 +548,7 @@
                   DO 220 JROW = ST, ST + NSIZE - 1
                      JREAL = JREAL + 1
                      JIMAG = JIMAG + 1
-                     B( JROW, JCOL ) = DCMPLX( RWORK( JREAL ),
+                     B( JROW, JCOL ) = CMPLX( RWORK( JREAL ),
      $                                 RWORK( JIMAG ) )
   220             CONTINUE
   230          CONTINUE
@@ -645,7 +645,7 @@
                J = J + N
                DO 280 JROW = 1, NSIZE
                   JIMAG = JIMAG + 1
-                  RWORK( JIMAG ) = DIMAG( WORK( J+JROW ) )
+                  RWORK( JIMAG ) = IMAGPART( WORK( J+JROW ) )
   280          CONTINUE
   290       CONTINUE
             CALL DGEMM( 'T', 'N', NSIZE, NRHS, NSIZE, ONE,
@@ -657,7 +657,7 @@
                DO 300 JROW = ST, ST + NSIZE - 1
                   JREAL = JREAL + 1
                   JIMAG = JIMAG + 1
-                  B( JROW, JCOL ) = DCMPLX( RWORK( JREAL ),
+                  B( JROW, JCOL ) = CMPLX( RWORK( JREAL ),
      $                              RWORK( JIMAG ) )
   300          CONTINUE
   310       CONTINUE

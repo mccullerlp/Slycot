@@ -339,7 +339,7 @@
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC ABS, DBLE, MAX, MIN
-      INTRINSIC DCMPLX
+      INTRINSIC CMPLX
 *     ..
 *     .. Executable Statements ..
 *     ..
@@ -461,7 +461,7 @@
 *        This is for a 1x1 block
          IF( IBEGIN.EQ.IEND ) THEN
             DONE = DONE+1
-            Z( IBEGIN, WBEGIN ) = DCMPLX( ONE, ZERO )
+            Z( IBEGIN, WBEGIN ) = CMPLX( ONE, ZERO )
             ISUPPZ( 2*WBEGIN-1 ) = IBEGIN
             ISUPPZ( 2*WBEGIN ) = IBEGIN
             W( WBEGIN ) = W( WBEGIN ) + SIGMA
@@ -733,17 +733,17 @@
 *                    workspace
                      DO 56 K = 1, IN-1
                         Z( IBEGIN+K-1, NEWFTT ) =
-     $                     DCMPLX( WORK( INDIN1+K-1 ), ZERO )
+     $                     CMPLX( WORK( INDIN1+K-1 ), ZERO )
                         Z( IBEGIN+K-1, NEWFTT+1 ) =
-     $                     DCMPLX( WORK( INDIN2+K-1 ), ZERO )
+     $                     CMPLX( WORK( INDIN2+K-1 ), ZERO )
    56                CONTINUE
                      Z( IEND, NEWFTT ) =
-     $                  DCMPLX( WORK( INDIN1+IN-1 ), ZERO )
+     $                  CMPLX( WORK( INDIN1+IN-1 ), ZERO )
                      IF( IINFO.EQ.0 ) THEN
 *                       a new RRR for the cluster was found by DLARRF
 *                       update shift and store it
                         SSIGMA = SIGMA + TAU
-                        Z( IEND, NEWFTT+1 ) = DCMPLX( SSIGMA, ZERO )
+                        Z( IEND, NEWFTT+1 ) = CMPLX( SSIGMA, ZERO )
 *                       WORK() are the midpoints and WERR() the semi-width
 *                       Note that the entries in W are unchanged.
                         DO 116 K = NEWFST, NEWLST

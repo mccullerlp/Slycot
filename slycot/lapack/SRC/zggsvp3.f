@@ -315,7 +315,7 @@
      $                   ZLASET, ZUNG2R, ZUNM2R, ZUNMR2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX, MIN
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -373,7 +373,7 @@
          CALL ZGEQP3( M, N, A, LDA, IWORK, TAU, WORK, -1, RWORK, INFO )
          LWKOPT = MAX( LWKOPT, INT( WORK ( 1 ) ) )
          LWKOPT = MAX( 1, LWKOPT )
-         WORK( 1 ) = DCMPLX( LWKOPT )
+         WORK( 1 ) = CMPLX( LWKOPT )
       END IF
 *
       IF( INFO.NE.0 ) THEN
@@ -568,7 +568,7 @@
 *
       END IF
 *
-      WORK( 1 ) = DCMPLX( LWKOPT )
+      WORK( 1 ) = CMPLX( LWKOPT )
       RETURN
 *
 *     End of ZGGSVP3

@@ -227,13 +227,13 @@
       EXTERNAL           XERBLA, ZSCAL, ZSWAP, ZSYR
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DIMAG, MAX, SQRT
+      INTRINSIC          ABS, DBLE, IMAGPART, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( DIMAG( Z ) )
+      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( IMAGPART( Z ) )
 *     ..
 *     .. Executable Statements ..
 *

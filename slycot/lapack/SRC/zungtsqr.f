@@ -200,7 +200,7 @@
       EXTERNAL           ZCOPY, ZLAMTSQR, ZLASET, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCMPLX, MAX, MIN
+      INTRINSIC          CMPLX, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -257,14 +257,14 @@
          CALL XERBLA( 'ZUNGTSQR', -INFO )
          RETURN
       ELSE IF ( LQUERY ) THEN
-         WORK( 1 ) = DCMPLX( LWORKOPT )
+         WORK( 1 ) = CMPLX( LWORKOPT )
          RETURN
       END IF
 *
 *     Quick return if possible
 *
       IF( MIN( M, N ).EQ.0 ) THEN
-         WORK( 1 ) = DCMPLX( LWORKOPT )
+         WORK( 1 ) = CMPLX( LWORKOPT )
          RETURN
       END IF
 *
@@ -297,7 +297,7 @@
          CALL ZCOPY( M, WORK( (J-1)*LDC + 1 ), 1, A( 1, J ), 1 )
       END DO
 *
-      WORK( 1 ) = DCMPLX( LWORKOPT )
+      WORK( 1 ) = CMPLX( LWORKOPT )
       RETURN
 *
 *     End of ZUNGTSQR

@@ -308,11 +308,11 @@
             C = COS( PHI(I) )
             S = SIN( PHI(I) )
             X11(I+1,I) = ONE
-            CALL ZLARF( 'L', P-I, Q-I, X11(I+1,I), 1, DCONJG(TAUP1(I)),
+            CALL ZLARF( 'L', P-I, Q-I, X11(I+1,I), 1, CONJG(TAUP1(I)),
      $                  X11(I+1,I+1), LDX11, WORK(ILARF) )
          END IF
          X21(I,I) = ONE
-         CALL ZLARF( 'L', M-P-I+1, Q-I, X21(I,I), 1, DCONJG(TAUP2(I)),
+         CALL ZLARF( 'L', M-P-I+1, Q-I, X21(I,I), 1, CONJG(TAUP2(I)),
      $               X21(I,I+1), LDX21, WORK(ILARF) )
 *
       END DO
@@ -322,7 +322,7 @@
       DO I = P + 1, Q
          CALL ZLARFGP( M-P-I+1, X21(I,I), X21(I+1,I), 1, TAUP2(I) )
          X21(I,I) = ONE
-         CALL ZLARF( 'L', M-P-I+1, Q-I, X21(I,I), 1, DCONJG(TAUP2(I)),
+         CALL ZLARF( 'L', M-P-I+1, Q-I, X21(I,I), 1, CONJG(TAUP2(I)),
      $               X21(I,I+1), LDX21, WORK(ILARF) )
       END DO
 *

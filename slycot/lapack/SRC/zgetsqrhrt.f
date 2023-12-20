@@ -205,7 +205,7 @@
      $                   XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          CEILING, DBLE, DCMPLX, MAX, MIN
+      INTRINSIC          CEILING, DBLE, CMPLX, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -277,14 +277,14 @@
          CALL XERBLA( 'ZGETSQRHRT', -INFO )
          RETURN
       ELSE IF ( LQUERY ) THEN
-         WORK( 1 ) = DCMPLX( LWORKOPT )
+         WORK( 1 ) = CMPLX( LWORKOPT )
          RETURN
       END IF
 *
 *     Quick return if possible
 *
       IF( MIN( M, N ).EQ.0 ) THEN
-         WORK( 1 ) = DCMPLX( LWORKOPT )
+         WORK( 1 ) = CMPLX( LWORKOPT )
          RETURN
       END IF
 *
@@ -341,7 +341,7 @@
          END IF
       END DO
 *
-      WORK( 1 ) = DCMPLX( LWORKOPT )
+      WORK( 1 ) = CMPLX( LWORKOPT )
       RETURN
 *
 *     End of ZGETSQRHRT

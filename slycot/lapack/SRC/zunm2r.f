@@ -188,7 +188,7 @@
       EXTERNAL           XERBLA, ZLARF
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX
+      INTRINSIC          CONJG, MAX
 *     ..
 *     .. Executable Statements ..
 *
@@ -268,7 +268,7 @@
          IF( NOTRAN ) THEN
             TAUI = TAU( I )
          ELSE
-            TAUI = DCONJG( TAU( I ) )
+            TAUI = CONJG( TAU( I ) )
          END IF
          AII = A( I, I )
          A( I, I ) = ONE

@@ -334,7 +334,7 @@
       EXTERNAL           LSAME, IDAMAX, ILAENV, DLAMCH, DZNRM2, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, CONJG, AIMAG, MAX, SQRT
+      INTRINSIC          DBLE, CMPLX, CONJG, AIMAG, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -615,7 +615,7 @@
             K = IDAMAX( N, RWORK, 1 )
             TMP = CONJG( VL( K, I ) ) / SQRT( RWORK( K ) )
             CALL ZSCAL( N, TMP, VL( 1, I ), 1 )
-            VL( K, I ) = DCMPLX( DBLE( VL( K, I ) ), ZERO )
+            VL( K, I ) = CMPLX( DBLE( VL( K, I ) ), ZERO )
    20    CONTINUE
       END IF
 *
@@ -638,7 +638,7 @@
             K = IDAMAX( N, RWORK, 1 )
             TMP = CONJG( VR( K, I ) ) / SQRT( RWORK( K ) )
             CALL ZSCAL( N, TMP, VR( 1, I ), 1 )
-            VR( K, I ) = DCMPLX( DBLE( VR( K, I ) ), ZERO )
+            VR( K, I ) = CMPLX( DBLE( VR( K, I ) ), ZERO )
    40    CONTINUE
       END IF
 *

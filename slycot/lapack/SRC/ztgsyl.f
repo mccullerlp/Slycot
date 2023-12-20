@@ -335,7 +335,7 @@
       EXTERNAL           XERBLA, ZGEMM, ZLACPY, ZLASET, ZSCAL, ZTGSY2
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, MAX, SQRT
+      INTRINSIC          DBLE, CMPLX, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -534,27 +534,27 @@
                   PQ = PQ + MB*NB
                   IF( SCALOC.NE.ONE ) THEN
                      DO 80 K = 1, JS - 1
-                        CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M, CMPLX( SCALOC, ZERO ),
      $                              C( 1, K ), 1 )
-                        CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M, CMPLX( SCALOC, ZERO ),
      $                              F( 1, K ), 1 )
    80                CONTINUE
                      DO 90 K = JS, JE
-                        CALL ZSCAL( IS-1, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( IS-1, CMPLX( SCALOC, ZERO ),
      $                              C( 1, K ), 1 )
-                        CALL ZSCAL( IS-1, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( IS-1, CMPLX( SCALOC, ZERO ),
      $                              F( 1, K ), 1 )
    90                CONTINUE
                      DO 100 K = JS, JE
-                        CALL ZSCAL( M-IE, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M-IE, CMPLX( SCALOC, ZERO ),
      $                              C( IE+1, K ), 1 )
-                        CALL ZSCAL( M-IE, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M-IE, CMPLX( SCALOC, ZERO ),
      $                              F( IE+1, K ), 1 )
   100                CONTINUE
                      DO 110 K = JE + 1, N
-                        CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M, CMPLX( SCALOC, ZERO ),
      $                              C( 1, K ), 1 )
-                        CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ),
+                        CALL ZSCAL( M, CMPLX( SCALOC, ZERO ),
      $                              F( 1, K ), 1 )
   110                CONTINUE
                      SCALE = SCALE*SCALOC
@@ -564,24 +564,24 @@
 *
                   IF( I.GT.1 ) THEN
                      CALL ZGEMM( 'N', 'N', IS-1, NB, MB,
-     $                           DCMPLX( -ONE, ZERO ), A( 1, IS ), LDA,
-     $                           C( IS, JS ), LDC, DCMPLX( ONE, ZERO ),
+     $                           CMPLX( -ONE, ZERO ), A( 1, IS ), LDA,
+     $                           C( IS, JS ), LDC, CMPLX( ONE, ZERO ),
      $                           C( 1, JS ), LDC )
                      CALL ZGEMM( 'N', 'N', IS-1, NB, MB,
-     $                           DCMPLX( -ONE, ZERO ), D( 1, IS ), LDD,
-     $                           C( IS, JS ), LDC, DCMPLX( ONE, ZERO ),
+     $                           CMPLX( -ONE, ZERO ), D( 1, IS ), LDD,
+     $                           C( IS, JS ), LDC, CMPLX( ONE, ZERO ),
      $                           F( 1, JS ), LDF )
                   END IF
                   IF( J.LT.Q ) THEN
                      CALL ZGEMM( 'N', 'N', MB, N-JE, NB,
-     $                           DCMPLX( ONE, ZERO ), F( IS, JS ), LDF,
+     $                           CMPLX( ONE, ZERO ), F( IS, JS ), LDF,
      $                           B( JS, JE+1 ), LDB,
-     $                           DCMPLX( ONE, ZERO ), C( IS, JE+1 ),
+     $                           CMPLX( ONE, ZERO ), C( IS, JE+1 ),
      $                           LDC )
                      CALL ZGEMM( 'N', 'N', MB, N-JE, NB,
-     $                           DCMPLX( ONE, ZERO ), F( IS, JS ), LDF,
+     $                           CMPLX( ONE, ZERO ), F( IS, JS ), LDF,
      $                           E( JS, JE+1 ), LDE,
-     $                           DCMPLX( ONE, ZERO ), F( IS, JE+1 ),
+     $                           CMPLX( ONE, ZERO ), F( IS, JE+1 ),
      $                           LDF )
                   END IF
   120          CONTINUE
@@ -633,27 +633,27 @@
      $            INFO = LINFO
                IF( SCALOC.NE.ONE ) THEN
                   DO 160 K = 1, JS - 1
-                     CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ), C( 1, K ),
+                     CALL ZSCAL( M, CMPLX( SCALOC, ZERO ), C( 1, K ),
      $                           1 )
-                     CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ), F( 1, K ),
+                     CALL ZSCAL( M, CMPLX( SCALOC, ZERO ), F( 1, K ),
      $                           1 )
   160             CONTINUE
                   DO 170 K = JS, JE
-                     CALL ZSCAL( IS-1, DCMPLX( SCALOC, ZERO ),
+                     CALL ZSCAL( IS-1, CMPLX( SCALOC, ZERO ),
      $                           C( 1, K ), 1 )
-                     CALL ZSCAL( IS-1, DCMPLX( SCALOC, ZERO ),
+                     CALL ZSCAL( IS-1, CMPLX( SCALOC, ZERO ),
      $                           F( 1, K ), 1 )
   170             CONTINUE
                   DO 180 K = JS, JE
-                     CALL ZSCAL( M-IE, DCMPLX( SCALOC, ZERO ),
+                     CALL ZSCAL( M-IE, CMPLX( SCALOC, ZERO ),
      $                           C( IE+1, K ), 1 )
-                     CALL ZSCAL( M-IE, DCMPLX( SCALOC, ZERO ),
+                     CALL ZSCAL( M-IE, CMPLX( SCALOC, ZERO ),
      $                           F( IE+1, K ), 1 )
   180             CONTINUE
                   DO 190 K = JE + 1, N
-                     CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ), C( 1, K ),
+                     CALL ZSCAL( M, CMPLX( SCALOC, ZERO ), C( 1, K ),
      $                           1 )
-                     CALL ZSCAL( M, DCMPLX( SCALOC, ZERO ), F( 1, K ),
+                     CALL ZSCAL( M, CMPLX( SCALOC, ZERO ), F( 1, K ),
      $                           1 )
   190             CONTINUE
                   SCALE = SCALE*SCALOC
@@ -663,22 +663,22 @@
 *
                IF( J.GT.P+2 ) THEN
                   CALL ZGEMM( 'N', 'C', MB, JS-1, NB,
-     $                        DCMPLX( ONE, ZERO ), C( IS, JS ), LDC,
-     $                        B( 1, JS ), LDB, DCMPLX( ONE, ZERO ),
+     $                        CMPLX( ONE, ZERO ), C( IS, JS ), LDC,
+     $                        B( 1, JS ), LDB, CMPLX( ONE, ZERO ),
      $                        F( IS, 1 ), LDF )
                   CALL ZGEMM( 'N', 'C', MB, JS-1, NB,
-     $                        DCMPLX( ONE, ZERO ), F( IS, JS ), LDF,
-     $                        E( 1, JS ), LDE, DCMPLX( ONE, ZERO ),
+     $                        CMPLX( ONE, ZERO ), F( IS, JS ), LDF,
+     $                        E( 1, JS ), LDE, CMPLX( ONE, ZERO ),
      $                        F( IS, 1 ), LDF )
                END IF
                IF( I.LT.P ) THEN
                   CALL ZGEMM( 'C', 'N', M-IE, NB, MB,
-     $                        DCMPLX( -ONE, ZERO ), A( IS, IE+1 ), LDA,
-     $                        C( IS, JS ), LDC, DCMPLX( ONE, ZERO ),
+     $                        CMPLX( -ONE, ZERO ), A( IS, IE+1 ), LDA,
+     $                        C( IS, JS ), LDC, CMPLX( ONE, ZERO ),
      $                        C( IE+1, JS ), LDC )
                   CALL ZGEMM( 'C', 'N', M-IE, NB, MB,
-     $                        DCMPLX( -ONE, ZERO ), D( IS, IE+1 ), LDD,
-     $                        F( IS, JS ), LDF, DCMPLX( ONE, ZERO ),
+     $                        CMPLX( -ONE, ZERO ), D( IS, IE+1 ), LDD,
+     $                        F( IS, JS ), LDF, CMPLX( ONE, ZERO ),
      $                        C( IE+1, JS ), LDC )
                END IF
   200       CONTINUE

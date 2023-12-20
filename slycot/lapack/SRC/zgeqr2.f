@@ -153,7 +153,7 @@
       EXTERNAL           XERBLA, ZLARF, ZLARFG
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX, MIN
+      INTRINSIC          CONJG, MAX, MIN
 *     ..
 *     .. Executable Statements ..
 *
@@ -187,7 +187,7 @@
             ALPHA = A( I, I )
             A( I, I ) = ONE
             CALL ZLARF( 'Left', M-I+1, N-I, A( I, I ), 1,
-     $                  DCONJG( TAU( I ) ), A( I, I+1 ), LDA, WORK )
+     $                  CONJG( TAU( I ) ), A( I, I+1 ), LDA, WORK )
             A( I, I ) = ALPHA
          END IF
    10 CONTINUE

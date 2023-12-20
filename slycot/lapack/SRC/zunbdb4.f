@@ -308,9 +308,9 @@
             S = SIN( THETA(I) )
             PHANTOM(1) = ONE
             PHANTOM(P+1) = ONE
-            CALL ZLARF( 'L', P, Q, PHANTOM(1), 1, DCONJG(TAUP1(1)), X11,
+            CALL ZLARF( 'L', P, Q, PHANTOM(1), 1, CONJG(TAUP1(1)), X11,
      $                  LDX11, WORK(ILARF) )
-            CALL ZLARF( 'L', M-P, Q, PHANTOM(P+1), 1, DCONJG(TAUP2(1)),
+            CALL ZLARF( 'L', M-P, Q, PHANTOM(P+1), 1, CONJG(TAUP2(1)),
      $                  X21, LDX21, WORK(ILARF) )
          ELSE
             CALL ZUNBDB5( P-I+1, M-P-I+1, Q-I+1, X11(I,I-1), 1,
@@ -326,9 +326,9 @@
             X11(I,I-1) = ONE
             X21(I,I-1) = ONE
             CALL ZLARF( 'L', P-I+1, Q-I+1, X11(I,I-1), 1,
-     $                  DCONJG(TAUP1(I)), X11(I,I), LDX11, WORK(ILARF) )
+     $                  CONJG(TAUP1(I)), X11(I,I), LDX11, WORK(ILARF) )
             CALL ZLARF( 'L', M-P-I+1, Q-I+1, X21(I,I-1), 1,
-     $                  DCONJG(TAUP2(I)), X21(I,I), LDX21, WORK(ILARF) )
+     $                  CONJG(TAUP2(I)), X21(I,I), LDX21, WORK(ILARF) )
          END IF
 *
          CALL ZDROT( Q-I+1, X11(I,I), LDX11, X21(I,I), LDX21, S, -C )

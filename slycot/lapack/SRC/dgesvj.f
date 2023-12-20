@@ -373,7 +373,7 @@
       REAL*10   FASTR( 5 )
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DABS, MAX, MIN, DBLE, DSIGN, DSQRT
+      INTRINSIC          ABS, MAX, MIN, DBLE, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
 *     ..
@@ -901,11 +901,11 @@
                               END IF
                            END IF
 *
-                           MXAAPQ = MAX( MXAAPQ, DABS( AAPQ ) )
+                           MXAAPQ = MAX( MXAAPQ, ABS( AAPQ ) )
 *
 *        TO rotate or NOT to rotate, THAT is the question ...
 *
-                           IF( DABS( AAPQ ).GT.TOL ) THEN
+                           IF( ABS( AAPQ ).GT.TOL ) THEN
 *
 *           .. rotate
 *[RTD]      ROTATED = ROTATED + ONE
@@ -920,9 +920,9 @@
 *
                                  AQOAP = AAQQ / AAPP
                                  APOAQ = AAPP / AAQQ
-                                 THETA = -HALF*DABS(AQOAP-APOAQ)/AAPQ
+                                 THETA = -HALF*ABS(AQOAP-APOAQ)/AAPQ
 *
-                                 IF( DABS( THETA ).GT.BIGTHETA ) THEN
+                                 IF( ABS( THETA ).GT.BIGTHETA ) THEN
 *
                                     T = HALF / THETA
                                     FASTR( 3 ) = T*WORK( p ) / WORK( q )
@@ -938,7 +938,7 @@
      $                                         ONE+T*APOAQ*AAPQ ) )
                                     AAPP = AAPP*DSQRT( MAX( ZERO,
      $                                     ONE-T*AQOAP*AAPQ ) )
-                                    MXSINJ = MAX( MXSINJ, DABS( T ) )
+                                    MXSINJ = MAX( MXSINJ, ABS( T ) )
 *
                                  ELSE
 *
@@ -950,7 +950,7 @@
                                     CS = DSQRT( ONE / ( ONE+T*T ) )
                                     SN = T*CS
 *
-                                    MXSINJ = MAX( MXSINJ, DABS( SN ) )
+                                    MXSINJ = MAX( MXSINJ, ABS( SN ) )
                                     SVA( q ) = AAQQ*DSQRT( MAX( ZERO,
      $                                         ONE+T*APOAQ*AAPQ ) )
                                     AAPP = AAPP*DSQRT( MAX( ZERO,
@@ -1212,11 +1212,11 @@
                               END IF
                            END IF
 *
-                           MXAAPQ = MAX( MXAAPQ, DABS( AAPQ ) )
+                           MXAAPQ = MAX( MXAAPQ, ABS( AAPQ ) )
 *
 *        TO rotate or NOT to rotate, THAT is the question ...
 *
-                           IF( DABS( AAPQ ).GT.TOL ) THEN
+                           IF( ABS( AAPQ ).GT.TOL ) THEN
                               NOTROT = 0
 *[RTD]      ROTATED  = ROTATED + 1
                               PSKIPPED = 0
@@ -1226,10 +1226,10 @@
 *
                                  AQOAP = AAQQ / AAPP
                                  APOAQ = AAPP / AAQQ
-                                 THETA = -HALF*DABS(AQOAP-APOAQ)/AAPQ
+                                 THETA = -HALF*ABS(AQOAP-APOAQ)/AAPQ
                                  IF( AAQQ.GT.AAPP0 )THETA = -THETA
 *
-                                 IF( DABS( THETA ).GT.BIGTHETA ) THEN
+                                 IF( ABS( THETA ).GT.BIGTHETA ) THEN
                                     T = HALF / THETA
                                     FASTR( 3 ) = T*WORK( p ) / WORK( q )
                                     FASTR( 4 ) = -T*WORK( q ) /
@@ -1244,7 +1244,7 @@
      $                                         ONE+T*APOAQ*AAPQ ) )
                                     AAPP = AAPP*DSQRT( MAX( ZERO,
      $                                     ONE-T*AQOAP*AAPQ ) )
-                                    MXSINJ = MAX( MXSINJ, DABS( T ) )
+                                    MXSINJ = MAX( MXSINJ, ABS( T ) )
                                  ELSE
 *
 *                 .. choose correct signum for THETA and rotate
@@ -1255,7 +1255,7 @@
      $                                  DSQRT( ONE+THETA*THETA ) )
                                     CS = DSQRT( ONE / ( ONE+T*T ) )
                                     SN = T*CS
-                                    MXSINJ = MAX( MXSINJ, DABS( SN ) )
+                                    MXSINJ = MAX( MXSINJ, ABS( SN ) )
                                     SVA( q ) = AAQQ*DSQRT( MAX( ZERO,
      $                                         ONE+T*APOAQ*AAPQ ) )
                                     AAPP = AAPP*DSQRT( MAX( ZERO,
@@ -1477,7 +1477,7 @@
  2011       CONTINUE
 *2011 bailed out of the jbc-loop
             DO 2012 p = igl, MIN( igl+KBL-1, N )
-               SVA( p ) = DABS( SVA( p ) )
+               SVA( p ) = ABS( SVA( p ) )
  2012       CONTINUE
 ***
  2000    CONTINUE

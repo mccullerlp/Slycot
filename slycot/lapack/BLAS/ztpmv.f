@@ -171,7 +171,7 @@
       EXTERNAL XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DCONJG
+      INTRINSIC CONJG
 *     ..
 *
 *     Test the input parameters.
@@ -298,9 +298,9 @@
                               K = K - 1
    90                     CONTINUE
                       ELSE
-                          IF (NOUNIT) TEMP = TEMP*DCONJG(AP(KK))
+                          IF (NOUNIT) TEMP = TEMP*CONJG(AP(KK))
                           DO 100 I = J - 1,1,-1
-                              TEMP = TEMP + DCONJG(AP(K))*X(I)
+                              TEMP = TEMP + CONJG(AP(K))*X(I)
                               K = K - 1
   100                     CONTINUE
                       END IF
@@ -319,10 +319,10 @@
                               TEMP = TEMP + AP(K)*X(IX)
   120                     CONTINUE
                       ELSE
-                          IF (NOUNIT) TEMP = TEMP*DCONJG(AP(KK))
+                          IF (NOUNIT) TEMP = TEMP*CONJG(AP(KK))
                           DO 130 K = KK - 1,KK - J + 1,-1
                               IX = IX - INCX
-                              TEMP = TEMP + DCONJG(AP(K))*X(IX)
+                              TEMP = TEMP + CONJG(AP(K))*X(IX)
   130                     CONTINUE
                       END IF
                       X(JX) = TEMP
@@ -343,9 +343,9 @@
                               K = K + 1
   150                     CONTINUE
                       ELSE
-                          IF (NOUNIT) TEMP = TEMP*DCONJG(AP(KK))
+                          IF (NOUNIT) TEMP = TEMP*CONJG(AP(KK))
                           DO 160 I = J + 1,N
-                              TEMP = TEMP + DCONJG(AP(K))*X(I)
+                              TEMP = TEMP + CONJG(AP(K))*X(I)
                               K = K + 1
   160                     CONTINUE
                       END IF
@@ -364,10 +364,10 @@
                               TEMP = TEMP + AP(K)*X(IX)
   180                     CONTINUE
                       ELSE
-                          IF (NOUNIT) TEMP = TEMP*DCONJG(AP(KK))
+                          IF (NOUNIT) TEMP = TEMP*CONJG(AP(KK))
                           DO 190 K = KK + 1,KK + N - J
                               IX = IX + INCX
-                              TEMP = TEMP + DCONJG(AP(K))*X(IX)
+                              TEMP = TEMP + CONJG(AP(K))*X(IX)
   190                     CONTINUE
                       END IF
                       X(JX) = TEMP

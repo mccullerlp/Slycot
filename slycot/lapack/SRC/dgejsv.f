@@ -505,7 +505,7 @@
      $        NOSCAL, ROWPIV, RSVEC,  TRANSP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC DABS, DLOG, MAX, MIN, DBLE, IDNINT, DSIGN, DSQRT
+      INTRINSIC ABS, DLOG, MAX, MIN, DBLE, IDNINT, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
       REAL*10  DLAMCH, DNRM2
@@ -757,7 +757,7 @@
  1950       CONTINUE
          ELSE
             DO 1904 p = 1, M
-               WORK(M+N+p) = SCALEM*DABS( A(p,IDAMAX(N,A(p,1),LDA)) )
+               WORK(M+N+p) = SCALEM*ABS( A(p,IDAMAX(N,A(p,1),LDA)) )
                AATMAX = MAX( AATMAX, WORK(M+N+p) )
                AATMIN = MIN( AATMIN, WORK(M+N+p) )
  1904       CONTINUE
@@ -954,7 +954,7 @@
 *        backward error of the order of N*EPSLN*||A||.
          TEMP1 = DSQRT(DBLE(N))*EPSLN
          DO 3001 p = 2, N
-            IF ( DABS(A(p,p)) .GE. (TEMP1*DABS(A(1,1))) ) THEN
+            IF ( ABS(A(p,p)) .GE. (TEMP1*ABS(A(1,1))) ) THEN
                NR = NR + 1
             ELSE
                GO TO 3002
@@ -967,9 +967,9 @@
 *        close-to-rank-deficient.
          TEMP1 = DSQRT(SFMIN)
          DO 3401 p = 2, N
-            IF ( ( DABS(A(p,p)) .LT. (EPSLN*DABS(A(p-1,p-1))) ) .OR.
-     $           ( DABS(A(p,p)) .LT. SMALL ) .OR.
-     $           ( L2KILL .AND. (DABS(A(p,p)) .LT. TEMP1) ) ) GO TO 3402
+            IF ( ( ABS(A(p,p)) .LT. (EPSLN*ABS(A(p-1,p-1))) ) .OR.
+     $           ( ABS(A(p,p)) .LT. SMALL ) .OR.
+     $           ( L2KILL .AND. (ABS(A(p,p)) .LT. TEMP1) ) ) GO TO 3402
             NR = NR + 1
  3401    CONTINUE
  3402    CONTINUE
@@ -984,8 +984,8 @@
 *        working hard to get the accuracy not warranted by the data.
          TEMP1  = DSQRT(SFMIN)
          DO 3301 p = 2, N
-            IF ( ( DABS(A(p,p)) .LT. SMALL ) .OR.
-     $          ( L2KILL .AND. (DABS(A(p,p)) .LT. TEMP1) ) ) GO TO 3302
+            IF ( ( ABS(A(p,p)) .LT. SMALL ) .OR.
+     $          ( L2KILL .AND. (ABS(A(p,p)) .LT. TEMP1) ) ) GO TO 3302
             NR = NR + 1
  3301    CONTINUE
  3302    CONTINUE
@@ -996,7 +996,7 @@
       IF ( NR .EQ. N ) THEN
          MAXPRJ = ONE
          DO 3051 p = 2, N
-            TEMP1  = DABS(A(p,p)) / SVA(IWORK(p))
+            TEMP1  = ABS(A(p,p)) / SVA(IWORK(p))
             MAXPRJ = MIN( MAXPRJ, TEMP1 )
  3051    CONTINUE
          IF ( MAXPRJ**2 .GE. ONE - DBLE(N)*EPSLN ) ALMORT = .TRUE.
@@ -1045,7 +1045,7 @@
          END IF
       END IF
 *
-      L2PERT = L2PERT .AND. ( DABS( A(1,1)/A(NR,NR) ) .GT. DSQRT(BIG1) )
+      L2PERT = L2PERT .AND. ( ABS( A(1,1)/A(NR,NR) ) .GT. DSQRT(BIG1) )
 *     If there is no violent scaling, artificial perturbation is not needed.
 *
 *     Phase 3:
@@ -1077,9 +1077,9 @@
 *              XSC = DSQRT(SMALL)
                XSC = EPSLN / DBLE(N)
                DO 4947 q = 1, NR
-                  TEMP1 = XSC*DABS(A(q,q))
+                  TEMP1 = XSC*ABS(A(q,q))
                   DO 4949 p = 1, N
-                     IF ( ( (p.GT.q) .AND. (DABS(A(p,q)).LE.TEMP1) )
+                     IF ( ( (p.GT.q) .AND. (ABS(A(p,q)).LE.TEMP1) )
      $                    .OR. ( p .LT. q ) )
      $                     A(p,q) = DSIGN( TEMP1, A(p,q) )
  4949             CONTINUE
@@ -1107,9 +1107,9 @@
 *              XSC = DSQRT(SMALL)
                XSC = EPSLN / DBLE(N)
                DO 1947 q = 1, NR
-                  TEMP1 = XSC*DABS(A(q,q))
+                  TEMP1 = XSC*ABS(A(q,q))
                   DO 1949 p = 1, NR
-                     IF ( ( (p.GT.q) .AND. (DABS(A(p,q)).LE.TEMP1) )
+                     IF ( ( (p.GT.q) .AND. (ABS(A(p,q)).LE.TEMP1) )
      $                       .OR. ( p .LT. q ) )
      $                   A(p,q) = DSIGN( TEMP1, A(p,q) )
  1949             CONTINUE
@@ -1267,9 +1267,9 @@
             IF ( L2PERT ) THEN
                XSC = DSQRT(SMALL)
                DO 2969 q = 1, NR
-                  TEMP1 = XSC*DABS( V(q,q) )
+                  TEMP1 = XSC*ABS( V(q,q) )
                   DO 2968 p = 1, N
-                     IF ( ( p .GT. q ) .AND. ( DABS(V(p,q)) .LE. TEMP1 )
+                     IF ( ( p .GT. q ) .AND. ( ABS(V(p,q)) .LE. TEMP1 )
      $                   .OR. ( p .LT. q ) )
      $                   V(p,q) = DSIGN( TEMP1, V(p,q) )
                      IF ( p .LT. q ) V(p,q) = - V(p,q)
@@ -1311,8 +1311,8 @@
                   XSC = DSQRT(SMALL)/EPSLN
                   DO 3959 p = 2, NR
                      DO 3958 q = 1, p - 1
-                        TEMP1 = XSC * MIN(DABS(V(p,p)),DABS(V(q,q)))
-                        IF ( DABS(V(q,p)) .LE. TEMP1 )
+                        TEMP1 = XSC * MIN(ABS(V(p,p)),ABS(V(q,q)))
+                        IF ( ABS(V(q,p)) .LE. TEMP1 )
      $                     V(q,p) = DSIGN( TEMP1, V(q,p) )
  3958                CONTINUE
  3959             CONTINUE
@@ -1350,8 +1350,8 @@
                   XSC = DSQRT(SMALL)
                   DO 3969 p = 2, NR
                      DO 3968 q = 1, p - 1
-                        TEMP1 = XSC * MIN(DABS(V(p,p)),DABS(V(q,q)))
-                        IF ( DABS(V(q,p)) .LE. TEMP1 )
+                        TEMP1 = XSC * MIN(ABS(V(p,p)),ABS(V(q,q)))
+                        IF ( ABS(V(q,p)) .LE. TEMP1 )
      $                     V(q,p) = DSIGN( TEMP1, V(q,p) )
  3968                CONTINUE
  3969             CONTINUE
@@ -1363,7 +1363,7 @@
                   XSC = DSQRT(SMALL)
                   DO 8970 p = 2, NR
                      DO 8971 q = 1, p - 1
-                        TEMP1 = XSC * MIN(DABS(V(p,p)),DABS(V(q,q)))
+                        TEMP1 = XSC * MIN(ABS(V(p,p)),ABS(V(q,q)))
                         V(p,q) = - DSIGN( TEMP1, V(q,p) )
  8971                CONTINUE
  8970             CONTINUE
@@ -1650,9 +1650,9 @@
          IF ( L2PERT ) THEN
             XSC = DSQRT(SMALL/EPSLN)
             DO 5969 q = 1, NR
-               TEMP1 = XSC*DABS( V(q,q) )
+               TEMP1 = XSC*ABS( V(q,q) )
                DO 5968 p = 1, N
-                  IF ( ( p .GT. q ) .AND. ( DABS(V(p,q)) .LE. TEMP1 )
+                  IF ( ( p .GT. q ) .AND. ( ABS(V(p,q)) .LE. TEMP1 )
      $                .OR. ( p .LT. q ) )
      $                V(p,q) = DSIGN( TEMP1, V(p,q) )
                   IF ( p .LT. q ) V(p,q) = - V(p,q)
@@ -1674,7 +1674,7 @@
             XSC = DSQRT(SMALL/EPSLN)
             DO 9970 q = 2, NR
                DO 9971 p = 1, q - 1
-                  TEMP1 = XSC * MIN(DABS(U(p,p)),DABS(U(q,q)))
+                  TEMP1 = XSC * MIN(ABS(U(p,p)),ABS(U(q,q)))
                   U(p,q) = - DSIGN( TEMP1, U(q,p) )
  9971          CONTINUE
  9970       CONTINUE

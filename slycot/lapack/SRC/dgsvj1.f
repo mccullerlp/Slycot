@@ -187,7 +187,7 @@
 *>          TOL is REAL*10
 *>          TOL is the threshold for Jacobi rotations. For a pair
 *>          A(:,p), A(:,q) of pivot columns, the Jacobi rotation is
-*>          applied only if DABS(COS(angle(A(:,p),A(:,q)))) > TOL.
+*>          applied only if ABS(COS(angle(A(:,p),A(:,q)))) > TOL.
 *> \endverbatim
 *>
 *> \param[in] NSWEEP
@@ -268,7 +268,7 @@
       REAL*10   FASTR( 5 )
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DABS, MAX, DBLE, MIN, DSIGN, DSQRT
+      INTRINSIC          ABS, MAX, DBLE, MIN, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
       REAL*10   DDOT, DNRM2
@@ -452,11 +452,11 @@
                               END IF
                            END IF
 
-                           MXAAPQ = MAX( MXAAPQ, DABS( AAPQ ) )
+                           MXAAPQ = MAX( MXAAPQ, ABS( AAPQ ) )
 
 *        TO rotate or NOT to rotate, THAT is the question ...
 *
-                           IF( DABS( AAPQ ).GT.TOL ) THEN
+                           IF( ABS( AAPQ ).GT.TOL ) THEN
                               NOTROT = 0
 *           ROTATED  = ROTATED + 1
                               PSKIPPED = 0
@@ -466,10 +466,10 @@
 *
                                  AQOAP = AAQQ / AAPP
                                  APOAQ = AAPP / AAQQ
-                                 THETA = -HALF*DABS(AQOAP-APOAQ) / AAPQ
+                                 THETA = -HALF*ABS(AQOAP-APOAQ) / AAPQ
                                  IF( AAQQ.GT.AAPP0 )THETA = -THETA
 
-                                 IF( DABS( THETA ).GT.BIGTHETA ) THEN
+                                 IF( ABS( THETA ).GT.BIGTHETA ) THEN
                                     T = HALF / THETA
                                     FASTR( 3 ) = T*D( p ) / D( q )
                                     FASTR( 4 ) = -T*D( q ) / D( p )
@@ -483,7 +483,7 @@
      $                                         ONE+T*APOAQ*AAPQ ) )
                                     AAPP = AAPP*DSQRT( MAX( ZERO,
      $                                     ONE-T*AQOAP*AAPQ ) )
-                                    MXSINJ = MAX( MXSINJ, DABS( T ) )
+                                    MXSINJ = MAX( MXSINJ, ABS( T ) )
                                  ELSE
 *
 *                 .. choose correct signum for THETA and rotate
@@ -494,7 +494,7 @@
      $                                  DSQRT( ONE+THETA*THETA ) )
                                     CS = DSQRT( ONE / ( ONE+T*T ) )
                                     SN = T*CS
-                                    MXSINJ = MAX( MXSINJ, DABS( SN ) )
+                                    MXSINJ = MAX( MXSINJ, ABS( SN ) )
                                     SVA( q ) = AAQQ*DSQRT( MAX( ZERO,
      $                                         ONE+T*APOAQ*AAPQ ) )
                                     AAPP = AAPP*DSQRT( MAX( ZERO,
@@ -714,7 +714,7 @@
  2011       CONTINUE
 *2011 bailed out of the jbc-loop
             DO 2012 p = igl, MIN( igl+KBL-1, N )
-               SVA( p ) = DABS( SVA( p ) )
+               SVA( p ) = ABS( SVA( p ) )
  2012       CONTINUE
 ***   IF ( NOTROT .GE. EMPTSW ) GO TO 1994
  2000    CONTINUE

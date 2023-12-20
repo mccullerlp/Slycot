@@ -67,7 +67,7 @@
 *
 *     .. Intrinsic Functions ..
       intrinsic         ABS, DBLE, RADIX, CEILING, TINY, DIGITS, SQRT,
-     $                  MAXEXPONENT, MINEXPONENT, FLOOR, HUGE, DCMPLX,
+     $                  MAXEXPONENT, MINEXPONENT, FLOOR, HUGE, CMPLX,
      $                  EPSILON
 
 *
@@ -107,17 +107,17 @@
 *
 *     .. Inf entries ..
       aInf = X(3) * 2
-      cInf(1) = DCMPLX( aInf, 0.0d0 )
-      cInf(2) = DCMPLX(-aInf, 0.0d0 )
-      cInf(3) = DCMPLX( 0.0d0, aInf )
-      cInf(4) = DCMPLX( 0.0d0,-aInf )
-      cInf(5) = DCMPLX( aInf,  aInf )
+      cInf(1) = CMPLX( aInf, 0.0d0 )
+      cInf(2) = CMPLX(-aInf, 0.0d0 )
+      cInf(3) = CMPLX( 0.0d0, aInf )
+      cInf(4) = CMPLX( 0.0d0,-aInf )
+      cInf(5) = CMPLX( aInf,  aInf )
 *
 *     .. NaN entries ..
       aNaN = aInf / aInf
-      cNaN(1) = DCMPLX( aNaN, 0.0d0 )
-      cNaN(2) = DCMPLX( 0.0d0, aNaN )
-      cNaN(3) = DCMPLX( aNaN,  aNaN )
+      cNaN(1) = CMPLX( aNaN, 0.0d0 )
+      cNaN(2) = CMPLX( 0.0d0, aNaN )
+      cNaN(3) = CMPLX( aNaN,  aNaN )
 
 *
 *     .. Tests ..
@@ -156,7 +156,7 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y = DCMPLX( Xj, 0.0d0 )
+                Y = CMPLX( Xj, 0.0d0 )
                 R = ABS( Y )
                 if( R .ne. Xj ) then
                     caseAFails = caseAFails + 1
@@ -180,7 +180,7 @@
             endif
         else
             do while( Xj .ne. limX(i) )
-                Y = DCMPLX( 0.0d0, Xj )
+                Y = CMPLX( 0.0d0, Xj )
                 R = ABS( Y )
                 if( R .ne. Xj ) then
                     caseBFails = caseBFails + 1
@@ -210,7 +210,7 @@
         else
             do while( Xj .ne. limX(i) )
                 answerC = fiveFourth * Xj
-                Y = DCMPLX( threeFourth * Xj, Xj )
+                Y = CMPLX( threeFourth * Xj, Xj )
                 R = ABS( Y )
                 if( R .ne. answerC ) then
                     caseCFails = caseCFails + 1
@@ -247,7 +247,7 @@
                         print *, "!! [d] fl( subnormal ) may be 0"
                     endif
                 else
-                    Y = DCMPLX( oneHalf * Xj, oneHalf * Xj )
+                    Y = CMPLX( oneHalf * Xj, oneHalf * Xj )
                     R = ABS( Y )
                     relDiff = ABS(R-answerD)/answerD
                     if( relDiff .ge. (0.5*eps) ) then

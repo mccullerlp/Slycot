@@ -306,13 +306,14 @@
      $                   ZLARF, ZLARFG, ZLASET, ZTREXC, ZUNMHR
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, INT, MAX, MIN
+      INTRINSIC          ABS, DBLE, CMPLX, CONJG, INT, MAX, MIN,
+     $     IMAGPART
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )
+      CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( IMAGPART( CDUM ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -342,7 +343,7 @@
 *     ==== Quick return in case of workspace query. ====
 *
       IF( LWORK.EQ.-1 ) THEN
-         WORK( 1 ) = DCMPLX( LWKOPT, 0 )
+         WORK( 1 ) = CMPLX( LWKOPT, 0 )
          RETURN
       END IF
 *
@@ -470,7 +471,7 @@
 *
             CALL ZCOPY( NS, V, LDV, WORK, 1 )
             DO 50 I = 1, NS
-               WORK( I ) = DCONJG( WORK( I ) )
+               WORK( I ) = CONJG( WORK( I ) )
    50       CONTINUE
             BETA = WORK( 1 )
             CALL ZLARFG( NS, BETA, WORK( 2 ), 1, TAU )
@@ -478,7 +479,7 @@
 *
             CALL ZLASET( 'L', JW-2, JW-2, ZERO, ZERO, T( 3, 1 ), LDT )
 *
-            CALL ZLARF( 'L', NS, JW, WORK, 1, DCONJG( TAU ), T, LDT,
+            CALL ZLARF( 'L', NS, JW, WORK, 1, CONJG( TAU ), T, LDT,
      $                  WORK( JW+1 ) )
             CALL ZLARF( 'R', NS, NS, WORK, 1, TAU, T, LDT,
      $                  WORK( JW+1 ) )
@@ -492,7 +493,7 @@
 *        ==== Copy updated reduced window into place ====
 *
          IF( KWTOP.GT.1 )
-     $      H( KWTOP, KWTOP-1 ) = S*DCONJG( V( 1, 1 ) )
+     $      H( KWTOP, KWTOP-1 ) = S*CONJG( V( 1, 1 ) )
          CALL ZLACPY( 'U', JW, JW, T, LDT, H( KWTOP, KWTOP ), LDH )
          CALL ZCOPY( JW-1, T( 2, 1 ), LDT+1, H( KWTOP+1, KWTOP ),
      $               LDH+1 )
@@ -557,7 +558,7 @@
 *
 *      ==== Return optimal workspace. ====
 *
-      WORK( 1 ) = DCMPLX( LWKOPT, 0 )
+      WORK( 1 ) = CMPLX( LWKOPT, 0 )
 *
 *     ==== End of ZLAQR2 ====
 *

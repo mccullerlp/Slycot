@@ -213,13 +213,13 @@
       EXTERNAL           ZCOPY, ZDSCAL, ZGEMM, ZGEMV, ZLACGV, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCONJG, DIMAG, MAX, MIN, SQRT
+      INTRINSIC          ABS, DBLE, CONJG, IMAGPART, MAX, MIN, SQRT
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
-      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( DIMAG( Z ) )
+      CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( IMAGPART( Z ) )
 *     ..
 *     .. Executable Statements ..
 *
@@ -497,7 +497,7 @@
 *                      both |D11| < 1, |D22| < 1, hence |D22*D11| << 1.)
 *
                   D21 = W( K-1, KW )
-                  D11 = W( K, KW ) / DCONJG( D21 )
+                  D11 = W( K, KW ) / CONJG( D21 )
                   D22 = W( K-1, KW-1 ) / D21
                   T = ONE / ( DBLE( D11*D22 )-ONE )
                   D21 = T / D21
@@ -508,7 +508,7 @@
 *
                   DO 20 J = 1, K - 2
                      A( J, K-1 ) = D21*( D11*W( J, KW-1 )-W( J, KW ) )
-                     A( J, K ) = DCONJG( D21 )*
+                     A( J, K ) = CONJG( D21 )*
      $                           ( D22*W( J, KW )-W( J, KW-1 ) )
    20             CONTINUE
                END IF
@@ -858,7 +858,7 @@
 *
                   D21 = W( K+1, K )
                   D11 = W( K+1, K+1 ) / D21
-                  D22 = W( K, K ) / DCONJG( D21 )
+                  D22 = W( K, K ) / CONJG( D21 )
                   T = ONE / ( DBLE( D11*D22 )-ONE )
                   D21 = T / D21
 *
@@ -867,7 +867,7 @@
 *                 of D**(-1)
 *
                   DO 80 J = K + 2, N
-                     A( J, K ) = DCONJG( D21 )*
+                     A( J, K ) = CONJG( D21 )*
      $                           ( D11*W( J, K )-W( J, K+1 ) )
                      A( J, K+1 ) = D21*( D22*W( J, K+1 )-W( J, K ) )
    80             CONTINUE

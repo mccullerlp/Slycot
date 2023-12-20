@@ -147,13 +147,13 @@
       EXTERNAL           LSAME
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, REAL, DIMAG, MAX, MIN
+      INTRINSIC          ABS, REAL, IMAGPART, MAX, MIN
 *     ..
 *     .. Statement Functions ..
       REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
-      CABS1( ZDUM ) = ABS( DBLE ( ZDUM ) ) + ABS( DIMAG ( ZDUM ) )
+      CABS1( ZDUM ) = ABS( DBLE ( ZDUM ) ) + ABS( IMAGPART ( ZDUM ) )
 *     ..
 *     .. Executable Statements ..
 *

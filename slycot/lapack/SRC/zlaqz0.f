@@ -565,7 +565,7 @@
      $                          K2 ), LDB, C1, S1 )
                      IF( ILQ ) THEN
                         CALL ZROT( N, Q( 1, K2 ), 1, Q( 1, K2+1 ), 1,
-     $                             C1, DCONJG( S1 ) )
+     $                             C1, CONJG( S1 ) )
                      END IF
                   END IF
 
@@ -585,7 +585,7 @@
      $                       ISTART2+1 ), LDB, C1, S1 )
                   IF( ILQ ) THEN
                      CALL ZROT( N, Q( 1, ISTART2 ), 1, Q( 1,
-     $                          ISTART2+1 ), 1, C1, DCONJG( S1 ) )
+     $                          ISTART2+1 ), 1, C1, CONJG( S1 ) )
                   END IF
                END IF
 

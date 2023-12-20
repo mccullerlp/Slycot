@@ -134,7 +134,7 @@
       INTEGER            I, J, L
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCMPLX, DIMAG
+      INTRINSIC          DBLE, CMPLX, IMAGPART
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEMM
@@ -163,14 +163,14 @@
 *
       DO 60 J = 1, N
          DO 50 I = 1, M
-            RWORK( ( J-1 )*M+I ) = DIMAG( A( I, J ) )
+            RWORK( ( J-1 )*M+I ) = IMAGPART( A( I, J ) )
    50    CONTINUE
    60 CONTINUE
       CALL DGEMM( 'N', 'N', M, N, N, ONE, RWORK, M, B, LDB, ZERO,
      $            RWORK( L ), M )
       DO 80 J = 1, N
          DO 70 I = 1, M
-            C( I, J ) = DCMPLX( DBLE( C( I, J ) ),
+            C( I, J ) = CMPLX( DBLE( C( I, J ) ),
      $                  RWORK( L+( J-1 )*M+I-1 ) )
    70    CONTINUE
    80 CONTINUE

@@ -131,7 +131,7 @@
       EXTERNAL           DLAMCH, DLAPY3, DLAPY2, DZNRM2, ZLADIV
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, DIMAG, SIGN
+      INTRINSIC          ABS, DBLE, CMPLX, IMAGPART, SIGN
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZDSCAL, ZSCAL
@@ -145,7 +145,7 @@
 *
       XNORM = DZNRM2( N-1, X, INCX )
       ALPHR = DBLE( ALPHA )
-      ALPHI = DIMAG( ALPHA )
+      ALPHI = IMAGPART( ALPHA )
 *
       IF( XNORM.EQ.ZERO ) THEN
 *
@@ -169,7 +169,7 @@
          ELSE
 *           Only "reflecting" the diagonal entry to be real and non-negative.
             XNORM = DLAPY2( ALPHR, ALPHI )
-            TAU = DCMPLX( ONE - ALPHR / XNORM, -ALPHI / XNORM )
+            TAU = CMPLX( ONE - ALPHR / XNORM, -ALPHI / XNORM )
             DO J = 1, N-1
                X( 1 + (J-1)*INCX ) = ZERO
             END DO
@@ -200,7 +200,7 @@
 *           New BETA is at most 1, at least SMLNUM
 *
             XNORM = DZNRM2( N-1, X, INCX )
-            ALPHA = DCMPLX( ALPHR, ALPHI )
+            ALPHA = CMPLX( ALPHR, ALPHI )
             BETA = SIGN( DLAPY3( ALPHR, ALPHI, XNORM ), ALPHR )
          END IF
          SAVEALPHA = ALPHA
@@ -211,10 +211,10 @@
          ELSE
             ALPHR = ALPHI * (ALPHI/DBLE( ALPHA ))
             ALPHR = ALPHR + XNORM * (XNORM/DBLE( ALPHA ))
-            TAU = DCMPLX( ALPHR/BETA, -ALPHI/BETA )
-            ALPHA = DCMPLX( -ALPHR, ALPHI )
+            TAU = CMPLX( ALPHR/BETA, -ALPHI/BETA )
+            ALPHA = CMPLX( -ALPHR, ALPHI )
          END IF
-         ALPHA = ZLADIV( DCMPLX( ONE ), ALPHA )
+         ALPHA = ZLADIV( CMPLX( ONE ), ALPHA )
 *
          IF ( ABS(TAU).LE.SMLNUM ) THEN
 *
@@ -226,7 +226,7 @@
 *           (Thanks Pat. Thanks MathWorks.)
 *
             ALPHR = DBLE( SAVEALPHA )
-            ALPHI = DIMAG( SAVEALPHA )
+            ALPHI = IMAGPART( SAVEALPHA )
             IF( ALPHI.EQ.ZERO ) THEN
                IF( ALPHR.GE.ZERO ) THEN
                   TAU = ZERO
@@ -239,7 +239,7 @@
                END IF
             ELSE
                XNORM = DLAPY2( ALPHR, ALPHI )
-               TAU = DCMPLX( ONE - ALPHR / XNORM, -ALPHI / XNORM )
+               TAU = CMPLX( ONE - ALPHR / XNORM, -ALPHI / XNORM )
                DO J = 1, N-1
                   X( 1 + (J-1)*INCX ) = ZERO
                END DO

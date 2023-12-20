@@ -225,7 +225,7 @@
       EXTERNAL           DCOPY, DLAGTF, DLAGTS, DLARNV, DSCAL, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCMPLX, MAX, SQRT
+      INTRINSIC          ABS, DBLE, CMPLX, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -448,7 +448,7 @@
                Z( I, J ) = CZERO
   150       CONTINUE
             DO 160 I = 1, BLKSIZ
-               Z( B1+I-1, J ) = DCMPLX( WORK( INDRV1+I ), ZERO )
+               Z( B1+I-1, J ) = CMPLX( WORK( INDRV1+I ), ZERO )
   160       CONTINUE
 *
 *           Save the shift to check eigenvalue spacing at next

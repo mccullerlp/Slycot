@@ -159,7 +159,7 @@
       COMPLEX*20         ALPHA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DCONJG, MAX, MIN
+      INTRINSIC          CONJG, MAX, MIN
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZAXPY, ZCOPY, ZGEMV, ZGERC, ZLACGV,
@@ -197,12 +197,12 @@
 *           Use a Householder reflection to zero the kth row of A.
 *           First set up the reflection.
 *
-            A( K, K ) = DCONJG( A( K, K ) )
+            A( K, K ) = CONJG( A( K, K ) )
             CALL ZLACGV( N-M, A( K, M1 ), LDA )
             ALPHA = A( K, K )
             CALL ZLARFG( N-M+1, ALPHA, A( K, M1 ), LDA, TAU( K ) )
             A( K, K ) = ALPHA
-            TAU( K ) = DCONJG( TAU( K ) )
+            TAU( K ) = CONJG( TAU( K ) )
 *
             IF( TAU( K ).NE.CZERO .AND. K.GT.1 ) THEN
 *
@@ -223,9 +223,9 @@
 *              Now form  a( k ) := a( k ) - conjg(tau)*w
 *              and       B      := B      - conjg(tau)*w*z( k )**H.
 *
-               CALL ZAXPY( K-1, -DCONJG( TAU( K ) ), TAU, 1, A( 1, K ),
+               CALL ZAXPY( K-1, -CONJG( TAU( K ) ), TAU, 1, A( 1, K ),
      $                     1 )
-               CALL ZGERC( K-1, N-M, -DCONJG( TAU( K ) ), TAU, 1,
+               CALL ZGERC( K-1, N-M, -CONJG( TAU( K ) ), TAU, 1,
      $                     A( K, M1 ), LDA, A( 1, M1 ), LDA )
             END IF
    20    CONTINUE

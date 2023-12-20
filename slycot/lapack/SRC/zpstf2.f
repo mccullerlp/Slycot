@@ -178,7 +178,7 @@
       EXTERNAL           ZDSCAL, ZGEMV, ZLACGV, ZSWAP, XERBLA
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          DBLE, DCONJG, MAX, SQRT
+      INTRINSIC          DBLE, CONJG, MAX, SQRT
 *     ..
 *     .. Executable Statements ..
 *
@@ -250,7 +250,7 @@
 *
                IF( J.GT.1 ) THEN
                   WORK( I ) = WORK( I ) +
-     $                        DBLE( DCONJG( A( J-1, I ) )*
+     $                        DBLE( CONJG( A( J-1, I ) )*
      $                              A( J-1, I ) )
                END IF
                WORK( N+I ) = DBLE( A( I, I ) ) - WORK( I )
@@ -277,11 +277,11 @@
      $            CALL ZSWAP( N-PVT, A( J, PVT+1 ), LDA,
      $                        A( PVT, PVT+1 ), LDA )
                DO 140 I = J + 1, PVT - 1
-                  ZTEMP = DCONJG( A( J, I ) )
-                  A( J, I ) = DCONJG( A( I, PVT ) )
+                  ZTEMP = CONJG( A( J, I ) )
+                  A( J, I ) = CONJG( A( I, PVT ) )
                   A( I, PVT ) = ZTEMP
   140          CONTINUE
-               A( J, PVT ) = DCONJG( A( J, PVT ) )
+               A( J, PVT ) = CONJG( A( J, PVT ) )
 *
 *              Swap dot products and PIV
 *
@@ -322,7 +322,7 @@
 *
                IF( J.GT.1 ) THEN
                   WORK( I ) = WORK( I ) +
-     $                        DBLE( DCONJG( A( I, J-1 ) )*
+     $                        DBLE( CONJG( A( I, J-1 ) )*
      $                              A( I, J-1 ) )
                END IF
                WORK( N+I ) = DBLE( A( I, I ) ) - WORK( I )
@@ -349,11 +349,11 @@
      $            CALL ZSWAP( N-PVT, A( PVT+1, J ), 1, A( PVT+1, PVT ),
      $                        1 )
                DO 170 I = J + 1, PVT - 1
-                  ZTEMP = DCONJG( A( I, J ) )
-                  A( I, J ) = DCONJG( A( PVT, I ) )
+                  ZTEMP = CONJG( A( I, J ) )
+                  A( I, J ) = CONJG( A( PVT, I ) )
                   A( PVT, I ) = ZTEMP
   170          CONTINUE
-               A( PVT, J ) = DCONJG( A( PVT, J ) )
+               A( PVT, J ) = CONJG( A( PVT, J ) )
 *
 *              Swap dot products and PIV
 *

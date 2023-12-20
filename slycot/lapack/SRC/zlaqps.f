@@ -206,7 +206,7 @@
       EXTERNAL           ZGEMM, ZGEMV, ZLARFG, ZSWAP
 *     ..
 *     .. Intrinsic Functions ..
-      INTRINSIC          ABS, DBLE, DCONJG, MAX, MIN, NINT, SQRT
+      INTRINSIC          ABS, DBLE, CONJG, MAX, MIN, NINT, SQRT
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
@@ -245,12 +245,12 @@
 *
          IF( K.GT.1 ) THEN
             DO 20 J = 1, K - 1
-               F( K, J ) = DCONJG( F( K, J ) )
+               F( K, J ) = CONJG( F( K, J ) )
    20       CONTINUE
             CALL ZGEMV( 'No transpose', M-RK+1, K-1, -CONE, A( RK, 1 ),
      $                  LDA, F( K, 1 ), LDF, CONE, A( RK, K ), 1 )
             DO 30 J = 1, K - 1
-               F( K, J ) = DCONJG( F( K, J ) )
+               F( K, J ) = CONJG( F( K, J ) )
    30       CONTINUE
          END IF
 *
