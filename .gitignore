@@ -14,3 +14,4 @@ build.log
 .*~
 setup.cfg
 _skbuild
+.*swp

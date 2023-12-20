@@ -1296,8 +1296,18 @@ def ab09nd(dico,job,equil,n,m,p,A,B,C,D,alpha=None,nr=None,tol1=0,tol2=0,ldwork=
     # out = _wrapper.ab09nd(dico, job, equil, ordsel,
     #                       n, m, p, nr, alpha, A, B, C, D, tol1, tol2, ldwork)
     # Nr, A, B, C, D, Ns, hsv = out[:-2]
+    print("A1: ", A)
+    A_orig = np.array(A.copy())
+    B_orig = B.copy()
+    C_orig = C.copy()
+    D_orig = D.copy()
     out = _wrapper.ab09nd_alt(dico, job, equil, ordsel, nr, alpha, A, B, C, D, tol1, tol2, ldwork)
     Nr, A, B, C, D, Ns, hsv = out[:-2]
+    print("A2: ", A)
+    print("A3: ", A - A_orig)
+    print("B3: ", B - B_orig)
+    print("B3: ", C - C_orig)
+    print("B3: ", D - D_orig)
     raise_if_slycot_error(out[-2:], arg_list, ab09nd.__doc__, locals())
     return Nr, A[:Nr, :Nr], B[:Nr, :], C[:, :Nr], D, Ns, hsv
 

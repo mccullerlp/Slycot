@@ -10,6 +10,9 @@ set(CMAKE_BUILD_TYPE Debug)
 enable_language(C)
 enable_language(Fortran)
 
+set(FVERSION "-std=f95")
+set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${FVERSION}")
+
 find_package(Python COMPONENTS Interpreter Development NumPy REQUIRED)
 find_package(PythonExtensions REQUIRED)
 find_package(NumPy REQUIRED)

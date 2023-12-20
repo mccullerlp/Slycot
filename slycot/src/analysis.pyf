@@ -312,19 +312,19 @@ fortranname ab09nd
     integer intent(hide),depend(b) :: m=shape(b,1)
     integer intent(hide),depend(c) :: p=shape(c,0)
     integer intent(in,out) :: nr
-    real*10 intent(in):: alpha
-    real*10 intent(in,out,copy), dimension(*,*) :: a
+    real*10 intent(in), dimension(1):: alpha
+    real*10 intent(in,out,copy), dimension(n,n) :: a
     integer intent(hide),depend(a) :: lda=shape(a,0)
-    real*10 intent(in,out,copy),check(n == shape(b,0)), dimension(*,*),depend(n) :: b
+    real*10 intent(in,out,copy),check(n == shape(b,0)), dimension(n,m),depend(n) :: b
     integer intent(hide),depend(b) :: ldb=shape(b,0)
-    real*10 intent(in,out,copy),check(n == shape(c,1)), dimension(*,*),depend(n) :: c
+    real*10 intent(in,out,copy),check(n == shape(c,1)), dimension(p,n),depend(n) :: c
     integer intent(hide),depend(c) :: ldc=shape(c,0)
-    real*10 intent(in,out,copy),check(p == shape(d,0)),check(m == shape(d,1)), dimension(*,*),depend(m,p) :: d
+    real*10 intent(in,out,copy),check(p == shape(d,0)),check(m == shape(d,1)), dimension(p,m),depend(m,p) :: d
     integer intent(hide),depend(d) :: ldd=shape(d,0)
     integer intent(out) :: ns
     real*10 intent(out),dimension(n),depend(n) :: hsv
-    real*10 :: tol1 =0.0
-    real*10 :: tol2 =0.0
+    real*10 intent(in), dimension(1) :: tol1 =0.0
+    real*10 intent(in), dimension(1) :: tol2 =0.0
     integer intent(hide,cache),dimension(max(m,p)),depend(m,p) :: iwork
     real*10 intent(hide,cache),dimension(ldwork) :: dwork
     integer optional :: ldwork = max(1,n*(2*n+max(n,max(m,p))+5)+n*(n+1)/2)

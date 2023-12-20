@@ -4,7 +4,344 @@
 # RvP, 180710
 
 # 
+
+file(GLOB LAPACK_FSOURCE
+  "lapack/BLAS/SRC/*"
+  "lapack/SRC/*"
+)
+
 set(SLICOT_FSOURCE
+
+lapack/BLAS/dasum.f
+lapack/BLAS/daxpy.f
+lapack/BLAS/dcabs1.f
+lapack/BLAS/dcopy.f
+lapack/BLAS/ddot.f
+lapack/BLAS/dgemm.f
+lapack/BLAS/dgemv.f
+lapack/BLAS/dger.f
+lapack/BLAS/dnrm2.f90
+lapack/BLAS/drot.f
+lapack/BLAS/drotg.f90
+lapack/BLAS/dscal.f
+lapack/BLAS/dspmv.f
+lapack/BLAS/dspr.f
+lapack/BLAS/dswap.f
+lapack/BLAS/dsymm.f
+lapack/BLAS/dsymv.f
+lapack/BLAS/dsyr.f
+lapack/BLAS/dsyr2.f
+lapack/BLAS/dsyr2k.f
+lapack/BLAS/dsyrk.f
+lapack/BLAS/dtpmv.f
+lapack/BLAS/dtpsv.f
+lapack/BLAS/dtrmm.f
+lapack/BLAS/dtrmv.f
+lapack/BLAS/dtrsm.f
+lapack/BLAS/dtrsv.f
+lapack/BLAS/dzasum.f
+lapack/BLAS/dznrm2.f90
+lapack/BLAS/idamax.f
+lapack/BLAS/izamax.f
+lapack/BLAS/lsame.f
+lapack/BLAS/zcopy.f
+lapack/BLAS/zdotc.f
+lapack/BLAS/zdotu.f
+lapack/BLAS/zdrot.f
+lapack/BLAS/zdscal.f
+lapack/BLAS/zgemm.f
+lapack/BLAS/zgemv.f
+lapack/BLAS/zgerc.f
+lapack/BLAS/zgeru.f
+lapack/BLAS/zscal.f
+lapack/BLAS/zswap.f
+lapack/BLAS/ztrmm.f
+lapack/BLAS/ztrmv.f
+lapack/BLAS/ztrsm.f
+lapack/BLAS/ztrsv.f
+
+lapack/INSTALL/dlamch.f
+
+lapack/SRC/la_constants.f90
+lapack/SRC/la_xisnan.F90
+lapack/SRC/dlartg.f90
+lapack/SRC/dlassq.f90
+lapack/SRC/zlartg.f90
+lapack/SRC/zlassq.f90
+
+lapack/SRC/dgebak.f
+lapack/SRC/dgebrd.f
+lapack/SRC/dgecon.f
+lapack/SRC/dgeequ.f
+lapack/SRC/dgees.f
+lapack/SRC/dgeev.f
+lapack/SRC/DEPRECATED/dgegs.f
+lapack/SRC/dgehrd.f
+lapack/SRC/dgelq2.f
+lapack/SRC/dgelqf.f
+lapack/SRC/dgels.f
+lapack/SRC/dgelss.f
+lapack/SRC/dgelsy.f
+lapack/SRC/dgeqlf.f
+lapack/SRC/dgeqp3.f
+lapack/SRC/dgeqr2.f
+lapack/SRC/dgeqrf.f
+lapack/SRC/dgerfs.f
+lapack/SRC/dgerq2.f
+lapack/SRC/dgesc2.f
+lapack/SRC/dgesv.f
+lapack/SRC/dgesvd.f
+lapack/SRC/dgesvx.f
+lapack/SRC/dgetc2.f
+lapack/SRC/dgetrf.f
+lapack/SRC/dgetri.f
+lapack/SRC/dggbak.f
+lapack/SRC/dgges.f
+lapack/SRC/dggev.f
+lapack/SRC/dhgeqz.f
+lapack/SRC/dhseqr.f
+lapack/SRC/disnan.f
+lapack/SRC/dlabad.f
+lapack/SRC/dlacpy.f
+lapack/SRC/dladiv.f
+lapack/SRC/dlaexc.f
+lapack/SRC/dlagv2.f
+lapack/SRC/dlahqr.f
+lapack/SRC/dlaic1.f
+lapack/SRC/dlaln2.f
+lapack/SRC/dlange.f
+lapack/SRC/dlanhs.f
+lapack/SRC/dlantr.f
+lapack/SRC/dlanv2.f
+lapack/SRC/dlapmt.f
+lapack/SRC/dlapy2.f
+lapack/SRC/dlapy3.f
+lapack/SRC/dlaqge.f
+lapack/SRC/dlarfb.f
+lapack/SRC/dlarfg.f
+lapack/SRC/dlarft.f
+lapack/SRC/dlarfx.f
+lapack/SRC/dlarnv.f
+lapack/SRC/dlarzb.f
+lapack/SRC/dlarzt.f
+lapack/SRC/dlas2.f
+lapack/SRC/dlascl.f
+lapack/SRC/dlaset.f
+lapack/SRC/dlasr.f
+lapack/SRC/dlasrt.f
+lapack/SRC/dlasv2.f
+lapack/SRC/dlaswp.f
+lapack/SRC/dlasy2.f
+lapack/SRC/dlatrs.f
+lapack/SRC/dlatrz.f
+lapack/SRC/dorg2r.f
+lapack/SRC/dorgbr.f
+lapack/SRC/dorghr.f
+lapack/SRC/dorgqr.f
+lapack/SRC/dorgr2.f
+lapack/SRC/dorgrq.f
+lapack/SRC/dorm2r.f
+lapack/SRC/dormbr.f
+lapack/SRC/dormhr.f
+lapack/SRC/dormlq.f
+lapack/SRC/dormql.f
+lapack/SRC/dormqr.f
+lapack/SRC/dormr2.f
+lapack/SRC/dormrq.f
+lapack/SRC/dormrz.f
+lapack/SRC/dpocon.f
+lapack/SRC/dposv.f
+lapack/SRC/dpotrf.f
+lapack/SRC/dpotrs.f
+lapack/SRC/dpptrf.f
+lapack/SRC/dpptri.f
+lapack/SRC/dpptrs.f
+lapack/SRC/dpttrf.f
+lapack/SRC/dpttrs.f
+lapack/SRC/drscl.f
+lapack/SRC/dsycon.f
+lapack/SRC/dsyev.f
+lapack/SRC/dsyevx.f
+lapack/SRC/dsysv.f
+lapack/SRC/dsytrf.f
+lapack/SRC/dsytri.f
+lapack/SRC/dsytrs.f
+lapack/SRC/dtgex2.f
+lapack/SRC/dtgexc.f
+lapack/SRC/dtgsen.f
+lapack/SRC/dtgsyl.f
+lapack/SRC/dtrevc.f
+lapack/SRC/dtrexc.f
+lapack/SRC/dtrsen.f
+lapack/SRC/dtrsyl.f
+lapack/SRC/dtrtri.f
+lapack/SRC/dtrtrs.f
+lapack/SRC/iladlc.f
+lapack/SRC/iladlr.f
+lapack/SRC/ilaenv.f
+lapack/SRC/zbdsqr.f
+lapack/SRC/zdrscl.f
+lapack/SRC/zgebrd.f
+lapack/SRC/zgecon.f
+lapack/SRC/zgees.f
+lapack/SRC/zgelqf.f
+lapack/SRC/zgeqp3.f
+lapack/SRC/zgeqrf.f
+lapack/SRC/zgerq2.f
+lapack/SRC/zgesv.f
+lapack/SRC/zgetrf.f
+lapack/SRC/zgetri.f
+lapack/SRC/zgetrs.f
+lapack/SRC/zhgeqz.f
+lapack/SRC/zlacgv.f
+lapack/SRC/zlacon.f
+lapack/SRC/zlacp2.f
+lapack/SRC/zlacpy.f
+lapack/SRC/zladiv.f
+lapack/SRC/zlahqr.f
+lapack/SRC/zlaic1.f
+lapack/SRC/zlange.f
+lapack/SRC/zlanhs.f
+lapack/SRC/zlapmt.f
+lapack/SRC/zlarf.f
+lapack/SRC/zlarfb.f
+lapack/SRC/zlarft.f
+lapack/SRC/zlarnv.f
+lapack/SRC/zlaset.f
+lapack/SRC/zlatrs.f
+lapack/SRC/zrot.f
+lapack/SRC/zstein.f
+lapack/SRC/ztrexc.f
+lapack/SRC/ztzrzf.f
+lapack/SRC/zungbr.f
+lapack/SRC/zunglq.f
+lapack/SRC/zungqr.f
+lapack/SRC/zunm2r.f
+lapack/SRC/zunmbr.f
+lapack/SRC/zunmrq.f
+lapack/SRC/zunmrz.f
+
+lapack/SRC/dbdsqr.f
+lapack/SRC/dgebal.f
+lapack/SRC/dgebd2.f
+lapack/SRC/dgehd2.f
+lapack/SRC/dgeql2.f
+lapack/SRC/dgerqf.f
+lapack/SRC/dgetrf2.f
+lapack/SRC/dgetrs.f
+lapack/SRC/dggbal.f
+lapack/SRC/dgghrd.f
+lapack/SRC/dlabrd.f
+lapack/SRC/dlacn2.f
+lapack/SRC/dlag2.f
+lapack/SRC/dlagtf.f
+lapack/SRC/dlagts.f
+lapack/SRC/dlahr2.f
+lapack/SRC/dlaisnan.f
+lapack/SRC/dlansy.f
+lapack/SRC/dlaqp2.f
+lapack/SRC/dlaqps.f
+lapack/SRC/dlaqr0.f
+lapack/SRC/dlarf.f
+lapack/SRC/dlaruv.f
+lapack/SRC/dlarz.f
+lapack/SRC/dlasq1.f
+lapack/SRC/dlasyf.f
+lapack/SRC/dorglq.f
+lapack/SRC/dorgtr.f
+lapack/SRC/dorm2l.f
+lapack/SRC/dorml2.f
+lapack/SRC/dormr3.f
+lapack/SRC/dormtr.f
+lapack/SRC/dpotrf2.f
+lapack/SRC/dptts2.f
+lapack/SRC/dstebz.f
+lapack/SRC/dstein.f
+lapack/SRC/dsteqr.f
+lapack/SRC/dsterf.f
+lapack/SRC/dsytf2.f
+lapack/SRC/dsytrd.f
+lapack/SRC/dsytrs2.f
+lapack/SRC/dtgevc.f
+lapack/SRC/dtgsy2.f
+lapack/SRC/dtptri.f
+lapack/SRC/dtrcon.f
+lapack/SRC/dtrevc3.f
+lapack/SRC/dtrti2.f
+lapack/SRC/dtzrzf.f
+lapack/SRC/dzsum1.f
+lapack/SRC/ieeeck.f
+lapack/SRC/ilazlc.f
+lapack/SRC/ilazlr.f
+lapack/SRC/iparmq.f
+lapack/SRC/izmax1.f
+lapack/SRC/zgebak.f
+lapack/SRC/zgebal.f
+lapack/SRC/zgebd2.f
+lapack/SRC/zgehrd.f
+lapack/SRC/zgelq2.f
+lapack/SRC/zgeqr2.f
+lapack/SRC/zgerqf.f
+lapack/SRC/zgesvd.f
+lapack/SRC/zgetrf2.f
+lapack/SRC/zhseqr.f
+lapack/SRC/zlabrd.f
+lapack/SRC/zlacn2.f
+lapack/SRC/zlantr.f
+lapack/SRC/zlaqp2.f
+lapack/SRC/zlaqps.f
+lapack/SRC/zlarzb.f
+lapack/SRC/zlarzt.f
+lapack/SRC/zlascl.f
+lapack/SRC/zlasr.f
+lapack/SRC/zlaswp.f
+lapack/SRC/zlatrz.f
+lapack/SRC/ztrsen.f
+lapack/SRC/ztrtri.f
+lapack/SRC/zung2r.f
+lapack/SRC/zunghr.f
+lapack/SRC/zungl2.f
+lapack/SRC/zunmlq.f
+lapack/SRC/zunmqr.f
+lapack/SRC/zunmr2.f
+lapack/SRC/zunmr3.f
+
+lapack/SRC/dlae2.f
+lapack/SRC/dlaebz.f
+lapack/SRC/dlaev2.f
+lapack/SRC/dlanst.f
+lapack/SRC/dlaqr3.f
+lapack/SRC/dlaqr4.f
+lapack/SRC/dlaqr5.f
+lapack/SRC/dlasq2.f
+lapack/SRC/dlatdf.f
+lapack/SRC/dlatrd.f
+lapack/SRC/dorgl2.f
+lapack/SRC/dorgql.f
+lapack/SRC/dsyconv.f
+lapack/SRC/dsytd2.f
+lapack/SRC/zgehd2.f
+lapack/SRC/zlahr2.f
+lapack/SRC/zlaqr0.f
+lapack/SRC/zlarz.f
+lapack/SRC/ztrsyl.f
+lapack/SRC/ztrti2.f
+lapack/SRC/zunml2.f
+
+lapack/SRC/dlaqr1.f
+lapack/SRC/dlaqr2.f
+lapack/SRC/dlasq3.f
+lapack/SRC/dlasq6.f
+lapack/SRC/dorg2l.f
+lapack/SRC/zlaqr3.f
+lapack/SRC/zlaqr4.f
+lapack/SRC/zlaqr5.f
+lapack/SRC/zlaqr2.f
+lapack/SRC/zlaqr1.f
+lapack/SRC/zunmhr.f
+lapack/SRC/dlasq5.f
+lapack/SRC/dlasq4.f
+
 
 # Alternatives to compile
 lapack_blas_alt/ZAXPY.f
@@ -629,7 +966,12 @@ src/SLICOT-Reference/src/select.f
 src/SLICOT-Reference/src_aux/dlatzm.f
 src/SLICOT-Reference/src_aux/zlatzm.f
 
+# src/SLICOT-Reference/src/SLCT_DLATZM.f
+# src/SLICOT-Reference/src/SLCT_ZLATZM.f
+
 )
+
+# list(APPEND SLYCOT_FSOURCE ${LAPACK_FSOURCE})
 
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -645,7 +987,6 @@ set(F2PYSOURCE_DEPS
   )
 
 set(PYSOURCE
-
   __init__.py  examples.py exceptions.py
   analysis.py math.py synthesis.py transform.py
 )
@@ -655,14 +996,13 @@ set(SLYCOT_MODULE "_wrapper")
 set(GENERATED_MODULE
   ${CMAKE_CURRENT_BINARY_DIR}/${SLYCOT_MODULE}${PYTHON_EXTENSION_MODULE_SUFFIX})
 
-
 # set(CMAKE_Fortran_FLAGS -fdefault-real-16)
-set(CMAKE_Fortran_FLAGS)
+set(CMAKE_Fortran_FLAGS -g)
 
 add_custom_target(wrapper ALL DEPENDS ${SLICOT_FSOURCE} ${SLYCOT_FSOURCE})
 add_custom_command(
   OUTPUT _wrappermodule.c _wrapper-f2pywrappers.f
-  COMMAND ${F2PY_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${F2PYSOURCE} --f2cmap ${CMAKE_CURRENT_SOURCE_DIR}/.f2py_f2cmap
+  COMMAND ${F2PY_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${F2PYSOURCE} --f2cmap ${CMAKE_CURRENT_SOURCE_DIR}/.f2py_f2cmap --debug-capi
   DEPENDS ${F2PYSOURCE_DEPS} ${F2PYSOURCE}
 )
 
@@ -674,7 +1014,8 @@ add_library(
   ${SLICOT_FSOURCE} ${SLYCOT_FSOURCE})
 
 target_link_libraries(${SLYCOT_MODULE}
-  ${LAPACK_LIBRARIES})
+  # ${LAPACK_LIBRARIES}
+  )
 
 target_include_directories(
   ${SLYCOT_MODULE} PUBLIC
