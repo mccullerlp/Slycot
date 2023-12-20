@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -64,7 +64,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**H * U or A = L * L**H, as computed by ZPOTRF.
 *> \endverbatim
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -117,13 +117,13 @@
       INTEGER            INFO, LDA, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

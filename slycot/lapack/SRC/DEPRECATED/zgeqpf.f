@@ -25,8 +25,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -58,7 +58,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the upper triangle of the array contains the
 *>          min(M,N)-by-N upper triangular matrix R; the elements
@@ -85,18 +85,18 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (min(M,N))
+*>          TAU is COMPLEX*20 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -155,20 +155,20 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ITEMP, J, MA, MN, PVT
-      DOUBLE PRECISION   TEMP, TEMP2, TOL3Z
-      COMPLEX*16         AII
+      REAL*10   TEMP, TEMP2, TOL3Z
+      COMPLEX*20         AII
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZGEQR2, ZLARF, ZLARFG, ZSWAP, ZUNM2R
@@ -178,7 +178,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DZNRM2
+      REAL*10   DLAMCH, DZNRM2
       EXTERNAL           IDAMAX, DLAMCH, DZNRM2
 *     ..
 *     .. Executable Statements ..

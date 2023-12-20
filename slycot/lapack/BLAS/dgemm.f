@@ -11,12 +11,12 @@
 *       SUBROUTINE DGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION ALPHA,BETA
+*       REAL*10 ALPHA,BETA
 *       INTEGER K,LDA,LDB,LDC,M,N
 *       CHARACTER TRANSA,TRANSB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION A(LDA,*),B(LDB,*),C(LDC,*)
+*       REAL*10 A(LDA,*),B(LDB,*),C(LDC,*)
 *       ..
 *
 *
@@ -91,13 +91,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION.
+*>          ALPHA is REAL*10.
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( LDA, ka ), where ka is
+*>          A is REAL*10 array, dimension ( LDA, ka ), where ka is
 *>           k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
 *>           Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
 *>           part of the array  A  must contain the matrix  A,  otherwise
@@ -116,7 +116,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension ( LDB, kb ), where kb is
+*>          B is REAL*10 array, dimension ( LDB, kb ), where kb is
 *>           n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
 *>           Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
 *>           part of the array  B  must contain the matrix  B,  otherwise
@@ -135,14 +135,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION.
+*>          BETA is REAL*10.
 *>           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
 *>           supplied as zero then C need not be set on input.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension ( LDC, N )
+*>          C is REAL*10 array, dimension ( LDC, N )
 *>           Before entry, the leading  m by n  part of the array  C must
 *>           contain the matrix  C,  except when  beta  is zero, in which
 *>           case C need not be set on entry.
@@ -190,12 +190,12 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA,BETA
+      REAL*10 ALPHA,BETA
       INTEGER K,LDA,LDB,LDC,M,N
       CHARACTER TRANSA,TRANSB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A(LDA,*),B(LDB,*),C(LDC,*)
+      REAL*10 A(LDA,*),B(LDB,*),C(LDC,*)
 *     ..
 *
 *  =====================================================================
@@ -211,12 +211,12 @@
       INTRINSIC MAX
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION TEMP
+      REAL*10 TEMP
       INTEGER I,INFO,J,L,NROWA,NROWB
       LOGICAL NOTA,NOTB
 *     ..
 *     .. Parameters ..
-      DOUBLE PRECISION ONE,ZERO
+      REAL*10 ONE,ZERO
       PARAMETER (ONE=1.0D+0,ZERO=0.0D+0)
 *     ..
 *

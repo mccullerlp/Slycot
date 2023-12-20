@@ -8,7 +8,7 @@
 *  Definition:
 *  ===========
 *
-*      DOUBLE PRECISION FUNCTION DLAMCH( CMACH )
+*      REAL*10 FUNCTION DLAMCH( CMACH )
 *
 *     .. Scalar Arguments ..
 *     CHARACTER          CMACH
@@ -65,7 +65,7 @@
 *> \ingroup auxOTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLAMCH( CMACH )
+      REAL*10 FUNCTION DLAMCH( CMACH )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -78,11 +78,11 @@
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   RND, EPS, SFMIN, SMALL, RMACH
+      REAL*10   RND, EPS, SFMIN, SMALL, RMACH
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -156,22 +156,22 @@
 *> \author LAPACK is a software package provided by Univ. of Tennessee, Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..
 *> \param[in] A
 *> \verbatim
-*>          A is a DOUBLE PRECISION
+*>          A is a REAL*10
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is a DOUBLE PRECISION
+*>          B is a REAL*10
 *>          The values A and B.
 *> \endverbatim
 *>
-      DOUBLE PRECISION FUNCTION DLAMC3( A, B )
+      REAL*10 FUNCTION DLAMC3( A, B )
 *
 *  -- LAPACK auxiliary routine --
 *     Univ. of Tennessee, Univ. of California Berkeley and NAG Ltd..
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B
+      REAL*10   A, B
 *     ..
 * =====================================================================
 *

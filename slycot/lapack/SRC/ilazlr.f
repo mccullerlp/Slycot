@@ -24,7 +24,7 @@
 *       INTEGER            M, N, LDA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -53,7 +53,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The m by n matrix A.
 *> \endverbatim
 *>
@@ -84,13 +84,13 @@
       INTEGER            M, N, LDA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16       ZERO
+      COMPLEX*20       ZERO
       PARAMETER ( ZERO = (0.0D+0, 0.0D+0) )
 *     ..
 *     .. Local Scalars ..

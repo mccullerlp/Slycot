@@ -26,7 +26,7 @@
 *       CHARACTER          COMPZ, JOB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
+*       COMPLEX*20         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -92,7 +92,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>           On entry, the upper Hessenberg matrix H.
 *>           On exit, if INFO = 0 and JOB = 'S', H contains the upper
 *>           triangular matrix T from the Schur decomposition (the
@@ -113,7 +113,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>           The computed eigenvalues. If JOB = 'S', the eigenvalues are
 *>           stored in the same order as on the diagonal of the Schur
 *>           form returned in H, with W(i) = H(i,i).
@@ -121,7 +121,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,N)
+*>          Z is COMPLEX*20 array, dimension (LDZ,N)
 *>           If COMPZ = 'N', Z is not referenced.
 *>           If COMPZ = 'I', on entry Z need not be set and on exit,
 *>           if INFO = 0, Z contains the unitary matrix Z of the Schur
@@ -144,7 +144,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *>           On exit, if INFO = 0, WORK(1) returns an estimate of
 *>           the optimal value for LWORK.
 *> \endverbatim
@@ -306,7 +306,7 @@
       CHARACTER          COMPZ, JOB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
+      COMPLEX*20         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
@@ -327,14 +327,14 @@
 *     .    deflation window.  ====
       INTEGER            NL
       PARAMETER          ( NL = 49 )
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0d0, 0.0d0 ),
      $                   ONE = ( 1.0d0, 0.0d0 ) )
-      DOUBLE PRECISION   RZERO
+      REAL*10   RZERO
       PARAMETER          ( RZERO = 0.0d0 )
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         HL( NL, NL ), WORKL( NL )
+      COMPLEX*20         HL( NL, NL ), WORKL( NL )
 *     ..
 *     .. Local Scalars ..
       INTEGER            KBOT, NMIN

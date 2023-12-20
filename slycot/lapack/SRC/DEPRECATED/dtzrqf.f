@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), TAU( * )
+*       REAL*10   A( LDA, * ), TAU( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the leading M-by-N upper trapezoidal part of the
 *>          array A must contain the matrix to be factorized.
 *>          On exit, the leading M-by-M upper triangular part of A
@@ -80,7 +80,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (M)
+*>          TAU is REAL*10 array, dimension (M)
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
@@ -144,13 +144,13 @@
       INTEGER            INFO, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), TAU( * )
+      REAL*10   A( LDA, * ), TAU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

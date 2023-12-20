@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            I, INFO, N
-*       DOUBLE PRECISION   RHO, SIGMA
+*       REAL*10   RHO, SIGMA
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), DELTA( * ), WORK( * ), Z( * )
+*       REAL*10   D( * ), DELTA( * ), WORK( * ), Z( * )
 *       ..
 *
 *
@@ -69,20 +69,20 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension ( N )
+*>          D is REAL*10 array, dimension ( N )
 *>         The original eigenvalues.  It is assumed that they are in
 *>         order, 0 <= D(I) < D(J)  for I < J.
 *> \endverbatim
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( N )
+*>          Z is REAL*10 array, dimension ( N )
 *>         The components of the updating vector.
 *> \endverbatim
 *>
 *> \param[out] DELTA
 *> \verbatim
-*>          DELTA is DOUBLE PRECISION array, dimension ( N )
+*>          DELTA is REAL*10 array, dimension ( N )
 *>         If N .ne. 1, DELTA contains (D(j) - sigma_I) in its  j-th
 *>         component.  If N = 1, then DELTA(1) = 1.  The vector DELTA
 *>         contains the information necessary to construct the
@@ -91,19 +91,19 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         The scalar in the symmetric updating formula.
 *> \endverbatim
 *>
 *> \param[out] SIGMA
 *> \verbatim
-*>          SIGMA is DOUBLE PRECISION
+*>          SIGMA is REAL*10
 *>         The computed sigma_I, the I-th updated eigenvalue.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension ( N )
+*>          WORK is REAL*10 array, dimension ( N )
 *>         If N .ne. 1, WORK contains (D(j) + sigma_I) in its  j-th
 *>         component.  If N = 1, then WORK( 1 ) = 1.
 *> \endverbatim
@@ -157,10 +157,10 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            I, INFO, N
-      DOUBLE PRECISION   RHO, SIGMA
+      REAL*10   RHO, SIGMA
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), DELTA( * ), WORK( * ), Z( * )
+      REAL*10   D( * ), DELTA( * ), WORK( * ), Z( * )
 *     ..
 *
 *  =====================================================================
@@ -168,7 +168,7 @@
 *     .. Parameters ..
       INTEGER            MAXIT
       PARAMETER          ( MAXIT = 400 )
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE, FOUR, EIGHT, TEN
+      REAL*10   ZERO, ONE, TWO, THREE, FOUR, EIGHT, TEN
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0,
      $                   THREE = 3.0D+0, FOUR = 4.0D+0, EIGHT = 8.0D+0,
      $                   TEN = 10.0D+0 )
@@ -176,19 +176,19 @@
 *     .. Local Scalars ..
       LOGICAL            ORGATI, SWTCH, SWTCH3, GEOMAVG
       INTEGER            II, IIM1, IIP1, IP1, ITER, J, NITER
-      DOUBLE PRECISION   A, B, C, DELSQ, DELSQ2, SQ2, DPHI, DPSI, DTIIM,
+      REAL*10   A, B, C, DELSQ, DELSQ2, SQ2, DPHI, DPSI, DTIIM,
      $                   DTIIP, DTIPSQ, DTISQ, DTNSQ, DTNSQ1, DW, EPS,
      $                   ERRETM, ETA, PHI, PREW, PSI, RHOINV, SGLB,
      $                   SGUB, TAU, TAU2, TEMP, TEMP1, TEMP2, W
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DD( 3 ), ZZ( 3 )
+      REAL*10   DD( 3 ), ZZ( 3 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLAED6, DLASD5
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

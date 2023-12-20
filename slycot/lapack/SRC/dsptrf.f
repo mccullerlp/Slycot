@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   AP( * )
+*       REAL*10   AP( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -167,22 +167,22 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   AP( * )
+      REAL*10   AP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   EIGHT, SEVTEN
+      REAL*10   EIGHT, SEVTEN
       PARAMETER          ( EIGHT = 8.0D+0, SEVTEN = 17.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, IMAX, J, JMAX, K, KC, KK, KNC, KP, KPC,
      $                   KSTEP, KX, NPP
-      DOUBLE PRECISION   ABSAKK, ALPHA, COLMAX, D11, D12, D21, D22, R1,
+      REAL*10   ABSAKK, ALPHA, COLMAX, D11, D12, D21, D22, R1,
      $                   ROWMAX, T, WK, WKM1, WKP1
 *     ..
 *     .. External Functions ..

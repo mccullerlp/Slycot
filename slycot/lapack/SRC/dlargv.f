@@ -24,7 +24,7 @@
 *       INTEGER            INCC, INCX, INCY, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * ), X( * ), Y( * )
+*       REAL*10   C( * ), X( * ), Y( * )
 *       ..
 *
 *
@@ -51,7 +51,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array,
+*>          X is REAL*10 array,
 *>                         dimension (1+(N-1)*INCX)
 *>          On entry, the vector x.
 *>          On exit, x(i) is overwritten by a(i), for i = 1,...,n.
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array,
+*>          Y is REAL*10 array,
 *>                         dimension (1+(N-1)*INCY)
 *>          On entry, the vector y.
 *>          On exit, the sines of the plane rotations.
@@ -79,7 +79,7 @@
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+*>          C is REAL*10 array, dimension (1+(N-1)*INCC)
 *>          The cosines of the plane rotations.
 *> \endverbatim
 *>
@@ -110,18 +110,18 @@
       INTEGER            INCC, INCX, INCY, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * ), X( * ), Y( * )
+      REAL*10   C( * ), X( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IC, IX, IY
-      DOUBLE PRECISION   F, G, T, TT
+      REAL*10   F, G, T, TT
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, SQRT

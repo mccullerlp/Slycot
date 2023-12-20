@@ -21,7 +21,7 @@
 *       SUBROUTINE DLANV2( A, B, C, D, RT1R, RT1I, RT2R, RT2I, CS, SN )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   A, B, C, CS, D, RT1I, RT1R, RT2I, RT2R, SN
+*       REAL*10   A, B, C, CS, D, RT1I, RT1R, RT2I, RT2R, SN
 *       ..
 *
 *
@@ -47,22 +47,22 @@
 *
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION
+*>          A is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION
+*>          B is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION
+*>          D is REAL*10
 *>          On entry, the elements of the input matrix.
 *>          On exit, they are overwritten by the elements of the
 *>          standardised Schur form.
@@ -70,34 +70,34 @@
 *>
 *> \param[out] RT1R
 *> \verbatim
-*>          RT1R is DOUBLE PRECISION
+*>          RT1R is REAL*10
 *> \endverbatim
 *>
 *> \param[out] RT1I
 *> \verbatim
-*>          RT1I is DOUBLE PRECISION
+*>          RT1I is REAL*10
 *> \endverbatim
 *>
 *> \param[out] RT2R
 *> \verbatim
-*>          RT2R is DOUBLE PRECISION
+*>          RT2R is REAL*10
 *> \endverbatim
 *>
 *> \param[out] RT2I
 *> \verbatim
-*>          RT2I is DOUBLE PRECISION
+*>          RT2I is REAL*10
 *>          The real and imaginary parts of the eigenvalues. If the
 *>          eigenvalues are a complex conjugate pair, RT1I > 0.
 *> \endverbatim
 *>
 *> \param[out] CS
 *> \verbatim
-*>          CS is DOUBLE PRECISION
+*>          CS is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SN
 *> \verbatim
-*>          SN is DOUBLE PRECISION
+*>          SN is REAL*10
 *>          Parameters of the rotation matrix.
 *> \endverbatim
 *
@@ -130,26 +130,26 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B, C, CS, D, RT1I, RT1R, RT2I, RT2R, SN
+      REAL*10   A, B, C, CS, D, RT1I, RT1R, RT2I, RT2R, SN
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE, TWO
+      REAL*10   ZERO, HALF, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, HALF = 0.5D+0, ONE = 1.0D+0,
      $                     TWO = 2.0D0 )
-      DOUBLE PRECISION   MULTPL
+      REAL*10   MULTPL
       PARAMETER          ( MULTPL = 4.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AA, BB, BCMAX, BCMIS, CC, CS1, DD, EPS, P, SAB,
+      REAL*10   AA, BB, BCMAX, BCMIS, CC, CS1, DD, EPS, P, SAB,
      $                   SAC, SCALE, SIGMA, SN1, TAU, TEMP, Z, SAFMIN, 
      $                   SAFMN2, SAFMX2
       INTEGER            COUNT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLAPY2
+      REAL*10   DLAMCH, DLAPY2
       EXTERNAL           DLAMCH, DLAPY2
 *     ..
 *     .. Intrinsic Functions ..

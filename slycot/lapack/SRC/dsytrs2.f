@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The block diagonal matrix D and the multipliers used to
 *>          obtain the factor U or L as computed by DSYTRF.
 *>          Note that A is input / output. This might be counter-intuitive,
@@ -93,7 +93,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -106,7 +106,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -140,19 +140,19 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( * )
+      REAL*10   A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, IINFO, J, K, KP
-      DOUBLE PRECISION   AK, AKM1, AKM1K, BK, BKM1, DENOM
+      REAL*10   AK, AKM1, AKM1K, BK, BKM1, DENOM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

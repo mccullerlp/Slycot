@@ -13,10 +13,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INCV, LDC, N
-*       COMPLEX*16         TAU
+*       COMPLEX*20         TAU
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         C( LDC, * ), V( * ), WORK( * )
+*       COMPLEX*20         C( LDC, * ), V( * ), WORK( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension
+*>          V is COMPLEX*20 array, dimension
 *>                  (1 + (N-1)*abs(INCV))
 *>          The vector v as described above.
 *> \endverbatim
@@ -71,13 +71,13 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16
+*>          TAU is COMPLEX*20
 *>          The value tau as described above.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC, N)
+*>          C is COMPLEX*20 array, dimension (LDC, N)
 *>          On entry, the matrix C.
 *>          On exit, C is overwritten by H * C * H'.
 *> \endverbatim
@@ -90,7 +90,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *
 *  Authors:
@@ -113,28 +113,28 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INCV, LDC, N
-      COMPLEX*16         TAU
+      COMPLEX*20         TAU
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         C( LDC, * ), V( * ), WORK( * )
+      COMPLEX*20         C( LDC, * ), V( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO, HALF
+      COMPLEX*20         ONE, ZERO, HALF
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   HALF = ( 0.5D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         ALPHA
+      COMPLEX*20         ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZAXPY, ZHEMV, ZHER2
 *     ..
 *     .. External Functions ..
-      COMPLEX*16         ZDOTC
+      COMPLEX*20         ZDOTC
       EXTERNAL           ZDOTC
 *     ..
 *     .. Executable Statements ..

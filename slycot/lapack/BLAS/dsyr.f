@@ -11,12 +11,12 @@
 *       SUBROUTINE DSYR(UPLO,N,ALPHA,X,INCX,A,LDA)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION ALPHA
+*       REAL*10 ALPHA
 *       INTEGER INCX,LDA,N
 *       CHARACTER UPLO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION A(LDA,*),X(*)
+*       REAL*10 A(LDA,*),X(*)
 *       ..
 *
 *
@@ -59,13 +59,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION.
+*>          ALPHA is REAL*10.
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension at least
+*>          X is REAL*10 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -80,7 +80,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( LDA, N )
+*>          A is REAL*10 array, dimension ( LDA, N )
 *>           Before entry with  UPLO = 'U' or 'u', the leading n by n
 *>           upper triangular part of the array A must contain the upper
 *>           triangular part of the symmetric matrix and the strictly
@@ -135,22 +135,22 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA
+      REAL*10 ALPHA
       INTEGER INCX,LDA,N
       CHARACTER UPLO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A(LDA,*),X(*)
+      REAL*10 A(LDA,*),X(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION ZERO
+      REAL*10 ZERO
       PARAMETER (ZERO=0.0D+0)
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION TEMP
+      REAL*10 TEMP
       INTEGER I,INFO,IX,J,JX,KX
 *     ..
 *     .. External Functions ..

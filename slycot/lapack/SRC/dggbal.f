@@ -26,7 +26,7 @@
 *       INTEGER            IHI, ILO, INFO, LDA, LDB, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), LSCALE( * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), LSCALE( * ),
 *      $                   RSCALE( * ), WORK( * )
 *       ..
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the input matrix A.
 *>          On exit,  A is overwritten by the balanced matrix.
 *>          If JOB = 'N', A is not referenced.
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the input matrix B.
 *>          On exit,  B is overwritten by the balanced matrix.
 *>          If JOB = 'N', B is not referenced.
@@ -112,7 +112,7 @@
 *>
 *> \param[out] LSCALE
 *> \verbatim
-*>          LSCALE is DOUBLE PRECISION array, dimension (N)
+*>          LSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied
 *>          to the left side of A and B.  If P(j) is the index of the
 *>          row interchanged with row j, and D(j)
@@ -126,7 +126,7 @@
 *>
 *> \param[out] RSCALE
 *> \verbatim
-*>          RSCALE is DOUBLE PRECISION array, dimension (N)
+*>          RSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied
 *>          to the right side of A and B.  If P(j) is the index of the
 *>          column interchanged with column j, and D(j)
@@ -140,7 +140,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (lwork)
+*>          WORK is REAL*10 array, dimension (lwork)
 *>          lwork must be at least max(1,6*N) when JOB = 'S' or 'B', and
 *>          at least 1 when JOB = 'N' or 'P'.
 *> \endverbatim
@@ -184,30 +184,30 @@
       INTEGER            IHI, ILO, INFO, LDA, LDB, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), LSCALE( * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), LSCALE( * ),
      $                   RSCALE( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE
+      REAL*10   ZERO, HALF, ONE
       PARAMETER          ( ZERO = 0.0D+0, HALF = 0.5D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   THREE, SCLFAC
+      REAL*10   THREE, SCLFAC
       PARAMETER          ( THREE = 3.0D+0, SCLFAC = 1.0D+1 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ICAB, IFLOW, IP1, IR, IRAB, IT, J, JC, JP1,
      $                   K, KOUNT, L, LCAB, LM1, LRAB, LSFMAX, LSFMIN,
      $                   M, NR, NRP2
-      DOUBLE PRECISION   ALPHA, BASL, BETA, CAB, CMAX, COEF, COEF2,
+      REAL*10   ALPHA, BASL, BETA, CAB, CMAX, COEF, COEF2,
      $                   COEF5, COR, EW, EWC, GAMMA, PGAMMA, RAB, SFMAX,
      $                   SFMIN, SUM, T, TA, TB, TC
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DDOT, DLAMCH
+      REAL*10   DDOT, DLAMCH
       EXTERNAL           LSAME, IDAMAX, DDOT, DLAMCH
 *     ..
 *     .. External Subroutines ..

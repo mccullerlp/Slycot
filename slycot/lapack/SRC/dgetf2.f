@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * )
+*       REAL*10   A( LDA, * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the m by n matrix to be factored.
 *>          On exit, the factors L and U from the factorization
 *>          A = P*L*U; the unit diagonal elements of L are not stored.
@@ -115,21 +115,21 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * )
+      REAL*10   A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   SFMIN
+      REAL*10   SFMIN
       INTEGER            I, J, JP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       INTEGER            IDAMAX
       EXTERNAL           DLAMCH, IDAMAX
 *     ..

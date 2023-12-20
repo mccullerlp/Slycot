@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, INCY, N
-*       DOUBLE PRECISION   SSMIN
+*       REAL*10   SSMIN
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         X( * ), Y( * )
+*       COMPLEX*20         X( * ), Y( * )
 *       ..
 *
 *
@@ -55,7 +55,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+*>          X is COMPLEX*20 array, dimension (1+(N-1)*INCX)
 *>          On entry, X contains the N-vector X.
 *>          On exit, X is overwritten.
 *> \endverbatim
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (1+(N-1)*INCY)
+*>          Y is COMPLEX*20 array, dimension (1+(N-1)*INCY)
 *>          On entry, Y contains the N-vector Y.
 *>          On exit, Y is overwritten.
 *> \endverbatim
@@ -81,7 +81,7 @@
 *>
 *> \param[out] SSMIN
 *> \verbatim
-*>          SSMIN is DOUBLE PRECISION
+*>          SSMIN is REAL*10
 *>          The smallest singular value of the N-by-2 matrix A = ( X Y ).
 *> \endverbatim
 *
@@ -104,29 +104,29 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, INCY, N
-      DOUBLE PRECISION   SSMIN
+      REAL*10   SSMIN
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         X( * ), Y( * )
+      COMPLEX*20         X( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   SSMAX
-      COMPLEX*16         A11, A12, A22, C, TAU
+      REAL*10   SSMAX
+      COMPLEX*20         A11, A12, A22, C, TAU
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DCONJG
 *     ..
 *     .. External Functions ..
-      COMPLEX*16         ZDOTC
+      COMPLEX*20         ZDOTC
       EXTERNAL           ZDOTC
 *     ..
 *     .. External Subroutines ..

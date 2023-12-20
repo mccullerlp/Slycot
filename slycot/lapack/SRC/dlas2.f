@@ -21,7 +21,7 @@
 *       SUBROUTINE DLAS2( F, G, H, SSMIN, SSMAX )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   F, G, H, SSMAX, SSMIN
+*       REAL*10   F, G, H, SSMAX, SSMIN
 *       ..
 *
 *
@@ -42,31 +42,31 @@
 *
 *> \param[in] F
 *> \verbatim
-*>          F is DOUBLE PRECISION
+*>          F is REAL*10
 *>          The (1,1) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] G
 *> \verbatim
-*>          G is DOUBLE PRECISION
+*>          G is REAL*10
 *>          The (1,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is DOUBLE PRECISION
+*>          H is REAL*10
 *>          The (2,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[out] SSMIN
 *> \verbatim
-*>          SSMIN is DOUBLE PRECISION
+*>          SSMIN is REAL*10
 *>          The smaller singular value.
 *> \endverbatim
 *>
 *> \param[out] SSMAX
 *> \verbatim
-*>          SSMAX is DOUBLE PRECISION
+*>          SSMAX is REAL*10
 *>          The larger singular value.
 *> \endverbatim
 *
@@ -110,21 +110,21 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   F, G, H, SSMAX, SSMIN
+      REAL*10   F, G, H, SSMAX, SSMIN
 *     ..
 *
 *  ====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AS, AT, AU, C, FA, FHMN, FHMX, GA, HA
+      REAL*10   AS, AT, AU, C, FA, FHMN, FHMX, GA, HA
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN, SQRT

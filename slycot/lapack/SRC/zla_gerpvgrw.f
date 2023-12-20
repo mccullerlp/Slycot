@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_GERPVGRW( N, NCOLS, A, LDA, AF,
+*       REAL*10 FUNCTION ZLA_GERPVGRW( N, NCOLS, A, LDA, AF,
 *                                               LDAF )
 *
 *       .. Scalar Arguments ..
 *       INTEGER            N, NCOLS, LDA, LDAF
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * )
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * )
 *       ..
 *
 *
@@ -61,7 +61,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -73,7 +73,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>     The factors L and U from the factorization
 *>     A = P*L*U as computed by ZGETRF.
 *> \endverbatim
@@ -95,7 +95,7 @@
 *> \ingroup complex16GEcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_GERPVGRW( N, NCOLS, A, LDA, AF,
+      REAL*10 FUNCTION ZLA_GERPVGRW( N, NCOLS, A, LDA, AF,
      $                                        LDAF )
 *
 *  -- LAPACK computational routine --
@@ -106,21 +106,21 @@
       INTEGER            N, NCOLS, LDA, LDAF
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * )
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW
-      COMPLEX*16         ZDUM
+      REAL*10   AMAX, UMAX, RPVGRW
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MAX, MIN, ABS, REAL, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

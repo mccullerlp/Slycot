@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), S( * ), WORK( * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), S( * ), WORK( * )
 *       ..
 *
 *
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the first min(m,n) rows of A are overwritten with
 *>          its right singular vectors, stored rowwise.
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the M-by-NRHS right hand side matrix B.
 *>          On exit, B is overwritten by the N-by-NRHS solution
 *>          matrix X.  If m >= n and RANK = n, the residual
@@ -107,14 +107,14 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (min(M,N))
+*>          S is REAL*10 array, dimension (min(M,N))
 *>          The singular values of A in decreasing order.
 *>          The condition number of A in the 2-norm = S(1)/S(min(m,n)).
 *> \endverbatim
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          RCOND is used to determine the effective rank of A.
 *>          Singular values S(i) <= RCOND*S(1) are treated as zero.
 *>          If RCOND < 0, machine precision is used instead.
@@ -129,7 +129,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -176,16 +176,16 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), S( * ), WORK( * )
+      REAL*10   A( LDA, * ), B( LDB, * ), S( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -196,10 +196,10 @@
       INTEGER            LWORK_DGEQRF, LWORK_DORMQR, LWORK_DGEBRD,
      $                   LWORK_DORMBR, LWORK_DORGBR, LWORK_DORMLQ,
      $                   LWORK_DGELQF
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, EPS, SFMIN, SMLNUM, THR
+      REAL*10   ANRM, BIGNUM, BNRM, EPS, SFMIN, SMLNUM, THR
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DBDSQR, DCOPY, DGEBRD, DGELQF, DGEMM, DGEMV,
@@ -208,7 +208,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

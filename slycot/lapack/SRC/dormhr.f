@@ -26,7 +26,7 @@
 *       INTEGER            IHI, ILO, INFO, LDA, LDC, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -97,7 +97,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension
+*>          A is REAL*10 array, dimension
 *>                               (LDA,M) if SIDE = 'L'
 *>                               (LDA,N) if SIDE = 'R'
 *>          The vectors which define the elementary reflectors, as
@@ -113,7 +113,7 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension
+*>          TAU is REAL*10 array, dimension
 *>                               (M-1) if SIDE = 'L'
 *>                               (N-1) if SIDE = 'R'
 *>          TAU(i) must contain the scalar factor of the elementary
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 *> \endverbatim
@@ -135,7 +135,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -185,7 +185,7 @@
       INTEGER            IHI, ILO, INFO, LDA, LDC, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

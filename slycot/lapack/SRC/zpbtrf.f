@@ -25,7 +25,7 @@
 *       INTEGER            INFO, KD, LDAB, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AB( LDAB, * )
+*       COMPLEX*20         AB( LDAB, * )
 *       ..
 *
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -149,15 +149,15 @@
       INTEGER            INFO, KD, LDAB, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AB( LDAB, * )
+      COMPLEX*20         AB( LDAB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
       INTEGER            NBMAX, LDWORK
       PARAMETER          ( NBMAX = 32, LDWORK = NBMAX+1 )
@@ -166,7 +166,7 @@
       INTEGER            I, I2, I3, IB, II, J, JJ, NB
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         WORK( LDWORK, NBMAX )
+      COMPLEX*20         WORK( LDWORK, NBMAX )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

@@ -26,7 +26,7 @@
 *     INTEGER            M, N, N1, N2, LDQ, LDC, LWORK, INFO
 *     ..
 *     .. Array Arguments ..
-*     DOUBLE PRECISION   Q( LDQ, * ), C( LDC, * ), WORK( * )
+*     REAL*10   Q( LDQ, * ), C( LDC, * ), WORK( * )
 *     ..
 *
 *> \par Purpose
@@ -94,7 +94,7 @@
 *>
 *> \param[in] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension
+*>          Q is REAL*10 array, dimension
 *>                                       (LDQ,M) if SIDE = 'L'
 *>                                       (LDQ,N) if SIDE = 'R'
 *> \endverbatim
@@ -108,7 +108,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 *> \endverbatim
@@ -121,7 +121,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -172,13 +172,13 @@
       INTEGER            M, N, N1, N2, LDQ, LDC, LWORK, INFO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Q( LDQ, * ), C( LDC, * ), WORK( * )
+      REAL*10   Q( LDQ, * ), C( LDC, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *
 *     .. Local Scalars ..

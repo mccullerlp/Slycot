@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          SIDE
 *       INTEGER            LDC, M, N
-*       COMPLEX*16         TAU
+*       COMPLEX*20         TAU
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         C( LDC, * ), V( * ), WORK( * )
+*       COMPLEX*20         C( LDC, * ), V( * ), WORK( * )
 *       ..
 *
 *
@@ -72,20 +72,20 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (M) if SIDE = 'L'
+*>          V is COMPLEX*20 array, dimension (M) if SIDE = 'L'
 *>                                        or (N) if SIDE = 'R'
 *>          The vector v in the representation of H.
 *> \endverbatim
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16
+*>          TAU is COMPLEX*20
 *>          The value tau in the representation of H.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the m by n matrix C.
 *>          On exit, C is overwritten by the matrix H * C if SIDE = 'L',
 *>          or C * H if SIDE = 'R'.
@@ -99,7 +99,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N) if SIDE = 'L'
+*>          WORK is COMPLEX*20 array, dimension (N) if SIDE = 'L'
 *>                                            or (M) if SIDE = 'R'
 *>          WORK is not referenced if H has order < 11.
 *> \endverbatim
@@ -124,22 +124,22 @@
 *     .. Scalar Arguments ..
       CHARACTER          SIDE
       INTEGER            LDC, M, N
-      COMPLEX*16         TAU
+      COMPLEX*20         TAU
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         C( LDC, * ), V( * ), WORK( * )
+      COMPLEX*20         C( LDC, * ), V( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J
-      COMPLEX*16         SUM, T1, T10, T2, T3, T4, T5, T6, T7, T8, T9,
+      COMPLEX*20         SUM, T1, T10, T2, T3, T4, T5, T6, T7, T8, T9,
      $                   V1, V10, V2, V3, V4, V5, V6, V7, V8, V9
 *     ..
 *     .. External Functions ..

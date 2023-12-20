@@ -26,7 +26,7 @@
 *      $                   N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
+*       COMPLEX*20         Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] X1
 *> \verbatim
-*>          X1 is COMPLEX*16 array, dimension (M1)
+*>          X1 is COMPLEX*20 array, dimension (M1)
 *>           On entry, the top part of the vector to be orthogonalized.
 *>           On exit, the top part of the projected vector.
 *> \endverbatim
@@ -86,7 +86,7 @@
 *>
 *> \param[in,out] X2
 *> \verbatim
-*>          X2 is COMPLEX*16 array, dimension (M2)
+*>          X2 is COMPLEX*20 array, dimension (M2)
 *>           On entry, the bottom part of the vector to be
 *>           orthogonalized. On exit, the bottom part of the projected
 *>           vector.
@@ -100,7 +100,7 @@
 *>
 *> \param[in] Q1
 *> \verbatim
-*>          Q1 is COMPLEX*16 array, dimension (LDQ1, N)
+*>          Q1 is COMPLEX*20 array, dimension (LDQ1, N)
 *>           The top part of the orthonormal basis matrix.
 *> \endverbatim
 *>
@@ -112,7 +112,7 @@
 *>
 *> \param[in] Q2
 *> \verbatim
-*>          Q2 is COMPLEX*16 array, dimension (LDQ2, N)
+*>          Q2 is COMPLEX*20 array, dimension (LDQ2, N)
 *>           The bottom part of the orthonormal basis matrix.
 *> \endverbatim
 *>
@@ -124,7 +124,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -163,13 +163,13 @@
      $                   N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
+      COMPLEX*20         Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = (1.0D0,0.0D0), ZERO = (0.0D0,0.0D0) )
 *     ..
 *     .. Local Scalars ..
@@ -179,7 +179,7 @@
       EXTERNAL           ZUNBDB6, XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DZNRM2
+      REAL*10   DZNRM2
       EXTERNAL           DZNRM2
 *     ..
 *     .. Intrinsic Function ..

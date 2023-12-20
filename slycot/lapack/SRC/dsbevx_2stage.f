@@ -29,11 +29,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, KD, LDAB, LDQ, LDZ, M, N, LWORK
-*       DOUBLE PRECISION   ABSTOL, VL, VU
+*       REAL*10   ABSTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IFAIL( * ), IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), Q( LDQ, * ), W( * ), WORK( * ),
+*       REAL*10   AB( LDAB, * ), Q( LDQ, * ), W( * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -92,7 +92,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB, N)
+*>          AB is REAL*10 array, dimension (LDAB, N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -116,7 +116,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>          If JOBZ = 'V', the N-by-N orthogonal matrix used in the
 *>                         reduction to tridiagonal form.
 *>          If JOBZ = 'N', the array Q is not referenced.
@@ -131,7 +131,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
@@ -139,7 +139,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
 *>          Not referenced if RANGE = 'A' or 'I'.
@@ -165,7 +165,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          The absolute error tolerance for the eigenvalues.
 *>          An approximate eigenvalue is accepted as converged
 *>          when it is determined to lie in an interval [a,b]
@@ -198,14 +198,14 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements contain the selected eigenvalues in
 *>          ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, max(1,M))
+*>          Z is REAL*10 array, dimension (LDZ, max(1,M))
 *>          If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 *>          contain the orthonormal eigenvectors of the matrix A
 *>          corresponding to the selected eigenvalues, with the i-th
@@ -228,7 +228,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -329,18 +329,18 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
       INTEGER            IL, INFO, IU, KD, LDAB, LDQ, LDZ, M, N, LWORK
-      DOUBLE PRECISION   ABSTOL, VL, VU
+      REAL*10   ABSTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IFAIL( * ), IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), Q( LDQ, * ), W( * ), WORK( * ),
+      REAL*10   AB( LDAB, * ), Q( LDQ, * ), W( * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -351,13 +351,13 @@
      $                   INDISP, INDIWO, INDWRK, ISCALE, ITMP1, J, JJ,
      $                   LLWORK, LWMIN, LHTRD, LWTRD, IB, INDHOUS,
      $                   NSPLIT
-      DOUBLE PRECISION   ABSTLL, ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN,
+      REAL*10   ABSTLL, ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN,
      $                   SIGMA, SMLNUM, TMP1, VLL, VUU
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV2STAGE
-      DOUBLE PRECISION   DLAMCH, DLANSB
+      REAL*10   DLAMCH, DLANSB
       EXTERNAL           LSAME, DLAMCH, DLANSB, ILAENV2STAGE
 *     ..
 *     .. External Subroutines ..

@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDA, LDU, LDVT, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * ), S( * )
-*       COMPLEX*16         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
+*       REAL*10   RWORK( * ), S( * )
+*       COMPLEX*20         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -99,7 +99,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit,
 *>          if JOBU = 'O',  A is overwritten with the first min(m,n)
@@ -120,13 +120,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (min(M,N))
+*>          S is REAL*10 array, dimension (min(M,N))
 *>          The singular values of A, sorted so that S(i) >= S(i+1).
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU,UCOL)
+*>          U is COMPLEX*20 array, dimension (LDU,UCOL)
 *>          (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
 *>          If JOBU = 'A', U contains the M-by-M unitary matrix U;
 *>          if JOBU = 'S', U contains the first min(m,n) columns of U
@@ -143,7 +143,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is COMPLEX*16 array, dimension (LDVT,N)
+*>          VT is COMPLEX*20 array, dimension (LDVT,N)
 *>          If JOBVT = 'A', VT contains the N-by-N unitary matrix
 *>          V**H;
 *>          if JOBVT = 'S', VT contains the first min(m,n) rows of
@@ -160,7 +160,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -179,7 +179,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (5*min(M,N))
+*>          RWORK is REAL*10 array, dimension (5*min(M,N))
 *>          On exit, if INFO > 0, RWORK(1:MIN(M,N)-1) contains the
 *>          unconverged superdiagonal elements of an upper bidiagonal
 *>          matrix B whose diagonal is in S (not necessarily sorted).
@@ -221,18 +221,18 @@
       INTEGER            INFO, LDA, LDU, LDVT, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * ), S( * )
-      COMPLEX*16         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
+      REAL*10   RWORK( * ), S( * )
+      COMPLEX*20         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -245,11 +245,11 @@
       INTEGER            LWORK_ZGEQRF, LWORK_ZUNGQR_N, LWORK_ZUNGQR_M,
      $                   LWORK_ZGEBRD, LWORK_ZUNGBR_P, LWORK_ZUNGBR_Q,
      $                   LWORK_ZGELQF, LWORK_ZUNGLQ_N, LWORK_ZUNGLQ_M
-      DOUBLE PRECISION   ANRM, BIGNUM, EPS, SMLNUM
+      REAL*10   ANRM, BIGNUM, EPS, SMLNUM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
-      COMPLEX*16         CDUM( 1 )
+      REAL*10   DUM( 1 )
+      COMPLEX*20         CDUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASCL, XERBLA, ZBDSQR, ZGEBRD, ZGELQF, ZGEMM,
@@ -259,7 +259,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

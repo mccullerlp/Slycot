@@ -26,12 +26,12 @@
 *       CHARACTER          JOBZ, RANGE
 *       LOGICAL            TRYRAC
 *       INTEGER            IL, INFO, IU, LDZ, NZC, LIWORK, LWORK, M, N
-*       DOUBLE PRECISION VL, VU
+*       REAL*10 VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISUPPZ( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
-*       COMPLEX*16         Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), W( * ), WORK( * )
+*       COMPLEX*20         Z( LDZ, * )
 *       ..
 *
 *
@@ -136,14 +136,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the N diagonal elements of the tridiagonal matrix
 *>          T. On exit, D is overwritten.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, the (N-1) subdiagonal elements of the tridiagonal
 *>          matrix T in elements 1 to N-1 of E. E(N) need not be set on
 *>          input, but is used internally as workspace.
@@ -152,7 +152,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -161,7 +161,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -197,14 +197,14 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements contain the selected eigenvalues in
 *>          ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, max(1,M) )
+*>          Z is COMPLEX*20 array, dimension (LDZ, max(1,M) )
 *>          If JOBZ = 'V', and if INFO = 0, then the first M columns of Z
 *>          contain the orthonormal eigenvectors of the matrix T
 *>          corresponding to the selected eigenvalues, with the i-th
@@ -265,7 +265,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>          On exit, if INFO = 0, WORK(1) returns the optimal
 *>          (and minimal) LWORK.
 *> \endverbatim
@@ -344,18 +344,18 @@
       CHARACTER          JOBZ, RANGE
       LOGICAL            TRYRAC
       INTEGER            IL, INFO, IU, LDZ, NZC, LIWORK, LWORK, M, N
-      DOUBLE PRECISION VL, VU
+      REAL*10 VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISUPPZ( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
-      COMPLEX*16         Z( LDZ, * )
+      REAL*10   D( * ), E( * ), W( * ), WORK( * )
+      COMPLEX*20         Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, FOUR, MINRGP
+      REAL*10   ZERO, ONE, FOUR, MINRGP
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0,
      $                     FOUR = 4.0D0,
      $                     MINRGP = 1.0D-3 )
@@ -367,14 +367,14 @@
      $                   INDE2, INDERR, INDGP, INDGRS, INDWRK, ITMP,
      $                   ITMP2, J, JBLK, JJ, LIWMIN, LWMIN, NSPLIT,
      $                   NZCMIN, OFFSET, WBEGIN, WEND
-      DOUBLE PRECISION   BIGNUM, CS, EPS, PIVMIN, R1, R2, RMAX, RMIN,
+      REAL*10   BIGNUM, CS, EPS, PIVMIN, R1, R2, RMAX, RMIN,
      $                   RTOL1, RTOL2, SAFMIN, SCALE, SMLNUM, SN,
      $                   THRESH, TMP, TNRM, WL, WU
 *     ..
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANST
+      REAL*10   DLAMCH, DLANST
       EXTERNAL           LSAME, DLAMCH, DLANST
 *     ..
 *     .. External Subroutines ..

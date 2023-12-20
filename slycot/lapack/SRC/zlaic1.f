@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            J, JOB
-*       DOUBLE PRECISION   SEST, SESTPR
-*       COMPLEX*16         C, GAMMA, S
+*       REAL*10   SEST, SESTPR
+*       COMPLEX*20         C, GAMMA, S
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         W( J ), X( J )
+*       COMPLEX*20         W( J ), X( J )
 *       ..
 *
 *
@@ -80,43 +80,43 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (J)
+*>          X is COMPLEX*20 array, dimension (J)
 *>          The j-vector x.
 *> \endverbatim
 *>
 *> \param[in] SEST
 *> \verbatim
-*>          SEST is DOUBLE PRECISION
+*>          SEST is REAL*10
 *>          Estimated singular value of j by j matrix L
 *> \endverbatim
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (J)
+*>          W is COMPLEX*20 array, dimension (J)
 *>          The j-vector w.
 *> \endverbatim
 *>
 *> \param[in] GAMMA
 *> \verbatim
-*>          GAMMA is COMPLEX*16
+*>          GAMMA is COMPLEX*20
 *>          The diagonal element gamma.
 *> \endverbatim
 *>
 *> \param[out] SESTPR
 *> \verbatim
-*>          SESTPR is DOUBLE PRECISION
+*>          SESTPR is REAL*10
 *>          Estimated singular value of (j+1) by (j+1) matrix Lhat.
 *> \endverbatim
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is COMPLEX*16
+*>          S is COMPLEX*20
 *>          Sine needed in forming xhat.
 *> \endverbatim
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is COMPLEX*16
+*>          C is COMPLEX*20
 *>          Cosine needed in forming xhat.
 *> \endverbatim
 *
@@ -139,32 +139,32 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            J, JOB
-      DOUBLE PRECISION   SEST, SESTPR
-      COMPLEX*16         C, GAMMA, S
+      REAL*10   SEST, SESTPR
+      COMPLEX*20         C, GAMMA, S
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         W( J ), X( J )
+      COMPLEX*20         W( J ), X( J )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0 )
-      DOUBLE PRECISION   HALF, FOUR
+      REAL*10   HALF, FOUR
       PARAMETER          ( HALF = 0.5D0, FOUR = 4.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   ABSALP, ABSEST, ABSGAM, B, EPS, NORMA, S1, S2,
+      REAL*10   ABSALP, ABSEST, ABSGAM, B, EPS, NORMA, S1, S2,
      $                   SCL, T, TEST, TMP, ZETA1, ZETA2
-      COMPLEX*16         ALPHA, COSINE, SINE
+      COMPLEX*20         ALPHA, COSINE, SINE
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DCONJG, MAX, SQRT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
-      COMPLEX*16         ZDOTC
+      REAL*10   DLAMCH
+      COMPLEX*20         ZDOTC
       EXTERNAL           DLAMCH, ZDOTC
 *     ..
 *     .. Executable Statements ..

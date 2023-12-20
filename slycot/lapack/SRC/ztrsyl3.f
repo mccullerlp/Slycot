@@ -65,7 +65,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,M)
+*>          A is COMPLEX*20 array, dimension (LDA,M)
 *>          The upper triangular matrix A.
 *> \endverbatim
 *>
@@ -77,7 +77,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          The upper triangular matrix B.
 *> \endverbatim
 *>
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N right hand side matrix C.
 *>          On exit, C is overwritten by the solution matrix X.
 *> \endverbatim
@@ -102,13 +102,13 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          The scale factor, scale, set <= 1 to avoid overflow in X.
 *> \endverbatim
 *>
 *> \param[out] SWORK
 *> \verbatim
-*>          SWORK is DOUBLE PRECISION array, dimension (MAX(2, ROWS),
+*>          SWORK is REAL*10 array, dimension (MAX(2, ROWS),
 *>          MAX(1,COLS)).
 *>          On exit, if INFO = 0, SWORK(1) returns the optimal value ROWS
 *>          and SWORK(2) returns the optimal COLS.
@@ -159,33 +159,33 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANA, TRANB
       INTEGER            INFO, ISGN, LDA, LDB, LDC, LDSWORK, M, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), C( LDC, * )
-      DOUBLE PRECISION   SWORK( LDSWORK, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), C( LDC, * )
+      REAL*10   SWORK( LDSWORK, * )
 *     ..
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRNA, NOTRNB, LQUERY
       INTEGER            AWRK, BWRK, I, I1, I2, IINFO, J, J1, J2, JJ,
      $                   K, K1, K2, L, L1, L2, LL, NBA, NB, NBB
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, CNRM, SCAL, SCALOC,
+      REAL*10   ANRM, BIGNUM, BNRM, CNRM, SCAL, SCALOC,
      $                   SCAMIN, SGN, XNRM, BUF, SMLNUM
-      COMPLEX*16         CSGN
+      COMPLEX*20         CSGN
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   WNRM( MAX( M, N ) )
+      REAL*10   WNRM( MAX( M, N ) )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLARMM, ZLANGE
+      REAL*10   DLAMCH, DLARMM, ZLANGE
       EXTERNAL           DLAMCH, DLARMM, ILAENV, LSAME, ZLANGE
 *     ..
 *     .. External Subroutines ..
@@ -1065,7 +1065,7 @@
 *
 *        The magnitude of the largest entry of the solution is larger
 *        than the product of BIGNUM**2 and cannot be represented in the
-*        form (1/SCALE)*X if SCALE is DOUBLE PRECISION. Set SCALE to
+*        form (1/SCALE)*X if SCALE is REAL*10. Set SCALE to
 *        zero and give up.
 *
          SWORK(1,1) = MAX( NBA, NBB )

@@ -25,7 +25,7 @@
 *       INTEGER            INFO, ITYPE, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( * ), BP( * )
+*       COMPLEX*20         AP( * ), BP( * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the Hermitian matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -86,7 +86,7 @@
 *>
 *> \param[in] BP
 *> \verbatim
-*>          BP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          BP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          The triangular factor from the Cholesky factorization of B,
 *>          stored in the same format as A, as returned by ZPPTRF.
 *> \endverbatim
@@ -120,22 +120,22 @@
       INTEGER            INFO, ITYPE, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( * ), BP( * )
+      COMPLEX*20         AP( * ), BP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, HALF
+      REAL*10   ONE, HALF
       PARAMETER          ( ONE = 1.0D+0, HALF = 0.5D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, J1, J1J1, JJ, K, K1, K1K1, KK
-      DOUBLE PRECISION   AJJ, AKK, BJJ, BKK
-      COMPLEX*16         CT
+      REAL*10   AJJ, AKK, BJJ, BKK
+      COMPLEX*20         CT
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZAXPY, ZDSCAL, ZHPMV, ZHPR2, ZTPMV,
@@ -146,7 +146,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      COMPLEX*16         ZDOTC
+      COMPLEX*20         ZDOTC
       EXTERNAL           LSAME, ZDOTC
 *     ..
 *     .. Executable Statements ..

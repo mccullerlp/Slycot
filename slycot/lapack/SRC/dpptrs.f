@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), B( LDB, * )
+*       REAL*10   AP( * ), B( LDB, * )
 *       ..
 *
 *
@@ -64,7 +64,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**T*U or A = L*L**T, packed columnwise in a linear
 *>          array.  The j-th column of U or L is stored in the array AP
@@ -75,7 +75,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -115,7 +115,7 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), B( LDB, * )
+      REAL*10   AP( * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

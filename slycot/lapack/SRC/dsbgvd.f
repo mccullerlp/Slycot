@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), BB( LDBB, * ), W( * ),
+*       REAL*10   AB( LDAB, * ), BB( LDBB, * ), W( * ),
 *      $                   WORK( * ), Z( LDZ, * )
 *       ..
 *
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB, N)
+*>          AB is REAL*10 array, dimension (LDAB, N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first ka+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -109,7 +109,7 @@
 *>
 *> \param[in,out] BB
 *> \verbatim
-*>          BB is DOUBLE PRECISION array, dimension (LDBB, N)
+*>          BB is REAL*10 array, dimension (LDBB, N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix B, stored in the first kb+1 rows of the array.  The
 *>          j-th column of B is stored in the j-th column of the array BB
@@ -129,13 +129,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 *>          eigenvectors, with the i-th column of Z holding the
 *>          eigenvector associated with W(i).  The eigenvectors are
@@ -152,7 +152,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -235,14 +235,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), BB( LDBB, * ), W( * ),
+      REAL*10   AB( LDAB, * ), BB( LDBB, * ), W( * ),
      $                   WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

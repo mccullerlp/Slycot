@@ -26,7 +26,7 @@
 *       INTEGER            INFO, K, LDA, LDC, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -112,7 +112,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension
+*>          A is REAL*10 array, dimension
 *>                                (LDA,min(nq,K)) if VECT = 'Q'
 *>                                (LDA,nq)        if VECT = 'P'
 *>          The vectors which define the elementary reflectors H(i) and
@@ -130,7 +130,7 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (min(nq,K))
+*>          TAU is REAL*10 array, dimension (min(nq,K))
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i) or G(i) which determines Q or P, as returned
 *>          by DGEBRD in the array argument TAUQ or TAUP.
@@ -138,7 +138,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q
 *>          or P*C or P**T*C or C*P or C*P**T.
@@ -152,7 +152,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -202,7 +202,7 @@
       INTEGER            INFO, K, LDA, LDC, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

@@ -26,9 +26,9 @@
 *       INTEGER            INFO, ITER, LDA, LDB, LDX, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
+*       REAL*10   RWORK( * )
 *       COMPLEX            SWORK( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( N, * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( N, * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -45,12 +45,12 @@
 *>
 *> ZCPOSV first attempts to factorize the matrix in COMPLEX and use this
 *> factorization within an iterative refinement procedure to produce a
-*> solution with COMPLEX*16 normwise backward error quality (see below).
-*> If the approach fails the method switches to a COMPLEX*16
+*> solution with COMPLEX*20 normwise backward error quality (see below).
+*> If the approach fails the method switches to a COMPLEX*20
 *> factorization and solve.
 *>
 *> The iterative refinement is not going to be a winning strategy if
-*> the ratio COMPLEX performance over COMPLEX*16 performance is too
+*> the ratio COMPLEX performance over COMPLEX*20 performance is too
 *> small. A reasonable strategy should take the number of right-hand
 *> sides and the size of the matrix into account. This might be done
 *> with a call to ILAENV in the future. Up to now, we always try
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array,
+*>          A is COMPLEX*20 array,
 *>          dimension (LDA,N)
 *>          On entry, the Hermitian matrix A. If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
@@ -126,7 +126,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          The N-by-NRHS right hand side matrix B.
 *> \endverbatim
 *>
@@ -138,7 +138,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          If INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
 *>
@@ -150,7 +150,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N,NRHS)
+*>          WORK is COMPLEX*20 array, dimension (N,NRHS)
 *>          This array is used to hold the residual vectors.
 *> \endverbatim
 *>
@@ -163,13 +163,13 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] ITER
 *> \verbatim
 *>          ITER is INTEGER
-*>          < 0: iterative refinement has failed, COMPLEX*16
+*>          < 0: iterative refinement has failed, COMPLEX*20
 *>               factorization has been performed
 *>               -1 : the routine fell back to full precision for
 *>                    implementation- or machine-specific reasons
@@ -188,7 +188,7 @@
 *>          = 0:  successful exit
 *>          < 0:  if INFO = -i, the i-th argument had an illegal value
 *>          > 0:  if INFO = i, the leading minor of order i of
-*>                (COMPLEX*16) A is not positive definite, so the
+*>                (COMPLEX*20) A is not positive definite, so the
 *>                factorization could not be completed, and the solution
 *>                has not been computed.
 *> \endverbatim
@@ -216,9 +216,9 @@
       INTEGER            INFO, ITER, LDA, LDB, LDX, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
+      REAL*10   RWORK( * )
       COMPLEX            SWORK( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( N, * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( N, * ),
      $                   X( LDX, * )
 *     ..
 *
@@ -231,17 +231,17 @@
       INTEGER            ITERMAX
       PARAMETER          ( ITERMAX = 30 )
 *
-      DOUBLE PRECISION   BWDMAX
+      REAL*10   BWDMAX
       PARAMETER          ( BWDMAX = 1.0E+00 )
 *
-      COMPLEX*16         NEGONE, ONE
+      COMPLEX*20         NEGONE, ONE
       PARAMETER          ( NEGONE = ( -1.0D+00, 0.0D+00 ),
      $                   ONE = ( 1.0D+00, 0.0D+00 ) )
 *
 *     .. Local Scalars ..
       INTEGER            I, IITER, PTSA, PTSX
-      DOUBLE PRECISION   ANRM, CTE, EPS, RNRM, XNRM
-      COMPLEX*16         ZDUM
+      REAL*10   ANRM, CTE, EPS, RNRM, XNRM
+      COMPLEX*20         ZDUM
 *
 *     .. External Subroutines ..
       EXTERNAL           ZAXPY, ZHEMM, ZLACPY, ZLAT2C, ZLAG2C, CLAG2Z,
@@ -249,14 +249,14 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH, ZLANHE
+      REAL*10   DLAMCH, ZLANHE
       LOGICAL            LSAME
       EXTERNAL           IZAMAX, DLAMCH, ZLANHE, LSAME
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, MAX, SQRT
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )
@@ -344,7 +344,7 @@
       CALL CPOTRS( UPLO, N, NRHS, SWORK( PTSA ), N, SWORK( PTSX ), N,
      $             INFO )
 *
-*     Convert SX back to COMPLEX*16
+*     Convert SX back to COMPLEX*20
 *
       CALL CLAG2Z( N, NRHS, SWORK( PTSX ), N, X, LDX, INFO )
 *

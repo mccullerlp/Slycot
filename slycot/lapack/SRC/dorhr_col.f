@@ -24,7 +24,7 @@
 *       INTEGER           INFO, LDA, LDT, M, N, NB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION  A( LDA, * ), D( * ), T( LDT, * )
+*       REAL*10  A( LDA, * ), D( * ), T( LDT, * )
 *       ..
 *
 *> \par Purpose:
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>
 *>          On entry:
 *>
@@ -101,7 +101,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array,
+*>          T is REAL*10 array,
 *>          dimension (LDT, N)
 *>
 *>          Let NOCB = Number_of_output_col_blocks
@@ -126,7 +126,7 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension min(M,N).
+*>          D is REAL*10 array, dimension min(M,N).
 *>          The elements can be only plus or minus one.
 *>
 *>          D(i) is constructed as D(i) = -SIGN(Q_in_i(i,i)), where
@@ -266,13 +266,13 @@
       INTEGER           INFO, LDA, LDT, M, N, NB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION  A( LDA, * ), D( * ), T( LDT, * )
+      REAL*10  A( LDA, * ), D( * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

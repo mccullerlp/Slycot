@@ -36,13 +36,13 @@
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   ALPHA, AVG, T1, T2, TNOSEC, TOTAL
+      REAL*10   ALPHA, AVG, T1, T2, TNOSEC, TOTAL
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   X( NMAX ), Y( NMAX )
+      REAL*10   X( NMAX ), Y( NMAX )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DSECND
+      REAL*10   DSECND
       EXTERNAL           DSECND
 *     ..
 *     .. External Subroutines ..
@@ -119,6 +119,6 @@
       END
       SUBROUTINE MYSUB(N,X,Y)
       INTEGER N
-      DOUBLE PRECISION X(N), Y(N)
+      REAL*10 X(N), Y(N)
       RETURN
       END

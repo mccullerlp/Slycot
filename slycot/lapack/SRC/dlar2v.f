@@ -24,7 +24,7 @@
 *       INTEGER            INCC, INCX, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * ), S( * ), X( * ), Y( * ), Z( * )
+*       REAL*10   C( * ), S( * ), X( * ), Y( * ), Z( * )
 *       ..
 *
 *
@@ -52,21 +52,21 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array,
+*>          X is REAL*10 array,
 *>                         dimension (1+(N-1)*INCX)
 *>          The vector x.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array,
+*>          Y is REAL*10 array,
 *>                         dimension (1+(N-1)*INCX)
 *>          The vector y.
 *> \endverbatim
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array,
+*>          Z is REAL*10 array,
 *>                         dimension (1+(N-1)*INCX)
 *>          The vector z.
 *> \endverbatim
@@ -79,13 +79,13 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+*>          C is REAL*10 array, dimension (1+(N-1)*INCC)
 *>          The cosines of the plane rotations.
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+*>          S is REAL*10 array, dimension (1+(N-1)*INCC)
 *>          The sines of the plane rotations.
 *> \endverbatim
 *>
@@ -116,14 +116,14 @@
       INTEGER            INCC, INCX, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * ), S( * ), X( * ), Y( * ), Z( * )
+      REAL*10   C( * ), S( * ), X( * ), Y( * ), Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IC, IX
-      DOUBLE PRECISION   CI, SI, T1, T2, T3, T4, T5, T6, XI, YI, ZI
+      REAL*10   CI, SI, T1, T2, T3, T4, T5, T6, XI, YI, ZI
 *     ..
 *     .. Executable Statements ..
 *

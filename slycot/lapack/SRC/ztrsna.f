@@ -28,8 +28,8 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
-*       DOUBLE PRECISION   RWORK( * ), S( * ), SEP( * )
-*       COMPLEX*16         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
+*       REAL*10   RWORK( * ), S( * ), SEP( * )
+*       COMPLEX*20         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WORK( LDWORK, * )
 *       ..
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N)
+*>          T is COMPLEX*20 array, dimension (LDT,N)
 *>          The upper triangular matrix T.
 *> \endverbatim
 *>
@@ -94,7 +94,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,M)
+*>          VL is COMPLEX*20 array, dimension (LDVL,M)
 *>          If JOB = 'E' or 'B', VL must contain left eigenvectors of T
 *>          (or of any Q*T*Q**H with Q unitary), corresponding to the
 *>          eigenpairs specified by HOWMNY and SELECT. The eigenvectors
@@ -112,7 +112,7 @@
 *>
 *> \param[in] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,M)
+*>          VR is COMPLEX*20 array, dimension (LDVR,M)
 *>          If JOB = 'E' or 'B', VR must contain right eigenvectors of T
 *>          (or of any Q*T*Q**H with Q unitary), corresponding to the
 *>          eigenpairs specified by HOWMNY and SELECT. The eigenvectors
@@ -130,7 +130,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (MM)
+*>          S is REAL*10 array, dimension (MM)
 *>          If JOB = 'E' or 'B', the reciprocal condition numbers of the
 *>          selected eigenvalues, stored in consecutive elements of the
 *>          array. Thus S(j), SEP(j), and the j-th columns of VL and VR
@@ -141,7 +141,7 @@
 *>
 *> \param[out] SEP
 *> \verbatim
-*>          SEP is DOUBLE PRECISION array, dimension (MM)
+*>          SEP is REAL*10 array, dimension (MM)
 *>          If JOB = 'V' or 'B', the estimated reciprocal condition
 *>          numbers of the selected eigenvectors, stored in consecutive
 *>          elements of the array.
@@ -165,7 +165,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LDWORK,N+6)
+*>          WORK is COMPLEX*20 array, dimension (LDWORK,N+6)
 *>          If JOB = 'E', WORK is not referenced.
 *> \endverbatim
 *>
@@ -178,7 +178,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *>          If JOB = 'E', RWORK is not referenced.
 *> \endverbatim
 *>
@@ -257,34 +257,34 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
-      DOUBLE PRECISION   RWORK( * ), S( * ), SEP( * )
-      COMPLEX*16         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
+      REAL*10   RWORK( * ), S( * ), SEP( * )
+      COMPLEX*20         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WORK( LDWORK, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D0+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            SOMCON, WANTBH, WANTS, WANTSP
       CHARACTER          NORMIN
       INTEGER            I, IERR, IX, J, K, KASE, KS
-      DOUBLE PRECISION   BIGNUM, EPS, EST, LNRM, RNRM, SCALE, SMLNUM,
+      REAL*10   BIGNUM, EPS, EST, LNRM, RNRM, SCALE, SMLNUM,
      $                   XNORM
-      COMPLEX*16         CDUM, PROD
+      COMPLEX*20         CDUM, PROD
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
-      COMPLEX*16         DUMMY( 1 )
+      COMPLEX*20         DUMMY( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH, DZNRM2
-      COMPLEX*16         ZDOTC
+      REAL*10   DLAMCH, DZNRM2
+      COMPLEX*20         ZDOTC
       EXTERNAL           LSAME, IZAMAX, DLAMCH, DZNRM2, ZDOTC
 *     ..
 *     .. External Subroutines ..
@@ -295,7 +295,7 @@
       INTRINSIC          ABS, DBLE, DIMAG, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

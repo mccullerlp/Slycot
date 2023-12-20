@@ -24,7 +24,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Z( * )
+*       REAL*10   Z( * )
 *       ..
 *
 *
@@ -61,7 +61,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( 4*N )
+*>          Z is REAL*10 array, dimension ( 4*N )
 *>        On entry Z holds the qd array. On exit, entries 1 to N hold
 *>        the eigenvalues in decreasing order, Z( 2*N+1 ) holds the
 *>        trace, and Z( 2*N+2 ) holds the sum of the eigenvalues. If
@@ -118,15 +118,15 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Z( * )
+      REAL*10   Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   CBIAS
+      REAL*10   CBIAS
       PARAMETER          ( CBIAS = 1.50D0 )
-      DOUBLE PRECISION   ZERO, HALF, ONE, TWO, FOUR, HUNDRD
+      REAL*10   ZERO, HALF, ONE, TWO, FOUR, HUNDRD
       PARAMETER          ( ZERO = 0.0D0, HALF = 0.5D0, ONE = 1.0D0,
      $                     TWO = 2.0D0, FOUR = 4.0D0, HUNDRD = 100.0D0 )
 *     ..
@@ -135,7 +135,7 @@
       INTEGER            I0, I1, I4, IINFO, IPN4, ITER, IWHILA, IWHILB,
      $                   K, KMIN, N0, N1, NBIG, NDIV, NFAIL, PP, SPLT,
      $                   TTYPE
-      DOUBLE PRECISION   D, DEE, DEEMIN, DESIG, DMIN, DMIN1, DMIN2, DN,
+      REAL*10   D, DEE, DEEMIN, DESIG, DMIN, DMIN1, DMIN2, DN,
      $                   DN1, DN2, E, EMAX, EMIN, EPS, G, OLDEMN, QMAX,
      $                   QMIN, S, SAFMIN, SIGMA, T, TAU, TEMP, TOL,
      $                   TOL2, TRACE, ZMAX, TEMPE, TEMPQ
@@ -145,7 +145,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH, ILAENV
 *     ..
 *     .. Intrinsic Functions ..

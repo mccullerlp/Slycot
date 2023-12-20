@@ -30,9 +30,9 @@
 *       INTEGER            LRWORK, LRWORKMIN, LRWORKOPT
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK(*)
-*       DOUBLE PRECISION   THETA(*)
-*       COMPLEX*16         U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
+*       REAL*10   RWORK(*)
+*       REAL*10   THETA(*)
+*       COMPLEX*20         U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
 *      $                   X11(LDX11,*), X21(LDX21,*)
 *       INTEGER            IWORK(*)
 *       ..
@@ -106,7 +106,7 @@
 *>
 *> \param[in,out] X11
 *> \verbatim
-*>          X11 is COMPLEX*16 array, dimension (LDX11,Q)
+*>          X11 is COMPLEX*20 array, dimension (LDX11,Q)
 *>          On entry, part of the unitary matrix whose CSD is desired.
 *> \endverbatim
 *>
@@ -118,7 +118,7 @@
 *>
 *> \param[in,out] X21
 *> \verbatim
-*>          X21 is COMPLEX*16 array, dimension (LDX21,Q)
+*>          X21 is COMPLEX*20 array, dimension (LDX21,Q)
 *>          On entry, part of the unitary matrix whose CSD is desired.
 *> \endverbatim
 *>
@@ -130,7 +130,7 @@
 *>
 *> \param[out] THETA
 *> \verbatim
-*>          THETA is DOUBLE PRECISION array, dimension (R), in which R =
+*>          THETA is REAL*10 array, dimension (R), in which R =
 *>          MIN(P,M-P,Q,M-Q).
 *>          C = DIAG( COS(THETA(1)), ... , COS(THETA(R)) ) and
 *>          S = DIAG( SIN(THETA(1)), ... , SIN(THETA(R)) ).
@@ -138,7 +138,7 @@
 *>
 *> \param[out] U1
 *> \verbatim
-*>          U1 is COMPLEX*16 array, dimension (P)
+*>          U1 is COMPLEX*20 array, dimension (P)
 *>          If JOBU1 = 'Y', U1 contains the P-by-P unitary matrix U1.
 *> \endverbatim
 *>
@@ -151,7 +151,7 @@
 *>
 *> \param[out] U2
 *> \verbatim
-*>          U2 is COMPLEX*16 array, dimension (M-P)
+*>          U2 is COMPLEX*20 array, dimension (M-P)
 *>          If JOBU2 = 'Y', U2 contains the (M-P)-by-(M-P) unitary
 *>          matrix U2.
 *> \endverbatim
@@ -165,7 +165,7 @@
 *>
 *> \param[out] V1T
 *> \verbatim
-*>          V1T is COMPLEX*16 array, dimension (Q)
+*>          V1T is COMPLEX*20 array, dimension (Q)
 *>          If JOBV1T = 'Y', V1T contains the Q-by-Q matrix unitary
 *>          matrix V1**T.
 *> \endverbatim
@@ -179,7 +179,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -197,7 +197,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK))
+*>          RWORK is REAL*10 array, dimension (MAX(1,LRWORK))
 *>          On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
 *>          If INFO > 0 on exit, RWORK(2:R) contains the values PHI(1),
 *>          ..., PHI(R-1) that, together with THETA(1), ..., THETA(R),
@@ -265,9 +265,9 @@
       INTEGER            LRWORK, LRWORKMIN, LRWORKOPT
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK(*)
-      DOUBLE PRECISION   THETA(*)
-      COMPLEX*16         U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
+      REAL*10   RWORK(*)
+      REAL*10   THETA(*)
+      COMPLEX*20         U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
      $                   X11(LDX11,*), X21(LDX21,*)
       INTEGER            IWORK(*)
 *     ..
@@ -275,7 +275,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = (1.0D0,0.0D0), ZERO = (0.0D0,0.0D0) )
 *     ..
 *     .. Local Scalars ..
@@ -288,8 +288,8 @@
       LOGICAL            LQUERY, WANTU1, WANTU2, WANTV1T
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
-      COMPLEX*16         CDUM( 1, 1 )
+      REAL*10   DUM( 1 )
+      COMPLEX*20         CDUM( 1, 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZBBCSD, ZCOPY, ZLACPY, ZLAPMR, ZLAPMT, ZUNBDB1,

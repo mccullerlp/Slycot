@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), WORK( N+NB+1,* )
+*       COMPLEX*20         A( LDA, * ), WORK( N+NB+1,* )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the NNB diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by ZSYTRF.
 *>
@@ -87,7 +87,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N+NB+1,NB+3)
+*>          WORK is COMPLEX*20 array, dimension (N+NB+1,NB+3)
 *> \endverbatim
 *>
 *> \param[in] NB
@@ -128,13 +128,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), WORK( N+NB+1,* )
+      COMPLEX*20         A( LDA, * ), WORK( N+NB+1,* )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
@@ -144,9 +144,9 @@
       INTEGER            COUNT
       INTEGER            J, U11, INVD
 
-      COMPLEX*16         AK, AKKP1, AKP1, D, T
-      COMPLEX*16         U01_I_J, U01_IP1_J
-      COMPLEX*16         U11_I_J, U11_IP1_J
+      COMPLEX*20         AK, AKKP1, AKP1, D, T
+      COMPLEX*20         U01_I_J, U01_IP1_J
+      COMPLEX*20         U11_I_J, U11_IP1_J
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

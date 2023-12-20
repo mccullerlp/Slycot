@@ -26,8 +26,8 @@
 *       INTEGER            INFO, KL, KU, LDAB, LDC, LDPT, LDQ, M, N, NCC
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-*       COMPLEX*16         AB( LDAB, * ), C( LDC, * ), PT( LDPT, * ),
+*       REAL*10   D( * ), E( * ), RWORK( * )
+*       COMPLEX*20         AB( LDAB, * ), C( LDC, * ), PT( LDPT, * ),
 *      $                   Q( LDQ, * ), WORK( * )
 *       ..
 *
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On entry, the m-by-n band matrix A, stored in rows 1 to
 *>          KL+KU+1. The j-th column of A is stored in the j-th column of
 *>          the array AB as follows:
@@ -107,19 +107,19 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (min(M,N))
+*>          D is REAL*10 array, dimension (min(M,N))
 *>          The diagonal elements of the bidiagonal matrix B.
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (min(M,N)-1)
+*>          E is REAL*10 array, dimension (min(M,N)-1)
 *>          The superdiagonal elements of the bidiagonal matrix B.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,M)
+*>          Q is COMPLEX*20 array, dimension (LDQ,M)
 *>          If VECT = 'Q' or 'B', the m-by-m unitary matrix Q.
 *>          If VECT = 'N' or 'P', the array Q is not referenced.
 *> \endverbatim
@@ -133,7 +133,7 @@
 *>
 *> \param[out] PT
 *> \verbatim
-*>          PT is COMPLEX*16 array, dimension (LDPT,N)
+*>          PT is COMPLEX*20 array, dimension (LDPT,N)
 *>          If VECT = 'P' or 'B', the n-by-n unitary matrix P'.
 *>          If VECT = 'N' or 'Q', the array PT is not referenced.
 *> \endverbatim
@@ -147,7 +147,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,NCC)
+*>          C is COMPLEX*20 array, dimension (LDC,NCC)
 *>          On entry, an m-by-ncc matrix C.
 *>          On exit, C is overwritten by Q**H*C.
 *>          C is not referenced if NCC = 0.
@@ -162,12 +162,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (max(M,N))
+*>          WORK is COMPLEX*20 array, dimension (max(M,N))
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (max(M,N))
+*>          RWORK is REAL*10 array, dimension (max(M,N))
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -200,17 +200,17 @@
       INTEGER            INFO, KL, KU, LDAB, LDC, LDPT, LDQ, M, N, NCC
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-      COMPLEX*16         AB( LDAB, * ), C( LDC, * ), PT( LDPT, * ),
+      REAL*10   D( * ), E( * ), RWORK( * )
+      COMPLEX*20         AB( LDAB, * ), C( LDC, * ), PT( LDPT, * ),
      $                   Q( LDQ, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -218,8 +218,8 @@
       LOGICAL            WANTB, WANTC, WANTPT, WANTQ
       INTEGER            I, INCA, J, J1, J2, KB, KB1, KK, KLM, KLU1,
      $                   KUN, L, MINMN, ML, ML0, MU, MU0, NR, NRT
-      DOUBLE PRECISION   ABST, RC
-      COMPLEX*16         RA, RB, RS, T
+      REAL*10   ABST, RC
+      COMPLEX*20         RA, RB, RS, T
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZLARGV, ZLARTG, ZLARTV, ZLASET, ZROT,

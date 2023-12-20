@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_SYRCOND( UPLO, N, A, LDA, AF, LDAF,
+*       REAL*10 FUNCTION DLA_SYRCOND( UPLO, N, A, LDA, AF, LDAF,
 *                                              IPIV, CMODE, C, INFO, WORK,
 *                                              IWORK )
 *
@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments
 *       INTEGER            IWORK( * ), IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * ), C( * )
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * ), C( * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -79,7 +79,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>     The block diagonal matrix D and the multipliers used to
 *>     obtain the factor U or L as computed by DSYTRF.
 *> \endverbatim
@@ -108,7 +108,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The vector C in the formula op(A) * op2(C).
 *> \endverbatim
 *>
@@ -121,7 +121,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N).
+*>          WORK is REAL*10 array, dimension (3*N).
 *>     Workspace.
 *> \endverbatim
 *>
@@ -142,7 +142,7 @@
 *> \ingroup doubleSYcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_SYRCOND( UPLO, N, A, LDA, AF, LDAF,
+      REAL*10 FUNCTION DLA_SYRCOND( UPLO, N, A, LDA, AF, LDAF,
      $                                       IPIV, CMODE, C, INFO, WORK,
      $                                       IWORK )
 *
@@ -156,7 +156,7 @@
 *     ..
 *     .. Array Arguments
       INTEGER            IWORK( * ), IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * ), C( * )
+      REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * ), C( * )
 *     ..
 *
 *  =====================================================================
@@ -164,7 +164,7 @@
 *     .. Local Scalars ..
       CHARACTER          NORMIN
       INTEGER            KASE, I, J
-      DOUBLE PRECISION   AINVNM, SMLNUM, TMP
+      REAL*10   AINVNM, SMLNUM, TMP
       LOGICAL            UP
 *     ..
 *     .. Local Arrays ..
@@ -172,7 +172,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. External Subroutines ..

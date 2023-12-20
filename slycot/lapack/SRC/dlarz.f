@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          SIDE
 *       INTEGER            INCV, L, LDC, M, N
-*       DOUBLE PRECISION   TAU
+*       REAL*10   TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( LDC, * ), V( * ), WORK( * )
+*       REAL*10   C( LDC, * ), V( * ), WORK( * )
 *       ..
 *
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (1+(L-1)*abs(INCV))
+*>          V is REAL*10 array, dimension (1+(L-1)*abs(INCV))
 *>          The vector v in the representation of H as returned by
 *>          DTZRZF. V is not used if TAU = 0.
 *> \endverbatim
@@ -94,13 +94,13 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>          The value tau in the representation of H.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by the matrix H * C if SIDE = 'L',
 *>          or C * H if SIDE = 'R'.
@@ -114,7 +114,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>                         (N) if SIDE = 'L'
 *>                      or (M) if SIDE = 'R'
 *> \endverbatim
@@ -150,16 +150,16 @@
 *     .. Scalar Arguments ..
       CHARACTER          SIDE
       INTEGER            INCV, L, LDC, M, N
-      DOUBLE PRECISION   TAU
+      REAL*10   TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( LDC, * ), V( * ), WORK( * )
+      REAL*10   C( LDC, * ), V( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. External Subroutines ..

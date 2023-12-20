@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IPIV2( * )
-*       DOUBLE PRECISION   A( LDA, * ), TB( * ), B( LDB, * )
+*       REAL*10   A( LDA, * ), TB( * ), B( LDB, * )
 *       ..
 *
 *> \par Purpose:
@@ -67,7 +67,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          Details of factors computed by DSYTRF_AA_2STAGE.
 *> \endverbatim
 *>
@@ -79,7 +79,7 @@
 *>
 *> \param[out] TB
 *> \verbatim
-*>          TB is DOUBLE PRECISION array, dimension (LTB)
+*>          TB is REAL*10 array, dimension (LTB)
 *>          Details of factors computed by DSYTRF_AA_2STAGE.
 *> \endverbatim
 *>
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -149,12 +149,12 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IPIV2( * )
-      DOUBLE PRECISION   A( LDA, * ), TB( * ), B( LDB, * )
+      REAL*10   A( LDA, * ), TB( * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

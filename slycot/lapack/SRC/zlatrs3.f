@@ -11,8 +11,8 @@
 *       INTEGER            INFO, LDA, LWORK, LDX, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   CNORM( * ), SCALE( * ), WORK( * )
-*       COMPLEX*16         A( LDA, * ), X( LDX, * )
+*       REAL*10   CNORM( * ), SCALE( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), X( LDX, * )
 *       ..
 *
 *
@@ -92,7 +92,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The triangular matrix A.  If UPLO = 'U', the leading n by n
 *>          upper triangular part of the array A contains the upper
 *>          triangular matrix, and the strictly lower triangular part of
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          On entry, the right hand side B of the triangular system.
 *>          On exit, X is overwritten by the solution matrix X.
 *> \endverbatim
@@ -124,7 +124,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION array, dimension (NRHS)
+*>          SCALE is REAL*10 array, dimension (NRHS)
 *>          The scaling factor s(k) is for the triangular system
 *>          A * x(:,k) = s(k)*b(:,k)  or  A**T* x(:,k) = s(k)*b(:,k).
 *>          If SCALE = 0, the matrix A is singular or badly scaled.
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] CNORM
 *> \verbatim
-*>          CNORM is DOUBLE PRECISION array, dimension (N)
+*>          CNORM is REAL*10 array, dimension (N)
 *>
 *>          If NORMIN = 'Y', CNORM is an input argument and CNORM(j)
 *>          contains the norm of the off-diagonal part of the j-th column
@@ -152,7 +152,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK).
+*>          WORK is REAL*10 array, dimension (LWORK).
 *>          On exit, if INFO = 0, WORK(1) returns the optimal size of
 *>          WORK.
 *> \endverbatim
@@ -234,16 +234,16 @@
       INTEGER            INFO, LDA, LWORK, LDX, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), X( LDX, * )
-      DOUBLE PRECISION   CNORM( * ), SCALE( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), X( LDX, * )
+      REAL*10   CNORM( * ), SCALE( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
       INTEGER            NBMAX, NBMIN, NBRHS, NRHSMIN
@@ -251,20 +251,20 @@
       PARAMETER          ( NBMIN = 8, NBMAX = 64 )
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   W( NBMAX ), XNRM( NBRHS )
+      REAL*10   W( NBMAX ), XNRM( NBRHS )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, NOTRAN, NOUNIT, UPPER
       INTEGER            AWRK, I, IFIRST, IINC, ILAST, II, I1, I2, J,
      $                   JFIRST, JINC, JLAST, J1, J2, K, KK, K1, K2,
      $                   LANRM, LDS, LSCALE, NB, NBA, NBX, RHS
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, RSCAL, SCAL, SCALOC,
+      REAL*10   ANRM, BIGNUM, BNRM, RSCAL, SCAL, SCALOC,
      $                   SCAMIN, SMLNUM, TMAX
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE, DLARMM
+      REAL*10   DLAMCH, ZLANGE, DLARMM
       EXTERNAL           ILAENV, LSAME, DLAMCH, ZLANGE, DLARMM
 *     ..
 *     .. External Subroutines ..

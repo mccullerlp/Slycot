@@ -8,7 +8,7 @@
 *  Definition:
 *  ===========
 *
-*      DOUBLE PRECISION FUNCTION DSECND( )
+*      REAL*10 FUNCTION DSECND( )
 *
 *
 *> \par Purpose:
@@ -31,7 +31,7 @@
 *> \ingroup auxOTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DSECND( )
+      REAL*10 FUNCTION DSECND( )
 *
 *  -- LAPACK auxiliary routine --
 *     Univ. of Tennessee, Univ. of California Berkeley and NAG Ltd..

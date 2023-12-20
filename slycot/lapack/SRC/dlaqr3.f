@@ -28,7 +28,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   H( LDH, * ), SI( * ), SR( * ), T( LDT, * ),
+*       REAL*10   H( LDH, * ), SI( * ), SR( * ), T( LDT, * ),
 *      $                   V( LDV, * ), WORK( * ), WV( LDWV, * ),
 *      $                   Z( LDZ, * )
 *       ..
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>          On input the initial N-by-N section of H stores the
 *>          Hessenberg matrix undergoing aggressive early deflation.
 *>          On output H has been transformed by an orthogonal
@@ -135,7 +135,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>          IF WANTZ is .TRUE., then on output, the orthogonal
 *>          similarity transformation mentioned above has been
 *>          accumulated into Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
@@ -166,12 +166,12 @@
 *>
 *> \param[out] SR
 *> \verbatim
-*>          SR is DOUBLE PRECISION array, dimension (KBOT)
+*>          SR is REAL*10 array, dimension (KBOT)
 *> \endverbatim
 *>
 *> \param[out] SI
 *> \verbatim
-*>          SI is DOUBLE PRECISION array, dimension (KBOT)
+*>          SI is REAL*10 array, dimension (KBOT)
 *>          On output, the real and imaginary parts of approximate
 *>          eigenvalues that may be used for shifts are stored in
 *>          SR(KBOT-ND-NS+1) through SR(KBOT-ND) and
@@ -183,7 +183,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,NW)
+*>          V is REAL*10 array, dimension (LDV,NW)
 *>          An NW-by-NW work array.
 *> \endverbatim
 *>
@@ -202,7 +202,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,NW)
+*>          T is REAL*10 array, dimension (LDT,NW)
 *> \endverbatim
 *>
 *> \param[in] LDT
@@ -221,7 +221,7 @@
 *>
 *> \param[out] WV
 *> \verbatim
-*>          WV is DOUBLE PRECISION array, dimension (LDWV,NW)
+*>          WV is REAL*10 array, dimension (LDWV,NW)
 *> \endverbatim
 *>
 *> \param[in] LDWV
@@ -233,7 +233,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>          On exit, WORK(1) is set to an estimate of the optimal value
 *>          of LWORK for the given values of N, NW, KTOP and KBOT.
 *> \endverbatim
@@ -283,18 +283,18 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   H( LDH, * ), SI( * ), SR( * ), T( LDT, * ),
+      REAL*10   H( LDH, * ), SI( * ), SR( * ), T( LDT, * ),
      $                   V( LDV, * ), WORK( * ), WV( LDWV, * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  ================================================================
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0d0, ONE = 1.0d0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AA, BB, BETA, CC, CS, DD, EVI, EVK, FOO, S,
+      REAL*10   AA, BB, BETA, CC, CS, DD, EVI, EVK, FOO, S,
      $                   SAFMAX, SAFMIN, SMLNUM, SN, TAU, ULP
       INTEGER            I, IFST, ILST, INFO, INFQR, J, JW, K, KCOL,
      $                   KEND, KLN, KROW, KWTOP, LTOP, LWK1, LWK2, LWK3,
@@ -302,7 +302,7 @@
       LOGICAL            BULGE, SORTED
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       INTEGER            ILAENV
       EXTERNAL           DLAMCH, ILAENV
 *     ..

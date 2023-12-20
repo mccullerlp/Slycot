@@ -26,12 +26,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          ORDER, RANGE
 *       INTEGER            IL, INFO, IU, M, N, NSPLIT
-*       DOUBLE PRECISION    PIVMIN, RELTOL, VL, VU, WL, WU
+*       REAL*10    PIVMIN, RELTOL, VL, VU, WL, WU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IBLOCK( * ), INDEXW( * ),
 *      $                   ISPLIT( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), E2( * ),
+*       REAL*10   D( * ), E( * ), E2( * ),
 *      $                   GERS( * ), W( * ), WERR( * ), WORK( * )
 *       ..
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues.  Eigenvalues less than or equal
 *>          to VL, or greater than VU, will not be returned.  VL < VU.
@@ -100,7 +100,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues.  Eigenvalues less than or equal
 *>          to VL, or greater than VU, will not be returned.  VL < VU.
@@ -127,14 +127,14 @@
 *>
 *> \param[in] GERS
 *> \verbatim
-*>          GERS is DOUBLE PRECISION array, dimension (2*N)
+*>          GERS is REAL*10 array, dimension (2*N)
 *>          The N Gerschgorin intervals (the i-th Gerschgorin interval
 *>          is (GERS(2*i-1), GERS(2*i)).
 *> \endverbatim
 *>
 *> \param[in] RELTOL
 *> \verbatim
-*>          RELTOL is DOUBLE PRECISION
+*>          RELTOL is REAL*10
 *>          The minimum relative width of an interval.  When an interval
 *>          is narrower than RELTOL times the larger (in
 *>          magnitude) endpoint, then it is considered to be
@@ -144,25 +144,25 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The (n-1) off-diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] E2
 *> \verbatim
-*>          E2 is DOUBLE PRECISION array, dimension (N-1)
+*>          E2 is REAL*10 array, dimension (N-1)
 *>          The (n-1) squared off-diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot allowed in the Sturm sequence for T.
 *> \endverbatim
 *>
@@ -195,7 +195,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          On exit, the first M elements of W will contain the
 *>          eigenvalue approximations. DLARRD computes an interval
 *>          I_j = (a_j, b_j] that includes eigenvalue j. The eigenvalue
@@ -206,19 +206,19 @@
 *>
 *> \param[out] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION array, dimension (N)
+*>          WERR is REAL*10 array, dimension (N)
 *>          The error bound on the corresponding eigenvalue approximation
 *>          in W.
 *> \endverbatim
 *>
 *> \param[out] WL
 *> \verbatim
-*>          WL is DOUBLE PRECISION
+*>          WL is REAL*10
 *> \endverbatim
 *>
 *> \param[out] WU
 *> \verbatim
-*>          WU is DOUBLE PRECISION
+*>          WU is REAL*10
 *>          The interval (WL, WU] contains all the wanted eigenvalues.
 *>          If RANGE='V', then WL=VL and WU=VU.
 *>          If RANGE='A', then WL and WU are the global Gerschgorin bounds
@@ -248,7 +248,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -292,7 +292,7 @@
 *  =========================
 *>
 *> \verbatim
-*>  FUDGE   DOUBLE PRECISION, default = 2
+*>  FUDGE   REAL*10, default = 2
 *>          A "fudge factor" to widen the Gershgorin intervals.  Ideally,
 *>          a value of 1 should work, but on machines with sloppy
 *>          arithmetic, this needs to be larger.  The default for
@@ -334,19 +334,19 @@
 *     .. Scalar Arguments ..
       CHARACTER          ORDER, RANGE
       INTEGER            IL, INFO, IU, M, N, NSPLIT
-      DOUBLE PRECISION    PIVMIN, RELTOL, VL, VU, WL, WU
+      REAL*10    PIVMIN, RELTOL, VL, VU, WL, WU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IBLOCK( * ), INDEXW( * ),
      $                   ISPLIT( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), E2( * ),
+      REAL*10   D( * ), E( * ), E2( * ),
      $                   GERS( * ), W( * ), WERR( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, HALF, FUDGE
+      REAL*10   ZERO, ONE, TWO, HALF, FUDGE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0,
      $                     TWO = 2.0D0, HALF = ONE/TWO,
      $                     FUDGE = TWO )
@@ -359,7 +359,7 @@
      $                   IM, IN, IOFF, IOUT, IRANGE, ITMAX, ITMP1,
      $                   ITMP2, IW, IWOFF, J, JBLK, JDISC, JE, JEE, NB,
      $                   NWL, NWU
-      DOUBLE PRECISION   ATOLI, EPS, GL, GU, RTOLI, TMP1, TMP2,
+      REAL*10   ATOLI, EPS, GL, GU, RTOLI, TMP1, TMP2,
      $                   TNORM, UFLOW, WKILL, WLU, WUL
 
 *     ..
@@ -369,7 +369,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, ILAENV, DLAMCH
 *     ..
 *     .. External Subroutines ..

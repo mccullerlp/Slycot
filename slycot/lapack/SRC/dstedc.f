@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -72,21 +72,21 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the diagonal elements of the tridiagonal matrix.
 *>          On exit, if INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the subdiagonal elements of the tridiagonal matrix.
 *>          On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>          On entry, if COMPZ = 'V', then Z contains the orthogonal
 *>          matrix used in the reduction to tridiagonal form.
 *>          On exit, if INFO = 0, then if COMPZ = 'V', Z contains the
@@ -105,7 +105,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -196,25 +196,25 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+      REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY
       INTEGER            FINISH, I, ICOMPZ, II, J, K, LGN, LIWMIN,
      $                   LWMIN, M, SMLSIZ, START, STOREZ, STRTRW
-      DOUBLE PRECISION   EPS, ORGNRM, P, TINY
+      REAL*10   EPS, ORGNRM, P, TINY
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANST
+      REAL*10   DLAMCH, DLANST
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANST
 *     ..
 *     .. External Subroutines ..

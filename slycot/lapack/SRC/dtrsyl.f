@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANA, TRANB
 *       INTEGER            INFO, ISGN, LDA, LDB, LDC, M, N
-*       DOUBLE PRECISION   SCALE
+*       REAL*10   SCALE
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), C( LDC, * )
 *       ..
 *
 *
@@ -97,7 +97,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,M)
+*>          A is REAL*10 array, dimension (LDA,M)
 *>          The upper quasi-triangular matrix A, in Schur canonical form.
 *> \endverbatim
 *>
@@ -109,7 +109,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          The upper quasi-triangular matrix B, in Schur canonical form.
 *> \endverbatim
 *>
@@ -121,7 +121,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N right hand side matrix C.
 *>          On exit, C is overwritten by the solution matrix X.
 *> \endverbatim
@@ -134,7 +134,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          The scale factor, scale, set <= 1 to avoid overflow in X.
 *> \endverbatim
 *>
@@ -169,30 +169,30 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANA, TRANB
       INTEGER            INFO, ISGN, LDA, LDB, LDC, M, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * )
+      REAL*10   A( LDA, * ), B( LDB, * ), C( LDC, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRNA, NOTRNB
       INTEGER            IERR, J, K, K1, K2, KNEXT, L, L1, L2, LNEXT
-      DOUBLE PRECISION   A11, BIGNUM, DA11, DB, EPS, SCALOC, SGN, SMIN,
+      REAL*10   A11, BIGNUM, DA11, DB, EPS, SCALOC, SGN, SMIN,
      $                   SMLNUM, SUML, SUMR, XNORM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 ), VEC( 2, 2 ), X( 2, 2 )
+      REAL*10   DUM( 1 ), VEC( 2, 2 ), X( 2, 2 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT, DLAMCH, DLANGE
+      REAL*10   DDOT, DLAMCH, DLANGE
       EXTERNAL           LSAME, DDOT, DLAMCH, DLANGE
 *     ..
 *     .. External Subroutines ..

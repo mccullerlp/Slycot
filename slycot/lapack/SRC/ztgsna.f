@@ -29,8 +29,8 @@
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   DIF( * ), S( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), VL( LDVL, * ),
+*       REAL*10   DIF( * ), S( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( * )
 *       ..
 *
@@ -86,7 +86,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The upper triangular matrix A in the pair (A,B).
 *> \endverbatim
 *>
@@ -98,7 +98,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          The upper triangular matrix B in the pair (A, B).
 *> \endverbatim
 *>
@@ -110,7 +110,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,M)
+*>          VL is COMPLEX*20 array, dimension (LDVL,M)
 *>          IF JOB = 'E' or 'B', VL must contain left eigenvectors of
 *>          (A, B), corresponding to the eigenpairs specified by HOWMNY
 *>          and SELECT.  The eigenvectors must be stored in consecutive
@@ -127,7 +127,7 @@
 *>
 *> \param[in] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,M)
+*>          VR is COMPLEX*20 array, dimension (LDVR,M)
 *>          IF JOB = 'E' or 'B', VR must contain right eigenvectors of
 *>          (A, B), corresponding to the eigenpairs specified by HOWMNY
 *>          and SELECT.  The eigenvectors must be stored in consecutive
@@ -144,7 +144,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (MM)
+*>          S is REAL*10 array, dimension (MM)
 *>          If JOB = 'E' or 'B', the reciprocal condition numbers of the
 *>          selected eigenvalues, stored in consecutive elements of the
 *>          array.
@@ -153,7 +153,7 @@
 *>
 *> \param[out] DIF
 *> \verbatim
-*>          DIF is DOUBLE PRECISION array, dimension (MM)
+*>          DIF is REAL*10 array, dimension (MM)
 *>          If JOB = 'V' or 'B', the estimated reciprocal condition
 *>          numbers of the selected eigenvectors, stored in consecutive
 *>          elements of the array.
@@ -181,7 +181,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -320,31 +320,31 @@
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   DIF( * ), S( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), VL( LDVL, * ),
+      REAL*10   DIF( * ), S( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), VL( LDVL, * ),
      $                   VR( LDVR, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       INTEGER            IDIFJB
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, IDIFJB = 3 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, SOMCON, WANTBH, WANTDF, WANTS
       INTEGER            I, IERR, IFST, ILST, K, KS, LWMIN, N1, N2
-      DOUBLE PRECISION   BIGNUM, COND, EPS, LNRM, RNRM, SCALE, SMLNUM
-      COMPLEX*16         YHAX, YHBX
+      REAL*10   BIGNUM, COND, EPS, LNRM, RNRM, SCALE, SMLNUM
+      COMPLEX*20         YHAX, YHBX
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         DUMMY( 1 ), DUMMY1( 1 )
+      COMPLEX*20         DUMMY( 1 ), DUMMY1( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLAPY2, DZNRM2
-      COMPLEX*16         ZDOTC
+      REAL*10   DLAMCH, DLAPY2, DZNRM2
+      COMPLEX*20         ZDOTC
       EXTERNAL           LSAME, DLAMCH, DLAPY2, DZNRM2, ZDOTC
 *     ..
 *     .. External Subroutines ..

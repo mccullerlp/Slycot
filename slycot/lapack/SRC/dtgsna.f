@@ -29,7 +29,7 @@
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), DIF( * ), S( * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), DIF( * ), S( * ),
 *      $                   VL( LDVL, * ), VR( LDVR, * ), WORK( * )
 *       ..
 *
@@ -93,7 +93,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The upper quasi-triangular matrix A in the pair (A,B).
 *> \endverbatim
 *>
@@ -105,7 +105,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          The upper triangular matrix B in the pair (A,B).
 *> \endverbatim
 *>
@@ -117,7 +117,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,M)
+*>          VL is REAL*10 array, dimension (LDVL,M)
 *>          If JOB = 'E' or 'B', VL must contain left eigenvectors of
 *>          (A, B), corresponding to the eigenpairs specified by HOWMNY
 *>          and SELECT. The eigenvectors must be stored in consecutive
@@ -134,7 +134,7 @@
 *>
 *> \param[in] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,M)
+*>          VR is REAL*10 array, dimension (LDVR,M)
 *>          If JOB = 'E' or 'B', VR must contain right eigenvectors of
 *>          (A, B), corresponding to the eigenpairs specified by HOWMNY
 *>          and SELECT. The eigenvectors must be stored in consecutive
@@ -151,7 +151,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (MM)
+*>          S is REAL*10 array, dimension (MM)
 *>          If JOB = 'E' or 'B', the reciprocal condition numbers of the
 *>          selected eigenvalues, stored in consecutive elements of the
 *>          array. For a complex conjugate pair of eigenvalues two
@@ -164,7 +164,7 @@
 *>
 *> \param[out] DIF
 *> \verbatim
-*>          DIF is DOUBLE PRECISION array, dimension (MM)
+*>          DIF is REAL*10 array, dimension (MM)
 *>          If JOB = 'V' or 'B', the estimated reciprocal condition
 *>          numbers of the selected eigenvectors, stored in consecutive
 *>          elements of the array. For a complex eigenvector two
@@ -193,7 +193,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -390,7 +390,7 @@
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), DIF( * ), S( * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), DIF( * ), S( * ),
      $                   VL( LDVL, * ), VR( LDVR, * ), WORK( * )
 *     ..
 *
@@ -399,24 +399,24 @@
 *     .. Parameters ..
       INTEGER            DIFDRI
       PARAMETER          ( DIFDRI = 3 )
-      DOUBLE PRECISION   ZERO, ONE, TWO, FOUR
+      REAL*10   ZERO, ONE, TWO, FOUR
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0,
      $                   FOUR = 4.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, PAIR, SOMCON, WANTBH, WANTDF, WANTS
       INTEGER            I, IERR, IFST, ILST, IZ, K, KS, LWMIN, N1, N2
-      DOUBLE PRECISION   ALPHAI, ALPHAR, ALPRQT, BETA, C1, C2, COND,
+      REAL*10   ALPHAI, ALPHAR, ALPRQT, BETA, C1, C2, COND,
      $                   EPS, LNRM, RNRM, ROOT1, ROOT2, SCALE, SMLNUM,
      $                   TMPII, TMPIR, TMPRI, TMPRR, UHAV, UHAVI, UHBV,
      $                   UHBVI
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUMMY( 1 ), DUMMY1( 1 )
+      REAL*10   DUMMY( 1 ), DUMMY1( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT, DLAMCH, DLAPY2, DNRM2
+      REAL*10   DDOT, DLAMCH, DLAPY2, DNRM2
       EXTERNAL           LSAME, DDOT, DLAMCH, DLAPY2, DNRM2
 *     ..
 *     .. External Subroutines ..

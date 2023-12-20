@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the N-by-N coefficient matrix A.
 *>          On exit, the factors L and U from the factorization
 *>          A = P*L*U; the unit diagonal elements of L are not stored.
@@ -86,7 +86,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS matrix of right hand side matrix B.
 *>          On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
@@ -129,7 +129,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

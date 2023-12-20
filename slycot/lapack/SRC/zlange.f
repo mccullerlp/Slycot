@@ -18,15 +18,15 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLANGE( NORM, M, N, A, LDA, WORK )
+*       REAL*10 FUNCTION ZLANGE( NORM, M, N, A, LDA, WORK )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   WORK( * )
-*       COMPLEX*16         A( LDA, * )
+*       REAL*10   WORK( * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -83,7 +83,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The m by n matrix A.
 *> \endverbatim
 *>
@@ -95,7 +95,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= M when NORM = 'I'; otherwise, WORK is not
 *>          referenced.
 *> \endverbatim
@@ -111,7 +111,7 @@
 *> \ingroup complex16GEauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLANGE( NORM, M, N, A, LDA, WORK )
+      REAL*10 FUNCTION ZLANGE( NORM, M, N, A, LDA, WORK )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -122,19 +122,19 @@
       INTEGER            LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   WORK( * )
-      COMPLEX*16         A( LDA, * )
+      REAL*10   WORK( * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   SCALE, SUM, VALUE, TEMP
+      REAL*10   SCALE, SUM, VALUE, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN

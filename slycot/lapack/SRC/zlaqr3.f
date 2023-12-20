@@ -28,7 +28,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         H( LDH, * ), SH( * ), T( LDT, * ), V( LDV, * ),
+*       COMPLEX*20         H( LDH, * ), SH( * ), T( LDT, * ), V( LDV, * ),
 *      $                   WORK( * ), WV( LDWV, * ), Z( LDZ, * )
 *       ..
 *
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>          On input the initial N-by-N section of H stores the
 *>          Hessenberg matrix undergoing aggressive early deflation.
 *>          On output H has been transformed by a unitary
@@ -135,7 +135,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,N)
+*>          Z is COMPLEX*20 array, dimension (LDZ,N)
 *>          IF WANTZ is .TRUE., then on output, the unitary
 *>          similarity transformation mentioned above has been
 *>          accumulated into Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
@@ -166,7 +166,7 @@
 *>
 *> \param[out] SH
 *> \verbatim
-*>          SH is COMPLEX*16 array, dimension (KBOT)
+*>          SH is COMPLEX*20 array, dimension (KBOT)
 *>          On output, approximate eigenvalues that may
 *>          be used for shifts are stored in SH(KBOT-ND-NS+1)
 *>          through SR(KBOT-ND).  Converged eigenvalues are
@@ -175,7 +175,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,NW)
+*>          V is COMPLEX*20 array, dimension (LDV,NW)
 *>          An NW-by-NW work array.
 *> \endverbatim
 *>
@@ -194,7 +194,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,NW)
+*>          T is COMPLEX*20 array, dimension (LDT,NW)
 *> \endverbatim
 *>
 *> \param[in] LDT
@@ -213,7 +213,7 @@
 *>
 *> \param[out] WV
 *> \verbatim
-*>          WV is COMPLEX*16 array, dimension (LDWV,NW)
+*>          WV is COMPLEX*20 array, dimension (LDWV,NW)
 *> \endverbatim
 *>
 *> \param[in] LDWV
@@ -225,7 +225,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *>          On exit, WORK(1) is set to an estimate of the optimal value
 *>          of LWORK for the given values of N, NW, KTOP and KBOT.
 *> \endverbatim
@@ -275,28 +275,28 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         H( LDH, * ), SH( * ), T( LDT, * ), V( LDV, * ),
+      COMPLEX*20         H( LDH, * ), SH( * ), T( LDT, * ), V( LDV, * ),
      $                   WORK( * ), WV( LDWV, * ), Z( LDZ, * )
 *     ..
 *
 *  ================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0d0, 0.0d0 ),
      $                   ONE = ( 1.0d0, 0.0d0 ) )
-      DOUBLE PRECISION   RZERO, RONE
+      REAL*10   RZERO, RONE
       PARAMETER          ( RZERO = 0.0d0, RONE = 1.0d0 )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         BETA, CDUM, S, TAU
-      DOUBLE PRECISION   FOO, SAFMAX, SAFMIN, SMLNUM, ULP
+      COMPLEX*20         BETA, CDUM, S, TAU
+      REAL*10   FOO, SAFMAX, SAFMIN, SMLNUM, ULP
       INTEGER            I, IFST, ILST, INFO, INFQR, J, JW, KCOL, KLN,
      $                   KNT, KROW, KWTOP, LTOP, LWK1, LWK2, LWK3,
      $                   LWKOPT, NMIN
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       INTEGER            ILAENV
       EXTERNAL           DLAMCH, ILAENV
 *     ..
@@ -308,7 +308,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, INT, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

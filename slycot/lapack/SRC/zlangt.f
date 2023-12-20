@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLANGT( NORM, N, DL, D, DU )
+*       REAL*10 FUNCTION ZLANGT( NORM, N, DL, D, DU )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         D( * ), DL( * ), DU( * )
+*       COMPLEX*20         D( * ), DL( * ), DU( * )
 *       ..
 *
 *
@@ -75,19 +75,19 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) sub-diagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The diagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) super-diagonal elements of A.
 *> \endverbatim
 *
@@ -102,7 +102,7 @@
 *> \ingroup complex16OTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLANGT( NORM, N, DL, D, DU )
+      REAL*10 FUNCTION ZLANGT( NORM, N, DL, D, DU )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -113,18 +113,18 @@
       INTEGER            N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         D( * ), DL( * ), DU( * )
+      COMPLEX*20         D( * ), DL( * ), DU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      DOUBLE PRECISION   ANORM, SCALE, SUM, TEMP
+      REAL*10   ANORM, SCALE, SUM, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN

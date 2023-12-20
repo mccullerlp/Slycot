@@ -27,7 +27,7 @@
 *       INTEGER            K, LDA, LDB, LDT, LDWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), T( LDT, * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), T( LDT, * ),
 *      $                   WORK( LDWORK, * )
 *       ..
 *
@@ -84,7 +84,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,K)
+*>          T is COMPLEX*20 array, dimension (LDT,K)
 *>          The upper-triangular K-by-K matrix T in the representation
 *>          of the block reflector.
 *> \endverbatim
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>
 *>          On entry:
 *>           a) In the K-by-N upper-trapezoidal part A: input matrix A.
@@ -118,7 +118,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>
 *>          On entry:
 *>            a) In the M-by-(N-K) right block: input matrix B.
@@ -138,7 +138,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array,
+*>          WORK is COMPLEX*20 array,
 *>          dimension (LDWORK,max(K,N-K))
 *> \endverbatim
 *>
@@ -400,14 +400,14 @@
       INTEGER            K, LDA, LDB, LDT, LDWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), T( LDT, * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), T( LDT, * ),
      $                   WORK( LDWORK, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                     CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   AP( * ), B( LDB, * )
+*       REAL*10   AP( * ), B( LDB, * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The block diagonal matrix D and the multipliers used to
 *>          obtain the factor U or L as computed by DSPTRF, stored as a
 *>          packed triangular matrix.
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -123,19 +123,19 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   AP( * ), B( LDB, * )
+      REAL*10   AP( * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, K, KC, KP
-      DOUBLE PRECISION   AK, AKM1, AKM1K, BK, BKM1, DENOM
+      REAL*10   AK, AKM1, AKM1K, BK, BKM1, DENOM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         AB( LDAB, * ), B( LDB, * )
+*       COMPLEX*20         AB( LDAB, * ), B( LDB, * )
 *       ..
 *
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On entry, the matrix A in band storage, in rows KL+1 to
 *>          2*KL+KU+1; rows 1 to KL of the array need not be set.
 *>          The j-th column of A is stored in the j-th column of the
@@ -104,7 +104,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
@@ -169,7 +169,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         AB( LDAB, * ), B( LDB, * )
+      COMPLEX*20         AB( LDAB, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

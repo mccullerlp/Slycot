@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            LDA, M, N
-*       COMPLEX*16         ALPHA, BETA
+*       COMPLEX*20         ALPHA, BETA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -67,19 +67,19 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>          All the offdiagonal array elements are set to ALPHA.
 *> \endverbatim
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16
+*>          BETA is COMPLEX*20
 *>          All the diagonal array elements are set to BETA.
 *> \endverbatim
 *>
 *> \param[out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the m by n matrix A.
 *>          On exit, A(i,j) = ALPHA, 1 <= i <= m, 1 <= j <= n, i.ne.j;
 *>                   A(i,i) = BETA , 1 <= i <= min(m,n)
@@ -111,10 +111,10 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            LDA, M, N
-      COMPLEX*16         ALPHA, BETA
+      COMPLEX*20         ALPHA, BETA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================

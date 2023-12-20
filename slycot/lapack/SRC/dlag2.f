@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, LDB
-*       DOUBLE PRECISION   SAFMIN, SCALE1, SCALE2, WI, WR1, WR2
+*       REAL*10   SAFMIN, SCALE1, SCALE2, WI, WR1, WR2
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+*       REAL*10   A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -51,7 +51,7 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, 2)
+*>          A is REAL*10 array, dimension (LDA, 2)
 *>          On entry, the 2 x 2 matrix A.  It is assumed that its 1-norm
 *>          is less than 1/SAFMIN.  Entries less than
 *>          sqrt(SAFMIN)*norm(A) are subject to being treated as zero.
@@ -65,7 +65,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, 2)
+*>          B is REAL*10 array, dimension (LDB, 2)
 *>          On entry, the 2 x 2 upper triangular matrix B.  It is
 *>          assumed that the one-norm of B is less than 1/SAFMIN.  The
 *>          diagonals should be at least sqrt(SAFMIN) times the largest
@@ -82,7 +82,7 @@
 *>
 *> \param[in] SAFMIN
 *> \verbatim
-*>          SAFMIN is DOUBLE PRECISION
+*>          SAFMIN is REAL*10
 *>          The smallest positive number s.t. 1/SAFMIN does not
 *>          overflow.  (This should always be DLAMCH('S') -- it is an
 *>          argument in order to avoid having to call DLAMCH frequently.)
@@ -90,7 +90,7 @@
 *>
 *> \param[out] SCALE1
 *> \verbatim
-*>          SCALE1 is DOUBLE PRECISION
+*>          SCALE1 is REAL*10
 *>          A scaling factor used to avoid over-/underflow in the
 *>          eigenvalue equation which defines the first eigenvalue.  If
 *>          the eigenvalues are complex, then the eigenvalues are
@@ -105,7 +105,7 @@
 *>
 *> \param[out] SCALE2
 *> \verbatim
-*>          SCALE2 is DOUBLE PRECISION
+*>          SCALE2 is REAL*10
 *>          A scaling factor used to avoid over-/underflow in the
 *>          eigenvalue equation which defines the second eigenvalue.  If
 *>          the eigenvalues are complex, then SCALE2=SCALE1.  If the
@@ -117,7 +117,7 @@
 *>
 *> \param[out] WR1
 *> \verbatim
-*>          WR1 is DOUBLE PRECISION
+*>          WR1 is REAL*10
 *>          If the eigenvalue is real, then WR1 is SCALE1 times the
 *>          eigenvalue closest to the (2,2) element of A B**(-1).  If the
 *>          eigenvalue is complex, then WR1=WR2 is SCALE1 times the real
@@ -126,7 +126,7 @@
 *>
 *> \param[out] WR2
 *> \verbatim
-*>          WR2 is DOUBLE PRECISION
+*>          WR2 is REAL*10
 *>          If the eigenvalue is real, then WR2 is SCALE2 times the
 *>          other eigenvalue.  If the eigenvalue is complex, then
 *>          WR1=WR2 is SCALE1 times the real part of the eigenvalues.
@@ -134,7 +134,7 @@
 *>
 *> \param[out] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION
+*>          WI is REAL*10
 *>          If the eigenvalue is real, then WI is zero.  If the
 *>          eigenvalue is complex, then WI is SCALE1 times the imaginary
 *>          part of the eigenvalues.  WI will always be non-negative.
@@ -160,24 +160,24 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, LDB
-      DOUBLE PRECISION   SAFMIN, SCALE1, SCALE2, WI, WR1, WR2
+      REAL*10   SAFMIN, SCALE1, SCALE2, WI, WR1, WR2
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+      REAL*10   A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = ONE / TWO )
-      DOUBLE PRECISION   FUZZY1
+      REAL*10   FUZZY1
       PARAMETER          ( FUZZY1 = ONE+1.0D-5 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   A11, A12, A21, A22, ABI22, ANORM, AS11, AS12,
+      REAL*10   A11, A12, A21, A22, ABI22, ANORM, AS11, AS12,
      $                   AS22, ASCALE, B11, B12, B22, BINV11, BINV22,
      $                   BMIN, BNORM, BSCALE, BSIZE, C1, C2, C3, C4, C5,
      $                   DIFF, DISCR, PP, QQ, R, RTMAX, RTMIN, S1, S2,

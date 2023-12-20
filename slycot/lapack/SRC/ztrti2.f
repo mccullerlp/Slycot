@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the triangular matrix A.  If UPLO = 'U', the
 *>          leading n by n upper triangular part of the array A contains
 *>          the upper triangular matrix, and the strictly lower
@@ -117,19 +117,19 @@
       INTEGER            INFO, LDA, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOUNIT, UPPER
       INTEGER            J
-      COMPLEX*16         AJJ
+      COMPLEX*20         AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

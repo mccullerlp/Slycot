@@ -26,7 +26,7 @@
 *       INTEGER            K, LDC, LDT, LDV, LDWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         C( LDC, * ), T( LDT, * ), V( LDV, * ),
+*       COMPLEX*20         C( LDC, * ), T( LDT, * ), V( LDV, * ),
 *      $                   WORK( LDWORK, * )
 *       ..
 *
@@ -98,7 +98,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension
+*>          V is COMPLEX*20 array, dimension
 *>                                (LDV,K) if STOREV = 'C'
 *>                                (LDV,M) if STOREV = 'R' and SIDE = 'L'
 *>                                (LDV,N) if STOREV = 'R' and SIDE = 'R'
@@ -116,7 +116,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,K)
+*>          T is COMPLEX*20 array, dimension (LDT,K)
 *>          The triangular K-by-K matrix T in the representation of the
 *>          block reflector.
 *> \endverbatim
@@ -129,7 +129,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by H*C or H**H*C or C*H or C*H**H.
 *> \endverbatim
@@ -142,7 +142,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LDWORK,K)
+*>          WORK is COMPLEX*20 array, dimension (LDWORK,K)
 *> \endverbatim
 *>
 *> \param[in] LDWORK
@@ -204,14 +204,14 @@
       INTEGER            K, LDC, LDT, LDV, LDWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         C( LDC, * ), T( LDT, * ), V( LDV, * ),
+      COMPLEX*20         C( LDC, * ), T( LDT, * ), V( LDV, * ),
      $                   WORK( LDWORK, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

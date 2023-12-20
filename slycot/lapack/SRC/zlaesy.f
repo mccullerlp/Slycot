@@ -21,7 +21,7 @@
 *       SUBROUTINE ZLAESY( A, B, C, RT1, RT2, EVSCAL, CS1, SN1 )
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16         A, B, C, CS1, EVSCAL, RT1, RT2, SN1
+*       COMPLEX*20         A, B, C, CS1, EVSCAL, RT1, RT2, SN1
 *       ..
 *
 *
@@ -48,38 +48,38 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16
+*>          A is COMPLEX*20
 *>          The ( 1, 1 ) element of input matrix.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16
+*>          B is COMPLEX*20
 *>          The ( 1, 2 ) element of input matrix.  The ( 2, 1 ) element
 *>          is also given by B, since the 2-by-2 matrix is symmetric.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is COMPLEX*16
+*>          C is COMPLEX*20
 *>          The ( 2, 2 ) element of input matrix.
 *> \endverbatim
 *>
 *> \param[out] RT1
 *> \verbatim
-*>          RT1 is COMPLEX*16
+*>          RT1 is COMPLEX*20
 *>          The eigenvalue of larger modulus.
 *> \endverbatim
 *>
 *> \param[out] RT2
 *> \verbatim
-*>          RT2 is COMPLEX*16
+*>          RT2 is COMPLEX*20
 *>          The eigenvalue of smaller modulus.
 *> \endverbatim
 *>
 *> \param[out] EVSCAL
 *> \verbatim
-*>          EVSCAL is COMPLEX*16
+*>          EVSCAL is COMPLEX*20
 *>          The complex value by which the eigenvector matrix was scaled
 *>          to make it orthonormal.  If EVSCAL is zero, the eigenvectors
 *>          were not computed.  This means one of two things:  the 2-by-2
@@ -90,12 +90,12 @@
 *>
 *> \param[out] CS1
 *> \verbatim
-*>          CS1 is COMPLEX*16
+*>          CS1 is COMPLEX*20
 *> \endverbatim
 *>
 *> \param[out] SN1
 *> \verbatim
-*>          SN1 is COMPLEX*16
+*>          SN1 is COMPLEX*20
 *>          If EVSCAL .NE. 0,  ( CS1, SN1 ) is the unit right eigenvector
 *>          for RT1.
 *> \endverbatim
@@ -118,26 +118,26 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16         A, B, C, CS1, EVSCAL, RT1, RT2, SN1
+      COMPLEX*20         A, B, C, CS1, EVSCAL, RT1, RT2, SN1
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D0, 0.0D0 ) )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = 0.5D0 )
-      DOUBLE PRECISION   THRESH
+      REAL*10   THRESH
       PARAMETER          ( THRESH = 0.1D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   BABS, EVNORM, TABS, Z
-      COMPLEX*16         S, T, TMP
+      REAL*10   BABS, EVNORM, TABS, Z
+      COMPLEX*20         S, T, TMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, SQRT

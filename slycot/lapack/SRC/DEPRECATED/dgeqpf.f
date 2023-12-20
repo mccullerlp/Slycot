@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the upper triangle of the array contains the
 *>          min(M,N)-by-N upper triangular matrix R; the elements
@@ -84,13 +84,13 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (min(M,N))
+*>          TAU is REAL*10 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -149,18 +149,18 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ITEMP, J, MA, MN, PVT
-      DOUBLE PRECISION   AII, TEMP, TEMP2, TOL3Z
+      REAL*10   AII, TEMP, TEMP2, TOL3Z
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEQR2, DLARF, DLARFG, DORM2R, DSWAP, XERBLA
@@ -170,7 +170,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DNRM2
+      REAL*10   DLAMCH, DNRM2
       EXTERNAL           IDAMAX, DLAMCH, DNRM2
 *     ..
 *     .. Executable Statements ..

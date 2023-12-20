@@ -26,14 +26,14 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            DOL, DOU, INFO, LDZ, M, N
-*       DOUBLE PRECISION   MINRGP, PIVMIN, RTOL1, RTOL2, VL, VU
+*       REAL*10   MINRGP, PIVMIN, RTOL1, RTOL2, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IBLOCK( * ), INDEXW( * ), ISPLIT( * ),
 *      $                   ISUPPZ( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), GERS( * ), L( * ), W( * ), WERR( * ),
+*       REAL*10   D( * ), GERS( * ), L( * ), W( * ), WERR( * ),
 *      $                   WGAP( * ), WORK( * )
-*       DOUBLE PRECISION  Z( LDZ, * )
+*       REAL*10  Z( LDZ, * )
 *       ..
 *
 *
@@ -58,7 +58,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>          Lower bound of the interval that contains the desired
 *>          eigenvalues. VL < VU. Needed to compute gaps on the left or right
 *>          end of the extremal eigenvalues in the desired RANGE.
@@ -66,7 +66,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>          Upper bound of the interval that contains the desired
 *>          eigenvalues. VL < VU. 
 *>          Note: VU is currently not used by this implementation of DLARRV, VU is
@@ -80,14 +80,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the N diagonal elements of the diagonal matrix D.
 *>          On exit, D may be overwritten.
 *> \endverbatim
 *>
 *> \param[in,out] L
 *> \verbatim
-*>          L is DOUBLE PRECISION array, dimension (N)
+*>          L is REAL*10 array, dimension (N)
 *>          On entry, the (N-1) subdiagonal elements of the unit
 *>          bidiagonal matrix L are in elements 1 to N-1 of L
 *>          (if the matrix is not split.) At the end of each block
@@ -97,7 +97,7 @@
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot allowed in the Sturm sequence.
 *> \endverbatim
 *>
@@ -136,17 +136,17 @@
 *>
 *> \param[in] MINRGP
 *> \verbatim
-*>          MINRGP is DOUBLE PRECISION
+*>          MINRGP is REAL*10
 *> \endverbatim
 *>
 *> \param[in] RTOL1
 *> \verbatim
-*>          RTOL1 is DOUBLE PRECISION
+*>          RTOL1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] RTOL2
 *> \verbatim
-*>          RTOL2 is DOUBLE PRECISION
+*>          RTOL2 is REAL*10
 *>           Parameters for bisection.
 *>           An interval [LEFT,RIGHT] has converged if
 *>           RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
@@ -154,7 +154,7 @@
 *>
 *> \param[in,out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements of W contain the APPROXIMATE eigenvalues for
 *>          which eigenvectors are to be computed.  The eigenvalues
 *>          should be grouped by split-off block and ordered from
@@ -167,14 +167,14 @@
 *>
 *> \param[in,out] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION array, dimension (N)
+*>          WERR is REAL*10 array, dimension (N)
 *>          The first M elements contain the semiwidth of the uncertainty
 *>          interval of the corresponding eigenvalue in W
 *> \endverbatim
 *>
 *> \param[in,out] WGAP
 *> \verbatim
-*>          WGAP is DOUBLE PRECISION array, dimension (N)
+*>          WGAP is REAL*10 array, dimension (N)
 *>          The separation from the right neighbor eigenvalue in W.
 *> \endverbatim
 *>
@@ -197,7 +197,7 @@
 *>
 *> \param[in] GERS
 *> \verbatim
-*>          GERS is DOUBLE PRECISION array, dimension (2*N)
+*>          GERS is REAL*10 array, dimension (2*N)
 *>          The N Gerschgorin intervals (the i-th Gerschgorin interval
 *>          is (GERS(2*i-1), GERS(2*i)). The Gerschgorin intervals should
 *>          be computed from the original UNshifted matrix.
@@ -205,7 +205,7 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, max(1,M) )
+*>          Z is REAL*10 array, dimension (LDZ, max(1,M) )
 *>          If INFO = 0, the first M columns of Z contain the
 *>          orthonormal eigenvectors of the matrix T
 *>          corresponding to the input eigenvalues, with the i-th
@@ -232,7 +232,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (12*N)
+*>          WORK is REAL*10 array, dimension (12*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -296,14 +296,14 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            DOL, DOU, INFO, LDZ, M, N
-      DOUBLE PRECISION   MINRGP, PIVMIN, RTOL1, RTOL2, VL, VU
+      REAL*10   MINRGP, PIVMIN, RTOL1, RTOL2, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IBLOCK( * ), INDEXW( * ), ISPLIT( * ),
      $                   ISUPPZ( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), GERS( * ), L( * ), W( * ), WERR( * ),
+      REAL*10   D( * ), GERS( * ), L( * ), W( * ), WERR( * ),
      $                   WGAP( * ), WORK( * )
-      DOUBLE PRECISION  Z( LDZ, * )
+      REAL*10  Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
@@ -311,7 +311,7 @@
 *     .. Parameters ..
       INTEGER            MAXITR
       PARAMETER          ( MAXITR = 10 )
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE, FOUR, HALF
+      REAL*10   ZERO, ONE, TWO, THREE, FOUR, HALF
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0,
      $                     TWO = 2.0D0, THREE = 3.0D0,
      $                     FOUR = 4.0D0, HALF = 0.5D0)
@@ -327,13 +327,13 @@
      $                   OLDNCL, P, PARITY, Q, WBEGIN, WEND, WINDEX,
      $                   WINDMN, WINDPL, ZFROM, ZTO, ZUSEDL, ZUSEDU,
      $                   ZUSEDW
-      DOUBLE PRECISION   BSTRES, BSTW, EPS, FUDGE, GAP, GAPTOL, GL, GU,
+      REAL*10   BSTRES, BSTW, EPS, FUDGE, GAP, GAPTOL, GL, GU,
      $                   LAMBDA, LEFT, LGAP, MINGMA, NRMINV, RESID,
      $                   RGAP, RIGHT, RQCORR, RQTOL, SAVGAP, SGNDEF,
      $                   SIGMA, SPDIAM, SSIGMA, TAU, TMP, TOL, ZTZ
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, NORMIN, TRANS, UPLO
 *       INTEGER            INFO, N
-*       DOUBLE PRECISION   SCALE
+*       REAL*10   SCALE
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), CNORM( * ), X( * )
+*       REAL*10   AP( * ), CNORM( * ), X( * )
 *       ..
 *
 *
@@ -95,7 +95,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The upper or lower triangular matrix A, packed columnwise in
 *>          a linear array.  The j-th column of A is stored in the array
 *>          AP as follows:
@@ -105,14 +105,14 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (N)
+*>          X is REAL*10 array, dimension (N)
 *>          On entry, the right hand side b of the triangular system.
 *>          On exit, X is overwritten by the solution vector x.
 *> \endverbatim
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          The scaling factor s for the triangular system
 *>             A * x = s*b  or  A**T* x = s*b.
 *>          If SCALE = 0, the matrix A is singular or badly scaled, and
@@ -121,7 +121,7 @@
 *>
 *> \param[in,out] CNORM
 *> \verbatim
-*>          CNORM is DOUBLE PRECISION array, dimension (N)
+*>          CNORM is REAL*10 array, dimension (N)
 *>
 *>          If NORMIN = 'Y', CNORM is an input argument and CNORM(j)
 *>          contains the norm of the off-diagonal part of the j-th column
@@ -234,28 +234,28 @@
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, NORMIN, TRANS, UPLO
       INTEGER            INFO, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), CNORM( * ), X( * )
+      REAL*10   AP( * ), CNORM( * ), X( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE
+      REAL*10   ZERO, HALF, ONE
       PARAMETER          ( ZERO = 0.0D+0, HALF = 0.5D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN, NOUNIT, UPPER
       INTEGER            I, IMAX, IP, J, JFIRST, JINC, JLAST, JLEN
-      DOUBLE PRECISION   BIGNUM, GROW, REC, SMLNUM, SUMJ, TJJ, TJJS,
+      REAL*10   BIGNUM, GROW, REC, SMLNUM, SUMJ, TJJ, TJJS,
      $                   TMAX, TSCAL, USCAL, XBND, XJ, XMAX
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DASUM, DDOT, DLAMCH
+      REAL*10   DASUM, DDOT, DLAMCH
       EXTERNAL           LSAME, IDAMAX, DASUM, DDOT, DLAMCH
 *     ..
 *     .. External Subroutines ..

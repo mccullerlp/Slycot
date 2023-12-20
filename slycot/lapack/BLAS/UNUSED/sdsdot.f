@@ -122,7 +122,7 @@
 *     .. Array Arguments ..
       REAL SX(*),SY(*)
 *     .. Local Scalars ..
-      DOUBLE PRECISION DSDOT
+      REAL*10 DSDOT
       INTEGER I,KX,KY,NS
 *     ..
 *     .. Intrinsic Functions ..

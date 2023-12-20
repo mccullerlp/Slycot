@@ -25,12 +25,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBQ, JOBU, JOBV
 *       INTEGER            INFO, K, L, LDA, LDB, LDQ, LDU, LDV, M, N, P
-*       DOUBLE PRECISION   TOLA, TOLB
+*       REAL*10   TOLA, TOLB
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   TAU( * ), U( LDU, * ), V( LDV, * ), WORK( * )
 *       ..
 *
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A contains the triangular (or trapezoidal) matrix
 *>          described in the Purpose section.
@@ -125,7 +125,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, B contains the triangular matrix described in
 *>          the Purpose section.
@@ -139,12 +139,12 @@
 *>
 *> \param[in] TOLA
 *> \verbatim
-*>          TOLA is DOUBLE PRECISION
+*>          TOLA is REAL*10
 *> \endverbatim
 *>
 *> \param[in] TOLB
 *> \verbatim
-*>          TOLB is DOUBLE PRECISION
+*>          TOLB is REAL*10
 *>
 *>          TOLA and TOLB are the thresholds to determine the effective
 *>          numerical rank of matrix B and a subblock of A. Generally,
@@ -171,7 +171,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU,M)
+*>          U is COMPLEX*20 array, dimension (LDU,M)
 *>          If JOBU = 'U', U contains the unitary matrix U.
 *>          If JOBU = 'N', U is not referenced.
 *> \endverbatim
@@ -185,7 +185,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,P)
+*>          V is COMPLEX*20 array, dimension (LDV,P)
 *>          If JOBV = 'V', V contains the unitary matrix V.
 *>          If JOBV = 'N', V is not referenced.
 *> \endverbatim
@@ -199,7 +199,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          If JOBQ = 'Q', Q contains the unitary matrix Q.
 *>          If JOBQ = 'N', Q is not referenced.
 *> \endverbatim
@@ -218,17 +218,17 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N)
+*>          TAU is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (max(3*N,M,P))
+*>          WORK is COMPLEX*20 array, dimension (max(3*N,M,P))
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -270,26 +270,26 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBQ, JOBU, JOBV
       INTEGER            INFO, K, L, LDA, LDB, LDQ, LDU, LDV, M, N, P
-      DOUBLE PRECISION   TOLA, TOLB
+      REAL*10   TOLA, TOLB
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   TAU( * ), U( LDU, * ), V( LDV, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            FORWRD, WANTQ, WANTU, WANTV
       INTEGER            I, J
-      COMPLEX*16         T
+      COMPLEX*20         T
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
@@ -303,7 +303,7 @@
       INTRINSIC          ABS, DBLE, DIMAG, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( T ) = ABS( DBLE( T ) ) + ABS( DIMAG( T ) )

@@ -26,7 +26,7 @@
 *       INTEGER            INFO, J1, LDA, LDB, LDQ, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimensions (LDA,N)
+*>          A is COMPLEX*20 array, dimensions (LDA,N)
 *>          On entry, the matrix A in the pair (A, B).
 *>          On exit, the updated matrix A.
 *> \endverbatim
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimensions (LDB,N)
+*>          B is COMPLEX*20 array, dimensions (LDB,N)
 *>          On entry, the matrix B in the pair (A, B).
 *>          On exit, the updated matrix B.
 *> \endverbatim
@@ -102,7 +102,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          If WANTQ = .TRUE, on entry, the unitary matrix Q. On exit,
 *>          the updated matrix Q.
 *>          Not referenced if WANTQ = .FALSE..
@@ -117,7 +117,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,N)
+*>          Z is COMPLEX*20 array, dimension (LDZ,N)
 *>          If WANTZ = .TRUE, on entry, the unitary matrix Z. On exit,
 *>          the updated matrix Z.
 *>          Not referenced if WANTZ = .FALSE..
@@ -197,17 +197,17 @@
       INTEGER            INFO, J1, LDA, LDB, LDQ, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
-      DOUBLE PRECISION   TWENTY
+      REAL*10   TWENTY
       PARAMETER          ( TWENTY = 2.0D+1 )
       INTEGER            LDST
       PARAMETER          ( LDST = 2 )
@@ -217,15 +217,15 @@
 *     .. Local Scalars ..
       LOGICAL            STRONG, WEAK
       INTEGER            I, M
-      DOUBLE PRECISION   CQ, CZ, EPS, SA, SB, SCALE, SMLNUM, SUM,
+      REAL*10   CQ, CZ, EPS, SA, SB, SCALE, SMLNUM, SUM,
      $                   THRESHA, THRESHB
-      COMPLEX*16         CDUM, F, G, SQ, SZ
+      COMPLEX*20         CDUM, F, G, SQ, SZ
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         S( LDST, LDST ), T( LDST, LDST ), WORK( 8 )
+      COMPLEX*20         S( LDST, LDST ), T( LDST, LDST ), WORK( 8 )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

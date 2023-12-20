@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         D( * ), DL( * ), DU( * ), DU2( * )
+*       COMPLEX*20         D( * ), DL( * ), DU( * ), DU2( * )
 *       ..
 *
 *
@@ -55,7 +55,7 @@
 *>
 *> \param[in,out] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          On entry, DL must contain the (n-1) sub-diagonal elements of
 *>          A.
 *>
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          On entry, D must contain the diagonal elements of A.
 *>
 *>          On exit, D is overwritten by the n diagonal elements of the
@@ -74,7 +74,7 @@
 *>
 *> \param[in,out] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          On entry, DU must contain the (n-1) super-diagonal elements
 *>          of A.
 *>
@@ -84,7 +84,7 @@
 *>
 *> \param[out] DU2
 *> \verbatim
-*>          DU2 is COMPLEX*16 array, dimension (N-2)
+*>          DU2 is COMPLEX*20 array, dimension (N-2)
 *>          On exit, DU2 is overwritten by the (n-2) elements of the
 *>          second super-diagonal of U.
 *> \endverbatim
@@ -131,18 +131,18 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         D( * ), DL( * ), DU( * ), DU2( * )
+      COMPLEX*20         D( * ), DL( * ), DU( * ), DU2( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      COMPLEX*16         FACT, TEMP, ZDUM
+      COMPLEX*20         FACT, TEMP, ZDUM
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA
@@ -151,7 +151,7 @@
       INTRINSIC          ABS, DBLE, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

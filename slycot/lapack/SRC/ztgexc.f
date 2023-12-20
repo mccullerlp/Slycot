@@ -26,7 +26,7 @@
 *       INTEGER            IFST, ILST, INFO, LDA, LDB, LDQ, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the upper triangular matrix A in the pair (A, B).
 *>          On exit, the updated matrix A.
 *> \endverbatim
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the upper triangular matrix B in the pair (A, B).
 *>          On exit, the updated matrix B.
 *> \endverbatim
@@ -102,7 +102,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          On entry, if WANTQ = .TRUE., the unitary matrix Q.
 *>          On exit, the updated matrix Q.
 *>          If WANTQ = .FALSE., Q is not referenced.
@@ -117,7 +117,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,N)
+*>          Z is COMPLEX*20 array, dimension (LDZ,N)
 *>          On entry, if WANTZ = .TRUE., the unitary matrix Z.
 *>          On exit, the updated matrix Z.
 *>          If WANTZ = .FALSE., Z is not referenced.
@@ -207,7 +207,7 @@
       INTEGER            IFST, ILST, INFO, LDA, LDB, LDQ, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   Z( LDZ, * )
 *     ..
 *

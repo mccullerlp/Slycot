@@ -28,7 +28,7 @@
 *      INTEGER, INTENT( IN ) :: N, ILO, IHI, LDA, LDB, LDQ, LDZ, LWORK,
 *     $    NSHIFTS, NBLOCK_DESIRED, LDQC, LDZC
 *
-*      COMPLEX*16, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
+*      COMPLEX*20, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
 *     $    * ), Z( LDZ, * ), QC( LDQC, * ), ZC( LDZC, * ), WORK( * ),
 *     $    ALPHA( * ), BETA( * )
 *
@@ -95,19 +95,19 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array. SR contains
+*>          ALPHA is COMPLEX*20 array. SR contains
 *>          the alpha parts of the shifts to use.
 *> \endverbatim
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array. SS contains
+*>          BETA is COMPLEX*20 array. SS contains
 *>          the scale of the shifts to use.
 *> \endverbatim
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -118,7 +118,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -129,7 +129,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ, N)
+*>          Q is COMPLEX*20 array, dimension (LDQ, N)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -139,7 +139,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *> \endverbatim
 *>
 *> \param[in] LDZ
@@ -149,7 +149,7 @@
 *>
 *> \param[in,out] QC
 *> \verbatim
-*>          QC is COMPLEX*16 array, dimension (LDQC, NBLOCK_DESIRED)
+*>          QC is COMPLEX*20 array, dimension (LDQC, NBLOCK_DESIRED)
 *> \endverbatim
 *>
 *> \param[in] LDQC
@@ -159,7 +159,7 @@
 *>
 *> \param[in,out] ZC
 *> \verbatim
-*>          ZC is COMPLEX*16 array, dimension (LDZC, NBLOCK_DESIRED)
+*>          ZC is COMPLEX*20 array, dimension (LDZC, NBLOCK_DESIRED)
 *> \endverbatim
 *>
 *> \param[in] LDZC
@@ -169,7 +169,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -212,29 +212,29 @@
       INTEGER, INTENT( IN ) :: N, ILO, IHI, LDA, LDB, LDQ, LDZ, LWORK,
      $         NSHIFTS, NBLOCK_DESIRED, LDQC, LDZC
 
-      COMPLEX*16, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
+      COMPLEX*20, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
      $   * ), Z( LDZ, * ), QC( LDQC, * ), ZC( LDZC, * ), WORK( * ),
      $   ALPHA( * ), BETA( * )
 
       INTEGER, INTENT( OUT ) :: INFO
 
 *     Parameters
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ), CONE = ( 1.0D+0,
      $                     0.0D+0 ) )
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 
 *     Local scalars
       INTEGER :: I, J, NS, ISTARTM, ISTOPM, SHEIGHT, SWIDTH, K, NP,
      $           ISTARTB, ISTOPB, ISHIFT, NBLOCK, NPOS
-      DOUBLE PRECISION :: SAFMIN, SAFMAX, C, SCALE
-      COMPLEX*16 :: TEMP, TEMP2, TEMP3, S
+      REAL*10 :: SAFMIN, SAFMAX, C, SCALE
+      COMPLEX*20 :: TEMP, TEMP2, TEMP3, S
 
 *     External Functions
       EXTERNAL :: XERBLA, DLABAD, ZLASET, ZLARTG, ZROT, ZLAQZ1, ZGEMM,
      $            ZLACPY
-      DOUBLE PRECISION, EXTERNAL :: DLAMCH
+      REAL*10, EXTERNAL :: DLAMCH
 
       INFO = 0
       IF ( NBLOCK_DESIRED .LT. NSHIFTS+1 ) THEN

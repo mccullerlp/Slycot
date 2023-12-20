@@ -30,13 +30,13 @@
 *      $                   TRANS_TYPE, N_NORMS
 *       LOGICAL            COLEQU, IGNORE_CWISE
 *       INTEGER            ITHRESH
-*       DOUBLE PRECISION   RTHRESH, DZ_UB
+*       REAL*10   RTHRESH, DZ_UB
 *       ..
 *       .. Array Arguments
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   Y( LDY, * ), RES( * ), DY( * ), Y_TAIL( * )
-*       DOUBLE PRECISION   C( * ), AYB( * ), RCOND, BERR_OUT( * ),
+*       REAL*10   C( * ), AYB( * ), RCOND, BERR_OUT( * ),
 *      $                   ERRS_N( NRHS, * ), ERRS_C( NRHS, * )
 *       ..
 *
@@ -97,7 +97,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -109,7 +109,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>     The factors L and U from the factorization
 *>     A = P*L*U as computed by ZGETRF.
 *> \endverbatim
@@ -138,7 +138,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The column scale factors for A. If COLEQU = .FALSE., C
 *>     is not accessed. If C is input, each element of C should be a power
 *>     of the radix to ensure a reliable solution and error estimates.
@@ -151,7 +151,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>     The right-hand-side matrix B.
 *> \endverbatim
 *>
@@ -163,7 +163,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (LDY,NRHS)
+*>          Y is COMPLEX*20 array, dimension (LDY,NRHS)
 *>     On entry, the solution matrix X, as computed by ZGETRS.
 *>     On exit, the improved solution matrix Y.
 *> \endverbatim
@@ -176,7 +176,7 @@
 *>
 *> \param[out] BERR_OUT
 *> \verbatim
-*>          BERR_OUT is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR_OUT is REAL*10 array, dimension (NRHS)
 *>     On exit, BERR_OUT(j) contains the componentwise relative backward
 *>     error for right-hand-side j from the formula
 *>         max(i) ( abs(RES(i)) / ( abs(op(A_s))*abs(Y) + abs(B_s) )(i) )
@@ -195,7 +195,7 @@
 *>
 *> \param[in,out] ERRS_N
 *> \verbatim
-*>          ERRS_N is DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS)
+*>          ERRS_N is REAL*10 array, dimension (NRHS, N_ERR_BNDS)
 *>     For each right-hand side, this array contains information about
 *>     various error bounds and condition numbers corresponding to the
 *>     normwise relative error, which is defined as follows:
@@ -241,7 +241,7 @@
 *>
 *> \param[in,out] ERRS_C
 *> \verbatim
-*>          ERRS_C is DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS)
+*>          ERRS_C is REAL*10 array, dimension (NRHS, N_ERR_BNDS)
 *>     For each right-hand side, this array contains information about
 *>     various error bounds and condition numbers corresponding to the
 *>     componentwise relative error, which is defined as follows:
@@ -293,31 +293,31 @@
 *>
 *> \param[in] RES
 *> \verbatim
-*>          RES is COMPLEX*16 array, dimension (N)
+*>          RES is COMPLEX*20 array, dimension (N)
 *>     Workspace to hold the intermediate residual.
 *> \endverbatim
 *>
 *> \param[in] AYB
 *> \verbatim
-*>          AYB is DOUBLE PRECISION array, dimension (N)
+*>          AYB is REAL*10 array, dimension (N)
 *>     Workspace.
 *> \endverbatim
 *>
 *> \param[in] DY
 *> \verbatim
-*>          DY is COMPLEX*16 array, dimension (N)
+*>          DY is COMPLEX*20 array, dimension (N)
 *>     Workspace to hold the intermediate solution.
 *> \endverbatim
 *>
 *> \param[in] Y_TAIL
 *> \verbatim
-*>          Y_TAIL is COMPLEX*16 array, dimension (N)
+*>          Y_TAIL is COMPLEX*20 array, dimension (N)
 *>     Workspace to hold the trailing bits of the intermediate solution.
 *> \endverbatim
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>     Reciprocal scaled condition number.  This is an estimate of the
 *>     reciprocal Skeel condition number of the matrix A after
 *>     equilibration (if done).  If this is less than the machine
@@ -340,7 +340,7 @@
 *>
 *> \param[in] RTHRESH
 *> \verbatim
-*>          RTHRESH is DOUBLE PRECISION
+*>          RTHRESH is REAL*10
 *>     Determines when to stop refinement if the error estimate stops
 *>     decreasing. Refinement will stop when the next solution no longer
 *>     satisfies norm(dx_{i+1}) < RTHRESH * norm(dx_i) where norm(Z) is
@@ -352,7 +352,7 @@
 *>
 *> \param[in] DZ_UB
 *> \verbatim
-*>          DZ_UB is DOUBLE PRECISION
+*>          DZ_UB is REAL*10
 *>     Determines when to start considering componentwise convergence.
 *>     Componentwise convergence is only considered after each component
 *>     of the solution Y is stable, which we define as the relative
@@ -403,13 +403,13 @@
      $                   TRANS_TYPE, N_NORMS
       LOGICAL            COLEQU, IGNORE_CWISE
       INTEGER            ITHRESH
-      DOUBLE PRECISION   RTHRESH, DZ_UB
+      REAL*10   RTHRESH, DZ_UB
 *     ..
 *     .. Array Arguments
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
      $                   Y( LDY, * ), RES( * ), DY( * ), Y_TAIL( * )
-      DOUBLE PRECISION   C( * ), AYB( * ), RCOND, BERR_OUT( * ),
+      REAL*10   C( * ), AYB( * ), RCOND, BERR_OUT( * ),
      $                   ERRS_N( NRHS, * ), ERRS_C( NRHS, * )
 *     ..
 *
@@ -418,12 +418,12 @@
 *     .. Local Scalars ..
       CHARACTER          TRANS
       INTEGER            CNT, I, J,  X_STATE, Z_STATE, Y_PREC_STATE
-      DOUBLE PRECISION   YK, DYK, YMIN, NORMY, NORMX, NORMDX, DXRAT,
+      REAL*10   YK, DYK, YMIN, NORMY, NORMX, NORMDX, DXRAT,
      $                   DZRAT, PREVNORMDX, PREV_DZ_Z, DXRATMAX,
      $                   DZRATMAX, DX_X, DZ_Z, FINAL_DX_X, FINAL_DZ_Z,
      $                   EPS, HUGEVAL, INCR_THRESH
       LOGICAL            INCR_PREC
-      COMPLEX*16         ZDUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Parameters ..
       INTEGER            UNSTABLE_STATE, WORKING_STATE, CONV_STATE,
@@ -456,14 +456,14 @@
       EXTERNAL           ZAXPY, ZCOPY, ZGETRS, ZGEMV, BLAS_ZGEMV_X,
      $                   BLAS_ZGEMV2_X, ZLA_GEAMV, ZLA_WWADDW, DLAMCH,
      $                   CHLA_TRANSTYPE, ZLA_LIN_BERR
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       CHARACTER          CHLA_TRANSTYPE
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            INFO, LDA, N
-*       DOUBLE PRECISION   ANORM, RCOND
+*       REAL*10   ANORM, RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), WORK( * )
+*       REAL*10   A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -66,7 +66,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The factors L and U from the factorization A = P*L*U
 *>          as computed by DGETRF.
 *> \endverbatim
@@ -79,21 +79,21 @@
 *>
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          If NORM = '1' or 'O', the 1-norm of the original matrix A.
 *>          If NORM = 'I', the infinity-norm of the original matrix A.
 *> \endverbatim
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(norm(A) * norm(inv(A))).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -129,24 +129,24 @@
 *     .. Scalar Arguments ..
       CHARACTER          NORM
       INTEGER            INFO, LDA, N
-      DOUBLE PRECISION   ANORM, RCOND
+      REAL*10   ANORM, RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), WORK( * )
+      REAL*10   A( LDA, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            ONENRM
       CHARACTER          NORMIN
       INTEGER            IX, KASE, KASE1
-      DOUBLE PRECISION   AINVNM, SCALE, SL, SMLNUM, SU
+      REAL*10   AINVNM, SCALE, SL, SMLNUM, SU
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -154,7 +154,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, IDAMAX, DLAMCH
 *     ..
 *     .. External Subroutines ..

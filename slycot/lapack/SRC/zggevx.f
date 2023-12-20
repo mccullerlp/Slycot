@@ -26,14 +26,14 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          BALANC, JOBVL, JOBVR, SENSE
 *       INTEGER            IHI, ILO, INFO, LDA, LDB, LDVL, LDVR, LWORK, N
-*       DOUBLE PRECISION   ABNRM, BBNRM
+*       REAL*10   ABNRM, BBNRM
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   LSCALE( * ), RCONDE( * ), RCONDV( * ),
+*       REAL*10   LSCALE( * ), RCONDE( * ), RCONDV( * ),
 *      $                   RSCALE( * ), RWORK( * )
-*       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WORK( * )
 *       ..
@@ -119,7 +119,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the matrix A in the pair (A,B).
 *>          On exit, A has been overwritten. If JOBVL='V' or JOBVR='V'
 *>          or both, then A contains the first part of the complex Schur
@@ -134,7 +134,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the matrix B in the pair (A,B).
 *>          On exit, B has been overwritten. If JOBVL='V' or JOBVR='V'
 *>          or both, then B contains the second part of the complex
@@ -149,12 +149,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the generalized
 *>          eigenvalues.
 *>
@@ -168,7 +168,7 @@
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,N)
+*>          VL is COMPLEX*20 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left generalized eigenvectors u(j) are
 *>          stored one after another in the columns of VL, in the same
 *>          order as their eigenvalues.
@@ -186,7 +186,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,N)
+*>          VR is COMPLEX*20 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right generalized eigenvectors v(j) are
 *>          stored one after another in the columns of VR, in the same
 *>          order as their eigenvalues.
@@ -218,7 +218,7 @@
 *>
 *> \param[out] LSCALE
 *> \verbatim
-*>          LSCALE is DOUBLE PRECISION array, dimension (N)
+*>          LSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied
 *>          to the left side of A and B.  If PL(j) is the index of the
 *>          row interchanged with row j, and DL(j) is the scaling
@@ -232,7 +232,7 @@
 *>
 *> \param[out] RSCALE
 *> \verbatim
-*>          RSCALE is DOUBLE PRECISION array, dimension (N)
+*>          RSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied
 *>          to the right side of A and B.  If PR(j) is the index of the
 *>          column interchanged with column j, and DR(j) is the scaling
@@ -246,19 +246,19 @@
 *>
 *> \param[out] ABNRM
 *> \verbatim
-*>          ABNRM is DOUBLE PRECISION
+*>          ABNRM is REAL*10
 *>          The one-norm of the balanced matrix A.
 *> \endverbatim
 *>
 *> \param[out] BBNRM
 *> \verbatim
-*>          BBNRM is DOUBLE PRECISION
+*>          BBNRM is REAL*10
 *>          The one-norm of the balanced matrix B.
 *> \endverbatim
 *>
 *> \param[out] RCONDE
 *> \verbatim
-*>          RCONDE is DOUBLE PRECISION array, dimension (N)
+*>          RCONDE is REAL*10 array, dimension (N)
 *>          If SENSE = 'E' or 'B', the reciprocal condition numbers of
 *>          the eigenvalues, stored in consecutive elements of the array.
 *>          If SENSE = 'N' or 'V', RCONDE is not referenced.
@@ -266,7 +266,7 @@
 *>
 *> \param[out] RCONDV
 *> \verbatim
-*>          RCONDV is DOUBLE PRECISION array, dimension (N)
+*>          RCONDV is REAL*10 array, dimension (N)
 *>          If JOB = 'V' or 'B', the estimated reciprocal condition
 *>          numbers of the eigenvectors, stored in consecutive elements
 *>          of the array. If the eigenvalues cannot be reordered to
@@ -277,7 +277,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -296,7 +296,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (lrwork)
+*>          RWORK is REAL*10 array, dimension (lrwork)
 *>          lrwork must be at least max(1,6*N) if BALANC = 'S' or 'B',
 *>          and at least max(1,2*N) otherwise.
 *>          Real workspace.
@@ -379,14 +379,14 @@
 *     .. Scalar Arguments ..
       CHARACTER          BALANC, JOBVL, JOBVR, SENSE
       INTEGER            IHI, ILO, INFO, LDA, LDB, LDVL, LDVR, LWORK, N
-      DOUBLE PRECISION   ABNRM, BBNRM
+      REAL*10   ABNRM, BBNRM
 *     ..
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   LSCALE( * ), RCONDE( * ), RCONDV( * ),
+      REAL*10   LSCALE( * ), RCONDE( * ), RCONDV( * ),
      $                   RSCALE( * ), RWORK( * )
-      COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WORK( * )
 *     ..
@@ -394,9 +394,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -406,9 +406,9 @@
       CHARACTER          CHTEMP
       INTEGER            I, ICOLS, IERR, IJOBVL, IJOBVR, IN, IROWS,
      $                   ITAU, IWRK, IWRK1, J, JC, JR, M, MAXWRK, MINWRK
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
      $                   SMLNUM, TEMP
-      COMPLEX*16         X
+      COMPLEX*20         X
 *     ..
 *     .. Local Arrays ..
       LOGICAL            LDUMMA( 1 )
@@ -421,14 +421,14 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, DIMAG, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1
+      REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
       ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )

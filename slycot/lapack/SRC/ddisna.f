@@ -25,7 +25,7 @@
 *       INTEGER            INFO, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), SEP( * )
+*       REAL*10   D( * ), SEP( * )
 *       ..
 *
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (M) if JOB = 'E'
+*>          D is REAL*10 array, dimension (M) if JOB = 'E'
 *>                              dimension (min(M,N)) if JOB = 'L' or 'R'
 *>          The eigenvalues (if JOB = 'E') or singular values (if JOB =
 *>          'L' or 'R') of the matrix, in either increasing or decreasing
@@ -90,7 +90,7 @@
 *>
 *> \param[out] SEP
 *> \verbatim
-*>          SEP is DOUBLE PRECISION array, dimension (M) if JOB = 'E'
+*>          SEP is REAL*10 array, dimension (M) if JOB = 'E'
 *>                               dimension (min(M,N)) if JOB = 'L' or 'R'
 *>          The reciprocal condition numbers of the vectors.
 *> \endverbatim
@@ -124,23 +124,23 @@
       INTEGER            INFO, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), SEP( * )
+      REAL*10   D( * ), SEP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            DECR, EIGEN, INCR, LEFT, RIGHT, SING
       INTEGER            I, K
-      DOUBLE PRECISION   ANORM, EPS, NEWGAP, OLDGAP, SAFMIN, THRESH
+      REAL*10   ANORM, EPS, NEWGAP, OLDGAP, SAFMIN, THRESH
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

@@ -28,8 +28,8 @@
 *      $                   M, P, Q
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   THETA(*)
-*       DOUBLE PRECISION   U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
+*       REAL*10   THETA(*)
+*       REAL*10   U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
 *      $                   X11(LDX11,*), X21(LDX21,*)
 *       INTEGER            IWORK(*)
 *       ..
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] X11
 *> \verbatim
-*>          X11 is DOUBLE PRECISION array, dimension (LDX11,Q)
+*>          X11 is REAL*10 array, dimension (LDX11,Q)
 *>          On entry, part of the orthogonal matrix whose CSD is desired.
 *> \endverbatim
 *>
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] X21
 *> \verbatim
-*>          X21 is DOUBLE PRECISION array, dimension (LDX21,Q)
+*>          X21 is REAL*10 array, dimension (LDX21,Q)
 *>          On entry, part of the orthogonal matrix whose CSD is desired.
 *> \endverbatim
 *>
@@ -127,7 +127,7 @@
 *>
 *> \param[out] THETA
 *> \verbatim
-*>          THETA is DOUBLE PRECISION array, dimension (R), in which R =
+*>          THETA is REAL*10 array, dimension (R), in which R =
 *>          MIN(P,M-P,Q,M-Q).
 *>          C = DIAG( COS(THETA(1)), ... , COS(THETA(R)) ) and
 *>          S = DIAG( SIN(THETA(1)), ... , SIN(THETA(R)) ).
@@ -135,7 +135,7 @@
 *>
 *> \param[out] U1
 *> \verbatim
-*>          U1 is DOUBLE PRECISION array, dimension (P)
+*>          U1 is REAL*10 array, dimension (P)
 *>          If JOBU1 = 'Y', U1 contains the P-by-P orthogonal matrix U1.
 *> \endverbatim
 *>
@@ -148,7 +148,7 @@
 *>
 *> \param[out] U2
 *> \verbatim
-*>          U2 is DOUBLE PRECISION array, dimension (M-P)
+*>          U2 is REAL*10 array, dimension (M-P)
 *>          If JOBU2 = 'Y', U2 contains the (M-P)-by-(M-P) orthogonal
 *>          matrix U2.
 *> \endverbatim
@@ -162,7 +162,7 @@
 *>
 *> \param[out] V1T
 *> \verbatim
-*>          V1T is DOUBLE PRECISION array, dimension (Q)
+*>          V1T is REAL*10 array, dimension (Q)
 *>          If JOBV1T = 'Y', V1T contains the Q-by-Q matrix orthogonal
 *>          matrix V1**T.
 *> \endverbatim
@@ -176,7 +176,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *>          If INFO > 0 on exit, WORK(2:R) contains the values PHI(1),
 *>          ..., PHI(R-1) that, together with THETA(1), ..., THETA(R),
@@ -241,8 +241,8 @@
      $                   M, P, Q
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   THETA(*)
-      DOUBLE PRECISION   U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
+      REAL*10   THETA(*)
+      REAL*10   U1(LDU1,*), U2(LDU2,*), V1T(LDV1T,*), WORK(*),
      $                   X11(LDX11,*), X21(LDX21,*)
       INTEGER            IWORK(*)
 *     ..
@@ -250,7 +250,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D0, ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -263,7 +263,7 @@
       LOGICAL            LQUERY, WANTU1, WANTU2, WANTV1T
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM1(1), DUM2(1,1)
+      REAL*10   DUM1(1), DUM2(1,1)
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DBBCSD, DCOPY, DLACPY, DLAPMR, DLAPMT, DORBDB1,

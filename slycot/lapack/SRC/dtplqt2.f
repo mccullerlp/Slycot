@@ -24,7 +24,7 @@
 *       INTEGER   INFO, LDA, LDB, LDT, N, M, L
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), T( LDT, * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), T( LDT, * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,M)
+*>          A is REAL*10 array, dimension (LDA,M)
 *>          On entry, the lower triangular M-by-M matrix A.
 *>          On exit, the elements on and below the diagonal of the array
 *>          contain the lower triangular matrix L.
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the pentagonal M-by-N matrix B.  The first N-L columns
 *>          are rectangular, and the last L columns are lower trapezoidal.
 *>          On exit, B contains the pentagonal matrix V.  See Further Details.
@@ -93,7 +93,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,M)
+*>          T is REAL*10 array, dimension (LDT,M)
 *>          The N-by-N upper triangular factor T of the block reflector.
 *>          See Further Details.
 *> \endverbatim
@@ -183,18 +183,18 @@
       INTEGER   INFO, LDA, LDB, LDT, N, M, L
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), T( LDT, * )
+      REAL*10   A( LDA, * ), B( LDB, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION  ONE, ZERO
+      REAL*10  ONE, ZERO
       PARAMETER( ONE = 1.0, ZERO = 0.0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER   I, J, P, MP, NP
-      DOUBLE PRECISION   ALPHA
+      REAL*10   ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL  DLARFG, DGEMV, DGER, DTRMV, XERBLA

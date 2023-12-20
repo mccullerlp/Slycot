@@ -83,7 +83,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension
+*>          A is REAL*10 array, dimension
 *>                               (LDA,M) if SIDE = 'L',
 *>                               (LDA,N) if SIDE = 'R'
 *>          The i-th row must contain the vector which defines the blocked
@@ -99,7 +99,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension
+*>          T is REAL*10 array, dimension
 *>          ( M * Number of blocks(CEIL(N-K/NB-K)),
 *>          The blocked upper triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.  See below
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 *> \endverbatim
@@ -127,7 +127,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>         (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>         (workspace) REAL*10 array, dimension (MAX(1,LWORK))
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -202,7 +202,7 @@
       INTEGER           INFO, LDA, M, N, K, MB, NB, LDT, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A( LDA, * ), WORK( * ), C(LDC, * ),
+      REAL*10 A( LDA, * ), WORK( * ), C(LDC, * ),
      $      T( LDT, * )
 *     ..
 *

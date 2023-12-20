@@ -11,12 +11,12 @@
 *       SUBROUTINE ZHPR2(UPLO,N,ALPHA,X,INCX,Y,INCY,AP)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ALPHA
+*       COMPLEX*20 ALPHA
 *       INTEGER INCX,INCY,N
 *       CHARACTER UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 AP(*),X(*),Y(*)
+*       COMPLEX*20 AP(*),X(*),Y(*)
 *       ..
 *
 *
@@ -59,13 +59,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -80,7 +80,7 @@
 *>
 *> \param[in] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension at least
+*>          Y is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array Y must contain the n
 *>           element vector y.
@@ -95,7 +95,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension at least
+*>          AP is COMPLEX*20 array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with  UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular part of the hermitian matrix
@@ -148,22 +148,22 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ALPHA
+      COMPLEX*20 ALPHA
       INTEGER INCX,INCY,N
       CHARACTER UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 AP(*),X(*),Y(*)
+      COMPLEX*20 AP(*),X(*),Y(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP1,TEMP2
+      COMPLEX*20 TEMP1,TEMP2
       INTEGER I,INFO,IX,IY,J,JX,JY,K,KK,KX,KY
 *     ..
 *     .. External Functions ..

@@ -26,7 +26,7 @@
 *       INTEGER            IFST, ILST, INFO, LDQ, LDT, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Q( LDQ, * ), T( LDT, * ), WORK( * )
+*       REAL*10   Q( LDQ, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          On entry, the upper quasi-triangular matrix T, in Schur
 *>          Schur canonical form.
 *>          On exit, the reordered upper quasi-triangular matrix, again
@@ -83,7 +83,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
 *>          On exit, if COMPQ = 'V', Q has been postmultiplied by the
 *>          orthogonal transformation matrix Z which reorders T.
@@ -118,7 +118,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -155,13 +155,13 @@
       INTEGER            IFST, ILST, INFO, LDQ, LDT, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Q( LDQ, * ), T( LDT, * ), WORK( * )
+      REAL*10   Q( LDQ, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

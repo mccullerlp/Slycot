@@ -26,7 +26,7 @@
 *       INTEGER            IFST, ILST, INFO, LDA, LDB, LDQ, LDZ, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   WORK( * ), Z( LDZ, * )
 *       ..
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the matrix A in generalized real Schur canonical
 *>          form.
 *>          On exit, the updated matrix A, again in generalized
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the matrix B in generalized real Schur canonical
 *>          form (A,B).
 *>          On exit, the updated matrix B, again in generalized
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if WANTQ = .TRUE., the orthogonal matrix Q.
 *>          On exit, the updated matrix Q.
 *>          If WANTQ = .FALSE., Q is not referenced.
@@ -126,7 +126,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>          On entry, if WANTZ = .TRUE., the orthogonal matrix Z.
 *>          On exit, the updated matrix Z.
 *>          If WANTZ = .FALSE., Z is not referenced.
@@ -159,7 +159,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -227,14 +227,14 @@
       INTEGER            IFST, ILST, INFO, LDA, LDB, LDQ, LDZ, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       REAL               SA( LDSA, * )
-*       DOUBLE PRECISION   A( LDA, * )
+*       REAL*10   A( LDA, * )
 *       ..
 *
 *
@@ -35,7 +35,7 @@
 *>
 *> \verbatim
 *>
-*> DLAT2S converts a DOUBLE PRECISION triangular matrix, SA, to a SINGLE
+*> DLAT2S converts a REAL*10 triangular matrix, SA, to a SINGLE
 *> PRECISION triangular matrix, A.
 *>
 *> RMAX is the overflow for the SINGLE PRECISION arithmetic
@@ -63,7 +63,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the N-by-N triangular coefficient matrix A.
 *> \endverbatim
 *>
@@ -119,14 +119,14 @@
 *     ..
 *     .. Array Arguments ..
       REAL               SA( LDSA, * )
-      DOUBLE PRECISION   A( LDA, * )
+      REAL*10   A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   RMAX
+      REAL*10   RMAX
       LOGICAL            UPPER
 *     ..
 *     .. External Functions ..

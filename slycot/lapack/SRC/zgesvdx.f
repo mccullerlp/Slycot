@@ -26,12 +26,12 @@
 *     .. Scalar Arguments ..
 *      CHARACTER          JOBU, JOBVT, RANGE
 *      INTEGER            IL, INFO, IU, LDA, LDU, LDVT, LWORK, M, N, NS
-*      DOUBLE PRECISION   VL, VU
+*      REAL*10   VL, VU
 *     ..
 *     .. Array Arguments ..
 *      INTEGER            IWORK( * )
-*      DOUBLE PRECISION   S( * ), RWORK( * )
-*      COMPLEX*16         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
+*      REAL*10   S( * ), RWORK( * )
+*      COMPLEX*20         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
 *     $                   WORK( * )
 *     ..
 *
@@ -110,7 +110,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the contents of A are destroyed.
 *> \endverbatim
@@ -123,7 +123,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for singular values. VU > VL.
 *>          Not referenced if RANGE = 'A' or 'I'.
@@ -131,7 +131,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for singular values. VU > VL.
 *>          Not referenced if RANGE = 'A' or 'I'.
@@ -165,13 +165,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (min(M,N))
+*>          S is REAL*10 array, dimension (min(M,N))
 *>          The singular values of A, sorted so that S(i) >= S(i+1).
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU,UCOL)
+*>          U is COMPLEX*20 array, dimension (LDU,UCOL)
 *>          If JOBU = 'V', U contains columns of U (the left singular
 *>          vectors, stored columnwise) as specified by RANGE; if
 *>          JOBU = 'N', U is not referenced.
@@ -189,7 +189,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is COMPLEX*16 array, dimension (LDVT,N)
+*>          VT is COMPLEX*20 array, dimension (LDVT,N)
 *>          If JOBVT = 'V', VT contains the rows of V**T (the right singular
 *>          vectors, stored rowwise) as specified by RANGE; if JOBVT = 'N',
 *>          VT is not referenced.
@@ -207,7 +207,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
 *> \endverbatim
 *>
@@ -230,7 +230,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK))
+*>          RWORK is REAL*10 array, dimension (MAX(1,LRWORK))
 *>          LRWORK >= MIN(M,N)*(MIN(M,N)*2+15*MIN(M,N)).
 *> \endverbatim
 *>
@@ -275,22 +275,22 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBU, JOBVT, RANGE
       INTEGER            IL, INFO, IU, LDA, LDU, LDVT, LWORK, M, N, NS
-      DOUBLE PRECISION   VL, VU
+      REAL*10   VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   S( * ), RWORK( * )
-      COMPLEX*16         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
+      REAL*10   S( * ), RWORK( * )
+      COMPLEX*20         A( LDA, * ), U( LDU, * ), VT( LDVT, * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -299,10 +299,10 @@
       INTEGER            I, ID, IE, IERR, ILQF, ILTGK, IQRF, ISCL,
      $                   ITAU, ITAUP, ITAUQ, ITEMP, ITEMPR, ITGKZ,
      $                   IUTGK, J, K, MAXWRK, MINMN, MINWRK, MNTHR
-      DOUBLE PRECISION   ABSTOL, ANRM, BIGNUM, EPS, SMLNUM
+      REAL*10   ABSTOL, ANRM, BIGNUM, EPS, SMLNUM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZGEBRD, ZGELQF, ZGEQRF, ZLASCL, ZLASET, ZLACPY,
@@ -311,7 +311,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

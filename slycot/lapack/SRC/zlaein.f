@@ -24,12 +24,12 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            NOINIT, RIGHTV
 *       INTEGER            INFO, LDB, LDH, N
-*       DOUBLE PRECISION   EPS3, SMLNUM
-*       COMPLEX*16         W
+*       REAL*10   EPS3, SMLNUM
+*       COMPLEX*20         W
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         B( LDB, * ), H( LDH, * ), V( * )
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         B( LDB, * ), H( LDH, * ), V( * )
 *       ..
 *
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>          The upper Hessenberg matrix H.
 *> \endverbatim
 *>
@@ -80,14 +80,14 @@
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is COMPLEX*16
+*>          W is COMPLEX*20
 *>          The eigenvalue of H whose corresponding right or left
 *>          eigenvector is to be computed.
 *> \endverbatim
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (N)
+*>          V is COMPLEX*20 array, dimension (N)
 *>          On entry, if NOINIT = .FALSE., V must contain a starting
 *>          vector for inverse iteration; otherwise V need not be set.
 *>          On exit, V contains the computed eigenvector, normalized so
@@ -98,7 +98,7 @@
 *>
 *> \param[out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -109,19 +109,19 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[in] EPS3
 *> \verbatim
-*>          EPS3 is DOUBLE PRECISION
+*>          EPS3 is REAL*10
 *>          A small machine-dependent value which is used to perturb
 *>          close eigenvalues, and to replace zero pivots.
 *> \endverbatim
 *>
 *> \param[in] SMLNUM
 *> \verbatim
-*>          SMLNUM is DOUBLE PRECISION
+*>          SMLNUM is REAL*10
 *>          A machine-dependent value close to the underflow threshold.
 *> \endverbatim
 *>
@@ -154,32 +154,32 @@
 *     .. Scalar Arguments ..
       LOGICAL            NOINIT, RIGHTV
       INTEGER            INFO, LDB, LDH, N
-      DOUBLE PRECISION   EPS3, SMLNUM
-      COMPLEX*16         W
+      REAL*10   EPS3, SMLNUM
+      COMPLEX*20         W
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         B( LDB, * ), H( LDH, * ), V( * )
+      REAL*10   RWORK( * )
+      COMPLEX*20         B( LDB, * ), H( LDH, * ), V( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, TENTH
+      REAL*10   ONE, TENTH
       PARAMETER          ( ONE = 1.0D+0, TENTH = 1.0D-1 )
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       CHARACTER          NORMIN, TRANS
       INTEGER            I, IERR, ITS, J
-      DOUBLE PRECISION   GROWTO, NRMSML, ROOTN, RTEMP, SCALE, VNORM
-      COMPLEX*16         CDUM, EI, EJ, TEMP, X
+      REAL*10   GROWTO, NRMSML, ROOTN, RTEMP, SCALE, VNORM
+      COMPLEX*20         CDUM, EI, EJ, TEMP, X
 *     ..
 *     .. External Functions ..
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DZASUM, DZNRM2
-      COMPLEX*16         ZLADIV
+      REAL*10   DZASUM, DZNRM2
+      COMPLEX*20         ZLADIV
       EXTERNAL           IZAMAX, DZASUM, DZNRM2, ZLADIV
 *     ..
 *     .. External Subroutines ..
@@ -189,7 +189,7 @@
       INTRINSIC          ABS, DBLE, DIMAG, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

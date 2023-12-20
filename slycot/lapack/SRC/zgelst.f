@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -93,7 +93,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit,
 *>            if M >= N, A is overwritten by details of its QR
@@ -110,7 +110,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the matrix B of right hand side vectors, stored
 *>          columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
 *>          if TRANS = 'C'.
@@ -138,7 +138,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -201,30 +201,30 @@
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CZERO
+      COMPLEX*20         CZERO
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, TPSD
       INTEGER            BROW, I, IASCL, IBSCL, J, LWOPT, MN, MNNRHS,
      $                   NB, NBMIN, SCLLEN
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, SMLNUM
+      REAL*10   ANRM, BIGNUM, BNRM, SMLNUM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   RWORK( 1 )
+      REAL*10   RWORK( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. External Subroutines ..

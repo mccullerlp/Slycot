@@ -24,7 +24,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
+*       REAL*10   D( * ), E( * )
 *       ..
 *
 *
@@ -48,14 +48,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the tridiagonal matrix.
 *>          On exit, if INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix.
 *>          On exit, E has been destroyed.
@@ -92,13 +92,13 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
+      REAL*10   D( * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE
+      REAL*10   ZERO, ONE, TWO, THREE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   THREE = 3.0D0 )
       INTEGER            MAXIT
@@ -107,12 +107,12 @@
 *     .. Local Scalars ..
       INTEGER            I, ISCALE, JTOT, L, L1, LEND, LENDSV, LSV, M,
      $                   NMAXIT
-      DOUBLE PRECISION   ALPHA, ANORM, BB, C, EPS, EPS2, GAMMA, OLDC,
+      REAL*10   ALPHA, ANORM, BB, C, EPS, EPS2, GAMMA, OLDC,
      $                   OLDGAM, P, R, RT1, RT2, RTE, S, SAFMAX, SAFMIN,
      $                   SIGMA, SSFMAX, SSFMIN, RMAX
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLANST, DLAPY2
+      REAL*10   DLAMCH, DLANST, DLAPY2
       EXTERNAL           DLAMCH, DLANST, DLAPY2
 *     ..
 *     .. External Subroutines ..

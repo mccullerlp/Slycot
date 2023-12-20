@@ -31,8 +31,8 @@
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   RCONDE( 2 ), RCONDV( 2 ), RWORK( * )
-*       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       REAL*10   RCONDE( 2 ), RCONDV( 2 ), RWORK( * )
+*       COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), VSL( LDVSL, * ), VSR( LDVSR, * ),
 *      $                   WORK( * )
 *       ..
@@ -104,7 +104,7 @@
 *>
 *> \param[in] SELCTG
 *> \verbatim
-*>          SELCTG is a LOGICAL FUNCTION of two COMPLEX*16 arguments
+*>          SELCTG is a LOGICAL FUNCTION of two COMPLEX*20 arguments
 *>          SELCTG must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'N', SELCTG is not referenced.
 *>          If SORT = 'S', SELCTG is used to select eigenvalues to sort
@@ -135,7 +135,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the first of the pair of matrices.
 *>          On exit, A has been overwritten by its generalized Schur
 *>          form S.
@@ -149,7 +149,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the second of the pair of matrices.
 *>          On exit, B has been overwritten by its generalized Schur
 *>          form T.
@@ -171,12 +171,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the
 *>          generalized eigenvalues.  ALPHA(j) and BETA(j),j=1,...,N  are
 *>          the diagonals of the complex Schur form (S,T).  BETA(j) will
@@ -192,7 +192,7 @@
 *>
 *> \param[out] VSL
 *> \verbatim
-*>          VSL is COMPLEX*16 array, dimension (LDVSL,N)
+*>          VSL is COMPLEX*20 array, dimension (LDVSL,N)
 *>          If JOBVSL = 'V', VSL will contain the left Schur vectors.
 *>          Not referenced if JOBVSL = 'N'.
 *> \endverbatim
@@ -206,7 +206,7 @@
 *>
 *> \param[out] VSR
 *> \verbatim
-*>          VSR is COMPLEX*16 array, dimension (LDVSR,N)
+*>          VSR is COMPLEX*20 array, dimension (LDVSR,N)
 *>          If JOBVSR = 'V', VSR will contain the right Schur vectors.
 *>          Not referenced if JOBVSR = 'N'.
 *> \endverbatim
@@ -220,7 +220,7 @@
 *>
 *> \param[out] RCONDE
 *> \verbatim
-*>          RCONDE is DOUBLE PRECISION array, dimension ( 2 )
+*>          RCONDE is REAL*10 array, dimension ( 2 )
 *>          If SENSE = 'E' or 'B', RCONDE(1) and RCONDE(2) contain the
 *>          reciprocal condition numbers for the average of the selected
 *>          eigenvalues.
@@ -229,7 +229,7 @@
 *>
 *> \param[out] RCONDV
 *> \verbatim
-*>          RCONDV is DOUBLE PRECISION array, dimension ( 2 )
+*>          RCONDV is REAL*10 array, dimension ( 2 )
 *>          If SENSE = 'V' or 'B', RCONDV(1) and RCONDV(2) contain the
 *>          reciprocal condition number for the selected deflating
 *>          subspaces.
@@ -238,7 +238,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -263,7 +263,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension ( 8*N )
+*>          RWORK is REAL*10 array, dimension ( 8*N )
 *>          Real workspace.
 *> \endverbatim
 *>
@@ -340,8 +340,8 @@
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   RCONDE( 2 ), RCONDV( 2 ), RWORK( * )
-      COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      REAL*10   RCONDE( 2 ), RCONDV( 2 ), RWORK( * )
+      COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), VSL( LDVSL, * ), VSR( LDVSR, * ),
      $                   WORK( * )
 *     ..
@@ -353,9 +353,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -365,11 +365,11 @@
       INTEGER            I, ICOLS, IERR, IHI, IJOB, IJOBVL, IJOBVR,
      $                   ILEFT, ILO, IRIGHT, IROWS, IRWRK, ITAU, IWRK,
      $                   LIWMIN, LWRK, MAXWRK, MINWRK
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS, PL,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS, PL,
      $                   PR, SMLNUM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DIF( 2 )
+      REAL*10   DIF( 2 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, XERBLA, ZGEQRF, ZGGBAK, ZGGBAL, ZGGHRD,
@@ -379,7 +379,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

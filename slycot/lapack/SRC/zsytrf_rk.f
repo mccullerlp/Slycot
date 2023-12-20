@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), E ( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), E ( * ), WORK( * )
 *       ..
 *
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.
 *>            If UPLO = 'U': the leading N-by-N upper triangular part
 *>            of A contains the upper triangular part of the matrix A,
@@ -98,7 +98,7 @@
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N)
+*>          E is COMPLEX*20 array, dimension (N)
 *>          On exit, contains the superdiagonal (or subdiagonal)
 *>          elements of the symmetric block diagonal matrix D
 *>          with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -177,7 +177,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension ( MAX(1,LWORK) ).
+*>          WORK is COMPLEX*20 array, dimension ( MAX(1,LWORK) ).
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -267,7 +267,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), E( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), E( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

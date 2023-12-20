@@ -31,7 +31,7 @@
 *
 *     INTEGER, INTENT( OUT ) :: INFO
 *
-*     DOUBLE PRECISION, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
+*     REAL*10, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
 *    $                  Q( LDQ, * ), Z( LDZ, * ), ALPHAR( * ),
 *    $                  ALPHAI( * ), BETA( * ), WORK( * )
 *      ..
@@ -157,7 +157,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the N-by-N upper Hessenberg matrix A.
 *>          On exit, if JOB = 'S', A contains the upper quasi-triangular
 *>          matrix S from the generalized Schur factorization.
@@ -173,7 +173,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the N-by-N upper triangular matrix B.
 *>          On exit, if JOB = 'S', B contains the upper triangular
 *>          matrix P from the generalized Schur factorization;
@@ -193,14 +193,14 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *>          The real parts of each scalar alpha defining an eigenvalue
 *>          of GNEP.
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *>          The imaginary parts of each scalar alpha defining an
 *>          eigenvalue of GNEP.
 *>          If ALPHAI(j) is zero, then the j-th eigenvalue is real; if
@@ -210,7 +210,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>          Together, the quantities alpha = (ALPHAR(j),ALPHAI(j)) and
 *>          beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -221,7 +221,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>          On entry, if COMPQ = 'V', the orthogonal matrix Q1 used in
 *>          the reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPQ = 'I', the orthogonal matrix of left Schur
@@ -239,7 +239,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the orthogonal matrix Z1 used in
 *>          the reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPZ = 'I', the orthogonal matrix of
@@ -257,7 +257,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -312,16 +312,16 @@
 
       INTEGER, INTENT( OUT ) :: INFO
 
-      DOUBLE PRECISION, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
+      REAL*10, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
      $                  Q( LDQ, * ), Z( LDZ, * ), ALPHAR( * ),
      $                  ALPHAI( * ), BETA( * ), WORK( * )
 
 *     Parameters
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 
 *     Local scalars
-      DOUBLE PRECISION :: SMLNUM, ULP, ESHIFT, SAFMIN, SAFMAX, C1, S1,
+      REAL*10 :: SMLNUM, ULP, ESHIFT, SAFMIN, SAFMAX, C1, S1,
      $                    TEMP, SWAP, BNORM, BTOL
       INTEGER :: ISTART, ISTOP, IITER, MAXIT, ISTART2, K, LD, NSHIFTS,
      $           NBLOCK, NW, NMIN, NIBBLE, N_UNDEFLATED, N_DEFLATED,
@@ -334,7 +334,7 @@
 *     External Functions
       EXTERNAL :: XERBLA, DHGEQZ, DLASET, DLAQZ3, DLAQZ4, DLABAD,
      $            DLARTG, DROT
-      DOUBLE PRECISION, EXTERNAL :: DLAMCH, DLANHS
+      REAL*10, EXTERNAL :: DLAMCH, DLANHS
       LOGICAL, EXTERNAL :: LSAME
       INTEGER, EXTERNAL :: ILAENV
 

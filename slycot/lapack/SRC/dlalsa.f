@@ -30,7 +30,7 @@
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( LDGCOL, * ), GIVPTR( * ), IWORK( * ),
 *      $                   K( * ), PERM( LDGCOL, * )
-*       DOUBLE PRECISION   B( LDB, * ), BX( LDBX, * ), C( * ),
+*       REAL*10   B( LDB, * ), BX( LDBX, * ), C( * ),
 *      $                   DIFL( LDU, * ), DIFR( LDU, * ),
 *      $                   GIVNUM( LDU, * ), POLES( LDU, * ), S( * ),
 *      $                   U( LDU, * ), VT( LDU, * ), WORK( * ),
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension ( LDB, NRHS )
+*>          B is REAL*10 array, dimension ( LDB, NRHS )
 *>         On input, B contains the right hand sides of the least
 *>         squares problem in rows 1 through M.
 *>         On output, B contains the solution X in rows 1 through N.
@@ -103,7 +103,7 @@
 *>
 *> \param[out] BX
 *> \verbatim
-*>          BX is DOUBLE PRECISION array, dimension ( LDBX, NRHS )
+*>          BX is REAL*10 array, dimension ( LDBX, NRHS )
 *>         On exit, the result of applying the left or right singular
 *>         vector matrix to B.
 *> \endverbatim
@@ -116,7 +116,7 @@
 *>
 *> \param[in] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension ( LDU, SMLSIZ ).
+*>          U is REAL*10 array, dimension ( LDU, SMLSIZ ).
 *>         On entry, U contains the left singular vector matrices of all
 *>         subproblems at the bottom level.
 *> \endverbatim
@@ -130,7 +130,7 @@
 *>
 *> \param[in] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension ( LDU, SMLSIZ+1 ).
+*>          VT is REAL*10 array, dimension ( LDU, SMLSIZ+1 ).
 *>         On entry, VT**T contains the right singular vector matrices of
 *>         all subproblems at the bottom level.
 *> \endverbatim
@@ -142,13 +142,13 @@
 *>
 *> \param[in] DIFL
 *> \verbatim
-*>          DIFL is DOUBLE PRECISION array, dimension ( LDU, NLVL ).
+*>          DIFL is REAL*10 array, dimension ( LDU, NLVL ).
 *>         where NLVL = INT(log_2 (N/(SMLSIZ+1))) + 1.
 *> \endverbatim
 *>
 *> \param[in] DIFR
 *> \verbatim
-*>          DIFR is DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ).
+*>          DIFR is REAL*10 array, dimension ( LDU, 2 * NLVL ).
 *>         On entry, DIFL(*, I) and DIFR(*, 2 * I -1) record
 *>         distances between singular values on the I-th level and
 *>         singular values on the (I -1)-th level, and DIFR(*, 2 * I)
@@ -158,7 +158,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( LDU, NLVL ).
+*>          Z is REAL*10 array, dimension ( LDU, NLVL ).
 *>         On entry, Z(1, I) contains the components of the deflation-
 *>         adjusted updating row vector for subproblems on the I-th
 *>         level.
@@ -166,7 +166,7 @@
 *>
 *> \param[in] POLES
 *> \verbatim
-*>          POLES is DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ).
+*>          POLES is REAL*10 array, dimension ( LDU, 2 * NLVL ).
 *>         On entry, POLES(*, 2 * I -1: 2 * I) contains the new and old
 *>         singular values involved in the secular equations on the I-th
 *>         level.
@@ -203,7 +203,7 @@
 *>
 *> \param[in] GIVNUM
 *> \verbatim
-*>          GIVNUM is DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ).
+*>          GIVNUM is REAL*10 array, dimension ( LDU, 2 * NLVL ).
 *>         On entry, GIVNUM(*, 2 *I -1 : 2 * I) records the C- and S-
 *>         values of Givens rotations performed on the I-th level on the
 *>         computation tree.
@@ -211,7 +211,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension ( N ).
+*>          C is REAL*10 array, dimension ( N ).
 *>         On entry, if the I-th subproblem is not square,
 *>         C( I ) contains the C-value of a Givens rotation related to
 *>         the right null space of the I-th subproblem.
@@ -219,7 +219,7 @@
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension ( N ).
+*>          S is REAL*10 array, dimension ( N ).
 *>         On entry, if the I-th subproblem is not square,
 *>         S( I ) contains the S-value of a Givens rotation related to
 *>         the right null space of the I-th subproblem.
@@ -227,7 +227,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -276,7 +276,7 @@
 *     .. Array Arguments ..
       INTEGER            GIVCOL( LDGCOL, * ), GIVPTR( * ), IWORK( * ),
      $                   K( * ), PERM( LDGCOL, * )
-      DOUBLE PRECISION   B( LDB, * ), BX( LDBX, * ), C( * ),
+      REAL*10   B( LDB, * ), BX( LDBX, * ), C( * ),
      $                   DIFL( LDU, * ), DIFR( LDU, * ),
      $                   GIVNUM( LDU, * ), POLES( LDU, * ), S( * ),
      $                   U( LDU, * ), VT( LDU, * ), WORK( * ),
@@ -286,7 +286,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..

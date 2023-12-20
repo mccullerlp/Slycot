@@ -25,7 +25,7 @@
 *       INTEGER INFO, LDA, LDB, LDT, N, M, L, NB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
+*       COMPLEX*20 A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the upper triangular N-by-N matrix A.
 *>          On exit, the elements on and above the diagonal of the array
 *>          contain the upper triangular matrix R.
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the pentagonal M-by-N matrix B.  The first M-L rows
 *>          are rectangular, and the last L rows are upper trapezoidal.
 *>          On exit, B contains the pentagonal matrix V.  See Further Details.
@@ -101,7 +101,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N)
+*>          T is COMPLEX*20 array, dimension (LDT,N)
 *>          The upper triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.  See Further Details.
 *> \endverbatim
@@ -114,7 +114,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (NB*N)
+*>          WORK is COMPLEX*20 array, dimension (NB*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -195,7 +195,7 @@
       INTEGER INFO, LDA, LDB, LDT, N, M, L, NB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
+      COMPLEX*20 A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 * =====================================================================

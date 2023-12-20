@@ -24,7 +24,7 @@
 *       INTEGER            INFO, K, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -66,7 +66,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the i-th row must contain the vector which defines
 *>          the elementary reflector H(i), for i = 1,2,...,k, as returned
 *>          by ZGELQF in the first k rows of its array argument A.
@@ -81,14 +81,14 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (K)
+*>          TAU is COMPLEX*20 array, dimension (K)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by ZGELQF.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (M)
+*>          WORK is COMPLEX*20 array, dimension (M)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -119,13 +119,13 @@
       INTEGER            INFO, K, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

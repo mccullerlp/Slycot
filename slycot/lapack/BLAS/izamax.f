@@ -14,7 +14,7 @@
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*)
+*       COMPLEX*20 ZX(*)
 *       ..
 *
 *
@@ -37,7 +37,7 @@
 *>
 *> \param[in] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -77,17 +77,17 @@
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*)
+      COMPLEX*20 ZX(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION DMAX
+      REAL*10 DMAX
       INTEGER I,IX
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION DCABS1
+      REAL*10 DCABS1
       EXTERNAL DCABS1
 *     ..
       IZAMAX = 0

@@ -11,11 +11,11 @@
 *       SUBROUTINE ZAXPY(N,ZA,ZX,INCX,ZY,INCY)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ZA
+*       COMPLEX*20 ZA
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*),ZY(*)
+*       COMPLEX*20 ZX(*),ZY(*)
 *       ..
 *
 *
@@ -38,13 +38,13 @@
 *>
 *> \param[in] ZA
 *> \verbatim
-*>          ZA is COMPLEX*16
+*>          ZA is COMPLEX*20
 *>           On entry, ZA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -55,7 +55,7 @@
 *>
 *> \param[in,out] ZY
 *> \verbatim
-*>          ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*>          ZY is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -91,11 +91,11 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ZA
+      COMPLEX*20 ZA
       INTEGER INCX,INCY,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*),ZY(*)
+      COMPLEX*20 ZX(*),ZY(*)
 *     ..
 *
 *  =====================================================================
@@ -104,7 +104,7 @@
       INTEGER I,IX,IY
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION DCABS1
+      REAL*10 DCABS1
       EXTERNAL DCABS1
 *     ..
       IF (N.LE.0) RETURN

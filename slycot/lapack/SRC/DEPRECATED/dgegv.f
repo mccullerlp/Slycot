@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+*       REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
 *      $                   B( LDB, * ), BETA( * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( * )
 *       ..
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the matrix A.
 *>          If JOBVL = 'V' or JOBVR = 'V', then on exit A
 *>          contains the real Schur form of A from the generalized Schur
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the matrix B.
 *>          If JOBVL = 'V' or JOBVR = 'V', then on exit B contains the
 *>          upper triangular matrix obtained from B in the generalized
@@ -132,14 +132,14 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *>          The real parts of each scalar alpha defining an eigenvalue of
 *>          GNEP.
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *>          The imaginary parts of each scalar alpha defining an
 *>          eigenvalue of GNEP.  If ALPHAI(j) is zero, then the j-th
 *>          eigenvalue is real; if positive, then the j-th and
@@ -149,7 +149,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>
 *>          Together, the quantities alpha = (ALPHAR(j),ALPHAI(j)) and
@@ -161,7 +161,7 @@
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,N)
+*>          VL is REAL*10 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left eigenvectors u(j) are stored
 *>          in the columns of VL, in the same order as their eigenvalues.
 *>          If the j-th eigenvalue is real, then u(j) = VL(:,j).
@@ -187,7 +187,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,N)
+*>          VR is REAL*10 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right eigenvectors x(j) are stored
 *>          in the columns of VR, in the same order as their eigenvalues.
 *>          If the j-th eigenvalue is real, then x(j) = VR(:,j).
@@ -213,7 +213,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -313,7 +313,7 @@
       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+      REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
      $                   B( LDB, * ), BETA( * ), VL( LDVL, * ),
      $                   VR( LDVR, * ), WORK( * )
 *     ..
@@ -321,7 +321,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -330,7 +330,7 @@
       INTEGER            ICOLS, IHI, IINFO, IJOBVL, IJOBVR, ILEFT, ILO,
      $                   IN, IRIGHT, IROWS, ITAU, IWORK, JC, JR, LOPT,
      $                   LWKMIN, LWKOPT, NB, NB1, NB2, NB3
-      DOUBLE PRECISION   ABSAI, ABSAR, ABSB, ANRM, ANRM1, ANRM2, BNRM,
+      REAL*10   ABSAI, ABSAR, ABSB, ANRM, ANRM1, ANRM2, BNRM,
      $                   BNRM1, BNRM2, EPS, ONEPLS, SAFMAX, SAFMIN,
      $                   SALFAI, SALFAR, SBETA, SCALE, TEMP
 *     ..
@@ -344,7 +344,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

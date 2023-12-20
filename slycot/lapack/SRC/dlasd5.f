@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            I
-*       DOUBLE PRECISION   DSIGMA, RHO
+*       REAL*10   DSIGMA, RHO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( 2 ), DELTA( 2 ), WORK( 2 ), Z( 2 )
+*       REAL*10   D( 2 ), DELTA( 2 ), WORK( 2 ), Z( 2 )
 *       ..
 *
 *
@@ -59,19 +59,19 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension ( 2 )
+*>          D is REAL*10 array, dimension ( 2 )
 *>         The original eigenvalues.  We assume 0 <= D(1) < D(2).
 *> \endverbatim
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( 2 )
+*>          Z is REAL*10 array, dimension ( 2 )
 *>         The components of the updating vector.
 *> \endverbatim
 *>
 *> \param[out] DELTA
 *> \verbatim
-*>          DELTA is DOUBLE PRECISION array, dimension ( 2 )
+*>          DELTA is REAL*10 array, dimension ( 2 )
 *>         Contains (D(j) - sigma_I) in its  j-th component.
 *>         The vector DELTA contains the information necessary
 *>         to construct the eigenvectors.
@@ -79,19 +79,19 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         The scalar in the symmetric updating formula.
 *> \endverbatim
 *>
 *> \param[out] DSIGMA
 *> \verbatim
-*>          DSIGMA is DOUBLE PRECISION
+*>          DSIGMA is REAL*10
 *>         The computed sigma_I, the I-th updated eigenvalue.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension ( 2 )
+*>          WORK is REAL*10 array, dimension ( 2 )
 *>         WORK contains (D(j) + sigma_I) in its  j-th component.
 *> \endverbatim
 *
@@ -120,21 +120,21 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            I
-      DOUBLE PRECISION   DSIGMA, RHO
+      REAL*10   DSIGMA, RHO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( 2 ), DELTA( 2 ), WORK( 2 ), Z( 2 )
+      REAL*10   D( 2 ), DELTA( 2 ), WORK( 2 ), Z( 2 )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE, FOUR
+      REAL*10   ZERO, ONE, TWO, THREE, FOUR
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0,
      $                   THREE = 3.0D+0, FOUR = 4.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   B, C, DEL, DELSQ, TAU, W
+      REAL*10   B, C, DEL, DELSQ, TAU, W
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, SQRT

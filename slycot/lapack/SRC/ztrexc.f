@@ -25,7 +25,7 @@
 *       INTEGER            IFST, ILST, INFO, LDQ, LDT, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         Q( LDQ, * ), T( LDT, * )
+*       COMPLEX*20         Q( LDQ, * ), T( LDT, * )
 *       ..
 *
 *
@@ -62,7 +62,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N)
+*>          T is COMPLEX*20 array, dimension (LDT,N)
 *>          On entry, the upper triangular matrix T.
 *>          On exit, the reordered upper triangular matrix.
 *> \endverbatim
@@ -75,7 +75,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
 *>          On exit, if COMPQ = 'V', Q has been postmultiplied by the
 *>          unitary transformation matrix Z which reorders T.
@@ -133,7 +133,7 @@
       INTEGER            IFST, ILST, INFO, LDQ, LDT, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         Q( LDQ, * ), T( LDT, * )
+      COMPLEX*20         Q( LDQ, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
@@ -141,8 +141,8 @@
 *     .. Local Scalars ..
       LOGICAL            WANTQ
       INTEGER            K, M1, M2, M3
-      DOUBLE PRECISION   CS
-      COMPLEX*16         SN, T11, T22, TEMP
+      REAL*10   CS
+      COMPLEX*20         SN, T11, T22, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

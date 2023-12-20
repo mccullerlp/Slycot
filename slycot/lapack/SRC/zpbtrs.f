@@ -25,7 +25,7 @@
 *       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AB( LDAB, * ), B( LDB, * )
+*       COMPLEX*20         AB( LDAB, * ), B( LDB, * )
 *       ..
 *
 *
@@ -71,7 +71,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**H *U or A = L*L**H of the band matrix A, stored in the
 *>          first KD+1 rows of the array.  The j-th column of U or L is
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -128,7 +128,7 @@
       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AB( LDAB, * ), B( LDB, * )
+      COMPLEX*20         AB( LDAB, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

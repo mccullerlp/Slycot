@@ -12,7 +12,7 @@
 *     INTEGER           INFO, LDA, M, N, K, LDT, TSIZE, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-*     COMPLEX*16        A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
+*     COMPLEX*20        A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
 *     ..
 *
 *> \par Purpose:
@@ -72,7 +72,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,K)
+*>          A is COMPLEX*20 array, dimension (LDA,K)
 *>          Part of the data structure to represent Q as returned by ZGEQR.
 *> \endverbatim
 *>
@@ -86,7 +86,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (MAX(5,TSIZE)).
+*>          T is COMPLEX*20 array, dimension (MAX(5,TSIZE)).
 *>          Part of the data structure to represent Q as returned by ZGEQR.
 *> \endverbatim
 *>
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 *> \endverbatim
@@ -111,7 +111,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>         (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>         (workspace) COMPLEX*20 array, dimension (MAX(1,LWORK))
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -179,7 +179,7 @@
       INTEGER            INFO, LDA, M, N, K, TSIZE, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
 *     ..
 *
 * =====================================================================

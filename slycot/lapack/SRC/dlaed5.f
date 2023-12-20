@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            I
-*       DOUBLE PRECISION   DLAM, RHO
+*       REAL*10   DLAM, RHO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( 2 ), DELTA( 2 ), Z( 2 )
+*       REAL*10   D( 2 ), DELTA( 2 ), Z( 2 )
 *       ..
 *
 *
@@ -58,32 +58,32 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (2)
+*>          D is REAL*10 array, dimension (2)
 *>         The original eigenvalues.  We assume D(1) < D(2).
 *> \endverbatim
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (2)
+*>          Z is REAL*10 array, dimension (2)
 *>         The components of the updating vector.
 *> \endverbatim
 *>
 *> \param[out] DELTA
 *> \verbatim
-*>          DELTA is DOUBLE PRECISION array, dimension (2)
+*>          DELTA is REAL*10 array, dimension (2)
 *>         The vector DELTA contains the information necessary
 *>         to construct the eigenvectors.
 *> \endverbatim
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         The scalar in the symmetric updating formula.
 *> \endverbatim
 *>
 *> \param[out] DLAM
 *> \verbatim
-*>          DLAM is DOUBLE PRECISION
+*>          DLAM is REAL*10
 *>         The computed lambda_I, the I-th updated eigenvalue.
 *> \endverbatim
 *
@@ -112,21 +112,21 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            I
-      DOUBLE PRECISION   DLAM, RHO
+      REAL*10   DLAM, RHO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( 2 ), DELTA( 2 ), Z( 2 )
+      REAL*10   D( 2 ), DELTA( 2 ), Z( 2 )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, FOUR
+      REAL*10   ZERO, ONE, TWO, FOUR
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   FOUR = 4.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   B, C, DEL, TAU, TEMP, W
+      REAL*10   B, C, DEL, TAU, TEMP, W
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, SQRT

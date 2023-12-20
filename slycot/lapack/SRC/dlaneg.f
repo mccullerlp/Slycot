@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            N, R
-*       DOUBLE PRECISION   PIVMIN, SIGMA
+*       REAL*10   PIVMIN, SIGMA
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), LLD( * )
+*       REAL*10   D( * ), LLD( * )
 *       ..
 *
 *
@@ -65,25 +65,25 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The N diagonal elements of the diagonal matrix D.
 *> \endverbatim
 *>
 *> \param[in] LLD
 *> \verbatim
-*>          LLD is DOUBLE PRECISION array, dimension (N-1)
+*>          LLD is REAL*10 array, dimension (N-1)
 *>          The (N-1) elements L(i)*L(i)*D(i).
 *> \endverbatim
 *>
 *> \param[in] SIGMA
 *> \verbatim
-*>          SIGMA is DOUBLE PRECISION
+*>          SIGMA is REAL*10
 *>          Shift amount in T - sigma I = L D L^T.
 *> \endverbatim
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot in the Sturm sequence.  May be used
 *>          when zero pivots are encountered on non-IEEE-754
 *>          architectures.
@@ -122,16 +122,16 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            N, R
-      DOUBLE PRECISION   PIVMIN, SIGMA
+      REAL*10   PIVMIN, SIGMA
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), LLD( * )
+      REAL*10   D( * ), LLD( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER        ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     Some architectures propagate Infinities and NaNs very slowly, so
 *     the code computes counts in BLKLEN chunks.  Then a NaN can
@@ -143,7 +143,7 @@
 *     ..
 *     .. Local Scalars ..
       INTEGER            BJ, J, NEG1, NEG2, NEGCNT
-      DOUBLE PRECISION   BSAV, DMINUS, DPLUS, GAMMA, P, T, TMP
+      REAL*10   BSAV, DMINUS, DPLUS, GAMMA, P, T, TMP
       LOGICAL SAWNAN
 *     ..
 *     .. Intrinsic Functions ..

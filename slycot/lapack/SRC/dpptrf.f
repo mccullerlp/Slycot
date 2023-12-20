@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * )
+*       REAL*10   AP( * )
 *       ..
 *
 *
@@ -61,7 +61,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -126,23 +126,23 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * )
+      REAL*10   AP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, JC, JJ
-      DOUBLE PRECISION   AJJ
+      REAL*10   AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           LSAME, DDOT
 *     ..
 *     .. External Subroutines ..

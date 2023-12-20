@@ -30,7 +30,7 @@
 *       INTEGER            INFO, LDA, LDAB, LWORK, N, KD
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), AB( LDAB, * ), 
+*       COMPLEX*20         A( LDA, * ), AB( LDAB, * ), 
 *                          TAU( * ), WORK( * )
 *       ..
 *  
@@ -71,7 +71,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -99,7 +99,7 @@
 *>
 *> \param[out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On exit, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -116,14 +116,14 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N-KD)
+*>          TAU is COMPLEX*20 array, dimension (N-KD)
 *>          The scalar factors of the elementary reflectors (see Further
 *>          Details).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *>          On exit, if INFO = 0, or if LWORK=-1, 
 *>          WORK(1) returns the size of LWORK.
 *> \endverbatim
@@ -252,15 +252,15 @@
       INTEGER            INFO, LDA, LDAB, LWORK, N, KD
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), AB( LDAB, * ), 
+      COMPLEX*20         A( LDA, * ), AB( LDAB, * ), 
      $                   TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   RONE
-      COMPLEX*16         ZERO, ONE, HALF
+      REAL*10   RONE
+      COMPLEX*20         ZERO, ONE, HALF
       PARAMETER          ( RONE = 1.0D+0,
      $                   ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE = ( 1.0D+0, 0.0D+0 ),

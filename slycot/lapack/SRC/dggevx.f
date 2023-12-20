@@ -26,12 +26,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          BALANC, JOBVL, JOBVR, SENSE
 *       INTEGER            IHI, ILO, INFO, LDA, LDB, LDVL, LDVR, LWORK, N
-*       DOUBLE PRECISION   ABNRM, BBNRM
+*       REAL*10   ABNRM, BBNRM
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+*       REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
 *      $                   B( LDB, * ), BETA( * ), LSCALE( * ),
 *      $                   RCONDE( * ), RCONDV( * ), RSCALE( * ),
 *      $                   VL( LDVL, * ), VR( LDVR, * ), WORK( * )
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the matrix A in the pair (A,B).
 *>          On exit, A has been overwritten. If JOBVL='V' or JOBVR='V'
 *>          or both, then A contains the first part of the real Schur
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the matrix B in the pair (A,B).
 *>          On exit, B has been overwritten. If JOBVL='V' or JOBVR='V'
 *>          or both, then B contains the second part of the real Schur
@@ -152,17 +152,17 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
 *>          be the generalized eigenvalues.  If ALPHAI(j) is zero, then
 *>          the j-th eigenvalue is real; if positive, then the j-th and
@@ -179,7 +179,7 @@
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,N)
+*>          VL is REAL*10 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left eigenvectors u(j) are stored one
 *>          after another in the columns of VL, in the same order as
 *>          their eigenvalues. If the j-th eigenvalue is real, then
@@ -200,7 +200,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,N)
+*>          VR is REAL*10 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right eigenvectors v(j) are stored one
 *>          after another in the columns of VR, in the same order as
 *>          their eigenvalues. If the j-th eigenvalue is real, then
@@ -235,7 +235,7 @@
 *>
 *> \param[out] LSCALE
 *> \verbatim
-*>          LSCALE is DOUBLE PRECISION array, dimension (N)
+*>          LSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied
 *>          to the left side of A and B.  If PL(j) is the index of the
 *>          row interchanged with row j, and DL(j) is the scaling
@@ -249,7 +249,7 @@
 *>
 *> \param[out] RSCALE
 *> \verbatim
-*>          RSCALE is DOUBLE PRECISION array, dimension (N)
+*>          RSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied
 *>          to the right side of A and B.  If PR(j) is the index of the
 *>          column interchanged with column j, and DR(j) is the scaling
@@ -263,19 +263,19 @@
 *>
 *> \param[out] ABNRM
 *> \verbatim
-*>          ABNRM is DOUBLE PRECISION
+*>          ABNRM is REAL*10
 *>          The one-norm of the balanced matrix A.
 *> \endverbatim
 *>
 *> \param[out] BBNRM
 *> \verbatim
-*>          BBNRM is DOUBLE PRECISION
+*>          BBNRM is REAL*10
 *>          The one-norm of the balanced matrix B.
 *> \endverbatim
 *>
 *> \param[out] RCONDE
 *> \verbatim
-*>          RCONDE is DOUBLE PRECISION array, dimension (N)
+*>          RCONDE is REAL*10 array, dimension (N)
 *>          If SENSE = 'E' or 'B', the reciprocal condition numbers of
 *>          the eigenvalues, stored in consecutive elements of the array.
 *>          For a complex conjugate pair of eigenvalues two consecutive
@@ -287,7 +287,7 @@
 *>
 *> \param[out] RCONDV
 *> \verbatim
-*>          RCONDV is DOUBLE PRECISION array, dimension (N)
+*>          RCONDV is REAL*10 array, dimension (N)
 *>          If SENSE = 'V' or 'B', the estimated reciprocal condition
 *>          numbers of the eigenvectors, stored in consecutive elements
 *>          of the array. For a complex eigenvector two consecutive
@@ -300,7 +300,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -396,12 +396,12 @@
 *     .. Scalar Arguments ..
       CHARACTER          BALANC, JOBVL, JOBVR, SENSE
       INTEGER            IHI, ILO, INFO, LDA, LDB, LDVL, LDVR, LWORK, N
-      DOUBLE PRECISION   ABNRM, BBNRM
+      REAL*10   ABNRM, BBNRM
 *     ..
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+      REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
      $                   B( LDB, * ), BETA( * ), LSCALE( * ),
      $                   RCONDE( * ), RCONDV( * ), RSCALE( * ),
      $                   VL( LDVL, * ), VR( LDVR, * ), WORK( * )
@@ -410,7 +410,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -420,7 +420,7 @@
       INTEGER            I, ICOLS, IERR, IJOBVL, IJOBVR, IN, IROWS,
      $                   ITAU, IWRK, IWRK1, J, JC, JR, M, MAXWRK,
      $                   MINWRK, MM
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
      $                   SMLNUM, TEMP
 *     ..
 *     .. Local Arrays ..
@@ -434,7 +434,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            I, INFO, N
-*       DOUBLE PRECISION   DLAM, RHO
+*       REAL*10   DLAM, RHO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), DELTA( * ), Z( * )
+*       REAL*10   D( * ), DELTA( * ), Z( * )
 *       ..
 *
 *
@@ -68,20 +68,20 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         The original eigenvalues.  It is assumed that they are in
 *>         order, D(I) < D(J)  for I < J.
 *> \endverbatim
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (N)
+*>          Z is REAL*10 array, dimension (N)
 *>         The components of the updating vector.
 *> \endverbatim
 *>
 *> \param[out] DELTA
 *> \verbatim
-*>          DELTA is DOUBLE PRECISION array, dimension (N)
+*>          DELTA is REAL*10 array, dimension (N)
 *>         If N > 2, DELTA contains (D(j) - lambda_I) in its  j-th
 *>         component.  If N = 1, then DELTA(1) = 1. If N = 2, see DLAED5
 *>         for detail. The vector DELTA contains the information necessary
@@ -90,13 +90,13 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         The scalar in the symmetric updating formula.
 *> \endverbatim
 *>
 *> \param[out] DLAM
 *> \verbatim
-*>          DLAM is DOUBLE PRECISION
+*>          DLAM is REAL*10
 *>         The computed lambda_I, the I-th updated eigenvalue.
 *> \endverbatim
 *>
@@ -149,10 +149,10 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            I, INFO, N
-      DOUBLE PRECISION   DLAM, RHO
+      REAL*10   DLAM, RHO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), DELTA( * ), Z( * )
+      REAL*10   D( * ), DELTA( * ), Z( * )
 *     ..
 *
 *  =====================================================================
@@ -160,7 +160,7 @@
 *     .. Parameters ..
       INTEGER            MAXIT
       PARAMETER          ( MAXIT = 30 )
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE, FOUR, EIGHT, TEN
+      REAL*10   ZERO, ONE, TWO, THREE, FOUR, EIGHT, TEN
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   THREE = 3.0D0, FOUR = 4.0D0, EIGHT = 8.0D0,
      $                   TEN = 10.0D0 )
@@ -168,15 +168,15 @@
 *     .. Local Scalars ..
       LOGICAL            ORGATI, SWTCH, SWTCH3
       INTEGER            II, IIM1, IIP1, IP1, ITER, J, NITER
-      DOUBLE PRECISION   A, B, C, DEL, DLTLB, DLTUB, DPHI, DPSI, DW,
+      REAL*10   A, B, C, DEL, DLTLB, DLTUB, DPHI, DPSI, DW,
      $                   EPS, ERRETM, ETA, MIDPT, PHI, PREW, PSI,
      $                   RHOINV, TAU, TEMP, TEMP1, W
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   ZZ( 3 )
+      REAL*10   ZZ( 3 )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

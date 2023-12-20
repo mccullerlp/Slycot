@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            INFO, KL, KU, LDAB, N
-*       DOUBLE PRECISION   ANORM, RCOND
+*       REAL*10   ANORM, RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+*       REAL*10   AB( LDAB, * ), WORK( * )
 *       ..
 *
 *
@@ -78,7 +78,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          Details of the LU factorization of the band matrix A, as
 *>          computed by DGBTRF.  U is stored as an upper triangular band
 *>          matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
@@ -101,21 +101,21 @@
 *>
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          If NORM = '1' or 'O', the 1-norm of the original matrix A.
 *>          If NORM = 'I', the infinity-norm of the original matrix A.
 *> \endverbatim
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(norm(A) * norm(inv(A))).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -151,24 +151,24 @@
 *     .. Scalar Arguments ..
       CHARACTER          NORM
       INTEGER            INFO, KL, KU, LDAB, N
-      DOUBLE PRECISION   ANORM, RCOND
+      REAL*10   ANORM, RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+      REAL*10   AB( LDAB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LNOTI, ONENRM
       CHARACTER          NORMIN
       INTEGER            IX, J, JP, KASE, KASE1, KD, LM
-      DOUBLE PRECISION   AINVNM, SCALE, SMLNUM, T
+      REAL*10   AINVNM, SCALE, SMLNUM, T
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -176,7 +176,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DDOT, DLAMCH
+      REAL*10   DDOT, DLAMCH
       EXTERNAL           LSAME, IDAMAX, DDOT, DLAMCH
 *     ..
 *     .. External Subroutines ..

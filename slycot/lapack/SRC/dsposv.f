@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       REAL               SWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( N, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), WORK( N, * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -44,12 +44,12 @@
 *>
 *> DSPOSV first attempts to factorize the matrix in SINGLE PRECISION
 *> and use this factorization within an iterative refinement procedure
-*> to produce a solution with DOUBLE PRECISION normwise backward error
+*> to produce a solution with REAL*10 normwise backward error
 *> quality (see below). If the approach fails the method switches to a
-*> DOUBLE PRECISION factorization and solve.
+*> REAL*10 factorization and solve.
 *>
 *> The iterative refinement is not going to be a winning strategy if
-*> the ratio SINGLE PRECISION performance over DOUBLE PRECISION
+*> the ratio SINGLE PRECISION performance over REAL*10
 *> performance is too small. A reasonable strategy should take the
 *> number of right-hand sides and the size of the matrix into account.
 *> This might be done with a call to ILAENV in the future. Up to now, we
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array,
+*>          A is REAL*10 array,
 *>          dimension (LDA,N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
@@ -121,7 +121,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          The N-by-NRHS right hand side matrix B.
 *> \endverbatim
 *>
@@ -133,7 +133,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          If INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
 *>
@@ -145,7 +145,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N,NRHS)
+*>          WORK is REAL*10 array, dimension (N,NRHS)
 *>          This array is used to hold the residual vectors.
 *> \endverbatim
 *>
@@ -207,7 +207,7 @@
 *     ..
 *     .. Array Arguments ..
       REAL               SWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( N, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), WORK( N, * ),
      $                   X( LDX, * )
 *     ..
 *
@@ -220,15 +220,15 @@
       INTEGER            ITERMAX
       PARAMETER          ( ITERMAX = 30 )
 *
-      DOUBLE PRECISION   BWDMAX
+      REAL*10   BWDMAX
       PARAMETER          ( BWDMAX = 1.0E+00 )
 *
-      DOUBLE PRECISION   NEGONE, ONE
+      REAL*10   NEGONE, ONE
       PARAMETER          ( NEGONE = -1.0D+0, ONE = 1.0D+0 )
 *
 *     .. Local Scalars ..
       INTEGER            I, IITER, PTSA, PTSX
-      DOUBLE PRECISION   ANRM, CTE, EPS, RNRM, XNRM
+      REAL*10   ANRM, CTE, EPS, RNRM, XNRM
 *
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DSYMM, DLACPY, DLAT2S, DLAG2S, SLAG2D,
@@ -236,7 +236,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DLANSY
+      REAL*10   DLAMCH, DLANSY
       LOGICAL            LSAME
       EXTERNAL           IDAMAX, DLAMCH, DLANSY, LSAME
 *     ..

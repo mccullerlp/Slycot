@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_HERPVGRW( UPLO, N, INFO, A, LDA, AF,
+*       REAL*10 FUNCTION ZLA_HERPVGRW( UPLO, N, INFO, A, LDA, AF,
 *                                               LDAF, IPIV, WORK )
 *
 *       .. Scalar Arguments ..
@@ -27,8 +27,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * )
-*       DOUBLE PRECISION   WORK( * )
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * )
+*       REAL*10   WORK( * )
 *       ..
 *
 *
@@ -72,7 +72,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -84,7 +84,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>     The block diagonal matrix D and the multipliers used to
 *>     obtain the factor U or L as computed by ZHETRF.
 *> \endverbatim
@@ -104,7 +104,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *
 *  Authors:
@@ -118,7 +118,7 @@
 *> \ingroup complex16HEcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_HERPVGRW( UPLO, N, INFO, A, LDA, AF,
+      REAL*10 FUNCTION ZLA_HERPVGRW( UPLO, N, INFO, A, LDA, AF,
      $                                        LDAF, IPIV, WORK )
 *
 *  -- LAPACK computational routine --
@@ -131,17 +131,17 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * )
-      DOUBLE PRECISION   WORK( * )
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * )
+      REAL*10   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            NCOLS, I, J, K, KP
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW, TMP
+      REAL*10   AMAX, UMAX, RPVGRW, TMP
       LOGICAL            UPPER, LSAME
-      COMPLEX*16         ZDUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. External Functions ..
       EXTERNAL           LSAME
@@ -150,7 +150,7 @@
       INTRINSIC          ABS, REAL, DIMAG, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE ( ZDUM ) ) + ABS( DIMAG ( ZDUM ) )

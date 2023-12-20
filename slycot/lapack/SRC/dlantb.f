@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLANTB( NORM, UPLO, DIAG, N, K, AB,
+*       REAL*10 FUNCTION DLANTB( NORM, UPLO, DIAG, N, K, AB,
 *                        LDAB, WORK )
 *
 *       .. Scalar Arguments ..
@@ -26,7 +26,7 @@
 *       INTEGER            K, LDAB, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+*       REAL*10   AB( LDAB, * ), WORK( * )
 *       ..
 *
 *
@@ -100,7 +100,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          The upper or lower triangular band matrix A, stored in the
 *>          first k+1 rows of AB.  The j-th column of A is stored
 *>          in the j-th column of the array AB as follows:
@@ -119,7 +119,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= N when NORM = 'I'; otherwise, WORK is not
 *>          referenced.
 *> \endverbatim
@@ -135,7 +135,7 @@
 *> \ingroup doubleOTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLANTB( NORM, UPLO, DIAG, N, K, AB,
+      REAL*10 FUNCTION DLANTB( NORM, UPLO, DIAG, N, K, AB,
      $                 LDAB, WORK )
 *
 *  -- LAPACK auxiliary routine --
@@ -147,19 +147,19 @@
       INTEGER            K, LDAB, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+      REAL*10   AB( LDAB, * ), WORK( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UDIAG
       INTEGER            I, J, L
-      DOUBLE PRECISION   SCALE, SUM, VALUE
+      REAL*10   SCALE, SUM, VALUE
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASSQ

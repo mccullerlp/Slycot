@@ -24,9 +24,9 @@
 *
 *      Arguments
 *      INTEGER, INTENT( IN ) :: LDA, LDB
-*      DOUBLE PRECISION, INTENT( IN ) :: A( LDA, * ), B( LDB, * ), SR1,
+*      REAL*10, INTENT( IN ) :: A( LDA, * ), B( LDB, * ), SR1,
 *     $                  SR2, SI, BETA1, BETA2
-*      DOUBLE PRECISION, INTENT( OUT ) :: V( * )
+*      REAL*10, INTENT( OUT ) :: V( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>              The 3-by-3 matrix A in (*).
 *> \endverbatim
 *>
@@ -69,7 +69,7 @@
 *
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>              The 3-by-3 matrix B in (*).
 *> \endverbatim
 *>
@@ -82,32 +82,32 @@
 *>
 *> \param[in] SR1
 *> \verbatim
-*>          SR1 is DOUBLE PRECISION
+*>          SR1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] SR2
 *> \verbatim
-*>          SR2 is DOUBLE PRECISION
+*>          SR2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] SI
 *> \verbatim
-*>          SI is DOUBLE PRECISION
+*>          SI is REAL*10
 *> \endverbatim
 *>
 *> \param[in] BETA1
 *> \verbatim
-*>          BETA1 is DOUBLE PRECISION
+*>          BETA1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] BETA2
 *> \verbatim
-*>          BETA2 is DOUBLE PRECISION
+*>          BETA2 is REAL*10
 *> \endverbatim
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (N)
+*>          V is REAL*10 array, dimension (N)
 *>              A scalar multiple of the first column of the
 *>              matrix K in (*).
 *> \endverbatim
@@ -128,19 +128,19 @@
 *
 *     Arguments
       INTEGER, INTENT( IN ) :: LDA, LDB
-      DOUBLE PRECISION, INTENT( IN ) :: A( LDA, * ), B( LDB, * ), SR1,
+      REAL*10, INTENT( IN ) :: A( LDA, * ), B( LDB, * ), SR1,
      $                  SR2, SI, BETA1, BETA2
-      DOUBLE PRECISION, INTENT( OUT ) :: V( * )
+      REAL*10, INTENT( OUT ) :: V( * )
 *
 *     Parameters
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 *
 *     Local scalars
-      DOUBLE PRECISION :: W( 2 ), SAFMIN, SAFMAX, SCALE1, SCALE2
+      REAL*10 :: W( 2 ), SAFMIN, SAFMAX, SCALE1, SCALE2
 *
 *     External Functions
-      DOUBLE PRECISION, EXTERNAL :: DLAMCH
+      REAL*10, EXTERNAL :: DLAMCH
       LOGICAL, EXTERNAL :: DISNAN
 *
       SAFMIN = DLAMCH( 'SAFE MINIMUM' )

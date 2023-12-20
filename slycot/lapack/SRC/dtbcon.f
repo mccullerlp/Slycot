@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, NORM, UPLO
 *       INTEGER            INFO, KD, LDAB, N
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+*       REAL*10   AB( LDAB, * ), WORK( * )
 *       ..
 *
 *
@@ -87,7 +87,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          The upper or lower triangular band matrix A, stored in the
 *>          first kd+1 rows of the array. The j-th column of A is stored
 *>          in the j-th column of the array AB as follows:
@@ -105,14 +105,14 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(norm(A) * norm(inv(A))).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -148,24 +148,24 @@
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, NORM, UPLO
       INTEGER            INFO, KD, LDAB, N
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+      REAL*10   AB( LDAB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOUNIT, ONENRM, UPPER
       CHARACTER          NORMIN
       INTEGER            IX, KASE, KASE1
-      DOUBLE PRECISION   AINVNM, ANORM, SCALE, SMLNUM, XNORM
+      REAL*10   AINVNM, ANORM, SCALE, SMLNUM, XNORM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -173,7 +173,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DLANTB
+      REAL*10   DLAMCH, DLANTB
       EXTERNAL           LSAME, IDAMAX, DLAMCH, DLANTB
 *     ..
 *     .. External Subroutines ..

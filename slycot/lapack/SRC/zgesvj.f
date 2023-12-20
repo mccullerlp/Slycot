@@ -26,8 +26,8 @@
 *       CHARACTER*1        JOBA, JOBU, JOBV
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ),  V( LDV, * ), CWORK( LWORK )
-*       DOUBLE PRECISION   RWORK( LRWORK ),  SVA( N )
+*       COMPLEX*20         A( LDA, * ),  V( LDV, * ), CWORK( LWORK )
+*       REAL*10   RWORK( LRWORK ),  SVA( N )
 *       ..
 *
 *
@@ -113,7 +113,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit,
 *>          If JOBU = 'U' .OR. JOBU = 'C':
@@ -160,7 +160,7 @@
 *>
 *> \param[out] SVA
 *> \verbatim
-*>          SVA is DOUBLE PRECISION array, dimension (N)
+*>          SVA is REAL*10 array, dimension (N)
 *>          On exit,
 *>          If INFO = 0 :
 *>          depending on the value SCALE = RWORK(1), we have:
@@ -187,7 +187,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,N)
+*>          V is COMPLEX*20 array, dimension (LDV,N)
 *>          If JOBV = 'V', then V contains on exit the N-by-N matrix of
 *>                         the right singular vectors;
 *>          If JOBV = 'A', then V contains the product of the computed right
@@ -206,7 +206,7 @@
 *>
 *> \param[in,out] CWORK
 *> \verbatim
-*>          CWORK is COMPLEX*16 array, dimension (max(1,LWORK))
+*>          CWORK is COMPLEX*20 array, dimension (max(1,LWORK))
 *>          Used as workspace.
 *>          If on entry LWORK = -1, then a workspace query is assumed and
 *>          no computation is done; CWORK(1) is set to the minial (and optimal)
@@ -221,7 +221,7 @@
 *>
 *> \param[in,out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (max(6,LRWORK))
+*>          RWORK is REAL*10 array, dimension (max(6,LRWORK))
 *>          On entry,
 *>          If JOBU = 'C' :
 *>          RWORK(1) = CTOL, where CTOL defines the threshold for convergence.
@@ -359,23 +359,23 @@
       CHARACTER*1        JOBA, JOBU, JOBV
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ),  V( LDV, * ), CWORK( LWORK )
-      DOUBLE PRECISION   RWORK( LRWORK ), SVA( N )
+      COMPLEX*20         A( LDA, * ),  V( LDV, * ), CWORK( LWORK )
+      REAL*10   RWORK( LRWORK ), SVA( N )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Parameters ..
-      DOUBLE PRECISION   ZERO,         HALF,         ONE
+      REAL*10   ZERO,         HALF,         ONE
       PARAMETER  ( ZERO = 0.0D0, HALF = 0.5D0, ONE = 1.0D0)
-      COMPLEX*16      CZERO,                  CONE
+      COMPLEX*20      CZERO,                  CONE
       PARAMETER  ( CZERO = (0.0D0, 0.0D0), CONE = (1.0D0, 0.0D0) )
       INTEGER      NSWEEP
       PARAMETER  ( NSWEEP = 30 )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 AAPQ, OMPQ
-      DOUBLE PRECISION AAPP, AAPP0, AAPQ1, AAQQ, APOAQ, AQOAP, BIG,
+      COMPLEX*20 AAPQ, OMPQ
+      REAL*10 AAPP, AAPP0, AAPQ1, AAQQ, APOAQ, AQOAP, BIG,
      $       BIGTHETA, CS, CTOL, EPSLN, MXAAPQ,
      $       MXSINJ, ROOTBIG, ROOTEPS, ROOTSFMIN, ROOTTOL,
      $       SKL, SFMIN, SMALL, SN, T, TEMP1, THETA, THSIGN, TOL
@@ -392,13 +392,13 @@
 *     .. External Functions ..
 *     ..
 *     from BLAS
-      DOUBLE PRECISION   DZNRM2
-      COMPLEX*16         ZDOTC
+      REAL*10   DZNRM2
+      COMPLEX*20         ZDOTC
       EXTERNAL           ZDOTC, DZNRM2
       INTEGER            IDAMAX
       EXTERNAL           IDAMAX
 *     from LAPACK
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
       LOGICAL            LSAME
       EXTERNAL           LSAME

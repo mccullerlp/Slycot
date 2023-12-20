@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, M, N, NRHS, RANK
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A has been overwritten by details of its
 *>          complete orthogonal factorization.
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the M-by-NRHS right hand side matrix B.
 *>          On exit, the N-by-NRHS solution matrix X.
 *>          If m >= n and RANK = n, the residual sum-of-squares for
@@ -134,7 +134,7 @@
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          RCOND is used to determine the effective rank of A, which
 *>          is defined as the order of the largest leading triangular
 *>          submatrix R11 in the QR factorization with pivoting of A,
@@ -151,7 +151,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>                      (max( min(M,N)+3*N, 2*min(M,N)+NRHS )),
 *> \endverbatim
 *>
@@ -182,11 +182,11 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, M, N, NRHS, RANK
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), WORK( * )
+      REAL*10   A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
@@ -194,17 +194,17 @@
 *     .. Parameters ..
       INTEGER            IMAX, IMIN
       PARAMETER          ( IMAX = 1, IMIN = 2 )
-      DOUBLE PRECISION   ZERO, ONE, DONE, NTDONE
+      REAL*10   ZERO, ONE, DONE, NTDONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, DONE = ZERO,
      $                   NTDONE = ONE )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IASCL, IBSCL, ISMAX, ISMIN, J, K, MN
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, C1, C2, S1, S2, SMAX,
+      REAL*10   ANRM, BIGNUM, BNRM, C1, C2, S1, S2, SMAX,
      $                   SMAXPR, SMIN, SMINPR, SMLNUM, T1, T2
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           DLAMCH, DLANGE
 *     ..
 *     .. External Subroutines ..

@@ -26,7 +26,7 @@
 *       CHARACTER          COMPZ, JOB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
+*       REAL*10   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -93,7 +93,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>           On entry, the upper Hessenberg matrix H.
 *>           On exit, if INFO = 0 and JOB = 'S', then H contains the
 *>           upper quasi-triangular matrix T from the Schur decomposition
@@ -118,12 +118,12 @@
 *>
 *> \param[out] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION array, dimension (N)
+*>          WR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION array, dimension (N)
+*>          WI is REAL*10 array, dimension (N)
 *>
 *>           The real and imaginary parts, respectively, of the computed
 *>           eigenvalues. If two eigenvalues are computed as a complex
@@ -138,7 +138,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>           If COMPZ = 'N', Z is not referenced.
 *>           If COMPZ = 'I', on entry Z need not be set and on exit,
 *>           if INFO = 0, Z contains the orthogonal matrix Z of the Schur
@@ -161,7 +161,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>           On exit, if INFO = 0, WORK(1) returns an estimate of
 *>           the optimal value for LWORK.
 *> \endverbatim
@@ -323,7 +323,7 @@
       CHARACTER          COMPZ, JOB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
+      REAL*10   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
      $                   Z( LDZ, * )
 *     ..
 *
@@ -345,11 +345,11 @@
 *     .    deflation window.  ====
       INTEGER            NL
       PARAMETER          ( NL = 49 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0d0, ONE = 1.0d0 )
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   HL( NL, NL ), WORKL( NL )
+      REAL*10   HL( NL, NL ), WORKL( NL )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, KBOT, NMIN

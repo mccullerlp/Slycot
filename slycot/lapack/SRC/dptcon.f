@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, N
-*       DOUBLE PRECISION   ANORM, RCOND
+*       REAL*10   ANORM, RCOND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * )
+*       REAL*10   D( * ), E( * ), WORK( * )
 *       ..
 *
 *
@@ -55,27 +55,27 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the diagonal matrix D from the
 *>          factorization of A, as computed by DPTTRF.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The (n-1) off-diagonal elements of the unit bidiagonal factor
 *>          U or L from the factorization of A,  as computed by DPTTRF.
 *> \endverbatim
 *>
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          The 1-norm of the original matrix A.
 *> \endverbatim
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is the
 *>          1-norm of inv(A) computed in this routine.
@@ -83,7 +83,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -122,21 +122,21 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, N
-      DOUBLE PRECISION   ANORM, RCOND
+      REAL*10   ANORM, RCOND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * )
+      REAL*10   D( * ), E( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IX
-      DOUBLE PRECISION   AINVNM
+      REAL*10   AINVNM
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX

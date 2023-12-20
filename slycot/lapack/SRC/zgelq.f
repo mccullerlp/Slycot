@@ -10,7 +10,7 @@
 *       INTEGER           INFO, LDA, M, N, TSIZE, LWORK
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16       A( LDA, * ), T( * ), WORK( * )
+*       COMPLEX*20       A( LDA, * ), T( * ), WORK( * )
 *       ..
 *
 *
@@ -48,7 +48,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the elements on and below the diagonal of the array
 *>          contain the M-by-min(M,N) lower trapezoidal matrix L
@@ -65,7 +65,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (MAX(5,TSIZE))
+*>          T is COMPLEX*20 array, dimension (MAX(5,TSIZE))
 *>          On exit, if INFO = 0, T(1) returns optimal (or either minimal 
 *>          or optimal, if query is assumed) TSIZE. See TSIZE for details.
 *>          Remaining T contains part of the data structure used to represent Q.
@@ -89,7 +89,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          (workspace) COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) contains optimal (or either minimal
 *>          or optimal, if query was assumed) LWORK.
 *>          See LWORK for details.
@@ -178,7 +178,7 @@
       INTEGER            INFO, LDA, M, N, TSIZE, LWORK
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), T( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), T( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

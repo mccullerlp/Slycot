@@ -25,7 +25,7 @@
 *       INTEGER            K, LDT, LDV, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         T( LDT, * ), TAU( * ), V( LDV, * )
+*       COMPLEX*20         T( LDT, * ), TAU( * ), V( LDV, * )
 *       ..
 *
 *
@@ -88,7 +88,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension
+*>          V is COMPLEX*20 array, dimension
 *>                               (LDV,K) if STOREV = 'C'
 *>                               (LDV,N) if STOREV = 'R'
 *>          The matrix V. See further details.
@@ -103,14 +103,14 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (K)
+*>          TAU is COMPLEX*20 array, dimension (K)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i).
 *> \endverbatim
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,K)
+*>          T is COMPLEX*20 array, dimension (LDT,K)
 *>          The k by k triangular factor T of the block reflector.
 *>          If DIRECT = 'F', T is upper triangular; if DIRECT = 'B', T is
 *>          lower triangular. The rest of the array is not used.
@@ -170,13 +170,13 @@
       INTEGER            K, LDT, LDV, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         T( LDT, * ), TAU( * ), V( LDV, * )
+      COMPLEX*20         T( LDT, * ), TAU( * ), V( LDV, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

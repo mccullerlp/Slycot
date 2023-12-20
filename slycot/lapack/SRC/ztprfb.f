@@ -26,7 +26,7 @@
 *       INTEGER   K, L, LDA, LDB, LDT, LDV, LDWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16   A( LDA, * ), B( LDB, * ), T( LDT, * ),
+*       COMPLEX*20   A( LDA, * ), B( LDB, * ), T( LDT, * ),
 *      $          V( LDV, * ), WORK( LDWORK, * )
 *       ..
 *
@@ -108,7 +108,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension
+*>          V is COMPLEX*20 array, dimension
 *>                                (LDV,K) if STOREV = 'C'
 *>                                (LDV,M) if STOREV = 'R' and SIDE = 'L'
 *>                                (LDV,N) if STOREV = 'R' and SIDE = 'R'
@@ -127,7 +127,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,K)
+*>          T is COMPLEX*20 array, dimension (LDT,K)
 *>          The triangular K-by-K matrix T in the representation of the
 *>          block reflector.
 *> \endverbatim
@@ -141,7 +141,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension
+*>          A is COMPLEX*20 array, dimension
 *>          (LDA,N) if SIDE = 'L' or (LDA,K) if SIDE = 'R'
 *>          On entry, the K-by-N or M-by-K matrix A.
 *>          On exit, A is overwritten by the corresponding block of
@@ -158,7 +158,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the M-by-N matrix B.
 *>          On exit, B is overwritten by the corresponding block of
 *>          H*C or H**H*C or C*H or C*H**H.  See Further Details.
@@ -173,7 +173,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension
+*>          WORK is COMPLEX*20 array, dimension
 *>          (LDWORK,N) if SIDE = 'L',
 *>          (LDWORK,K) if SIDE = 'R'.
 *> \endverbatim
@@ -258,14 +258,14 @@
       INTEGER   K, L, LDA, LDB, LDT, LDV, LDWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16   A( LDA, * ), B( LDB, * ), T( LDT, * ),
+      COMPLEX*20   A( LDA, * ), B( LDB, * ), T( LDT, * ),
      $          V( LDV, * ), WORK( LDWORK, * )
 *     ..
 *
 *  ==========================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16   ONE, ZERO
+      COMPLEX*20   ONE, ZERO
       PARAMETER ( ONE = (1.0,0.0), ZERO = (0.0,0.0) )
 *     ..
 *     .. Local Scalars ..

@@ -24,7 +24,7 @@
 *       INTEGER           INFO, LDA, LDT, M, N, NB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16        A( LDA, * ), D( * ), T( LDT, * )
+*       COMPLEX*20        A( LDA, * ), D( * ), T( LDT, * )
 *       ..
 *
 *> \par Purpose:
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>
 *>          On entry:
 *>
@@ -101,7 +101,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array,
+*>          T is COMPLEX*20 array,
 *>          dimension (LDT, N)
 *>
 *>          Let NOCB = Number_of_output_col_blocks
@@ -126,7 +126,7 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension min(M,N).
+*>          D is COMPLEX*20 array, dimension min(M,N).
 *>          The elements can be only plus or minus one.
 *>
 *>          D(i) is constructed as D(i) = -SIGN(Q_in_i(i,i)), where
@@ -266,13 +266,13 @@
       INTEGER           INFO, LDA, LDT, M, N, NB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16        A( LDA, * ), D( * ), T( LDT, * )
+      COMPLEX*20        A( LDA, * ), D( * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                     CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

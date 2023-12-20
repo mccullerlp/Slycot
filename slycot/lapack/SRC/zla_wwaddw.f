@@ -24,7 +24,7 @@
 *       INTEGER            N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         X( * ), Y( * ), W( * )
+*       COMPLEX*20         X( * ), Y( * ), W( * )
 *       ..
 *
 *
@@ -50,19 +50,19 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>            The first part of the doubled-single accumulation vector.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (N)
+*>          Y is COMPLEX*20 array, dimension (N)
 *>            The second part of the doubled-single accumulation vector.
 *> \endverbatim
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>            The vector to be added.
 *> \endverbatim
 *
@@ -87,13 +87,13 @@
       INTEGER            N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         X( * ), Y( * ), W( * )
+      COMPLEX*20         X( * ), Y( * ), W( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      COMPLEX*16         S
+      COMPLEX*20         S
       INTEGER            I
 *     ..
 *     .. Executable Statements ..

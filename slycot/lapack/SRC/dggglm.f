@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), D( * ), WORK( * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), D( * ), WORK( * ),
 *      $                   X( * ), Y( * )
 *       ..
 *
@@ -86,7 +86,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,M)
+*>          A is REAL*10 array, dimension (LDA,M)
 *>          On entry, the N-by-M matrix A.
 *>          On exit, the upper triangular part of the array A contains
 *>          the M-by-M upper triangular matrix R.
@@ -100,7 +100,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,P)
+*>          B is REAL*10 array, dimension (LDB,P)
 *>          On entry, the N-by-P matrix B.
 *>          On exit, if N <= P, the upper triangle of the subarray
 *>          B(1:N,P-N+1:P) contains the N-by-N upper triangular matrix T;
@@ -116,26 +116,26 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, D is the left hand side of the GLM equation.
 *>          On exit, D is destroyed.
 *> \endverbatim
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (M)
+*>          X is REAL*10 array, dimension (M)
 *> \endverbatim
 *>
 *> \param[out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension (P)
+*>          Y is REAL*10 array, dimension (P)
 *>
 *>          On exit, X and Y are the solutions of the GLM problem.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -191,14 +191,14 @@
       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), D( * ), WORK( * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), D( * ), WORK( * ),
      $                   X( * ), Y( * )
 *     ..
 *
 *  ===================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

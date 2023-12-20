@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, UPLO
 *       INTEGER            KD, LDAB, N
-*       DOUBLE PRECISION   AMAX, SCOND
+*       REAL*10   AMAX, SCOND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), S( * )
+*       REAL*10   AB( LDAB, * ), S( * )
 *       ..
 *
 *
@@ -66,7 +66,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -87,19 +87,19 @@
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          The scale factors for A.
 *> \endverbatim
 *>
 *> \param[in] SCOND
 *> \verbatim
-*>          SCOND is DOUBLE PRECISION
+*>          SCOND is REAL*10
 *>          Ratio of the smallest S(i) to the largest S(i).
 *> \endverbatim
 *>
 *> \param[in] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix entry.
 *> \endverbatim
 *>
@@ -145,25 +145,25 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, UPLO
       INTEGER            KD, LDAB, N
-      DOUBLE PRECISION   AMAX, SCOND
+      REAL*10   AMAX, SCOND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), S( * )
+      REAL*10   AB( LDAB, * ), S( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, THRESH
+      REAL*10   ONE, THRESH
       PARAMETER          ( ONE = 1.0D+0, THRESH = 0.1D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   CJ, LARGE, SMALL
+      REAL*10   CJ, LARGE, SMALL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

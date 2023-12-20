@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+*       REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
 *      $                   B( LDB, * ), BETA( * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( * )
 *       ..
@@ -86,7 +86,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the matrix A in the pair (A,B).
 *>          On exit, A has been overwritten.
 *> \endverbatim
@@ -99,7 +99,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the matrix B in the pair (A,B).
 *>          On exit, B has been overwritten.
 *> \endverbatim
@@ -112,17 +112,17 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
 *>          be the generalized eigenvalues.  If ALPHAI(j) is zero, then
 *>          the j-th eigenvalue is real; if positive, then the j-th and
@@ -139,7 +139,7 @@
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,N)
+*>          VL is REAL*10 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left eigenvectors u(j) are stored one
 *>          after another in the columns of VL, in the same order as
 *>          their eigenvalues. If the j-th eigenvalue is real, then
@@ -160,7 +160,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,N)
+*>          VR is REAL*10 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right eigenvectors v(j) are stored one
 *>          after another in the columns of VR, in the same order as
 *>          their eigenvalues. If the j-th eigenvalue is real, then
@@ -181,7 +181,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -233,7 +233,7 @@
       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+      REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
      $                   B( LDB, * ), BETA( * ), VL( LDVL, * ),
      $                   VR( LDVR, * ), WORK( * )
 *     ..
@@ -241,7 +241,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -250,7 +250,7 @@
       INTEGER            ICOLS, IERR, IHI, IJOBVL, IJOBVR, ILEFT, ILO,
      $                   IN, IRIGHT, IROWS, ITAU, IWRK, JC, JR, MAXWRK,
      $                   MINWRK
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
      $                   SMLNUM, TEMP
 *     ..
 *     .. Local Arrays ..
@@ -264,7 +264,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

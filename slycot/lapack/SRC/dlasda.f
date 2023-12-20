@@ -28,7 +28,7 @@
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( LDGCOL, * ), GIVPTR( * ), IWORK( * ),
 *      $                   K( * ), PERM( LDGCOL, * )
-*       DOUBLE PRECISION   C( * ), D( * ), DIFL( LDU, * ), DIFR( LDU, * ),
+*       REAL*10   C( * ), D( * ), DIFL( LDU, * ), DIFR( LDU, * ),
 *      $                   E( * ), GIVNUM( LDU, * ), POLES( LDU, * ),
 *      $                   S( * ), U( LDU, * ), VT( LDU, * ), WORK( * ),
 *      $                   Z( LDU, * )
@@ -88,21 +88,21 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension ( N )
+*>          D is REAL*10 array, dimension ( N )
 *>         On entry D contains the main diagonal of the bidiagonal
 *>         matrix. On exit D, if INFO = 0, contains its singular values.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension ( M-1 )
+*>          E is REAL*10 array, dimension ( M-1 )
 *>         Contains the subdiagonal entries of the bidiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array,
+*>          U is REAL*10 array,
 *>         dimension ( LDU, SMLSIZ ) if ICOMPQ = 1, and not referenced
 *>         if ICOMPQ = 0. If ICOMPQ = 1, on exit, U contains the left
 *>         singular vector matrices of all subproblems at the bottom
@@ -118,7 +118,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array,
+*>          VT is REAL*10 array,
 *>         dimension ( LDU, SMLSIZ+1 ) if ICOMPQ = 1, and not referenced
 *>         if ICOMPQ = 0. If ICOMPQ = 1, on exit, VT**T contains the right
 *>         singular vector matrices of all subproblems at the bottom
@@ -135,13 +135,13 @@
 *>
 *> \param[out] DIFL
 *> \verbatim
-*>          DIFL is DOUBLE PRECISION array, dimension ( LDU, NLVL ),
+*>          DIFL is REAL*10 array, dimension ( LDU, NLVL ),
 *>         where NLVL = floor(log_2 (N/SMLSIZ))).
 *> \endverbatim
 *>
 *> \param[out] DIFR
 *> \verbatim
-*>          DIFR is DOUBLE PRECISION array,
+*>          DIFR is REAL*10 array,
 *>                  dimension ( LDU, 2 * NLVL ) if ICOMPQ = 1 and
 *>                  dimension ( N ) if ICOMPQ = 0.
 *>         If ICOMPQ = 1, on exit, DIFL(1:N, I) and DIFR(1:N, 2 * I - 1)
@@ -153,7 +153,7 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array,
+*>          Z is REAL*10 array,
 *>                  dimension ( LDU, NLVL ) if ICOMPQ = 1 and
 *>                  dimension ( N ) if ICOMPQ = 0.
 *>         The first K elements of Z(1, I) contain the components of
@@ -163,7 +163,7 @@
 *>
 *> \param[out] POLES
 *> \verbatim
-*>          POLES is DOUBLE PRECISION array,
+*>          POLES is REAL*10 array,
 *>         dimension ( LDU, 2 * NLVL ) if ICOMPQ = 1, and not referenced
 *>         if ICOMPQ = 0. If ICOMPQ = 1, on exit, POLES(1, 2*I - 1) and
 *>         POLES(1, 2*I) contain  the new and old singular values
@@ -205,7 +205,7 @@
 *>
 *> \param[out] GIVNUM
 *> \verbatim
-*>          GIVNUM is DOUBLE PRECISION array,
+*>          GIVNUM is REAL*10 array,
 *>         dimension ( LDU,  2 * NLVL ) if ICOMPQ = 1, and not
 *>         referenced if ICOMPQ = 0. If ICOMPQ = 1, on exit, for each I,
 *>         GIVNUM(1, 2 *I - 1) and GIVNUM(1, 2 *I) record the C- and S-
@@ -215,7 +215,7 @@
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array,
+*>          C is REAL*10 array,
 *>         dimension ( N ) if ICOMPQ = 1, and dimension 1 if ICOMPQ = 0.
 *>         If ICOMPQ = 1 and the I-th subproblem is not square, on exit,
 *>         C( I ) contains the C-value of a Givens rotation related to
@@ -224,7 +224,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension ( N ) if
+*>          S is REAL*10 array, dimension ( N ) if
 *>         ICOMPQ = 1, and dimension 1 if ICOMPQ = 0. If ICOMPQ = 1
 *>         and the I-th subproblem is not square, on exit, S( I )
 *>         contains the S-value of a Givens rotation related to
@@ -233,7 +233,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>         (6 * N + (SMLSIZ + 1)*(SMLSIZ + 1)).
 *> \endverbatim
 *>
@@ -281,7 +281,7 @@
 *     .. Array Arguments ..
       INTEGER            GIVCOL( LDGCOL, * ), GIVPTR( * ), IWORK( * ),
      $                   K( * ), PERM( LDGCOL, * )
-      DOUBLE PRECISION   C( * ), D( * ), DIFL( LDU, * ), DIFR( LDU, * ),
+      REAL*10   C( * ), D( * ), DIFL( LDU, * ), DIFR( LDU, * ),
      $                   E( * ), GIVNUM( LDU, * ), POLES( LDU, * ),
      $                   S( * ), U( LDU, * ), VT( LDU, * ), WORK( * ),
      $                   Z( LDU, * )
@@ -290,7 +290,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -298,7 +298,7 @@
      $                   J, LF, LL, LVL, LVL2, M, NCC, ND, NDB1, NDIML,
      $                   NDIMR, NL, NLF, NLP1, NLVL, NR, NRF, NRP1, NRU,
      $                   NWORK1, NWORK2, SMLSZP, SQREI, VF, VFI, VL, VLI
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DLASD6, DLASDQ, DLASDT, DLASET, XERBLA

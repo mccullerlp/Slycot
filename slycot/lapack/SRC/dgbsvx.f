@@ -25,11 +25,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, FACT, TRANS
 *       INTEGER            INFO, KL, KU, LDAB, LDAFB, LDB, LDX, N, NRHS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
+*       REAL*10   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
 *      $                   BERR( * ), C( * ), FERR( * ), R( * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
@@ -147,7 +147,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 *>          The j-th column of A is stored in the j-th column of the
 *>          array AB as follows:
@@ -172,7 +172,7 @@
 *>
 *> \param[in,out] AFB
 *> \verbatim
-*>          AFB is DOUBLE PRECISION array, dimension (LDAFB,N)
+*>          AFB is REAL*10 array, dimension (LDAFB,N)
 *>          If FACT = 'F', then AFB is an input argument and on entry
 *>          contains details of the LU factorization of the band matrix
 *>          A, as computed by DGBTRF.  U is stored as an upper triangular
@@ -230,7 +230,7 @@
 *>
 *> \param[in,out] R
 *> \verbatim
-*>          R is DOUBLE PRECISION array, dimension (N)
+*>          R is REAL*10 array, dimension (N)
 *>          The row scale factors for A.  If EQUED = 'R' or 'B', A is
 *>          multiplied on the left by diag(R); if EQUED = 'N' or 'C', R
 *>          is not accessed.  R is an input argument if FACT = 'F';
@@ -240,7 +240,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>          The column scale factors for A.  If EQUED = 'C' or 'B', A is
 *>          multiplied on the right by diag(C); if EQUED = 'N' or 'R', C
 *>          is not accessed.  C is an input argument if FACT = 'F';
@@ -250,7 +250,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit,
 *>          if EQUED = 'N', B is not modified;
@@ -268,7 +268,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X
 *>          to the original system of equations.  Note that A and B are
 *>          modified on exit if EQUED .ne. 'N', and the solution to the
@@ -285,7 +285,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The estimate of the reciprocal condition number of the matrix
 *>          A after equilibration (if done).  If RCOND is less than the
 *>          machine precision (in particular, if RCOND = 0), the matrix
@@ -295,7 +295,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -308,7 +308,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -316,7 +316,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *>          On exit, WORK(1) contains the reciprocal pivot growth
 *>          factor norm(A)/norm(U). The "max absolute element" norm is
 *>          used. If WORK(1) is much less than 1, then the stability
@@ -374,11 +374,11 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, FACT, TRANS
       INTEGER            INFO, KL, KU, LDAB, LDAFB, LDB, LDX, N, NRHS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
+      REAL*10   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
      $                   BERR( * ), C( * ), FERR( * ), R( * ),
      $                   WORK( * ), X( LDX, * )
 *     ..
@@ -386,19 +386,19 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            COLEQU, EQUIL, NOFACT, NOTRAN, ROWEQU
       CHARACTER          NORM
       INTEGER            I, INFEQU, J, J1, J2
-      DOUBLE PRECISION   AMAX, ANORM, BIGNUM, COLCND, RCMAX, RCMIN,
+      REAL*10   AMAX, ANORM, BIGNUM, COLCND, RCMAX, RCMIN,
      $                   ROWCND, RPVGRW, SMLNUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANGB, DLANTB
+      REAL*10   DLAMCH, DLANGB, DLANTB
       EXTERNAL           LSAME, DLAMCH, DLANGB, DLANTB
 *     ..
 *     .. External Subroutines ..

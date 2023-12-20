@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), E( * )
+*       REAL*10   A( LDA, * ), E( * )
 *       ..
 *
 *
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>
 *>          1) If WAY ='C':
 *>
@@ -132,7 +132,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>
 *>          1) If WAY ='C':
 *>
@@ -214,13 +214,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), E( * )
+      REAL*10   A( LDA, * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. External Functions ..

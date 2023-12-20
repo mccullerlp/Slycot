@@ -26,13 +26,13 @@
 *       .. Scalar Arguments ..
 *       INTEGER            CURLVL, CURPBM, CUTPNT, INFO, LDQ, N, QSIZ,
 *      $                   TLVLS
-*       DOUBLE PRECISION   RHO
+*       REAL*10   RHO
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( 2, * ), GIVPTR( * ), INDXQ( * ),
 *      $                   IWORK( * ), PERM( * ), PRMPTR( * ), QPTR( * )
-*       DOUBLE PRECISION   D( * ), GIVNUM( 2, * ), QSTORE( * ), RWORK( * )
-*       COMPLEX*16         Q( LDQ, * ), WORK( * )
+*       REAL*10   D( * ), GIVNUM( 2, * ), QSTORE( * ), RWORK( * )
+*       COMPLEX*20         Q( LDQ, * ), WORK( * )
 *       ..
 *
 *
@@ -119,14 +119,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry, the eigenvalues of the rank-1-perturbed matrix.
 *>         On exit, the eigenvalues of the repaired matrix.
 *> \endverbatim
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>         On entry, the eigenvectors of the rank-1-perturbed matrix.
 *>         On exit, the eigenvectors of the repaired tridiagonal matrix.
 *> \endverbatim
@@ -139,7 +139,7 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         Contains the subdiagonal element used to create the rank-1
 *>         modification.
 *> \endverbatim
@@ -159,18 +159,18 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array,
+*>          RWORK is REAL*10 array,
 *>                                 dimension (3*N+2*QSIZ*N)
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (QSIZ*N)
+*>          WORK is COMPLEX*20 array, dimension (QSIZ*N)
 *> \endverbatim
 *>
 *> \param[in,out] QSTORE
 *> \verbatim
-*>          QSTORE is DOUBLE PRECISION array, dimension (N**2+1)
+*>          QSTORE is REAL*10 array, dimension (N**2+1)
 *>         Stores eigenvectors of submatrices encountered during
 *>         divide and conquer, packed together. QPTR points to
 *>         beginning of the submatrices.
@@ -218,7 +218,7 @@
 *>
 *> \param[in] GIVNUM
 *> \verbatim
-*>          GIVNUM is DOUBLE PRECISION array, dimension (2, N lg N)
+*>          GIVNUM is REAL*10 array, dimension (2, N lg N)
 *>         Each number indicates the S value to be used in the
 *>         corresponding Givens rotation.
 *> \endverbatim
@@ -254,13 +254,13 @@
 *     .. Scalar Arguments ..
       INTEGER            CURLVL, CURPBM, CUTPNT, INFO, LDQ, N, QSIZ,
      $                   TLVLS
-      DOUBLE PRECISION   RHO
+      REAL*10   RHO
 *     ..
 *     .. Array Arguments ..
       INTEGER            GIVCOL( 2, * ), GIVPTR( * ), INDXQ( * ),
      $                   IWORK( * ), PERM( * ), PRMPTR( * ), QPTR( * )
-      DOUBLE PRECISION   D( * ), GIVNUM( 2, * ), QSTORE( * ), RWORK( * )
-      COMPLEX*16         Q( LDQ, * ), WORK( * )
+      REAL*10   D( * ), GIVNUM( 2, * ), QSTORE( * ), RWORK( * )
+      COMPLEX*20         Q( LDQ, * ), WORK( * )
 *     ..
 *
 *  =====================================================================

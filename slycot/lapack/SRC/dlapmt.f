@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            K( * )
-*       DOUBLE PRECISION   X( LDX, * )
+*       REAL*10   X( LDX, * )
 *       ..
 *
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,N)
+*>          X is REAL*10 array, dimension (LDX,N)
 *>          On entry, the M by N matrix X.
 *>          On exit, X contains the permuted matrix X.
 *> \endverbatim
@@ -112,14 +112,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            K( * )
-      DOUBLE PRECISION   X( LDX, * )
+      REAL*10   X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, II, IN, J
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. Executable Statements ..
 *

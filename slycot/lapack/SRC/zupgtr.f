@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDQ, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -63,21 +63,21 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          The vectors which define the elementary reflectors, as
 *>          returned by ZHPTRD.
 *> \endverbatim
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N-1)
+*>          TAU is COMPLEX*20 array, dimension (N-1)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by ZHPTRD.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          The N-by-N unitary matrix Q.
 *> \endverbatim
 *>
@@ -89,7 +89,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N-1)
+*>          WORK is COMPLEX*20 array, dimension (N-1)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -121,13 +121,13 @@
       INTEGER            INFO, LDQ, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
+      COMPLEX*20         AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..

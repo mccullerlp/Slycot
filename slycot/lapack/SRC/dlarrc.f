@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBT
 *       INTEGER            EIGCNT, INFO, LCNT, N, RCNT
-*       DOUBLE PRECISION   PIVMIN, VL, VU
+*       REAL*10   PIVMIN, VL, VU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
+*       REAL*10   D( * ), E( * )
 *       ..
 *
 *
@@ -59,33 +59,33 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>          The lower bound for the eigenvalues.
 *> \endverbatim
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>          The upper bound for the eigenvalues.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          JOBT = 'T': The N diagonal elements of the tridiagonal matrix T.
 *>          JOBT = 'L': The N diagonal elements of the diagonal matrix D.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          JOBT = 'T': The N-1 offdiagonal elements of the matrix T.
 *>          JOBT = 'L': The N-1 offdiagonal elements of the matrix L.
 *> \endverbatim
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot in the Sturm sequence for T.
 *> \endverbatim
 *>
@@ -142,22 +142,22 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBT
       INTEGER            EIGCNT, INFO, LCNT, N, RCNT
-      DOUBLE PRECISION   PIVMIN, VL, VU
+      REAL*10   PIVMIN, VL, VU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
+      REAL*10   D( * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
       LOGICAL            MATT
-      DOUBLE PRECISION   LPIVOT, RPIVOT, SL, SU, TMP, TMP2
+      REAL*10   LPIVOT, RPIVOT, SL, SU, TMP, TMP2
 
 *     ..
 *     .. External Functions ..

@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   AB( LDAB, * )
+*       REAL*10   AB( LDAB, * )
 *       ..
 *
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the matrix A in band storage, in rows KL+1 to
 *>          2*KL+KU+1; rows 1 to KL of the array need not be set.
 *>          The j-th column of A is stored in the j-th column of the
@@ -152,13 +152,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   AB( LDAB, * )
+      REAL*10   AB( LDAB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

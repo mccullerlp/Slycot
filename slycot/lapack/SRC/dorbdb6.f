@@ -26,7 +26,7 @@
 *      $                   N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
+*       REAL*10   Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
 *       ..
 *
 *
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] X1
 *> \verbatim
-*>          X1 is DOUBLE PRECISION array, dimension (M1)
+*>          X1 is REAL*10 array, dimension (M1)
 *>           On entry, the top part of the vector to be orthogonalized.
 *>           On exit, the top part of the projected vector.
 *> \endverbatim
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] X2
 *> \verbatim
-*>          X2 is DOUBLE PRECISION array, dimension (M2)
+*>          X2 is REAL*10 array, dimension (M2)
 *>           On entry, the bottom part of the vector to be
 *>           orthogonalized. On exit, the bottom part of the projected
 *>           vector.
@@ -104,7 +104,7 @@
 *>
 *> \param[in] Q1
 *> \verbatim
-*>          Q1 is DOUBLE PRECISION array, dimension (LDQ1, N)
+*>          Q1 is REAL*10 array, dimension (LDQ1, N)
 *>           The top part of the orthonormal basis matrix.
 *> \endverbatim
 *>
@@ -116,7 +116,7 @@
 *>
 *> \param[in] Q2
 *> \verbatim
-*>          Q2 is DOUBLE PRECISION array, dimension (LDQ2, N)
+*>          Q2 is REAL*10 array, dimension (LDQ2, N)
 *>           The bottom part of the orthonormal basis matrix.
 *> \endverbatim
 *>
@@ -128,7 +128,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -167,24 +167,24 @@
      $                   N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
+      REAL*10   Q1(LDQ1,*), Q2(LDQ2,*), WORK(*), X1(*), X2(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ALPHA, REALONE, REALZERO
+      REAL*10   ALPHA, REALONE, REALZERO
       PARAMETER          ( ALPHA = 0.01D0, REALONE = 1.0D0,
      $                     REALZERO = 0.0D0 )
-      DOUBLE PRECISION   NEGONE, ONE, ZERO
+      REAL*10   NEGONE, ONE, ZERO
       PARAMETER          ( NEGONE = -1.0D0, ONE = 1.0D0, ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IX
-      DOUBLE PRECISION   EPS, NORM, NORM_NEW, SCL, SSQ
+      REAL*10   EPS, NORM, NORM_NEW, SCL, SSQ
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEMV, DLASSQ, XERBLA

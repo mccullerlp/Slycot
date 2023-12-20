@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          SIDE
 *       INTEGER            INCV, LDC, M, N
-*       DOUBLE PRECISION   TAU
+*       REAL*10   TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C1( LDC, * ), C2( LDC, * ), V( * ), WORK( * )
+*       REAL*10   C1( LDC, * ), C2( LDC, * ), V( * ), WORK( * )
 *       ..
 *
 *
@@ -80,7 +80,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension
+*>          V is REAL*10 array, dimension
 *>                  (1 + (M-1)*abs(INCV)) if SIDE = 'L'
 *>                  (1 + (N-1)*abs(INCV)) if SIDE = 'R'
 *>          The vector v in the representation of P. V is not used
@@ -95,13 +95,13 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>          The value tau in the representation of P.
 *> \endverbatim
 *>
 *> \param[in,out] C1
 *> \verbatim
-*>          C1 is DOUBLE PRECISION array, dimension
+*>          C1 is REAL*10 array, dimension
 *>                         (LDC,N) if SIDE = 'L'
 *>                         (M,1)   if SIDE = 'R'
 *>          On entry, the n-vector C1 if SIDE = 'L', or the m-vector C1
@@ -113,7 +113,7 @@
 *>
 *> \param[in,out] C2
 *> \verbatim
-*>          C2 is DOUBLE PRECISION array, dimension
+*>          C2 is REAL*10 array, dimension
 *>                         (LDC, N)   if SIDE = 'L'
 *>                         (LDC, N-1) if SIDE = 'R'
 *>          On entry, the (m - 1) x n matrix C2 if SIDE = 'L', or the
@@ -131,7 +131,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>                      (N) if SIDE = 'L'
 *>                      (M) if SIDE = 'R'
 *> \endverbatim
@@ -156,16 +156,16 @@
 *     .. Scalar Arguments ..
       CHARACTER          SIDE
       INTEGER            INCV, LDC, M, N
-      DOUBLE PRECISION   TAU
+      REAL*10   TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C1( LDC, * ), C2( LDC, * ), V( * ), WORK( * )
+      REAL*10   C1( LDC, * ), C2( LDC, * ), V( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. External Subroutines ..

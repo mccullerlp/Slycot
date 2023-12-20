@@ -117,12 +117,12 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IL, IR, LLST, MAXN, NCRNT, NLVL
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DBLE, INT, LOG, MAX

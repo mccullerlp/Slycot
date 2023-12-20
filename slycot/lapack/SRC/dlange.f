@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLANGE( NORM, M, N, A, LDA, WORK )
+*       REAL*10 FUNCTION DLANGE( NORM, M, N, A, LDA, WORK )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), WORK( * )
+*       REAL*10   A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The m by n matrix A.
 *> \endverbatim
 *>
@@ -94,7 +94,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= M when NORM = 'I'; otherwise, WORK is not
 *>          referenced.
 *> \endverbatim
@@ -110,7 +110,7 @@
 *> \ingroup doubleGEauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLANGE( NORM, M, N, A, LDA, WORK )
+      REAL*10 FUNCTION DLANGE( NORM, M, N, A, LDA, WORK )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -121,18 +121,18 @@
       INTEGER            LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), WORK( * )
+      REAL*10   A( LDA, * ), WORK( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   SCALE, SUM, VALUE, TEMP
+      REAL*10   SCALE, SUM, VALUE, TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASSQ

@@ -28,8 +28,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   BERR( * ), FERR( * ), RWORK( * )
-*       COMPLEX*16         B( LDB, * ), D( * ), DF( * ), DL( * ),
+*       REAL*10   BERR( * ), FERR( * ), RWORK( * )
+*       COMPLEX*20         B( LDB, * ), D( * ), DF( * ), DL( * ),
 *      $                   DLF( * ), DU( * ), DU2( * ), DUF( * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
@@ -72,45 +72,45 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The diagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) superdiagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] DLF
 *> \verbatim
-*>          DLF is COMPLEX*16 array, dimension (N-1)
+*>          DLF is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) multipliers that define the matrix L from the
 *>          LU factorization of A as computed by ZGTTRF.
 *> \endverbatim
 *>
 *> \param[in] DF
 *> \verbatim
-*>          DF is COMPLEX*16 array, dimension (N)
+*>          DF is COMPLEX*20 array, dimension (N)
 *>          The n diagonal elements of the upper triangular matrix U from
 *>          the LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] DUF
 *> \verbatim
-*>          DUF is COMPLEX*16 array, dimension (N-1)
+*>          DUF is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) elements of the first superdiagonal of U.
 *> \endverbatim
 *>
 *> \param[in] DU2
 *> \verbatim
-*>          DU2 is COMPLEX*16 array, dimension (N-2)
+*>          DU2 is COMPLEX*20 array, dimension (N-2)
 *>          The (n-2) elements of the second superdiagonal of U.
 *> \endverbatim
 *>
@@ -125,7 +125,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          The right hand side matrix B.
 *> \endverbatim
 *>
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          On entry, the solution matrix X, as computed by ZGTTRS.
 *>          On exit, the improved solution matrix X.
 *> \endverbatim
@@ -150,7 +150,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -163,7 +163,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -171,12 +171,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -218,8 +218,8 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   BERR( * ), FERR( * ), RWORK( * )
-      COMPLEX*16         B( LDB, * ), D( * ), DF( * ), DL( * ),
+      REAL*10   BERR( * ), FERR( * ), RWORK( * )
+      COMPLEX*20         B( LDB, * ), D( * ), DF( * ), DL( * ),
      $                   DLF( * ), DU( * ), DU2( * ), DUF( * ),
      $                   WORK( * ), X( LDX, * )
 *     ..
@@ -229,19 +229,19 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
-      DOUBLE PRECISION   THREE
+      REAL*10   THREE
       PARAMETER          ( THREE = 3.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN
       CHARACTER          TRANSN, TRANST
       INTEGER            COUNT, I, J, KASE, NZ
-      DOUBLE PRECISION   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN
-      COMPLEX*16         ZDUM
+      REAL*10   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -254,11 +254,11 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

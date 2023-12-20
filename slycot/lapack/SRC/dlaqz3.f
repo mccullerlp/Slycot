@@ -28,10 +28,10 @@
 *      INTEGER, INTENT( IN ) :: N, ILO, IHI, NW, LDA, LDB, LDQ, LDZ,
 *     $    LDQC, LDZC, LWORK, REC
 *
-*      DOUBLE PRECISION, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
+*      REAL*10, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
 *     $    Q( LDQ, * ), Z( LDZ, * ), ALPHAR( * ), ALPHAI( * ), BETA( * )
 *      INTEGER, INTENT( OUT ) :: NS, ND, INFO
-*      DOUBLE PRECISION :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
+*      REAL*10 :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
 *       ..
 *
 *
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -101,7 +101,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *> \endverbatim
 *>
 *> \param[in] LDZ
@@ -145,14 +145,14 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *>          The real parts of each scalar alpha defining an eigenvalue
 *>          of GNEP.
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *>          The imaginary parts of each scalar alpha defining an
 *>          eigenvalue of GNEP.
 *>          If ALPHAI(j) is zero, then the j-th eigenvalue is real; if
@@ -162,7 +162,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>          Together, the quantities alpha = (ALPHAR(j),ALPHAI(j)) and
 *>          beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -173,7 +173,7 @@
 *>
 *> \param[in,out] QC
 *> \verbatim
-*>          QC is DOUBLE PRECISION array, dimension (LDQC, NW)
+*>          QC is REAL*10 array, dimension (LDQC, NW)
 *> \endverbatim
 *>
 *> \param[in] LDQC
@@ -183,7 +183,7 @@
 *>
 *> \param[in,out] ZC
 *> \verbatim
-*>          ZC is DOUBLE PRECISION array, dimension (LDZC, NW)
+*>          ZC is REAL*10 array, dimension (LDZC, NW)
 *> \endverbatim
 *>
 *> \param[in] LDZC
@@ -193,7 +193,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -243,26 +243,26 @@
       INTEGER, INTENT( IN ) :: N, ILO, IHI, NW, LDA, LDB, LDQ, LDZ,
      $         LDQC, LDZC, LWORK, REC
 
-      DOUBLE PRECISION, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
+      REAL*10, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
      $                  Q( LDQ, * ), Z( LDZ, * ), ALPHAR( * ),
      $                  ALPHAI( * ), BETA( * )
       INTEGER, INTENT( OUT ) :: NS, ND, INFO
-      DOUBLE PRECISION :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
+      REAL*10 :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
 
 *     Parameters
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 
 *     Local Scalars
       LOGICAL :: BULGE
       INTEGER :: JW, KWTOP, KWBOT, ISTOPM, ISTARTM, K, K2, DTGEXC_INFO,
      $           IFST, ILST, LWORKREQ, QZ_SMALL_INFO
-      DOUBLE PRECISION :: S, SMLNUM, ULP, SAFMIN, SAFMAX, C1, S1, TEMP
+      REAL*10 :: S, SMLNUM, ULP, SAFMIN, SAFMAX, C1, S1, TEMP
 
 *     External Functions
       EXTERNAL :: XERBLA, DTGEXC, DLABAD, DLAQZ0, DLACPY, DLASET,
      $            DLAQZ2, DROT, DLARTG, DLAG2, DGEMM
-      DOUBLE PRECISION, EXTERNAL :: DLAMCH
+      REAL*10, EXTERNAL :: DLAMCH
 
       INFO = 0
 

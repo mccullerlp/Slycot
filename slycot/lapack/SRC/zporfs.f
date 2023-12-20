@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   BERR( * ), FERR( * ), RWORK( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+*       REAL*10   BERR( * ), FERR( * ), RWORK( * )
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The Hermitian matrix A.  If UPLO = 'U', the leading N-by-N
 *>          upper triangular part of A contains the upper triangular part
 *>          of the matrix A, and the strictly lower triangular part of A
@@ -86,7 +86,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**H*U or A = L*L**H, as computed by ZPOTRF.
 *> \endverbatim
@@ -99,7 +99,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          The right hand side matrix B.
 *> \endverbatim
 *>
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          On entry, the solution matrix X, as computed by ZPOTRS.
 *>          On exit, the improved solution matrix X.
 *> \endverbatim
@@ -124,7 +124,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -137,7 +137,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -145,12 +145,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -190,8 +190,8 @@
       INTEGER            INFO, LDA, LDAF, LDB, LDX, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   BERR( * ), FERR( * ), RWORK( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+      REAL*10   BERR( * ), FERR( * ), RWORK( * )
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
      $                   WORK( * ), X( LDX, * )
 *     ..
 *
@@ -200,20 +200,20 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
-      DOUBLE PRECISION   THREE
+      REAL*10   THREE
       PARAMETER          ( THREE = 3.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            COUNT, I, J, K, KASE, NZ
-      DOUBLE PRECISION   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN, XK
-      COMPLEX*16         ZDUM
+      REAL*10   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN, XK
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -226,11 +226,11 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

@@ -21,11 +21,11 @@
 *       SUBROUTINE DLAQR1( N, H, LDH, SR1, SI1, SR2, SI2, V )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   SI1, SI2, SR1, SR2
+*       REAL*10   SI1, SI2, SR1, SR2
 *       INTEGER            LDH, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   H( LDH, * ), V( * )
+*       REAL*10   H( LDH, * ), V( * )
 *       ..
 *
 *
@@ -61,7 +61,7 @@
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>              The 2-by-2 or 3-by-3 matrix H in (*).
 *> \endverbatim
 *>
@@ -74,28 +74,28 @@
 *>
 *> \param[in] SR1
 *> \verbatim
-*>          SR1 is DOUBLE PRECISION
+*>          SR1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] SI1
 *> \verbatim
-*>          SI1 is DOUBLE PRECISION
+*>          SI1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] SR2
 *> \verbatim
-*>          SR2 is DOUBLE PRECISION
+*>          SR2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] SI2
 *> \verbatim
-*>          SI2 is DOUBLE PRECISION
+*>          SI2 is REAL*10
 *>              The shifts in (*).
 *> \endverbatim
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (N)
+*>          V is REAL*10 array, dimension (N)
 *>              A scalar multiple of the first column of the
 *>              matrix K in (*).
 *> \endverbatim
@@ -124,21 +124,21 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   SI1, SI2, SR1, SR2
+      REAL*10   SI1, SI2, SR1, SR2
       INTEGER            LDH, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   H( LDH, * ), V( * )
+      REAL*10   H( LDH, * ), V( * )
 *     ..
 *
 *  ================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0d0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   H21S, H31S, S
+      REAL*10   H21S, H31S, S
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS

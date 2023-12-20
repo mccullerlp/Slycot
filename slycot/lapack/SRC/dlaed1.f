@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            CUTPNT, INFO, LDQ, N
-*       DOUBLE PRECISION   RHO
+*       REAL*10   RHO
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            INDXQ( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), Q( LDQ, * ), WORK( * )
+*       REAL*10   D( * ), Q( LDQ, * ), WORK( * )
 *       ..
 *
 *
@@ -81,14 +81,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry, the eigenvalues of the rank-1-perturbed matrix.
 *>         On exit, the eigenvalues of the repaired matrix.
 *> \endverbatim
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>         On entry, the eigenvectors of the rank-1-perturbed matrix.
 *>         On exit, the eigenvectors of the repaired tridiagonal matrix.
 *> \endverbatim
@@ -111,7 +111,7 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         The subdiagonal entry used to create the rank-1 modification.
 *> \endverbatim
 *>
@@ -124,7 +124,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N + N**2)
+*>          WORK is REAL*10 array, dimension (4*N + N**2)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -167,11 +167,11 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            CUTPNT, INFO, LDQ, N
-      DOUBLE PRECISION   RHO
+      REAL*10   RHO
 *     ..
 *     .. Array Arguments ..
       INTEGER            INDXQ( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), Q( LDQ, * ), WORK( * )
+      REAL*10   D( * ), Q( LDQ, * ), WORK( * )
 *     ..
 *
 *  =====================================================================

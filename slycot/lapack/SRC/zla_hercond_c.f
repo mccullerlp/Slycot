@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_HERCOND_C( UPLO, N, A, LDA, AF,
+*       REAL*10 FUNCTION ZLA_HERCOND_C( UPLO, N, A, LDA, AF,
 *                                                LDAF, IPIV, C, CAPPLY,
 *                                                INFO, WORK, RWORK )
 *
@@ -29,8 +29,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * ), WORK( * )
-*       DOUBLE PRECISION   C ( * ), RWORK( * )
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * ), WORK( * )
+*       REAL*10   C ( * ), RWORK( * )
 *       ..
 *
 *
@@ -40,7 +40,7 @@
 *> \verbatim
 *>
 *>    ZLA_HERCOND_C computes the infinity norm condition number of
-*>    op(A) * inv(diag(C)) where C is a DOUBLE PRECISION vector.
+*>    op(A) * inv(diag(C)) where C is a REAL*10 vector.
 *> \endverbatim
 *
 *  Arguments:
@@ -62,7 +62,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A
 *> \endverbatim
 *>
@@ -74,7 +74,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>     The block diagonal matrix D and the multipliers used to
 *>     obtain the factor U or L as computed by ZHETRF.
 *> \endverbatim
@@ -94,7 +94,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The vector C in the formula op(A) * inv(diag(C)).
 *> \endverbatim
 *>
@@ -113,13 +113,13 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N).
+*>          WORK is COMPLEX*20 array, dimension (2*N).
 *>     Workspace.
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N).
+*>          RWORK is REAL*10 array, dimension (N).
 *>     Workspace.
 *> \endverbatim
 *
@@ -134,7 +134,7 @@
 *> \ingroup complex16HEcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_HERCOND_C( UPLO, N, A, LDA, AF,
+      REAL*10 FUNCTION ZLA_HERCOND_C( UPLO, N, A, LDA, AF,
      $                                         LDAF, IPIV, C, CAPPLY,
      $                                         INFO, WORK, RWORK )
 *
@@ -149,17 +149,17 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * ), WORK( * )
-      DOUBLE PRECISION   C ( * ), RWORK( * )
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * ), WORK( * )
+      REAL*10   C ( * ), RWORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            KASE, I, J
-      DOUBLE PRECISION   AINVNM, ANORM, TMP
+      REAL*10   AINVNM, ANORM, TMP
       LOGICAL            UP, UPPER
-      COMPLEX*16         ZDUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -175,7 +175,7 @@
       INTRINSIC          ABS, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

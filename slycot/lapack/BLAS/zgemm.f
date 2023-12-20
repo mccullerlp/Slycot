@@ -11,12 +11,12 @@
 *       SUBROUTINE ZGEMM(TRANSA,TRANSB,M,N,K,ALPHA,A,LDA,B,LDB,BETA,C,LDC)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ALPHA,BETA
+*       COMPLEX*20 ALPHA,BETA
 *       INTEGER K,LDA,LDB,LDC,M,N
 *       CHARACTER TRANSA,TRANSB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A(LDA,*),B(LDB,*),C(LDC,*)
+*       COMPLEX*20 A(LDA,*),B(LDB,*),C(LDC,*)
 *       ..
 *
 *
@@ -91,13 +91,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+*>          A is COMPLEX*20 array, dimension ( LDA, ka ), where ka is
 *>           k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
 *>           Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
 *>           part of the array  A  must contain the matrix  A,  otherwise
@@ -116,7 +116,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension ( LDB, kb ), where kb is
+*>          B is COMPLEX*20 array, dimension ( LDB, kb ), where kb is
 *>           n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
 *>           Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
 *>           part of the array  B  must contain the matrix  B,  otherwise
@@ -135,14 +135,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16
+*>          BETA is COMPLEX*20
 *>           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
 *>           supplied as zero then C need not be set on input.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension ( LDC, N )
+*>          C is COMPLEX*20 array, dimension ( LDC, N )
 *>           Before entry, the leading  m by n  part of the array  C must
 *>           contain the matrix  C,  except when  beta  is zero, in which
 *>           case C need not be set on entry.
@@ -190,12 +190,12 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ALPHA,BETA
+      COMPLEX*20 ALPHA,BETA
       INTEGER K,LDA,LDB,LDC,M,N
       CHARACTER TRANSA,TRANSB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),B(LDB,*),C(LDC,*)
+      COMPLEX*20 A(LDA,*),B(LDB,*),C(LDC,*)
 *     ..
 *
 *  =====================================================================
@@ -211,14 +211,14 @@
       INTRINSIC DCONJG,MAX
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      COMPLEX*20 TEMP
       INTEGER I,INFO,J,L,NROWA,NROWB
       LOGICAL CONJA,CONJB,NOTA,NOTB
 *     ..
 *     .. Parameters ..
-      COMPLEX*16 ONE
+      COMPLEX*20 ONE
       PARAMETER (ONE= (1.0D+0,0.0D+0))
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *

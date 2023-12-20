@@ -25,7 +25,7 @@
 *       INTEGER            INFO, ITYPE, LDA, LDB, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+*       REAL*10   A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 *>          n by n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -94,7 +94,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          The triangular factor from the Cholesky factorization of B,
 *>          as returned by DPOTRF.
 *> \endverbatim
@@ -134,19 +134,19 @@
       INTEGER            INFO, ITYPE, LDA, LDB, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+      REAL*10   A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, HALF
+      REAL*10   ONE, HALF
       PARAMETER          ( ONE = 1.0D0, HALF = 0.5D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            K
-      DOUBLE PRECISION   AKK, BKK, CT
+      REAL*10   AKK, BKK, CT
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DSCAL, DSYR2, DTRMV, DTRSV, XERBLA

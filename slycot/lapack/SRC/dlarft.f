@@ -25,7 +25,7 @@
 *       INTEGER            K, LDT, LDV, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   T( LDT, * ), TAU( * ), V( LDV, * )
+*       REAL*10   T( LDT, * ), TAU( * ), V( LDV, * )
 *       ..
 *
 *
@@ -88,7 +88,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension
+*>          V is REAL*10 array, dimension
 *>                               (LDV,K) if STOREV = 'C'
 *>                               (LDV,N) if STOREV = 'R'
 *>          The matrix V. See further details.
@@ -103,14 +103,14 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (K)
+*>          TAU is REAL*10 array, dimension (K)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i).
 *> \endverbatim
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,K)
+*>          T is REAL*10 array, dimension (LDT,K)
 *>          The k by k triangular factor T of the block reflector.
 *>          If DIRECT = 'F', T is upper triangular; if DIRECT = 'B', T is
 *>          lower triangular. The rest of the array is not used.
@@ -170,13 +170,13 @@
       INTEGER            K, LDT, LDV, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   T( LDT, * ), TAU( * ), V( LDV, * )
+      REAL*10   T( LDT, * ), TAU( * ), V( LDV, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

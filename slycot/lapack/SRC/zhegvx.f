@@ -25,12 +25,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, ITYPE, IU, LDA, LDB, LDZ, LWORK, M, N
-*       DOUBLE PRECISION   ABSTOL, VL, VU
+*       REAL*10   ABSTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IFAIL( * ), IWORK( * )
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * ),
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of A contains the
 *>          upper triangular part of the matrix A.  If UPLO = 'L',
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the Hermitian matrix B.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of B contains the
 *>          upper triangular part of the matrix B.  If UPLO = 'L',
@@ -131,7 +131,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -140,7 +140,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -169,7 +169,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          The absolute error tolerance for the eigenvalues.
 *>          An approximate eigenvalue is accepted as converged
 *>          when it is determined to lie in an interval [a,b]
@@ -200,14 +200,14 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements contain the selected
 *>          eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, max(1,M))
+*>          Z is COMPLEX*20 array, dimension (LDZ, max(1,M))
 *>          If JOBZ = 'N', then Z is not referenced.
 *>          If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 *>          contain the orthonormal eigenvectors of the matrix A
@@ -234,7 +234,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -253,7 +253,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (7*N)
+*>          RWORK is REAL*10 array, dimension (7*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -312,19 +312,19 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
       INTEGER            IL, INFO, ITYPE, IU, LDA, LDB, LDZ, LWORK, M, N
-      DOUBLE PRECISION   ABSTOL, VL, VU
+      REAL*10   ABSTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IFAIL( * ), IWORK( * )
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * ),
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

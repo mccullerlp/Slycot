@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDA, LDU, LDVT, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), S( * ), U( LDU, * ),
+*       REAL*10   A( LDA, * ), S( * ), U( LDU, * ),
 *      $                   VT( LDVT, * ), WORK( * )
 *       ..
 *
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit,
 *>          if JOBU = 'O',  A is overwritten with the first min(m,n)
@@ -119,13 +119,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (min(M,N))
+*>          S is REAL*10 array, dimension (min(M,N))
 *>          The singular values of A, sorted so that S(i) >= S(i+1).
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU,UCOL)
+*>          U is REAL*10 array, dimension (LDU,UCOL)
 *>          (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
 *>          If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
 *>          if JOBU = 'S', U contains the first min(m,n) columns of U
@@ -142,7 +142,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension (LDVT,N)
+*>          VT is REAL*10 array, dimension (LDVT,N)
 *>          If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
 *>          V**T;
 *>          if JOBVT = 'S', VT contains the first min(m,n) rows of
@@ -159,7 +159,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
 *>          if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
 *>          superdiagonal elements of an upper bidiagonal matrix B
@@ -218,14 +218,14 @@
       INTEGER            INFO, LDA, LDU, LDVT, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), S( * ), U( LDU, * ),
+      REAL*10   A( LDA, * ), S( * ), U( LDU, * ),
      $                   VT( LDVT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -238,10 +238,10 @@
       INTEGER            LWORK_DGEQRF, LWORK_DORGQR_N, LWORK_DORGQR_M,
      $                   LWORK_DGEBRD, LWORK_DORGBR_P, LWORK_DORGBR_Q,
      $                   LWORK_DGELQF, LWORK_DORGLQ_N, LWORK_DORGLQ_M
-      DOUBLE PRECISION   ANRM, BIGNUM, EPS, SMLNUM
+      REAL*10   ANRM, BIGNUM, EPS, SMLNUM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DBDSQR, DGEBRD, DGELQF, DGEMM, DGEQRF, DLACPY,
@@ -251,7 +251,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

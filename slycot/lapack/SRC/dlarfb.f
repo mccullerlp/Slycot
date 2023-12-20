@@ -26,7 +26,7 @@
 *       INTEGER            K, LDC, LDT, LDV, LDWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( LDC, * ), T( LDT, * ), V( LDV, * ),
+*       REAL*10   C( LDC, * ), T( LDT, * ), V( LDV, * ),
 *      $                   WORK( LDWORK, * )
 *       ..
 *
@@ -98,7 +98,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension
+*>          V is REAL*10 array, dimension
 *>                                (LDV,K) if STOREV = 'C'
 *>                                (LDV,M) if STOREV = 'R' and SIDE = 'L'
 *>                                (LDV,N) if STOREV = 'R' and SIDE = 'R'
@@ -116,7 +116,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,K)
+*>          T is REAL*10 array, dimension (LDT,K)
 *>          The triangular k by k matrix T in the representation of the
 *>          block reflector.
 *> \endverbatim
@@ -129,7 +129,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the m by n matrix C.
 *>          On exit, C is overwritten by H*C or H**T*C or C*H or C*H**T.
 *> \endverbatim
@@ -142,7 +142,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LDWORK,K)
+*>          WORK is REAL*10 array, dimension (LDWORK,K)
 *> \endverbatim
 *>
 *> \param[in] LDWORK
@@ -204,14 +204,14 @@
       INTEGER            K, LDC, LDT, LDV, LDWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( LDC, * ), T( LDT, * ), V( LDV, * ),
+      REAL*10   C( LDC, * ), T( LDT, * ), V( LDV, * ),
      $                   WORK( LDWORK, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

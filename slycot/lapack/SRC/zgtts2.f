@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
+*       COMPLEX*20         B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
 *       ..
 *
 *
@@ -67,27 +67,27 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) multipliers that define the matrix L from the
 *>          LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The n diagonal elements of the upper triangular matrix U from
 *>          the LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) elements of the first super-diagonal of U.
 *> \endverbatim
 *>
 *> \param[in] DU2
 *> \verbatim
-*>          DU2 is COMPLEX*16 array, dimension (N-2)
+*>          DU2 is COMPLEX*20 array, dimension (N-2)
 *>          The (n-2) elements of the second super-diagonal of U.
 *> \endverbatim
 *>
@@ -102,7 +102,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the matrix of right hand side vectors B.
 *>          On exit, B is overwritten by the solution vectors X.
 *> \endverbatim
@@ -135,14 +135,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
+      COMPLEX*20         B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      COMPLEX*16         TEMP
+      COMPLEX*20         TEMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DCONJG

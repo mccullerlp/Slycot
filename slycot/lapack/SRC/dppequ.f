@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, N
-*       DOUBLE PRECISION   AMAX, SCOND
+*       REAL*10   AMAX, SCOND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), S( * )
+*       REAL*10   AP( * ), S( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The upper or lower triangle of the symmetric matrix A, packed
 *>          columnwise in a linear array.  The j-th column of A is stored
 *>          in the array AP as follows:
@@ -73,13 +73,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          If INFO = 0, S contains the scale factors for A.
 *> \endverbatim
 *>
 *> \param[out] SCOND
 *> \verbatim
-*>          SCOND is DOUBLE PRECISION
+*>          SCOND is REAL*10
 *>          If INFO = 0, S contains the ratio of the smallest S(i) to
 *>          the largest S(i).  If SCOND >= 0.1 and AMAX is neither too
 *>          large nor too small, it is not worth scaling by S.
@@ -87,7 +87,7 @@
 *>
 *> \param[out] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix element.  If AMAX is very
 *>          close to overflow or very close to underflow, the matrix
 *>          should be scaled.
@@ -121,22 +121,22 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INFO, N
-      DOUBLE PRECISION   AMAX, SCOND
+      REAL*10   AMAX, SCOND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), S( * )
+      REAL*10   AP( * ), S( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, JJ
-      DOUBLE PRECISION   SMIN
+      REAL*10   SMIN
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

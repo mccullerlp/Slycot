@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDB, LDX, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), BERR( * ), D( * ), DF( * ),
+*       REAL*10   B( LDB, * ), BERR( * ), D( * ), DF( * ),
 *      $                   E( * ), EF( * ), FERR( * ), WORK( * ),
 *      $                   X( LDX, * )
 *       ..
@@ -60,33 +60,33 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the tridiagonal matrix A.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of the tridiagonal matrix A.
 *> \endverbatim
 *>
 *> \param[in] DF
 *> \verbatim
-*>          DF is DOUBLE PRECISION array, dimension (N)
+*>          DF is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the diagonal matrix D from the
 *>          factorization computed by DPTTRF.
 *> \endverbatim
 *>
 *> \param[in] EF
 *> \verbatim
-*>          EF is DOUBLE PRECISION array, dimension (N-1)
+*>          EF is REAL*10 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of the unit bidiagonal factor
 *>          L from the factorization computed by DPTTRF.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          The right hand side matrix B.
 *> \endverbatim
 *>
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          On entry, the solution matrix X, as computed by DPTTRS.
 *>          On exit, the improved solution matrix X.
 *> \endverbatim
@@ -111,7 +111,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -122,7 +122,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -130,7 +130,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -169,7 +169,7 @@
       INTEGER            INFO, LDB, LDX, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), BERR( * ), D( * ), DF( * ),
+      REAL*10   B( LDB, * ), BERR( * ), D( * ), DF( * ),
      $                   E( * ), EF( * ), FERR( * ), WORK( * ),
      $                   X( LDX, * )
 *     ..
@@ -179,18 +179,18 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
-      DOUBLE PRECISION   THREE
+      REAL*10   THREE
       PARAMETER          ( THREE = 3.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            COUNT, I, IX, J, NZ
-      DOUBLE PRECISION   BI, CX, DX, EPS, EX, LSTRES, S, SAFE1, SAFE2,
+      REAL*10   BI, CX, DX, EPS, EX, LSTRES, S, SAFE1, SAFE2,
      $                   SAFMIN
 *     ..
 *     .. External Subroutines ..
@@ -201,7 +201,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           IDAMAX, DLAMCH
 *     ..
 *     .. Executable Statements ..

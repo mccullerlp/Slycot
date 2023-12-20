@@ -26,12 +26,12 @@
 *       .. Scalar Arguments ..
 *       INTEGER            GIVPTR, ICOMPQ, INFO, K, LDGCOL, LDGNUM, NL,
 *      $                   NR, SQRE
-*       DOUBLE PRECISION   ALPHA, BETA, C, S
+*       REAL*10   ALPHA, BETA, C, S
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( LDGCOL, * ), IDXQ( * ), IWORK( * ),
 *      $                   PERM( * )
-*       DOUBLE PRECISION   D( * ), DIFL( * ), DIFR( * ),
+*       REAL*10   D( * ), DIFL( * ), DIFR( * ),
 *      $                   GIVNUM( LDGNUM, * ), POLES( LDGNUM, * ),
 *      $                   VF( * ), VL( * ), WORK( * ), Z( * )
 *       ..
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension ( NL+NR+1 ).
+*>          D is REAL*10 array, dimension ( NL+NR+1 ).
 *>         On entry D(1:NL,1:NL) contains the singular values of the
 *>         upper block, and D(NL+2:N) contains the singular values
 *>         of the lower block. On exit D(1:N) contains the singular
@@ -133,7 +133,7 @@
 *>
 *> \param[in,out] VF
 *> \verbatim
-*>          VF is DOUBLE PRECISION array, dimension ( M )
+*>          VF is REAL*10 array, dimension ( M )
 *>         On entry, VF(1:NL+1) contains the first components of all
 *>         right singular vectors of the upper block; and VF(NL+2:M)
 *>         contains the first components of all right singular vectors
@@ -143,7 +143,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension ( M )
+*>          VL is REAL*10 array, dimension ( M )
 *>         On entry, VL(1:NL+1) contains the  last components of all
 *>         right singular vectors of the upper block; and VL(NL+2:M)
 *>         contains the last components of all right singular vectors of
@@ -153,13 +153,13 @@
 *>
 *> \param[in,out] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>         Contains the diagonal element associated with the added row.
 *> \endverbatim
 *>
 *> \param[in,out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>         Contains the off-diagonal element associated with the added
 *>         row.
 *> \endverbatim
@@ -201,7 +201,7 @@
 *>
 *> \param[out] GIVNUM
 *> \verbatim
-*>          GIVNUM is DOUBLE PRECISION array, dimension ( LDGNUM, 2 )
+*>          GIVNUM is REAL*10 array, dimension ( LDGNUM, 2 )
 *>         Each number indicates the C or S value to be used in the
 *>         corresponding Givens rotation. Not referenced if ICOMPQ = 0.
 *> \endverbatim
@@ -214,7 +214,7 @@
 *>
 *> \param[out] POLES
 *> \verbatim
-*>          POLES is DOUBLE PRECISION array, dimension ( LDGNUM, 2 )
+*>          POLES is REAL*10 array, dimension ( LDGNUM, 2 )
 *>         On exit, POLES(1,*) is an array containing the new singular
 *>         values obtained from solving the secular equation, and
 *>         POLES(2,*) is an array containing the poles in the secular
@@ -223,7 +223,7 @@
 *>
 *> \param[out] DIFL
 *> \verbatim
-*>          DIFL is DOUBLE PRECISION array, dimension ( N )
+*>          DIFL is REAL*10 array, dimension ( N )
 *>         On exit, DIFL(I) is the distance between I-th updated
 *>         (undeflated) singular value and the I-th (undeflated) old
 *>         singular value.
@@ -231,7 +231,7 @@
 *>
 *> \param[out] DIFR
 *> \verbatim
-*>          DIFR is DOUBLE PRECISION array,
+*>          DIFR is REAL*10 array,
 *>                   dimension ( LDDIFR, 2 ) if ICOMPQ = 1 and
 *>                   dimension ( K ) if ICOMPQ = 0.
 *>          On exit, DIFR(I,1) = D(I) - DSIGMA(I+1), DIFR(K,1) is not
@@ -245,7 +245,7 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( M )
+*>          Z is REAL*10 array, dimension ( M )
 *>         The first elements of this array contain the components
 *>         of the deflation-adjusted updating row vector.
 *> \endverbatim
@@ -259,21 +259,21 @@
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *>         C contains garbage if SQRE =0 and the C-value of a Givens
 *>         rotation related to the right null space if SQRE = 1.
 *> \endverbatim
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION
+*>          S is REAL*10
 *>         S contains garbage if SQRE =0 and the S-value of a Givens
 *>         rotation related to the right null space if SQRE = 1.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension ( 4 * M )
+*>          WORK is REAL*10 array, dimension ( 4 * M )
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -318,12 +318,12 @@
 *     .. Scalar Arguments ..
       INTEGER            GIVPTR, ICOMPQ, INFO, K, LDGCOL, LDGNUM, NL,
      $                   NR, SQRE
-      DOUBLE PRECISION   ALPHA, BETA, C, S
+      REAL*10   ALPHA, BETA, C, S
 *     ..
 *     .. Array Arguments ..
       INTEGER            GIVCOL( LDGCOL, * ), IDXQ( * ), IWORK( * ),
      $                   PERM( * )
-      DOUBLE PRECISION   D( * ), DIFL( * ), DIFR( * ),
+      REAL*10   D( * ), DIFL( * ), DIFR( * ),
      $                   GIVNUM( LDGNUM, * ), POLES( LDGNUM, * ),
      $                   VF( * ), VL( * ), WORK( * ), Z( * )
 *     ..
@@ -331,13 +331,13 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IDX, IDXC, IDXP, ISIGMA, IVFW, IVLW, IW, M,
      $                   N, N1, N2
-      DOUBLE PRECISION   ORGNRM
+      REAL*10   ORGNRM
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DLAMRG, DLASCL, DLASD7, DLASD8, XERBLA

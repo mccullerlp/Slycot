@@ -28,9 +28,9 @@
 *      INTEGER, INTENT( IN ) :: N, ILO, IHI, LDA, LDB, LDQ, LDZ, LWORK,
 *     $    REC
 *      INTEGER, INTENT( OUT ) :: INFO
-*      COMPLEX*16, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
+*      COMPLEX*20, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
 *     $    * ), Z( LDZ, * ), ALPHA( * ), BETA( * ), WORK( * )
-*      DOUBLE PRECISION, INTENT( OUT ) :: RWORK( * )
+*      REAL*10, INTENT( OUT ) :: RWORK( * )
 *       ..
 *
 *
@@ -144,7 +144,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the N-by-N upper Hessenberg matrix A.
 *>          On exit, if JOB = 'S', A contains the upper triangular
 *>          matrix S from the generalized Schur factorization.
@@ -160,7 +160,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the N-by-N upper triangular matrix B.
 *>          On exit, if JOB = 'S', B contains the upper triangular
 *>          matrix P from the generalized Schur factorization;
@@ -176,14 +176,14 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *>          Each scalar alpha defining an eigenvalue
 *>          of GNEP.
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>          Together, the quantities alpha = ALPHA(j) and
 *>          beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -194,7 +194,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ, N)
+*>          Q is COMPLEX*20 array, dimension (LDQ, N)
 *>          On entry, if COMPQ = 'V', the unitary matrix Q1 used in
 *>          the reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPQ = 'I', the unitary matrix of left Schur
@@ -212,7 +212,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the unitary matrix Z1 used in
 *>          the reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPZ = 'I', the unitary matrix of
@@ -230,13 +230,13 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -288,21 +288,21 @@
       INTEGER, INTENT( IN ) :: N, ILO, IHI, LDA, LDB, LDQ, LDZ, LWORK,
      $         REC
       INTEGER, INTENT( OUT ) :: INFO
-      COMPLEX*16, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
+      COMPLEX*20, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
      $   * ), Z( LDZ, * ), ALPHA( * ), BETA( * ), WORK( * )
-      DOUBLE PRECISION, INTENT( OUT ) :: RWORK( * )
+      REAL*10, INTENT( OUT ) :: RWORK( * )
 
 *     Parameters
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ), CONE = ( 1.0D+0,
      $                     0.0D+0 ) )
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 
 *     Local scalars
-      DOUBLE PRECISION :: SMLNUM, ULP, SAFMIN, SAFMAX, C1, TEMPR,
+      REAL*10 :: SMLNUM, ULP, SAFMIN, SAFMAX, C1, TEMPR,
      $                    BNORM, BTOL
-      COMPLEX*16 :: ESHIFT, S1, TEMP
+      COMPLEX*20 :: ESHIFT, S1, TEMP
       INTEGER :: ISTART, ISTOP, IITER, MAXIT, ISTART2, K, LD, NSHIFTS,
      $           NBLOCK, NW, NMIN, NIBBLE, N_UNDEFLATED, N_DEFLATED,
      $           NS, SWEEP_INFO, SHIFTPOS, LWORKREQ, K2, ISTARTM,
@@ -314,7 +314,7 @@
 *     External Functions
       EXTERNAL :: XERBLA, ZHGEQZ, ZLAQZ2, ZLAQZ3, ZLASET, DLABAD,
      $            ZLARTG, ZROT
-      DOUBLE PRECISION, EXTERNAL :: DLAMCH, ZLANHS
+      REAL*10, EXTERNAL :: DLAMCH, ZLANHS
       LOGICAL, EXTERNAL :: LSAME
       INTEGER, EXTERNAL :: ILAENV
 

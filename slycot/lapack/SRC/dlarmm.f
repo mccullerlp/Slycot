@@ -3,10 +3,10 @@
 * Definition:
 * ===========
 *
-*      DOUBLE PRECISION FUNCTION DLARMM( ANORM, BNORM, CNORM )
+*      REAL*10 FUNCTION DLARMM( ANORM, BNORM, CNORM )
 *
 *     .. Scalar Arguments ..
-*      DOUBLE PRECISION   ANORM, BNORM, CNORM
+*      REAL*10   ANORM, BNORM, CNORM
 *     ..
 *
 *>  \par Purpose:
@@ -29,20 +29,20 @@
 *
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          The infinity norm of A. ANORM >= 0.
 *>          The number of rows of the matrix A.  M >= 0.
 *> \endverbatim
 *>
 *> \param[in] BNORM
 *> \verbatim
-*>          BNORM is DOUBLE PRECISION
+*>          BNORM is REAL*10
 *>          The infinity norm of B. BNORM >= 0.
 *> \endverbatim
 *>
 *> \param[in] CNORM
 *> \verbatim
-*>          CNORM is DOUBLE PRECISION
+*>          CNORM is REAL*10
 *>          The infinity norm of C. CNORM >= 0.
 *> \endverbatim
 *>
@@ -57,19 +57,19 @@
 *> \ingroup OTHERauxiliary
 *  =====================================================================
 
-      DOUBLE PRECISION FUNCTION DLARMM( ANORM, BNORM, CNORM )
+      REAL*10 FUNCTION DLARMM( ANORM, BNORM, CNORM )
       IMPLICIT NONE
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   ANORM, BNORM, CNORM
+      REAL*10   ANORM, BNORM, CNORM
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, HALF, FOUR
+      REAL*10   ONE, HALF, FOUR
       PARAMETER          ( ONE = 1.0D0, HALF = 0.5D+0, FOUR = 4.0D0 )
 *     ..
 *     .. Local Scalars ..
-       DOUBLE PRECISION   BIGNUM, SMLNUM
+       REAL*10   BIGNUM, SMLNUM
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Executable Statements ..

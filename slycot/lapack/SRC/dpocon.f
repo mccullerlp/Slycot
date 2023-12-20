@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, N
-*       DOUBLE PRECISION   ANORM, RCOND
+*       REAL*10   ANORM, RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), WORK( * )
+*       REAL*10   A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**T*U or A = L*L**T, as computed by DPOTRF.
 *> \endverbatim
@@ -76,13 +76,13 @@
 *>
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          The 1-norm (or infinity-norm) of the symmetric matrix A.
 *> \endverbatim
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
 *>          estimate of the 1-norm of inv(A) computed in this routine.
@@ -90,7 +90,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -126,24 +126,24 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INFO, LDA, N
-      DOUBLE PRECISION   ANORM, RCOND
+      REAL*10   ANORM, RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), WORK( * )
+      REAL*10   A( LDA, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       CHARACTER          NORMIN
       INTEGER            IX, KASE
-      DOUBLE PRECISION   AINVNM, SCALE, SCALEL, SCALEU, SMLNUM
+      REAL*10   AINVNM, SCALE, SCALEL, SCALEU, SMLNUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -151,7 +151,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, IDAMAX, DLAMCH
 *     ..
 *     .. External Subroutines ..

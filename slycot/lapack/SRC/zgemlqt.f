@@ -26,7 +26,7 @@
 *       INTEGER   INFO, K, LDV, LDC, M, N, MB, LDT
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
+*       REAL*10 V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -99,7 +99,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension
+*>          V is COMPLEX*20 array, dimension
 *>                               (LDV,M) if SIDE = 'L',
 *>                               (LDV,N) if SIDE = 'R'
 *>          The i-th row must contain the vector which defines the
@@ -115,7 +115,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,K)
+*>          T is COMPLEX*20 array, dimension (LDT,K)
 *>          The upper triangular factors of the block reflectors
 *>          as returned by ZGELQT, stored as a MB-by-K matrix.
 *> \endverbatim
@@ -128,7 +128,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q C, Q**H C, C Q**H or C Q.
 *> \endverbatim
@@ -141,7 +141,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array. The dimension of
+*>          WORK is COMPLEX*20 array. The dimension of
 *>          WORK is N*MB if SIDE = 'L', or  M*MB if SIDE = 'R'.
 *> \endverbatim
 *>
@@ -175,7 +175,7 @@
       INTEGER   INFO, K, LDV, LDC, M, N, MB, LDT
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
+      COMPLEX*20 V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================

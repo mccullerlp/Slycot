@@ -25,7 +25,7 @@
 *       INTEGER          I1, I2, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16       A( LDA, N )
+*       COMPLEX*20       A( LDA, N )
 *
 *
 *> \par Purpose:
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,*)
+*>          A is COMPLEX*20 array, dimension (LDA,*)
 *>          On entry, the N-by-N matrix A. On exit, the permuted matrix
 *>          where the rows I1 and I2 and columns I1 and I2 are interchanged.
 *>          If UPLO = 'U', the interchanges are applied to the upper
@@ -107,14 +107,14 @@
       INTEGER          I1, I2, LDA, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16       A( LDA, * )
+      COMPLEX*20       A( LDA, * )
 *
 *  =====================================================================
 *
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
-      COMPLEX*16         TMP
+      COMPLEX*20         TMP
 *
 *     .. External Functions ..
       LOGICAL            LSAME

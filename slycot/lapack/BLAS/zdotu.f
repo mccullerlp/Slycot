@@ -8,13 +8,13 @@
 *  Definition:
 *  ===========
 *
-*       COMPLEX*16 FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
+*       COMPLEX*20 FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 *
 *       .. Scalar Arguments ..
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*),ZY(*)
+*       COMPLEX*20 ZX(*),ZY(*)
 *       ..
 *
 *
@@ -39,7 +39,7 @@
 *>
 *> \param[in] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -50,7 +50,7 @@
 *>
 *> \param[in] ZY
 *> \verbatim
-*>          ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*>          ZY is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -79,7 +79,7 @@
 *> \endverbatim
 *>
 *  =====================================================================
-      COMPLEX*16 FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
+      COMPLEX*20 FUNCTION ZDOTU(N,ZX,INCX,ZY,INCY)
 *
 *  -- Reference BLAS level1 routine --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -89,13 +89,13 @@
       INTEGER INCX,INCY,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*),ZY(*)
+      COMPLEX*20 ZX(*),ZY(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      COMPLEX*16 ZTEMP
+      COMPLEX*20 ZTEMP
       INTEGER I,IX,IY
 *     ..
       ZTEMP = (0.0d0,0.0d0)

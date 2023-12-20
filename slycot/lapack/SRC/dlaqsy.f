@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, UPLO
 *       INTEGER            LDA, N
-*       DOUBLE PRECISION   AMAX, SCOND
+*       REAL*10   AMAX, SCOND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), S( * )
+*       REAL*10   A( LDA, * ), S( * )
 *       ..
 *
 *
@@ -59,7 +59,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 *>          n by n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -80,19 +80,19 @@
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          The scale factors for A.
 *> \endverbatim
 *>
 *> \param[in] SCOND
 *> \verbatim
-*>          SCOND is DOUBLE PRECISION
+*>          SCOND is REAL*10
 *>          Ratio of the smallest S(i) to the largest S(i).
 *> \endverbatim
 *>
 *> \param[in] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix entry.
 *> \endverbatim
 *>
@@ -138,25 +138,25 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, UPLO
       INTEGER            LDA, N
-      DOUBLE PRECISION   AMAX, SCOND
+      REAL*10   AMAX, SCOND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), S( * )
+      REAL*10   A( LDA, * ), S( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, THRESH
+      REAL*10   ONE, THRESH
       PARAMETER          ( ONE = 1.0D+0, THRESH = 0.1D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   CJ, LARGE, SMALL
+      REAL*10   CJ, LARGE, SMALL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Executable Statements ..

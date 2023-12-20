@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * )
+*       REAL*10   D( * )
 *       ..
 *
 *
@@ -59,7 +59,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the array to be sorted.
 *>          On exit, D has been sorted into increasing order
 *>          (D(1) <= ... <= D(N) ) or into decreasing order
@@ -95,7 +95,7 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * )
+      REAL*10   D( * )
 *     ..
 *
 *  =====================================================================
@@ -106,7 +106,7 @@
 *     ..
 *     .. Local Scalars ..
       INTEGER            DIR, ENDD, I, J, START, STKPNT
-      DOUBLE PRECISION   D1, D2, D3, DMNMX, TMP
+      REAL*10   D1, D2, D3, DMNMX, TMP
 *     ..
 *     .. Local Arrays ..
       INTEGER            STACK( 2, 32 )

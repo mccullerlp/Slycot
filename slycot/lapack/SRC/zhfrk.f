@@ -22,12 +22,12 @@
 *                         C )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       INTEGER            K, LDA, N
 *       CHARACTER          TRANS, TRANSR, UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), C( * )
+*       COMPLEX*20         A( LDA, * ), C( * )
 *       ..
 *
 *
@@ -110,14 +110,14 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>           On entry, ALPHA specifies the scalar alpha.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,ka)
+*>          A is COMPLEX*20 array, dimension (LDA,ka)
 *>           where KA
 *>           is K  when TRANS = 'N' or 'n', and is N otherwise. Before
 *>           entry with TRANS = 'N' or 'n', the leading N--by--K part of
@@ -138,14 +138,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>           On entry, BETA specifies the scalar beta.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          C is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>           On entry, the matrix A in RFP Format. RFP Format is
 *>           described by TRANSR, UPLO and N. Note that the imaginary
 *>           parts of the diagonal elements need not be set, they are
@@ -171,26 +171,26 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
       INTEGER            K, LDA, N
       CHARACTER          TRANS, TRANSR, UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), C( * )
+      COMPLEX*20         A( LDA, * ), C( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
-      COMPLEX*16         CZERO
+      REAL*10   ONE, ZERO
+      COMPLEX*20         CZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LOWER, NORMALTRANSR, NISODD, NOTRANS
       INTEGER            INFO, NROWA, J, NK, N1, N2
-      COMPLEX*16         CALPHA, CBETA
+      COMPLEX*20         CALPHA, CBETA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

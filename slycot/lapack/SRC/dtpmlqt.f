@@ -26,7 +26,7 @@
 *       INTEGER   INFO, K, LDV, LDA, LDB, M, N, L, MB, LDT
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   V( LDV, * ), A( LDA, * ), B( LDB, * ),
+*       REAL*10   V( LDV, * ), A( LDA, * ), B( LDB, * ),
 *      $                   T( LDT, * ), WORK( * )
 *       ..
 *
@@ -94,7 +94,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,K)
+*>          V is REAL*10 array, dimension (LDV,K)
 *>          The i-th row must contain the vector which defines the
 *>          elementary reflector H(i), for i = 1,2,...,k, as returned by
 *>          DTPLQT in B.  See Further Details.
@@ -108,7 +108,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,K)
+*>          T is REAL*10 array, dimension (LDT,K)
 *>          The upper triangular factors of the block reflectors
 *>          as returned by DTPLQT, stored as a MB-by-K matrix.
 *> \endverbatim
@@ -121,7 +121,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension
+*>          A is REAL*10 array, dimension
 *>          (LDA,N) if SIDE = 'L' or
 *>          (LDA,K) if SIDE = 'R'
 *>          On entry, the K-by-N or M-by-K matrix A.
@@ -139,7 +139,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the M-by-N matrix B.
 *>          On exit, B is overwritten by the corresponding block of
 *>          Q*C or Q**T*C or C*Q or C*Q**T.  See Further Details.
@@ -154,7 +154,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array. The dimension of WORK is
+*>          WORK is REAL*10 array. The dimension of WORK is
 *>           N*MB if SIDE = 'L', or  M*MB if SIDE = 'R'.
 *> \endverbatim
 *>
@@ -221,7 +221,7 @@
       INTEGER   INFO, K, LDV, LDA, LDB, M, N, L, MB, LDT
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   V( LDV, * ), A( LDA, * ), B( LDB, * ),
+      REAL*10   V( LDV, * ), A( LDA, * ), B( LDB, * ),
      $                   T( LDT, * ), WORK( * )
 *     ..
 *

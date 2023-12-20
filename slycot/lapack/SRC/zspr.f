@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INCX, N
-*       COMPLEX*16         ALPHA
+*       COMPLEX*20         ALPHA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( * ), X( * )
+*       COMPLEX*20         AP( * ), X( * )
 *       ..
 *
 *
@@ -72,14 +72,14 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry, ALPHA specifies the scalar alpha.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( N - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the N-
 *>           element vector x.
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension at least
+*>          AP is COMPLEX*20 array, dimension at least
 *>           ( ( N*( N + 1 ) )/2 ).
 *>           Before entry, with  UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular part of the symmetric matrix
@@ -137,21 +137,21 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INCX, N
-      COMPLEX*16         ALPHA
+      COMPLEX*20         ALPHA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( * ), X( * )
+      COMPLEX*20         AP( * ), X( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, INFO, IX, J, JX, K, KK, KX
-      COMPLEX*16         TEMP
+      COMPLEX*20         TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

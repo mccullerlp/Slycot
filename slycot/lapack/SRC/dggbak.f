@@ -26,7 +26,7 @@
 *       INTEGER            IHI, ILO, INFO, LDV, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   LSCALE( * ), RSCALE( * ), V( LDV, * )
+*       REAL*10   LSCALE( * ), RSCALE( * ), V( LDV, * )
 *       ..
 *
 *
@@ -83,14 +83,14 @@
 *>
 *> \param[in] LSCALE
 *> \verbatim
-*>          LSCALE is DOUBLE PRECISION array, dimension (N)
+*>          LSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and/or scaling factors applied
 *>          to the left side of A and B, as returned by DGGBAL.
 *> \endverbatim
 *>
 *> \param[in] RSCALE
 *> \verbatim
-*>          RSCALE is DOUBLE PRECISION array, dimension (N)
+*>          RSCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and/or scaling factors applied
 *>          to the right side of A and B, as returned by DGGBAL.
 *> \endverbatim
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,M)
+*>          V is REAL*10 array, dimension (LDV,M)
 *>          On entry, the matrix of right or left eigenvectors to be
 *>          transformed, as returned by DTGEVC.
 *>          On exit, V is overwritten by the transformed eigenvectors.
@@ -154,7 +154,7 @@
       INTEGER            IHI, ILO, INFO, LDV, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   LSCALE( * ), RSCALE( * ), V( LDV, * )
+      REAL*10   LSCALE( * ), RSCALE( * ), V( LDV, * )
 *     ..
 *
 *  =====================================================================

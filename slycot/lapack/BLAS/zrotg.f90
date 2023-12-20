@@ -52,7 +52,7 @@
 !>
 !> \param[out] C
 !> \verbatim
-!>          C is DOUBLE PRECISION
+!>          C is REAL*10
 !>          The scalar c.
 !> \endverbatim
 !>

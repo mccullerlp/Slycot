@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   PHI(*), THETA(*)
-*       COMPLEX*16         PHANTOM(*), TAUP1(*), TAUP2(*), TAUQ1(*),
+*       REAL*10   PHI(*), THETA(*)
+*       COMPLEX*20         PHANTOM(*), TAUP1(*), TAUP2(*), TAUQ1(*),
 *      $                   WORK(*), X11(LDX11,*), X21(LDX21,*)
 *       ..
 *
@@ -83,7 +83,7 @@
 *>
 *> \param[in,out] X11
 *> \verbatim
-*>          X11 is COMPLEX*16 array, dimension (LDX11,Q)
+*>          X11 is COMPLEX*20 array, dimension (LDX11,Q)
 *>           On entry, the top block of the matrix X to be reduced. On
 *>           exit, the columns of tril(X11) specify reflectors for P1 and
 *>           the rows of triu(X11,1) specify reflectors for Q1.
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] X21
 *> \verbatim
-*>          X21 is COMPLEX*16 array, dimension (LDX21,Q)
+*>          X21 is COMPLEX*20 array, dimension (LDX21,Q)
 *>           On entry, the bottom block of the matrix X to be reduced. On
 *>           exit, the columns of tril(X21) specify reflectors for P2.
 *> \endverbatim
@@ -110,42 +110,42 @@
 *>
 *> \param[out] THETA
 *> \verbatim
-*>          THETA is DOUBLE PRECISION array, dimension (Q)
+*>          THETA is REAL*10 array, dimension (Q)
 *>           The entries of the bidiagonal blocks B11, B21 are defined by
 *>           THETA and PHI. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] PHI
 *> \verbatim
-*>          PHI is DOUBLE PRECISION array, dimension (Q-1)
+*>          PHI is REAL*10 array, dimension (Q-1)
 *>           The entries of the bidiagonal blocks B11, B21 are defined by
 *>           THETA and PHI. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] TAUP1
 *> \verbatim
-*>          TAUP1 is COMPLEX*16 array, dimension (M-Q)
+*>          TAUP1 is COMPLEX*20 array, dimension (M-Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           P1.
 *> \endverbatim
 *>
 *> \param[out] TAUP2
 *> \verbatim
-*>          TAUP2 is COMPLEX*16 array, dimension (M-Q)
+*>          TAUP2 is COMPLEX*20 array, dimension (M-Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           P2.
 *> \endverbatim
 *>
 *> \param[out] TAUQ1
 *> \verbatim
-*>          TAUQ1 is COMPLEX*16 array, dimension (Q)
+*>          TAUQ1 is COMPLEX*20 array, dimension (Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           Q1.
 *> \endverbatim
 *>
 *> \param[out] PHANTOM
 *> \verbatim
-*>          PHANTOM is COMPLEX*16 array, dimension (M)
+*>          PHANTOM is COMPLEX*20 array, dimension (M)
 *>           The routine computes an M-by-1 column vector Y that is
 *>           orthogonal to the columns of [ X11; X21 ]. PHANTOM(1:P) and
 *>           PHANTOM(P+1:M) contain Householder vectors for Y(1:P) and
@@ -154,7 +154,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -219,20 +219,20 @@
       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   PHI(*), THETA(*)
-      COMPLEX*16         PHANTOM(*), TAUP1(*), TAUP2(*), TAUQ1(*),
+      REAL*10   PHI(*), THETA(*)
+      COMPLEX*20         PHANTOM(*), TAUP1(*), TAUP2(*), TAUQ1(*),
      $                   WORK(*), X11(LDX11,*), X21(LDX21,*)
 *     ..
 *
 *  ====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         NEGONE, ONE, ZERO
+      COMPLEX*20         NEGONE, ONE, ZERO
       PARAMETER          ( NEGONE = (-1.0D0,0.0D0), ONE = (1.0D0,0.0D0),
      $                     ZERO = (0.0D0,0.0D0) )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   C, S
+      REAL*10   C, S
       INTEGER            CHILDINFO, I, ILARF, IORBDB5, J, LLARF,
      $                   LORBDB5, LWORKMIN, LWORKOPT
       LOGICAL            LQUERY
@@ -242,7 +242,7 @@
      $                   XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DZNRM2
+      REAL*10   DZNRM2
       EXTERNAL           DZNRM2
 *     ..
 *     .. Intrinsic Function ..

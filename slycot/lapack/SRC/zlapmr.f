@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            K( * )
-*       COMPLEX*16         X( LDX, * )
+*       COMPLEX*20         X( LDX, * )
 *       ..
 *
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,N)
+*>          X is COMPLEX*20 array, dimension (LDX,N)
 *>          On entry, the M by N matrix X.
 *>          On exit, X contains the permuted matrix X.
 *> \endverbatim
@@ -112,14 +112,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            K( * )
-      COMPLEX*16         X( LDX, * )
+      COMPLEX*20         X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IN, J, JJ
-      COMPLEX*16         TEMP
+      COMPLEX*20         TEMP
 *     ..
 *     .. Executable Statements ..
 *

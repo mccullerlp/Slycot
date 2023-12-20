@@ -11,7 +11,7 @@
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit,
 *>          A is overwritten by details of its QR or LQ
@@ -94,7 +94,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the matrix B of right hand side vectors, stored
 *>          columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
 *>          if TRANS = 'C'.
@@ -118,7 +118,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          (workspace) COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) contains optimal (or either minimal
 *>          or optimal, if query was assumed) LWORK.
 *>          See LWORK for details.
@@ -169,16 +169,16 @@
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CZERO
+      COMPLEX*20         CZERO
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
@@ -186,12 +186,12 @@
       INTEGER            I, IASCL, IBSCL, J, MAXMN, BROW,
      $                   SCLLEN, TSZO, TSZM, LWO, LWM, LW1, LW2,
      $                   WSIZEO, WSIZEM, INFO2
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, SMLNUM, DUM( 1 )
-      COMPLEX*16         TQ( 5 ), WORKQ( 1 )
+      REAL*10   ANRM, BIGNUM, BNRM, SMLNUM, DUM( 1 )
+      COMPLEX*20         TQ( 5 ), WORKQ( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, DLABAD, DLAMCH, ZLANGE
 *     ..
 *     .. External Subroutines ..

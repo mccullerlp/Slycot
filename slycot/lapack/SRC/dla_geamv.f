@@ -22,11 +22,11 @@
 *                             Y, INCY )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       INTEGER            INCX, INCY, LDA, M, N, TRANS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), X( * ), Y( * )
+*       REAL*10   A( LDA, * ), X( * ), Y( * )
 *       ..
 *
 *
@@ -87,14 +87,14 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>           On entry, ALPHA specifies the scalar alpha.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( LDA, n )
+*>          A is REAL*10 array, dimension ( LDA, n )
 *>           Before entry, the leading m by n part of the array A must
 *>           contain the matrix of coefficients.
 *>           Unchanged on exit.
@@ -111,7 +111,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension
+*>          X is REAL*10 array, dimension
 *>           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
 *>           and at least
 *>           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
@@ -130,7 +130,7 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>           On entry, BETA specifies the scalar beta. When BETA is
 *>           supplied as zero then Y need not be set on input.
 *>           Unchanged on exit.
@@ -138,7 +138,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array,
+*>          Y is REAL*10 array,
 *>           dimension at least
 *>           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
 *>           and at least
@@ -177,27 +177,27 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
       INTEGER            INCX, INCY, LDA, M, N, TRANS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), X( * ), Y( * )
+      REAL*10   A( LDA, * ), X( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            SYMB_ZERO
-      DOUBLE PRECISION   TEMP, SAFE1
+      REAL*10   TEMP, SAFE1
       INTEGER            I, INFO, IY, J, JX, KX, KY, LENX, LENY
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, DLAMCH
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
 *     ..
 *     .. External Functions ..
       EXTERNAL           ILATRANS

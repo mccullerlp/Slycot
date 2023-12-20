@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDV, LWORK, M, MV, N, NSWEEP
-*       DOUBLE PRECISION   EPS, SFMIN, TOL
+*       REAL*10   EPS, SFMIN, TOL
 *       CHARACTER*1        JOBV
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), SVA( N ), D( N ), V( LDV, * ),
+*       REAL*10   A( LDA, * ), SVA( N ), D( N ), V( LDV, * ),
 *      $                   WORK( LWORK )
 *       ..
 *
@@ -75,7 +75,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, M-by-N matrix A, such that A*diag(D) represents
 *>          the input matrix.
 *>          On exit,
@@ -94,7 +94,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The array D accumulates the scaling factors from the fast scaled
 *>          Jacobi rotations.
 *>          On entry, A*diag(D) represents the input matrix.
@@ -107,7 +107,7 @@
 *>
 *> \param[in,out] SVA
 *> \verbatim
-*>          SVA is DOUBLE PRECISION array, dimension (N)
+*>          SVA is REAL*10 array, dimension (N)
 *>          On entry, SVA contains the Euclidean norms of the columns of
 *>          the matrix A*diag(D).
 *>          On exit, SVA contains the Euclidean norms of the columns of
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,N)
+*>          V is REAL*10 array, dimension (LDV,N)
 *>          If JOBV = 'V' then N rows of V are post-multipled by a
 *>                           sequence of Jacobi rotations.
 *>          If JOBV = 'A' then MV rows of V are post-multipled by a
@@ -142,19 +142,19 @@
 *>
 *> \param[in] EPS
 *> \verbatim
-*>          EPS is DOUBLE PRECISION
+*>          EPS is REAL*10
 *>          EPS = DLAMCH('Epsilon')
 *> \endverbatim
 *>
 *> \param[in] SFMIN
 *> \verbatim
-*>          SFMIN is DOUBLE PRECISION
+*>          SFMIN is REAL*10
 *>          SFMIN = DLAMCH('Safe Minimum')
 *> \endverbatim
 *>
 *> \param[in] TOL
 *> \verbatim
-*>          TOL is DOUBLE PRECISION
+*>          TOL is REAL*10
 *>          TOL is the threshold for Jacobi rotations. For a pair
 *>          A(:,p), A(:,q) of pivot columns, the Jacobi rotation is
 *>          applied only if DABS(COS(angle(A(:,p),A(:,q)))) > TOL.
@@ -169,7 +169,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -222,22 +222,22 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDV, LWORK, M, MV, N, NSWEEP
-      DOUBLE PRECISION   EPS, SFMIN, TOL
+      REAL*10   EPS, SFMIN, TOL
       CHARACTER*1        JOBV
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), SVA( N ), D( N ), V( LDV, * ),
+      REAL*10   A( LDA, * ), SVA( N ), D( N ), V( LDV, * ),
      $                   WORK( LWORK )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE
+      REAL*10   ZERO, HALF, ONE
       PARAMETER          ( ZERO = 0.0D0, HALF = 0.5D0, ONE = 1.0D0)
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AAPP, AAPP0, AAPQ, AAQQ, APOAQ, AQOAP, BIG,
+      REAL*10   AAPP, AAPP0, AAPQ, AAQQ, APOAQ, AQOAP, BIG,
      $                   BIGTHETA, CS, MXAAPQ, MXSINJ, ROOTBIG, ROOTEPS,
      $                   ROOTSFMIN, ROOTTOL, SMALL, SN, T, TEMP1, THETA,
      $                   THSIGN
@@ -247,13 +247,13 @@
       LOGICAL            APPLV, ROTOK, RSVEC
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   FASTR( 5 )
+      REAL*10   FASTR( 5 )
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DABS, MAX, DBLE, MIN, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DDOT, DNRM2
+      REAL*10   DDOT, DNRM2
       INTEGER            IDAMAX
       LOGICAL            LSAME
       EXTERNAL           IDAMAX, LSAME, DDOT, DNRM2

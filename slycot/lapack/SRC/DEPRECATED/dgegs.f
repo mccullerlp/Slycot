@@ -27,7 +27,7 @@
 *       INTEGER            INFO, LDA, LDB, LDVSL, LDVSR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+*       REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
 *      $                   B( LDB, * ), BETA( * ), VSL( LDVSL, * ),
 *      $                   VSR( LDVSR, * ), WORK( * )
 *       ..
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the matrix A.
 *>          On exit, the upper quasi-triangular matrix S from the
 *>          generalized real Schur factorization.
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the matrix B.
 *>          On exit, the upper triangular matrix T from the generalized
 *>          real Schur factorization.
@@ -112,14 +112,14 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *>          The real parts of each scalar alpha defining an eigenvalue
 *>          of GNEP.
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *>          The imaginary parts of each scalar alpha defining an
 *>          eigenvalue of GNEP.  If ALPHAI(j) is zero, then the j-th
 *>          eigenvalue is real; if positive, then the j-th and (j+1)-st
@@ -129,7 +129,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>          Together, the quantities alpha = (ALPHAR(j),ALPHAI(j)) and
 *>          beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -140,7 +140,7 @@
 *>
 *> \param[out] VSL
 *> \verbatim
-*>          VSL is DOUBLE PRECISION array, dimension (LDVSL,N)
+*>          VSL is REAL*10 array, dimension (LDVSL,N)
 *>          If JOBVSL = 'V', the matrix of left Schur vectors Q.
 *>          Not referenced if JOBVSL = 'N'.
 *> \endverbatim
@@ -154,7 +154,7 @@
 *>
 *> \param[out] VSR
 *> \verbatim
-*>          VSR is DOUBLE PRECISION array, dimension (LDVSR,N)
+*>          VSR is REAL*10 array, dimension (LDVSR,N)
 *>          If JOBVSR = 'V', the matrix of right Schur vectors Z.
 *>          Not referenced if JOBVSR = 'N'.
 *> \endverbatim
@@ -168,7 +168,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -234,7 +234,7 @@
       INTEGER            INFO, LDA, LDB, LDVSL, LDVSR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+      REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
      $                   B( LDB, * ), BETA( * ), VSL( LDVSL, * ),
      $                   VSR( LDVSR, * ), WORK( * )
 *     ..
@@ -242,7 +242,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -250,7 +250,7 @@
       INTEGER            ICOLS, IHI, IINFO, IJOBVL, IJOBVR, ILEFT, ILO,
      $                   IRIGHT, IROWS, ITAU, IWORK, LOPT, LWKMIN,
      $                   LWKOPT, NB, NB1, NB2, NB3
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
      $                   SAFMIN, SMLNUM
 *     ..
 *     .. External Subroutines ..
@@ -260,7 +260,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

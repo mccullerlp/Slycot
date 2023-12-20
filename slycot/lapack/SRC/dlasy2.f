@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            LTRANL, LTRANR
 *       INTEGER            INFO, ISGN, LDB, LDTL, LDTR, LDX, N1, N2
-*       DOUBLE PRECISION   SCALE, XNORM
+*       REAL*10   SCALE, XNORM
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), TL( LDTL, * ), TR( LDTR, * ),
+*       REAL*10   B( LDB, * ), TL( LDTL, * ), TR( LDTR, * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -87,7 +87,7 @@
 *>
 *> \param[in] TL
 *> \verbatim
-*>          TL is DOUBLE PRECISION array, dimension (LDTL,2)
+*>          TL is REAL*10 array, dimension (LDTL,2)
 *>          On entry, TL contains an N1 by N1 matrix.
 *> \endverbatim
 *>
@@ -99,7 +99,7 @@
 *>
 *> \param[in] TR
 *> \verbatim
-*>          TR is DOUBLE PRECISION array, dimension (LDTR,2)
+*>          TR is REAL*10 array, dimension (LDTR,2)
 *>          On entry, TR contains an N2 by N2 matrix.
 *> \endverbatim
 *>
@@ -111,7 +111,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,2)
+*>          B is REAL*10 array, dimension (LDB,2)
 *>          On entry, the N1 by N2 matrix B contains the right-hand
 *>          side of the equation.
 *> \endverbatim
@@ -124,14 +124,14 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          On exit, SCALE contains the scale factor. SCALE is chosen
 *>          less than or equal to 1 to prevent the solution overflowing.
 *> \endverbatim
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,2)
+*>          X is REAL*10 array, dimension (LDX,2)
 *>          On exit, X contains the N1 by N2 solution.
 *> \endverbatim
 *>
@@ -143,7 +143,7 @@
 *>
 *> \param[out] XNORM
 *> \verbatim
-*>          XNORM is DOUBLE PRECISION
+*>          XNORM is REAL*10
 *>          On exit, XNORM is the infinity-norm of the solution.
 *> \endverbatim
 *>
@@ -179,36 +179,36 @@
 *     .. Scalar Arguments ..
       LOGICAL            LTRANL, LTRANR
       INTEGER            INFO, ISGN, LDB, LDTL, LDTR, LDX, N1, N2
-      DOUBLE PRECISION   SCALE, XNORM
+      REAL*10   SCALE, XNORM
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), TL( LDTL, * ), TR( LDTR, * ),
+      REAL*10   B( LDB, * ), TL( LDTL, * ), TR( LDTR, * ),
      $                   X( LDX, * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWO, HALF, EIGHT
+      REAL*10   TWO, HALF, EIGHT
       PARAMETER          ( TWO = 2.0D+0, HALF = 0.5D+0, EIGHT = 8.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            BSWAP, XSWAP
       INTEGER            I, IP, IPIV, IPSV, J, JP, JPSV, K
-      DOUBLE PRECISION   BET, EPS, GAM, L21, SGN, SMIN, SMLNUM, TAU1,
+      REAL*10   BET, EPS, GAM, L21, SGN, SMIN, SMLNUM, TAU1,
      $                   TEMP, U11, U12, U22, XMAX
 *     ..
 *     .. Local Arrays ..
       LOGICAL            BSWPIV( 4 ), XSWPIV( 4 )
       INTEGER            JPIV( 4 ), LOCL21( 4 ), LOCU12( 4 ),
      $                   LOCU22( 4 )
-      DOUBLE PRECISION   BTMP( 4 ), T16( 4, 4 ), TMP( 4 ), X2( 2 )
+      REAL*10   BTMP( 4 ), T16( 4, 4 ), TMP( 4 ), X2( 2 )
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           IDAMAX, DLAMCH
 *     ..
 *     .. External Subroutines ..

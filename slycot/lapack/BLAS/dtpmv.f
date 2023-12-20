@@ -15,7 +15,7 @@
 *       CHARACTER DIAG,TRANS,UPLO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION AP(*),X(*)
+*       REAL*10 AP(*),X(*)
 *       ..
 *
 *
@@ -80,7 +80,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension at least
+*>          AP is REAL*10 array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with  UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular matrix packed sequentially,
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension at least
+*>          X is REAL*10 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x. On exit, X is overwritten with the
@@ -149,17 +149,17 @@
       CHARACTER DIAG,TRANS,UPLO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION AP(*),X(*)
+      REAL*10 AP(*),X(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION ZERO
+      REAL*10 ZERO
       PARAMETER (ZERO=0.0D+0)
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION TEMP
+      REAL*10 TEMP
       INTEGER I,INFO,IX,J,JX,K,KK,KX
       LOGICAL NOUNIT
 *     ..

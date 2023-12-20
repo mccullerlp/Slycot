@@ -13,10 +13,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INCV, LDC, N
-*       DOUBLE PRECISION   TAU
+*       REAL*10   TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( LDC, * ), V( * ), WORK( * )
+*       REAL*10   C( LDC, * ), V( * ), WORK( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension
+*>          V is REAL*10 array, dimension
 *>                  (1 + (N-1)*abs(INCV))
 *>          The vector v as described above.
 *> \endverbatim
@@ -71,13 +71,13 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>          The value tau as described above.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC, N)
+*>          C is REAL*10 array, dimension (LDC, N)
 *>          On entry, the matrix C.
 *>          On exit, C is overwritten by H * C * H'.
 *> \endverbatim
@@ -90,7 +90,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *
 *  Authors:
@@ -113,26 +113,26 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INCV, LDC, N
-      DOUBLE PRECISION   TAU
+      REAL*10   TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( LDC, * ), V( * ), WORK( * )
+      REAL*10   C( LDC, * ), V( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO, HALF
+      REAL*10   ONE, ZERO, HALF
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0, HALF = 0.5D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   ALPHA
+      REAL*10   ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DSYMV, DSYR2
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           DDOT
 *     ..
 *     .. Executable Statements ..

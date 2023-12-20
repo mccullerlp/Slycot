@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IPIV2( * )
-*       COMPLEX*16         A( LDA, * ), TB( * ), B( LDB, *), WORK( * )
+*       COMPLEX*20         A( LDA, * ), TB( * ), B( LDB, *), WORK( * )
 *       ..
 *
 *
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the hermitian matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -100,7 +100,7 @@
 *>
 *> \param[out] TB
 *> \verbatim
-*>          TB is COMPLEX*16 array, dimension (LTB)
+*>          TB is COMPLEX*20 array, dimension (LTB)
 *>          On exit, details of the LU factorization of the band matrix.
 *> \endverbatim
 *>
@@ -134,7 +134,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -147,7 +147,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 workspace of size LWORK
+*>          WORK is COMPLEX*20 workspace of size LWORK
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -197,12 +197,12 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IPIV2( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), TB( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), TB( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                     ONE  = ( 1.0D+0, 0.0D+0 ) )
 *

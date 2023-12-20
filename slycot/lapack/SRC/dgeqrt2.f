@@ -24,7 +24,7 @@
 *       INTEGER   INFO, LDA, LDT, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), T( LDT, * )
+*       REAL*10   A( LDA, * ), T( LDT, * )
 *       ..
 *
 *
@@ -54,7 +54,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the real M-by-N matrix A.  On exit, the elements on and
 *>          above the diagonal contain the N-by-N upper triangular matrix R; the
 *>          elements below the diagonal are the columns of V.  See below for
@@ -69,7 +69,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          The N-by-N upper triangular factor of the block reflector.
 *>          The elements on and above the diagonal contain the block
 *>          reflector T; the elements below the diagonal are not used.
@@ -133,18 +133,18 @@
       INTEGER   INFO, LDA, LDT, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), T( LDT, * )
+      REAL*10   A( LDA, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION  ONE, ZERO
+      REAL*10  ONE, ZERO
       PARAMETER( ONE = 1.0D+00, ZERO = 0.0D+00 )
 *     ..
 *     .. Local Scalars ..
       INTEGER   I, K
-      DOUBLE PRECISION   AII, ALPHA
+      REAL*10   AII, ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL  DLARFG, DGEMV, DGER, DTRMV, XERBLA

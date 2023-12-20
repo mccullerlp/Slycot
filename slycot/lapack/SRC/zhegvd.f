@@ -27,8 +27,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -85,7 +85,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of A contains the
 *>          upper triangular part of the matrix A.  If UPLO = 'L',
@@ -110,7 +110,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the Hermitian matrix B.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of B contains the
 *>          upper triangular part of the matrix B.  If UPLO = 'L',
@@ -130,13 +130,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -157,7 +157,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK))
+*>          RWORK is REAL*10 array, dimension (MAX(1,LRWORK))
 *>          On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
 *> \endverbatim
 *>
@@ -257,14 +257,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

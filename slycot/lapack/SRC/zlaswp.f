@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -49,7 +49,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the matrix of column dimension N to which the row
 *>          interchanges will be applied.
 *>          On exit, the permuted matrix.
@@ -122,14 +122,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, I1, I2, INC, IP, IX, IX0, J, K, N32
-      COMPLEX*16         TEMP
+      COMPLEX*20         TEMP
 *     ..
 *     .. Executable Statements ..
 *

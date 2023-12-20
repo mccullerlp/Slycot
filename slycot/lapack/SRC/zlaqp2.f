@@ -26,8 +26,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   VN1( * ), VN2( * )
-*       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   VN1( * ), VN2( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the upper triangle of block A(OFFSET+1:M,1:N) is
 *>          the triangular factor obtained; the elements in block
@@ -93,25 +93,25 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (min(M,N))
+*>          TAU is COMPLEX*20 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[in,out] VN1
 *> \verbatim
-*>          VN1 is DOUBLE PRECISION array, dimension (N)
+*>          VN1 is REAL*10 array, dimension (N)
 *>          The vector with the partial column norms.
 *> \endverbatim
 *>
 *> \param[in,out] VN2
 *> \verbatim
-*>          VN2 is DOUBLE PRECISION array, dimension (N)
+*>          VN2 is REAL*10 array, dimension (N)
 *>          The vector with the exact column norms.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *
 *  Authors:
@@ -156,22 +156,22 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   VN1( * ), VN2( * )
-      COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   VN1( * ), VN2( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
-      COMPLEX*16         CONE
+      REAL*10   ZERO, ONE
+      COMPLEX*20         CONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0,
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ITEMP, J, MN, OFFPI, PVT
-      DOUBLE PRECISION   TEMP, TEMP2, TOL3Z
-      COMPLEX*16         AII
+      REAL*10   TEMP, TEMP2, TOL3Z
+      COMPLEX*20         AII
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZLARF, ZLARFG, ZSWAP
@@ -181,7 +181,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DZNRM2
+      REAL*10   DLAMCH, DZNRM2
       EXTERNAL           IDAMAX, DLAMCH, DZNRM2
 *     ..
 *     .. Executable Statements ..

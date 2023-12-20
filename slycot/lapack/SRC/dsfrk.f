@@ -22,12 +22,12 @@
 *                         C )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       INTEGER            K, LDA, N
 *       CHARACTER          TRANS, TRANSR, UPLO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), C( * )
+*       REAL*10   A( LDA, * ), C( * )
 *       ..
 *
 *
@@ -110,14 +110,14 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>           On entry, ALPHA specifies the scalar alpha.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,ka)
+*>          A is REAL*10 array, dimension (LDA,ka)
 *>           where KA
 *>           is K  when TRANS = 'N' or 'n', and is N otherwise. Before
 *>           entry with TRANS = 'N' or 'n', the leading N--by--K part of
@@ -138,14 +138,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>           On entry, BETA specifies the scalar beta.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (NT)
+*>          C is REAL*10 array, dimension (NT)
 *>           NT = N*(N+1)/2. On entry, the symmetric matrix C in RFP
 *>           Format. RFP Format is described by TRANSR, UPLO and N.
 *> \endverbatim
@@ -169,19 +169,19 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
       INTEGER            K, LDA, N
       CHARACTER          TRANS, TRANSR, UPLO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), C( * )
+      REAL*10   A( LDA, * ), C( * )
 *     ..
 *
 *  =====================================================================
 *
 *     ..
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

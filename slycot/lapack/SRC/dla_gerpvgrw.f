@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_GERPVGRW( N, NCOLS, A, LDA, AF,
+*       REAL*10 FUNCTION DLA_GERPVGRW( N, NCOLS, A, LDA, AF,
 *                                               LDAF )
 *
 *       .. Scalar Arguments ..
 *       INTEGER            N, NCOLS, LDA, LDAF
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * )
+*       REAL*10   A( LDA, * ), AF( LDAF, * )
 *       ..
 *
 *
@@ -61,7 +61,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -73,7 +73,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>     The factors L and U from the factorization
 *>     A = P*L*U as computed by DGETRF.
 *> \endverbatim
@@ -95,7 +95,7 @@
 *> \ingroup doubleGEcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_GERPVGRW( N, NCOLS, A, LDA, AF,
+      REAL*10 FUNCTION DLA_GERPVGRW( N, NCOLS, A, LDA, AF,
      $         LDAF )
 *
 *  -- LAPACK computational routine --
@@ -106,14 +106,14 @@
       INTEGER            N, NCOLS, LDA, LDAF
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * )
+      REAL*10   A( LDA, * ), AF( LDAF, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW
+      REAL*10   AMAX, UMAX, RPVGRW
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN

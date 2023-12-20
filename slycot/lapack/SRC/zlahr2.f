@@ -24,7 +24,7 @@
 *       INTEGER            K, LDA, LDT, LDY, N, NB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16        A( LDA, * ), T( LDT, NB ), TAU( NB ),
+*       COMPLEX*20        A( LDA, * ), T( LDT, NB ), TAU( NB ),
 *      $                   Y( LDY, NB )
 *       ..
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N-K+1)
+*>          A is COMPLEX*20 array, dimension (LDA,N-K+1)
 *>          On entry, the n-by-(n-k+1) general matrix A.
 *>          On exit, the elements on and above the k-th subdiagonal in
 *>          the first NB columns are overwritten with the corresponding
@@ -86,14 +86,14 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (NB)
+*>          TAU is COMPLEX*20 array, dimension (NB)
 *>          The scalar factors of the elementary reflectors. See Further
 *>          Details.
 *> \endverbatim
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,NB)
+*>          T is COMPLEX*20 array, dimension (LDT,NB)
 *>          The upper triangular matrix T.
 *> \endverbatim
 *>
@@ -105,7 +105,7 @@
 *>
 *> \param[out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (LDY,NB)
+*>          Y is COMPLEX*20 array, dimension (LDY,NB)
 *>          The n-by-nb matrix Y.
 *> \endverbatim
 *>
@@ -187,20 +187,20 @@
       INTEGER            K, LDA, LDT, LDY, N, NB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16        A( LDA, * ), T( LDT, NB ), TAU( NB ),
+      COMPLEX*20        A( LDA, * ), T( LDT, NB ), TAU( NB ),
      $                   Y( LDY, NB )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16        ZERO, ONE
+      COMPLEX*20        ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                     ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      COMPLEX*16        EI
+      COMPLEX*20        EI
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZAXPY, ZCOPY, ZGEMM, ZGEMV, ZLACPY,

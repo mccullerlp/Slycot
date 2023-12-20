@@ -27,8 +27,8 @@
 *     INTEGER     INFO, LDA, LDU, LDV, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-*     COMPLEX*16     A( LDA, * ),  U( LDU, * ), V( LDV, * ), CWORK( LWORK )
-*     DOUBLE PRECISION   SVA( N ), RWORK( LRWORK )
+*     COMPLEX*20     A( LDA, * ),  U( LDU, * ), V( LDV, * ), CWORK( LWORK )
+*     REAL*10   SVA( N ), RWORK( LRWORK )
 *     INTEGER     IWORK( * )
 *     CHARACTER*1 JOBA, JOBP, JOBR, JOBT, JOBU, JOBV
 *       ..
@@ -195,7 +195,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *> \endverbatim
 *>
@@ -207,7 +207,7 @@
 *>
 *> \param[out] SVA
 *> \verbatim
-*>          SVA is DOUBLE PRECISION array, dimension (N)
+*>          SVA is REAL*10 array, dimension (N)
 *>          On exit,
 *>          - For WORK(1)/WORK(2) = ONE: The singular values of A. During the
 *>            computation SVA contains Euclidean column norms of the
@@ -223,7 +223,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension ( LDU, N )
+*>          U is COMPLEX*20 array, dimension ( LDU, N )
 *>          If JOBU = 'U', then U contains on exit the M-by-N matrix of
 *>                         the left singular vectors.
 *>          If JOBU = 'F', then U contains on exit the M-by-M matrix of
@@ -248,7 +248,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension ( LDV, N )
+*>          V is COMPLEX*20 array, dimension ( LDV, N )
 *>          If JOBV = 'V', 'J' then V contains on exit the N-by-N matrix of
 *>                         the right singular vectors;
 *>          If JOBV = 'W', AND (JOBU = 'U' AND JOBT = 'T' AND M = N),
@@ -270,7 +270,7 @@
 *>
 *> \param[out] CWORK
 *> \verbatim
-*>          CWORK is COMPLEX*16 array, dimension (MAX(2,LWORK))
+*>          CWORK is COMPLEX*20 array, dimension (MAX(2,LWORK))
 *>          If the call to ZGEJSV is a workspace query (indicated by LWORK=-1 or
 *>          LRWORK=-1), then on exit CWORK(1) contains the required length of
 *>          CWORK for the job parameters used in the call.
@@ -349,7 +349,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (MAX(7,LWORK))
+*>          RWORK is REAL*10 array, dimension (MAX(7,LWORK))
 *>          On exit,
 *>          RWORK(1) = Determines the scaling factor SCALE = RWORK(2) / RWORK(1)
 *>                    such that SCALE*SVA(1:N) are the computed singular values
@@ -576,9 +576,9 @@
       INTEGER     INFO, LDA, LDU, LDV, LWORK, LRWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16       A( LDA, * ), U( LDU, * ), V( LDV, * ),
+      COMPLEX*20       A( LDA, * ), U( LDU, * ), V( LDV, * ),
      $                 CWORK( LWORK )
-      DOUBLE PRECISION SVA( N ), RWORK( LRWORK )
+      REAL*10 SVA( N ), RWORK( LRWORK )
       INTEGER          IWORK( * )
       CHARACTER*1      JOBA, JOBP, JOBR, JOBT, JOBU, JOBV
 *     ..
@@ -586,14 +586,14 @@
 *  ===========================================================================
 *
 *     .. Local Parameters ..
-      DOUBLE PRECISION ZERO, ONE
+      REAL*10 ZERO, ONE
       PARAMETER ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16 CZERO, CONE
+      COMPLEX*20 CZERO, CONE
       PARAMETER ( CZERO = ( 0.0D0, 0.0D0 ), CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16       CTEMP
-      DOUBLE PRECISION AAPP,    AAQQ,   AATMAX, AATMIN, BIG,    BIG1,
+      COMPLEX*20       CTEMP
+      REAL*10 AAPP,    AAQQ,   AATMAX, AATMIN, BIG,    BIG1,
      $                 COND_OK, CONDR1, CONDR2, ENTRA,  ENTRAT, EPSLN,
      $                 MAXPRJ,  SCALEM, SCONDA, SFMIN,  SMALL,  TEMP1,
      $                 USCAL1,  USCAL2, XSC
@@ -610,14 +610,14 @@
      $        LWRK_ZUNMQR, LWRK_ZUNMQRM    
 *     ..
 *     .. Local Arrays
-      COMPLEX*16         CDUMMY(1)
-      DOUBLE PRECISION   RDUMMY(1)
+      COMPLEX*20         CDUMMY(1)
+      REAL*10   RDUMMY(1)
 *
 *     .. Intrinsic Functions ..
       INTRINSIC ABS, DCMPLX, CONJG, DLOG, MAX, MIN, DBLE, NINT, SQRT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION      DLAMCH, DZNRM2
+      REAL*10      DLAMCH, DZNRM2
       INTEGER   IDAMAX, IZAMAX
       LOGICAL   LSAME
       EXTERNAL  IDAMAX, IZAMAX, LSAME, DLAMCH, DZNRM2

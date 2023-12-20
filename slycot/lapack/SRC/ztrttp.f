@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N, LDA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), AP( * )
+*       COMPLEX*20         A( LDA, * ), AP( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the triangular matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -74,7 +74,7 @@
 *>
 *> \param[out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension ( N*(N+1)/2 ),
+*>          AP is COMPLEX*20 array, dimension ( N*(N+1)/2 ),
 *>          On exit, the upper or lower triangular matrix A, packed
 *>          columnwise in a linear array. The j-th column of A is stored
 *>          in the array AP as follows:
@@ -111,7 +111,7 @@
       INTEGER            INFO, N, LDA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), AP( * )
+      COMPLEX*20         A( LDA, * ), AP( * )
 *     ..
 *
 *  =====================================================================

@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         AP( * ), B( LDB, * )
+*       COMPLEX*20         AP( * ), B( LDB, * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          The block diagonal matrix D and the multipliers used to
 *>          obtain the factor U or L as computed by ZSPTRF, stored as a
 *>          packed triangular matrix.
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -123,19 +123,19 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         AP( * ), B( LDB, * )
+      COMPLEX*20         AP( * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, K, KC, KP
-      COMPLEX*16         AK, AKM1, AKM1K, BK, BKM1, DENOM
+      COMPLEX*20         AK, AKM1, AKM1K, BK, BKM1, DENOM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

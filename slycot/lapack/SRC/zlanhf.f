@@ -18,15 +18,15 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLANHF( NORM, TRANSR, UPLO, N, A, WORK )
+*       REAL*10 FUNCTION ZLANHF( NORM, TRANSR, UPLO, N, A, WORK )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM, TRANSR, UPLO
 *       INTEGER            N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   WORK( 0: * )
-*       COMPLEX*16         A( 0: * )
+*       REAL*10   WORK( 0: * )
+*       COMPLEX*20         A( 0: * )
 *       ..
 *
 *
@@ -98,7 +98,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( N*(N+1)/2 );
+*>          A is COMPLEX*20 array, dimension ( N*(N+1)/2 );
 *>            On entry, the matrix A in RFP Format.
 *>            RFP Format is described by TRANSR, UPLO and N as follows:
 *>            If TRANSR='N' then RFP A is (0:N,0:K-1) when N is even;
@@ -118,7 +118,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK),
+*>          WORK is REAL*10 array, dimension (LWORK),
 *>            where LWORK >= N when NORM = 'I' or '1' or 'O'; otherwise,
 *>            WORK is not referenced.
 *> \endverbatim
@@ -242,7 +242,7 @@
 *> \endverbatim
 *>
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLANHF( NORM, TRANSR, UPLO, N, A, WORK )
+      REAL*10 FUNCTION ZLANHF( NORM, TRANSR, UPLO, N, A, WORK )
 *
 *  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -253,19 +253,19 @@
       INTEGER            N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   WORK( 0: * )
-      COMPLEX*16         A( 0: * )
+      REAL*10   WORK( 0: * )
+      COMPLEX*20         A( 0: * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J, IFM, ILU, NOE, N1, K, L, LDA
-      DOUBLE PRECISION   SCALE, S, VALUE, AA, TEMP
+      REAL*10   SCALE, S, VALUE, AA, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN

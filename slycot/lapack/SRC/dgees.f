@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), VS( LDVS, * ), WI( * ), WORK( * ),
+*       REAL*10   A( LDA, * ), VS( LDVS, * ), WI( * ), WORK( * ),
 *      $                   WR( * )
 *       ..
 *       .. Function Arguments ..
@@ -80,7 +80,7 @@
 *>
 *> \param[in] SELECT
 *> \verbatim
-*>          SELECT is a LOGICAL FUNCTION of two DOUBLE PRECISION arguments
+*>          SELECT is a LOGICAL FUNCTION of two REAL*10 arguments
 *>          SELECT must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'S', SELECT is used to select eigenvalues to sort
 *>          to the top left of the Schur form.
@@ -104,7 +104,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the N-by-N matrix A.
 *>          On exit, A has been overwritten by its real Schur form T.
 *> \endverbatim
@@ -127,12 +127,12 @@
 *>
 *> \param[out] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION array, dimension (N)
+*>          WR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION array, dimension (N)
+*>          WI is REAL*10 array, dimension (N)
 *>          WR and WI contain the real and imaginary parts,
 *>          respectively, of the computed eigenvalues in the same order
 *>          that they appear on the diagonal of the output Schur form T.
@@ -143,7 +143,7 @@
 *>
 *> \param[out] VS
 *> \verbatim
-*>          VS is DOUBLE PRECISION array, dimension (LDVS,N)
+*>          VS is REAL*10 array, dimension (LDVS,N)
 *>          If JOBVS = 'V', VS contains the orthogonal matrix Z of Schur
 *>          vectors.
 *>          If JOBVS = 'N', VS is not referenced.
@@ -158,7 +158,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) contains the optimal LWORK.
 *> \endverbatim
 *>
@@ -224,7 +224,7 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), VS( LDVS, * ), WI( * ), WORK( * ),
+      REAL*10   A( LDA, * ), VS( LDVS, * ), WI( * ), WORK( * ),
      $                   WR( * )
 *     ..
 *     .. Function Arguments ..
@@ -235,7 +235,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -243,11 +243,11 @@
      $                   WANTVS
       INTEGER            HSWORK, I, I1, I2, IBAL, ICOND, IERR, IEVAL,
      $                   IHI, ILO, INXT, IP, ITAU, IWRK, MAXWRK, MINWRK
-      DOUBLE PRECISION   ANRM, BIGNUM, CSCALE, EPS, S, SEP, SMLNUM
+      REAL*10   ANRM, BIGNUM, CSCALE, EPS, S, SEP, SMLNUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            IDUM( 1 )
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DGEBAK, DGEBAL, DGEHRD, DHSEQR, DLACPY,
@@ -256,7 +256,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED
 *       INTEGER            LDA, M, N
-*       DOUBLE PRECISION   AMAX, COLCND, ROWCND
+*       REAL*10   AMAX, COLCND, ROWCND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * ), R( * )
-*       COMPLEX*16         A( LDA, * )
+*       REAL*10   C( * ), R( * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -58,7 +58,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M by N matrix A.
 *>          On exit, the equilibrated matrix.  See EQUED for the form of
 *>          the equilibrated matrix.
@@ -72,31 +72,31 @@
 *>
 *> \param[in] R
 *> \verbatim
-*>          R is DOUBLE PRECISION array, dimension (M)
+*>          R is REAL*10 array, dimension (M)
 *>          The row scale factors for A.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>          The column scale factors for A.
 *> \endverbatim
 *>
 *> \param[in] ROWCND
 *> \verbatim
-*>          ROWCND is DOUBLE PRECISION
+*>          ROWCND is REAL*10
 *>          Ratio of the smallest R(i) to the largest R(i).
 *> \endverbatim
 *>
 *> \param[in] COLCND
 *> \verbatim
-*>          COLCND is DOUBLE PRECISION
+*>          COLCND is REAL*10
 *>          Ratio of the smallest C(i) to the largest C(i).
 *> \endverbatim
 *>
 *> \param[in] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix entry.
 *> \endverbatim
 *>
@@ -148,25 +148,25 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED
       INTEGER            LDA, M, N
-      DOUBLE PRECISION   AMAX, COLCND, ROWCND
+      REAL*10   AMAX, COLCND, ROWCND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * ), R( * )
-      COMPLEX*16         A( LDA, * )
+      REAL*10   C( * ), R( * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, THRESH
+      REAL*10   ONE, THRESH
       PARAMETER          ( ONE = 1.0D+0, THRESH = 0.1D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   CJ, LARGE, SMALL
+      REAL*10   CJ, LARGE, SMALL
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Executable Statements ..

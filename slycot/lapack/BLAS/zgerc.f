@@ -11,11 +11,11 @@
 *       SUBROUTINE ZGERC(M,N,ALPHA,X,INCX,Y,INCY,A,LDA)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ALPHA
+*       COMPLEX*20 ALPHA
 *       INTEGER INCX,INCY,LDA,M,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A(LDA,*),X(*),Y(*)
+*       COMPLEX*20 A(LDA,*),X(*),Y(*)
 *       ..
 *
 *
@@ -51,13 +51,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( m - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the m
 *>           element vector x.
@@ -72,7 +72,7 @@
 *>
 *> \param[in] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension at least
+*>          Y is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array Y must contain the n
 *>           element vector y.
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, N )
+*>          A is COMPLEX*20 array, dimension ( LDA, N )
 *>           Before entry, the leading m by n part of the array A must
 *>           contain the matrix of coefficients. On exit, A is
 *>           overwritten by the updated matrix.
@@ -133,21 +133,21 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ALPHA
+      COMPLEX*20 ALPHA
       INTEGER INCX,INCY,LDA,M,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),X(*),Y(*)
+      COMPLEX*20 A(LDA,*),X(*),Y(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      COMPLEX*20 TEMP
       INTEGER I,INFO,IX,J,JY,KX
 *     ..
 *     .. External Subroutines ..

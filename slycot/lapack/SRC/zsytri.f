@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the block diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by ZSYTRF.
 *>
@@ -87,7 +87,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -122,24 +122,24 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            K, KP, KSTEP
-      COMPLEX*16         AK, AKKP1, AKP1, D, T, TEMP
+      COMPLEX*20         AK, AKKP1, AKP1, D, T, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      COMPLEX*16         ZDOTU
+      COMPLEX*20         ZDOTU
       EXTERNAL           LSAME, ZDOTU
 *     ..
 *     .. External Subroutines ..

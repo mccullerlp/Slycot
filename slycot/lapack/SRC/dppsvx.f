@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, FACT, UPLO
 *       INTEGER            INFO, LDB, LDX, N, NRHS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
+*       REAL*10   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
 *      $                   FERR( * ), S( * ), WORK( * ), X( LDX, * )
 *       ..
 *
@@ -130,7 +130,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          A, packed columnwise in a linear array, except if FACT = 'F'
 *>          and EQUED = 'Y', then A must contain the equilibrated matrix
@@ -147,7 +147,7 @@
 *>
 *> \param[in,out] AFP
 *> \verbatim
-*>          AFP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AFP is REAL*10 array, dimension (N*(N+1)/2)
 *>          If FACT = 'F', then AFP is an input argument and on entry
 *>          contains the triangular factor U or L from the Cholesky
 *>          factorization A = U**T*U or A = L*L**T, in the same storage
@@ -179,7 +179,7 @@
 *>
 *> \param[in,out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          The scale factors for A; not accessed if EQUED = 'N'.  S is
 *>          an input argument if FACT = 'F'; otherwise, S is an output
 *>          argument.  If FACT = 'F' and EQUED = 'Y', each element of S
@@ -188,7 +188,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit, if EQUED = 'N', B is not modified; if EQUED = 'Y',
 *>          B is overwritten by diag(S) * B.
@@ -202,7 +202,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X to
 *>          the original system of equations.  Note that if EQUED = 'Y',
 *>          A and B are modified on exit, and the solution to the
@@ -217,7 +217,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The estimate of the reciprocal condition number of the matrix
 *>          A after equilibration (if done).  If RCOND is less than the
 *>          machine precision (in particular, if RCOND = 0), the matrix
@@ -227,7 +227,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -240,7 +240,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -248,7 +248,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -316,28 +316,28 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, FACT, UPLO
       INTEGER            INFO, LDB, LDX, N, NRHS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
+      REAL*10   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
      $                   FERR( * ), S( * ), WORK( * ), X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            EQUIL, NOFACT, RCEQU
       INTEGER            I, INFEQU, J
-      DOUBLE PRECISION   AMAX, ANORM, BIGNUM, SCOND, SMAX, SMIN, SMLNUM
+      REAL*10   AMAX, ANORM, BIGNUM, SCOND, SMAX, SMIN, SMLNUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANSP
+      REAL*10   DLAMCH, DLANSP
       EXTERNAL           LSAME, DLAMCH, DLANSP
 *     ..
 *     .. External Subroutines ..

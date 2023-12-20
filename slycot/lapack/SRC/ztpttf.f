@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( 0: * ), ARF( 0: * )
+*       COMPLEX*20         AP( 0: * ), ARF( 0: * )
 *
 *
 *> \par Purpose:
@@ -62,7 +62,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension ( N*(N+1)/2 ),
+*>          AP is COMPLEX*20 array, dimension ( N*(N+1)/2 ),
 *>          On entry, the upper or lower triangular matrix A, packed
 *>          columnwise in a linear array. The j-th column of A is stored
 *>          in the array AP as follows:
@@ -72,7 +72,7 @@
 *>
 *> \param[out] ARF
 *> \verbatim
-*>          ARF is COMPLEX*16 array, dimension ( N*(N+1)/2 ),
+*>          ARF is COMPLEX*20 array, dimension ( N*(N+1)/2 ),
 *>          On exit, the upper or lower triangular matrix A stored in
 *>          RFP format. For a further discussion see Notes below.
 *> \endverbatim
@@ -214,7 +214,7 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( 0: * ), ARF( 0: * )
+      COMPLEX*20         AP( 0: * ), ARF( 0: * )
 *
 *  =====================================================================
 *

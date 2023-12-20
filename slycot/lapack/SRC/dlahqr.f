@@ -26,7 +26,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   H( LDH, * ), WI( * ), WR( * ), Z( LDZ, * )
+*       REAL*10   H( LDH, * ), WI( * ), WR( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>          On entry, the upper Hessenberg matrix H.
 *>          On exit, if INFO is zero and if WANTT is .TRUE., H is upper
 *>          quasi-triangular in rows and columns ILO:IHI, with any
@@ -100,12 +100,12 @@
 *>
 *> \param[out] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION array, dimension (N)
+*>          WR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION array, dimension (N)
+*>          WI is REAL*10 array, dimension (N)
 *>          The real and imaginary parts, respectively, of the computed
 *>          eigenvalues ILO to IHI are stored in the corresponding
 *>          elements of WR and WI. If two eigenvalues are computed as a
@@ -133,7 +133,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>          If WANTZ is .TRUE., on entry Z must contain the current
 *>          matrix Z of transformations accumulated by DHSEQR, and on
 *>          exit Z has been updated; transformations are applied only to
@@ -215,21 +215,21 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   H( LDH, * ), WI( * ), WR( * ), Z( LDZ, * )
+      REAL*10   H( LDH, * ), WI( * ), WR( * ), Z( LDZ, * )
 *     ..
 *
 *  =========================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0d0, ONE = 1.0d0, TWO = 2.0d0 )
-      DOUBLE PRECISION   DAT1, DAT2
+      REAL*10   DAT1, DAT2
       PARAMETER          ( DAT1 = 3.0d0 / 4.0d0, DAT2 = -0.4375d0 )
       INTEGER            KEXSH
       PARAMETER          ( KEXSH = 10 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AA, AB, BA, BB, CS, DET, H11, H12, H21, H21S,
+      REAL*10   AA, AB, BA, BB, CS, DET, H11, H12, H21, H21S,
      $                   H22, RT1I, RT1R, RT2I, RT2R, RTDISC, S, SAFMAX,
      $                   SAFMIN, SMLNUM, SN, SUM, T1, T2, T3, TR, TST,
      $                   ULP, V2, V3
@@ -237,10 +237,10 @@
      $                   KDEFL 
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   V( 3 )
+      REAL*10   V( 3 )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

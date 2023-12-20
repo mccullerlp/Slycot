@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            I0, N0, PP
-*       DOUBLE PRECISION   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2
+*       REAL*10   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Z( * )
+*       REAL*10   Z( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( 4*N )
+*>          Z is REAL*10 array, dimension ( 4*N )
 *>        Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
 *>        an extra argument.
 *> \endverbatim
@@ -69,37 +69,37 @@
 *>
 *> \param[out] DMIN
 *> \verbatim
-*>          DMIN is DOUBLE PRECISION
+*>          DMIN is REAL*10
 *>        Minimum value of d.
 *> \endverbatim
 *>
 *> \param[out] DMIN1
 *> \verbatim
-*>          DMIN1 is DOUBLE PRECISION
+*>          DMIN1 is REAL*10
 *>        Minimum value of d, excluding D( N0 ).
 *> \endverbatim
 *>
 *> \param[out] DMIN2
 *> \verbatim
-*>          DMIN2 is DOUBLE PRECISION
+*>          DMIN2 is REAL*10
 *>        Minimum value of d, excluding D( N0 ) and D( N0-1 ).
 *> \endverbatim
 *>
 *> \param[out] DN
 *> \verbatim
-*>          DN is DOUBLE PRECISION
+*>          DN is REAL*10
 *>        d(N0), the last value of d.
 *> \endverbatim
 *>
 *> \param[out] DNM1
 *> \verbatim
-*>          DNM1 is DOUBLE PRECISION
+*>          DNM1 is REAL*10
 *>        d(N0-1).
 *> \endverbatim
 *>
 *> \param[out] DNM2
 *> \verbatim
-*>          DNM2 is DOUBLE PRECISION
+*>          DNM2 is REAL*10
 *>        d(N0-2).
 *> \endverbatim
 *
@@ -123,24 +123,24 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            I0, N0, PP
-      DOUBLE PRECISION   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2
+      REAL*10   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Z( * )
+      REAL*10   Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameter ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J4, J4P2
-      DOUBLE PRECISION   D, EMIN, SAFMIN, TEMP
+      REAL*10   D, EMIN, SAFMIN, TEMP
 *     ..
 *     .. External Function ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

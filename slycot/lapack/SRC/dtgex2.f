@@ -26,7 +26,7 @@
 *       INTEGER            INFO, J1, LDA, LDB, LDQ, LDZ, LWORK, N, N1, N2
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   WORK( * ), Z( LDZ, * )
 *       ..
 *
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimensions (LDA,N)
+*>          A is REAL*10 array, dimensions (LDA,N)
 *>          On entry, the matrix A in the pair (A, B).
 *>          On exit, the updated matrix A.
 *> \endverbatim
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimensions (LDB,N)
+*>          B is REAL*10 array, dimensions (LDB,N)
 *>          On entry, the matrix B in the pair (A, B).
 *>          On exit, the updated matrix B.
 *> \endverbatim
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if WANTQ = .TRUE., the orthogonal matrix Q.
 *>          On exit, the updated matrix Q.
 *>          Not referenced if WANTQ = .FALSE..
@@ -118,7 +118,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>          On entry, if WANTZ =.TRUE., the orthogonal matrix Z.
 *>          On exit, the updated matrix Z.
 *>          Not referenced if WANTZ = .FALSE..
@@ -151,7 +151,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)).
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)).
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -228,7 +228,7 @@
       INTEGER            INFO, J1, LDA, LDB, LDQ, LDZ, LWORK, N, N1, N2
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   WORK( * ), Z( LDZ, * )
 *     ..
 *
@@ -237,9 +237,9 @@
 *  loops. Sven Hammarling, 1/5/02.
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWENTY
+      REAL*10   TWENTY
       PARAMETER          ( TWENTY = 2.0D+01 )
       INTEGER            LDST
       PARAMETER          ( LDST = 4 )
@@ -249,20 +249,20 @@
 *     .. Local Scalars ..
       LOGICAL            STRONG, WEAK
       INTEGER            I, IDUM, LINFO, M
-      DOUBLE PRECISION   BQRA21, BRQA21, DDUM, DNORMA, DNORMB, DSCALE,
+      REAL*10   BQRA21, BRQA21, DDUM, DNORMA, DNORMB, DSCALE,
      $                   DSUM, EPS, F, G, SA, SB, SCALE, SMLNUM,
      $                   THRESHA, THRESHB
 *     ..
 *     .. Local Arrays ..
       INTEGER            IWORK( LDST )
-      DOUBLE PRECISION   AI( 2 ), AR( 2 ), BE( 2 ), IR( LDST, LDST ),
+      REAL*10   AI( 2 ), AR( 2 ), BE( 2 ), IR( LDST, LDST ),
      $                   IRCOP( LDST, LDST ), LI( LDST, LDST ),
      $                   LICOP( LDST, LDST ), S( LDST, LDST ),
      $                   SCPY( LDST, LDST ), T( LDST, LDST ),
      $                   TAUL( LDST ), TAUR( LDST ), TCPY( LDST, LDST )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

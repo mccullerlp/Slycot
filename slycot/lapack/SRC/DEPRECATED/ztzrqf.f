@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), TAU( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the leading M-by-N upper trapezoidal part of the
 *>          array A must contain the matrix to be factorized.
 *>          On exit, the leading M-by-M upper triangular part of A
@@ -80,7 +80,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (M)
+*>          TAU is COMPLEX*20 array, dimension (M)
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
@@ -144,19 +144,19 @@
       INTEGER            INFO, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), TAU( * )
+      COMPLEX*20         A( LDA, * ), TAU( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                   CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, K, M1
-      COMPLEX*16         ALPHA
+      COMPLEX*20         ALPHA
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DCONJG, MAX, MIN

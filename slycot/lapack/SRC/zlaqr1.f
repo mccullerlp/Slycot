@@ -21,11 +21,11 @@
 *       SUBROUTINE ZLAQR1( N, H, LDH, S1, S2, V )
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16         S1, S2
+*       COMPLEX*20         S1, S2
 *       INTEGER            LDH, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         H( LDH, * ), V( * )
+*       COMPLEX*20         H( LDH, * ), V( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>              The 2-by-2 or 3-by-3 matrix H in (*).
 *> \endverbatim
 *>
@@ -69,19 +69,19 @@
 *>
 *> \param[in] S1
 *> \verbatim
-*>          S1 is COMPLEX*16
+*>          S1 is COMPLEX*20
 *> \endverbatim
 *>
 *> \param[in] S2
 *> \verbatim
-*>          S2 is COMPLEX*16
+*>          S2 is COMPLEX*20
 *>
 *>          S1 and S2 are the shifts defining K in (*) above.
 *> \endverbatim
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (N)
+*>          V is COMPLEX*20 array, dimension (N)
 *>              A scalar multiple of the first column of the
 *>              matrix K in (*).
 *> \endverbatim
@@ -110,30 +110,30 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16         S1, S2
+      COMPLEX*20         S1, S2
       INTEGER            LDH, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         H( LDH, * ), V( * )
+      COMPLEX*20         H( LDH, * ), V( * )
 *     ..
 *
 *  ================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0d0, 0.0d0 ) )
-      DOUBLE PRECISION   RZERO
+      REAL*10   RZERO
       PARAMETER          ( RZERO = 0.0d0 )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         CDUM, H21S, H31S
-      DOUBLE PRECISION   S
+      COMPLEX*20         CDUM, H21S, H31S
+      REAL*10   S
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

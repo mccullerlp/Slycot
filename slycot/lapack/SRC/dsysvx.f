@@ -25,11 +25,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          FACT, UPLO
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, LWORK, N, NRHS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   BERR( * ), FERR( * ), WORK( * ), X( LDX, * )
 *       ..
 *
@@ -114,7 +114,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The symmetric matrix A.  If UPLO = 'U', the leading N-by-N
 *>          upper triangular part of A contains the upper triangular part
 *>          of the matrix A, and the strictly lower triangular part of A
@@ -132,7 +132,7 @@
 *>
 *> \param[in,out] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>          If FACT = 'F', then AF is an input argument and on entry
 *>          contains the block diagonal matrix D and the multipliers used
 *>          to obtain the factor U or L from the factorization
@@ -171,7 +171,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          The N-by-NRHS right hand side matrix B.
 *> \endverbatim
 *>
@@ -183,7 +183,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.
 *> \endverbatim
 *>
@@ -195,7 +195,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The estimate of the reciprocal condition number of the matrix
 *>          A.  If RCOND is less than the machine precision (in
 *>          particular, if RCOND = 0), the matrix is singular to working
@@ -205,7 +205,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -218,7 +218,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -226,7 +226,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -289,29 +289,29 @@
 *     .. Scalar Arguments ..
       CHARACTER          FACT, UPLO
       INTEGER            INFO, LDA, LDAF, LDB, LDX, LWORK, N, NRHS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+      REAL*10   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
      $                   BERR( * ), FERR( * ), WORK( * ), X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, NOFACT
       INTEGER            LWKOPT, NB
-      DOUBLE PRECISION   ANORM
+      REAL*10   ANORM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANSY
+      REAL*10   DLAMCH, DLANSY
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANSY
 *     ..
 *     .. External Subroutines ..

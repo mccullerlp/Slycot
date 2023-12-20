@@ -24,8 +24,8 @@
 *       INTEGER            INCC, INCX, INCY, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * )
-*       COMPLEX*16         S( * ), X( * ), Y( * )
+*       REAL*10   C( * )
+*       COMPLEX*20         S( * ), X( * ), Y( * )
 *       ..
 *
 *
@@ -52,7 +52,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+*>          X is COMPLEX*20 array, dimension (1+(N-1)*INCX)
 *>          The vector x.
 *> \endverbatim
 *>
@@ -64,7 +64,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (1+(N-1)*INCY)
+*>          Y is COMPLEX*20 array, dimension (1+(N-1)*INCY)
 *>          The vector y.
 *> \endverbatim
 *>
@@ -76,13 +76,13 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+*>          C is REAL*10 array, dimension (1+(N-1)*INCC)
 *>          The cosines of the plane rotations.
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is COMPLEX*16 array, dimension (1+(N-1)*INCC)
+*>          S is COMPLEX*20 array, dimension (1+(N-1)*INCC)
 *>          The sines of the plane rotations.
 *> \endverbatim
 *>
@@ -113,15 +113,15 @@
       INTEGER            INCC, INCX, INCY, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * )
-      COMPLEX*16         S( * ), X( * ), Y( * )
+      REAL*10   C( * )
+      COMPLEX*20         S( * ), X( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IC, IX, IY
-      COMPLEX*16         XI, YI
+      COMPLEX*20         XI, YI
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DCONJG

@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), E( * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), E( * )
 *       ..
 *
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          Diagonal of the block diagonal matrix D and factors U or L
 *>          as computed by DSYTRF_RK and DSYTRF_BK:
 *>            a) ONLY diagonal elements of the symmetric block diagonal
@@ -95,7 +95,7 @@
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, contains the superdiagonal (or subdiagonal)
 *>          elements of the symmetric block diagonal matrix D
 *>          with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -116,7 +116,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -173,19 +173,19 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), E( * )
+      REAL*10   A( LDA, * ), B( LDB, * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, J, K, KP
-      DOUBLE PRECISION   AK, AKM1, AKM1K, BK, BKM1, DENOM
+      REAL*10   AK, AKM1, AKM1K, BK, BKM1, DENOM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

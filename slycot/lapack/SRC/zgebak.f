@@ -26,8 +26,8 @@
 *       INTEGER            IHI, ILO, INFO, LDV, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   SCALE( * )
-*       COMPLEX*16         V( LDV, * )
+*       REAL*10   SCALE( * )
+*       COMPLEX*20         V( LDV, * )
 *       ..
 *
 *
@@ -83,7 +83,7 @@
 *>
 *> \param[in] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION array, dimension (N)
+*>          SCALE is REAL*10 array, dimension (N)
 *>          Details of the permutation and scaling factors, as returned
 *>          by ZGEBAL.
 *> \endverbatim
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,M)
+*>          V is COMPLEX*20 array, dimension (LDV,M)
 *>          On entry, the matrix of right or left eigenvectors to be
 *>          transformed, as returned by ZHSEIN or ZTREVC.
 *>          On exit, V is overwritten by the transformed eigenvectors.
@@ -138,20 +138,20 @@
       INTEGER            IHI, ILO, INFO, LDV, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   SCALE( * )
-      COMPLEX*16         V( LDV, * )
+      REAL*10   SCALE( * )
+      COMPLEX*20         V( LDV, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LEFTV, RIGHTV
       INTEGER            I, II, K
-      DOUBLE PRECISION   S
+      REAL*10   S
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

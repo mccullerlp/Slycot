@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), E( * )
+*       COMPLEX*20         A( LDA, * ), E( * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The block diagonal matrix D and the multipliers used to
 *>          obtain the factor U or L as computed by ZSYTRF.
 *> \endverbatim
@@ -87,7 +87,7 @@
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N)
+*>          E is COMPLEX*20 array, dimension (N)
 *>          E stores the supdiagonal/subdiagonal of the symmetric 1-by-1
 *>          or 2-by-2 block diagonal matrix D in LDLT.
 *> \endverbatim
@@ -122,13 +122,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), E( * )
+      COMPLEX*20         A( LDA, * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = (0.0D+0,0.0D+0) )
 *     ..
 *     .. External Functions ..
@@ -140,7 +140,7 @@
 *     .. Local Scalars ..
       LOGICAL            UPPER, CONVERT
       INTEGER            I, IP, J
-      COMPLEX*16         TEMP
+      COMPLEX*20         TEMP
 *     ..
 *     .. Executable Statements ..
 *

@@ -25,10 +25,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            CLSTRT, CLEND, INFO, N
-*       DOUBLE PRECISION   CLGAPL, CLGAPR, PIVMIN, SIGMA, SPDIAM
+*       REAL*10   CLGAPL, CLGAPR, PIVMIN, SIGMA, SPDIAM
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), DPLUS( * ), L( * ), LD( * ),
+*       REAL*10   D( * ), DPLUS( * ), L( * ), LD( * ),
 *      $          LPLUS( * ), W( * ), WGAP( * ), WERR( * ), WORK( * )
 *       ..
 *
@@ -56,20 +56,20 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The N diagonal elements of the diagonal matrix D.
 *> \endverbatim
 *>
 *> \param[in] L
 *> \verbatim
-*>          L is DOUBLE PRECISION array, dimension (N-1)
+*>          L is REAL*10 array, dimension (N-1)
 *>          The (N-1) subdiagonal elements of the unit bidiagonal
 *>          matrix L.
 *> \endverbatim
 *>
 *> \param[in] LD
 *> \verbatim
-*>          LD is DOUBLE PRECISION array, dimension (N-1)
+*>          LD is REAL*10 array, dimension (N-1)
 *>          The (N-1) elements L(i)*D(i).
 *> \endverbatim
 *>
@@ -87,7 +87,7 @@
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension
+*>          W is REAL*10 array, dimension
 *>          dimension is >=  (CLEND-CLSTRT+1)
 *>          The eigenvalue APPROXIMATIONS of L D L^T in ascending order.
 *>          W( CLSTRT ) through W( CLEND ) form the cluster of relatively
@@ -96,14 +96,14 @@
 *>
 *> \param[in,out] WGAP
 *> \verbatim
-*>          WGAP is DOUBLE PRECISION array, dimension
+*>          WGAP is REAL*10 array, dimension
 *>          dimension is >=  (CLEND-CLSTRT+1)
 *>          The separation from the right neighbor eigenvalue in W.
 *> \endverbatim
 *>
 *> \param[in] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION array, dimension
+*>          WERR is REAL*10 array, dimension
 *>          dimension is  >=  (CLEND-CLSTRT+1)
 *>          WERR contain the semiwidth of the uncertainty
 *>          interval of the corresponding eigenvalue APPROXIMATION in W
@@ -111,19 +111,19 @@
 *>
 *> \param[in] SPDIAM
 *> \verbatim
-*>          SPDIAM is DOUBLE PRECISION
+*>          SPDIAM is REAL*10
 *>          estimate of the spectral diameter obtained from the
 *>          Gerschgorin intervals
 *> \endverbatim
 *>
 *> \param[in] CLGAPL
 *> \verbatim
-*>          CLGAPL is DOUBLE PRECISION
+*>          CLGAPL is REAL*10
 *> \endverbatim
 *>
 *> \param[in] CLGAPR
 *> \verbatim
-*>          CLGAPR is DOUBLE PRECISION
+*>          CLGAPR is REAL*10
 *>          absolute gap on each end of the cluster.
 *>          Set by the calling routine to protect against shifts too close
 *>          to eigenvalues outside the cluster.
@@ -131,32 +131,32 @@
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot allowed in the Sturm sequence.
 *> \endverbatim
 *>
 *> \param[out] SIGMA
 *> \verbatim
-*>          SIGMA is DOUBLE PRECISION
+*>          SIGMA is REAL*10
 *>          The shift used to form L(+) D(+) L(+)^T.
 *> \endverbatim
 *>
 *> \param[out] DPLUS
 *> \verbatim
-*>          DPLUS is DOUBLE PRECISION array, dimension (N)
+*>          DPLUS is REAL*10 array, dimension (N)
 *>          The N diagonal elements of the diagonal matrix D(+).
 *> \endverbatim
 *>
 *> \param[out] LPLUS
 *> \verbatim
-*>          LPLUS is DOUBLE PRECISION array, dimension (N-1)
+*>          LPLUS is REAL*10 array, dimension (N-1)
 *>          The first (N-1) elements of LPLUS contain the subdiagonal
 *>          elements of the unit bidiagonal matrix L(+).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *>          Workspace.
 *> \endverbatim
 *>
@@ -197,17 +197,17 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            CLSTRT, CLEND, INFO, N
-      DOUBLE PRECISION   CLGAPL, CLGAPR, PIVMIN, SIGMA, SPDIAM
+      REAL*10   CLGAPL, CLGAPR, PIVMIN, SIGMA, SPDIAM
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), DPLUS( * ), L( * ), LD( * ),
+      REAL*10   D( * ), DPLUS( * ), L( * ), LD( * ),
      $          LPLUS( * ), W( * ), WGAP( * ), WERR( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   FOUR, MAXGROWTH1, MAXGROWTH2, ONE, QUART, TWO
+      REAL*10   FOUR, MAXGROWTH1, MAXGROWTH2, ONE, QUART, TWO
       PARAMETER          ( ONE = 1.0D0, TWO = 2.0D0, FOUR = 4.0D0,
      $                     QUART = 0.25D0,
      $                     MAXGROWTH1 = 8.D0,
@@ -217,14 +217,14 @@
       LOGICAL   DORRR1, FORCER, NOFAIL, SAWNAN1, SAWNAN2, TRYRRR1
       INTEGER            I, INDX, KTRY, KTRYMAX, SLEFT, SRIGHT, SHIFT
       PARAMETER          ( KTRYMAX = 1, SLEFT = 1, SRIGHT = 2 )
-      DOUBLE PRECISION   AVGAP, BESTSHIFT, CLWDTH, EPS, FACT, FAIL,
+      REAL*10   AVGAP, BESTSHIFT, CLWDTH, EPS, FACT, FAIL,
      $                   FAIL2, GROWTHBOUND, LDELTA, LDMAX, LSIGMA,
      $                   MAX1, MAX2, MINGAP, OLDP, PROD, RDELTA, RDMAX,
      $                   RRR1, RRR2, RSIGMA, S, SMLGROWTH, TMP, ZNM2
 *     ..
 *     .. External Functions ..
       LOGICAL DISNAN
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DISNAN, DLAMCH
 *     ..
 *     .. External Subroutines ..

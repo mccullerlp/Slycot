@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDQ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
+*       REAL*10   AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -63,21 +63,21 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The vectors which define the elementary reflectors, as
 *>          returned by DSPTRD.
 *> \endverbatim
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (N-1)
+*>          TAU is REAL*10 array, dimension (N-1)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by DSPTRD.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          The N-by-N orthogonal matrix Q.
 *> \endverbatim
 *>
@@ -89,7 +89,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N-1)
+*>          WORK is REAL*10 array, dimension (N-1)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -121,13 +121,13 @@
       INTEGER            INFO, LDQ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
+      REAL*10   AP( * ), Q( LDQ, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

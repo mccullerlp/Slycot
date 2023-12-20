@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            LDB, LDX, N, NRHS
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         B( LDB, * ), D( * ), DL( * ), DU( * ),
+*       COMPLEX*20         B( LDB, * ), D( * ), DL( * ), DU( * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -73,32 +73,32 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>          The scalar alpha.  ALPHA must be 0., 1., or -1.; otherwise,
 *>          it is assumed to be 0.
 *> \endverbatim
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) sub-diagonal elements of T.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The diagonal elements of T.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) super-diagonal elements of T.
 *> \endverbatim
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          The N by NRHS matrix X.
 *> \endverbatim
 *>
@@ -110,14 +110,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>          The scalar beta.  BETA must be 0., 1., or -1.; otherwise,
 *>          it is assumed to be 1.
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the N by NRHS matrix B.
 *>          On exit, B is overwritten by the matrix expression
 *>          B := alpha * A * X + beta * B.
@@ -150,17 +150,17 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANS
       INTEGER            LDB, LDX, N, NRHS
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         B( LDB, * ), D( * ), DL( * ), DU( * ),
+      COMPLEX*20         B( LDB, * ), D( * ), DL( * ), DU( * ),
      $                   X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

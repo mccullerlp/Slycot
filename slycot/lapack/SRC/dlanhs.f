@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLANHS( NORM, N, A, LDA, WORK )
+*       REAL*10 FUNCTION DLANHS( NORM, N, A, LDA, WORK )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            LDA, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), WORK( * )
+*       REAL*10   A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -75,7 +75,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The n by n upper Hessenberg matrix A; the part of A below the
 *>          first sub-diagonal is not referenced.
 *> \endverbatim
@@ -88,7 +88,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= N when NORM = 'I'; otherwise, WORK is not
 *>          referenced.
 *> \endverbatim
@@ -104,7 +104,7 @@
 *> \ingroup doubleOTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLANHS( NORM, N, A, LDA, WORK )
+      REAL*10 FUNCTION DLANHS( NORM, N, A, LDA, WORK )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -115,18 +115,18 @@
       INTEGER            LDA, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), WORK( * )
+      REAL*10   A( LDA, * ), WORK( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   SCALE, SUM, VALUE
+      REAL*10   SCALE, SUM, VALUE
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASSQ

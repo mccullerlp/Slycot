@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       REAL               SA( LDSA, * )
-*       DOUBLE PRECISION   A( LDA, * )
+*       REAL*10   A( LDA, * )
 *       ..
 *
 *
@@ -34,7 +34,7 @@
 *>
 *> \verbatim
 *>
-*> DLAG2S converts a DOUBLE PRECISION matrix, A, to a SINGLE
+*> DLAG2S converts a REAL*10 matrix, A, to a SINGLE
 *> PRECISION matrix, SA.
 *>
 *> RMAX is the overflow for the SINGLE PRECISION arithmetic
@@ -61,7 +61,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N coefficient matrix A.
 *> \endverbatim
 *>
@@ -115,14 +115,14 @@
 *     ..
 *     .. Array Arguments ..
       REAL               SA( LDSA, * )
-      DOUBLE PRECISION   A( LDA, * )
+      REAL*10   A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   RMAX
+      REAL*10   RMAX
 *     ..
 *     .. External Functions ..
       REAL               SLAMCH

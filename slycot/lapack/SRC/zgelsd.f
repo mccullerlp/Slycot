@@ -23,12 +23,12 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   RWORK( * ), S( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+*       REAL*10   RWORK( * ), S( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -92,7 +92,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A has been destroyed.
 *> \endverbatim
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the M-by-NRHS right hand side matrix B.
 *>          On exit, B is overwritten by the N-by-NRHS solution matrix X.
 *>          If m >= n and RANK = n, the residual sum-of-squares for
@@ -121,14 +121,14 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (min(M,N))
+*>          S is REAL*10 array, dimension (min(M,N))
 *>          The singular values of A in decreasing order.
 *>          The condition number of A in the 2-norm = S(1)/S(min(m,n)).
 *> \endverbatim
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          RCOND is used to determine the effective rank of A.
 *>          Singular values S(i) <= RCOND*S(1) are treated as zero.
 *>          If RCOND < 0, machine precision is used instead.
@@ -143,7 +143,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -169,7 +169,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK))
+*>          RWORK is REAL*10 array, dimension (MAX(1,LRWORK))
 *>          LRWORK >=
 *>             10*N + 2*N*SMLSIZ + 8*N*NLVL + 3*SMLSIZ*NRHS +
 *>             MAX( (SMLSIZ+1)**2, N*(1+NRHS) + 2*NRHS )
@@ -229,20 +229,20 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, LWORK, M, N, NRHS, RANK
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   RWORK( * ), S( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+      REAL*10   RWORK( * ), S( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
-      COMPLEX*16         CZERO
+      COMPLEX*20         CZERO
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
@@ -250,7 +250,7 @@
       INTEGER            IASCL, IBSCL, IE, IL, ITAU, ITAUP, ITAUQ,
      $                   LDWORK, LIWORK, LRWORK, MAXMN, MAXWRK, MINMN,
      $                   MINWRK, MM, MNTHR, NLVL, NRWORK, NWORK, SMLSIZ
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, EPS, SFMIN, SMLNUM
+      REAL*10   ANRM, BIGNUM, BNRM, EPS, SFMIN, SMLNUM
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, DLASCL, DLASET, XERBLA, ZGEBRD, ZGELQF,
@@ -259,7 +259,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

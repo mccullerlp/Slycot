@@ -32,7 +32,7 @@
 *       INTEGER            TTYPE, ST, ED, SWEEP, N, NB, IB, LDA, LDVT
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), V( * ),
+*       COMPLEX*20         A( LDA, * ), V( * ),
 *                          TAU( * ), WORK( * )
 *
 *> \par Purpose:
@@ -98,7 +98,7 @@
 *>
 *> \param[in, out] A
 *> \verbatim
-*>          A is COMPLEX*16 array. A pointer to the matrix A.
+*>          A is COMPLEX*20 array. A pointer to the matrix A.
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -108,13 +108,13 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension 2*n if eigenvalues only are
+*>          V is COMPLEX*20 array, dimension 2*n if eigenvalues only are
 *>          requested or to be queried for vectors.
 *> \endverbatim
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (2*n).
+*>          TAU is COMPLEX*20 array, dimension (2*n).
 *>          The scalar factors of the Householder reflectors are stored
 *>          in this array.
 *> \endverbatim
@@ -126,7 +126,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array. Workspace of size nb.
+*>          WORK is COMPLEX*20 array. Workspace of size nb.
 *> \endverbatim
 *>
 *> \par Further Details:
@@ -180,14 +180,14 @@
       INTEGER            TTYPE, ST, ED, SWEEP, N, NB, IB, LDA, LDVT
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), V( * ),
+      COMPLEX*20         A( LDA, * ), V( * ),
      $                   TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -195,7 +195,7 @@
       LOGICAL            UPPER
       INTEGER            I, J1, J2, LM, LN, VPOS, TAUPOS,
      $                   DPOS, OFDPOS, AJETER
-      COMPLEX*16         CTMP
+      COMPLEX*20         CTMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZLARFG, ZLARFX, ZLARFY

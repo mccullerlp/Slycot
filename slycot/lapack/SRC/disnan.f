@@ -21,7 +21,7 @@
 *       LOGICAL FUNCTION DISNAN( DIN )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION, INTENT(IN) :: DIN
+*       REAL*10, INTENT(IN) :: DIN
 *       ..
 *
 *
@@ -40,7 +40,7 @@
 *
 *> \param[in] DIN
 *> \verbatim
-*>          DIN is DOUBLE PRECISION
+*>          DIN is REAL*10
 *>          Input to test for NaN.
 *> \endverbatim
 *
@@ -62,7 +62,7 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION, INTENT(IN) :: DIN
+      REAL*10, INTENT(IN) :: DIN
 *     ..
 *
 *  =====================================================================

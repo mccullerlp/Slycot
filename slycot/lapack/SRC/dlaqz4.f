@@ -28,7 +28,7 @@
 *      INTEGER, INTENT( IN ) :: N, ILO, IHI, LDA, LDB, LDQ, LDZ, LWORK,
 *     $    NSHIFTS, NBLOCK_DESIRED, LDQC, LDZC
 *
-*      DOUBLE PRECISION, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
+*      REAL*10, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
 *     $    Q( LDQ, * ), Z( LDZ, * ), QC( LDQC, * ), ZC( LDZC, * ),
 *     $    WORK( * ), SR( * ), SI( * ), SS( * )
 *
@@ -94,25 +94,25 @@
 *>
 *> \param[in] SR
 *> \verbatim
-*>          SR is DOUBLE PRECISION array. SR contains
+*>          SR is REAL*10 array. SR contains
 *>          the real parts of the shifts to use.
 *> \endverbatim
 *>
 *> \param[in] SI
 *> \verbatim
-*>          SI is DOUBLE PRECISION array. SI contains
+*>          SI is REAL*10 array. SI contains
 *>          the imaginary parts of the shifts to use.
 *> \endverbatim
 *>
 *> \param[in] SS
 *> \verbatim
-*>          SS is DOUBLE PRECISION array. SS contains
+*>          SS is REAL*10 array. SS contains
 *>          the scale of the shifts to use.
 *> \endverbatim
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -123,7 +123,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -134,7 +134,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -144,7 +144,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *> \endverbatim
 *>
 *> \param[in] LDZ
@@ -154,7 +154,7 @@
 *>
 *> \param[in,out] QC
 *> \verbatim
-*>          QC is DOUBLE PRECISION array, dimension (LDQC, NBLOCK_DESIRED)
+*>          QC is REAL*10 array, dimension (LDQC, NBLOCK_DESIRED)
 *> \endverbatim
 *>
 *> \param[in] LDQC
@@ -164,7 +164,7 @@
 *>
 *> \param[in,out] ZC
 *> \verbatim
-*>          ZC is DOUBLE PRECISION array, dimension (LDZC, NBLOCK_DESIRED)
+*>          ZC is REAL*10 array, dimension (LDZC, NBLOCK_DESIRED)
 *> \endverbatim
 *>
 *> \param[in] LDZC
@@ -174,7 +174,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -217,7 +217,7 @@
       INTEGER, INTENT( IN ) :: N, ILO, IHI, LDA, LDB, LDQ, LDZ, LWORK,
      $         NSHIFTS, NBLOCK_DESIRED, LDQC, LDZC
 
-      DOUBLE PRECISION, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
+      REAL*10, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ),
      $                  Q( LDQ, * ), Z( LDZ, * ), QC( LDQC, * ),
      $                  ZC( LDZC, * ), WORK( * ), SR( * ), SI( * ),
      $                  SS( * )
@@ -225,13 +225,13 @@
       INTEGER, INTENT( OUT ) :: INFO
 
 *     Parameters
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 
 *     Local scalars
       INTEGER :: I, J, NS, ISTARTM, ISTOPM, SHEIGHT, SWIDTH, K, NP,
      $           ISTARTB, ISTOPB, ISHIFT, NBLOCK, NPOS
-      DOUBLE PRECISION :: TEMP, V( 3 ), C1, S1, C2, S2, SWAP
+      REAL*10 :: TEMP, V( 3 ), C1, S1, C2, S2, SWAP
 *
 *     External functions
       EXTERNAL :: XERBLA, DGEMM, DLAQZ1, DLAQZ2, DLASET, DLARTG, DROT,

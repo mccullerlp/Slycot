@@ -32,8 +32,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         AB( LDAB, * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         AB( LDAB, * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB, N)
+*>          AB is COMPLEX*20 array, dimension (LDAB, N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -112,13 +112,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
 *>          eigenvectors of the matrix A, with the i-th column of Z
 *>          holding the eigenvector associated with W(i).
@@ -134,7 +134,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -160,7 +160,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array,
+*>          RWORK is REAL*10 array,
 *>                                         dimension (LRWORK)
 *>          On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
 *> \endverbatim
@@ -270,16 +270,16 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         AB( LDAB, * ), WORK( * ), Z( LDZ, * )
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         AB( LDAB, * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
@@ -288,13 +288,13 @@
       INTEGER            IINFO, IMAX, INDE, INDWK2, INDRWK, ISCALE,
      $                   LLWORK, INDWK, LHTRD, LWTRD, IB, INDHOUS,
      $                   LIWMIN, LLRWK, LLWK2, LRWMIN, LWMIN
-      DOUBLE PRECISION   ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN, SIGMA,
+      REAL*10   ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN, SIGMA,
      $                   SMLNUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV2STAGE
-      DOUBLE PRECISION   DLAMCH, ZLANHB
+      REAL*10   DLAMCH, ZLANHB
       EXTERNAL           LSAME, DLAMCH, ZLANHB, ILAENV2STAGE
 *     ..
 *     .. External Subroutines ..

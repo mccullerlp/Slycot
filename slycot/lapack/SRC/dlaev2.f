@@ -21,7 +21,7 @@
 *       SUBROUTINE DLAEV2( A, B, C, RT1, RT2, CS1, SN1 )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   A, B, C, CS1, RT1, RT2, SN1
+*       REAL*10   A, B, C, CS1, RT1, RT2, SN1
 *       ..
 *
 *
@@ -46,43 +46,43 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION
+*>          A is REAL*10
 *>          The (1,1) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION
+*>          B is REAL*10
 *>          The (1,2) element and the conjugate of the (2,1) element of
 *>          the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *>          The (2,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[out] RT1
 *> \verbatim
-*>          RT1 is DOUBLE PRECISION
+*>          RT1 is REAL*10
 *>          The eigenvalue of larger absolute value.
 *> \endverbatim
 *>
 *> \param[out] RT2
 *> \verbatim
-*>          RT2 is DOUBLE PRECISION
+*>          RT2 is REAL*10
 *>          The eigenvalue of smaller absolute value.
 *> \endverbatim
 *>
 *> \param[out] CS1
 *> \verbatim
-*>          CS1 is DOUBLE PRECISION
+*>          CS1 is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SN1
 *> \verbatim
-*>          SN1 is DOUBLE PRECISION
+*>          SN1 is REAL*10
 *>          The vector (CS1, SN1) is a unit right eigenvector for RT1.
 *> \endverbatim
 *
@@ -123,24 +123,24 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B, C, CS1, RT1, RT2, SN1
+      REAL*10   A, B, C, CS1, RT1, RT2, SN1
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = 0.5D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            SGN1, SGN2
-      DOUBLE PRECISION   AB, ACMN, ACMX, ACS, ADF, CS, CT, DF, RT, SM,
+      REAL*10   AB, ACMN, ACMX, ACS, ADF, CS, CT, DF, RT, SM,
      $                   TB, TN
 *     ..
 *     .. Intrinsic Functions ..

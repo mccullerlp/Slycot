@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, N
-*       DOUBLE PRECISION   AMAX, SCOND
+*       REAL*10   AMAX, SCOND
 *       CHARACTER          UPLO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), S( * ), WORK( * )
+*       REAL*10   A( LDA, * ), S( * ), WORK( * )
 *       ..
 *
 *
@@ -62,7 +62,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The N-by-N symmetric matrix whose scaling factors are to be
 *>          computed.
 *> \endverbatim
@@ -75,13 +75,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          If INFO = 0, S contains the scale factors for A.
 *> \endverbatim
 *>
 *> \param[out] SCOND
 *> \verbatim
-*>          SCOND is DOUBLE PRECISION
+*>          SCOND is REAL*10
 *>          If INFO = 0, S contains the ratio of the smallest S(i) to
 *>          the largest S(i). If SCOND >= 0.1 and AMAX is neither too
 *>          large nor too small, it is not worth scaling by S.
@@ -89,7 +89,7 @@
 *>
 *> \param[out] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Largest absolute value of any matrix element. If AMAX is
 *>          very close to overflow or very close to underflow, the
 *>          matrix should be scaled.
@@ -97,7 +97,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -135,29 +135,29 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, N
-      DOUBLE PRECISION   AMAX, SCOND
+      REAL*10   AMAX, SCOND
       CHARACTER          UPLO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), S( * ), WORK( * )
+      REAL*10   A( LDA, * ), S( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D0, ZERO = 0.0D0 )
       INTEGER            MAX_ITER
       PARAMETER          ( MAX_ITER = 100 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J, ITER
-      DOUBLE PRECISION   AVG, STD, TOL, C0, C1, C2, T, U, SI, D, BASE,
+      REAL*10   AVG, STD, TOL, C0, C1, C2, T, U, SI, D, BASE,
      $                   SMIN, SMAX, SMLNUM, BIGNUM, SCALE, SUMSQ
       LOGICAL            UP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       LOGICAL            LSAME
       EXTERNAL           DLAMCH, LSAME
 *     ..

@@ -27,8 +27,8 @@
 *       INTEGER            INFO, LDA, LDB, LDVSL, LDVSR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), VSL( LDVSL, * ), VSR( LDVSR, * ),
 *      $                   WORK( * )
 *       ..
@@ -83,7 +83,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the matrix A.
 *>          On exit, the upper triangular matrix S from the generalized
 *>          Schur factorization.
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the matrix B.
 *>          On exit, the upper triangular matrix T from the generalized
 *>          Schur factorization.
@@ -111,7 +111,7 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *>          The complex scalars alpha that define the eigenvalues of
 *>          GNEP.  ALPHA(j) = S(j,j), the diagonal element of the Schur
 *>          form of A.
@@ -119,7 +119,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          The non-negative real scalars beta that define the
 *>          eigenvalues of GNEP.  BETA(j) = T(j,j), the diagonal element
 *>          of the triangular factor T.
@@ -133,7 +133,7 @@
 *>
 *> \param[out] VSL
 *> \verbatim
-*>          VSL is COMPLEX*16 array, dimension (LDVSL,N)
+*>          VSL is COMPLEX*20 array, dimension (LDVSL,N)
 *>          If JOBVSL = 'V', the matrix of left Schur vectors Q.
 *>          Not referenced if JOBVSL = 'N'.
 *> \endverbatim
@@ -147,7 +147,7 @@
 *>
 *> \param[out] VSR
 *> \verbatim
-*>          VSR is COMPLEX*16 array, dimension (LDVSR,N)
+*>          VSR is COMPLEX*20 array, dimension (LDVSR,N)
 *>          If JOBVSR = 'V', the matrix of right Schur vectors Z.
 *>          Not referenced if JOBVSR = 'N'.
 *> \endverbatim
@@ -161,7 +161,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -183,7 +183,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (3*N)
+*>          RWORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -232,8 +232,8 @@
       INTEGER            INFO, LDA, LDB, LDVSL, LDVSR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), VSL( LDVSL, * ), VSR( LDVSR, * ),
      $                   WORK( * )
 *     ..
@@ -241,9 +241,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
@@ -252,7 +252,7 @@
       INTEGER            ICOLS, IHI, IINFO, IJOBVL, IJOBVR, ILEFT, ILO,
      $                   IRIGHT, IROWS, IRWORK, ITAU, IWORK, LOPT,
      $                   LWKMIN, LWKOPT, NB, NB1, NB2, NB3
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
      $                   SAFMIN, SMLNUM
 *     ..
 *     .. External Subroutines ..
@@ -262,7 +262,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

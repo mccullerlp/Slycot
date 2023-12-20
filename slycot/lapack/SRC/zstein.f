@@ -27,8 +27,8 @@
 *       .. Array Arguments ..
 *       INTEGER            IBLOCK( * ), IFAIL( * ), ISPLIT( * ),
 *      $                   IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
-*       COMPLEX*16         Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), W( * ), WORK( * )
+*       COMPLEX*20         Z( LDZ, * )
 *       ..
 *
 *
@@ -62,13 +62,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of the tridiagonal matrix
 *>          T, stored in elements 1 to N-1.
 *> \endverbatim
@@ -81,7 +81,7 @@
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements of W contain the eigenvalues for
 *>          which eigenvectors are to be computed.  The eigenvalues
 *>          should be grouped by split-off block and ordered from
@@ -111,7 +111,7 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, M)
+*>          Z is COMPLEX*20 array, dimension (LDZ, M)
 *>          The computed eigenvectors.  The eigenvector associated
 *>          with the eigenvalue W(i) is stored in the i-th column of
 *>          Z.  Any vector which fails to converge is set to its current
@@ -127,7 +127,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (5*N)
+*>          WORK is REAL*10 array, dimension (5*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -190,17 +190,17 @@
 *     .. Array Arguments ..
       INTEGER            IBLOCK( * ), IFAIL( * ), ISPLIT( * ),
      $                   IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
-      COMPLEX*16         Z( LDZ, * )
+      REAL*10   D( * ), E( * ), W( * ), WORK( * )
+      COMPLEX*20         Z( LDZ, * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
-      DOUBLE PRECISION   ZERO, ONE, TEN, ODM3, ODM1
+      REAL*10   ZERO, ONE, TEN, ODM3, ODM1
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TEN = 1.0D+1,
      $                   ODM3 = 1.0D-3, ODM1 = 1.0D-1 )
       INTEGER            MAXITS, EXTRA
@@ -210,7 +210,7 @@
       INTEGER            B1, BLKSIZ, BN, GPIND, I, IINFO, INDRV1,
      $                   INDRV2, INDRV3, INDRV4, INDRV5, ITS, J, J1,
      $                   JBLK, JMAX, JR, NBLK, NRMCHK
-      DOUBLE PRECISION   DTPCRT, EPS, EPS1, NRM, ONENRM, ORTOL, PERTOL,
+      REAL*10   DTPCRT, EPS, EPS1, NRM, ONENRM, ORTOL, PERTOL,
      $                   SCL, SEP, TOL, XJ, XJM, ZTR
 *     ..
 *     .. Local Arrays ..
@@ -218,7 +218,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DNRM2
+      REAL*10   DLAMCH, DNRM2
       EXTERNAL           IDAMAX, DLAMCH, DNRM2
 *     ..
 *     .. External Subroutines ..

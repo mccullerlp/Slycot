@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       REAL*10   A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), Q( LDQ, * ), U( LDU, * ),
 *      $                   V( LDV, * ), WORK( * )
 *       ..
@@ -179,7 +179,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A contains the triangular matrix R, or part of R.
 *>          See Purpose for details.
@@ -193,7 +193,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, B contains the triangular matrix R if M-K-L < 0.
 *>          See Purpose for details.
@@ -207,12 +207,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION array, dimension (N)
+*>          ALPHA is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>
 *>          On exit, ALPHA and BETA contain the generalized singular
 *>          value pairs of A and B;
@@ -231,7 +231,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU,M)
+*>          U is REAL*10 array, dimension (LDU,M)
 *>          If JOBU = 'U', U contains the M-by-M orthogonal matrix U.
 *>          If JOBU = 'N', U is not referenced.
 *> \endverbatim
@@ -245,7 +245,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,P)
+*>          V is REAL*10 array, dimension (LDV,P)
 *>          If JOBV = 'V', V contains the P-by-P orthogonal matrix V.
 *>          If JOBV = 'N', V is not referenced.
 *> \endverbatim
@@ -259,7 +259,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          If JOBQ = 'Q', Q contains the N-by-N orthogonal matrix Q.
 *>          If JOBQ = 'N', Q is not referenced.
 *> \endverbatim
@@ -273,7 +273,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array,
+*>          WORK is REAL*10 array,
 *>                      dimension (max(3*N,M,P)+N)
 *> \endverbatim
 *>
@@ -301,8 +301,8 @@
 *  =========================
 *>
 *> \verbatim
-*>  TOLA    DOUBLE PRECISION
-*>  TOLB    DOUBLE PRECISION
+*>  TOLA    REAL*10
+*>  TOLB    REAL*10
 *>          TOLA and TOLB are the thresholds to determine the effective
 *>          rank of (A',B')**T. Generally, they are set to
 *>                   TOLA = MAX(M,N)*norm(A)*MAZHEPS,
@@ -342,7 +342,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      REAL*10   A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), Q( LDQ, * ), U( LDU, * ),
      $                   V( LDV, * ), WORK( * )
 *     ..
@@ -352,11 +352,11 @@
 *     .. Local Scalars ..
       LOGICAL            WANTQ, WANTU, WANTV
       INTEGER            I, IBND, ISUB, J, NCYCLE
-      DOUBLE PRECISION   ANORM, BNORM, SMAX, TEMP, TOLA, TOLB, ULP, UNFL
+      REAL*10   ANORM, BNORM, SMAX, TEMP, TOLA, TOLB, ULP, UNFL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, DLAMCH, DLANGE
 *     ..
 *     .. External Subroutines ..

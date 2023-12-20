@@ -26,7 +26,7 @@
 *       INTEGER           INFO, LDA, LDT, LWORK, M, N, NB1, NB2, MB1
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION  A( LDA, * ), T( LDT, * ), WORK( * )
+*       REAL*10  A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>
 *>          On entry: an M-by-N matrix A.
 *>
@@ -111,7 +111,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N))
+*>          T is REAL*10 array, dimension (LDT,N))
 *>          The upper triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.
 *> \endverbatim
@@ -124,7 +124,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          (workspace) REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -186,13 +186,13 @@
       INTEGER           INFO, LDA, LDT, LWORK, M, N, NB1, NB2, MB1
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION  A( LDA, * ), T( LDT, * ), WORK( * )
+      REAL*10  A( LDA, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

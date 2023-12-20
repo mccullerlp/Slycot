@@ -26,7 +26,7 @@
 *       INTEGER            INFO, KA, KB, LDAB, LDBB, LDX, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+*       REAL*10   AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -85,7 +85,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first ka+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -105,7 +105,7 @@
 *>
 *> \param[in] BB
 *> \verbatim
-*>          BB is DOUBLE PRECISION array, dimension (LDBB,N)
+*>          BB is REAL*10 array, dimension (LDBB,N)
 *>          The banded factor S from the split Cholesky factorization of
 *>          B, as returned by DPBSTF, stored in the first KB+1 rows of
 *>          the array.
@@ -119,7 +119,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,N)
+*>          X is REAL*10 array, dimension (LDX,N)
 *>          If VECT = 'V', the n-by-n matrix X.
 *>          If VECT = 'N', the array X is not referenced.
 *> \endverbatim
@@ -133,7 +133,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -166,21 +166,21 @@
       INTEGER            INFO, KA, KB, LDAB, LDBB, LDX, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+      REAL*10   AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
      $                   X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPDATE, UPPER, WANTX
       INTEGER            I, I0, I1, I2, INCA, J, J1, J1T, J2, J2T, K,
      $                   KA1, KB1, KBT, L, M, NR, NRT, NX
-      DOUBLE PRECISION   BII, RA, RA1, T
+      REAL*10   BII, RA, RA1, T
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

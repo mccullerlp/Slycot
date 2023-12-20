@@ -24,7 +24,7 @@
 *       INTEGER            N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   X( * ), Y( * ), W( * )
+*       REAL*10   X( * ), Y( * ), W( * )
 *       ..
 *
 *
@@ -50,19 +50,19 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (N)
+*>          X is REAL*10 array, dimension (N)
 *>            The first part of the doubled-single accumulation vector.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension (N)
+*>          Y is REAL*10 array, dimension (N)
 *>            The second part of the doubled-single accumulation vector.
 *> \endverbatim
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>            The vector to be added.
 *> \endverbatim
 *
@@ -87,13 +87,13 @@
       INTEGER            N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   X( * ), Y( * ), W( * )
+      REAL*10   X( * ), Y( * ), W( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   S
+      REAL*10   S
       INTEGER            I
 *     ..
 *     .. Executable Statements ..

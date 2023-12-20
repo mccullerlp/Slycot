@@ -11,11 +11,11 @@
 *       SUBROUTINE ZSCAL(N,ZA,ZX,INCX)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ZA
+*       COMPLEX*20 ZA
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*)
+*       COMPLEX*20 ZX(*)
 *       ..
 *
 *
@@ -38,13 +38,13 @@
 *>
 *> \param[in] ZA
 *> \verbatim
-*>          ZA is COMPLEX*16
+*>          ZA is COMPLEX*20
 *>           On entry, ZA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in,out] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -81,11 +81,11 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ZA
+      COMPLEX*20 ZA
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*)
+      COMPLEX*20 ZX(*)
 *     ..
 *
 *  =====================================================================
@@ -94,7 +94,7 @@
       INTEGER I,NINCX
 *     ..
 *     .. Parameters ..
-      COMPLEX*16 ONE
+      COMPLEX*20 ONE
       PARAMETER (ONE= (1.0D+0,0.0D+0))
 *     ..
       IF (N.LE.0 .OR. INCX.LE.0 .OR. ZA.EQ.ONE) RETURN

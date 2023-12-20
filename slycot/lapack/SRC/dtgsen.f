@@ -26,12 +26,12 @@
 *       LOGICAL            WANTQ, WANTZ
 *       INTEGER            IJOB, INFO, LDA, LDB, LDQ, LDZ, LIWORK, LWORK,
 *      $                   M, N
-*       DOUBLE PRECISION   PL, PR
+*       REAL*10   PL, PR
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+*       REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
 *      $                   B( LDB, * ), BETA( * ), DIF( * ), Q( LDQ, * ),
 *      $                   WORK( * ), Z( LDZ, * )
 *       ..
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension(LDA,N)
+*>          A is REAL*10 array, dimension(LDA,N)
 *>          On entry, the upper quasi-triangular matrix A, with (A, B) in
 *>          generalized real Schur canonical form.
 *>          On exit, A is overwritten by the reordered matrix A.
@@ -138,7 +138,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension(LDB,N)
+*>          B is REAL*10 array, dimension(LDB,N)
 *>          On entry, the upper triangular matrix B, with (A, B) in
 *>          generalized real Schur canonical form.
 *>          On exit, B is overwritten by the reordered matrix B.
@@ -152,17 +152,17 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>
 *>          On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
 *>          be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)*i
@@ -177,7 +177,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if WANTQ = .TRUE., Q is an N-by-N matrix.
 *>          On exit, Q has been postmultiplied by the left orthogonal
 *>          transformation matrix which reorder (A, B); The leading M
@@ -195,7 +195,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,N)
+*>          Z is REAL*10 array, dimension (LDZ,N)
 *>          On entry, if WANTZ = .TRUE., Z is an N-by-N matrix.
 *>          On exit, Z has been postmultiplied by the left orthogonal
 *>          transformation matrix which reorder (A, B); The leading M
@@ -220,12 +220,12 @@
 *>
 *> \param[out] PL
 *> \verbatim
-*>          PL is DOUBLE PRECISION
+*>          PL is REAL*10
 *> \endverbatim
 *>
 *> \param[out] PR
 *> \verbatim
-*>          PR is DOUBLE PRECISION
+*>          PR is REAL*10
 *>
 *>          If IJOB = 1, 4 or 5, PL, PR are lower bounds on the
 *>          reciprocal of the norm of "projections" onto left and right
@@ -237,7 +237,7 @@
 *>
 *> \param[out] DIF
 *> \verbatim
-*>          DIF is DOUBLE PRECISION array, dimension (2).
+*>          DIF is REAL*10 array, dimension (2).
 *>          If IJOB >= 2, DIF(1:2) store the estimates of Difu and Difl.
 *>          If IJOB = 2 or 4, DIF(1:2) are F-norm-based upper bounds on
 *>          Difu and Difl. If IJOB = 3 or 5, DIF(1:2) are 1-norm-based
@@ -248,7 +248,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -457,12 +457,12 @@
       LOGICAL            WANTQ, WANTZ
       INTEGER            IJOB, INFO, LDA, LDB, LDQ, LDZ, LIWORK, LWORK,
      $                   M, N
-      DOUBLE PRECISION   PL, PR
+      REAL*10   PL, PR
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+      REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
      $                   B( LDB, * ), BETA( * ), DIF( * ), Q( LDQ, * ),
      $                   WORK( * ), Z( LDZ, * )
 *     ..
@@ -472,7 +472,7 @@
 *     .. Parameters ..
       INTEGER            IDIFJB
       PARAMETER          ( IDIFJB = 3 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -480,7 +480,7 @@
      $                   WANTP
       INTEGER            I, IERR, IJB, K, KASE, KK, KS, LIWMIN, LWMIN,
      $                   MN2, N1, N2
-      DOUBLE PRECISION   DSCALE, DSUM, EPS, RDSCAL, SMLNUM
+      REAL*10   DSCALE, DSUM, EPS, RDSCAL, SMLNUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -490,7 +490,7 @@
      $                   XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

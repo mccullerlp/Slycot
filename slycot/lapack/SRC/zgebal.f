@@ -25,8 +25,8 @@
 *       INTEGER            IHI, ILO, INFO, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   SCALE( * )
-*       COMPLEX*16         A( LDA, * )
+*       REAL*10   SCALE( * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the input matrix A.
 *>          On exit,  A is overwritten by the balanced matrix.
 *>          If JOB = 'N', A is not referenced.
@@ -96,7 +96,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION array, dimension (N)
+*>          SCALE is REAL*10 array, dimension (N)
 *>          Details of the permutations and scaling factors applied to
 *>          A.  If P(j) is the index of the row and column interchanged
 *>          with row and column j and D(j) is the scaling factor
@@ -169,30 +169,30 @@
       INTEGER            IHI, ILO, INFO, LDA, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   SCALE( * )
-      COMPLEX*16         A( LDA, * )
+      REAL*10   SCALE( * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   SCLFAC
+      REAL*10   SCLFAC
       PARAMETER          ( SCLFAC = 2.0D+0 )
-      DOUBLE PRECISION   FACTOR
+      REAL*10   FACTOR
       PARAMETER          ( FACTOR = 0.95D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOCONV
       INTEGER            I, ICA, IEXC, IRA, J, K, L, M
-      DOUBLE PRECISION   C, CA, F, G, R, RA, S, SFMAX1, SFMAX2, SFMIN1,
+      REAL*10   C, CA, F, G, R, RA, S, SFMAX1, SFMAX2, SFMIN1,
      $                   SFMIN2
 *     ..
 *     .. External Functions ..
       LOGICAL            DISNAN, LSAME
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH, DZNRM2
+      REAL*10   DLAMCH, DZNRM2
       EXTERNAL           DISNAN, LSAME, IZAMAX, DLAMCH, DZNRM2
 *     ..
 *     .. External Subroutines ..

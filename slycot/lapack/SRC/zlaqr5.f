@@ -28,7 +28,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         H( LDH, * ), S( * ), U( LDU, * ), V( LDV, * ),
+*       COMPLEX*20         H( LDH, * ), S( * ), U( LDU, * ), V( LDV, * ),
 *      $                   WH( LDWH, * ), WV( LDWV, * ), Z( LDZ, * )
 *       ..
 *
@@ -106,14 +106,14 @@
 *>
 *> \param[in,out] S
 *> \verbatim
-*>          S is COMPLEX*16 array, dimension (NSHFTS)
+*>          S is COMPLEX*20 array, dimension (NSHFTS)
 *>             S contains the shifts of origin that define the multi-
 *>             shift QR sweep.  On output S may be reordered.
 *> \endverbatim
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>             On input H contains a Hessenberg matrix.  On output a
 *>             multi-shift QR sweep with shifts SR(J)+i*SI(J) is applied
 *>             to the isolated diagonal block in rows and columns KTOP
@@ -141,7 +141,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,IHIZ)
+*>          Z is COMPLEX*20 array, dimension (LDZ,IHIZ)
 *>             If WANTZ = .TRUE., then the QR Sweep unitary
 *>             similarity transformation is accumulated into
 *>             Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
@@ -157,7 +157,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,NSHFTS/2)
+*>          V is COMPLEX*20 array, dimension (LDV,NSHFTS/2)
 *> \endverbatim
 *>
 *> \param[in] LDV
@@ -169,7 +169,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU,2*NSHFTS)
+*>          U is COMPLEX*20 array, dimension (LDU,2*NSHFTS)
 *> \endverbatim
 *>
 *> \param[in] LDU
@@ -188,7 +188,7 @@
 *>
 *> \param[out] WV
 *> \verbatim
-*>          WV is COMPLEX*16 array, dimension (LDWV,2*NSHFTS)
+*>          WV is COMPLEX*20 array, dimension (LDWV,2*NSHFTS)
 *> \endverbatim
 *>
 *> \param[in] LDWV
@@ -207,7 +207,7 @@
 *>
 *> \param[out] WH
 *> \verbatim
-*>          WH is COMPLEX*16 array, dimension (LDWH,NH)
+*>          WH is COMPLEX*20 array, dimension (LDWH,NH)
 *> \endverbatim
 *>
 *> \param[in] LDWH
@@ -266,21 +266,21 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         H( LDH, * ), S( * ), U( LDU, * ), V( LDV, * ),
+      COMPLEX*20         H( LDH, * ), S( * ), U( LDU, * ), V( LDV, * ),
      $                   WH( LDWH, * ), WV( LDWV, * ), Z( LDZ, * )
 *     ..
 *
 *  ================================================================
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0d0, 0.0d0 ),
      $                   ONE = ( 1.0d0, 0.0d0 ) )
-      DOUBLE PRECISION   RZERO, RONE
+      REAL*10   RZERO, RONE
       PARAMETER          ( RZERO = 0.0d0, RONE = 1.0d0 )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         ALPHA, BETA, CDUM, REFSUM, T1, T2, T3
-      DOUBLE PRECISION   H11, H12, H21, H22, SAFMAX, SAFMIN, SCL,
+      COMPLEX*20         ALPHA, BETA, CDUM, REFSUM, T1, T2, T3
+      REAL*10   H11, H12, H21, H22, SAFMAX, SAFMIN, SCL,
      $                   SMLNUM, TST1, TST2, ULP
       INTEGER            I2, I4, INCOL, J, JBOT, JCOL, JLEN,
      $                   JROW, JTOP, K, K1, KDU, KMS, KRCOL,
@@ -289,7 +289,7 @@
       LOGICAL            ACCUM, BMP22
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
@@ -297,14 +297,14 @@
       INTRINSIC          ABS, DBLE, DCONJG, DIMAG, MAX, MIN, MOD
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         VT( 3 )
+      COMPLEX*20         VT( 3 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, ZGEMM, ZLACPY, ZLAQR1, ZLARFG, ZLASET,
      $                   ZTRMM
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * )
+*       REAL*10   AP( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the triangular factor U or L from the Cholesky
 *>          factorization A = U**T*U or A = L*L**T, packed columnwise as
 *>          a linear array.  The j-th column of U or L is stored in the
@@ -100,23 +100,23 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * )
+      REAL*10   AP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, JC, JJ, JJN
-      DOUBLE PRECISION   AJJ
+      REAL*10   AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           LSAME, DDOT
 *     ..
 *     .. External Subroutines ..

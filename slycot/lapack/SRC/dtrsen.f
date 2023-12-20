@@ -24,12 +24,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          COMPQ, JOB
 *       INTEGER            INFO, LDQ, LDT, LIWORK, LWORK, M, N
-*       DOUBLE PRECISION   S, SEP
+*       REAL*10   S, SEP
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   Q( LDQ, * ), T( LDT, * ), WI( * ), WORK( * ),
+*       REAL*10   Q( LDQ, * ), T( LDT, * ), WI( * ), WORK( * ),
 *      $                   WR( * )
 *       ..
 *
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          On entry, the upper quasi-triangular matrix T, in Schur
 *>          canonical form.
 *>          On exit, T is overwritten by the reordered matrix T, again in
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
 *>          On exit, if COMPQ = 'V', Q has been postmultiplied by the
 *>          orthogonal transformation matrix which reorders T; the
@@ -130,11 +130,11 @@
 *>
 *> \param[out] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION array, dimension (N)
+*>          WR is REAL*10 array, dimension (N)
 *> \endverbatim
 *> \param[out] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION array, dimension (N)
+*>          WI is REAL*10 array, dimension (N)
 *>
 *>          The real and imaginary parts, respectively, of the reordered
 *>          eigenvalues of T. The eigenvalues are stored in the same
@@ -154,7 +154,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION
+*>          S is REAL*10
 *>          If JOB = 'E' or 'B', S is a lower bound on the reciprocal
 *>          condition number for the selected cluster of eigenvalues.
 *>          S cannot underestimate the true reciprocal condition number
@@ -164,7 +164,7 @@
 *>
 *> \param[out] SEP
 *> \verbatim
-*>          SEP is DOUBLE PRECISION
+*>          SEP is REAL*10
 *>          If JOB = 'V' or 'B', SEP is the estimated reciprocal
 *>          condition number of the specified invariant subspace. If
 *>          M = 0 or N, SEP = norm(T).
@@ -173,7 +173,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -318,19 +318,19 @@
 *     .. Scalar Arguments ..
       CHARACTER          COMPQ, JOB
       INTEGER            INFO, LDQ, LDT, LIWORK, LWORK, M, N
-      DOUBLE PRECISION   S, SEP
+      REAL*10   S, SEP
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   Q( LDQ, * ), T( LDT, * ), WI( * ), WORK( * ),
+      REAL*10   Q( LDQ, * ), T( LDT, * ), WI( * ), WORK( * ),
      $                   WR( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -338,14 +338,14 @@
      $                   WANTSP
       INTEGER            IERR, K, KASE, KK, KS, LIWMIN, LWMIN, N1, N2,
      $                   NN
-      DOUBLE PRECISION   EST, RNORM, SCALE
+      REAL*10   EST, RNORM, SCALE
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLANGE
+      REAL*10   DLANGE
       EXTERNAL           LSAME, DLANGE
 *     ..
 *     .. External Subroutines ..

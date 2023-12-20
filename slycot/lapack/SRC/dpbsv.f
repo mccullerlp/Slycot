@@ -25,7 +25,7 @@
 *       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), B( LDB, * )
+*       REAL*10   AB( LDAB, * ), B( LDB, * )
 *       ..
 *
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
@@ -171,7 +171,7 @@
       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), B( LDB, * )
+      REAL*10   AB( LDAB, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

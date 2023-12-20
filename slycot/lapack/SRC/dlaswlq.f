@@ -10,7 +10,7 @@
 *       INTEGER           INFO, LDA, M, N, MB, NB, LDT, LWORK
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION  A( LDA, * ), T( LDT, * ), WORK( * )
+*       REAL*10  A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the elements on and below the diagonal
 *>          of the array contain the N-by-N lower triangular matrix L;
@@ -82,7 +82,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array,
+*>          T is REAL*10 array,
 *>          dimension (LDT, N * Number_of_row_blocks)
 *>          where Number_of_row_blocks = CEIL((N-M)/(NB-M))
 *>          The blocked upper triangular block reflectors stored in compact form
@@ -99,7 +99,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>         (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>         (workspace) REAL*10 array, dimension (MAX(1,LWORK))
 *>
 *> \endverbatim
 *> \param[in] LWORK
@@ -170,7 +170,7 @@
       INTEGER           INFO, LDA, M, N, MB, NB, LWORK, LDT
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION  A( LDA, * ), WORK( * ), T( LDT, *)
+      REAL*10  A( LDA, * ), WORK( * ), T( LDT, *)
 *     ..
 *
 *  =====================================================================

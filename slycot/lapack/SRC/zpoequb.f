@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, N
-*       DOUBLE PRECISION   AMAX, SCOND
+*       REAL*10   AMAX, SCOND
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * )
-*       DOUBLE PRECISION   S( * )
+*       COMPLEX*20         A( LDA, * )
+*       REAL*10   S( * )
 *       ..
 *
 *
@@ -62,7 +62,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The N-by-N Hermitian positive definite matrix whose scaling
 *>          factors are to be computed.  Only the diagonal elements of A
 *>          are referenced.
@@ -76,13 +76,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          If INFO = 0, S contains the scale factors for A.
 *> \endverbatim
 *>
 *> \param[out] SCOND
 *> \verbatim
-*>          SCOND is DOUBLE PRECISION
+*>          SCOND is REAL*10
 *>          If INFO = 0, S contains the ratio of the smallest S(i) to
 *>          the largest S(i).  If SCOND >= 0.1 and AMAX is neither too
 *>          large nor too small, it is not worth scaling by S.
@@ -90,7 +90,7 @@
 *>
 *> \param[out] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix element.  If AMAX is very
 *>          close to overflow or very close to underflow, the matrix
 *>          should be scaled.
@@ -123,25 +123,25 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, N
-      DOUBLE PRECISION   AMAX, SCOND
+      REAL*10   AMAX, SCOND
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * )
-      DOUBLE PRECISION   S( * )
+      COMPLEX*20         A( LDA, * )
+      REAL*10   S( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      DOUBLE PRECISION   SMIN, BASE, TMP
+      REAL*10   SMIN, BASE, TMP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

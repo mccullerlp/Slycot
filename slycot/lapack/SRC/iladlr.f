@@ -24,7 +24,7 @@
 *       INTEGER            M, N, LDA
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * )
+*       REAL*10   A( LDA, * )
 *       ..
 *
 *
@@ -53,7 +53,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The m by n matrix A.
 *> \endverbatim
 *>
@@ -84,13 +84,13 @@
       INTEGER            M, N, LDA
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * )
+      REAL*10   A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION ZERO
+      REAL*10 ZERO
       PARAMETER ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

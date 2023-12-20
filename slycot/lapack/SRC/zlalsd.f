@@ -24,12 +24,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDB, N, NRHS, RANK, SMLSIZ
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-*       COMPLEX*16         B( LDB, * ), WORK( * )
+*       REAL*10   D( * ), E( * ), RWORK( * )
+*       COMPLEX*20         B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -87,21 +87,21 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry D contains the main diagonal of the bidiagonal
 *>         matrix. On exit, if INFO = 0, D contains its singular values.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>         Contains the super-diagonal entries of the bidiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>         On input, B contains the right hand sides of the least
 *>         squares problem. On output, B contains the solution X.
 *> \endverbatim
@@ -115,7 +115,7 @@
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>         The singular values of A less than or equal to RCOND times
 *>         the largest singular value are treated as zero in solving
 *>         the least squares problem. If RCOND is negative,
@@ -136,12 +136,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N * NRHS)
+*>          WORK is COMPLEX*20 array, dimension (N * NRHS)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension at least
+*>          RWORK is REAL*10 array, dimension at least
 *>         (9*N + 2*N*SMLSIZ + 8*N*NLVL + 3*SMLSIZ*NRHS +
 *>         MAX( (SMLSIZ+1)**2, N*(1+NRHS) + 2*NRHS ),
 *>         where
@@ -192,20 +192,20 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INFO, LDB, N, NRHS, RANK, SMLSIZ
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-      COMPLEX*16         B( LDB, * ), WORK( * )
+      REAL*10   D( * ), E( * ), RWORK( * )
+      COMPLEX*20         B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0 )
-      COMPLEX*16         CZERO
+      COMPLEX*20         CZERO
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ) )
 *     ..
 *     .. Local Scalars ..
@@ -215,11 +215,11 @@
      $                   JREAL, JROW, K, NLVL, NM1, NRWORK, NSIZE, NSUB,
      $                   PERM, POLES, S, SIZEI, SMLSZP, SQRE, ST, ST1,
      $                   U, VT, Z
-      DOUBLE PRECISION   CS, EPS, ORGNRM, RCND, R, SN, TOL
+      REAL*10   CS, EPS, ORGNRM, RCND, R, SN, TOL
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DLANST
+      REAL*10   DLAMCH, DLANST
       EXTERNAL           IDAMAX, DLAMCH, DLANST
 *     ..
 *     .. External Subroutines ..

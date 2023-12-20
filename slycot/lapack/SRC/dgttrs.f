@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
+*       REAL*10   B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
 *       ..
 *
 *
@@ -69,27 +69,27 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is DOUBLE PRECISION array, dimension (N-1)
+*>          DL is REAL*10 array, dimension (N-1)
 *>          The (n-1) multipliers that define the matrix L from the
 *>          LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the upper triangular matrix U from
 *>          the LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is DOUBLE PRECISION array, dimension (N-1)
+*>          DU is REAL*10 array, dimension (N-1)
 *>          The (n-1) elements of the first super-diagonal of U.
 *> \endverbatim
 *>
 *> \param[in] DU2
 *> \verbatim
-*>          DU2 is DOUBLE PRECISION array, dimension (N-2)
+*>          DU2 is REAL*10 array, dimension (N-2)
 *>          The (n-2) elements of the second super-diagonal of U.
 *> \endverbatim
 *>
@@ -104,7 +104,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the matrix of right hand side vectors B.
 *>          On exit, B is overwritten by the solution vectors X.
 *> \endverbatim
@@ -146,7 +146,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
+      REAL*10   B( LDB, * ), D( * ), DL( * ), DU( * ), DU2( * )
 *     ..
 *
 *  =====================================================================

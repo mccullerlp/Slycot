@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            IJOB, LDZ, N
-*       DOUBLE PRECISION   RDSCAL, RDSUM
+*       REAL*10   RDSCAL, RDSUM
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), JPIV( * )
-*       COMPLEX*16         RHS( * ), Z( LDZ, * )
+*       COMPLEX*20         RHS( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          On entry, the LU part of the factorization of the n-by-n
 *>          matrix Z computed by ZGETC2:  Z = P * L * U * Q
 *> \endverbatim
@@ -83,7 +83,7 @@
 *>
 *> \param[in,out] RHS
 *> \verbatim
-*>          RHS is COMPLEX*16 array, dimension (N).
+*>          RHS is COMPLEX*20 array, dimension (N).
 *>          On entry, RHS contains contributions from other subsystems.
 *>          On exit, RHS contains the solution of the subsystem with
 *>          entries according to the value of IJOB (see above).
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] RDSUM
 *> \verbatim
-*>          RDSUM is DOUBLE PRECISION
+*>          RDSUM is REAL*10
 *>          On entry, the sum of squares of computed contributions to
 *>          the Dif-estimate under computation by ZTGSYL, where the
 *>          scaling factor RDSCAL (see below) has been factored out.
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] RDSCAL
 *> \verbatim
-*>          RDSCAL is DOUBLE PRECISION
+*>          RDSCAL is REAL*10
 *>          On entry, scaling factor used to prevent overflow in RDSUM.
 *>          On exit, RDSCAL is updated w.r.t. the current contributions
 *>          in RDSUM.
@@ -173,11 +173,11 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            IJOB, LDZ, N
-      DOUBLE PRECISION   RDSCAL, RDSUM
+      REAL*10   RDSCAL, RDSUM
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), JPIV( * )
-      COMPLEX*16         RHS( * ), Z( LDZ, * )
+      COMPLEX*20         RHS( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
@@ -185,27 +185,27 @@
 *     .. Parameters ..
       INTEGER            MAXDIM
       PARAMETER          ( MAXDIM = 2 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, INFO, J, K
-      DOUBLE PRECISION   RTEMP, SCALE, SMINU, SPLUS
-      COMPLEX*16         BM, BP, PMONE, TEMP
+      REAL*10   RTEMP, SCALE, SMINU, SPLUS
+      COMPLEX*20         BM, BP, PMONE, TEMP
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   RWORK( MAXDIM )
-      COMPLEX*16         WORK( 4*MAXDIM ), XM( MAXDIM ), XP( MAXDIM )
+      REAL*10   RWORK( MAXDIM )
+      COMPLEX*20         WORK( 4*MAXDIM ), XM( MAXDIM ), XP( MAXDIM )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZAXPY, ZCOPY, ZGECON, ZGESC2, ZLASSQ, ZLASWP,
      $                   ZSCAL
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DZASUM
-      COMPLEX*16         ZDOTC
+      REAL*10   DZASUM
+      COMPLEX*20         ZDOTC
       EXTERNAL           DZASUM, ZDOTC
 *     ..
 *     .. Intrinsic Functions ..

@@ -26,7 +26,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
+*       REAL*10   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>           On entry, the upper Hessenberg matrix H.
 *>           On exit, if INFO = 0 and WANTT is .TRUE., then H contains
 *>           the upper quasi-triangular matrix T from the Schur
@@ -121,12 +121,12 @@
 *>
 *> \param[out] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION array, dimension (IHI)
+*>          WR is REAL*10 array, dimension (IHI)
 *> \endverbatim
 *>
 *> \param[out] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION array, dimension (IHI)
+*>          WI is REAL*10 array, dimension (IHI)
 *>           The real and imaginary parts, respectively, of the computed
 *>           eigenvalues of H(ILO:IHI,ILO:IHI) are stored in WR(ILO:IHI)
 *>           and WI(ILO:IHI). If two eigenvalues are computed as a
@@ -155,7 +155,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,IHI)
+*>          Z is REAL*10 array, dimension (LDZ,IHI)
 *>           If WANTZ is .FALSE., then Z is not referenced.
 *>           If WANTZ is .TRUE., then Z(ILO:IHI,ILOZ:IHIZ) is
 *>           replaced by Z(ILO:IHI,ILOZ:IHIZ)*U where U is the
@@ -173,7 +173,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension LWORK
+*>          WORK is REAL*10 array, dimension LWORK
 *>           On exit, if LWORK = -1, WORK(1) returns an estimate of
 *>           the optimal value for LWORK.
 *> \endverbatim
@@ -270,7 +270,7 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
+      REAL*10   H( LDH, * ), WI( * ), WORK( * ), WR( * ),
      $                   Z( LDZ, * )
 *     ..
 *
@@ -297,13 +297,13 @@
 *
 *     ==== The constants WILK1 and WILK2 are used to form the
 *     .    exceptional shifts. ====
-      DOUBLE PRECISION   WILK1, WILK2
+      REAL*10   WILK1, WILK2
       PARAMETER          ( WILK1 = 0.75d0, WILK2 = -0.4375d0 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0d0, ONE = 1.0d0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AA, BB, CC, CS, DD, SN, SS, SWAP
+      REAL*10   AA, BB, CC, CS, DD, SN, SS, SWAP
       INTEGER            I, INF, IT, ITMAX, K, KACC22, KBOT, KDU, KS,
      $                   KT, KTOP, KU, KV, KWH, KWTOP, KWV, LD, LS,
      $                   LWKOPT, NDEC, NDFL, NH, NHO, NIBBLE, NMIN, NS,
@@ -316,7 +316,7 @@
       EXTERNAL           ILAENV
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   ZDUM( 1, 1 )
+      REAL*10   ZDUM( 1, 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLACPY, DLAHQR, DLANV2, DLAQR2, DLAQR5

@@ -26,11 +26,11 @@
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, IU, KA, KB, LDAB, LDBB, LDQ, LDZ, M,
 *      $                   N
-*       DOUBLE PRECISION   ABSTOL, VL, VU
+*       REAL*10   ABSTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IFAIL( * ), IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), BB( LDBB, * ), Q( LDQ, * ),
+*       REAL*10   AB( LDAB, * ), BB( LDBB, * ), Q( LDQ, * ),
 *      $                   W( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB, N)
+*>          AB is REAL*10 array, dimension (LDAB, N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first ka+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] BB
 *> \verbatim
-*>          BB is DOUBLE PRECISION array, dimension (LDBB, N)
+*>          BB is REAL*10 array, dimension (LDBB, N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix B, stored in the first kb+1 rows of the array.  The
 *>          j-th column of B is stored in the j-th column of the array BB
@@ -135,7 +135,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>          If JOBZ = 'V', the n-by-n matrix used in the reduction of
 *>          A*x = (lambda)*B*x to standard form, i.e. C*x = (lambda)*x,
 *>          and consequently C to tridiagonal form.
@@ -151,7 +151,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -160,7 +160,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -189,7 +189,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          The absolute error tolerance for the eigenvalues.
 *>          An approximate eigenvalue is accepted as converged
 *>          when it is determined to lie in an interval [a,b]
@@ -218,13 +218,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 *>          eigenvectors, with the i-th column of Z holding the
 *>          eigenvector associated with W(i).  The eigenvectors are
@@ -241,7 +241,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (7*N)
+*>          WORK is REAL*10 array, dimension (7*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -300,18 +300,18 @@
       CHARACTER          JOBZ, RANGE, UPLO
       INTEGER            IL, INFO, IU, KA, KB, LDAB, LDBB, LDQ, LDZ, M,
      $                   N
-      DOUBLE PRECISION   ABSTOL, VL, VU
+      REAL*10   ABSTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IFAIL( * ), IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), BB( LDBB, * ), Q( LDQ, * ),
+      REAL*10   AB( LDAB, * ), BB( LDBB, * ), Q( LDQ, * ),
      $                   W( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -319,7 +319,7 @@
       CHARACTER          ORDER, VECT
       INTEGER            I, IINFO, INDD, INDE, INDEE, INDIBL, INDISP,
      $                   INDIWO, INDWRK, ITMP1, J, JJ, NSPLIT
-      DOUBLE PRECISION   TMP1
+      REAL*10   TMP1
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

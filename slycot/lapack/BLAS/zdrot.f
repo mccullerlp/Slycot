@@ -12,10 +12,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, INCY, N
-*       DOUBLE PRECISION   C, S
+*       REAL*10   C, S
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         ZX( * ), ZY( * )
+*       COMPLEX*20         ZX( * ), ZY( * )
 *       ..
 *
 *
@@ -41,7 +41,7 @@
 *>
 *> \param[in,out] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension at least
+*>          ZX is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( N - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array ZX must contain the n
 *>           element vector cx. On exit, ZX is overwritten by the updated
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] ZY
 *> \verbatim
-*>          ZY is COMPLEX*16 array, dimension at least
+*>          ZY is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( N - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array ZY must contain the n
 *>           element vector cy. On exit, ZY is overwritten by the updated
@@ -73,13 +73,13 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *>           On entry, C specifies the cosine, cos.
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION
+*>          S is REAL*10
 *>           On entry, S specifies the sine, sin.
 *> \endverbatim
 *
@@ -102,17 +102,17 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, INCY, N
-      DOUBLE PRECISION   C, S
+      REAL*10   C, S
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         ZX( * ), ZY( * )
+      COMPLEX*20         ZX( * ), ZY( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IX, IY
-      COMPLEX*16         CTEMP
+      COMPLEX*20         CTEMP
 *     ..
 *     .. Executable Statements ..
 *

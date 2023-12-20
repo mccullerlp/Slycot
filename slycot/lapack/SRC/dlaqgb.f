@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED
 *       INTEGER            KL, KU, LDAB, M, N
-*       DOUBLE PRECISION   AMAX, COLCND, ROWCND
+*       REAL*10   AMAX, COLCND, ROWCND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), C( * ), R( * )
+*       REAL*10   AB( LDAB, * ), C( * ), R( * )
 *       ..
 *
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 *>          The j-th column of A is stored in the j-th column of the
 *>          array AB as follows:
@@ -88,31 +88,31 @@
 *>
 *> \param[in] R
 *> \verbatim
-*>          R is DOUBLE PRECISION array, dimension (M)
+*>          R is REAL*10 array, dimension (M)
 *>          The row scale factors for A.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>          The column scale factors for A.
 *> \endverbatim
 *>
 *> \param[in] ROWCND
 *> \verbatim
-*>          ROWCND is DOUBLE PRECISION
+*>          ROWCND is REAL*10
 *>          Ratio of the smallest R(i) to the largest R(i).
 *> \endverbatim
 *>
 *> \param[in] COLCND
 *> \verbatim
-*>          COLCND is DOUBLE PRECISION
+*>          COLCND is REAL*10
 *>          Ratio of the smallest C(i) to the largest C(i).
 *> \endverbatim
 *>
 *> \param[in] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix entry.
 *> \endverbatim
 *>
@@ -164,24 +164,24 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED
       INTEGER            KL, KU, LDAB, M, N
-      DOUBLE PRECISION   AMAX, COLCND, ROWCND
+      REAL*10   AMAX, COLCND, ROWCND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), C( * ), R( * )
+      REAL*10   AB( LDAB, * ), C( * ), R( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, THRESH
+      REAL*10   ONE, THRESH
       PARAMETER          ( ONE = 1.0D+0, THRESH = 0.1D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   CJ, LARGE, SMALL
+      REAL*10   CJ, LARGE, SMALL
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

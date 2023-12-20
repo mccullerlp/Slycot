@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
+*       REAL*10 FUNCTION DLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
 *                                               LDAF, WORK )
 *
 *       .. Scalar Arguments ..
@@ -26,7 +26,7 @@
 *       INTEGER            NCOLS, LDA, LDAF
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * )
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * )
 *       ..
 *
 *
@@ -62,7 +62,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -74,7 +74,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>     The triangular factor U or L from the Cholesky factorization
 *>     A = U**T*U or A = L*L**T, as computed by DPOTRF.
 *> \endverbatim
@@ -87,7 +87,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *
 *  Authors:
@@ -101,7 +101,7 @@
 *> \ingroup doublePOcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
+      REAL*10 FUNCTION DLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
      $                                        LDAF, WORK )
 *
 *  -- LAPACK computational routine --
@@ -113,14 +113,14 @@
       INTEGER            NCOLS, LDA, LDAF
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * )
+      REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW
+      REAL*10   AMAX, UMAX, RPVGRW
       LOGICAL            UPPER
 *     ..
 *     .. Intrinsic Functions ..

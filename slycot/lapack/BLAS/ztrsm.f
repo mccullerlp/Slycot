@@ -11,12 +11,12 @@
 *       SUBROUTINE ZTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ALPHA
+*       COMPLEX*20 ALPHA
 *       INTEGER LDA,LDB,M,N
 *       CHARACTER DIAG,SIDE,TRANSA,UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A(LDA,*),B(LDB,*)
+*       COMPLEX*20 A(LDA,*),B(LDB,*)
 *       ..
 *
 *
@@ -103,7 +103,7 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
 *>           zero then  A is not referenced and  B need not be set before
 *>           entry.
@@ -111,7 +111,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, k ),
+*>          A is COMPLEX*20 array, dimension ( LDA, k ),
 *>           where k is m when SIDE = 'L' or 'l'
 *>             and k is n when SIDE = 'R' or 'r'.
 *>           Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension ( LDB, N )
+*>          B is COMPLEX*20 array, dimension ( LDB, N )
 *>           Before entry,  the leading  m by n part of the array  B must
 *>           contain  the  right-hand  side  matrix  B,  and  on exit  is
 *>           overwritten by the solution matrix  X.
@@ -183,12 +183,12 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ALPHA
+      COMPLEX*20 ALPHA
       INTEGER LDA,LDB,M,N
       CHARACTER DIAG,SIDE,TRANSA,UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),B(LDB,*)
+      COMPLEX*20 A(LDA,*),B(LDB,*)
 *     ..
 *
 *  =====================================================================
@@ -204,14 +204,14 @@
       INTRINSIC DCONJG,MAX
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      COMPLEX*20 TEMP
       INTEGER I,INFO,J,K,NROWA
       LOGICAL LSIDE,NOCONJ,NOUNIT,UPPER
 *     ..
 *     .. Parameters ..
-      COMPLEX*16 ONE
+      COMPLEX*20 ONE
       PARAMETER (ONE= (1.0D+0,0.0D+0))
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *

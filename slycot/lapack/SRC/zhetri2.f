@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -35,7 +35,7 @@
 *>
 *> \verbatim
 *>
-*> ZHETRI2 computes the inverse of a COMPLEX*16 hermitian indefinite matrix
+*> ZHETRI2 computes the inverse of a COMPLEX*20 hermitian indefinite matrix
 *> A using the factorization A = U*D*U**T or A = L*D*L**T computed by
 *> ZHETRF. ZHETRI2 set the LEADING DIMENSION of the workspace
 *> before calling ZHETRI2X that actually computes the inverse.
@@ -61,7 +61,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the block diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by ZHETRF.
 *>
@@ -88,7 +88,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N+NB+1)*(NB+3)
+*>          WORK is COMPLEX*20 array, dimension (N+NB+1)*(NB+3)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -135,7 +135,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), WORK( * )
 *     ..
 *
 *  =====================================================================

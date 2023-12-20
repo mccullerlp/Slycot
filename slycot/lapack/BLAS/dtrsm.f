@@ -11,12 +11,12 @@
 *       SUBROUTINE DTRSM(SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION ALPHA
+*       REAL*10 ALPHA
 *       INTEGER LDA,LDB,M,N
 *       CHARACTER DIAG,SIDE,TRANSA,UPLO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION A(LDA,*),B(LDB,*)
+*       REAL*10 A(LDA,*),B(LDB,*)
 *       ..
 *
 *
@@ -103,7 +103,7 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION.
+*>          ALPHA is REAL*10.
 *>           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
 *>           zero then  A is not referenced and  B need not be set before
 *>           entry.
@@ -111,7 +111,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( LDA, k ),
+*>          A is REAL*10 array, dimension ( LDA, k ),
 *>           where k is m when SIDE = 'L' or 'l'
 *>             and k is n when SIDE = 'R' or 'r'.
 *>           Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension ( LDB, N )
+*>          B is REAL*10 array, dimension ( LDB, N )
 *>           Before entry,  the leading  m by n part of the array  B must
 *>           contain  the  right-hand  side  matrix  B,  and  on exit  is
 *>           overwritten by the solution matrix  X.
@@ -184,12 +184,12 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA
+      REAL*10 ALPHA
       INTEGER LDA,LDB,M,N
       CHARACTER DIAG,SIDE,TRANSA,UPLO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A(LDA,*),B(LDB,*)
+      REAL*10 A(LDA,*),B(LDB,*)
 *     ..
 *
 *  =====================================================================
@@ -205,12 +205,12 @@
       INTRINSIC MAX
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION TEMP
+      REAL*10 TEMP
       INTEGER I,INFO,J,K,NROWA
       LOGICAL LSIDE,NOUNIT,UPPER
 *     ..
 *     .. Parameters ..
-      DOUBLE PRECISION ONE,ZERO
+      REAL*10 ONE,ZERO
       PARAMETER (ONE=1.0D+0,ZERO=0.0D+0)
 *     ..
 *

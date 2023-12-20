@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDB, N, NRHS, RANK, SMLSIZ
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   B( LDB, * ), D( * ), E( * ), WORK( * )
+*       REAL*10   B( LDB, * ), D( * ), E( * ), WORK( * )
 *       ..
 *
 *
@@ -86,21 +86,21 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry D contains the main diagonal of the bidiagonal
 *>         matrix. On exit, if INFO = 0, D contains its singular values.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>         Contains the super-diagonal entries of the bidiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>         On input, B contains the right hand sides of the least
 *>         squares problem. On output, B contains the solution X.
 *> \endverbatim
@@ -114,7 +114,7 @@
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>         The singular values of A less than or equal to RCOND times
 *>         the largest singular value are treated as zero in solving
 *>         the least squares problem. If RCOND is negative,
@@ -135,7 +135,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension at least
+*>          WORK is REAL*10 array, dimension at least
 *>         (9*N + 2*N*SMLSIZ + 8*N*NLVL + N*NRHS + (SMLSIZ+1)**2),
 *>         where NLVL = max(0, INT(log_2 (N/(SMLSIZ+1))) + 1).
 *> \endverbatim
@@ -184,17 +184,17 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INFO, LDB, N, NRHS, RANK, SMLSIZ
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   B( LDB, * ), D( * ), E( * ), WORK( * )
+      REAL*10   B( LDB, * ), D( * ), E( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -202,11 +202,11 @@
      $                   GIVPTR, I, ICMPQ1, ICMPQ2, IWK, J, K, NLVL,
      $                   NM1, NSIZE, NSUB, NWORK, PERM, POLES, S, SIZEI,
      $                   SMLSZP, SQRE, ST, ST1, U, VT, Z
-      DOUBLE PRECISION   CS, EPS, ORGNRM, R, RCND, SN, TOL
+      REAL*10   CS, EPS, ORGNRM, R, RCND, SN, TOL
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DLANST
+      REAL*10   DLAMCH, DLANST
       EXTERNAL           IDAMAX, DLAMCH, DLANST
 *     ..
 *     .. External Subroutines ..

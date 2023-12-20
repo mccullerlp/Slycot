@@ -40,27 +40,27 @@
 !
 !> \param[in,out] A
 !> \verbatim
-!>          A is DOUBLE PRECISION
+!>          A is REAL*10
 !>          On entry, the scalar a.
 !>          On exit, the scalar r.
 !> \endverbatim
 !>
 !> \param[in,out] B
 !> \verbatim
-!>          B is DOUBLE PRECISION
+!>          B is REAL*10
 !>          On entry, the scalar b.
 !>          On exit, the scalar z.
 !> \endverbatim
 !>
 !> \param[out] C
 !> \verbatim
-!>          C is DOUBLE PRECISION
+!>          C is REAL*10
 !>          The scalar c.
 !> \endverbatim
 !>
 !> \param[out] S
 !> \verbatim
-!>          S is DOUBLE PRECISION
+!>          S is REAL*10
 !>          The scalar s.
 !> \endverbatim
 !

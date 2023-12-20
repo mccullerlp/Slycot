@@ -24,12 +24,12 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, K, LDU, LDU2, LDVT, LDVT2, NL, NR, SQRE
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            COLTYP( * ), IDX( * ), IDXC( * ), IDXP( * ),
 *      $                   IDXQ( * )
-*       DOUBLE PRECISION   D( * ), DSIGMA( * ), U( LDU, * ),
+*       REAL*10   D( * ), DSIGMA( * ), U( LDU, * ),
 *      $                   U2( LDU2, * ), VT( LDVT, * ), VT2( LDVT2, * ),
 *      $                   Z( * )
 *       ..
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension(N)
+*>          D is REAL*10 array, dimension(N)
 *>         On entry D contains the singular values of the two submatrices
 *>         to be combined.  On exit D contains the trailing (N-K) updated
 *>         singular values (those which were deflated) sorted into
@@ -93,27 +93,27 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension(N)
+*>          Z is REAL*10 array, dimension(N)
 *>         On exit Z contains the updating row vector in the secular
 *>         equation.
 *> \endverbatim
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>         Contains the diagonal element associated with the added row.
 *> \endverbatim
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>         Contains the off-diagonal element associated with the added
 *>         row.
 *> \endverbatim
 *>
 *> \param[in,out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension(LDU,N)
+*>          U is REAL*10 array, dimension(LDU,N)
 *>         On entry U contains the left singular vectors of two
 *>         submatrices in the two square blocks with corners at (1,1),
 *>         (NL, NL), and (NL+2, NL+2), (N,N).
@@ -129,7 +129,7 @@
 *>
 *> \param[in,out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension(LDVT,M)
+*>          VT is REAL*10 array, dimension(LDVT,M)
 *>         On entry VT**T contains the right singular vectors of two
 *>         submatrices in the two square blocks with corners at (1,1),
 *>         (NL+1, NL+1), and (NL+2, NL+2), (M,M).
@@ -147,14 +147,14 @@
 *>
 *> \param[out] DSIGMA
 *> \verbatim
-*>          DSIGMA is DOUBLE PRECISION array, dimension (N)
+*>          DSIGMA is REAL*10 array, dimension (N)
 *>         Contains a copy of the diagonal elements (K-1 singular values
 *>         and one zero) in the secular equation.
 *> \endverbatim
 *>
 *> \param[out] U2
 *> \verbatim
-*>          U2 is DOUBLE PRECISION array, dimension(LDU2,N)
+*>          U2 is REAL*10 array, dimension(LDU2,N)
 *>         Contains a copy of the first K-1 left singular vectors which
 *>         will be used by DLASD3 in a matrix multiply (DGEMM) to solve
 *>         for the new left singular vectors. U2 is arranged into four
@@ -172,7 +172,7 @@
 *>
 *> \param[out] VT2
 *> \verbatim
-*>          VT2 is DOUBLE PRECISION array, dimension(LDVT2,N)
+*>          VT2 is REAL*10 array, dimension(LDVT2,N)
 *>         VT2**T contains a copy of the first K right singular vectors
 *>         which will be used by DLASD3 in a matrix multiply (DGEMM) to
 *>         solve for the new right singular vectors. VT2 is arranged into
@@ -273,12 +273,12 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, K, LDU, LDU2, LDVT, LDVT2, NL, NR, SQRE
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
 *     ..
 *     .. Array Arguments ..
       INTEGER            COLTYP( * ), IDX( * ), IDXC( * ), IDXP( * ),
      $                   IDXQ( * )
-      DOUBLE PRECISION   D( * ), DSIGMA( * ), U( LDU, * ),
+      REAL*10   D( * ), DSIGMA( * ), U( LDU, * ),
      $                   U2( LDU2, * ), VT( LDVT, * ), VT2( LDVT2, * ),
      $                   Z( * )
 *     ..
@@ -286,7 +286,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, EIGHT
+      REAL*10   ZERO, ONE, TWO, EIGHT
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0,
      $                   EIGHT = 8.0D+0 )
 *     ..
@@ -296,10 +296,10 @@
 *     .. Local Scalars ..
       INTEGER            CT, I, IDXI, IDXJ, IDXJP, J, JP, JPREV, K2, M,
      $                   N, NLP1, NLP2
-      DOUBLE PRECISION   C, EPS, HLFTOL, S, TAU, TOL, Z1
+      REAL*10   C, EPS, HLFTOL, S, TAU, TOL, Z1
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLAPY2
+      REAL*10   DLAMCH, DLAPY2
       EXTERNAL           DLAMCH, DLAPY2
 *     ..
 *     .. External Subroutines ..

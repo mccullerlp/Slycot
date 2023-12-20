@@ -26,7 +26,7 @@
 *       INTEGER            IHI, ILO, INFO, LDV, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   SCALE( * ), V( LDV, * )
+*       REAL*10   SCALE( * ), V( LDV, * )
 *       ..
 *
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION array, dimension (N)
+*>          SCALE is REAL*10 array, dimension (N)
 *>          Details of the permutation and scaling factors, as returned
 *>          by DGEBAL.
 *> \endverbatim
@@ -95,7 +95,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,M)
+*>          V is REAL*10 array, dimension (LDV,M)
 *>          On entry, the matrix of right or left eigenvectors to be
 *>          transformed, as returned by DHSEIN or DTREVC.
 *>          On exit, V is overwritten by the transformed eigenvectors.
@@ -137,19 +137,19 @@
       INTEGER            IHI, ILO, INFO, LDV, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   SCALE( * ), V( LDV, * )
+      REAL*10   SCALE( * ), V( LDV, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LEFTV, RIGHTV
       INTEGER            I, II, K
-      DOUBLE PRECISION   S
+      REAL*10   S
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

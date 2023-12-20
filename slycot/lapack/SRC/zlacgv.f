@@ -24,7 +24,7 @@
 *       INTEGER            INCX, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         X( * )
+*       COMPLEX*20         X( * )
 *       ..
 *
 *
@@ -47,7 +47,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension
+*>          X is COMPLEX*20 array, dimension
 *>                         (1+(N-1)*abs(INCX))
 *>          On entry, the vector of length N to be conjugated.
 *>          On exit, X is overwritten with conjg(X).
@@ -80,7 +80,7 @@
       INTEGER            INCX, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         X( * )
+      COMPLEX*20         X( * )
 *     ..
 *
 * =====================================================================

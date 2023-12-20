@@ -12,7 +12,7 @@
 *      INTEGER           INFO, LDA, M, N, K, MB, NB, LDT, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-*      COMPLEX*16        A( LDA, * ), WORK( * ), C(LDC, * ),
+*      COMPLEX*20        A( LDA, * ), WORK( * ), C(LDC, * ),
 *     $                  T( LDT, * )
 *> \par Purpose:
 *  =============
@@ -83,7 +83,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,K)
+*>          A is COMPLEX*20 array, dimension (LDA,K)
 *>          The i-th column must contain the vector which defines the
 *>          blockedelementary reflector H(i), for i = 1,2,...,k, as
 *>          returned by ZLATSQR in the first k columns of
@@ -100,7 +100,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension
+*>          T is COMPLEX*20 array, dimension
 *>          ( N * Number of blocks(CEIL(M-K/MB-K)),
 *>          The blocked upper triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.  See below
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 *> \endverbatim
@@ -128,7 +128,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>         (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>         (workspace) COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>
 *> \endverbatim
 *> \param[in] LWORK
@@ -204,7 +204,7 @@
       INTEGER           INFO, LDA, M, N, K, MB, NB, LDT, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16        A( LDA, * ), WORK( * ), C(LDC, * ),
+      COMPLEX*20        A( LDA, * ), WORK( * ), C(LDC, * ),
      $                T( LDT, * )
 *     ..
 *

@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            I0, N0, N0IN, PP, TTYPE
-*       DOUBLE PRECISION   DMIN, DMIN1, DMIN2, DN, DN1, DN2, G, TAU
+*       REAL*10   DMIN, DMIN1, DMIN2, DN, DN1, DN2, G, TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Z( * )
+*       REAL*10   Z( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( 4*N0 )
+*>          Z is REAL*10 array, dimension ( 4*N0 )
 *>        Z holds the qd array.
 *> \endverbatim
 *>
@@ -74,43 +74,43 @@
 *>
 *> \param[in] DMIN
 *> \verbatim
-*>          DMIN is DOUBLE PRECISION
+*>          DMIN is REAL*10
 *>        Minimum value of d.
 *> \endverbatim
 *>
 *> \param[in] DMIN1
 *> \verbatim
-*>          DMIN1 is DOUBLE PRECISION
+*>          DMIN1 is REAL*10
 *>        Minimum value of d, excluding D( N0 ).
 *> \endverbatim
 *>
 *> \param[in] DMIN2
 *> \verbatim
-*>          DMIN2 is DOUBLE PRECISION
+*>          DMIN2 is REAL*10
 *>        Minimum value of d, excluding D( N0 ) and D( N0-1 ).
 *> \endverbatim
 *>
 *> \param[in] DN
 *> \verbatim
-*>          DN is DOUBLE PRECISION
+*>          DN is REAL*10
 *>        d(N)
 *> \endverbatim
 *>
 *> \param[in] DN1
 *> \verbatim
-*>          DN1 is DOUBLE PRECISION
+*>          DN1 is REAL*10
 *>        d(N-1)
 *> \endverbatim
 *>
 *> \param[in] DN2
 *> \verbatim
-*>          DN2 is DOUBLE PRECISION
+*>          DN2 is REAL*10
 *>        d(N-2)
 *> \endverbatim
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>        This is the shift.
 *> \endverbatim
 *>
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] G
 *> \verbatim
-*>          G is DOUBLE PRECISION
+*>          G is REAL*10
 *>        G is passed as an argument in order to save its value between
 *>        calls to DLASQ4.
 *> \endverbatim
@@ -155,26 +155,26 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            I0, N0, N0IN, PP, TTYPE
-      DOUBLE PRECISION   DMIN, DMIN1, DMIN2, DN, DN1, DN2, G, TAU
+      REAL*10   DMIN, DMIN1, DMIN2, DN, DN1, DN2, G, TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Z( * )
+      REAL*10   Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   CNST1, CNST2, CNST3
+      REAL*10   CNST1, CNST2, CNST3
       PARAMETER          ( CNST1 = 0.5630D0, CNST2 = 1.010D0,
      $                   CNST3 = 1.050D0 )
-      DOUBLE PRECISION   QURTR, THIRD, HALF, ZERO, ONE, TWO, HUNDRD
+      REAL*10   QURTR, THIRD, HALF, ZERO, ONE, TWO, HUNDRD
       PARAMETER          ( QURTR = 0.250D0, THIRD = 0.3330D0,
      $                   HALF = 0.50D0, ZERO = 0.0D0, ONE = 1.0D0,
      $                   TWO = 2.0D0, HUNDRD = 100.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I4, NN, NP
-      DOUBLE PRECISION   A2, B1, B2, GAM, GAP1, GAP2, S
+      REAL*10   A2, B1, B2, GAM, GAP1, GAP2, S
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MAX, MIN, SQRT

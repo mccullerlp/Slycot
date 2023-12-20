@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
+*       REAL*10 FUNCTION ZLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
 *                                               LDAB, AFB, LDAFB )
 *
 *       .. Scalar Arguments ..
 *       INTEGER            N, KL, KU, NCOLS, LDAB, LDAFB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AB( LDAB, * ), AFB( LDAFB, * )
+*       COMPLEX*20         AB( LDAB, * ), AFB( LDAFB, * )
 *       ..
 *
 *
@@ -72,7 +72,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>     On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 *>     The j-th column of A is stored in the j-th column of the
 *>     array AB as follows:
@@ -87,7 +87,7 @@
 *>
 *> \param[in] AFB
 *> \verbatim
-*>          AFB is COMPLEX*16 array, dimension (LDAFB,N)
+*>          AFB is COMPLEX*20 array, dimension (LDAFB,N)
 *>     Details of the LU factorization of the band matrix A, as
 *>     computed by ZGBTRF.  U is stored as an upper triangular
 *>     band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
@@ -112,7 +112,7 @@
 *> \ingroup complex16GBcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
+      REAL*10 FUNCTION ZLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
      $                                        LDAB, AFB, LDAFB )
 *
 *  -- LAPACK computational routine --
@@ -123,21 +123,21 @@
       INTEGER            N, KL, KU, NCOLS, LDAB, LDAFB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AB( LDAB, * ), AFB( LDAFB, * )
+      COMPLEX*20         AB( LDAB, * ), AFB( LDAFB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J, KD
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW
-      COMPLEX*16         ZDUM
+      REAL*10   AMAX, UMAX, RPVGRW
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN, REAL, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

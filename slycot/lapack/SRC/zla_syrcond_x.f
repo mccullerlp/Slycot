@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_SYRCOND_X( UPLO, N, A, LDA, AF,
+*       REAL*10 FUNCTION ZLA_SYRCOND_X( UPLO, N, A, LDA, AF,
 *                                                LDAF, IPIV, X, INFO,
 *                                                WORK, RWORK )
 *
@@ -28,8 +28,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
-*       DOUBLE PRECISION   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
+*       REAL*10   RWORK( * )
 *       ..
 *
 *
@@ -39,7 +39,7 @@
 *> \verbatim
 *>
 *>    ZLA_SYRCOND_X Computes the infinity norm condition number of
-*>    op(A) * diag(X) where X is a COMPLEX*16 vector.
+*>    op(A) * diag(X) where X is a COMPLEX*20 vector.
 *> \endverbatim
 *
 *  Arguments:
@@ -61,7 +61,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -73,7 +73,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>     The block diagonal matrix D and the multipliers used to
 *>     obtain the factor U or L as computed by ZSYTRF.
 *> \endverbatim
@@ -93,7 +93,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>     The vector X in the formula op(A) * diag(X).
 *> \endverbatim
 *>
@@ -106,13 +106,13 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N).
+*>          WORK is COMPLEX*20 array, dimension (2*N).
 *>     Workspace.
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N).
+*>          RWORK is REAL*10 array, dimension (N).
 *>     Workspace.
 *> \endverbatim
 *
@@ -127,7 +127,7 @@
 *> \ingroup complex16SYcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_SYRCOND_X( UPLO, N, A, LDA, AF,
+      REAL*10 FUNCTION ZLA_SYRCOND_X( UPLO, N, A, LDA, AF,
      $                                         LDAF, IPIV, X, INFO,
      $                                         WORK, RWORK )
 *
@@ -141,18 +141,18 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
-      DOUBLE PRECISION   RWORK( * )
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
+      REAL*10   RWORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            KASE
-      DOUBLE PRECISION   AINVNM, ANORM, TMP
+      REAL*10   AINVNM, ANORM, TMP
       INTEGER            I, J
       LOGICAL            UP, UPPER
-      COMPLEX*16         ZDUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -168,7 +168,7 @@
       INTRINSIC          ABS, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

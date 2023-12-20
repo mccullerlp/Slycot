@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, NORMIN, TRANS, UPLO
 *       INTEGER            INFO, LDA, N
-*       DOUBLE PRECISION   SCALE
+*       REAL*10   SCALE
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   CNORM( * )
-*       COMPLEX*16         A( LDA, * ), X( * )
+*       REAL*10   CNORM( * )
+*       COMPLEX*20         A( LDA, * ), X( * )
 *       ..
 *
 *
@@ -96,7 +96,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The triangular matrix A.  If UPLO = 'U', the leading n by n
 *>          upper triangular part of the array A contains the upper
 *>          triangular matrix, and the strictly lower triangular part of
@@ -115,14 +115,14 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>          On entry, the right hand side b of the triangular system.
 *>          On exit, X is overwritten by the solution vector x.
 *> \endverbatim
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          The scaling factor s for the triangular system
 *>             A * x = s*b,  A**T * x = s*b,  or  A**H * x = s*b.
 *>          If SCALE = 0, the matrix A is singular or badly scaled, and
@@ -131,7 +131,7 @@
 *>
 *> \param[in,out] CNORM
 *> \verbatim
-*>          CNORM is DOUBLE PRECISION array, dimension (N)
+*>          CNORM is REAL*10 array, dimension (N)
 *>
 *>          If NORMIN = 'Y', CNORM is an input argument and CNORM(j)
 *>          contains the norm of the off-diagonal part of the j-th column
@@ -244,32 +244,32 @@
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, NORMIN, TRANS, UPLO
       INTEGER            INFO, LDA, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   CNORM( * )
-      COMPLEX*16         A( LDA, * ), X( * )
+      REAL*10   CNORM( * )
+      COMPLEX*20         A( LDA, * ), X( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE, TWO
+      REAL*10   ZERO, HALF, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, HALF = 0.5D+0, ONE = 1.0D+0,
      $                   TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN, NOUNIT, UPPER
       INTEGER            I, IMAX, J, JFIRST, JINC, JLAST
-      DOUBLE PRECISION   BIGNUM, GROW, REC, SMLNUM, TJJ, TMAX, TSCAL,
+      REAL*10   BIGNUM, GROW, REC, SMLNUM, TJJ, TMAX, TSCAL,
      $                   XBND, XJ, XMAX
-      COMPLEX*16         CSUMJ, TJJS, USCAL, ZDUM
+      COMPLEX*20         CSUMJ, TJJS, USCAL, ZDUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX, IZAMAX
-      DOUBLE PRECISION   DLAMCH, DZASUM
-      COMPLEX*16         ZDOTC, ZDOTU, ZLADIV
+      REAL*10   DLAMCH, DZASUM
+      COMPLEX*20         ZDOTC, ZDOTU, ZLADIV
       EXTERNAL           LSAME, IDAMAX, IZAMAX, DLAMCH, DZASUM, ZDOTC,
      $                   ZDOTU, ZLADIV
 *     ..
@@ -280,7 +280,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1, CABS2
+      REAL*10   CABS1, CABS2
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

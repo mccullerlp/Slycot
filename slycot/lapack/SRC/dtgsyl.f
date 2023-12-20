@@ -26,11 +26,11 @@
 *       CHARACTER          TRANS
 *       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF,
 *      $                   LWORK, M, N
-*       DOUBLE PRECISION   DIF, SCALE
+*       REAL*10   DIF, SCALE
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), C( LDC, * ),
 *      $                   D( LDD, * ), E( LDE, * ), F( LDF, * ),
 *      $                   WORK( * )
 *       ..
@@ -122,7 +122,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, M)
+*>          A is REAL*10 array, dimension (LDA, M)
 *>          The upper quasi triangular matrix A.
 *> \endverbatim
 *>
@@ -134,7 +134,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          The upper quasi triangular matrix B.
 *> \endverbatim
 *>
@@ -146,7 +146,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC, N)
+*>          C is REAL*10 array, dimension (LDC, N)
 *>          On entry, C contains the right-hand-side of the first matrix
 *>          equation in (1) or (3).
 *>          On exit, if IJOB = 0, 1 or 2, C has been overwritten by
@@ -163,7 +163,7 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (LDD, M)
+*>          D is REAL*10 array, dimension (LDD, M)
 *>          The upper triangular matrix D.
 *> \endverbatim
 *>
@@ -175,7 +175,7 @@
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (LDE, N)
+*>          E is REAL*10 array, dimension (LDE, N)
 *>          The upper triangular matrix E.
 *> \endverbatim
 *>
@@ -187,7 +187,7 @@
 *>
 *> \param[in,out] F
 *> \verbatim
-*>          F is DOUBLE PRECISION array, dimension (LDF, N)
+*>          F is REAL*10 array, dimension (LDF, N)
 *>          On entry, F contains the right-hand-side of the second matrix
 *>          equation in (1) or (3).
 *>          On exit, if IJOB = 0, 1 or 2, F has been overwritten by
@@ -204,7 +204,7 @@
 *>
 *> \param[out] DIF
 *> \verbatim
-*>          DIF is DOUBLE PRECISION
+*>          DIF is REAL*10
 *>          On exit DIF is the reciprocal of a lower bound of the
 *>          reciprocal of the Dif-function, i.e. DIF is an upper bound of
 *>          Dif[(A,D), (B,E)] = sigma_min(Z), where Z as in (2).
@@ -213,7 +213,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          On exit SCALE is the scaling factor in (1) or (3).
 *>          If 0 < SCALE < 1, C and F hold the solutions R and L, resp.,
 *>          to a slightly perturbed system but the input matrices A, B, D
@@ -224,7 +224,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -305,11 +305,11 @@
       CHARACTER          TRANS
       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF,
      $                   LWORK, M, N
-      DOUBLE PRECISION   DIF, SCALE
+      REAL*10   DIF, SCALE
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), C( LDC, * ),
      $                   D( LDD, * ), E( LDE, * ), F( LDF, * ),
      $                   WORK( * )
 *     ..
@@ -319,14 +319,14 @@
 *  Sven Hammarling, 1/5/02.
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, NOTRAN
       INTEGER            I, IE, IFUNC, IROUND, IS, ISOLVE, J, JE, JS, K,
      $                   LINFO, LWMIN, MB, NB, P, PPQQ, PQ, Q
-      DOUBLE PRECISION   DSCALE, DSUM, SCALE2, SCALOC
+      REAL*10   DSCALE, DSUM, SCALE2, SCALOC
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -54,7 +54,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the m by n matrix A.
 *>          On exit, if m >= n, the lower triangle of the subarray
 *>          A(m-n+1:m,1:n) contains the n by n lower triangular matrix L;
@@ -73,14 +73,14 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (min(M,N))
+*>          TAU is REAL*10 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors (see Further
 *>          Details).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -129,18 +129,18 @@
       INTEGER            INFO, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, K
-      DOUBLE PRECISION   AII
+      REAL*10   AII
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLARF, DLARFG, XERBLA

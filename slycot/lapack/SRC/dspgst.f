@@ -25,7 +25,7 @@
 *       INTEGER            INFO, ITYPE, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), BP( * )
+*       REAL*10   AP( * ), BP( * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -86,7 +86,7 @@
 *>
 *> \param[in] BP
 *> \verbatim
-*>          BP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          BP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The triangular factor from the Cholesky factorization of B,
 *>          stored in the same format as A, as returned by DPPTRF.
 *> \endverbatim
@@ -120,19 +120,19 @@
       INTEGER            INFO, ITYPE, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), BP( * )
+      REAL*10   AP( * ), BP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, HALF
+      REAL*10   ONE, HALF
       PARAMETER          ( ONE = 1.0D0, HALF = 0.5D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, J1, J1J1, JJ, K, K1, K1K1, KK
-      DOUBLE PRECISION   AJJ, AKK, BJJ, BKK, CT
+      REAL*10   AJJ, AKK, BJJ, BKK, CT
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DSCAL, DSPMV, DSPR2, DTPMV, DTPSV,
@@ -140,7 +140,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           LSAME, DDOT
 *     ..
 *     .. Executable Statements ..

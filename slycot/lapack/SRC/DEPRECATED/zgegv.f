@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WORK( * )
 *       ..
@@ -93,7 +93,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the matrix A.
 *>          If JOBVL = 'V' or JOBVR = 'V', then on exit A
 *>          contains the Schur form of A from the generalized Schur
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the matrix B.
 *>          If JOBVL = 'V' or JOBVR = 'V', then on exit B contains the
 *>          upper triangular matrix obtained from B in the generalized
@@ -129,14 +129,14 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *>          The complex scalars alpha that define the eigenvalues of
 *>          GNEP.
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          The complex scalars beta that define the eigenvalues of GNEP.
 *>
 *>          Together, the quantities alpha = ALPHA(j) and beta = BETA(j)
@@ -148,7 +148,7 @@
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,N)
+*>          VL is COMPLEX*20 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left eigenvectors u(j) are stored
 *>          in the columns of VL, in the same order as their eigenvalues.
 *>          Each eigenvector is scaled so that its largest component has
@@ -167,7 +167,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,N)
+*>          VR is COMPLEX*20 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right eigenvectors x(j) are stored
 *>          in the columns of VR, in the same order as their eigenvalues.
 *>          Each eigenvector is scaled so that its largest component has
@@ -186,7 +186,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -208,7 +208,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (8*N)
+*>          RWORK is REAL*10 array, dimension (8*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -289,8 +289,8 @@
       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WORK( * )
 *     ..
@@ -298,9 +298,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
@@ -310,10 +310,10 @@
       INTEGER            ICOLS, IHI, IINFO, IJOBVL, IJOBVR, ILEFT, ILO,
      $                   IN, IRIGHT, IROWS, IRWORK, ITAU, IWORK, JC, JR,
      $                   LOPT, LWKMIN, LWKOPT, NB, NB1, NB2, NB3
-      DOUBLE PRECISION   ABSAI, ABSAR, ABSB, ANRM, ANRM1, ANRM2, BNRM,
+      REAL*10   ABSAI, ABSAR, ABSB, ANRM, ANRM1, ANRM2, BNRM,
      $                   BNRM1, BNRM2, EPS, SAFMAX, SAFMIN, SALFAI,
      $                   SALFAR, SBETA, SCALE, TEMP
-      COMPLEX*16         X
+      COMPLEX*20         X
 *     ..
 *     .. Local Arrays ..
       LOGICAL            LDUMMA( 1 )
@@ -325,14 +325,14 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, DCMPLX, DIMAG, INT, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1
+      REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
       ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )

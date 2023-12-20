@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          DIAG, NORM, UPLO
 *       INTEGER            INFO, N
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         AP( * ), WORK( * )
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         AP( * ), WORK( * )
 *       ..
 *
 *
@@ -80,7 +80,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          The upper or lower triangular matrix A, packed columnwise in
 *>          a linear array.  The j-th column of A is stored in the array
 *>          AP as follows:
@@ -92,19 +92,19 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(norm(A) * norm(inv(A))).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -135,25 +135,25 @@
 *     .. Scalar Arguments ..
       CHARACTER          DIAG, NORM, UPLO
       INTEGER            INFO, N
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         AP( * ), WORK( * )
+      REAL*10   RWORK( * )
+      COMPLEX*20         AP( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOUNIT, ONENRM, UPPER
       CHARACTER          NORMIN
       INTEGER            IX, KASE, KASE1
-      DOUBLE PRECISION   AINVNM, ANORM, SCALE, SMLNUM, XNORM
-      COMPLEX*16         ZDUM
+      REAL*10   AINVNM, ANORM, SCALE, SMLNUM, XNORM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -161,7 +161,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH, ZLANTP
+      REAL*10   DLAMCH, ZLANTP
       EXTERNAL           LSAME, IZAMAX, DLAMCH, ZLANTP
 *     ..
 *     .. External Subroutines ..
@@ -171,7 +171,7 @@
       INTRINSIC          ABS, DBLE, DIMAG, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

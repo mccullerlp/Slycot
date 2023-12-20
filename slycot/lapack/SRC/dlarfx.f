@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          SIDE
 *       INTEGER            LDC, M, N
-*       DOUBLE PRECISION   TAU
+*       REAL*10   TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( LDC, * ), V( * ), WORK( * )
+*       REAL*10   C( LDC, * ), V( * ), WORK( * )
 *       ..
 *
 *
@@ -72,20 +72,20 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (M) if SIDE = 'L'
+*>          V is REAL*10 array, dimension (M) if SIDE = 'L'
 *>                                     or (N) if SIDE = 'R'
 *>          The vector v in the representation of H.
 *> \endverbatim
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>          The value tau in the representation of H.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the m by n matrix C.
 *>          On exit, C is overwritten by the matrix H * C if SIDE = 'L',
 *>          or C * H if SIDE = 'R'.
@@ -99,7 +99,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>                      (N) if SIDE = 'L'
 *>                      or (M) if SIDE = 'R'
 *>          WORK is not referenced if H has order < 11.
@@ -125,21 +125,21 @@
 *     .. Scalar Arguments ..
       CHARACTER          SIDE
       INTEGER            LDC, M, N
-      DOUBLE PRECISION   TAU
+      REAL*10   TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( LDC, * ), V( * ), WORK( * )
+      REAL*10   C( LDC, * ), V( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J
-      DOUBLE PRECISION   SUM, T1, T10, T2, T3, T4, T5, T6, T7, T8, T9,
+      REAL*10   SUM, T1, T10, T2, T3, T4, T5, T6, T7, T8, T9,
      $                   V1, V10, V2, V3, V4, V5, V6, V7, V8, V9
 *     ..
 *     .. External Functions ..

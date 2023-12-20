@@ -24,7 +24,7 @@
 *       INTEGER   INFO, LDA, M, N, LDT
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), T( LDT, * )
+*       REAL*10   A( LDA, * ), T( LDT, * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the real M-by-N matrix A.  On exit, the elements on and
 *>          below the diagonal contain the N-by-N lower triangular matrix L; the
 *>          elements above the diagonal are the rows of V.  See below for
@@ -72,7 +72,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          The N-by-N upper triangular factor of the block reflector.
 *>          The elements on and above the diagonal contain the block
 *>          reflector T; the elements below the diagonal are not used.
@@ -137,13 +137,13 @@
       INTEGER   INFO, LDA, M, N, LDT
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), T( LDT, * )
+      REAL*10   A( LDA, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER ( ONE = 1.0D+00 )
 *     ..
 *     .. Local Scalars ..

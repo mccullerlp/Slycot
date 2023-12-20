@@ -26,11 +26,11 @@
 *       CHARACTER          JOBQ, JOBU, JOBV
 *       INTEGER            INFO, K, L, LDA, LDB, LDQ, LDU, LDV, M, N,
 *      $                   NCYCLE, P
-*       DOUBLE PRECISION   TOLA, TOLB
+*       REAL*10   TOLA, TOLB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   ALPHA( * ), BETA( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   ALPHA( * ), BETA( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   U( LDU, * ), V( LDV, * ), WORK( * )
 *       ..
 *
@@ -194,7 +194,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A(N-K+1:N,1:MIN(K+L,M) ) contains the triangular
 *>          matrix R or part of R.  See Purpose for details.
@@ -208,7 +208,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, if necessary, B(M-K+1:L,N+M-K-L+1:N) contains
 *>          a part of R.  See Purpose for details.
@@ -222,12 +222,12 @@
 *>
 *> \param[in] TOLA
 *> \verbatim
-*>          TOLA is DOUBLE PRECISION
+*>          TOLA is REAL*10
 *> \endverbatim
 *>
 *> \param[in] TOLB
 *> \verbatim
-*>          TOLB is DOUBLE PRECISION
+*>          TOLB is REAL*10
 *>
 *>          TOLA and TOLB are the convergence criteria for the Jacobi-
 *>          Kogbetliantz iteration procedure. Generally, they are the
@@ -238,12 +238,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION array, dimension (N)
+*>          ALPHA is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>
 *>          On exit, ALPHA and BETA contain the generalized singular
 *>          value pairs of A and B;
@@ -262,7 +262,7 @@
 *>
 *> \param[in,out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU,M)
+*>          U is COMPLEX*20 array, dimension (LDU,M)
 *>          On entry, if JOBU = 'U', U must contain a matrix U1 (usually
 *>          the unitary matrix returned by ZGGSVP).
 *>          On exit,
@@ -280,7 +280,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,P)
+*>          V is COMPLEX*20 array, dimension (LDV,P)
 *>          On entry, if JOBV = 'V', V must contain a matrix V1 (usually
 *>          the unitary matrix returned by ZGGSVP).
 *>          On exit,
@@ -298,7 +298,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          On entry, if JOBQ = 'Q', Q must contain a matrix Q1 (usually
 *>          the unitary matrix returned by ZGGSVP).
 *>          On exit,
@@ -316,7 +316,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] NCYCLE
@@ -385,11 +385,11 @@
       CHARACTER          JOBQ, JOBU, JOBV
       INTEGER            INFO, K, L, LDA, LDB, LDQ, LDU, LDV, M, N,
      $                   NCYCLE, P
-      DOUBLE PRECISION   TOLA, TOLB
+      REAL*10   TOLA, TOLB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   ALPHA( * ), BETA( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   ALPHA( * ), BETA( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   U( LDU, * ), V( LDV, * ), WORK( * )
 *     ..
 *
@@ -398,9 +398,9 @@
 *     .. Parameters ..
       INTEGER            MAXIT
       PARAMETER          ( MAXIT = 40 )
-      DOUBLE PRECISION   ZERO, ONE, HUGENUM
+      REAL*10   ZERO, ONE, HUGENUM
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -408,9 +408,9 @@
 *
       LOGICAL            INITQ, INITU, INITV, UPPER, WANTQ, WANTU, WANTV
       INTEGER            I, J, KCYCLE
-      DOUBLE PRECISION   A1, A3, B1, B3, CSQ, CSU, CSV, ERROR, GAMMA,
+      REAL*10   A1, A3, B1, B3, CSQ, CSU, CSV, ERROR, GAMMA,
      $                   RWK, SSMIN
-      COMPLEX*16         A2, B2, SNQ, SNU, SNV
+      COMPLEX*20         A2, B2, SNQ, SNU, SNV
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

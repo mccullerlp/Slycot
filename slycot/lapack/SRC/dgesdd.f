@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), S( * ), U( LDU, * ),
+*       REAL*10   A( LDA, * ), S( * ), U( LDU, * ),
 *      $                   VT( LDVT, * ), WORK( * )
 *       ..
 *
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit,
 *>          if JOBZ = 'O',  A is overwritten with the first N columns
@@ -118,13 +118,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (min(M,N))
+*>          S is REAL*10 array, dimension (min(M,N))
 *>          The singular values of A, sorted so that S(i) >= S(i+1).
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU,UCOL)
+*>          U is REAL*10 array, dimension (LDU,UCOL)
 *>          UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M < N;
 *>          UCOL = min(M,N) if JOBZ = 'S'.
 *>          If JOBZ = 'A' or JOBZ = 'O' and M < N, U contains the M-by-M
@@ -143,7 +143,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension (LDVT,N)
+*>          VT is REAL*10 array, dimension (LDVT,N)
 *>          If JOBZ = 'A' or JOBZ = 'O' and M >= N, VT contains the
 *>          N-by-N orthogonal matrix V**T;
 *>          if JOBZ = 'S', VT contains the first min(M,N) rows of
@@ -161,7 +161,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
 *> \endverbatim
 *>
@@ -228,14 +228,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), S( * ), U( LDU, * ),
+      REAL*10   A( LDA, * ), S( * ), U( LDU, * ),
      $                   VT( LDVT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -253,11 +253,11 @@
      $                   LWORK_DORMBR_PRT_MM, LWORK_DORMBR_QLN_MM,
      $                   LWORK_DORMBR_PRT_MN, LWORK_DORMBR_QLN_MN,
      $                   LWORK_DORMBR_PRT_NN, LWORK_DORMBR_QLN_NN
-      DOUBLE PRECISION   ANRM, BIGNUM, EPS, SMLNUM
+      REAL*10   ANRM, BIGNUM, EPS, SMLNUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            IDUM( 1 )
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DBDSDC, DGEBRD, DGELQF, DGEMM, DGEQRF, DLACPY,
@@ -266,7 +266,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
-      DOUBLE PRECISION   DLAMCH, DLANGE, DROUNDUP_LWORK
+      REAL*10   DLAMCH, DLANGE, DROUNDUP_LWORK
       EXTERNAL           DLAMCH, DLANGE, LSAME, DISNAN, 
      $                   DROUNDUP_LWORK
 *     ..

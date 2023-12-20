@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), D( * )
+*       REAL*10   A( LDA, * ), D( * )
 *       ..
 *
 *
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix to be factored.
 *>          On exit, the factors L and U from the factorization
 *>          A-S=L*U; the unit diagonal elements of L are not stored.
@@ -128,7 +128,7 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension min(M,N)
+*>          D is REAL*10 array, dimension min(M,N)
 *>          The diagonal elements of the diagonal M-by-N sign matrix S,
 *>          D(i) = S(i,i), where 1 <= i <= min(M,N). The elements can
 *>          be only plus or minus one.
@@ -174,21 +174,21 @@
       INTEGER            INFO, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), D( * )
+      REAL*10   A( LDA, * ), D( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   SFMIN
+      REAL*10   SFMIN
       INTEGER            I, IINFO, N1, N2
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

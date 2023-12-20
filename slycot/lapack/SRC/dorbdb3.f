@@ -25,8 +25,8 @@
 *       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   PHI(*), THETA(*)
-*       DOUBLE PRECISION   TAUP1(*), TAUP2(*), TAUQ1(*), WORK(*),
+*       REAL*10   PHI(*), THETA(*)
+*       REAL*10   TAUP1(*), TAUP2(*), TAUQ1(*), WORK(*),
 *      $                   X11(LDX11,*), X21(LDX21,*)
 *       ..
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in,out] X11
 *> \verbatim
-*>          X11 is DOUBLE PRECISION array, dimension (LDX11,Q)
+*>          X11 is REAL*10 array, dimension (LDX11,Q)
 *>           On entry, the top block of the matrix X to be reduced. On
 *>           exit, the columns of tril(X11) specify reflectors for P1 and
 *>           the rows of triu(X11,1) specify reflectors for Q1.
@@ -95,7 +95,7 @@
 *>
 *> \param[in,out] X21
 *> \verbatim
-*>          X21 is DOUBLE PRECISION array, dimension (LDX21,Q)
+*>          X21 is REAL*10 array, dimension (LDX21,Q)
 *>           On entry, the bottom block of the matrix X to be reduced. On
 *>           exit, the columns of tril(X21) specify reflectors for P2.
 *> \endverbatim
@@ -108,42 +108,42 @@
 *>
 *> \param[out] THETA
 *> \verbatim
-*>          THETA is DOUBLE PRECISION array, dimension (Q)
+*>          THETA is REAL*10 array, dimension (Q)
 *>           The entries of the bidiagonal blocks B11, B21 are defined by
 *>           THETA and PHI. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] PHI
 *> \verbatim
-*>          PHI is DOUBLE PRECISION array, dimension (Q-1)
+*>          PHI is REAL*10 array, dimension (Q-1)
 *>           The entries of the bidiagonal blocks B11, B21 are defined by
 *>           THETA and PHI. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] TAUP1
 *> \verbatim
-*>          TAUP1 is DOUBLE PRECISION array, dimension (P)
+*>          TAUP1 is REAL*10 array, dimension (P)
 *>           The scalar factors of the elementary reflectors that define
 *>           P1.
 *> \endverbatim
 *>
 *> \param[out] TAUP2
 *> \verbatim
-*>          TAUP2 is DOUBLE PRECISION array, dimension (M-P)
+*>          TAUP2 is REAL*10 array, dimension (M-P)
 *>           The scalar factors of the elementary reflectors that define
 *>           P2.
 *> \endverbatim
 *>
 *> \param[out] TAUQ1
 *> \verbatim
-*>          TAUQ1 is DOUBLE PRECISION array, dimension (Q)
+*>          TAUQ1 is REAL*10 array, dimension (Q)
 *>           The scalar factors of the elementary reflectors that define
 *>           Q1.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -207,19 +207,19 @@
       INTEGER            INFO, LWORK, M, P, Q, LDX11, LDX21
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   PHI(*), THETA(*)
-      DOUBLE PRECISION   TAUP1(*), TAUP2(*), TAUQ1(*), WORK(*),
+      REAL*10   PHI(*), THETA(*)
+      REAL*10   TAUP1(*), TAUP2(*), TAUQ1(*), WORK(*),
      $                   X11(LDX11,*), X21(LDX21,*)
 *     ..
 *
 *  ====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   C, S
+      REAL*10   C, S
       INTEGER            CHILDINFO, I, ILARF, IORBDB5, LLARF, LORBDB5,
      $                   LWORKMIN, LWORKOPT
       LOGICAL            LQUERY
@@ -228,7 +228,7 @@
       EXTERNAL           DLARF, DLARFGP, DORBDB5, DROT, XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DNRM2
+      REAL*10   DNRM2
       EXTERNAL           DNRM2
 *     ..
 *     .. Intrinsic Function ..

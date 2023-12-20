@@ -25,7 +25,7 @@
 *       INTEGER            LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), C( * ), S( * )
+*       REAL*10   A( LDA, * ), C( * ), S( * )
 *       ..
 *
 *
@@ -154,7 +154,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension
+*>          C is REAL*10 array, dimension
 *>                  (M-1) if SIDE = 'L'
 *>                  (N-1) if SIDE = 'R'
 *>          The cosines c(k) of the plane rotations.
@@ -162,7 +162,7 @@
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension
+*>          S is REAL*10 array, dimension
 *>                  (M-1) if SIDE = 'L'
 *>                  (N-1) if SIDE = 'R'
 *>          The sines s(k) of the plane rotations.  The 2-by-2 plane
@@ -173,7 +173,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The M-by-N matrix A.  On exit, A is overwritten by P*A if
 *>          SIDE = 'L' or by A*P**T if SIDE = 'R'.
 *> \endverbatim
@@ -206,18 +206,18 @@
       INTEGER            LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), C( * ), S( * )
+      REAL*10   A( LDA, * ), C( * ), S( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, INFO, J
-      DOUBLE PRECISION   CTEMP, STEMP, TEMP
+      REAL*10   CTEMP, STEMP, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

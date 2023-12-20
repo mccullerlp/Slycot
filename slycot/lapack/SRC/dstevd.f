@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -66,7 +66,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the tridiagonal matrix
 *>          A.
 *>          On exit, if INFO = 0, the eigenvalues in ascending order.
@@ -74,7 +74,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix A, stored in elements 1 to N-1 of E.
 *>          On exit, the contents of E are destroyed.
@@ -82,7 +82,7 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
 *>          eigenvectors of the matrix A, with the i-th column of Z
 *>          holding the eigenvector associated with D(i).
@@ -98,7 +98,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array,
+*>          WORK is REAL*10 array,
 *>                                         dimension (LWORK)
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
@@ -171,24 +171,24 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+      REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LQUERY, WANTZ
       INTEGER            ISCALE, LIWMIN, LWMIN
-      DOUBLE PRECISION   BIGNUM, EPS, RMAX, RMIN, SAFMIN, SIGMA, SMLNUM,
+      REAL*10   BIGNUM, EPS, RMAX, RMIN, SAFMIN, SIGMA, SMLNUM,
      $                   TNRM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANST
+      REAL*10   DLAMCH, DLANST
       EXTERNAL           LSAME, DLAMCH, DLANST
 *     ..
 *     .. External Subroutines ..

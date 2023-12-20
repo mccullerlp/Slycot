@@ -27,8 +27,8 @@
 *       INTEGER            IHI, ILO, INFO, LDH, LDQ, LDT, LDZ, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         ALPHA( * ), BETA( * ), H( LDH, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         ALPHA( * ), BETA( * ), H( LDH, * ),
 *      $                   Q( LDQ, * ), T( LDT, * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
@@ -135,7 +135,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH, N)
+*>          H is COMPLEX*20 array, dimension (LDH, N)
 *>          On entry, the N-by-N upper Hessenberg matrix H.
 *>          On exit, if JOB = 'S', H contains the upper triangular
 *>          matrix S from the generalized Schur factorization.
@@ -151,7 +151,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT, N)
+*>          T is COMPLEX*20 array, dimension (LDT, N)
 *>          On entry, the N-by-N upper triangular matrix T.
 *>          On exit, if JOB = 'S', T contains the upper triangular
 *>          matrix P from the generalized Schur factorization.
@@ -167,7 +167,7 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *>          The complex scalars alpha that define the eigenvalues of
 *>          GNEP.  ALPHA(i) = S(i,i) in the generalized Schur
 *>          factorization.
@@ -175,7 +175,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          The real non-negative scalars beta that define the
 *>          eigenvalues of GNEP.  BETA(i) = P(i,i) in the generalized
 *>          Schur factorization.
@@ -189,7 +189,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ, N)
+*>          Q is COMPLEX*20 array, dimension (LDQ, N)
 *>          On entry, if COMPQ = 'V', the unitary matrix Q1 used in the
 *>          reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPQ = 'I', the unitary matrix of left Schur
@@ -207,7 +207,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the unitary matrix Z1 used in the
 *>          reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPZ = 'I', the unitary matrix of right Schur
@@ -225,7 +225,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -242,7 +242,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -291,8 +291,8 @@
       INTEGER            IHI, ILO, INFO, LDH, LDQ, LDT, LDZ, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         ALPHA( * ), BETA( * ), H( LDH, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         ALPHA( * ), BETA( * ), H( LDH, * ),
      $                   Q( LDQ, * ), T( LDT, * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
@@ -300,12 +300,12 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = 0.5D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -313,16 +313,16 @@
       INTEGER            ICOMPQ, ICOMPZ, IFIRST, IFRSTM, IITER, ILAST,
      $                   ILASTM, IN, ISCHUR, ISTART, J, JC, JCH, JITER,
      $                   JR, MAXIT
-      DOUBLE PRECISION   ABSB, ANORM, ASCALE, ATOL, BNORM, BSCALE, BTOL,
+      REAL*10   ABSB, ANORM, ASCALE, ATOL, BNORM, BSCALE, BTOL,
      $                   C, SAFMIN, TEMP, TEMP2, TEMPR, ULP
-      COMPLEX*16         ABI22, AD11, AD12, AD21, AD22, CTEMP, CTEMP2,
+      COMPLEX*20         ABI22, AD11, AD12, AD21, AD22, CTEMP, CTEMP2,
      $                   CTEMP3, ESHIFT, S, SHIFT, SIGNBC,
      $                   U12, X, ABI12, Y
 *     ..
 *     .. External Functions ..
-      COMPLEX*16         ZLADIV
+      COMPLEX*20         ZLADIV
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANHS
+      REAL*10   DLAMCH, ZLANHS
       EXTERNAL           ZLADIV, LSAME, DLAMCH, ZLANHS
 *     ..
 *     .. External Subroutines ..
@@ -333,7 +333,7 @@
      $                   SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1
+      REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
       ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )

@@ -24,11 +24,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            IJOB, INFO, MINP, MMAX, MOUT, N, NBMIN, NITMAX
-*       DOUBLE PRECISION   ABSTOL, PIVMIN, RELTOL
+*       REAL*10   ABSTOL, PIVMIN, RELTOL
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * ), NAB( MMAX, * ), NVAL( * )
-*       DOUBLE PRECISION   AB( MMAX, * ), C( * ), D( * ), E( * ), E2( * ),
+*       REAL*10   AB( MMAX, * ), C( * ), D( * ), E( * ), E2( * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -133,7 +133,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          The minimum (absolute) width of an interval.  When an
 *>          interval is narrower than ABSTOL, or than RELTOL times the
 *>          larger (in magnitude) endpoint, then it is considered to be
@@ -143,7 +143,7 @@
 *>
 *> \param[in] RELTOL
 *> \verbatim
-*>          RELTOL is DOUBLE PRECISION
+*>          RELTOL is REAL*10
 *>          The minimum relative width of an interval.  When an interval
 *>          is narrower than ABSTOL, or than RELTOL times the larger (in
 *>          magnitude) endpoint, then it is considered to be
@@ -153,7 +153,7 @@
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum absolute value of a "pivot" in the Sturm
 *>          sequence loop.
 *>          This must be at least  max |e(j)**2|*safe_min  and at
@@ -163,20 +163,20 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          The offdiagonal elements of the tridiagonal matrix T in
 *>          positions 1 through N-1.  E(N) is arbitrary.
 *> \endverbatim
 *>
 *> \param[in] E2
 *> \verbatim
-*>          E2 is DOUBLE PRECISION array, dimension (N)
+*>          E2 is REAL*10 array, dimension (N)
 *>          The squares of the offdiagonal elements of the tridiagonal
 *>          matrix T.  E2(N) is ignored.
 *> \endverbatim
@@ -194,7 +194,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (MMAX,2)
+*>          AB is REAL*10 array, dimension (MMAX,2)
 *>          The endpoints of the intervals.  AB(j,1) is  a(j), the left
 *>          endpoint of the j-th interval, and AB(j,2) is b(j), the
 *>          right endpoint of the j-th interval.  The input intervals
@@ -204,7 +204,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (MMAX)
+*>          C is REAL*10 array, dimension (MMAX)
 *>          If IJOB=1, ignored.
 *>          If IJOB=2, workspace.
 *>          If IJOB=3, then on input C(j) should be initialized to the
@@ -247,7 +247,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MMAX)
+*>          WORK is REAL*10 array, dimension (MMAX)
 *>          Workspace.
 *> \endverbatim
 *>
@@ -323,25 +323,25 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            IJOB, INFO, MINP, MMAX, MOUT, N, NBMIN, NITMAX
-      DOUBLE PRECISION   ABSTOL, PIVMIN, RELTOL
+      REAL*10   ABSTOL, PIVMIN, RELTOL
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * ), NAB( MMAX, * ), NVAL( * )
-      DOUBLE PRECISION   AB( MMAX, * ), C( * ), D( * ), E( * ), E2( * ),
+      REAL*10   AB( MMAX, * ), C( * ), D( * ), E( * ), E2( * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, TWO, HALF
+      REAL*10   ZERO, TWO, HALF
       PARAMETER          ( ZERO = 0.0D0, TWO = 2.0D0,
      $                   HALF = 1.0D0 / TWO )
 *     ..
 *     .. Local Scalars ..
       INTEGER            ITMP1, ITMP2, J, JI, JIT, JP, KF, KFNEW, KL,
      $                   KLNEW
-      DOUBLE PRECISION   TMP1, TMP2
+      REAL*10   TMP1, TMP2
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN

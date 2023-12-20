@@ -27,8 +27,8 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -99,7 +99,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N)
+*>          T is COMPLEX*20 array, dimension (LDT,N)
 *>          The upper triangular matrix T.  T is modified, but restored
 *>          on exit.
 *> \endverbatim
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,MM)
+*>          VL is COMPLEX*20 array, dimension (LDVL,MM)
 *>          On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
 *>          contain an N-by-N matrix Q (usually the unitary matrix Q of
 *>          Schur vectors returned by ZHSEQR).
@@ -135,7 +135,7 @@
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,MM)
+*>          VR is COMPLEX*20 array, dimension (LDVR,MM)
 *>          On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
 *>          contain an N-by-N matrix Q (usually the unitary matrix Q of
 *>          Schur vectors returned by ZHSEQR).
@@ -173,12 +173,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -226,30 +226,30 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CMZERO, CMONE
+      COMPLEX*20         CMZERO, CMONE
       PARAMETER          ( CMZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CMONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            ALLV, BOTHV, LEFTV, OVER, RIGHTV, SOMEV
       INTEGER            I, II, IS, J, K, KI
-      DOUBLE PRECISION   OVFL, REMAX, SCALE, SMIN, SMLNUM, ULP, UNFL
-      COMPLEX*16         CDUM
+      REAL*10   OVFL, REMAX, SCALE, SMIN, SMLNUM, ULP, UNFL
+      COMPLEX*20         CDUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH, DZASUM
+      REAL*10   DLAMCH, DZASUM
       EXTERNAL           LSAME, IZAMAX, DLAMCH, DZASUM
 *     ..
 *     .. External Subroutines ..
@@ -259,7 +259,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

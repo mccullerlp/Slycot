@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            IJOB, LDZ, N
-*       DOUBLE PRECISION   RDSCAL, RDSUM
+*       REAL*10   RDSCAL, RDSUM
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), JPIV( * )
-*       DOUBLE PRECISION   RHS( * ), Z( LDZ, * )
+*       REAL*10   RHS( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          On entry, the LU part of the factorization of the n-by-n
 *>          matrix Z computed by DGETC2:  Z = P * L * U * Q
 *> \endverbatim
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] RHS
 *> \verbatim
-*>          RHS is DOUBLE PRECISION array, dimension (N)
+*>          RHS is REAL*10 array, dimension (N)
 *>          On entry, RHS contains contributions from other subsystems.
 *>          On exit, RHS contains the solution of the subsystem with
 *>          entries according to the value of IJOB (see above).
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] RDSUM
 *> \verbatim
-*>          RDSUM is DOUBLE PRECISION
+*>          RDSUM is REAL*10
 *>          On entry, the sum of squares of computed contributions to
 *>          the Dif-estimate under computation by DTGSYL, where the
 *>          scaling factor RDSCAL (see below) has been factored out.
@@ -102,7 +102,7 @@
 *>
 *> \param[in,out] RDSCAL
 *> \verbatim
-*>          RDSCAL is DOUBLE PRECISION
+*>          RDSCAL is REAL*10
 *>          On entry, scaling factor used to prevent overflow in RDSUM.
 *>          On exit, RDSCAL is updated w.r.t. the current contributions
 *>          in RDSUM.
@@ -175,11 +175,11 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            IJOB, LDZ, N
-      DOUBLE PRECISION   RDSCAL, RDSUM
+      REAL*10   RDSCAL, RDSUM
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), JPIV( * )
-      DOUBLE PRECISION   RHS( * ), Z( LDZ, * )
+      REAL*10   RHS( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
@@ -187,23 +187,23 @@
 *     .. Parameters ..
       INTEGER            MAXDIM
       PARAMETER          ( MAXDIM = 8 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, INFO, J, K
-      DOUBLE PRECISION   BM, BP, PMONE, SMINU, SPLUS, TEMP
+      REAL*10   BM, BP, PMONE, SMINU, SPLUS, TEMP
 *     ..
 *     .. Local Arrays ..
       INTEGER            IWORK( MAXDIM )
-      DOUBLE PRECISION   WORK( 4*MAXDIM ), XM( MAXDIM ), XP( MAXDIM )
+      REAL*10   WORK( 4*MAXDIM ), XM( MAXDIM ), XP( MAXDIM )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DCOPY, DGECON, DGESC2, DLASSQ, DLASWP,
      $                   DSCAL
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DASUM, DDOT
+      REAL*10   DASUM, DDOT
       EXTERNAL           DASUM, DDOT
 *     ..
 *     .. Intrinsic Functions ..

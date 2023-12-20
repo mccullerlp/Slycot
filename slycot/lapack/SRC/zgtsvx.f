@@ -25,12 +25,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          FACT, TRANS
 *       INTEGER            INFO, LDB, LDX, N, NRHS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   BERR( * ), FERR( * ), RWORK( * )
-*       COMPLEX*16         B( LDB, * ), D( * ), DF( * ), DL( * ),
+*       REAL*10   BERR( * ), FERR( * ), RWORK( * )
+*       COMPLEX*20         B( LDB, * ), D( * ), DF( * ), DL( * ),
 *      $                   DLF( * ), DU( * ), DU2( * ), DUF( * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
@@ -116,25 +116,25 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The n diagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) superdiagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in,out] DLF
 *> \verbatim
-*>          DLF is COMPLEX*16 array, dimension (N-1)
+*>          DLF is COMPLEX*20 array, dimension (N-1)
 *>          If FACT = 'F', then DLF is an input argument and on entry
 *>          contains the (n-1) multipliers that define the matrix L from
 *>          the LU factorization of A as computed by ZGTTRF.
@@ -146,7 +146,7 @@
 *>
 *> \param[in,out] DF
 *> \verbatim
-*>          DF is COMPLEX*16 array, dimension (N)
+*>          DF is COMPLEX*20 array, dimension (N)
 *>          If FACT = 'F', then DF is an input argument and on entry
 *>          contains the n diagonal elements of the upper triangular
 *>          matrix U from the LU factorization of A.
@@ -158,7 +158,7 @@
 *>
 *> \param[in,out] DUF
 *> \verbatim
-*>          DUF is COMPLEX*16 array, dimension (N-1)
+*>          DUF is COMPLEX*20 array, dimension (N-1)
 *>          If FACT = 'F', then DUF is an input argument and on entry
 *>          contains the (n-1) elements of the first superdiagonal of U.
 *>
@@ -168,7 +168,7 @@
 *>
 *> \param[in,out] DU2
 *> \verbatim
-*>          DU2 is COMPLEX*16 array, dimension (N-2)
+*>          DU2 is COMPLEX*20 array, dimension (N-2)
 *>          If FACT = 'F', then DU2 is an input argument and on entry
 *>          contains the (n-2) elements of the second superdiagonal of
 *>          U.
@@ -194,7 +194,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          The N-by-NRHS right hand side matrix B.
 *> \endverbatim
 *>
@@ -206,7 +206,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.
 *> \endverbatim
 *>
@@ -218,7 +218,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The estimate of the reciprocal condition number of the matrix
 *>          A.  If RCOND is less than the machine precision (in
 *>          particular, if RCOND = 0), the matrix is singular to working
@@ -228,7 +228,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -241,7 +241,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -249,12 +249,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -299,12 +299,12 @@
 *     .. Scalar Arguments ..
       CHARACTER          FACT, TRANS
       INTEGER            INFO, LDB, LDX, N, NRHS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   BERR( * ), FERR( * ), RWORK( * )
-      COMPLEX*16         B( LDB, * ), D( * ), DF( * ), DL( * ),
+      REAL*10   BERR( * ), FERR( * ), RWORK( * )
+      COMPLEX*20         B( LDB, * ), D( * ), DF( * ), DL( * ),
      $                   DLF( * ), DU( * ), DU2( * ), DUF( * ),
      $                   WORK( * ), X( LDX, * )
 *     ..
@@ -312,17 +312,17 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOFACT, NOTRAN
       CHARACTER          NORM
-      DOUBLE PRECISION   ANORM
+      REAL*10   ANORM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGT
+      REAL*10   DLAMCH, ZLANGT
       EXTERNAL           LSAME, DLAMCH, ZLANGT
 *     ..
 *     .. External Subroutines ..

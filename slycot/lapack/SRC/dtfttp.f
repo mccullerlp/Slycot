@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( 0: * ), ARF( 0: * )
+*       REAL*10   AP( 0: * ), ARF( 0: * )
 *       ..
 *
 *
@@ -63,14 +63,14 @@
 *>
 *> \param[in] ARF
 *> \verbatim
-*>          ARF is DOUBLE PRECISION array, dimension ( N*(N+1)/2 ),
+*>          ARF is REAL*10 array, dimension ( N*(N+1)/2 ),
 *>          On entry, the upper or lower triangular matrix A stored in
 *>          RFP format. For a further discussion see Notes below.
 *> \endverbatim
 *>
 *> \param[out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension ( N*(N+1)/2 ),
+*>          AP is REAL*10 array, dimension ( N*(N+1)/2 ),
 *>          On exit, the upper or lower triangular matrix A, packed
 *>          columnwise in a linear array. The j-th column of A is stored
 *>          in the array AP as follows:
@@ -194,7 +194,7 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( 0: * ), ARF( 0: * )
+      REAL*10   AP( 0: * ), ARF( 0: * )
 *     ..
 *
 *  =====================================================================

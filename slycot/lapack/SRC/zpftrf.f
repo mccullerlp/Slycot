@@ -25,7 +25,7 @@
 *       INTEGER            N, INFO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( 0: * )
+*       COMPLEX*20         A( 0: * )
 *
 *
 *> \par Purpose:
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( N*(N+1)/2 );
+*>          A is COMPLEX*20 array, dimension ( N*(N+1)/2 );
 *>          On entry, the Hermitian matrix A in RFP format. RFP format is
 *>          described by TRANSR, UPLO, and N as follows: If TRANSR = 'N'
 *>          then RFP A is (0:N,0:k-1) when N is even; k=N/2. RFP A is
@@ -218,13 +218,13 @@
       INTEGER            N, INFO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( 0: * )
+      COMPLEX*20         A( 0: * )
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
-      COMPLEX*16         CONE
+      REAL*10   ONE
+      COMPLEX*20         CONE
       PARAMETER          ( ONE = 1.0D+0, CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

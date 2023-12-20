@@ -26,7 +26,7 @@
 *       CHARACTER*1        JOBA, JOBU, JOBV
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), SVA( N ), V( LDV, * ),
+*       REAL*10   A( LDA, * ), SVA( N ), V( LDV, * ),
 *      $                   WORK( LWORK )
 *       ..
 *
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit :
 *>          If JOBU = 'U' .OR. JOBU = 'C' :
@@ -163,7 +163,7 @@
 *>
 *> \param[out] SVA
 *> \verbatim
-*>          SVA is DOUBLE PRECISION array, dimension (N)
+*>          SVA is REAL*10 array, dimension (N)
 *>          On exit :
 *>          If INFO = 0 :
 *>          depending on the value SCALE = WORK(1), we have:
@@ -189,7 +189,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,N)
+*>          V is REAL*10 array, dimension (LDV,N)
 *>          If JOBV = 'V', then V contains on exit the N-by-N matrix of
 *>                         the right singular vectors;
 *>          If JOBV = 'A', then V contains the product of the computed right
@@ -208,7 +208,7 @@
 *>
 *> \param[in,out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>          On entry :
 *>          If JOBU = 'C' :
 *>          WORK(1) = CTOL, where CTOL defines the threshold for convergence.
@@ -344,20 +344,20 @@
       CHARACTER*1        JOBA, JOBU, JOBV
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), SVA( N ), V( LDV, * ),
+      REAL*10   A( LDA, * ), SVA( N ), V( LDV, * ),
      $                   WORK( LWORK )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE
+      REAL*10   ZERO, HALF, ONE
       PARAMETER          ( ZERO = 0.0D0, HALF = 0.5D0, ONE = 1.0D0)
       INTEGER            NSWEEP
       PARAMETER          ( NSWEEP = 30 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AAPP, AAPP0, AAPQ, AAQQ, APOAQ, AQOAP, BIG,
+      REAL*10   AAPP, AAPP0, AAPQ, AAQQ, APOAQ, AQOAP, BIG,
      $                   BIGTHETA, CS, CTOL, EPSLN, LARGE, MXAAPQ,
      $                   MXSINJ, ROOTBIG, ROOTEPS, ROOTSFMIN, ROOTTOL,
      $                   SKL, SFMIN, SMALL, SN, T, TEMP1, THETA,
@@ -370,7 +370,7 @@
      $                   RSVEC, UCTOL, UPPER
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   FASTR( 5 )
+      REAL*10   FASTR( 5 )
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DABS, MAX, MIN, DBLE, DSIGN, DSQRT
@@ -378,12 +378,12 @@
 *     .. External Functions ..
 *     ..
 *     from BLAS
-      DOUBLE PRECISION   DDOT, DNRM2
+      REAL*10   DDOT, DNRM2
       EXTERNAL           DDOT, DNRM2
       INTEGER            IDAMAX
       EXTERNAL           IDAMAX
 *     from LAPACK
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
       LOGICAL            LSAME
       EXTERNAL           LSAME

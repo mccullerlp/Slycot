@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, N, NSPLIT
-*       DOUBLE PRECISION    SPLTOL, TNRM
+*       REAL*10    SPLTOL, TNRM
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISPLIT( * )
-*       DOUBLE PRECISION   D( * ), E( * ), E2( * )
+*       REAL*10   D( * ), E( * ), E2( * )
 *       ..
 *
 *
@@ -51,14 +51,14 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the N diagonal elements of the tridiagonal
 *>          matrix T.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, the first (N-1) entries contain the subdiagonal
 *>          elements of the tridiagonal matrix T; E(N) need not be set.
 *>          On exit, the entries E( ISPLIT( I ) ), 1 <= I <= NSPLIT,
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] E2
 *> \verbatim
-*>          E2 is DOUBLE PRECISION array, dimension (N)
+*>          E2 is REAL*10 array, dimension (N)
 *>          On entry, the first (N-1) entries contain the SQUARES of the
 *>          subdiagonal elements of the tridiagonal matrix T;
 *>          E2(N) need not be set.
@@ -77,7 +77,7 @@
 *>
 *> \param[in] SPLTOL
 *> \verbatim
-*>          SPLTOL is DOUBLE PRECISION
+*>          SPLTOL is REAL*10
 *>          The threshold for splitting. Two criteria can be used:
 *>          SPLTOL<0 : criterion based on absolute off-diagonal value
 *>          SPLTOL>0 : criterion that preserves relative accuracy
@@ -85,7 +85,7 @@
 *>
 *> \param[in] TNRM
 *> \verbatim
-*>          TNRM is DOUBLE PRECISION
+*>          TNRM is REAL*10
 *>          The norm of the matrix.
 *> \endverbatim
 *>
@@ -140,22 +140,22 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, N, NSPLIT
-      DOUBLE PRECISION    SPLTOL, TNRM
+      REAL*10    SPLTOL, TNRM
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISPLIT( * )
-      DOUBLE PRECISION   D( * ), E( * ), E2( * )
+      REAL*10   D( * ), E( * ), E2( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      DOUBLE PRECISION   EABS, TMP1
+      REAL*10   EABS, TMP1
 
 *     ..
 *     .. Intrinsic Functions ..

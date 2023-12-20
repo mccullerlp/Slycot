@@ -10,7 +10,7 @@
 *       INTEGER           INFO, LDA, M, N, TSIZE, LWORK
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION  A( LDA, * ), T( * ), WORK( * )
+*       REAL*10  A( LDA, * ), T( * ), WORK( * )
 *       ..
 *
 *
@@ -49,7 +49,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the elements on and above the diagonal of the array
 *>          contain the min(M,N)-by-N upper trapezoidal matrix R
@@ -66,7 +66,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (MAX(5,TSIZE))
+*>          T is REAL*10 array, dimension (MAX(5,TSIZE))
 *>          On exit, if INFO = 0, T(1) returns optimal (or either minimal 
 *>          or optimal, if query is assumed) TSIZE. See TSIZE for details.
 *>          Remaining T contains part of the data structure used to represent Q.
@@ -90,7 +90,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          (workspace) REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) contains optimal (or either minimal
 *>          or optimal, if query was assumed) LWORK.
 *>          See LWORK for details.
@@ -180,7 +180,7 @@
       INTEGER            INFO, LDA, M, N, TSIZE, LWORK
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), T( * ), WORK( * )
+      REAL*10   A( LDA, * ), T( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

@@ -24,7 +24,7 @@
 *       INTEGER            M, N, LDX
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), X( LDX, * )
+*       REAL*10   D( * ), X( LDX, * )
 *       ..
 *
 *
@@ -58,13 +58,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (M)
+*>          D is REAL*10 array, dimension (M)
 *>     Diagonal matrix D, stored as a vector of length M.
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,N)
+*>          X is REAL*10 array, dimension (LDX,N)
 *>     On entry, the matrix X to be scaled by D.
 *>     On exit, the scaled matrix.
 *> \endverbatim
@@ -96,7 +96,7 @@
       INTEGER            M, N, LDX
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), X( LDX, * )
+      REAL*10   D( * ), X( LDX, * )
 *     ..
 *
 *  =====================================================================

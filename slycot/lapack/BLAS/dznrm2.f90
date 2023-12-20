@@ -8,7 +8,7 @@
 !  Definition:
 !  ===========
 !
-!       DOUBLE PRECISION FUNCTION DZNRM2(N,X,INCX)
+!       REAL*10 FUNCTION DZNRM2(N,X,INCX)
 !
 !       .. Scalar Arguments ..
 !       INTEGER INCX,N
@@ -40,7 +40,7 @@
 !>
 !> \param[in] X
 !> \verbatim
-!>          X is COMPLEX*16 array, dimension (N)
+!>          X is COMPLEX*20 array, dimension (N)
 !>         complex vector with N elements
 !> \endverbatim
 !>

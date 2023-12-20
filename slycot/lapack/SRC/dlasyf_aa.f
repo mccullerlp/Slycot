@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), H( LDH, * ), WORK( * )
+*       REAL*10   A( LDA, * ), H( LDH, * ), WORK( * )
 *       ..
 *
 *
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,M) for
+*>          A is REAL*10 array, dimension (LDA,M) for
 *>          the first panel, while dimension (LDA,M+1) for the
 *>          remaining panels.
 *>
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION workspace, dimension (LDH,NB).
+*>          H is REAL*10 workspace, dimension (LDH,NB).
 *>
 *> \endverbatim
 *>
@@ -124,7 +124,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION workspace, dimension (M).
+*>          WORK is REAL*10 workspace, dimension (M).
 *> \endverbatim
 *>
 *
@@ -154,17 +154,17 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), H( LDH, * ), WORK( * )
+      REAL*10   A( LDA, * ), H( LDH, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *
 *     .. Local Scalars ..
       INTEGER            J, K, K1, I1, I2, MJ
-      DOUBLE PRECISION   PIV, ALPHA
+      REAL*10   PIV, ALPHA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+*       REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
 *      $                   B( LDB, * ), BETA( * ), VSL( LDVSL, * ),
 *      $                   VSR( LDVSR, * ), WORK( * )
 *       ..
@@ -106,7 +106,7 @@
 *>
 *> \param[in] SELCTG
 *> \verbatim
-*>          SELCTG is a LOGICAL FUNCTION of three DOUBLE PRECISION arguments
+*>          SELCTG is a LOGICAL FUNCTION of three REAL*10 arguments
 *>          SELCTG must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'N', SELCTG is not referenced.
 *>          If SORT = 'S', SELCTG is used to select eigenvalues to sort
@@ -130,7 +130,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the first of the pair of matrices.
 *>          On exit, A has been overwritten by its generalized Schur
 *>          form S.
@@ -144,7 +144,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the second of the pair of matrices.
 *>          On exit, B has been overwritten by its generalized Schur
 *>          form T.
@@ -167,17 +167,17 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
 *>          be the generalized eigenvalues.  ALPHAR(j) + ALPHAI(j)*i,
 *>          and  BETA(j),j=1,...,N are the diagonals of the complex Schur
@@ -198,7 +198,7 @@
 *>
 *> \param[out] VSL
 *> \verbatim
-*>          VSL is DOUBLE PRECISION array, dimension (LDVSL,N)
+*>          VSL is REAL*10 array, dimension (LDVSL,N)
 *>          If JOBVSL = 'V', VSL will contain the left Schur vectors.
 *>          Not referenced if JOBVSL = 'N'.
 *> \endverbatim
@@ -212,7 +212,7 @@
 *>
 *> \param[out] VSR
 *> \verbatim
-*>          VSR is DOUBLE PRECISION array, dimension (LDVSR,N)
+*>          VSR is REAL*10 array, dimension (LDVSR,N)
 *>          If JOBVSR = 'V', VSR will contain the right Schur vectors.
 *>          Not referenced if JOBVSR = 'N'.
 *> \endverbatim
@@ -226,7 +226,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -292,7 +292,7 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
+      REAL*10   A( LDA, * ), ALPHAI( * ), ALPHAR( * ),
      $                   B( LDB, * ), BETA( * ), VSL( LDVSL, * ),
      $                   VSR( LDVSR, * ), WORK( * )
 *     ..
@@ -304,7 +304,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -313,12 +313,12 @@
       INTEGER            I, ICOLS, IERR, IHI, IJOBVL, IJOBVR, ILEFT,
      $                   ILO, IP, IRIGHT, IROWS, ITAU, IWRK, MAXWRK,
      $                   MINWRK
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS, PVSL,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS, PVSL,
      $                   PVSR, SAFMAX, SAFMIN, SMLNUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            IDUM( 1 )
-      DOUBLE PRECISION   DIF( 2 )
+      REAL*10   DIF( 2 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEQRF, DGGBAK, DGGBAL, DGGHRD, DHGEQZ, DLABAD,
@@ -328,7 +328,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANGE
 *     ..
 *     .. Intrinsic Functions ..

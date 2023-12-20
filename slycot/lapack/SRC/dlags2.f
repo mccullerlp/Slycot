@@ -23,7 +23,7 @@
 *
 *       .. Scalar Arguments ..
 *       LOGICAL            UPPER
-*       DOUBLE PRECISION   A1, A2, A3, B1, B2, B3, CSQ, CSU, CSV, SNQ,
+*       REAL*10   A1, A2, A3, B1, B2, B3, CSQ, CSU, CSV, SNQ,
 *      $                   SNU, SNV
 *       ..
 *
@@ -71,68 +71,68 @@
 *>
 *> \param[in] A1
 *> \verbatim
-*>          A1 is DOUBLE PRECISION
+*>          A1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] A2
 *> \verbatim
-*>          A2 is DOUBLE PRECISION
+*>          A2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] A3
 *> \verbatim
-*>          A3 is DOUBLE PRECISION
+*>          A3 is REAL*10
 *>          On entry, A1, A2 and A3 are elements of the input 2-by-2
 *>          upper (lower) triangular matrix A.
 *> \endverbatim
 *>
 *> \param[in] B1
 *> \verbatim
-*>          B1 is DOUBLE PRECISION
+*>          B1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] B2
 *> \verbatim
-*>          B2 is DOUBLE PRECISION
+*>          B2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] B3
 *> \verbatim
-*>          B3 is DOUBLE PRECISION
+*>          B3 is REAL*10
 *>          On entry, B1, B2 and B3 are elements of the input 2-by-2
 *>          upper (lower) triangular matrix B.
 *> \endverbatim
 *>
 *> \param[out] CSU
 *> \verbatim
-*>          CSU is DOUBLE PRECISION
+*>          CSU is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SNU
 *> \verbatim
-*>          SNU is DOUBLE PRECISION
+*>          SNU is REAL*10
 *>          The desired orthogonal matrix U.
 *> \endverbatim
 *>
 *> \param[out] CSV
 *> \verbatim
-*>          CSV is DOUBLE PRECISION
+*>          CSV is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SNV
 *> \verbatim
-*>          SNV is DOUBLE PRECISION
+*>          SNV is REAL*10
 *>          The desired orthogonal matrix V.
 *> \endverbatim
 *>
 *> \param[out] CSQ
 *> \verbatim
-*>          CSQ is DOUBLE PRECISION
+*>          CSQ is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SNQ
 *> \verbatim
-*>          SNQ is DOUBLE PRECISION
+*>          SNQ is REAL*10
 *>          The desired orthogonal matrix Q.
 *> \endverbatim
 *
@@ -156,18 +156,18 @@
 *
 *     .. Scalar Arguments ..
       LOGICAL            UPPER
-      DOUBLE PRECISION   A1, A2, A3, B1, B2, B3, CSQ, CSU, CSV, SNQ,
+      REAL*10   A1, A2, A3, B1, B2, B3, CSQ, CSU, CSV, SNQ,
      $                   SNU, SNV
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   A, AUA11, AUA12, AUA21, AUA22, AVB11, AVB12,
+      REAL*10   A, AUA11, AUA12, AUA21, AUA22, AVB11, AVB12,
      $                   AVB21, AVB22, B, C, CSL, CSR, D, R, S1, S2,
      $                   SNL, SNR, UA11, UA11R, UA12, UA21, UA22, UA22R,
      $                   VB11, VB11R, VB12, VB21, VB22, VB22R

@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_SYRPVGRW( UPLO, N, INFO, A, LDA, AF,
+*       REAL*10 FUNCTION DLA_SYRPVGRW( UPLO, N, INFO, A, LDA, AF,
 *                                               LDAF, IPIV, WORK )
 *
 *       .. Scalar Arguments ..
@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * )
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * )
 *       ..
 *
 *
@@ -71,7 +71,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -83,7 +83,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>     The block diagonal matrix D and the multipliers used to
 *>     obtain the factor U or L as computed by DSYTRF.
 *> \endverbatim
@@ -103,7 +103,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *
 *  Authors:
@@ -117,7 +117,7 @@
 *> \ingroup doubleSYcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_SYRPVGRW( UPLO, N, INFO, A, LDA, AF,
+      REAL*10 FUNCTION DLA_SYRPVGRW( UPLO, N, INFO, A, LDA, AF,
      $                                        LDAF, IPIV, WORK )
 *
 *  -- LAPACK computational routine --
@@ -130,14 +130,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * )
+      REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            NCOLS, I, J, K, KP
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW, TMP
+      REAL*10   AMAX, UMAX, RPVGRW, TMP
       LOGICAL            UPPER
 *     ..
 *     .. Intrinsic Functions ..

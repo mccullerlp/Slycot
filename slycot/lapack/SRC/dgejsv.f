@@ -27,7 +27,7 @@
 *       INTEGER     INFO, LDA, LDU, LDV, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION A( LDA, * ), SVA( N ), U( LDU, * ), V( LDV, * ),
+*       REAL*10 A( LDA, * ), SVA( N ), U( LDU, * ), V( LDV, * ),
 *      $            WORK( LWORK )
 *       INTEGER     IWORK( * )
 *       CHARACTER*1 JOBA, JOBP, JOBR, JOBT, JOBU, JOBV
@@ -196,7 +196,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *> \endverbatim
 *>
@@ -208,7 +208,7 @@
 *>
 *> \param[out] SVA
 *> \verbatim
-*>          SVA is DOUBLE PRECISION array, dimension (N)
+*>          SVA is REAL*10 array, dimension (N)
 *>          On exit,
 *>          - For WORK(1)/WORK(2) = ONE: The singular values of A. During the
 *>            computation SVA contains Euclidean column norms of the
@@ -224,7 +224,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension ( LDU, N )
+*>          U is REAL*10 array, dimension ( LDU, N )
 *>          If JOBU = 'U', then U contains on exit the M-by-N matrix of
 *>                         the left singular vectors.
 *>          If JOBU = 'F', then U contains on exit the M-by-M matrix of
@@ -249,7 +249,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension ( LDV, N )
+*>          V is REAL*10 array, dimension ( LDV, N )
 *>          If JOBV = 'V', 'J' then V contains on exit the N-by-N matrix of
 *>                         the right singular vectors;
 *>          If JOBV = 'W', AND (JOBU = 'U' AND JOBT = 'T' AND M = N),
@@ -271,7 +271,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>          On exit, if N > 0 .AND. M > 0 (else not referenced),
 *>          WORK(1) = SCALE = WORK(2) / WORK(1) is the scaling factor such
 *>                    that SCALE*SVA(1:N) are the computed singular values
@@ -483,7 +483,7 @@
       INTEGER     INFO, LDA, LDU, LDV, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A( LDA, * ), SVA( N ), U( LDU, * ), V( LDV, * ),
+      REAL*10 A( LDA, * ), SVA( N ), U( LDU, * ), V( LDV, * ),
      $            WORK( LWORK )
       INTEGER     IWORK( * )
       CHARACTER*1 JOBA, JOBP, JOBR, JOBT, JOBU, JOBV
@@ -492,11 +492,11 @@
 *  ===========================================================================
 *
 *     .. Local Parameters ..
-      DOUBLE PRECISION   ZERO,  ONE
+      REAL*10   ZERO,  ONE
       PARAMETER ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION AAPP, AAQQ, AATMAX, AATMIN, BIG, BIG1, COND_OK,
+      REAL*10 AAPP, AAQQ, AATMAX, AATMIN, BIG, BIG1, COND_OK,
      $        CONDR1, CONDR2, ENTRA,  ENTRAT, EPSLN,  MAXPRJ, SCALEM,
      $        SCONDA, SFMIN,  SMALL,  TEMP1,  USCAL1, USCAL2, XSC
       INTEGER IERR,   N1,     NR,     NUMRANK,        p, q,   WARNING
@@ -508,7 +508,7 @@
       INTRINSIC DABS, DLOG, MAX, MIN, DBLE, IDNINT, DSIGN, DSQRT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION  DLAMCH, DNRM2
+      REAL*10  DLAMCH, DNRM2
       INTEGER   IDAMAX
       LOGICAL   LSAME
       EXTERNAL  IDAMAX, LSAME, DLAMCH, DNRM2

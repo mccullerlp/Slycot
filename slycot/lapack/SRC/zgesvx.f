@@ -25,13 +25,13 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          EQUED, FACT, TRANS
 *       INTEGER            INFO, LDA, LDAF, LDB, LDX, N, NRHS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   BERR( * ), C( * ), FERR( * ), R( * ),
+*       REAL*10   BERR( * ), C( * ), FERR( * ), R( * ),
 *      $                   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   WORK( * ), X( LDX, * )
 *       ..
 *
@@ -135,7 +135,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the N-by-N matrix A.  If FACT = 'F' and EQUED is
 *>          not 'N', then A must have been equilibrated by the scaling
 *>          factors in R and/or C.  A is not modified if FACT = 'F' or
@@ -155,7 +155,7 @@
 *>
 *> \param[in,out] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>          If FACT = 'F', then AF is an input argument and on entry
 *>          contains the factors L and U from the factorization
 *>          A = P*L*U as computed by ZGETRF.  If EQUED .ne. 'N', then
@@ -211,7 +211,7 @@
 *>
 *> \param[in,out] R
 *> \verbatim
-*>          R is DOUBLE PRECISION array, dimension (N)
+*>          R is REAL*10 array, dimension (N)
 *>          The row scale factors for A.  If EQUED = 'R' or 'B', A is
 *>          multiplied on the left by diag(R); if EQUED = 'N' or 'C', R
 *>          is not accessed.  R is an input argument if FACT = 'F';
@@ -221,7 +221,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>          The column scale factors for A.  If EQUED = 'C' or 'B', A is
 *>          multiplied on the right by diag(C); if EQUED = 'N' or 'R', C
 *>          is not accessed.  C is an input argument if FACT = 'F';
@@ -231,7 +231,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit,
 *>          if EQUED = 'N', B is not modified;
@@ -249,7 +249,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X
 *>          to the original system of equations.  Note that A and B are
 *>          modified on exit if EQUED .ne. 'N', and the solution to the
@@ -266,7 +266,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The estimate of the reciprocal condition number of the matrix
 *>          A after equilibration (if done).  If RCOND is less than the
 *>          machine precision (in particular, if RCOND = 0), the matrix
@@ -276,7 +276,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -289,7 +289,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -297,12 +297,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *>          On exit, RWORK(1) contains the reciprocal pivot growth
 *>          factor norm(A)/norm(U). The "max absolute element" norm is
 *>          used. If RWORK(1) is much less than 1, then the stability
@@ -355,32 +355,32 @@
 *     .. Scalar Arguments ..
       CHARACTER          EQUED, FACT, TRANS
       INTEGER            INFO, LDA, LDAF, LDB, LDX, N, NRHS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   BERR( * ), C( * ), FERR( * ), R( * ),
+      REAL*10   BERR( * ), C( * ), FERR( * ), R( * ),
      $                   RWORK( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
      $                   WORK( * ), X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            COLEQU, EQUIL, NOFACT, NOTRAN, ROWEQU
       CHARACTER          NORM
       INTEGER            I, INFEQU, J
-      DOUBLE PRECISION   AMAX, ANORM, BIGNUM, COLCND, RCMAX, RCMIN,
+      REAL*10   AMAX, ANORM, BIGNUM, COLCND, RCMAX, RCMIN,
      $                   ROWCND, RPVGRW, SMLNUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGE, ZLANTR
+      REAL*10   DLAMCH, ZLANGE, ZLANTR
       EXTERNAL           LSAME, DLAMCH, ZLANGE, ZLANTR
 *     ..
 *     .. External Subroutines ..

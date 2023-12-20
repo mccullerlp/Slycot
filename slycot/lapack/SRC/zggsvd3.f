@@ -28,8 +28,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   ALPHA( * ), BETA( * ), RWORK( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   ALPHA( * ), BETA( * ), RWORK( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   U( LDU, * ), V( LDV, * ), WORK( * )
 *       ..
 *
@@ -176,7 +176,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A contains the triangular matrix R, or part of R.
 *>          See Purpose for details.
@@ -190,7 +190,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, B contains part of the triangular matrix R if
 *>          M-K-L < 0.  See Purpose for details.
@@ -204,12 +204,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION array, dimension (N)
+*>          ALPHA is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>
 *>          On exit, ALPHA and BETA contain the generalized singular
 *>          value pairs of A and B;
@@ -228,7 +228,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU,M)
+*>          U is COMPLEX*20 array, dimension (LDU,M)
 *>          If JOBU = 'U', U contains the M-by-M unitary matrix U.
 *>          If JOBU = 'N', U is not referenced.
 *> \endverbatim
@@ -242,7 +242,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,P)
+*>          V is COMPLEX*20 array, dimension (LDV,P)
 *>          If JOBV = 'V', V contains the P-by-P unitary matrix V.
 *>          If JOBV = 'N', V is not referenced.
 *> \endverbatim
@@ -256,7 +256,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>          If JOBQ = 'Q', Q contains the N-by-N unitary matrix Q.
 *>          If JOBQ = 'N', Q is not referenced.
 *> \endverbatim
@@ -270,7 +270,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -287,7 +287,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -314,8 +314,8 @@
 *  =========================
 *>
 *> \verbatim
-*>  TOLA    DOUBLE PRECISION
-*>  TOLB    DOUBLE PRECISION
+*>  TOLA    REAL*10
+*>  TOLB    REAL*10
 *>          TOLA and TOLB are the thresholds to determine the effective
 *>          rank of (A**H,B**H)**H. Generally, they are set to
 *>                   TOLA = MAX(M,N)*norm(A)*MACHEPS,
@@ -362,8 +362,8 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   ALPHA( * ), BETA( * ), RWORK( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   ALPHA( * ), BETA( * ), RWORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   U( LDU, * ), V( LDV, * ), WORK( * )
 *     ..
 *
@@ -372,11 +372,11 @@
 *     .. Local Scalars ..
       LOGICAL            WANTQ, WANTU, WANTV, LQUERY
       INTEGER            I, IBND, ISUB, J, NCYCLE, LWKOPT
-      DOUBLE PRECISION   ANORM, BNORM, SMAX, TEMP, TOLA, TOLB, ULP, UNFL
+      REAL*10   ANORM, BNORM, SMAX, TEMP, TOLA, TOLB, ULP, UNFL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, DLAMCH, ZLANGE
 *     ..
 *     .. External Subroutines ..

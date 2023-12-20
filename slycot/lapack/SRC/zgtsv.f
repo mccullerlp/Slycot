@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         B( LDB, * ), D( * ), DL( * ), DU( * )
+*       COMPLEX*20         B( LDB, * ), D( * ), DL( * ), DU( * )
 *       ..
 *
 *
@@ -62,7 +62,7 @@
 *>
 *> \param[in,out] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          On entry, DL must contain the (n-1) subdiagonal elements of
 *>          A.
 *>          On exit, DL is overwritten by the (n-2) elements of the
@@ -72,14 +72,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          On entry, D must contain the diagonal elements of A.
 *>          On exit, D is overwritten by the n diagonal elements of U.
 *> \endverbatim
 *>
 *> \param[in,out] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          On entry, DU must contain the (n-1) superdiagonal elements
 *>          of A.
 *>          On exit, DU is overwritten by the (n-1) elements of the first
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
@@ -130,18 +130,18 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         B( LDB, * ), D( * ), DL( * ), DU( * )
+      COMPLEX*20         B( LDB, * ), D( * ), DL( * ), DU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J, K
-      COMPLEX*16         MULT, TEMP, ZDUM
+      COMPLEX*20         MULT, TEMP, ZDUM
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, DIMAG, MAX
@@ -150,7 +150,7 @@
       EXTERNAL           XERBLA
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

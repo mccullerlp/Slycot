@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         AP( * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         AP( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the Hermitian matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -82,13 +82,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
 *>          eigenvectors of the matrix A, with the i-th column of Z
 *>          holding the eigenvector associated with W(i).
@@ -104,12 +104,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (max(1, 2*N-1))
+*>          WORK is COMPLEX*20 array, dimension (max(1, 2*N-1))
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (max(1, 3*N-2))
+*>          RWORK is REAL*10 array, dimension (max(1, 3*N-2))
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -145,26 +145,26 @@
       INTEGER            INFO, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         AP( * ), WORK( * ), Z( LDZ, * )
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         AP( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            WANTZ
       INTEGER            IINFO, IMAX, INDE, INDRWK, INDTAU, INDWRK,
      $                   ISCALE
-      DOUBLE PRECISION   ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN, SIGMA,
+      REAL*10   ANRM, BIGNUM, EPS, RMAX, RMIN, SAFMIN, SIGMA,
      $                   SMLNUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANHP
+      REAL*10   DLAMCH, ZLANHP
       EXTERNAL           LSAME, DLAMCH, ZLANHP
 *     ..
 *     .. External Subroutines ..

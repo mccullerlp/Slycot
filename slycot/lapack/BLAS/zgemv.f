@@ -11,12 +11,12 @@
 *       SUBROUTINE ZGEMV(TRANS,M,N,ALPHA,A,LDA,X,INCX,BETA,Y,INCY)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ALPHA,BETA
+*       COMPLEX*20 ALPHA,BETA
 *       INTEGER INCX,INCY,LDA,M,N
 *       CHARACTER TRANS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A(LDA,*),X(*),Y(*)
+*       COMPLEX*20 A(LDA,*),X(*),Y(*)
 *       ..
 *
 *
@@ -67,13 +67,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, N )
+*>          A is COMPLEX*20 array, dimension ( LDA, N )
 *>           Before entry, the leading m by n part of the array A must
 *>           contain the matrix of coefficients.
 *> \endverbatim
@@ -88,7 +88,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
 *>           and at least
 *>           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
@@ -105,14 +105,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16
+*>          BETA is COMPLEX*20
 *>           On entry, BETA specifies the scalar beta. When BETA is
 *>           supplied as zero then Y need not be set on input.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension at least
+*>          Y is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
 *>           and at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
@@ -161,24 +161,24 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ALPHA,BETA
+      COMPLEX*20 ALPHA,BETA
       INTEGER INCX,INCY,LDA,M,N
       CHARACTER TRANS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),X(*),Y(*)
+      COMPLEX*20 A(LDA,*),X(*),Y(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16 ONE
+      COMPLEX*20 ONE
       PARAMETER (ONE= (1.0D+0,0.0D+0))
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      COMPLEX*20 TEMP
       INTEGER I,INFO,IX,IY,J,JX,JY,KX,KY,LENX,LENY
       LOGICAL NOCONJ
 *     ..

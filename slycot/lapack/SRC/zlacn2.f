@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            KASE, N
-*       DOUBLE PRECISION   EST
+*       REAL*10   EST
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISAVE( 3 )
-*       COMPLEX*16         V( * ), X( * )
+*       COMPLEX*20         V( * ), X( * )
 *       ..
 *
 *
@@ -50,14 +50,14 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (N)
+*>          V is COMPLEX*20 array, dimension (N)
 *>         On the final return, V = A*W,  where  EST = norm(V)/norm(W)
 *>         (W is not returned).
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>         On an intermediate return, X should be overwritten by
 *>               A * X,   if KASE=1,
 *>               A**H * X,  if KASE=2,
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] EST
 *> \verbatim
-*>          EST is DOUBLE PRECISION
+*>          EST is REAL*10
 *>         On entry with KASE = 1 or 2 and ISAVE(1) = 3, EST should be
 *>         unchanged from the previous call to ZLACN2.
 *>         On exit, EST is an estimate (a lower bound) for norm(A).
@@ -137,11 +137,11 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            KASE, N
-      DOUBLE PRECISION   EST
+      REAL*10   EST
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISAVE( 3 )
-      COMPLEX*16         V( * ), X( * )
+      COMPLEX*20         V( * ), X( * )
 *     ..
 *
 *  =====================================================================
@@ -149,19 +149,19 @@
 *     .. Parameters ..
       INTEGER              ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION     ONE,         TWO
+      REAL*10     ONE,         TWO
       PARAMETER          ( ONE = 1.0D0, TWO = 2.0D0 )
-      COMPLEX*16           CZERO, CONE
+      COMPLEX*20           CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                            CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, JLAST
-      DOUBLE PRECISION   ABSXI, ALTSGN, ESTOLD, SAFMIN, TEMP
+      REAL*10   ABSXI, ALTSGN, ESTOLD, SAFMIN, TEMP
 *     ..
 *     .. External Functions ..
       INTEGER            IZMAX1
-      DOUBLE PRECISION   DLAMCH, DZSUM1
+      REAL*10   DLAMCH, DZSUM1
       EXTERNAL           IZMAX1, DLAMCH, DZSUM1
 *     ..
 *     .. External Subroutines ..

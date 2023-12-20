@@ -8,7 +8,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DSDOT(N,SX,INCX,SY,INCY)
+*       REAL*10 FUNCTION DSDOT(N,SX,INCX,SY,INCY)
 *
 *       .. Scalar Arguments ..
 *       INTEGER INCX,INCY,N
@@ -72,7 +72,7 @@
 *>
 *> \result DSDOT
 *> \verbatim
-*>          DSDOT is DOUBLE PRECISION
+*>          DSDOT is REAL*10
 *>         DSDOT  double precision dot product (zero if N.LE.0)
 *> \endverbatim
 *
@@ -115,7 +115,7 @@
 *> \endverbatim
 *>
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DSDOT(N,SX,INCX,SY,INCY)
+      REAL*10 FUNCTION DSDOT(N,SX,INCX,SY,INCY)
 *
 *  -- Reference BLAS level1 routine --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --

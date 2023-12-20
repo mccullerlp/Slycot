@@ -26,7 +26,7 @@
 *      LOGICAL, INTENT( IN ) :: ILQ, ILZ
 *      INTEGER, INTENT( IN ) :: K, LDA, LDB, LDQ, LDZ, ISTARTM, ISTOPM,
 *     $    NQ, NZ, QSTART, ZSTART, IHI
-*      DOUBLE PRECISION :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ,
+*      REAL*10 :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ,
 *     $    * )
 *      ..
 *
@@ -87,7 +87,7 @@
 *>
 *> \param[inout] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -99,7 +99,7 @@
 *
 *> \param[inout] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -124,7 +124,7 @@
 *
 *> \param[inout] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,NQ)
+*>          Q is REAL*10 array, dimension (LDQ,NQ)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -149,7 +149,7 @@
 *
 *> \param[inout] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,NZ)
+*>          Z is REAL*10 array, dimension (LDZ,NZ)
 *> \endverbatim
 *>
 *> \param[in] LDZ
@@ -177,15 +177,15 @@
       LOGICAL, INTENT( IN ) :: ILQ, ILZ
       INTEGER, INTENT( IN ) :: K, LDA, LDB, LDQ, LDZ, ISTARTM, ISTOPM,
      $         NQ, NZ, QSTART, ZSTART, IHI
-      DOUBLE PRECISION :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ,
+      REAL*10 :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ,
      $                    * )
 *
 *     Parameters
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 *
 *     Local variables
-      DOUBLE PRECISION :: H( 2, 3 ), C1, S1, C2, S2, TEMP
+      REAL*10 :: H( 2, 3 ), C1, S1, C2, S2, TEMP
 *
 *     External functions
       EXTERNAL :: DLARTG, DROT

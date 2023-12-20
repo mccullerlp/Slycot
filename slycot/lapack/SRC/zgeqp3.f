@@ -26,8 +26,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the upper triangle of the array contains the
 *>          min(M,N)-by-N upper trapezoidal matrix R; the elements below
@@ -84,13 +84,13 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (min(M,N))
+*>          TAU is COMPLEX*20 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -109,7 +109,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -166,8 +166,8 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
@@ -186,7 +186,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      DOUBLE PRECISION   DZNRM2
+      REAL*10   DZNRM2
       EXTERNAL           ILAENV, DZNRM2
 *     ..
 *     .. Intrinsic Functions ..

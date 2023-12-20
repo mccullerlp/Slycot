@@ -28,13 +28,13 @@
 *       CHARACTER          TRANS, EQUED
 *       INTEGER            INFO, LDAB, LDAFB, LDB, LDX, N, KL, KU, NRHS,
 *      $                   NPARAMS, N_ERR_BNDS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
+*       REAL*10   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
 *      $                   X( LDX , * ),WORK( * )
-*       DOUBLE PRECISION   R( * ), C( * ), PARAMS( * ), BERR( * ),
+*       REAL*10   R( * ), C( * ), PARAMS( * ), BERR( * ),
 *      $                   ERR_BNDS_NORM( NRHS, * ),
 *      $                   ERR_BNDS_COMP( NRHS, * )
 *       ..
@@ -121,7 +121,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>     The original band matrix A, stored in rows 1 to KL+KU+1.
 *>     The j-th column of A is stored in the j-th column of the
 *>     array AB as follows:
@@ -136,7 +136,7 @@
 *>
 *> \param[in] AFB
 *> \verbatim
-*>          AFB is DOUBLE PRECISION array, dimension (LDAFB,N)
+*>          AFB is REAL*10 array, dimension (LDAFB,N)
 *>     Details of the LU factorization of the band matrix A, as
 *>     computed by DGBTRF.  U is stored as an upper triangular band
 *>     matrix with KL+KU superdiagonals in rows 1 to KL+KU+1, and
@@ -159,7 +159,7 @@
 *>
 *> \param[in,out] R
 *> \verbatim
-*>          R is DOUBLE PRECISION array, dimension (N)
+*>          R is REAL*10 array, dimension (N)
 *>     The row scale factors for A.  If EQUED = 'R' or 'B', A is
 *>     multiplied on the left by diag(R); if EQUED = 'N' or 'C', R
 *>     is not accessed.  R is an input argument if FACT = 'F';
@@ -177,7 +177,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The column scale factors for A.  If EQUED = 'C' or 'B', A is
 *>     multiplied on the right by diag(C); if EQUED = 'N' or 'R', C
 *>     is not accessed.  C is an input argument if FACT = 'F';
@@ -195,7 +195,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>     The right hand side matrix B.
 *> \endverbatim
 *>
@@ -207,7 +207,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>     On entry, the solution matrix X, as computed by DGETRS.
 *>     On exit, the improved solution matrix X.
 *> \endverbatim
@@ -220,7 +220,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>     Reciprocal scaled condition number.  This is an estimate of the
 *>     reciprocal Skeel condition number of the matrix A after
 *>     equilibration (if done).  If this is less than the machine
@@ -232,7 +232,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>     Componentwise relative backward error.  This is the
 *>     componentwise relative backward error of each solution vector X(j)
 *>     (i.e., the smallest relative change in any element of A or B that
@@ -249,7 +249,7 @@
 *>
 *> \param[out] ERR_BNDS_NORM
 *> \verbatim
-*>          ERR_BNDS_NORM is DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS)
+*>          ERR_BNDS_NORM is REAL*10 array, dimension (NRHS, N_ERR_BNDS)
 *>     For each right-hand side, this array contains information about
 *>     various error bounds and condition numbers corresponding to the
 *>     normwise relative error, which is defined as follows:
@@ -293,7 +293,7 @@
 *>
 *> \param[out] ERR_BNDS_COMP
 *> \verbatim
-*>          ERR_BNDS_COMP is DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS)
+*>          ERR_BNDS_COMP is REAL*10 array, dimension (NRHS, N_ERR_BNDS)
 *>     For each right-hand side, this array contains information about
 *>     various error bounds and condition numbers corresponding to the
 *>     componentwise relative error, which is defined as follows:
@@ -350,7 +350,7 @@
 *>
 *> \param[in,out] PARAMS
 *> \verbatim
-*>          PARAMS is DOUBLE PRECISION array, dimension (NPARAMS)
+*>          PARAMS is REAL*10 array, dimension (NPARAMS)
 *>     Specifies algorithm parameters.  If an entry is < 0.0, then
 *>     that entry will be filled with default value used for that
 *>     parameter.  Only positions up to NPARAMS are accessed; defaults
@@ -386,7 +386,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -446,13 +446,13 @@
       CHARACTER          TRANS, EQUED
       INTEGER            INFO, LDAB, LDAFB, LDB, LDX, N, KL, KU, NRHS,
      $                   NPARAMS, N_ERR_BNDS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
+      REAL*10   AB( LDAB, * ), AFB( LDAFB, * ), B( LDB, * ),
      $                   X( LDX , * ),WORK( * )
-      DOUBLE PRECISION   R( * ), C( * ), PARAMS( * ), BERR( * ),
+      REAL*10   R( * ), C( * ), PARAMS( * ), BERR( * ),
      $                   ERR_BNDS_NORM( NRHS, * ),
      $                   ERR_BNDS_COMP( NRHS, * )
 *     ..
@@ -460,11 +460,11 @@
 *  ==================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   ITREF_DEFAULT, ITHRESH_DEFAULT
-      DOUBLE PRECISION   COMPONENTWISE_DEFAULT, RTHRESH_DEFAULT
-      DOUBLE PRECISION   DZTHRESH_DEFAULT
+      REAL*10   ITREF_DEFAULT, ITHRESH_DEFAULT
+      REAL*10   COMPONENTWISE_DEFAULT, RTHRESH_DEFAULT
+      REAL*10   DZTHRESH_DEFAULT
       PARAMETER          ( ITREF_DEFAULT = 1.0D+0 )
       PARAMETER          ( ITHRESH_DEFAULT = 10.0D+0 )
       PARAMETER          ( COMPONENTWISE_DEFAULT = 1.0D+0 )
@@ -485,11 +485,11 @@
       LOGICAL            ROWEQU, COLEQU, NOTRAN
       INTEGER            J, TRANS_TYPE, PREC_TYPE, REF_TYPE
       INTEGER            N_NORMS
-      DOUBLE PRECISION   ANORM, RCOND_TMP
-      DOUBLE PRECISION   ILLRCOND_THRESH, ERR_LBND, CWISE_WRONG
+      REAL*10   ANORM, RCOND_TMP
+      REAL*10   ILLRCOND_THRESH, ERR_LBND, CWISE_WRONG
       LOGICAL            IGNORE_CWISE
       INTEGER            ITHRESH
-      DOUBLE PRECISION   RTHRESH, UNSTABLE_THRESH
+      REAL*10   RTHRESH, UNSTABLE_THRESH
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, DGBCON
@@ -501,7 +501,7 @@
 *     .. External Functions ..
       EXTERNAL           LSAME, ILATRANS, ILAPREC
       EXTERNAL           DLAMCH, DLANGB, DLA_GBRCOND
-      DOUBLE PRECISION   DLAMCH, DLANGB, DLA_GBRCOND
+      REAL*10   DLAMCH, DLANGB, DLA_GBRCOND
       LOGICAL            LSAME
       INTEGER            ILATRANS, ILAPREC
 *     ..

@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, INCY, N
-*       DOUBLE PRECISION   C
-*       COMPLEX*16         S
+*       REAL*10   C
+*       COMPLEX*20         S
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         CX( * ), CY( * )
+*       COMPLEX*20         CX( * ), CY( * )
 *       ..
 *
 *
@@ -50,7 +50,7 @@
 *>
 *> \param[in,out] CX
 *> \verbatim
-*>          CX is COMPLEX*16 array, dimension (N)
+*>          CX is COMPLEX*20 array, dimension (N)
 *>          On input, the vector X.
 *>          On output, CX is overwritten with C*X + S*Y.
 *> \endverbatim
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] CY
 *> \verbatim
-*>          CY is COMPLEX*16 array, dimension (N)
+*>          CY is COMPLEX*20 array, dimension (N)
 *>          On input, the vector Y.
 *>          On output, CY is overwritten with -CONJG(S)*X + C*Y.
 *> \endverbatim
@@ -76,12 +76,12 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is COMPLEX*16
+*>          S is COMPLEX*20
 *>          C and S define a rotation
 *>             [  C          S  ]
 *>             [ -conjg(S)   C  ]
@@ -107,18 +107,18 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, INCY, N
-      DOUBLE PRECISION   C
-      COMPLEX*16         S
+      REAL*10   C
+      COMPLEX*20         S
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         CX( * ), CY( * )
+      COMPLEX*20         CX( * ), CY( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IX, IY
-      COMPLEX*16         STEMP
+      COMPLEX*20         STEMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DCONJG

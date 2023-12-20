@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          n by n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -116,25 +116,25 @@
       INTEGER            INFO, LDA, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J
-      DOUBLE PRECISION   AJJ
+      REAL*10   AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
-      COMPLEX*16         ZDOTC
+      COMPLEX*20         ZDOTC
       EXTERNAL           LSAME, ZDOTC, DISNAN
 *     ..
 *     .. External Subroutines ..

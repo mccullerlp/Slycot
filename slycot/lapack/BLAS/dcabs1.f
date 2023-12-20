@@ -8,10 +8,10 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DCABS1(Z)
+*       REAL*10 FUNCTION DCABS1(Z)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 Z
+*       COMPLEX*20 Z
 *       ..
 *       ..
 *
@@ -29,7 +29,7 @@
 *
 *> \param[in] Z
 *> \verbatim
-*>          Z is COMPLEX*16
+*>          Z is COMPLEX*20
 *> \endverbatim
 *
 *  Authors:
@@ -43,14 +43,14 @@
 *> \ingroup double_blas_level1
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DCABS1(Z)
+      REAL*10 FUNCTION DCABS1(Z)
 *
 *  -- Reference BLAS level1 routine --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 Z
+      COMPLEX*20 Z
 *     ..
 *     ..
 *  =====================================================================

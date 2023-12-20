@@ -24,7 +24,7 @@
 *       INTEGER            LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), D( * ), E( * )
+*       REAL*10   B( LDB, * ), D( * ), E( * )
 *       ..
 *
 *
@@ -59,14 +59,14 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the diagonal matrix D from the
 *>          L*D*L**T factorization of A.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of the unit bidiagonal factor
 *>          L from the L*D*L**T factorization of A.  E can also be regarded
 *>          as the superdiagonal of the unit bidiagonal factor U from the
@@ -75,7 +75,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side vectors B for the system of
 *>          linear equations.
 *>          On exit, the solution vectors, X.
@@ -108,7 +108,7 @@
       INTEGER            LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), D( * ), E( * )
+      REAL*10   B( LDB, * ), D( * ), E( * )
 *     ..
 *
 *  =====================================================================

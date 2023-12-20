@@ -28,11 +28,11 @@
 *      INTEGER, INTENT( IN ) :: N, ILO, IHI, NW, LDA, LDB, LDQ, LDZ,
 *     $    LDQC, LDZC, LWORK, REC
 *
-*      COMPLEX*16, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
+*      COMPLEX*20, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
 *     $    * ), Z( LDZ, * ), ALPHA( * ), BETA( * )
 *      INTEGER, INTENT( OUT ) :: NS, ND, INFO
-*      COMPLEX*16 :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
-*      DOUBLE PRECISION :: RWORK( * )
+*      COMPLEX*20 :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
+*      REAL*10 :: RWORK( * )
 *       ..
 *
 *
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -101,7 +101,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ, N)
+*>          Q is COMPLEX*20 array, dimension (LDQ, N)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *> \endverbatim
 *>
 *> \param[in] LDZ
@@ -145,14 +145,14 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *>          Each scalar alpha defining an eigenvalue
 *>          of GNEP.
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>          Together, the quantities alpha = ALPHA(j) and
 *>          beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -163,7 +163,7 @@
 *>
 *> \param[in,out] QC
 *> \verbatim
-*>          QC is COMPLEX*16 array, dimension (LDQC, NW)
+*>          QC is COMPLEX*20 array, dimension (LDQC, NW)
 *> \endverbatim
 *>
 *> \param[in] LDQC
@@ -173,7 +173,7 @@
 *>
 *> \param[in,out] ZC
 *> \verbatim
-*>          ZC is COMPLEX*16 array, dimension (LDZC, NW)
+*>          ZC is COMPLEX*20 array, dimension (LDZC, NW)
 *> \endverbatim
 *>
 *> \param[in] LDZC
@@ -183,7 +183,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -200,7 +200,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[in] REC
@@ -238,29 +238,29 @@
       INTEGER, INTENT( IN ) :: N, ILO, IHI, NW, LDA, LDB, LDQ, LDZ,
      $         LDQC, LDZC, LWORK, REC
 
-      COMPLEX*16, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
+      COMPLEX*20, INTENT( INOUT ) :: A( LDA, * ), B( LDB, * ), Q( LDQ,
      $   * ), Z( LDZ, * ), ALPHA( * ), BETA( * )
       INTEGER, INTENT( OUT ) :: NS, ND, INFO
-      COMPLEX*16 :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
-      DOUBLE PRECISION :: RWORK( * )
+      COMPLEX*20 :: QC( LDQC, * ), ZC( LDZC, * ), WORK( * )
+      REAL*10 :: RWORK( * )
 
 *     Parameters
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ), CONE = ( 1.0D+0,
      $                     0.0D+0 ) )
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 
 *     Local Scalars
       INTEGER :: JW, KWTOP, KWBOT, ISTOPM, ISTARTM, K, K2, ZTGEXC_INFO,
      $           IFST, ILST, LWORKREQ, QZ_SMALL_INFO
-      DOUBLE PRECISION ::SMLNUM, ULP, SAFMIN, SAFMAX, C1, TEMPR
-      COMPLEX*16 :: S, S1, TEMP
+      REAL*10 ::SMLNUM, ULP, SAFMIN, SAFMAX, C1, TEMPR
+      COMPLEX*20 :: S, S1, TEMP
 
 *     External Functions
       EXTERNAL :: XERBLA, ZLAQZ0, ZLAQZ1, DLABAD, ZLACPY, ZLASET, ZGEMM,
      $            ZTGEXC, ZLARTG, ZROT
-      DOUBLE PRECISION, EXTERNAL :: DLAMCH
+      REAL*10, EXTERNAL :: DLAMCH
 
       INFO = 0
 

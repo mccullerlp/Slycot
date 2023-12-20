@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( 0: * ), B( LDB, * )
+*       REAL*10   A( 0: * ), B( LDB, * )
 *       ..
 *
 *
@@ -71,7 +71,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( N*(N+1)/2 ).
+*>          A is REAL*10 array, dimension ( N*(N+1)/2 ).
 *>          The triangular factor U or L from the Cholesky factorization
 *>          of RFP A = U**T*U or RFP A = L*L**T, as computed by DPFTRF.
 *>          See note below for more details about RFP A.
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -206,13 +206,13 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( 0: * ), B( LDB, * )
+      REAL*10   A( 0: * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

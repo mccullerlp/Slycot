@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            ORGATI
 *       INTEGER            INFO, KNITER
-*       DOUBLE PRECISION   FINIT, RHO, TAU
+*       REAL*10   FINIT, RHO, TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( 3 ), Z( 3 )
+*       REAL*10   D( 3 ), Z( 3 )
 *       ..
 *
 *
@@ -70,25 +70,25 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>               Refer to the equation f(x) above.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (3)
+*>          D is REAL*10 array, dimension (3)
 *>               D satisfies d(1) < d(2) < d(3).
 *> \endverbatim
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (3)
+*>          Z is REAL*10 array, dimension (3)
 *>               Each of the elements in z must be positive.
 *> \endverbatim
 *>
 *> \param[in] FINIT
 *> \verbatim
-*>          FINIT is DOUBLE PRECISION
+*>          FINIT is REAL*10
 *>               The value of f at 0. It is more accurate than the one
 *>               evaluated inside this routine (if someone wants to do
 *>               so).
@@ -96,7 +96,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>               The root of the equation f(x).
 *> \endverbatim
 *>
@@ -145,10 +145,10 @@
 *     .. Scalar Arguments ..
       LOGICAL            ORGATI
       INTEGER            INFO, KNITER
-      DOUBLE PRECISION   FINIT, RHO, TAU
+      REAL*10   FINIT, RHO, TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( 3 ), Z( 3 )
+      REAL*10   D( 3 ), Z( 3 )
 *     ..
 *
 *  =====================================================================
@@ -156,21 +156,21 @@
 *     .. Parameters ..
       INTEGER            MAXIT
       PARAMETER          ( MAXIT = 40 )
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE, FOUR, EIGHT
+      REAL*10   ZERO, ONE, TWO, THREE, FOUR, EIGHT
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   THREE = 3.0D0, FOUR = 4.0D0, EIGHT = 8.0D0 )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DSCALE( 3 ), ZSCALE( 3 )
+      REAL*10   DSCALE( 3 ), ZSCALE( 3 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            SCALE
       INTEGER            I, ITER, NITER
-      DOUBLE PRECISION   A, B, BASE, C, DDF, DF, EPS, ERRETM, ETA, F,
+      REAL*10   A, B, BASE, C, DDF, DF, EPS, ERRETM, ETA, F,
      $                   FC, SCLFAC, SCLINV, SMALL1, SMALL2, SMINV1,
      $                   SMINV2, TEMP, TEMP1, TEMP2, TEMP3, TEMP4,
      $                   LBD, UBD

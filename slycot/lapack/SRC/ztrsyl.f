@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANA, TRANB
 *       INTEGER            INFO, ISGN, LDA, LDB, LDC, M, N
-*       DOUBLE PRECISION   SCALE
+*       REAL*10   SCALE
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), C( LDC, * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), C( LDC, * )
 *       ..
 *
 *
@@ -90,7 +90,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,M)
+*>          A is COMPLEX*20 array, dimension (LDA,M)
 *>          The upper triangular matrix A.
 *> \endverbatim
 *>
@@ -102,7 +102,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          The upper triangular matrix B.
 *> \endverbatim
 *>
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N right hand side matrix C.
 *>          On exit, C is overwritten by the solution matrix X.
 *> \endverbatim
@@ -127,7 +127,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          The scale factor, scale, set <= 1 to avoid overflow in X.
 *> \endverbatim
 *>
@@ -162,32 +162,32 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANA, TRANB
       INTEGER            INFO, ISGN, LDA, LDB, LDC, M, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), C( LDC, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), C( LDC, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRNA, NOTRNB
       INTEGER            J, K, L
-      DOUBLE PRECISION   BIGNUM, DA11, DB, EPS, SCALOC, SGN, SMIN,
+      REAL*10   BIGNUM, DA11, DB, EPS, SCALOC, SGN, SMIN,
      $                   SMLNUM
-      COMPLEX*16         A11, SUML, SUMR, VEC, X11
+      COMPLEX*20         A11, SUML, SUMR, VEC, X11
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGE
-      COMPLEX*16         ZDOTC, ZDOTU, ZLADIV
+      REAL*10   DLAMCH, ZLANGE
+      COMPLEX*20         ZDOTC, ZDOTU, ZLADIV
       EXTERNAL           LSAME, DLAMCH, ZLANGE, ZDOTC, ZDOTU, ZLADIV
 *     ..
 *     .. External Subroutines ..

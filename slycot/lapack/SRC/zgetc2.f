@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), JPIV( * )
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -53,7 +53,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the n-by-n matrix to be factored.
 *>          On exit, the factors L and U from the factorization
 *>          A = P*L*U*Q; the unit diagonal elements of L are not stored.
@@ -118,24 +118,24 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), JPIV( * )
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IP, IPV, J, JP, JPV
-      DOUBLE PRECISION   BIGNUM, EPS, SMIN, SMLNUM, XMAX
+      REAL*10   BIGNUM, EPS, SMIN, SMLNUM, XMAX
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZGERU, ZSWAP, DLABAD
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

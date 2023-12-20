@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
-*       DOUBLE PRECISION   P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
+*       REAL*10   P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( * )
 *       ..
 *
@@ -108,7 +108,7 @@
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (LDS,N)
+*>          S is REAL*10 array, dimension (LDS,N)
 *>          The upper quasi-triangular matrix S from a generalized Schur
 *>          factorization, as computed by DHGEQZ.
 *> \endverbatim
@@ -121,7 +121,7 @@
 *>
 *> \param[in] P
 *> \verbatim
-*>          P is DOUBLE PRECISION array, dimension (LDP,N)
+*>          P is REAL*10 array, dimension (LDP,N)
 *>          The upper triangular matrix P from a generalized Schur
 *>          factorization, as computed by DHGEQZ.
 *>          2-by-2 diagonal blocks of P corresponding to 2-by-2 blocks
@@ -136,7 +136,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,MM)
+*>          VL is REAL*10 array, dimension (LDVL,MM)
 *>          On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
 *>          contain an N-by-N matrix Q (usually the orthogonal matrix Q
 *>          of left Schur vectors returned by DHGEQZ).
@@ -163,7 +163,7 @@
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,MM)
+*>          VR is REAL*10 array, dimension (LDVR,MM)
 *>          On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
 *>          contain an N-by-N matrix Z (usually the orthogonal matrix Z
 *>          of right Schur vectors returned by DHGEQZ).
@@ -208,7 +208,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (6*N)
+*>          WORK is REAL*10 array, dimension (6*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -303,7 +303,7 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
-      DOUBLE PRECISION   P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
+      REAL*10   P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
      $                   VR( LDVR, * ), WORK( * )
 *     ..
 *
@@ -311,7 +311,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, SAFETY
+      REAL*10   ZERO, ONE, SAFETY
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0,
      $                   SAFETY = 1.0D+2 )
 *     ..
@@ -320,7 +320,7 @@
      $                   ILBBAD, ILCOMP, ILCPLX, LSA, LSB
       INTEGER            I, IBEG, IEIG, IEND, IHWMNY, IINFO, IM, ISIDE,
      $                   J, JA, JC, JE, JR, JW, NA, NW
-      DOUBLE PRECISION   ACOEF, ACOEFA, ANORM, ASCALE, BCOEFA, BCOEFI,
+      REAL*10   ACOEF, ACOEFA, ANORM, ASCALE, BCOEFA, BCOEFI,
      $                   BCOEFR, BIG, BIGNUM, BNORM, BSCALE, CIM2A,
      $                   CIM2B, CIMAGA, CIMAGB, CRE2A, CRE2B, CREALA,
      $                   CREALB, DMIN, SAFMIN, SALFAR, SBETA, SCALE,
@@ -328,12 +328,12 @@
      $                   XSCALE
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   BDIAG( 2 ), SUM( 2, 2 ), SUMS( 2, 2 ),
+      REAL*10   BDIAG( 2 ), SUM( 2, 2 ), SUMS( 2, 2 ),
      $                   SUMP( 2, 2 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. External Subroutines ..

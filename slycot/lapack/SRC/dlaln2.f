@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            LTRANS
 *       INTEGER            INFO, LDA, LDB, LDX, NA, NW
-*       DOUBLE PRECISION   CA, D1, D2, SCALE, SMIN, WI, WR, XNORM
+*       REAL*10   CA, D1, D2, SCALE, SMIN, WI, WR, XNORM
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), X( LDX, * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), X( LDX, * )
 *       ..
 *
 *
@@ -93,7 +93,7 @@
 *>
 *> \param[in] SMIN
 *> \verbatim
-*>          SMIN is DOUBLE PRECISION
+*>          SMIN is REAL*10
 *>          The desired lower bound on the singular values of A.  This
 *>          should be a safe distance away from underflow or overflow,
 *>          say, between (underflow/machine precision) and  (machine
@@ -102,13 +102,13 @@
 *>
 *> \param[in] CA
 *> \verbatim
-*>          CA is DOUBLE PRECISION
+*>          CA is REAL*10
 *>          The coefficient c, which A is multiplied by.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,NA)
+*>          A is REAL*10 array, dimension (LDA,NA)
 *>          The NA x NA matrix A.
 *> \endverbatim
 *>
@@ -120,19 +120,19 @@
 *>
 *> \param[in] D1
 *> \verbatim
-*>          D1 is DOUBLE PRECISION
+*>          D1 is REAL*10
 *>          The 1,1 element in the diagonal matrix D.
 *> \endverbatim
 *>
 *> \param[in] D2
 *> \verbatim
-*>          D2 is DOUBLE PRECISION
+*>          D2 is REAL*10
 *>          The 2,2 element in the diagonal matrix D.  Not used if NA=1.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NW)
+*>          B is REAL*10 array, dimension (LDB,NW)
 *>          The NA x NW matrix B (right-hand side).  If NW=2 ("w" is
 *>          complex), column 1 contains the real part of B and column 2
 *>          contains the imaginary part.
@@ -146,19 +146,19 @@
 *>
 *> \param[in] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION
+*>          WR is REAL*10
 *>          The real part of the scalar "w".
 *> \endverbatim
 *>
 *> \param[in] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION
+*>          WI is REAL*10
 *>          The imaginary part of the scalar "w".  Not used if NW=1.
 *> \endverbatim
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NW)
+*>          X is REAL*10 array, dimension (LDX,NW)
 *>          The NA x NW matrix X (unknowns), as computed by DLALN2.
 *>          If NW=2 ("w" is complex), on exit, column 1 will contain
 *>          the real part of X and column 2 will contain the imaginary
@@ -173,7 +173,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          The scale factor that B must be multiplied by to insure
 *>          that overflow does not occur when computing X.  Thus,
 *>          (ca A - w D) X  will be SCALE*B, not B (ignoring
@@ -182,7 +182,7 @@
 *>
 *> \param[out] XNORM
 *> \verbatim
-*>          XNORM is DOUBLE PRECISION
+*>          XNORM is REAL*10
 *>          The infinity-norm of X, when X is regarded as an NA x NW
 *>          real matrix.
 *> \endverbatim
@@ -223,23 +223,23 @@
 *     .. Scalar Arguments ..
       LOGICAL            LTRANS
       INTEGER            INFO, LDA, LDB, LDX, NA, NW
-      DOUBLE PRECISION   CA, D1, D2, SCALE, SMIN, WI, WR, XNORM
+      REAL*10   CA, D1, D2, SCALE, SMIN, WI, WR, XNORM
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), X( LDX, * )
+      REAL*10   A( LDA, * ), B( LDB, * ), X( LDX, * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            ICMAX, J
-      DOUBLE PRECISION   BBND, BI1, BI2, BIGNUM, BNORM, BR1, BR2, CI21,
+      REAL*10   BBND, BI1, BI2, BIGNUM, BNORM, BR1, BR2, CI21,
      $                   CI22, CMAX, CNORM, CR21, CR22, CSI, CSR, LI21,
      $                   LR21, SMINI, SMLNUM, TEMP, U22ABS, UI11, UI11R,
      $                   UI12, UI12S, UI22, UR11, UR11R, UR12, UR12S,
@@ -248,10 +248,10 @@
 *     .. Local Arrays ..
       LOGICAL            RSWAP( 4 ), ZSWAP( 4 )
       INTEGER            IPIVOT( 4, 4 )
-      DOUBLE PRECISION   CI( 2, 2 ), CIV( 4 ), CR( 2, 2 ), CRV( 4 )
+      REAL*10   CI( 2, 2 ), CIV( 4 ), CR( 2, 2 ), CRV( 4 )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

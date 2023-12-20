@@ -26,7 +26,7 @@
 *       INTEGER   INFO, K, LDV, LDC, M, N, NB, LDT
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
+*       REAL*10 V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -99,7 +99,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,K)
+*>          V is REAL*10 array, dimension (LDV,K)
 *>          The i-th column must contain the vector which defines the
 *>          elementary reflector H(i), for i = 1,2,...,k, as returned by
 *>          DGEQRT in the first K columns of its array argument A.
@@ -115,7 +115,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,K)
+*>          T is REAL*10 array, dimension (LDT,K)
 *>          The upper triangular factors of the block reflectors
 *>          as returned by DGEQRT, stored as a NB-by-N matrix.
 *> \endverbatim
@@ -128,7 +128,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q C, Q**T C, C Q**T or C Q.
 *> \endverbatim
@@ -141,7 +141,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array. The dimension of
+*>          WORK is REAL*10 array. The dimension of
 *>          WORK is N*NB if SIDE = 'L', or  M*NB if SIDE = 'R'.
 *> \endverbatim
 *>
@@ -175,7 +175,7 @@
       INTEGER   INFO, K, LDV, LDC, M, N, NB, LDT
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
+      REAL*10 V( LDV, * ), C( LDC, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================

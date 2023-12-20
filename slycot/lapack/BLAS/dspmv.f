@@ -11,12 +11,12 @@
 *       SUBROUTINE DSPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION ALPHA,BETA
+*       REAL*10 ALPHA,BETA
 *       INTEGER INCX,INCY,N
 *       CHARACTER UPLO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION AP(*),X(*),Y(*)
+*       REAL*10 AP(*),X(*),Y(*)
 *       ..
 *
 *
@@ -59,13 +59,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION.
+*>          ALPHA is REAL*10.
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension at least
+*>          AP is REAL*10 array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular part of the symmetric matrix
@@ -81,7 +81,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension at least
+*>          X is REAL*10 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -96,14 +96,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION.
+*>          BETA is REAL*10.
 *>           On entry, BETA specifies the scalar beta. When BETA is
 *>           supplied as zero then Y need not be set on input.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension at least
+*>          Y is REAL*10 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array Y must contain the n
 *>           element vector y. On exit, Y is overwritten by the updated
@@ -150,22 +150,22 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA,BETA
+      REAL*10 ALPHA,BETA
       INTEGER INCX,INCY,N
       CHARACTER UPLO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION AP(*),X(*),Y(*)
+      REAL*10 AP(*),X(*),Y(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION ONE,ZERO
+      REAL*10 ONE,ZERO
       PARAMETER (ONE=1.0D+0,ZERO=0.0D+0)
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION TEMP1,TEMP2
+      REAL*10 TEMP1,TEMP2
       INTEGER I,INFO,IX,IY,J,JX,JY,K,KK,KX,KY
 *     ..
 *     .. External Functions ..

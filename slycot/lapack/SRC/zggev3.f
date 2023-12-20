@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WORK( * )
 *       ..
@@ -86,7 +86,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the matrix A in the pair (A,B).
 *>          On exit, A has been overwritten.
 *> \endverbatim
@@ -99,7 +99,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the matrix B in the pair (A,B).
 *>          On exit, B has been overwritten.
 *> \endverbatim
@@ -112,12 +112,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          On exit, ALPHA(j)/BETA(j), j=1,...,N, will be the
 *>          generalized eigenvalues.
 *>
@@ -131,7 +131,7 @@
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,N)
+*>          VL is COMPLEX*20 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left generalized eigenvectors u(j) are
 *>          stored one after another in the columns of VL, in the same
 *>          order as their eigenvalues.
@@ -149,7 +149,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,N)
+*>          VR is COMPLEX*20 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right generalized eigenvectors v(j) are
 *>          stored one after another in the columns of VR, in the same
 *>          order as their eigenvalues.
@@ -167,7 +167,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -184,7 +184,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (8*N)
+*>          RWORK is REAL*10 array, dimension (8*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -223,8 +223,8 @@
       INTEGER            INFO, LDA, LDB, LDVL, LDVR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WORK( * )
 *     ..
@@ -232,9 +232,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
@@ -244,9 +244,9 @@
       INTEGER            ICOLS, IERR, IHI, IJOBVL, IJOBVR, ILEFT, ILO,
      $                   IN, IRIGHT, IROWS, IRWRK, ITAU, IWRK, JC, JR,
      $                   LWKOPT
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS,
      $                   SMLNUM, TEMP
-      COMPLEX*16         X
+      COMPLEX*20         X
 *     ..
 *     .. Local Arrays ..
       LOGICAL            LDUMMA( 1 )
@@ -258,14 +258,14 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, DIMAG, MAX, SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1
+      REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
       ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )

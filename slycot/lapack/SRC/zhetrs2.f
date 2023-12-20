@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16       A( LDA, * ), B( LDB, * ), WORK( * )
+*       COMPLEX*20       A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -68,7 +68,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The block diagonal matrix D and the multipliers used to
 *>          obtain the factor U or L as computed by ZHETRF.
 *> \endverbatim
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -101,7 +101,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -135,20 +135,20 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16       A( LDA, * ), B( LDB, * ), WORK( * )
+      COMPLEX*20       A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = (1.0D+0,0.0D+0) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, IINFO, J, K, KP
-      DOUBLE PRECISION   S
-      COMPLEX*16         AK, AKM1, AKM1K, BK, BKM1, DENOM
+      REAL*10   S
+      COMPLEX*20         AK, AKM1, AKM1K, BK, BKM1, DENOM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

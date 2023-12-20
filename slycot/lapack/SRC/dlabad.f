@@ -21,7 +21,7 @@
 *       SUBROUTINE DLABAD( SMALL, LARGE )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   LARGE, SMALL
+*       REAL*10   LARGE, SMALL
 *       ..
 *
 *
@@ -45,7 +45,7 @@
 *
 *> \param[in,out] SMALL
 *> \verbatim
-*>          SMALL is DOUBLE PRECISION
+*>          SMALL is REAL*10
 *>          On entry, the underflow threshold as computed by DLAMCH.
 *>          On exit, if LOG10(LARGE) is sufficiently large, the square
 *>          root of SMALL, otherwise unchanged.
@@ -53,7 +53,7 @@
 *>
 *> \param[in,out] LARGE
 *> \verbatim
-*>          LARGE is DOUBLE PRECISION
+*>          LARGE is REAL*10
 *>          On entry, the overflow threshold as computed by DLAMCH.
 *>          On exit, if LOG10(LARGE) is sufficiently large, the square
 *>          root of LARGE, otherwise unchanged.
@@ -77,7 +77,7 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   LARGE, SMALL
+      REAL*10   LARGE, SMALL
 *     ..
 *
 *  =====================================================================

@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
 *      $                   BERR( * ), FERR( * ), WORK( * ), X( LDX, * )
 *       ..
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The symmetric matrix A.  If UPLO = 'U', the leading N-by-N
 *>          upper triangular part of A contains the upper triangular part
 *>          of the matrix A, and the strictly lower triangular part of A
@@ -85,7 +85,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>          The factored form of the matrix A.  AF contains the block
 *>          diagonal matrix D and the multipliers used to obtain the
 *>          factor U or L from the factorization A = U*D*U**T or
@@ -107,7 +107,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          The right hand side matrix B.
 *> \endverbatim
 *>
@@ -119,7 +119,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          On entry, the solution matrix X, as computed by DSYTRS.
 *>          On exit, the improved solution matrix X.
 *> \endverbatim
@@ -132,7 +132,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -145,7 +145,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -153,7 +153,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -199,7 +199,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
+      REAL*10   A( LDA, * ), AF( LDAF, * ), B( LDB, * ),
      $                   BERR( * ), FERR( * ), WORK( * ), X( LDX, * )
 *     ..
 *
@@ -208,19 +208,19 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
-      DOUBLE PRECISION   THREE
+      REAL*10   THREE
       PARAMETER          ( THREE = 3.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            COUNT, I, J, K, KASE, NZ
-      DOUBLE PRECISION   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN, XK
+      REAL*10   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN, XK
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -233,7 +233,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Executable Statements ..

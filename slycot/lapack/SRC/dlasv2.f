@@ -21,7 +21,7 @@
 *       SUBROUTINE DLASV2( F, G, H, SSMIN, SSMAX, SNR, CSR, SNL, CSL )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   CSL, CSR, F, G, H, SNL, SNR, SSMAX, SSMIN
+*       REAL*10   CSL, CSR, F, G, H, SNL, SNR, SSMAX, SSMIN
 *       ..
 *
 *
@@ -47,54 +47,54 @@
 *
 *> \param[in] F
 *> \verbatim
-*>          F is DOUBLE PRECISION
+*>          F is REAL*10
 *>          The (1,1) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] G
 *> \verbatim
-*>          G is DOUBLE PRECISION
+*>          G is REAL*10
 *>          The (1,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is DOUBLE PRECISION
+*>          H is REAL*10
 *>          The (2,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[out] SSMIN
 *> \verbatim
-*>          SSMIN is DOUBLE PRECISION
+*>          SSMIN is REAL*10
 *>          abs(SSMIN) is the smaller singular value.
 *> \endverbatim
 *>
 *> \param[out] SSMAX
 *> \verbatim
-*>          SSMAX is DOUBLE PRECISION
+*>          SSMAX is REAL*10
 *>          abs(SSMAX) is the larger singular value.
 *> \endverbatim
 *>
 *> \param[out] SNL
 *> \verbatim
-*>          SNL is DOUBLE PRECISION
+*>          SNL is REAL*10
 *> \endverbatim
 *>
 *> \param[out] CSL
 *> \verbatim
-*>          CSL is DOUBLE PRECISION
+*>          CSL is REAL*10
 *>          The vector (CSL, SNL) is a unit left singular vector for the
 *>          singular value abs(SSMAX).
 *> \endverbatim
 *>
 *> \param[out] SNR
 *> \verbatim
-*>          SNR is DOUBLE PRECISION
+*>          SNR is REAL*10
 *> \endverbatim
 *>
 *> \param[out] CSR
 *> \verbatim
-*>          CSR is DOUBLE PRECISION
+*>          CSR is REAL*10
 *>          The vector (CSR, SNR) is a unit right singular vector for the
 *>          singular value abs(SSMAX).
 *> \endverbatim
@@ -141,34 +141,34 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   CSL, CSR, F, G, H, SNL, SNR, SSMAX, SSMIN
+      REAL*10   CSL, CSR, F, G, H, SNL, SNR, SSMAX, SSMIN
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = 0.5D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
-      DOUBLE PRECISION   FOUR
+      REAL*10   FOUR
       PARAMETER          ( FOUR = 4.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            GASMAL, SWAP
       INTEGER            PMAX
-      DOUBLE PRECISION   A, CLT, CRT, D, FA, FT, GA, GT, HA, HT, L, M,
+      REAL*10   A, CLT, CRT, D, FA, FT, GA, GT, HA, HT, L, M,
      $                   MM, R, S, SLT, SRT, T, TEMP, TSIGN, TT
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, SIGN, SQRT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Executable Statements ..

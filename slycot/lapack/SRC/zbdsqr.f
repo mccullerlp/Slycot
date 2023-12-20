@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDC, LDU, LDVT, N, NCC, NCVT, NRU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-*       COMPLEX*16         C( LDC, * ), U( LDU, * ), VT( LDVT, * )
+*       REAL*10   D( * ), E( * ), RWORK( * )
+*       COMPLEX*20         C( LDC, * ), U( LDU, * ), VT( LDVT, * )
 *       ..
 *
 *
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the bidiagonal matrix B.
 *>          On exit, if INFO=0, the singular values of B in decreasing
 *>          order.
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the N-1 offdiagonal elements of the bidiagonal
 *>          matrix B.
 *>          On exit, if INFO = 0, E is destroyed; if INFO > 0, D and E
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] VT
 *> \verbatim
-*>          VT is COMPLEX*16 array, dimension (LDVT, NCVT)
+*>          VT is COMPLEX*20 array, dimension (LDVT, NCVT)
 *>          On entry, an N-by-NCVT matrix VT.
 *>          On exit, VT is overwritten by P**H * VT.
 *>          Not referenced if NCVT = 0.
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension (LDU, N)
+*>          U is COMPLEX*20 array, dimension (LDU, N)
 *>          On entry, an NRU-by-N matrix U.
 *>          On exit, U is overwritten by U * Q.
 *>          Not referenced if NRU = 0.
@@ -151,7 +151,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC, NCC)
+*>          C is COMPLEX*20 array, dimension (LDC, NCC)
 *>          On entry, an N-by-NCC matrix C.
 *>          On exit, C is overwritten by Q**H * C.
 *>          Not referenced if NCC = 0.
@@ -166,7 +166,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (4*N)
+*>          RWORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -184,7 +184,7 @@
 *  =========================
 *>
 *> \verbatim
-*>  TOLMUL  DOUBLE PRECISION, default = max(10,min(100,EPS**(-1/8)))
+*>  TOLMUL  REAL*10, default = max(10,min(100,EPS**(-1/8)))
 *>          TOLMUL controls the convergence criterion of the QR loop.
 *>          If it is positive, TOLMUL*EPS is the desired relative
 *>             precision in the computed singular values.
@@ -229,26 +229,26 @@
       INTEGER            INFO, LDC, LDU, LDVT, N, NCC, NCVT, NRU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-      COMPLEX*16         C( LDC, * ), U( LDU, * ), VT( LDVT, * )
+      REAL*10   D( * ), E( * ), RWORK( * )
+      COMPLEX*20         C( LDC, * ), U( LDU, * ), VT( LDVT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      DOUBLE PRECISION   NEGONE
+      REAL*10   NEGONE
       PARAMETER          ( NEGONE = -1.0D0 )
-      DOUBLE PRECISION   HNDRTH
+      REAL*10   HNDRTH
       PARAMETER          ( HNDRTH = 0.01D0 )
-      DOUBLE PRECISION   TEN
+      REAL*10   TEN
       PARAMETER          ( TEN = 10.0D0 )
-      DOUBLE PRECISION   HNDRD
+      REAL*10   HNDRD
       PARAMETER          ( HNDRD = 100.0D0 )
-      DOUBLE PRECISION   MEIGTH
+      REAL*10   MEIGTH
       PARAMETER          ( MEIGTH = -0.125D0 )
       INTEGER            MAXITR
       PARAMETER          ( MAXITR = 6 )
@@ -257,14 +257,14 @@
       LOGICAL            LOWER, ROTATE
       INTEGER            I, IDIR, ISUB, ITER, J, LL, LLL, M, MAXIT, NM1,
      $                   NM12, NM13, OLDLL, OLDM
-      DOUBLE PRECISION   ABSE, ABSS, COSL, COSR, CS, EPS, F, G, H, MU,
+      REAL*10   ABSE, ABSS, COSL, COSR, CS, EPS, F, G, H, MU,
      $                   OLDCS, OLDSN, R, SHIFT, SIGMN, SIGMX, SINL,
      $                   SINR, SLL, SMAX, SMIN, SMINL, SMINOA,
      $                   SN, THRESH, TOL, TOLMUL, UNFL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. External Subroutines ..

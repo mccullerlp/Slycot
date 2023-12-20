@@ -30,8 +30,8 @@
 *       INTEGER            N, LDA, LWORK, LHOUS2, INFO
 *      ..
 *      .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
-*       COMPLEX*16         A( LDA, * ), TAU( * ),
+*       REAL*10   D( * ), E( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ),
 *                          HOUS2( * ), WORK( * )
 *       ..
 *  
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -104,26 +104,26 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The off-diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N-KD)
+*>          TAU is COMPLEX*20 array, dimension (N-KD)
 *>          The scalar factors of the elementary reflectors of 
 *>          the first stage (see Further Details).
 *> \endverbatim
 *>
 *> \param[out] HOUS2
 *> \verbatim
-*>          HOUS2 is COMPLEX*16 array, dimension (LHOUS2)
+*>          HOUS2 is COMPLEX*20 array, dimension (LHOUS2)
 *>          Stores the Householder representation of the stage2
 *>          band to tridiagonal.
 *> \endverbatim
@@ -143,7 +143,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -233,8 +233,8 @@
       INTEGER            N, LDA, LWORK, LHOUS2, INFO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
-      COMPLEX*16         A( LDA, * ), TAU( * ),
+      REAL*10   D( * ), E( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ),
      $                   HOUS2( * ), WORK( * )
 *     ..
 *

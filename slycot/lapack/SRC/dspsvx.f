@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          FACT, UPLO
 *       INTEGER            INFO, LDB, LDX, N, NRHS
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
+*       REAL*10   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
 *      $                   FERR( * ), WORK( * ), X( LDX, * )
 *       ..
 *
@@ -112,7 +112,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          The upper or lower triangle of the symmetric matrix A, packed
 *>          columnwise in a linear array.  The j-th column of A is stored
 *>          in the array AP as follows:
@@ -123,7 +123,7 @@
 *>
 *> \param[in,out] AFP
 *> \verbatim
-*>          AFP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AFP is REAL*10 array, dimension (N*(N+1)/2)
 *>          If FACT = 'F', then AFP is an input argument and on entry
 *>          contains the block diagonal matrix D and the multipliers used
 *>          to obtain the factor U or L from the factorization
@@ -158,7 +158,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          The N-by-NRHS right hand side matrix B.
 *> \endverbatim
 *>
@@ -170,7 +170,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.
 *> \endverbatim
 *>
@@ -182,7 +182,7 @@
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The estimate of the reciprocal condition number of the matrix
 *>          A.  If RCOND is less than the machine precision (in
 *>          particular, if RCOND = 0), the matrix is singular to working
@@ -192,7 +192,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -205,7 +205,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -213,7 +213,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -281,27 +281,27 @@
 *     .. Scalar Arguments ..
       CHARACTER          FACT, UPLO
       INTEGER            INFO, LDB, LDX, N, NRHS
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
+      REAL*10   AFP( * ), AP( * ), B( LDB, * ), BERR( * ),
      $                   FERR( * ), WORK( * ), X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOFACT
-      DOUBLE PRECISION   ANORM
+      REAL*10   ANORM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANSP
+      REAL*10   DLAMCH, DLANSP
       EXTERNAL           LSAME, DLAMCH, DLANSP
 *     ..
 *     .. External Subroutines ..

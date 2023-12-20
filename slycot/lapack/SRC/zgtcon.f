@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            INFO, N
-*       DOUBLE PRECISION   ANORM, RCOND
+*       REAL*10   ANORM, RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         D( * ), DL( * ), DU( * ), DU2( * ), WORK( * )
+*       COMPLEX*20         D( * ), DL( * ), DU( * ), DU2( * ), WORK( * )
 *       ..
 *
 *
@@ -65,27 +65,27 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is COMPLEX*16 array, dimension (N-1)
+*>          DL is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) multipliers that define the matrix L from the
 *>          LU factorization of A as computed by ZGTTRF.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The n diagonal elements of the upper triangular matrix U from
 *>          the LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is COMPLEX*16 array, dimension (N-1)
+*>          DU is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) elements of the first superdiagonal of U.
 *> \endverbatim
 *>
 *> \param[in] DU2
 *> \verbatim
-*>          DU2 is COMPLEX*16 array, dimension (N-2)
+*>          DU2 is COMPLEX*20 array, dimension (N-2)
 *>          The (n-2) elements of the second superdiagonal of U.
 *> \endverbatim
 *>
@@ -100,14 +100,14 @@
 *>
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          If NORM = '1' or 'O', the 1-norm of the original matrix A.
 *>          If NORM = 'I', the infinity-norm of the original matrix A.
 *> \endverbatim
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
 *>          estimate of the 1-norm of inv(A) computed in this routine.
@@ -115,7 +115,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -146,23 +146,23 @@
 *     .. Scalar Arguments ..
       CHARACTER          NORM
       INTEGER            INFO, N
-      DOUBLE PRECISION   ANORM, RCOND
+      REAL*10   ANORM, RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         D( * ), DL( * ), DU( * ), DU2( * ), WORK( * )
+      COMPLEX*20         D( * ), DL( * ), DU( * ), DU2( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            ONENRM
       INTEGER            I, KASE, KASE1
-      DOUBLE PRECISION   AINVNM
+      REAL*10   AINVNM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )

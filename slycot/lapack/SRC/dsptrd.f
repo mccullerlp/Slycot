@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), D( * ), E( * ), TAU( * )
+*       REAL*10   AP( * ), D( * ), E( * ), TAU( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -77,21 +77,21 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of the tridiagonal matrix T:
 *>          D(i) = A(i,i).
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The off-diagonal elements of the tridiagonal matrix T:
 *>          E(i) = A(i,i+1) if UPLO = 'U', E(i) = A(i+1,i) if UPLO = 'L'.
 *> \endverbatim
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (N-1)
+*>          TAU is REAL*10 array, dimension (N-1)
 *>          The scalar factors of the elementary reflectors (see Further
 *>          Details).
 *> \endverbatim
@@ -157,27 +157,27 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), D( * ), E( * ), TAU( * )
+      REAL*10   AP( * ), D( * ), E( * ), TAU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO, HALF
+      REAL*10   ONE, ZERO, HALF
       PARAMETER          ( ONE = 1.0D0, ZERO = 0.0D0,
      $                   HALF = 1.0D0 / 2.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, I1, I1I1, II
-      DOUBLE PRECISION   ALPHA, TAUI
+      REAL*10   ALPHA, TAUI
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DLARFG, DSPMV, DSPR2, XERBLA
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           LSAME, DDOT
 *     ..
 *     .. Executable Statements ..

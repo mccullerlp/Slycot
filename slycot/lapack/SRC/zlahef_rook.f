@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), W( LDW, * )
+*       COMPLEX*20         A( LDA, * ), W( LDW, * )
 *       ..
 *
 *
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          n-by-n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -136,7 +136,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (LDW,NB)
+*>          W is COMPLEX*20 array, dimension (LDW,NB)
 *> \endverbatim
 *>
 *> \param[in] LDW
@@ -192,31 +192,31 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), W( LDW, * )
+      COMPLEX*20         A( LDA, * ), W( LDW, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
-      DOUBLE PRECISION   EIGHT, SEVTEN
+      REAL*10   EIGHT, SEVTEN
       PARAMETER          ( EIGHT = 8.0D+0, SEVTEN = 17.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            DONE
       INTEGER            IMAX, ITEMP, II, J, JB, JJ, JMAX, JP1, JP2, K,
      $                   KK, KKW, KP, KSTEP, KW, P
-      DOUBLE PRECISION   ABSAKK, ALPHA, COLMAX, DTEMP, R1, ROWMAX, T,
+      REAL*10   ABSAKK, ALPHA, COLMAX, DTEMP, R1, ROWMAX, T,
      $                   SFMIN
-      COMPLEX*16         D11, D21, D22, Z
+      COMPLEX*20         D11, D21, D22, Z
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, IZAMAX, DLAMCH
 *     ..
 *     .. External Subroutines ..
@@ -226,7 +226,7 @@
       INTRINSIC          ABS, DBLE, DCONJG, DIMAG, MAX, MIN, SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( DIMAG( Z ) )

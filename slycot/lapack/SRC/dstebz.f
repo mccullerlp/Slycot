@@ -25,11 +25,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          ORDER, RANGE
 *       INTEGER            IL, INFO, IU, M, N, NSPLIT
-*       DOUBLE PRECISION   ABSTOL, VL, VU
+*       REAL*10   ABSTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IBLOCK( * ), ISPLIT( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
+*       REAL*10   D( * ), E( * ), W( * ), WORK( * )
 *       ..
 *
 *
@@ -86,7 +86,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues.  Eigenvalues less than or equal
@@ -96,7 +96,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues.  Eigenvalues less than or equal
@@ -126,7 +126,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          The absolute tolerance for the eigenvalues.  An eigenvalue
 *>          (or cluster) is considered to be located if it has been
 *>          determined to lie in an interval whose width is ABSTOL or
@@ -139,13 +139,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The (n-1) off-diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
@@ -165,7 +165,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          On exit, the first M elements of W will contain the
 *>          eigenvalues.  (DSTEBZ may use the remaining N-M elements as
 *>          workspace.)
@@ -197,7 +197,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -241,13 +241,13 @@
 *  =========================
 *>
 *> \verbatim
-*>  RELFAC  DOUBLE PRECISION, default = 2.0e0
+*>  RELFAC  REAL*10, default = 2.0e0
 *>          The relative tolerance.  An interval (a,b] lies within
 *>          "relative tolerance" if  b-a < RELFAC*ulp*max(|a|,|b|),
 *>          where "ulp" is the machine precision (distance from 1 to
 *>          the next larger floating point number.)
 *>
-*>  FUDGE   DOUBLE PRECISION, default = 2
+*>  FUDGE   REAL*10, default = 2
 *>          A "fudge factor" to widen the Gershgorin intervals.  Ideally,
 *>          a value of 1 should work, but on machines with sloppy
 *>          arithmetic, this needs to be larger.  The default for
@@ -278,20 +278,20 @@
 *     .. Scalar Arguments ..
       CHARACTER          ORDER, RANGE
       INTEGER            IL, INFO, IU, M, N, NSPLIT
-      DOUBLE PRECISION   ABSTOL, VL, VU
+      REAL*10   ABSTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IBLOCK( * ), ISPLIT( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
+      REAL*10   D( * ), E( * ), W( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, HALF
+      REAL*10   ZERO, ONE, TWO, HALF
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   HALF = 1.0D0 / TWO )
-      DOUBLE PRECISION   FUDGE, RELFAC
+      REAL*10   FUDGE, RELFAC
       PARAMETER          ( FUDGE = 2.1D0, RELFAC = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -300,7 +300,7 @@
      $                   IM, IN, IOFF, IORDER, IOUT, IRANGE, ITMAX,
      $                   ITMP1, IW, IWOFF, J, JB, JDISC, JE, NB, NWL,
      $                   NWU
-      DOUBLE PRECISION   ATOLI, BNORM, GL, GU, PIVMIN, RTOLI, SAFEMN,
+      REAL*10   ATOLI, BNORM, GL, GU, PIVMIN, RTOLI, SAFEMN,
      $                   TMP1, TMP2, TNORM, ULP, WKILL, WL, WLU, WU, WUL
 *     ..
 *     .. Local Arrays ..
@@ -309,7 +309,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, ILAENV, DLAMCH
 *     ..
 *     .. External Subroutines ..

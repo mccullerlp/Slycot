@@ -15,7 +15,7 @@
 *       CHARACTER DIAG,TRANS,UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 AP(*),X(*)
+*       COMPLEX*20 AP(*),X(*)
 *       ..
 *
 *
@@ -83,7 +83,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension at least
+*>          AP is COMPLEX*20 array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with  UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular matrix packed sequentially,
@@ -101,7 +101,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element right-hand side vector b. On exit, X is overwritten
@@ -151,17 +151,17 @@
       CHARACTER DIAG,TRANS,UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 AP(*),X(*)
+      COMPLEX*20 AP(*),X(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      COMPLEX*20 TEMP
       INTEGER I,INFO,IX,J,JX,K,KK,KX
       LOGICAL NOCONJ,NOUNIT
 *     ..

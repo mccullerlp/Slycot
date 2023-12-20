@@ -24,11 +24,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            IFIRST, ILAST, INFO, N, OFFSET, TWIST
-*       DOUBLE PRECISION   PIVMIN, RTOL1, RTOL2, SPDIAM
+*       REAL*10   PIVMIN, RTOL1, RTOL2, SPDIAM
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), LLD( * ), W( * ),
+*       REAL*10   D( * ), LLD( * ), W( * ),
 *      $                   WERR( * ), WGAP( * ), WORK( * )
 *       ..
 *
@@ -59,13 +59,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The N diagonal elements of the diagonal matrix D.
 *> \endverbatim
 *>
 *> \param[in] LLD
 *> \verbatim
-*>          LLD is DOUBLE PRECISION array, dimension (N-1)
+*>          LLD is REAL*10 array, dimension (N-1)
 *>          The (N-1) elements L(i)*L(i)*D(i).
 *> \endverbatim
 *>
@@ -83,12 +83,12 @@
 *>
 *> \param[in] RTOL1
 *> \verbatim
-*>          RTOL1 is DOUBLE PRECISION
+*>          RTOL1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] RTOL2
 *> \verbatim
-*>          RTOL2 is DOUBLE PRECISION
+*>          RTOL2 is REAL*10
 *>          Tolerance for the convergence of the bisection intervals.
 *>          An interval [LEFT,RIGHT] has converged if
 *>          RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          On input, W( IFIRST-OFFSET ) through W( ILAST-OFFSET ) are
 *>          estimates of the eigenvalues of L D L^T indexed IFIRST through
 *>          ILAST.
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] WGAP
 *> \verbatim
-*>          WGAP is DOUBLE PRECISION array, dimension (N-1)
+*>          WGAP is REAL*10 array, dimension (N-1)
 *>          On input, the (estimated) gaps between consecutive
 *>          eigenvalues of L D L^T, i.e., WGAP(I-OFFSET) is the gap between
 *>          eigenvalues I and I+1. Note that if IFIRST = ILAST
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION array, dimension (N)
+*>          WERR is REAL*10 array, dimension (N)
 *>          On input, WERR( IFIRST-OFFSET ) through WERR( ILAST-OFFSET ) are
 *>          the errors in the estimates of the corresponding elements in W.
 *>          On output, these errors are refined.
@@ -132,7 +132,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *>          Workspace.
 *> \endverbatim
 *>
@@ -144,13 +144,13 @@
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot in the Sturm sequence.
 *> \endverbatim
 *>
 *> \param[in] SPDIAM
 *> \verbatim
-*>          SPDIAM is DOUBLE PRECISION
+*>          SPDIAM is REAL*10
 *>          The spectral diameter of the matrix.
 *> \endverbatim
 *>
@@ -200,18 +200,18 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            IFIRST, ILAST, INFO, N, OFFSET, TWIST
-      DOUBLE PRECISION   PIVMIN, RTOL1, RTOL2, SPDIAM
+      REAL*10   PIVMIN, RTOL1, RTOL2, SPDIAM
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), LLD( * ), W( * ),
+      REAL*10   D( * ), LLD( * ), W( * ),
      $                   WERR( * ), WGAP( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, TWO, HALF
+      REAL*10   ZERO, TWO, HALF
       PARAMETER        ( ZERO = 0.0D0, TWO = 2.0D0,
      $                   HALF = 0.5D0 )
       INTEGER   MAXITR
@@ -219,7 +219,7 @@
 *     .. Local Scalars ..
       INTEGER            I, I1, II, IP, ITER, K, NEGCNT, NEXT, NINT,
      $                   OLNINT, PREV, R
-      DOUBLE PRECISION   BACK, CVRGD, GAP, LEFT, LGAP, MID, MNWDTH,
+      REAL*10   BACK, CVRGD, GAP, LEFT, LGAP, MID, MNWDTH,
      $                   RGAP, RIGHT, TMP, WIDTH
 *     ..
 *     .. External Functions ..

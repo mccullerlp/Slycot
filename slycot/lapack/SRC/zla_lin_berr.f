@@ -24,8 +24,8 @@
 *       INTEGER            N, NZ, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AYB( N, NRHS ), BERR( NRHS )
-*       COMPLEX*16         RES( N, NRHS )
+*       REAL*10   AYB( N, NRHS ), BERR( NRHS )
+*       COMPLEX*20         RES( N, NRHS )
 *       ..
 *
 *
@@ -67,14 +67,14 @@
 *>
 *> \param[in] RES
 *> \verbatim
-*>          RES is COMPLEX*16 array, dimension (N,NRHS)
+*>          RES is COMPLEX*20 array, dimension (N,NRHS)
 *>     The residual matrix, i.e., the matrix R in the relative backward
 *>     error formula above.
 *> \endverbatim
 *>
 *> \param[in] AYB
 *> \verbatim
-*>          AYB is DOUBLE PRECISION array, dimension (N, NRHS)
+*>          AYB is REAL*10 array, dimension (N, NRHS)
 *>     The denominator in the relative backward error formula above, i.e.,
 *>     the matrix abs(op(A_s))*abs(Y) + abs(B_s). The matrices A, Y, and B
 *>     are from iterative refinement (see zla_gerfsx_extended.f).
@@ -82,7 +82,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>     The componentwise relative backward error from the formula above.
 *> \endverbatim
 *
@@ -107,27 +107,27 @@
       INTEGER            N, NZ, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AYB( N, NRHS ), BERR( NRHS )
-      COMPLEX*16         RES( N, NRHS )
+      REAL*10   AYB( N, NRHS ), BERR( NRHS )
+      COMPLEX*20         RES( N, NRHS )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   TMP
+      REAL*10   TMP
       INTEGER            I, J
-      COMPLEX*16         CDUM
+      COMPLEX*20         CDUM
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, REAL, DIMAG, MAX
 *     ..
 *     .. External Functions ..
       EXTERNAL           DLAMCH
-      DOUBLE PRECISION   DLAMCH
-      DOUBLE PRECISION   SAFE1
+      REAL*10   DLAMCH
+      REAL*10   SAFE1
 *     ..
 *     .. Statement Functions ..
-      COMPLEX*16         CABS1
+      COMPLEX*20         CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

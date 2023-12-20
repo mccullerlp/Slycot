@@ -25,7 +25,7 @@
 *       INTEGER            LDA, LDB, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -64,7 +64,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The m by n matrix A.  If UPLO = 'U', only the upper trapezium
 *>          is accessed; if UPLO = 'L', only the lower trapezium is
 *>          accessed.
@@ -78,7 +78,7 @@
 *>
 *> \param[out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On exit, B = A in the locations specified by UPLO.
 *> \endverbatim
 *>
@@ -110,7 +110,7 @@
       INTEGER            LDA, LDB, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

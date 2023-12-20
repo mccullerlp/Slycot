@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDA, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -84,7 +84,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The triangular matrix A.  If UPLO = 'U', the leading N-by-N
 *>          upper triangular part of the array A contains the upper
 *>          triangular matrix, and the strictly lower triangular part of
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, if INFO = 0, the solution matrix X.
 *> \endverbatim
@@ -147,13 +147,13 @@
       INTEGER            INFO, LDA, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..

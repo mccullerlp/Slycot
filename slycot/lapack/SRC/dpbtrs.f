@@ -25,7 +25,7 @@
 *       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), B( LDB, * )
+*       REAL*10   AB( LDAB, * ), B( LDB, * )
 *       ..
 *
 *
@@ -71,7 +71,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**T*U or A = L*L**T of the band matrix A, stored in the
 *>          first KD+1 rows of the array.  The j-th column of U or L is
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -128,7 +128,7 @@
       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), B( LDB, * )
+      REAL*10   AB( LDAB, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

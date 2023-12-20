@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the vectors which define the elementary reflectors,
 *>          as returned by ZHETRD.
 *>          On exit, the N-by-N unitary matrix Q.
@@ -77,14 +77,14 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N-1)
+*>          TAU is COMPLEX*20 array, dimension (N-1)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by ZHETRD.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -130,13 +130,13 @@
       INTEGER            INFO, LDA, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..

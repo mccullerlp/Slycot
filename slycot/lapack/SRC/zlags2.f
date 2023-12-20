@@ -23,8 +23,8 @@
 *
 *       .. Scalar Arguments ..
 *       LOGICAL            UPPER
-*       DOUBLE PRECISION   A1, A3, B1, B3, CSQ, CSU, CSV
-*       COMPLEX*16         A2, B2, SNQ, SNU, SNV
+*       REAL*10   A1, A3, B1, B3, CSQ, CSU, CSV
+*       COMPLEX*20         A2, B2, SNQ, SNU, SNV
 *       ..
 *
 *
@@ -77,68 +77,68 @@
 *>
 *> \param[in] A1
 *> \verbatim
-*>          A1 is DOUBLE PRECISION
+*>          A1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] A2
 *> \verbatim
-*>          A2 is COMPLEX*16
+*>          A2 is COMPLEX*20
 *> \endverbatim
 *>
 *> \param[in] A3
 *> \verbatim
-*>          A3 is DOUBLE PRECISION
+*>          A3 is REAL*10
 *>          On entry, A1, A2 and A3 are elements of the input 2-by-2
 *>          upper (lower) triangular matrix A.
 *> \endverbatim
 *>
 *> \param[in] B1
 *> \verbatim
-*>          B1 is DOUBLE PRECISION
+*>          B1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] B2
 *> \verbatim
-*>          B2 is COMPLEX*16
+*>          B2 is COMPLEX*20
 *> \endverbatim
 *>
 *> \param[in] B3
 *> \verbatim
-*>          B3 is DOUBLE PRECISION
+*>          B3 is REAL*10
 *>          On entry, B1, B2 and B3 are elements of the input 2-by-2
 *>          upper (lower) triangular matrix B.
 *> \endverbatim
 *>
 *> \param[out] CSU
 *> \verbatim
-*>          CSU is DOUBLE PRECISION
+*>          CSU is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SNU
 *> \verbatim
-*>          SNU is COMPLEX*16
+*>          SNU is COMPLEX*20
 *>          The desired unitary matrix U.
 *> \endverbatim
 *>
 *> \param[out] CSV
 *> \verbatim
-*>          CSV is DOUBLE PRECISION
+*>          CSV is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SNV
 *> \verbatim
-*>          SNV is COMPLEX*16
+*>          SNV is COMPLEX*20
 *>          The desired unitary matrix V.
 *> \endverbatim
 *>
 *> \param[out] CSQ
 *> \verbatim
-*>          CSQ is DOUBLE PRECISION
+*>          CSQ is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SNQ
 *> \verbatim
-*>          SNQ is COMPLEX*16
+*>          SNQ is COMPLEX*20
 *>          The desired unitary matrix Q.
 *> \endverbatim
 *
@@ -162,21 +162,21 @@
 *
 *     .. Scalar Arguments ..
       LOGICAL            UPPER
-      DOUBLE PRECISION   A1, A3, B1, B3, CSQ, CSU, CSV
-      COMPLEX*16         A2, B2, SNQ, SNU, SNV
+      REAL*10   A1, A3, B1, B3, CSQ, CSU, CSV
+      COMPLEX*20         A2, B2, SNQ, SNU, SNV
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   A, AUA11, AUA12, AUA21, AUA22, AVB12, AVB11,
+      REAL*10   A, AUA11, AUA12, AUA21, AUA22, AVB12, AVB11,
      $                   AVB21, AVB22, CSL, CSR, D, FB, FC, S1, S2,
      $                   SNL, SNR, UA11R, UA22R, VB11R, VB22R
-      COMPLEX*16         B, C, D1, R, T, UA11, UA12, UA21, UA22, VB11,
+      COMPLEX*20         B, C, D1, R, T, UA11, UA12, UA21, UA22, VB11,
      $                   VB12, VB21, VB22
 *     ..
 *     .. External Subroutines ..
@@ -186,7 +186,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1
+      REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
       ABS1( T ) = ABS( DBLE( T ) ) + ABS( DIMAG( T ) )

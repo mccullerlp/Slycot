@@ -18,13 +18,13 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DZSUM1( N, CX, INCX )
+*       REAL*10 FUNCTION DZSUM1( N, CX, INCX )
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         CX( * )
+*       COMPLEX*20         CX( * )
 *       ..
 *
 *
@@ -51,7 +51,7 @@
 *>
 *> \param[in] CX
 *> \verbatim
-*>          CX is COMPLEX*16 array, dimension (N)
+*>          CX is COMPLEX*20 array, dimension (N)
 *>          The vector whose elements will be summed.
 *> \endverbatim
 *>
@@ -77,7 +77,7 @@
 *> Nick Higham for use with ZLACON.
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DZSUM1( N, CX, INCX )
+      REAL*10 FUNCTION DZSUM1( N, CX, INCX )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -87,14 +87,14 @@
       INTEGER            INCX, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         CX( * )
+      COMPLEX*20         CX( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, NINCX
-      DOUBLE PRECISION   STEMP
+      REAL*10   STEMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS

@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N, LDA
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), AP( * )
+*       REAL*10   A( LDA, * ), AP( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On exit, the triangular matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -74,7 +74,7 @@
 *>
 *> \param[out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On exit, the upper or lower triangular matrix A, packed
 *>          columnwise in a linear array. The j-th column of A is stored
 *>          in the array AP as follows:
@@ -111,7 +111,7 @@
       INTEGER            INFO, N, LDA
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), AP( * )
+      REAL*10   A( LDA, * ), AP( * )
 *     ..
 *
 *  =====================================================================

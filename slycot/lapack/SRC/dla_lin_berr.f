@@ -24,8 +24,8 @@
 *       INTEGER            N, NZ, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AYB( N, NRHS ), BERR( NRHS )
-*       DOUBLE PRECISION   RES( N, NRHS )
+*       REAL*10   AYB( N, NRHS ), BERR( NRHS )
+*       REAL*10   RES( N, NRHS )
 *       ..
 *
 *
@@ -67,14 +67,14 @@
 *>
 *> \param[in] RES
 *> \verbatim
-*>          RES is DOUBLE PRECISION array, dimension (N,NRHS)
+*>          RES is REAL*10 array, dimension (N,NRHS)
 *>     The residual matrix, i.e., the matrix R in the relative backward
 *>     error formula above.
 *> \endverbatim
 *>
 *> \param[in] AYB
 *> \verbatim
-*>          AYB is DOUBLE PRECISION array, dimension (N, NRHS)
+*>          AYB is REAL*10 array, dimension (N, NRHS)
 *>     The denominator in the relative backward error formula above, i.e.,
 *>     the matrix abs(op(A_s))*abs(Y) + abs(B_s). The matrices A, Y, and B
 *>     are from iterative refinement (see dla_gerfsx_extended.f).
@@ -82,7 +82,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>     The component-wise relative backward error from the formula above.
 *> \endverbatim
 *
@@ -107,14 +107,14 @@
       INTEGER            N, NZ, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AYB( N, NRHS ), BERR( NRHS )
-      DOUBLE PRECISION   RES( N, NRHS )
+      REAL*10   AYB( N, NRHS ), BERR( NRHS )
+      REAL*10   RES( N, NRHS )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   TMP
+      REAL*10   TMP
       INTEGER            I, J
 *     ..
 *     .. Intrinsic Functions ..
@@ -122,8 +122,8 @@
 *     ..
 *     .. External Functions ..
       EXTERNAL           DLAMCH
-      DOUBLE PRECISION   DLAMCH
-      DOUBLE PRECISION   SAFE1
+      REAL*10   DLAMCH
+      REAL*10   SAFE1
 *     ..
 *     .. Executable Statements ..
 *

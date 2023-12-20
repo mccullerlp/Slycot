@@ -26,7 +26,7 @@
 *       INTEGER            INFO, K, LDA, LDC, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -94,7 +94,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension
+*>          A is COMPLEX*20 array, dimension
 *>                               (LDA,M) if SIDE = 'L',
 *>                               (LDA,N) if SIDE = 'R'
 *>          The i-th row must contain the vector which defines the
@@ -111,14 +111,14 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (K)
+*>          TAU is COMPLEX*20 array, dimension (K)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by ZGERQF.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the m-by-n matrix C.
 *>          On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 *> \endverbatim
@@ -131,7 +131,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension
+*>          WORK is COMPLEX*20 array, dimension
 *>                                   (N) if SIDE = 'L',
 *>                                   (M) if SIDE = 'R'
 *> \endverbatim
@@ -166,19 +166,19 @@
       INTEGER            INFO, K, LDA, LDC, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LEFT, NOTRAN
       INTEGER            I, I1, I2, I3, MI, NI, NQ
-      COMPLEX*16         AII, TAUI
+      COMPLEX*20         AII, TAUI
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

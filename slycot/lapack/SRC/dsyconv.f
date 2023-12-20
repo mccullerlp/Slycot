@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), E( * )
+*       REAL*10   A( LDA, * ), E( * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The block diagonal matrix D and the multipliers used to
 *>          obtain the factor U or L as computed by DSYTRF.
 *> \endverbatim
@@ -87,7 +87,7 @@
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          E stores the supdiagonal/subdiagonal of the symmetric 1-by-1
 *>          or 2-by-2 block diagonal matrix D in LDLT.
 *> \endverbatim
@@ -122,13 +122,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), E( * )
+      REAL*10   A( LDA, * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. External Functions ..
@@ -140,7 +140,7 @@
 *     .. Local Scalars ..
       LOGICAL            UPPER, CONVERT
       INTEGER            I, IP, J
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. Executable Statements ..
 *

@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            KASE, N
-*       DOUBLE PRECISION   EST
+*       REAL*10   EST
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISGN( * ), ISAVE( 3 )
-*       DOUBLE PRECISION   V( * ), X( * )
+*       REAL*10   V( * ), X( * )
 *       ..
 *
 *
@@ -50,14 +50,14 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (N)
+*>          V is REAL*10 array, dimension (N)
 *>         On the final return, V = A*W,  where  EST = norm(V)/norm(W)
 *>         (W is not returned).
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (N)
+*>          X is REAL*10 array, dimension (N)
 *>         On an intermediate return, X should be overwritten by
 *>               A * X,   if KASE=1,
 *>               A**T * X,  if KASE=2,
@@ -72,7 +72,7 @@
 *>
 *> \param[in,out] EST
 *> \verbatim
-*>          EST is DOUBLE PRECISION
+*>          EST is REAL*10
 *>         On entry with KASE = 1 or 2 and ISAVE(1) = 3, EST should be
 *>         unchanged from the previous call to DLACN2.
 *>         On exit, EST is an estimate (a lower bound) for norm(A).
@@ -140,11 +140,11 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            KASE, N
-      DOUBLE PRECISION   EST
+      REAL*10   EST
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISGN( * ), ISAVE( 3 )
-      DOUBLE PRECISION   V( * ), X( * )
+      REAL*10   V( * ), X( * )
 *     ..
 *
 *  =====================================================================
@@ -152,16 +152,16 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, JLAST
-      DOUBLE PRECISION   ALTSGN, ESTOLD, TEMP, XS
+      REAL*10   ALTSGN, ESTOLD, TEMP, XS
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DASUM
+      REAL*10   DASUM
       EXTERNAL           IDAMAX, DASUM
 *     ..
 *     .. External Subroutines ..

@@ -26,7 +26,7 @@
 *       INTEGER            INFO, K, LDA, LDC, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -94,7 +94,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension
+*>          A is REAL*10 array, dimension
 *>                               (LDA,M) if SIDE = 'L',
 *>                               (LDA,N) if SIDE = 'R'
 *>          The i-th row must contain the vector which defines the
@@ -111,14 +111,14 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (K)
+*>          TAU is REAL*10 array, dimension (K)
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by DGELQF.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the m by n matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 *> \endverbatim
@@ -131,7 +131,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>                                   (N) if SIDE = 'L',
 *>                                   (M) if SIDE = 'R'
 *> \endverbatim
@@ -166,19 +166,19 @@
       INTEGER            INFO, K, LDA, LDC, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            LEFT, NOTRAN
       INTEGER            I, I1, I2, I3, IC, JC, MI, NI, NQ
-      DOUBLE PRECISION   AII
+      REAL*10   AII
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

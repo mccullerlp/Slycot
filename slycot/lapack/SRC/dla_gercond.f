@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_GERCOND( TRANS, N, A, LDA, AF,
+*       REAL*10 FUNCTION DLA_GERCOND( TRANS, N, A, LDA, AF,
 *                                              LDAF, IPIV, CMODE, C,
 *                                              INFO, WORK, IWORK )
 *
@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * ),
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * ),
 *      $                   C( * )
 *       ..
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -82,7 +82,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>     The factors L and U from the factorization
 *>     A = P*L*U as computed by DGETRF.
 *> \endverbatim
@@ -112,7 +112,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The vector C in the formula op(A) * op2(C).
 *> \endverbatim
 *>
@@ -125,7 +125,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N).
+*>          WORK is REAL*10 array, dimension (3*N).
 *>     Workspace.
 *> \endverbatim
 *>
@@ -146,7 +146,7 @@
 *> \ingroup doubleGEcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_GERCOND( TRANS, N, A, LDA, AF,
+      REAL*10 FUNCTION DLA_GERCOND( TRANS, N, A, LDA, AF,
      $                                       LDAF, IPIV, CMODE, C,
      $                                       INFO, WORK, IWORK )
 *
@@ -160,7 +160,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * ),
+      REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * ),
      $                   C( * )
 *     ..
 *
@@ -169,7 +169,7 @@
 *     .. Local Scalars ..
       LOGICAL            NOTRANS
       INTEGER            KASE, I, J
-      DOUBLE PRECISION   AINVNM, TMP
+      REAL*10   AINVNM, TMP
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )

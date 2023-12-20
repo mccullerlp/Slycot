@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   AP( * ), WORK( * )
+*       REAL*10   AP( * ), WORK( * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the block diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by DSPTRF,
 *>          stored as a packed triangular matrix.
@@ -82,7 +82,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -117,23 +117,23 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   AP( * ), WORK( * )
+      REAL*10   AP( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, K, KC, KCNEXT, KP, KPC, KSTEP, KX, NPP
-      DOUBLE PRECISION   AK, AKKP1, AKP1, D, T, TEMP
+      REAL*10   AK, AKKP1, AKP1, D, T, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           LSAME, DDOT
 *     ..
 *     .. External Subroutines ..

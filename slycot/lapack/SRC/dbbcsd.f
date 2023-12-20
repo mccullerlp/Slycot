@@ -28,10 +28,10 @@
 *       INTEGER            INFO, LDU1, LDU2, LDV1T, LDV2T, LWORK, M, P, Q
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B11D( * ), B11E( * ), B12D( * ), B12E( * ),
+*       REAL*10   B11D( * ), B11E( * ), B12D( * ), B12E( * ),
 *      $                   B21D( * ), B21E( * ), B22D( * ), B22E( * ),
 *      $                   PHI( * ), THETA( * ), WORK( * )
-*       DOUBLE PRECISION   U1( LDU1, * ), U2( LDU2, * ), V1T( LDV1T, * ),
+*       REAL*10   U1( LDU1, * ), U2( LDU2, * ), V1T( LDV1T, * ),
 *      $                   V2T( LDV2T, * )
 *       ..
 *
@@ -132,7 +132,7 @@
 *>
 *> \param[in,out] THETA
 *> \verbatim
-*>          THETA is DOUBLE PRECISION array, dimension (Q)
+*>          THETA is REAL*10 array, dimension (Q)
 *>          On entry, the angles THETA(1),...,THETA(Q) that, along with
 *>          PHI(1), ...,PHI(Q-1), define the matrix in bidiagonal-block
 *>          form. On exit, the angles whose cosines and sines define the
@@ -141,14 +141,14 @@
 *>
 *> \param[in,out] PHI
 *> \verbatim
-*>          PHI is DOUBLE PRECISION array, dimension (Q-1)
+*>          PHI is REAL*10 array, dimension (Q-1)
 *>          The angles PHI(1),...,PHI(Q-1) that, along with THETA(1),...,
 *>          THETA(Q), define the matrix in bidiagonal-block form.
 *> \endverbatim
 *>
 *> \param[in,out] U1
 *> \verbatim
-*>          U1 is DOUBLE PRECISION array, dimension (LDU1,P)
+*>          U1 is REAL*10 array, dimension (LDU1,P)
 *>          On entry, a P-by-P matrix. On exit, U1 is postmultiplied
 *>          by the left singular vector matrix common to [ B11 ; 0 ] and
 *>          [ B12 0 0 ; 0 -I 0 0 ].
@@ -162,7 +162,7 @@
 *>
 *> \param[in,out] U2
 *> \verbatim
-*>          U2 is DOUBLE PRECISION array, dimension (LDU2,M-P)
+*>          U2 is REAL*10 array, dimension (LDU2,M-P)
 *>          On entry, an (M-P)-by-(M-P) matrix. On exit, U2 is
 *>          postmultiplied by the left singular vector matrix common to
 *>          [ B21 ; 0 ] and [ B22 0 0 ; 0 0 I ].
@@ -176,7 +176,7 @@
 *>
 *> \param[in,out] V1T
 *> \verbatim
-*>          V1T is DOUBLE PRECISION array, dimension (LDV1T,Q)
+*>          V1T is REAL*10 array, dimension (LDV1T,Q)
 *>          On entry, a Q-by-Q matrix. On exit, V1T is premultiplied
 *>          by the transpose of the right singular vector
 *>          matrix common to [ B11 ; 0 ] and [ B21 ; 0 ].
@@ -190,7 +190,7 @@
 *>
 *> \param[in,out] V2T
 *> \verbatim
-*>          V2T is DOUBLE PRECISION array, dimension (LDV2T,M-Q)
+*>          V2T is REAL*10 array, dimension (LDV2T,M-Q)
 *>          On entry, an (M-Q)-by-(M-Q) matrix. On exit, V2T is
 *>          premultiplied by the transpose of the right
 *>          singular vector matrix common to [ B12 0 0 ; 0 -I 0 ] and
@@ -205,7 +205,7 @@
 *>
 *> \param[out] B11D
 *> \verbatim
-*>          B11D is DOUBLE PRECISION array, dimension (Q)
+*>          B11D is REAL*10 array, dimension (Q)
 *>          When DBBCSD converges, B11D contains the cosines of THETA(1),
 *>          ..., THETA(Q). If DBBCSD fails to converge, then B11D
 *>          contains the diagonal of the partially reduced top-left
@@ -214,7 +214,7 @@
 *>
 *> \param[out] B11E
 *> \verbatim
-*>          B11E is DOUBLE PRECISION array, dimension (Q-1)
+*>          B11E is REAL*10 array, dimension (Q-1)
 *>          When DBBCSD converges, B11E contains zeros. If DBBCSD fails
 *>          to converge, then B11E contains the superdiagonal of the
 *>          partially reduced top-left block.
@@ -222,7 +222,7 @@
 *>
 *> \param[out] B12D
 *> \verbatim
-*>          B12D is DOUBLE PRECISION array, dimension (Q)
+*>          B12D is REAL*10 array, dimension (Q)
 *>          When DBBCSD converges, B12D contains the negative sines of
 *>          THETA(1), ..., THETA(Q). If DBBCSD fails to converge, then
 *>          B12D contains the diagonal of the partially reduced top-right
@@ -231,7 +231,7 @@
 *>
 *> \param[out] B12E
 *> \verbatim
-*>          B12E is DOUBLE PRECISION array, dimension (Q-1)
+*>          B12E is REAL*10 array, dimension (Q-1)
 *>          When DBBCSD converges, B12E contains zeros. If DBBCSD fails
 *>          to converge, then B12E contains the subdiagonal of the
 *>          partially reduced top-right block.
@@ -239,7 +239,7 @@
 *>
 *> \param[out] B21D
 *> \verbatim
-*>          B21D is DOUBLE PRECISION  array, dimension (Q)
+*>          B21D is REAL*10  array, dimension (Q)
 *>          When DBBCSD converges, B21D contains the negative sines of
 *>          THETA(1), ..., THETA(Q). If DBBCSD fails to converge, then
 *>          B21D contains the diagonal of the partially reduced bottom-left
@@ -248,7 +248,7 @@
 *>
 *> \param[out] B21E
 *> \verbatim
-*>          B21E is DOUBLE PRECISION  array, dimension (Q-1)
+*>          B21E is REAL*10  array, dimension (Q-1)
 *>          When DBBCSD converges, B21E contains zeros. If DBBCSD fails
 *>          to converge, then B21E contains the subdiagonal of the
 *>          partially reduced bottom-left block.
@@ -256,7 +256,7 @@
 *>
 *> \param[out] B22D
 *> \verbatim
-*>          B22D is DOUBLE PRECISION  array, dimension (Q)
+*>          B22D is REAL*10  array, dimension (Q)
 *>          When DBBCSD converges, B22D contains the negative sines of
 *>          THETA(1), ..., THETA(Q). If DBBCSD fails to converge, then
 *>          B22D contains the diagonal of the partially reduced bottom-right
@@ -265,7 +265,7 @@
 *>
 *> \param[out] B22E
 *> \verbatim
-*>          B22E is DOUBLE PRECISION  array, dimension (Q-1)
+*>          B22E is REAL*10  array, dimension (Q-1)
 *>          When DBBCSD converges, B22E contains zeros. If DBBCSD fails
 *>          to converge, then B22E contains the subdiagonal of the
 *>          partially reduced bottom-right block.
@@ -273,7 +273,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -302,7 +302,7 @@
 *  =========================
 *>
 *> \verbatim
-*>  TOLMUL  DOUBLE PRECISION, default = MAX(10,MIN(100,EPS**(-1/8)))
+*>  TOLMUL  REAL*10, default = MAX(10,MIN(100,EPS**(-1/8)))
 *>          TOLMUL controls the convergence criterion of the QR loop.
 *>          Angles THETA(i), PHI(i) are rounded to 0 or PI/2 when they
 *>          are within TOLMUL*EPS of either bound.
@@ -339,10 +339,10 @@
       INTEGER            INFO, LDU1, LDU2, LDV1T, LDV2T, LWORK, M, P, Q
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B11D( * ), B11E( * ), B12D( * ), B12E( * ),
+      REAL*10   B11D( * ), B11E( * ), B12D( * ), B12E( * ),
      $                   B21D( * ), B21E( * ), B22D( * ), B22E( * ),
      $                   PHI( * ), THETA( * ), WORK( * )
-      DOUBLE PRECISION   U1( LDU1, * ), U2( LDU2, * ), V1T( LDV1T, * ),
+      REAL*10   U1( LDU1, * ), U2( LDU2, * ), V1T( LDV1T, * ),
      $                   V2T( LDV2T, * )
 *     ..
 *
@@ -351,12 +351,12 @@
 *     .. Parameters ..
       INTEGER            MAXITR
       PARAMETER          ( MAXITR = 6 )
-      DOUBLE PRECISION   HUNDRED, MEIGHTH, ONE, TEN, ZERO
+      REAL*10   HUNDRED, MEIGHTH, ONE, TEN, ZERO
       PARAMETER          ( HUNDRED = 100.0D0, MEIGHTH = -0.125D0,
      $                     ONE = 1.0D0, TEN = 10.0D0, ZERO = 0.0D0 )
-      DOUBLE PRECISION   NEGONE
+      REAL*10   NEGONE
       PARAMETER          ( NEGONE = -1.0D0 )
-      DOUBLE PRECISION   PIOVER2
+      REAL*10   PIOVER2
       PARAMETER ( PIOVER2 = 1.57079632679489661923132169163975144210D0 )
 *     ..
 *     .. Local Scalars ..
@@ -366,7 +366,7 @@
       INTEGER            I, IMIN, IMAX, ITER, IU1CS, IU1SN, IU2CS,
      $                   IU2SN, IV1TCS, IV1TSN, IV2TCS, IV2TSN, J,
      $                   LWORKMIN, LWORKOPT, MAXIT, MINI
-      DOUBLE PRECISION   B11BULGE, B12BULGE, B21BULGE, B22BULGE, DUMMY,
+      REAL*10   B11BULGE, B12BULGE, B21BULGE, B22BULGE, DUMMY,
      $                   EPS, MU, NU, R, SIGMA11, SIGMA21,
      $                   TEMP, THETAMAX, THETAMIN, THRESH, TOL, TOLMUL,
      $                   UNFL, X1, X2, Y1, Y2
@@ -376,7 +376,7 @@
      $                   XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       LOGICAL            LSAME
       EXTERNAL           LSAME, DLAMCH
 *     ..

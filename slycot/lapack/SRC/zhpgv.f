@@ -26,8 +26,8 @@
 *       INTEGER            INFO, ITYPE, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         AP( * ), BP( * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         AP( * ), BP( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the Hermitian matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] BP
 *> \verbatim
-*>          BP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          BP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the Hermitian matrix
 *>          B, packed columnwise in a linear array.  The j-th column of B
 *>          is stored in the array BP as follows:
@@ -103,13 +103,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 *>          eigenvectors.  The eigenvectors are normalized as follows:
 *>          if ITYPE = 1 or 2, Z**H*B*Z = I;
@@ -126,12 +126,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (max(1, 2*N-1))
+*>          WORK is COMPLEX*20 array, dimension (max(1, 2*N-1))
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (max(1, 3*N-2))
+*>          RWORK is REAL*10 array, dimension (max(1, 3*N-2))
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -172,8 +172,8 @@
       INTEGER            INFO, ITYPE, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         AP( * ), BP( * ), WORK( * ), Z( LDZ, * )
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         AP( * ), BP( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================

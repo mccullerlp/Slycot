@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   A( LDA, * ), TAU( * ), VN1( * ), VN2( * ),
+*       REAL*10   A( LDA, * ), TAU( * ), VN1( * ), VN2( * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the upper triangle of block A(OFFSET+1:M,1:N) is
 *>          the triangular factor obtained; the elements in block
@@ -93,25 +93,25 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (min(M,N))
+*>          TAU is REAL*10 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[in,out] VN1
 *> \verbatim
-*>          VN1 is DOUBLE PRECISION array, dimension (N)
+*>          VN1 is REAL*10 array, dimension (N)
 *>          The vector with the partial column norms.
 *> \endverbatim
 *>
 *> \param[in,out] VN2
 *> \verbatim
-*>          VN2 is DOUBLE PRECISION array, dimension (N)
+*>          VN2 is REAL*10 array, dimension (N)
 *>          The vector with the exact column norms.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *
 *  Authors:
@@ -156,19 +156,19 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   A( LDA, * ), TAU( * ), VN1( * ), VN2( * ),
+      REAL*10   A( LDA, * ), TAU( * ), VN1( * ), VN2( * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ITEMP, J, MN, OFFPI, PVT
-      DOUBLE PRECISION   AII, TEMP, TEMP2, TOL3Z
+      REAL*10   AII, TEMP, TEMP2, TOL3Z
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLARF, DLARFG, DSWAP
@@ -178,7 +178,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DNRM2
+      REAL*10   DLAMCH, DNRM2
       EXTERNAL           IDAMAX, DLAMCH, DNRM2
 *     ..
 *     .. Executable Statements ..

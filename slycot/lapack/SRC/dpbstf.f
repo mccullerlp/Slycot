@@ -25,7 +25,7 @@
 *       INTEGER            INFO, KD, LDAB, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * )
+*       REAL*10   AB( LDAB, * )
 *       ..
 *
 *
@@ -74,7 +74,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first kd+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -159,19 +159,19 @@
       INTEGER            INFO, KD, LDAB, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * )
+      REAL*10   AB( LDAB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            J, KLD, KM, M
-      DOUBLE PRECISION   AJJ
+      REAL*10   AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

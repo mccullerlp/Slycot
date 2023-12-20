@@ -25,14 +25,14 @@
 *       .. Scalar Arguments ..
 *       INTEGER            GIVPTR, ICOMPQ, INFO, K, LDB, LDBX, LDGCOL,
 *      $                   LDGNUM, NL, NR, NRHS, SQRE
-*       DOUBLE PRECISION   C, S
+*       REAL*10   C, S
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( LDGCOL, * ), PERM( * )
-*       DOUBLE PRECISION   DIFL( * ), DIFR( LDGNUM, * ),
+*       REAL*10   DIFL( * ), DIFR( LDGNUM, * ),
 *      $                   GIVNUM( LDGNUM, * ), POLES( LDGNUM, * ),
 *      $                   RWORK( * ), Z( * )
-*       COMPLEX*16         B( LDB, * ), BX( LDBX, * )
+*       COMPLEX*20         B( LDB, * ), BX( LDBX, * )
 *       ..
 *
 *
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension ( LDB, NRHS )
+*>          B is COMPLEX*20 array, dimension ( LDB, NRHS )
 *>         On input, B contains the right hand sides of the least
 *>         squares problem in rows 1 through M. On output, B contains
 *>         the solution X in rows 1 through N.
@@ -129,7 +129,7 @@
 *>
 *> \param[out] BX
 *> \verbatim
-*>          BX is COMPLEX*16 array, dimension ( LDBX, NRHS )
+*>          BX is COMPLEX*20 array, dimension ( LDBX, NRHS )
 *> \endverbatim
 *>
 *> \param[in] LDBX
@@ -167,7 +167,7 @@
 *>
 *> \param[in] GIVNUM
 *> \verbatim
-*>          GIVNUM is DOUBLE PRECISION array, dimension ( LDGNUM, 2 )
+*>          GIVNUM is REAL*10 array, dimension ( LDGNUM, 2 )
 *>         Each number indicates the C or S value used in the
 *>         corresponding Givens rotation.
 *> \endverbatim
@@ -181,7 +181,7 @@
 *>
 *> \param[in] POLES
 *> \verbatim
-*>          POLES is DOUBLE PRECISION array, dimension ( LDGNUM, 2 )
+*>          POLES is REAL*10 array, dimension ( LDGNUM, 2 )
 *>         On entry, POLES(1:K, 1) contains the new singular
 *>         values obtained from solving the secular equation, and
 *>         POLES(1:K, 2) is an array containing the poles in the secular
@@ -190,7 +190,7 @@
 *>
 *> \param[in] DIFL
 *> \verbatim
-*>          DIFL is DOUBLE PRECISION array, dimension ( K ).
+*>          DIFL is REAL*10 array, dimension ( K ).
 *>         On entry, DIFL(I) is the distance between I-th updated
 *>         (undeflated) singular value and the I-th (undeflated) old
 *>         singular value.
@@ -198,7 +198,7 @@
 *>
 *> \param[in] DIFR
 *> \verbatim
-*>          DIFR is DOUBLE PRECISION array, dimension ( LDGNUM, 2 ).
+*>          DIFR is REAL*10 array, dimension ( LDGNUM, 2 ).
 *>         On entry, DIFR(I, 1) contains the distances between I-th
 *>         updated (undeflated) singular value and the I+1-th
 *>         (undeflated) old singular value. And DIFR(I, 2) is the
@@ -207,7 +207,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( K )
+*>          Z is REAL*10 array, dimension ( K )
 *>         Contain the components of the deflation-adjusted updating row
 *>         vector.
 *> \endverbatim
@@ -221,21 +221,21 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *>         C contains garbage if SQRE =0 and the C-value of a Givens
 *>         rotation related to the right null space if SQRE = 1.
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is DOUBLE PRECISION
+*>          S is REAL*10
 *>         S contains garbage if SQRE =0 and the S-value of a Givens
 *>         rotation related to the right null space if SQRE = 1.
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension
+*>          RWORK is REAL*10 array, dimension
 *>         ( K*(1+NRHS) + 2*NRHS )
 *> \endverbatim
 *>
@@ -275,32 +275,32 @@
 *     .. Scalar Arguments ..
       INTEGER            GIVPTR, ICOMPQ, INFO, K, LDB, LDBX, LDGCOL,
      $                   LDGNUM, NL, NR, NRHS, SQRE
-      DOUBLE PRECISION   C, S
+      REAL*10   C, S
 *     ..
 *     .. Array Arguments ..
       INTEGER            GIVCOL( LDGCOL, * ), PERM( * )
-      DOUBLE PRECISION   DIFL( * ), DIFR( LDGNUM, * ),
+      REAL*10   DIFL( * ), DIFR( LDGNUM, * ),
      $                   GIVNUM( LDGNUM, * ), POLES( LDGNUM, * ),
      $                   RWORK( * ), Z( * )
-      COMPLEX*16         B( LDB, * ), BX( LDBX, * )
+      COMPLEX*20         B( LDB, * ), BX( LDBX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO, NEGONE
+      REAL*10   ONE, ZERO, NEGONE
       PARAMETER          ( ONE = 1.0D0, ZERO = 0.0D0, NEGONE = -1.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J, JCOL, JROW, M, N, NLP1
-      DOUBLE PRECISION   DIFLJ, DIFRJ, DJ, DSIGJ, DSIGJP, TEMP
+      REAL*10   DIFLJ, DIFRJ, DJ, DSIGJ, DSIGJP, TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEMV, XERBLA, ZCOPY, ZDROT, ZDSCAL, ZLACPY,
      $                   ZLASCL
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMC3, DNRM2
+      REAL*10   DLAMC3, DNRM2
       EXTERNAL           DLAMC3, DNRM2
 *     ..
 *     .. Intrinsic Functions ..

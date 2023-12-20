@@ -24,7 +24,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
+*       REAL*10   D( * ), E( * )
 *       ..
 *
 *
@@ -49,7 +49,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the tridiagonal matrix
 *>          A.  On exit, the n diagonal elements of the diagonal matrix
 *>          D from the L*D*L**T factorization of A.
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix A.  On exit, the (n-1) subdiagonal elements of the
 *>          unit bidiagonal factor L from the L*D*L**T factorization of A.
@@ -97,18 +97,18 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
+      REAL*10   D( * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, I4
-      DOUBLE PRECISION   EI
+      REAL*10   EI
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA

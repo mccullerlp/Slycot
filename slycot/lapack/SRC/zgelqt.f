@@ -24,7 +24,7 @@
 *       INTEGER INFO, LDA, LDT, M, N, MB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A( LDA, * ), T( LDT, * ), WORK( * )
+*       COMPLEX*20 A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the elements on and below the diagonal of the array
 *>          contain the M-by-MIN(M,N) lower trapezoidal matrix L (L is
@@ -76,7 +76,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,MIN(M,N))
+*>          T is COMPLEX*20 array, dimension (LDT,MIN(M,N))
 *>          The upper triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.  See below
 *>          for further details.
@@ -90,7 +90,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MB*N)
+*>          WORK is COMPLEX*20 array, dimension (MB*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -145,7 +145,7 @@
       INTEGER INFO, LDA, LDT, M, N, MB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A( LDA, * ), T( LDT, * ), WORK( * )
+      COMPLEX*20 A( LDA, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 * =====================================================================

@@ -26,7 +26,7 @@
 *       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AB( LDAB, * ), B( LDB, * )
+*       COMPLEX*20         AB( LDAB, * ), B( LDB, * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          The upper or lower triangular band matrix A, stored in the
 *>          first kd+1 rows of AB.  The j-th column of A is stored
 *>          in the j-th column of the array AB as follows:
@@ -109,7 +109,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, if INFO = 0, the solution matrix X.
 *> \endverbatim
@@ -153,13 +153,13 @@
       INTEGER            INFO, KD, LDAB, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AB( LDAB, * ), B( LDB, * )
+      COMPLEX*20         AB( LDAB, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

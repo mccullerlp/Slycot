@@ -8,7 +8,7 @@
 *  Definition:
 *  ===========
 *
-*      DOUBLE PRECISION FUNCTION DROUNDUP_LWORK( LWORK )
+*      REAL*10 FUNCTION DROUNDUP_LWORK( LWORK )
 *
 *     .. Scalar Arguments ..
 *      INTEGER          LWORK
@@ -55,7 +55,7 @@
 *> \endverbatim
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DROUNDUP_LWORK( LWORK )
+      REAL*10 FUNCTION DROUNDUP_LWORK( LWORK )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --

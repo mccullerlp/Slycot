@@ -26,8 +26,8 @@
 *       INTEGER            INFO, LDA, LDVL, LDVR, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), VL( LDVL, * ), VR( LDVR, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   W( * ), WORK( * )
 *       ..
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the N-by-N matrix A.
 *>          On exit, A has been overwritten.
 *> \endverbatim
@@ -89,13 +89,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>          W contains the computed eigenvalues.
 *> \endverbatim
 *>
 *> \param[out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,N)
+*>          VL is COMPLEX*20 array, dimension (LDVL,N)
 *>          If JOBVL = 'V', the left eigenvectors u(j) are stored one
 *>          after another in the columns of VL, in the same order
 *>          as their eigenvalues.
@@ -112,7 +112,7 @@
 *>
 *> \param[out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,N)
+*>          VR is COMPLEX*20 array, dimension (LDVR,N)
 *>          If JOBVR = 'V', the right eigenvectors v(j) are stored one
 *>          after another in the columns of VR, in the same order
 *>          as their eigenvalues.
@@ -129,7 +129,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -147,7 +147,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -188,15 +188,15 @@
       INTEGER            INFO, LDA, LDVL, LDVR, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), VL( LDVL, * ), VR( LDVR, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   W( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -204,12 +204,12 @@
       CHARACTER          SIDE
       INTEGER            HSWORK, I, IBAL, IERR, IHI, ILO, IRWORK, ITAU,
      $                   IWRK, K, LWORK_TREVC, MAXWRK, MINWRK, NOUT
-      DOUBLE PRECISION   ANRM, BIGNUM, CSCALE, EPS, SCL, SMLNUM
-      COMPLEX*16         TMP
+      REAL*10   ANRM, BIGNUM, CSCALE, EPS, SCL, SMLNUM
+      COMPLEX*20         TMP
 *     ..
 *     .. Local Arrays ..
       LOGICAL            SELECT( 1 )
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, XERBLA, ZDSCAL, ZGEBAK, ZGEBAL, ZGEHRD,
@@ -218,7 +218,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX, ILAENV
-      DOUBLE PRECISION   DLAMCH, DZNRM2, ZLANGE
+      REAL*10   DLAMCH, DZNRM2, ZLANGE
       EXTERNAL           LSAME, IDAMAX, ILAENV, DLAMCH, DZNRM2, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

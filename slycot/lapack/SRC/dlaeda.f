@@ -27,7 +27,7 @@
 *       .. Array Arguments ..
 *       INTEGER            GIVCOL( 2, * ), GIVPTR( * ), PERM( * ),
 *      $                   PRMPTR( * ), QPTR( * )
-*       DOUBLE PRECISION   GIVNUM( 2, * ), Q( * ), Z( * ), ZTEMP( * )
+*       REAL*10   GIVNUM( 2, * ), Q( * ), Z( * ), ZTEMP( * )
 *       ..
 *
 *
@@ -104,14 +104,14 @@
 *>
 *> \param[in] GIVNUM
 *> \verbatim
-*>          GIVNUM is DOUBLE PRECISION array, dimension (2, N lg N)
+*>          GIVNUM is REAL*10 array, dimension (2, N lg N)
 *>         Each number indicates the S value to be used in the
 *>         corresponding Givens rotation.
 *> \endverbatim
 *>
 *> \param[in] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (N**2)
+*>          Q is REAL*10 array, dimension (N**2)
 *>         Contains the square eigenblocks from previous levels, the
 *>         starting positions for blocks are given by QPTR.
 *> \endverbatim
@@ -126,7 +126,7 @@
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (N)
+*>          Z is REAL*10 array, dimension (N)
 *>         On output this vector contains the updating vector (the last
 *>         row of the first sub-eigenvector matrix and the first row of
 *>         the second sub-eigenvector matrix).
@@ -134,7 +134,7 @@
 *>
 *> \param[out] ZTEMP
 *> \verbatim
-*>          ZTEMP is DOUBLE PRECISION array, dimension (N)
+*>          ZTEMP is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -174,13 +174,13 @@
 *     .. Array Arguments ..
       INTEGER            GIVCOL( 2, * ), GIVPTR( * ), PERM( * ),
      $                   PRMPTR( * ), QPTR( * )
-      DOUBLE PRECISION   GIVNUM( 2, * ), Q( * ), Z( * ), ZTEMP( * )
+      REAL*10   GIVNUM( 2, * ), Q( * ), Z( * ), ZTEMP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE
+      REAL*10   ZERO, HALF, ONE
       PARAMETER          ( ZERO = 0.0D0, HALF = 0.5D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..

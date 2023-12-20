@@ -25,12 +25,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE
 *       INTEGER            IL, INFO, IU, LDZ, LIWORK, LWORK, M, N
-*       DOUBLE PRECISION ABSTOL, VL, VU
+*       REAL*10 ABSTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISUPPZ( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
-*       DOUBLE PRECISION   Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), W( * ), WORK( * )
+*       REAL*10   Z( LDZ, * )
 *       ..
 *
 *
@@ -88,14 +88,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the N diagonal elements of the tridiagonal matrix
 *>          T. On exit, D is overwritten.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, the (N-1) subdiagonal elements of the tridiagonal
 *>          matrix T in elements 1 to N-1 of E. E(N) need not be set on
 *>          input, but is used internally as workspace.
@@ -104,7 +104,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -113,7 +113,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -142,7 +142,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          Unused.  Was the absolute error tolerance for the
 *>          eigenvalues/eigenvectors in previous versions.
 *> \endverbatim
@@ -156,14 +156,14 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements contain the selected eigenvalues in
 *>          ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, max(1,M) )
+*>          Z is REAL*10 array, dimension (LDZ, max(1,M) )
 *>          If JOBZ = 'V', and if INFO = 0, then the first M columns of Z
 *>          contain the orthonormal eigenvectors of the matrix T
 *>          corresponding to the selected eigenvalues, with the i-th
@@ -194,7 +194,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>          On exit, if INFO = 0, WORK(1) returns the optimal
 *>          (and minimal) LWORK.
 *> \endverbatim
@@ -270,12 +270,12 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE
       INTEGER            IL, INFO, IU, LDZ, LIWORK, LWORK, M, N
-      DOUBLE PRECISION ABSTOL, VL, VU
+      REAL*10 ABSTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISUPPZ( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), W( * ), WORK( * )
-      DOUBLE PRECISION   Z( LDZ, * )
+      REAL*10   D( * ), E( * ), W( * ), WORK( * )
+      REAL*10   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================

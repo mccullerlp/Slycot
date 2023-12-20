@@ -11,12 +11,12 @@
 *       SUBROUTINE ZHPMV(UPLO,N,ALPHA,AP,X,INCX,BETA,Y,INCY)
 *
 *       .. Scalar Arguments ..
-*       COMPLEX*16 ALPHA,BETA
+*       COMPLEX*20 ALPHA,BETA
 *       INTEGER INCX,INCY,N
 *       CHARACTER UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 AP(*),X(*),Y(*)
+*       COMPLEX*20 AP(*),X(*),Y(*)
 *       ..
 *
 *
@@ -59,13 +59,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension at least
+*>          AP is COMPLEX*20 array, dimension at least
 *>           ( ( n*( n + 1 ) )/2 ).
 *>           Before entry with UPLO = 'U' or 'u', the array AP must
 *>           contain the upper triangular part of the hermitian matrix
@@ -83,7 +83,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -98,14 +98,14 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16
+*>          BETA is COMPLEX*20
 *>           On entry, BETA specifies the scalar beta. When BETA is
 *>           supplied as zero then Y need not be set on input.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension at least
+*>          Y is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCY ) ).
 *>           Before entry, the incremented array Y must contain the n
 *>           element vector y. On exit, Y is overwritten by the updated
@@ -152,24 +152,24 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      COMPLEX*16 ALPHA,BETA
+      COMPLEX*20 ALPHA,BETA
       INTEGER INCX,INCY,N
       CHARACTER UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 AP(*),X(*),Y(*)
+      COMPLEX*20 AP(*),X(*),Y(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16 ONE
+      COMPLEX*20 ONE
       PARAMETER (ONE= (1.0D+0,0.0D+0))
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP1,TEMP2
+      COMPLEX*20 TEMP1,TEMP2
       INTEGER I,INFO,IX,IY,J,JX,JY,K,KK,KX,KY
 *     ..
 *     .. External Functions ..

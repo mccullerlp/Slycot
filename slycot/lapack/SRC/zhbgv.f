@@ -26,8 +26,8 @@
 *       INTEGER            INFO, KA, KB, LDAB, LDBB, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB, N)
+*>          AB is COMPLEX*20 array, dimension (LDAB, N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first ka+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -101,7 +101,7 @@
 *>
 *> \param[in,out] BB
 *> \verbatim
-*>          BB is COMPLEX*16 array, dimension (LDBB, N)
+*>          BB is COMPLEX*20 array, dimension (LDBB, N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix B, stored in the first kb+1 rows of the array.  The
 *>          j-th column of B is stored in the j-th column of the array BB
@@ -121,13 +121,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 *>          eigenvectors, with the i-th column of Z holding the
 *>          eigenvector associated with W(i). The eigenvectors are
@@ -144,12 +144,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (3*N)
+*>          RWORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -190,8 +190,8 @@
       INTEGER            INFO, KA, KB, LDAB, LDBB, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
 *

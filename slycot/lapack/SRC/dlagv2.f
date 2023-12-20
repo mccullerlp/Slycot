@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, LDB
-*       DOUBLE PRECISION   CSL, CSR, SNL, SNR
+*       REAL*10   CSL, CSR, SNL, SNR
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), ALPHAI( 2 ), ALPHAR( 2 ),
+*       REAL*10   A( LDA, * ), ALPHAI( 2 ), ALPHAR( 2 ),
 *      $                   B( LDB, * ), BETA( 2 )
 *       ..
 *
@@ -68,7 +68,7 @@
 *
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, 2)
+*>          A is REAL*10 array, dimension (LDA, 2)
 *>          On entry, the 2 x 2 matrix A.
 *>          On exit, A is overwritten by the ``A-part'' of the
 *>          generalized Schur form.
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, 2)
+*>          B is REAL*10 array, dimension (LDB, 2)
 *>          On entry, the upper triangular 2 x 2 matrix B.
 *>          On exit, B is overwritten by the ``B-part'' of the
 *>          generalized Schur form.
@@ -96,17 +96,17 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (2)
+*>          ALPHAR is REAL*10 array, dimension (2)
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (2)
+*>          ALPHAI is REAL*10 array, dimension (2)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (2)
+*>          BETA is REAL*10 array, dimension (2)
 *>          (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the
 *>          pencil (A,B), k=1,2, i = sqrt(-1).  Note that BETA(k) may
 *>          be zero.
@@ -114,25 +114,25 @@
 *>
 *> \param[out] CSL
 *> \verbatim
-*>          CSL is DOUBLE PRECISION
+*>          CSL is REAL*10
 *>          The cosine of the left rotation matrix.
 *> \endverbatim
 *>
 *> \param[out] SNL
 *> \verbatim
-*>          SNL is DOUBLE PRECISION
+*>          SNL is REAL*10
 *>          The sine of the left rotation matrix.
 *> \endverbatim
 *>
 *> \param[out] CSR
 *> \verbatim
-*>          CSR is DOUBLE PRECISION
+*>          CSR is REAL*10
 *>          The cosine of the right rotation matrix.
 *> \endverbatim
 *>
 *> \param[out] SNR
 *> \verbatim
-*>          SNR is DOUBLE PRECISION
+*>          SNR is REAL*10
 *>          The sine of the right rotation matrix.
 *> \endverbatim
 *
@@ -161,21 +161,21 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, LDB
-      DOUBLE PRECISION   CSL, CSR, SNL, SNR
+      REAL*10   CSL, CSR, SNL, SNR
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), ALPHAI( 2 ), ALPHAR( 2 ),
+      REAL*10   A( LDA, * ), ALPHAI( 2 ), ALPHAR( 2 ),
      $                   B( LDB, * ), BETA( 2 )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   ANORM, ASCALE, BNORM, BSCALE, H1, H2, H3, QQ,
+      REAL*10   ANORM, ASCALE, BNORM, BSCALE, H1, H2, H3, QQ,
      $                   R, RR, SAFMIN, SCALE1, SCALE2, T, ULP, WI, WR1,
      $                   WR2
 *     ..
@@ -183,7 +183,7 @@
       EXTERNAL           DLAG2, DLARTG, DLASV2, DROT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLAPY2
+      REAL*10   DLAMCH, DLAPY2
       EXTERNAL           DLAMCH, DLAPY2
 *     ..
 *     .. Intrinsic Functions ..

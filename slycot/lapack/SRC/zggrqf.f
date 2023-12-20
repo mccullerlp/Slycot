@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, if M <= N, the upper triangle of the subarray
 *>          A(1:M,N-M+1:N) contains the M-by-M upper triangular matrix R;
@@ -106,14 +106,14 @@
 *>
 *> \param[out] TAUA
 *> \verbatim
-*>          TAUA is COMPLEX*16 array, dimension (min(M,N))
+*>          TAUA is COMPLEX*20 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors which
 *>          represent the unitary matrix Q (see Further Details).
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, the elements on and above the diagonal of the array
 *>          contain the min(P,N)-by-N upper trapezoidal matrix T (T is
@@ -130,14 +130,14 @@
 *>
 *> \param[out] TAUB
 *> \verbatim
-*>          TAUB is COMPLEX*16 array, dimension (min(P,N))
+*>          TAUB is COMPLEX*20 array, dimension (min(P,N))
 *>          The scalar factors of the elementary reflectors which
 *>          represent the unitary matrix Z (see Further Details).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -220,7 +220,7 @@
       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
      $                   WORK( * )
 *     ..
 *

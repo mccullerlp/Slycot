@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, INCY, N
-*       DOUBLE PRECISION   SSMIN
+*       REAL*10   SSMIN
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   X( * ), Y( * )
+*       REAL*10   X( * ), Y( * )
 *       ..
 *
 *
@@ -55,7 +55,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array,
+*>          X is REAL*10 array,
 *>                         dimension (1+(N-1)*INCX)
 *>          On entry, X contains the N-vector X.
 *>          On exit, X is overwritten.
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array,
+*>          Y is REAL*10 array,
 *>                         dimension (1+(N-1)*INCY)
 *>          On entry, Y contains the N-vector Y.
 *>          On exit, Y is overwritten.
@@ -83,7 +83,7 @@
 *>
 *> \param[out] SSMIN
 *> \verbatim
-*>          SSMIN is DOUBLE PRECISION
+*>          SSMIN is REAL*10
 *>          The smallest singular value of the N-by-2 matrix A = ( X Y ).
 *> \endverbatim
 *
@@ -106,23 +106,23 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, INCY, N
-      DOUBLE PRECISION   SSMIN
+      REAL*10   SSMIN
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   X( * ), Y( * )
+      REAL*10   X( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   A11, A12, A22, C, SSMAX, TAU
+      REAL*10   A11, A12, A22, C, SSMAX, TAU
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           DDOT
 *     ..
 *     .. External Subroutines ..

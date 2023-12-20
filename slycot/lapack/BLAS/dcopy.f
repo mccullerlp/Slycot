@@ -14,7 +14,7 @@
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DX(*),DY(*)
+*       REAL*10 DX(*),DY(*)
 *       ..
 *
 *
@@ -38,7 +38,7 @@
 *>
 *> \param[in] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          DX is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -49,7 +49,7 @@
 *>
 *> \param[out] DY
 *> \verbatim
-*>          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*>          DY is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -88,7 +88,7 @@
       INTEGER INCX,INCY,N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DX(*),DY(*)
+      REAL*10 DX(*),DY(*)
 *     ..
 *
 *  =====================================================================

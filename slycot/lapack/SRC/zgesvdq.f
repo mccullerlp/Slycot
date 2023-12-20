@@ -29,8 +29,8 @@
 *                  INFO
 *     ..
 *     .. Array Arguments ..
-*      COMPLEX*16       A( LDA, * ), U( LDU, * ), V( LDV, * ), CWORK( * )
-*      DOUBLE PRECISION S( * ), RWORK( * )
+*      COMPLEX*20       A( LDA, * ), U( LDU, * ), V( LDV, * ), CWORK( * )
+*      REAL*10 S( * ), RWORK( * )
 *      INTEGER          IWORK( * )
 *       ..
 *
@@ -138,7 +138,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array of dimensions LDA x N
+*>          A is COMPLEX*20 array of dimensions LDA x N
 *>          On entry, the input matrix A.
 *>          On exit, if JOBU .NE. 'N' or JOBV .NE. 'N', the lower triangle of A contains
 *>          the Householder vectors as stored by ZGEQP3. If JOBU = 'F', these Householder
@@ -154,13 +154,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array of dimension N.
+*>          S is REAL*10 array of dimension N.
 *>          The singular values of A, ordered so that S(i) >= S(i+1).
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is COMPLEX*16 array, dimension
+*>          U is COMPLEX*20 array, dimension
 *>          LDU x M if JOBU = 'A'; see the description of LDU. In this case,
 *>          on exit, U contains the M left singular vectors.
 *>          LDU x N if JOBU = 'S', 'U', 'R' ; see the description of LDU. In this
@@ -182,7 +182,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension
+*>          V is COMPLEX*20 array, dimension
 *>          LDV x N if JOBV = 'A', 'V', 'R' or if JOBA = 'E' .
 *>          If JOBV = 'A', or 'V',  V contains the N-by-N unitary matrix  V**H;
 *>          If JOBV = 'R', V contains the first NUMRANK rows of V**H (the right
@@ -307,7 +307,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (max(1, LRWORK)).
+*>          RWORK is REAL*10 array, dimension (max(1, LRWORK)).
 *>          On exit,
 *>          1. If JOBA = 'E', RWORK(1) contains an estimate of the condition
 *>          number of column scaled A. If A = C * D where D is diagonal and C
@@ -417,16 +417,16 @@
      $            INFO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16       A( LDA, * ), U( LDU, * ), V( LDV, * ), CWORK( * )
-      DOUBLE PRECISION S( * ), RWORK( * )
+      COMPLEX*20       A( LDA, * ), U( LDU, * ), V( LDV, * ), CWORK( * )
+      REAL*10 S( * ), RWORK( * )
       INTEGER          IWORK( * )
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION ZERO,         ONE
+      REAL*10 ZERO,         ONE
       PARAMETER      ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16       CZERO,                 CONE
+      COMPLEX*20       CZERO,                 CONE
       PARAMETER      ( CZERO = (0.0D0,0.0D0), CONE = (1.0D0,0.0D0) )
 *     ..
 *     .. Local Scalars ..
@@ -439,12 +439,12 @@
       LOGICAL     ACCLA,  ACCLM, ACCLH, ASCALED, CONDA, DNTWU,  DNTWV,
      $            LQUERY, LSVC0, LSVEC, ROWPRM,  RSVEC, RTRANS, WNTUA,
      $            WNTUF,  WNTUR, WNTUS, WNTVA,   WNTVR
-      DOUBLE PRECISION BIG, EPSLN, RTMP, SCONDA, SFMIN
-      COMPLEX*16       CTMP
+      REAL*10 BIG, EPSLN, RTMP, SCONDA, SFMIN
+      COMPLEX*20       CTMP
 *     ..
 *     .. Local Arrays
-      COMPLEX*16         CDUMMY(1)
-      DOUBLE PRECISION   RDUMMY(1)
+      COMPLEX*20         CDUMMY(1)
+      REAL*10   RDUMMY(1)
 *     ..
 *     .. External Subroutines (BLAS, LAPACK)
       EXTERNAL    ZGELQF, ZGEQP3, ZGEQRF, ZGESVD, ZLACPY, ZLAPMT,
@@ -454,7 +454,7 @@
 *     .. External Functions (BLAS, LAPACK)
       LOGICAL     LSAME
       INTEGER                     IDAMAX
-      DOUBLE PRECISION   ZLANGE,          DZNRM2, DLAMCH
+      REAL*10   ZLANGE,          DZNRM2, DLAMCH
       EXTERNAL    LSAME, ZLANGE,  IDAMAX, DZNRM2, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

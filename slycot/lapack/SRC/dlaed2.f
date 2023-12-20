@@ -23,12 +23,12 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, K, LDQ, N, N1
-*       DOUBLE PRECISION   RHO
+*       REAL*10   RHO
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            COLTYP( * ), INDX( * ), INDXC( * ), INDXP( * ),
 *      $                   INDXQ( * )
-*       DOUBLE PRECISION   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
+*       REAL*10   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
 *      $                   W( * ), Z( * )
 *       ..
 *
@@ -71,7 +71,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry, D contains the eigenvalues of the two submatrices to
 *>         be combined.
 *>         On exit, D contains the trailing (N-K) updated eigenvalues
@@ -80,7 +80,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>         On entry, Q contains the eigenvectors of two submatrices in
 *>         the two square blocks with corners at (1,1), (N1,N1)
 *>         and (N1+1, N1+1), (N,N).
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>         On entry, the off-diagonal element associated with the rank-1
 *>         cut which originally split the two submatrices which are now
 *>         being recombined.
@@ -115,7 +115,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (N)
+*>          Z is REAL*10 array, dimension (N)
 *>         On entry, Z contains the updating vector (the last
 *>         row of the first sub-eigenvector matrix and the first row of
 *>         the second sub-eigenvector matrix).
@@ -125,21 +125,21 @@
 *>
 *> \param[out] DLAMDA
 *> \verbatim
-*>          DLAMDA is DOUBLE PRECISION array, dimension (N)
+*>          DLAMDA is REAL*10 array, dimension (N)
 *>         A copy of the first K eigenvalues which will be used by
 *>         DLAED3 to form the secular equation.
 *> \endverbatim
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>         The first k values of the final deflation-altered z-vector
 *>         which will be passed to DLAED3.
 *> \endverbatim
 *>
 *> \param[out] Q2
 *> \verbatim
-*>          Q2 is DOUBLE PRECISION array, dimension (N1**2+(N-N1)**2)
+*>          Q2 is REAL*10 array, dimension (N1**2+(N-N1)**2)
 *>         A copy of the first K eigenvectors which will be used by
 *>         DLAED3 in a matrix multiply (DGEMM) to solve for the new
 *>         eigenvectors.
@@ -216,19 +216,19 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, K, LDQ, N, N1
-      DOUBLE PRECISION   RHO
+      REAL*10   RHO
 *     ..
 *     .. Array Arguments ..
       INTEGER            COLTYP( * ), INDX( * ), INDXC( * ), INDXP( * ),
      $                   INDXQ( * )
-      DOUBLE PRECISION   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
+      REAL*10   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
      $                   W( * ), Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   MONE, ZERO, ONE, TWO, EIGHT
+      REAL*10   MONE, ZERO, ONE, TWO, EIGHT
       PARAMETER          ( MONE = -1.0D0, ZERO = 0.0D0, ONE = 1.0D0,
      $                   TWO = 2.0D0, EIGHT = 8.0D0 )
 *     ..
@@ -238,11 +238,11 @@
 *     .. Local Scalars ..
       INTEGER            CT, I, IMAX, IQ1, IQ2, J, JMAX, JS, K2, N1P1,
      $                   N2, NJ, PJ
-      DOUBLE PRECISION   C, EPS, S, T, TAU, TOL
+      REAL*10   C, EPS, S, T, TAU, TOL
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DLAPY2
+      REAL*10   DLAMCH, DLAPY2
       EXTERNAL           IDAMAX, DLAMCH, DLAPY2
 *     ..
 *     .. External Subroutines ..

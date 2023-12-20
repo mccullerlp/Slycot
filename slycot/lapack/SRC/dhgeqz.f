@@ -27,7 +27,7 @@
 *       INTEGER            IHI, ILO, INFO, LDH, LDQ, LDT, LDZ, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   ALPHAI( * ), ALPHAR( * ), BETA( * ),
+*       REAL*10   ALPHAI( * ), ALPHAR( * ), BETA( * ),
 *      $                   H( LDH, * ), Q( LDQ, * ), T( LDT, * ),
 *      $                   WORK( * ), Z( LDZ, * )
 *       ..
@@ -146,7 +146,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH, N)
+*>          H is REAL*10 array, dimension (LDH, N)
 *>          On entry, the N-by-N upper Hessenberg matrix H.
 *>          On exit, if JOB = 'S', H contains the upper quasi-triangular
 *>          matrix S from the generalized Schur factorization.
@@ -162,7 +162,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT, N)
+*>          T is REAL*10 array, dimension (LDT, N)
 *>          On entry, the N-by-N upper triangular matrix T.
 *>          On exit, if JOB = 'S', T contains the upper triangular
 *>          matrix P from the generalized Schur factorization;
@@ -182,14 +182,14 @@
 *>
 *> \param[out] ALPHAR
 *> \verbatim
-*>          ALPHAR is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAR is REAL*10 array, dimension (N)
 *>          The real parts of each scalar alpha defining an eigenvalue
 *>          of GNEP.
 *> \endverbatim
 *>
 *> \param[out] ALPHAI
 *> \verbatim
-*>          ALPHAI is DOUBLE PRECISION array, dimension (N)
+*>          ALPHAI is REAL*10 array, dimension (N)
 *>          The imaginary parts of each scalar alpha defining an
 *>          eigenvalue of GNEP.
 *>          If ALPHAI(j) is zero, then the j-th eigenvalue is real; if
@@ -199,7 +199,7 @@
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION array, dimension (N)
+*>          BETA is REAL*10 array, dimension (N)
 *>          The scalars beta that define the eigenvalues of GNEP.
 *>          Together, the quantities alpha = (ALPHAR(j),ALPHAI(j)) and
 *>          beta = BETA(j) represent the j-th eigenvalue of the matrix
@@ -210,7 +210,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>          On entry, if COMPQ = 'V', the orthogonal matrix Q1 used in
 *>          the reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPQ = 'I', the orthogonal matrix of left Schur
@@ -228,7 +228,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the orthogonal matrix Z1 used in
 *>          the reduction of (A,B) to generalized Hessenberg form.
 *>          On exit, if COMPZ = 'I', the orthogonal matrix of
@@ -246,7 +246,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO >= 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -311,7 +311,7 @@
       INTEGER            IHI, ILO, INFO, LDH, LDQ, LDT, LDZ, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   ALPHAI( * ), ALPHAR( * ), BETA( * ),
+      REAL*10   ALPHAI( * ), ALPHAR( * ), BETA( * ),
      $                   H( LDH, * ), Q( LDQ, * ), T( LDT, * ),
      $                   WORK( * ), Z( LDZ, * )
 *     ..
@@ -320,7 +320,7 @@
 *
 *     .. Parameters ..
 *    $                     SAFETY = 1.0E+0 )
-      DOUBLE PRECISION   HALF, ZERO, ONE, SAFETY
+      REAL*10   HALF, ZERO, ONE, SAFETY
       PARAMETER          ( HALF = 0.5D+0, ZERO = 0.0D+0, ONE = 1.0D+0,
      $                   SAFETY = 1.0D+2 )
 *     ..
@@ -330,7 +330,7 @@
       INTEGER            ICOMPQ, ICOMPZ, IFIRST, IFRSTM, IITER, ILAST,
      $                   ILASTM, IN, ISCHUR, ISTART, J, JC, JCH, JITER,
      $                   JR, MAXIT
-      DOUBLE PRECISION   A11, A12, A1I, A1R, A21, A22, A2I, A2R, AD11,
+      REAL*10   A11, A12, A1I, A1R, A21, A22, A2I, A2R, AD11,
      $                   AD11L, AD12, AD12L, AD21, AD21L, AD22, AD22L,
      $                   AD32L, AN, ANORM, ASCALE, ATOL, B11, B1A, B1I,
      $                   B1R, B22, B2A, B2I, B2R, BN, BNORM, BSCALE,
@@ -342,11 +342,11 @@
      $                   WR2
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   V( 3 )
+      REAL*10   V( 3 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANHS, DLAPY2, DLAPY3
+      REAL*10   DLAMCH, DLANHS, DLAPY2, DLAPY3
       EXTERNAL           LSAME, DLAMCH, DLANHS, DLAPY2, DLAPY3
 *     ..
 *     .. External Subroutines ..

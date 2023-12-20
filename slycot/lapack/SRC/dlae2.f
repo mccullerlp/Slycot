@@ -21,7 +21,7 @@
 *       SUBROUTINE DLAE2( A, B, C, RT1, RT2 )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   A, B, C, RT1, RT2
+*       REAL*10   A, B, C, RT1, RT2
 *       ..
 *
 *
@@ -42,31 +42,31 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION
+*>          A is REAL*10
 *>          The (1,1) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION
+*>          B is REAL*10
 *>          The (1,2) and (2,1) elements of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *>          The (2,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[out] RT1
 *> \verbatim
-*>          RT1 is DOUBLE PRECISION
+*>          RT1 is REAL*10
 *>          The eigenvalue of larger absolute value.
 *> \endverbatim
 *>
 *> \param[out] RT2
 *> \verbatim
-*>          RT2 is DOUBLE PRECISION
+*>          RT2 is REAL*10
 *>          The eigenvalue of smaller absolute value.
 *> \endverbatim
 *
@@ -105,23 +105,23 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B, C, RT1, RT2
+      REAL*10   A, B, C, RT1, RT2
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = 0.5D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AB, ACMN, ACMX, ADF, DF, RT, SM, TB
+      REAL*10   AB, ACMN, ACMX, ADF, DF, RT, SM, TB
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, SQRT

@@ -22,12 +22,12 @@
 *                             INCY )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       INTEGER            INCX, INCY, LDA, N, UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), X( * )
-*       DOUBLE PRECISION   Y( * )
+*       COMPLEX*20         A( LDA, * ), X( * )
+*       REAL*10   Y( * )
 *       ..
 *
 *
@@ -82,14 +82,14 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION .
+*>          ALPHA is REAL*10 .
 *>           On entry, ALPHA specifies the scalar alpha.
 *>           Unchanged on exit.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, n ).
+*>          A is COMPLEX*20 array, dimension ( LDA, n ).
 *>           Before entry, the leading m by n part of the array A must
 *>           contain the matrix of coefficients.
 *>           Unchanged on exit.
@@ -106,7 +106,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) )
 *>           Before entry, the incremented array X must contain the
 *>           vector x.
@@ -123,7 +123,7 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION .
+*>          BETA is REAL*10 .
 *>           On entry, BETA specifies the scalar beta. When BETA is
 *>           supplied as zero then Y need not be set on input.
 *>           Unchanged on exit.
@@ -131,7 +131,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension
+*>          Y is REAL*10 array, dimension
 *>           ( 1 + ( n - 1 )*abs( INCY ) )
 *>           Before entry with BETA non-zero, the incremented array Y
 *>           must contain the vector y. On exit, Y is overwritten by the
@@ -181,29 +181,29 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
       INTEGER            INCX, INCY, LDA, N, UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), X( * )
-      DOUBLE PRECISION   Y( * )
+      COMPLEX*20         A( LDA, * ), X( * )
+      REAL*10   Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            SYMB_ZERO
-      DOUBLE PRECISION   TEMP, SAFE1
+      REAL*10   TEMP, SAFE1
       INTEGER            I, INFO, IY, J, JX, KX, KY
-      COMPLEX*16         ZDUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, DLAMCH
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
 *     ..
 *     .. External Functions ..
       EXTERNAL           ILAUPLO
@@ -213,7 +213,7 @@
       INTRINSIC          MAX, ABS, SIGN, REAL, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE ( ZDUM ) ) + ABS( DIMAG ( ZDUM ) )

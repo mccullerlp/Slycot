@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDC, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( * ), C( LDC, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         AP( * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension
+*>          AP is COMPLEX*20 array, dimension
 *>                               (M*(M+1)/2) if SIDE = 'L'
 *>                               (N*(N+1)/2) if SIDE = 'R'
 *>          The vectors which define the elementary reflectors, as
@@ -101,7 +101,7 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (M-1) if SIDE = 'L'
+*>          TAU is COMPLEX*20 array, dimension (M-1) if SIDE = 'L'
 *>                                     or (N-1) if SIDE = 'R'
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by ZHPTRD.
@@ -109,7 +109,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 *> \endverbatim
@@ -122,7 +122,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension
+*>          WORK is COMPLEX*20 array, dimension
 *>                                   (N) if SIDE = 'L'
 *>                                   (M) if SIDE = 'R'
 *> \endverbatim
@@ -157,19 +157,19 @@
       INTEGER            INFO, LDC, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( * ), C( LDC, * ), TAU( * ), WORK( * )
+      COMPLEX*20         AP( * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            FORWRD, LEFT, NOTRAN, UPPER
       INTEGER            I, I1, I2, I3, IC, II, JC, MI, NI, NQ
-      COMPLEX*16         AII, TAUI
+      COMPLEX*20         AII, TAUI
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

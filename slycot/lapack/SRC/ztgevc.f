@@ -27,8 +27,8 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( * )
 *       ..
 *
@@ -103,7 +103,7 @@
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is COMPLEX*16 array, dimension (LDS,N)
+*>          S is COMPLEX*20 array, dimension (LDS,N)
 *>          The upper triangular matrix S from a generalized Schur
 *>          factorization, as computed by ZHGEQZ.
 *> \endverbatim
@@ -116,7 +116,7 @@
 *>
 *> \param[in] P
 *> \verbatim
-*>          P is COMPLEX*16 array, dimension (LDP,N)
+*>          P is COMPLEX*20 array, dimension (LDP,N)
 *>          The upper triangular matrix P from a generalized Schur
 *>          factorization, as computed by ZHGEQZ.  P must have real
 *>          diagonal elements.
@@ -130,7 +130,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,MM)
+*>          VL is COMPLEX*20 array, dimension (LDVL,MM)
 *>          On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
 *>          contain an N-by-N matrix Q (usually the unitary matrix Q
 *>          of left Schur vectors returned by ZHGEQZ).
@@ -152,7 +152,7 @@
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,MM)
+*>          VR is COMPLEX*20 array, dimension (LDVR,MM)
 *>          On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
 *>          contain an N-by-N matrix Q (usually the unitary matrix Z
 *>          of right Schur vectors returned by ZHGEQZ).
@@ -188,12 +188,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N)
+*>          WORK is COMPLEX*20 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -227,8 +227,8 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         P( LDP, * ), S( LDS, * ), VL( LDVL, * ),
      $                   VR( LDVR, * ), WORK( * )
 *     ..
 *
@@ -236,9 +236,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -247,15 +247,15 @@
      $                   LSA, LSB
       INTEGER            I, IBEG, IEIG, IEND, IHWMNY, IM, ISIDE, ISRC,
      $                   J, JE, JR
-      DOUBLE PRECISION   ACOEFA, ACOEFF, ANORM, ASCALE, BCOEFA, BIG,
+      REAL*10   ACOEFA, ACOEFF, ANORM, ASCALE, BCOEFA, BIG,
      $                   BIGNUM, BNORM, BSCALE, DMIN, SAFMIN, SBETA,
      $                   SCALE, SMALL, TEMP, ULP, XMAX
-      COMPLEX*16         BCOEFF, CA, CB, D, SALPHA, SUM, SUMA, SUMB, X
+      COMPLEX*20         BCOEFF, CA, CB, D, SALPHA, SUM, SUMA, SUMB, X
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
-      COMPLEX*16         ZLADIV
+      REAL*10   DLAMCH
+      COMPLEX*20         ZLADIV
       EXTERNAL           LSAME, DLAMCH, ZLADIV
 *     ..
 *     .. External Subroutines ..
@@ -265,7 +265,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1
+      REAL*10   ABS1
 *     ..
 *     .. Statement Function definitions ..
       ABS1( X ) = ABS( DBLE( X ) ) + ABS( DIMAG( X ) )

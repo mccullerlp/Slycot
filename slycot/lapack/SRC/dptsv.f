@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), D( * ), E( * )
+*       REAL*10   B( LDB, * ), D( * ), E( * )
 *       ..
 *
 *
@@ -59,7 +59,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the tridiagonal matrix
 *>          A.  On exit, the n diagonal elements of the diagonal matrix
 *>          D from the factorization A = L*D*L**T.
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix A.  On exit, the (n-1) subdiagonal elements of the
 *>          unit bidiagonal factor L from the L*D*L**T factorization of
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
@@ -120,7 +120,7 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), D( * ), E( * )
+      REAL*10   B( LDB, * ), D( * ), E( * )
 *     ..
 *
 *  =====================================================================

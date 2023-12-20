@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( 0: * )
+*       REAL*10   A( 0: * )
 *       ..
 *
 *
@@ -72,7 +72,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (0:nt-1);
+*>          A is REAL*10 array, dimension (0:nt-1);
 *>          nt=N*(N+1)/2. On entry, the triangular factor of a Hermitian
 *>          Positive Definite matrix A in RFP format. RFP format is
 *>          described by TRANSR, UPLO, and N as follows: If TRANSR = 'N'
@@ -208,13 +208,13 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( 0: * )
+      REAL*10   A( 0: * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

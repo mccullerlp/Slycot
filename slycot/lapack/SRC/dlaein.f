@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            NOINIT, RIGHTV
 *       INTEGER            INFO, LDB, LDH, N
-*       DOUBLE PRECISION   BIGNUM, EPS3, SMLNUM, WI, WR
+*       REAL*10   BIGNUM, EPS3, SMLNUM, WI, WR
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), H( LDH, * ), VI( * ), VR( * ),
+*       REAL*10   B( LDB, * ), H( LDH, * ), VI( * ), VR( * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>          The upper Hessenberg matrix H.
 *> \endverbatim
 *>
@@ -79,24 +79,24 @@
 *>
 *> \param[in] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION
+*>          WR is REAL*10
 *> \endverbatim
 *>
 *> \param[in] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION
+*>          WI is REAL*10
 *>          The real and imaginary parts of the eigenvalue of H whose
 *>          corresponding right or left eigenvector is to be computed.
 *> \endverbatim
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (N)
+*>          VR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[in,out] VI
 *> \verbatim
-*>          VI is DOUBLE PRECISION array, dimension (N)
+*>          VI is REAL*10 array, dimension (N)
 *>          On entry, if NOINIT = .FALSE. and WI = 0.0, VR must contain
 *>          a real starting vector for inverse iteration using the real
 *>          eigenvalue WR; if NOINIT = .FALSE. and WI.ne.0.0, VR and VI
@@ -115,7 +115,7 @@
 *>
 *> \param[out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -126,25 +126,25 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[in] EPS3
 *> \verbatim
-*>          EPS3 is DOUBLE PRECISION
+*>          EPS3 is REAL*10
 *>          A small machine-dependent value which is used to perturb
 *>          close eigenvalues, and to replace zero pivots.
 *> \endverbatim
 *>
 *> \param[in] SMLNUM
 *> \verbatim
-*>          SMLNUM is DOUBLE PRECISION
+*>          SMLNUM is REAL*10
 *>          A machine-dependent value close to the underflow threshold.
 *> \endverbatim
 *>
 *> \param[in] BIGNUM
 *> \verbatim
-*>          BIGNUM is DOUBLE PRECISION
+*>          BIGNUM is REAL*10
 *>          A machine-dependent value close to the overflow threshold.
 *> \endverbatim
 *>
@@ -177,29 +177,29 @@
 *     .. Scalar Arguments ..
       LOGICAL            NOINIT, RIGHTV
       INTEGER            INFO, LDB, LDH, N
-      DOUBLE PRECISION   BIGNUM, EPS3, SMLNUM, WI, WR
+      REAL*10   BIGNUM, EPS3, SMLNUM, WI, WR
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), H( LDH, * ), VI( * ), VR( * ),
+      REAL*10   B( LDB, * ), H( LDH, * ), VI( * ), VR( * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TENTH
+      REAL*10   ZERO, ONE, TENTH
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TENTH = 1.0D-1 )
 *     ..
 *     .. Local Scalars ..
       CHARACTER          NORMIN, TRANS
       INTEGER            I, I1, I2, I3, IERR, ITS, J
-      DOUBLE PRECISION   ABSBII, ABSBJJ, EI, EJ, GROWTO, NORM, NRMSML,
+      REAL*10   ABSBII, ABSBJJ, EI, EJ, GROWTO, NORM, NRMSML,
      $                   REC, ROOTN, SCALE, TEMP, VCRIT, VMAX, VNORM, W,
      $                   W1, X, XI, XR, Y
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DASUM, DLAPY2, DNRM2
+      REAL*10   DASUM, DLAPY2, DNRM2
       EXTERNAL           IDAMAX, DASUM, DLAPY2, DNRM2
 *     ..
 *     .. External Subroutines ..

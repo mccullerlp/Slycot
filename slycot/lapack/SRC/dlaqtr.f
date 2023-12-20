@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            LREAL, LTRAN
 *       INTEGER            INFO, LDT, N
-*       DOUBLE PRECISION   SCALE, W
+*       REAL*10   SCALE, W
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( * ), T( LDT, * ), WORK( * ), X( * )
+*       REAL*10   B( * ), T( LDT, * ), WORK( * ), X( * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          On entry, T contains a matrix in Schur canonical form.
 *>          If LREAL = .FALSE., then the first diagonal block of T mu
 *>          be 1 by 1.
@@ -105,7 +105,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (N)
+*>          B is REAL*10 array, dimension (N)
 *>          On entry, B contains the elements to form the matrix
 *>          B as described above.
 *>          If LREAL = .TRUE., B is not referenced.
@@ -113,27 +113,27 @@
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is DOUBLE PRECISION
+*>          W is REAL*10
 *>          On entry, W is the diagonal element of the matrix B.
 *>          If LREAL = .TRUE., W is not referenced.
 *> \endverbatim
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          On exit, SCALE is the scale factor.
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (2*N)
+*>          X is REAL*10 array, dimension (2*N)
 *>          On entry, X contains the right hand side of the system.
 *>          On exit, X is overwritten by the solution.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -170,30 +170,30 @@
 *     .. Scalar Arguments ..
       LOGICAL            LREAL, LTRAN
       INTEGER            INFO, LDT, N
-      DOUBLE PRECISION   SCALE, W
+      REAL*10   SCALE, W
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( * ), T( LDT, * ), WORK( * ), X( * )
+      REAL*10   B( * ), T( LDT, * ), WORK( * ), X( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN
       INTEGER            I, IERR, J, J1, J2, JNEXT, K, N1, N2
-      DOUBLE PRECISION   BIGNUM, EPS, REC, SCALOC, SI, SMIN, SMINW,
+      REAL*10   BIGNUM, EPS, REC, SCALOC, SI, SMIN, SMINW,
      $                   SMLNUM, SR, TJJ, TMP, XJ, XMAX, XNORM, Z
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   D( 2, 2 ), V( 2, 2 )
+      REAL*10   D( 2, 2 ), V( 2, 2 )
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DASUM, DDOT, DLAMCH, DLANGE
+      REAL*10   DASUM, DDOT, DLAMCH, DLANGE
       EXTERNAL           IDAMAX, DASUM, DDOT, DLAMCH, DLANGE
 *     ..
 *     .. External Subroutines ..

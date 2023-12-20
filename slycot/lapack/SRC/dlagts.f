@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, JOB, N
-*       DOUBLE PRECISION   TOL
+*       REAL*10   TOL
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IN( * )
-*       DOUBLE PRECISION   A( * ), B( * ), C( * ), D( * ), Y( * )
+*       REAL*10   A( * ), B( * ), C( * ), D( * ), Y( * )
 *       ..
 *
 *
@@ -79,28 +79,28 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (N)
+*>          A is REAL*10 array, dimension (N)
 *>          On entry, A must contain the diagonal elements of U as
 *>          returned from DLAGTF.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (N-1)
+*>          B is REAL*10 array, dimension (N-1)
 *>          On entry, B must contain the first super-diagonal elements of
 *>          U as returned from DLAGTF.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N-1)
+*>          C is REAL*10 array, dimension (N-1)
 *>          On entry, C must contain the sub-diagonal elements of L as
 *>          returned from DLAGTF.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N-2)
+*>          D is REAL*10 array, dimension (N-2)
 *>          On entry, D must contain the second super-diagonal elements
 *>          of U as returned from DLAGTF.
 *> \endverbatim
@@ -114,14 +114,14 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension (N)
+*>          Y is REAL*10 array, dimension (N)
 *>          On entry, the right hand side vector y.
 *>          On exit, Y is overwritten by the solution vector x.
 *> \endverbatim
 *>
 *> \param[in,out] TOL
 *> \verbatim
-*>          TOL is DOUBLE PRECISION
+*>          TOL is REAL*10
 *>          On entry, with  JOB < 0, TOL should be the minimum
 *>          perturbation to be made to very small diagonal elements of U.
 *>          TOL should normally be chosen as about eps*norm(U), where eps
@@ -165,28 +165,28 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, JOB, N
-      DOUBLE PRECISION   TOL
+      REAL*10   TOL
 *     ..
 *     .. Array Arguments ..
       INTEGER            IN( * )
-      DOUBLE PRECISION   A( * ), B( * ), C( * ), D( * ), Y( * )
+      REAL*10   A( * ), B( * ), C( * ), D( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            K
-      DOUBLE PRECISION   ABSAK, AK, BIGNUM, EPS, PERT, SFMIN, TEMP
+      REAL*10   ABSAK, AK, BIGNUM, EPS, PERT, SFMIN, TEMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, SIGN
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N, LDA
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( 0: LDA-1, 0: * ), ARF( 0: * )
+*       REAL*10   A( 0: LDA-1, 0: * ), ARF( 0: * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in] ARF
 *> \verbatim
-*>          ARF is DOUBLE PRECISION array, dimension (N*(N+1)/2).
+*>          ARF is REAL*10 array, dimension (N*(N+1)/2).
 *>          On entry, the upper (if UPLO = 'U') or lower (if UPLO = 'L')
 *>          matrix A in RFP format. See the "Notes" below for more
 *>          details.
@@ -71,7 +71,7 @@
 *>
 *> \param[out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On exit, the triangular matrix A.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of the array A contains
 *>          the upper triangular matrix, and the strictly lower
@@ -203,7 +203,7 @@
       INTEGER            INFO, N, LDA
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( 0: LDA-1, 0: * ), ARF( 0: * )
+      REAL*10   A( 0: LDA-1, 0: * ), ARF( 0: * )
 *     ..
 *
 *  =====================================================================

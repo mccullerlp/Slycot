@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISEED( 4 )
-*       DOUBLE PRECISION   X( * )
+*       REAL*10   X( * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (N)
+*>          X is REAL*10 array, dimension (N)
 *>          The generated random numbers.
 *> \endverbatim
 *
@@ -104,24 +104,24 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISEED( 4 )
-      DOUBLE PRECISION   X( * )
+      REAL*10   X( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, TWO
+      REAL*10   ONE, TWO
       PARAMETER          ( ONE = 1.0D+0, TWO = 2.0D+0 )
       INTEGER            LV
       PARAMETER          ( LV = 128 )
-      DOUBLE PRECISION   TWOPI
+      REAL*10   TWOPI
       PARAMETER  ( TWOPI = 6.28318530717958647692528676655900576839D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IL, IL2, IV
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   U( LV )
+      REAL*10   U( LV )
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          COS, LOG, MIN, SQRT

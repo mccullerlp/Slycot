@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * )
+*       REAL*10   A( LDA, * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the triangular matrix A.  If UPLO = 'U', the
 *>          leading n by n upper triangular part of the array A contains
 *>          the upper triangular matrix, and the strictly lower
@@ -117,19 +117,19 @@
       INTEGER            INFO, LDA, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * )
+      REAL*10   A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOUNIT, UPPER
       INTEGER            J
-      DOUBLE PRECISION   AJJ
+      REAL*10   AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

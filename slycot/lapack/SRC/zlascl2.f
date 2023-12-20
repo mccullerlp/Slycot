@@ -24,8 +24,8 @@
 *       INTEGER            M, N, LDX
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * )
-*       COMPLEX*16         X( LDX, * )
+*       REAL*10   D( * )
+*       COMPLEX*20         X( LDX, * )
 *       ..
 *
 *
@@ -36,7 +36,7 @@
 *>
 *> ZLASCL2 performs a diagonal scaling on a matrix:
 *>   x <-- D * x
-*> where the DOUBLE PRECISION diagonal matrix D is stored as a vector.
+*> where the REAL*10 diagonal matrix D is stored as a vector.
 *>
 *> Eventually to be replaced by BLAS_zge_diag_scale in the new BLAS
 *> standard.
@@ -59,13 +59,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, length M
+*>          D is REAL*10 array, length M
 *>     Diagonal matrix D, stored as a vector of length M.
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,N)
+*>          X is COMPLEX*20 array, dimension (LDX,N)
 *>     On entry, the matrix X to be scaled by D.
 *>     On exit, the scaled matrix.
 *> \endverbatim
@@ -97,8 +97,8 @@
       INTEGER            M, N, LDX
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * )
-      COMPLEX*16         X( LDX, * )
+      REAL*10   D( * )
+      COMPLEX*20         X( LDX, * )
 *     ..
 *
 *  =====================================================================

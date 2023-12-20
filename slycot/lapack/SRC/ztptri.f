@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( * )
+*       COMPLEX*20         AP( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangular matrix A, stored
 *>          columnwise in a linear array.  The j-th column of A is stored
 *>          in the array AP as follows:
@@ -124,20 +124,20 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( * )
+      COMPLEX*20         AP( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOUNIT, UPPER
       INTEGER            J, JC, JCLAST, JJ
-      COMPLEX*16         AJJ
+      COMPLEX*20         AJJ
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

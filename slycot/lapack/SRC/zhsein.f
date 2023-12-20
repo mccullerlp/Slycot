@@ -29,8 +29,8 @@
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IFAILL( * ), IFAILR( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   W( * ), WORK( * )
 *       ..
 *
@@ -102,7 +102,7 @@
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>          The upper Hessenberg matrix H.
 *>          If a NaN is detected in H, the routine will return with INFO=-6.
 *> \endverbatim
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>          On entry, the eigenvalues of H.
 *>          On exit, the real parts of W may have been altered since
 *>          close eigenvalues are perturbed slightly in searching for
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is COMPLEX*16 array, dimension (LDVL,MM)
+*>          VL is COMPLEX*20 array, dimension (LDVL,MM)
 *>          On entry, if INITV = 'U' and SIDE = 'L' or 'B', VL must
 *>          contain starting vectors for the inverse iteration for the
 *>          left eigenvectors; the starting vector for each eigenvector
@@ -145,7 +145,7 @@
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is COMPLEX*16 array, dimension (LDVR,MM)
+*>          VR is COMPLEX*20 array, dimension (LDVR,MM)
 *>          On entry, if INITV = 'U' and SIDE = 'R' or 'B', VR must
 *>          contain starting vectors for the inverse iteration for the
 *>          right eigenvectors; the starting vector for each eigenvector
@@ -180,12 +180,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N*N)
+*>          WORK is COMPLEX*20 array, dimension (N*N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] IFAILL
@@ -254,28 +254,28 @@
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IFAILL( * ), IFAILR( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   W( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
-      DOUBLE PRECISION   RZERO
+      REAL*10   RZERO
       PARAMETER          ( RZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            BOTHV, FROMQR, LEFTV, NOINIT, RIGHTV
       INTEGER            I, IINFO, K, KL, KLN, KR, KS, LDWORK
-      DOUBLE PRECISION   EPS3, HNORM, SMLNUM, ULP, UNFL
-      COMPLEX*16         CDUM, WK
+      REAL*10   EPS3, HNORM, SMLNUM, ULP, UNFL
+      COMPLEX*20         CDUM, WK
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
-      DOUBLE PRECISION   DLAMCH, ZLANHS
+      REAL*10   DLAMCH, ZLANHS
       EXTERNAL           LSAME, DLAMCH, ZLANHS, DISNAN
 *     ..
 *     .. External Subroutines ..
@@ -285,7 +285,7 @@
       INTRINSIC          ABS, DBLE, DIMAG, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

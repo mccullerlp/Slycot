@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), U( LDU, * ), VT( LDVT, * ),
+*       REAL*10   D( * ), E( * ), U( LDU, * ), VT( LDVT, * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -66,7 +66,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry D contains the main diagonal of the bidiagonal
 *>         matrix.
 *>         On exit D, if INFO = 0, contains its singular values.
@@ -74,14 +74,14 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (M-1)
+*>          E is REAL*10 array, dimension (M-1)
 *>         Contains the subdiagonal entries of the bidiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU, N)
+*>          U is REAL*10 array, dimension (LDU, N)
 *>         On exit, U contains the left singular vectors.
 *> \endverbatim
 *>
@@ -93,7 +93,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension (LDVT, M)
+*>          VT is REAL*10 array, dimension (LDVT, M)
 *>         On exit, VT**T contains the right singular vectors.
 *> \endverbatim
 *>
@@ -117,7 +117,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*M**2+2*M)
+*>          WORK is REAL*10 array, dimension (3*M**2+2*M)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -157,7 +157,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), U( LDU, * ), VT( LDVT, * ),
+      REAL*10   D( * ), E( * ), U( LDU, * ), VT( LDVT, * ),
      $                   WORK( * )
 *     ..
 *
@@ -167,7 +167,7 @@
       INTEGER            I, I1, IC, IDXQ, IDXQC, IM1, INODE, ITEMP, IWK,
      $                   J, LF, LL, LVL, M, NCC, ND, NDB1, NDIML, NDIMR,
      $                   NL, NLF, NLP1, NLVL, NR, NRF, NRP1, SQREI
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASD1, DLASDQ, DLASDT, XERBLA

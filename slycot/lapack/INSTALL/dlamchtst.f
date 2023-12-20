@@ -29,11 +29,11 @@
 * =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   BASE, EMAX, EMIN, EPS, PREC, RMAX, RMIN, RND,
+      REAL*10   BASE, EMAX, EMIN, EPS, PREC, RMAX, RMIN, RND,
      $                   SFMIN, T
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Executable Statements ..

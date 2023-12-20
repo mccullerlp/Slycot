@@ -21,7 +21,7 @@
 *       LOGICAL FUNCTION DLAISNAN( DIN1, DIN2 )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION, INTENT(IN) :: DIN1, DIN2
+*       REAL*10, INTENT(IN) :: DIN1, DIN2
 *       ..
 *
 *
@@ -50,12 +50,12 @@
 *
 *> \param[in] DIN1
 *> \verbatim
-*>          DIN1 is DOUBLE PRECISION
+*>          DIN1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] DIN2
 *> \verbatim
-*>          DIN2 is DOUBLE PRECISION
+*>          DIN2 is REAL*10
 *>          Two numbers to compare for inequality.
 *> \endverbatim
 *
@@ -77,7 +77,7 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION, INTENT(IN) :: DIN1, DIN2
+      REAL*10, INTENT(IN) :: DIN1, DIN2
 *     ..
 *
 *  =====================================================================

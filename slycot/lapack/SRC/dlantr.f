@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLANTR( NORM, UPLO, DIAG, M, N, A, LDA,
+*       REAL*10 FUNCTION DLANTR( NORM, UPLO, DIAG, M, N, A, LDA,
 *                        WORK )
 *
 *       .. Scalar Arguments ..
@@ -26,7 +26,7 @@
 *       INTEGER            LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), WORK( * )
+*       REAL*10   A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -100,7 +100,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The trapezoidal matrix A (A is triangular if M = N).
 *>          If UPLO = 'U', the leading m by n upper trapezoidal part of
 *>          the array A contains the upper trapezoidal matrix, and the
@@ -120,7 +120,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= M when NORM = 'I'; otherwise, WORK is not
 *>          referenced.
 *> \endverbatim
@@ -136,7 +136,7 @@
 *> \ingroup doubleOTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLANTR( NORM, UPLO, DIAG, M, N, A, LDA,
+      REAL*10 FUNCTION DLANTR( NORM, UPLO, DIAG, M, N, A, LDA,
      $                 WORK )
 *
 *  -- LAPACK auxiliary routine --
@@ -148,19 +148,19 @@
       INTEGER            LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), WORK( * )
+      REAL*10   A( LDA, * ), WORK( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UDIAG
       INTEGER            I, J
-      DOUBLE PRECISION   SCALE, SUM, VALUE
+      REAL*10   SCALE, SUM, VALUE
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASSQ

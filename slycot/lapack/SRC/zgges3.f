@@ -28,8 +28,8 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
 *      $                   BETA( * ), VSL( LDVSL, * ), VSR( LDVSR, * ),
 *      $                   WORK( * )
 *       ..
@@ -100,7 +100,7 @@
 *>
 *> \param[in] SELCTG
 *> \verbatim
-*>          SELCTG is a LOGICAL FUNCTION of two COMPLEX*16 arguments
+*>          SELCTG is a LOGICAL FUNCTION of two COMPLEX*20 arguments
 *>          SELCTG must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'N', SELCTG is not referenced.
 *>          If SORT = 'S', SELCTG is used to select eigenvalues to sort
@@ -123,7 +123,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the first of the pair of matrices.
 *>          On exit, A has been overwritten by its generalized Schur
 *>          form S.
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the second of the pair of matrices.
 *>          On exit, B has been overwritten by its generalized Schur
 *>          form T.
@@ -159,12 +159,12 @@
 *>
 *> \param[out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16 array, dimension (N)
+*>          ALPHA is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BETA
 *> \verbatim
-*>          BETA is COMPLEX*16 array, dimension (N)
+*>          BETA is COMPLEX*20 array, dimension (N)
 *>          On exit,  ALPHA(j)/BETA(j), j=1,...,N, will be the
 *>          generalized eigenvalues.  ALPHA(j), j=1,...,N  and  BETA(j),
 *>          j=1,...,N  are the diagonals of the complex Schur form (A,B)
@@ -180,7 +180,7 @@
 *>
 *> \param[out] VSL
 *> \verbatim
-*>          VSL is COMPLEX*16 array, dimension (LDVSL,N)
+*>          VSL is COMPLEX*20 array, dimension (LDVSL,N)
 *>          If JOBVSL = 'V', VSL will contain the left Schur vectors.
 *>          Not referenced if JOBVSL = 'N'.
 *> \endverbatim
@@ -194,7 +194,7 @@
 *>
 *> \param[out] VSR
 *> \verbatim
-*>          VSR is COMPLEX*16 array, dimension (LDVSR,N)
+*>          VSR is COMPLEX*20 array, dimension (LDVSR,N)
 *>          If JOBVSR = 'V', VSR will contain the right Schur vectors.
 *>          Not referenced if JOBVSR = 'N'.
 *> \endverbatim
@@ -208,7 +208,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -225,7 +225,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (8*N)
+*>          RWORK is REAL*10 array, dimension (8*N)
 *> \endverbatim
 *>
 *> \param[out] BWORK
@@ -277,8 +277,8 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), ALPHA( * ), B( LDB, * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), ALPHA( * ), B( LDB, * ),
      $                   BETA( * ), VSL( LDVSL, * ), VSR( LDVSR, * ),
      $                   WORK( * )
 *     ..
@@ -290,9 +290,9 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D0, 0.0D0 ),
      $                   CONE = ( 1.0D0, 0.0D0 ) )
 *     ..
@@ -301,12 +301,12 @@
      $                   LQUERY, WANTST
       INTEGER            I, ICOLS, IERR, IHI, IJOBVL, IJOBVR, ILEFT,
      $                   ILO, IRIGHT, IROWS, IRWRK, ITAU, IWRK, LWKOPT
-      DOUBLE PRECISION   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS, PVSL,
+      REAL*10   ANRM, ANRMTO, BIGNUM, BNRM, BNRMTO, EPS, PVSL,
      $                   PVSR, SMLNUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            IDUM( 1 )
-      DOUBLE PRECISION   DIF( 2 )
+      REAL*10   DIF( 2 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, XERBLA, ZGEQRF, ZGGBAK, ZGGBAL, ZGGHD3,
@@ -315,7 +315,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

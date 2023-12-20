@@ -21,8 +21,8 @@
 *       SUBROUTINE ZLAEV2( A, B, C, RT1, RT2, CS1, SN1 )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   CS1, RT1, RT2
-*       COMPLEX*16         A, B, C, SN1
+*       REAL*10   CS1, RT1, RT2
+*       COMPLEX*20         A, B, C, SN1
 *       ..
 *
 *
@@ -47,43 +47,43 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16
+*>          A is COMPLEX*20
 *>         The (1,1) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16
+*>          B is COMPLEX*20
 *>         The (1,2) element and the conjugate of the (2,1) element of
 *>         the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is COMPLEX*16
+*>          C is COMPLEX*20
 *>         The (2,2) element of the 2-by-2 matrix.
 *> \endverbatim
 *>
 *> \param[out] RT1
 *> \verbatim
-*>          RT1 is DOUBLE PRECISION
+*>          RT1 is REAL*10
 *>         The eigenvalue of larger absolute value.
 *> \endverbatim
 *>
 *> \param[out] RT2
 *> \verbatim
-*>          RT2 is DOUBLE PRECISION
+*>          RT2 is REAL*10
 *>         The eigenvalue of smaller absolute value.
 *> \endverbatim
 *>
 *> \param[out] CS1
 *> \verbatim
-*>          CS1 is DOUBLE PRECISION
+*>          CS1 is REAL*10
 *> \endverbatim
 *>
 *> \param[out] SN1
 *> \verbatim
-*>          SN1 is COMPLEX*16
+*>          SN1 is COMPLEX*20
 *>         The vector (CS1, SN1) is a unit right eigenvector for RT1.
 *> \endverbatim
 *
@@ -124,21 +124,21 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   CS1, RT1, RT2
-      COMPLEX*16         A, B, C, SN1
+      REAL*10   CS1, RT1, RT2
+      COMPLEX*20         A, B, C, SN1
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   T
-      COMPLEX*16         W
+      REAL*10   T
+      COMPLEX*20         W
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLAEV2

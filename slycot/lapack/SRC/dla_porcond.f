@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_PORCOND( UPLO, N, A, LDA, AF, LDAF,
+*       REAL*10 FUNCTION DLA_PORCOND( UPLO, N, A, LDA, AF, LDAF,
 *                                              CMODE, C, INFO, WORK,
 *                                              IWORK )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            N, LDA, LDAF, INFO, CMODE
-*       DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * ),
+*       REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * ),
 *      $                   C( * )
 *       ..
 *       .. Array Arguments ..
@@ -68,7 +68,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -80,7 +80,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+*>          AF is REAL*10 array, dimension (LDAF,N)
 *>     The triangular factor U or L from the Cholesky factorization
 *>     A = U**T*U or A = L*L**T, as computed by DPOTRF.
 *> \endverbatim
@@ -102,7 +102,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The vector C in the formula op(A) * op2(C).
 *> \endverbatim
 *>
@@ -115,7 +115,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N).
+*>          WORK is REAL*10 array, dimension (3*N).
 *>     Workspace.
 *> \endverbatim
 *>
@@ -136,7 +136,7 @@
 *> \ingroup doublePOcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_PORCOND( UPLO, N, A, LDA, AF, LDAF,
+      REAL*10 FUNCTION DLA_PORCOND( UPLO, N, A, LDA, AF, LDAF,
      $                                       CMODE, C, INFO, WORK,
      $                                       IWORK )
 *
@@ -147,7 +147,7 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            N, LDA, LDAF, INFO, CMODE
-      DOUBLE PRECISION   A( LDA, * ), AF( LDAF, * ), WORK( * ),
+      REAL*10   A( LDA, * ), AF( LDAF, * ), WORK( * ),
      $                   C( * )
 *     ..
 *     .. Array Arguments ..
@@ -158,7 +158,7 @@
 *
 *     .. Local Scalars ..
       INTEGER            KASE, I, J
-      DOUBLE PRECISION   AINVNM, TMP
+      REAL*10   AINVNM, TMP
       LOGICAL            UP
 *     ..
 *     .. Array Arguments ..

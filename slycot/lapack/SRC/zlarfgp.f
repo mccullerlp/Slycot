@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, N
-*       COMPLEX*16         ALPHA, TAU
+*       COMPLEX*20         ALPHA, TAU
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         X( * )
+*       COMPLEX*20         X( * )
 *       ..
 *
 *
@@ -64,14 +64,14 @@
 *>
 *> \param[in,out] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>          On entry, the value alpha.
 *>          On exit, it is overwritten with the value beta.
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension
+*>          X is COMPLEX*20 array, dimension
 *>                         (1+(N-2)*abs(INCX))
 *>          On entry, the vector x.
 *>          On exit, it is overwritten with the vector v.
@@ -85,7 +85,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16
+*>          TAU is COMPLEX*20
 *>          The value tau.
 *> \endverbatim
 *
@@ -108,26 +108,26 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, N
-      COMPLEX*16         ALPHA, TAU
+      COMPLEX*20         ALPHA, TAU
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         X( * )
+      COMPLEX*20         X( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   TWO, ONE, ZERO
+      REAL*10   TWO, ONE, ZERO
       PARAMETER          ( TWO = 2.0D+0, ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J, KNT
-      DOUBLE PRECISION   ALPHI, ALPHR, BETA, BIGNUM, SMLNUM, XNORM
-      COMPLEX*16         SAVEALPHA
+      REAL*10   ALPHI, ALPHR, BETA, BIGNUM, SMLNUM, XNORM
+      COMPLEX*20         SAVEALPHA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLAPY3, DLAPY2, DZNRM2
-      COMPLEX*16         ZLADIV
+      REAL*10   DLAMCH, DLAPY3, DLAPY2, DZNRM2
+      COMPLEX*20         ZLADIV
       EXTERNAL           DLAMCH, DLAPY3, DLAPY2, DZNRM2, ZLADIV
 *     ..
 *     .. Intrinsic Functions ..

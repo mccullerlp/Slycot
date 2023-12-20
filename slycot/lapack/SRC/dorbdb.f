@@ -28,8 +28,8 @@
 *      $                   Q
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   PHI( * ), THETA( * )
-*       DOUBLE PRECISION   TAUP1( * ), TAUP2( * ), TAUQ1( * ), TAUQ2( * ),
+*       REAL*10   PHI( * ), THETA( * )
+*       REAL*10   TAUP1( * ), TAUP2( * ), TAUQ1( * ), TAUQ2( * ),
 *      $                   WORK( * ), X11( LDX11, * ), X12( LDX12, * ),
 *      $                   X21( LDX21, * ), X22( LDX22, * )
 *       ..
@@ -104,7 +104,7 @@
 *>
 *> \param[in,out] X11
 *> \verbatim
-*>          X11 is DOUBLE PRECISION array, dimension (LDX11,Q)
+*>          X11 is REAL*10 array, dimension (LDX11,Q)
 *>          On entry, the top-left block of the orthogonal matrix to be
 *>          reduced. On exit, the form depends on TRANS:
 *>          If TRANS = 'N', then
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] X12
 *> \verbatim
-*>          X12 is DOUBLE PRECISION array, dimension (LDX12,M-Q)
+*>          X12 is REAL*10 array, dimension (LDX12,M-Q)
 *>          On entry, the top-right block of the orthogonal matrix to
 *>          be reduced. On exit, the form depends on TRANS:
 *>          If TRANS = 'N', then
@@ -144,7 +144,7 @@
 *>
 *> \param[in,out] X21
 *> \verbatim
-*>          X21 is DOUBLE PRECISION array, dimension (LDX21,Q)
+*>          X21 is REAL*10 array, dimension (LDX21,Q)
 *>          On entry, the bottom-left block of the orthogonal matrix to
 *>          be reduced. On exit, the form depends on TRANS:
 *>          If TRANS = 'N', then
@@ -162,7 +162,7 @@
 *>
 *> \param[in,out] X22
 *> \verbatim
-*>          X22 is DOUBLE PRECISION array, dimension (LDX22,M-Q)
+*>          X22 is REAL*10 array, dimension (LDX22,M-Q)
 *>          On entry, the bottom-right block of the orthogonal matrix to
 *>          be reduced. On exit, the form depends on TRANS:
 *>          If TRANS = 'N', then
@@ -182,7 +182,7 @@
 *>
 *> \param[out] THETA
 *> \verbatim
-*>          THETA is DOUBLE PRECISION array, dimension (Q)
+*>          THETA is REAL*10 array, dimension (Q)
 *>          The entries of the bidiagonal blocks B11, B12, B21, B22 can
 *>          be computed from the angles THETA and PHI. See Further
 *>          Details.
@@ -190,7 +190,7 @@
 *>
 *> \param[out] PHI
 *> \verbatim
-*>          PHI is DOUBLE PRECISION array, dimension (Q-1)
+*>          PHI is REAL*10 array, dimension (Q-1)
 *>          The entries of the bidiagonal blocks B11, B12, B21, B22 can
 *>          be computed from the angles THETA and PHI. See Further
 *>          Details.
@@ -198,35 +198,35 @@
 *>
 *> \param[out] TAUP1
 *> \verbatim
-*>          TAUP1 is DOUBLE PRECISION array, dimension (P)
+*>          TAUP1 is REAL*10 array, dimension (P)
 *>          The scalar factors of the elementary reflectors that define
 *>          P1.
 *> \endverbatim
 *>
 *> \param[out] TAUP2
 *> \verbatim
-*>          TAUP2 is DOUBLE PRECISION array, dimension (M-P)
+*>          TAUP2 is REAL*10 array, dimension (M-P)
 *>          The scalar factors of the elementary reflectors that define
 *>          P2.
 *> \endverbatim
 *>
 *> \param[out] TAUQ1
 *> \verbatim
-*>          TAUQ1 is DOUBLE PRECISION array, dimension (Q)
+*>          TAUQ1 is REAL*10 array, dimension (Q)
 *>          The scalar factors of the elementary reflectors that define
 *>          Q1.
 *> \endverbatim
 *>
 *> \param[out] TAUQ2
 *> \verbatim
-*>          TAUQ2 is DOUBLE PRECISION array, dimension (M-Q)
+*>          TAUQ2 is REAL*10 array, dimension (M-Q)
 *>          The scalar factors of the elementary reflectors that define
 *>          Q2.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -295,8 +295,8 @@
      $                   Q
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   PHI( * ), THETA( * )
-      DOUBLE PRECISION   TAUP1( * ), TAUP2( * ), TAUQ1( * ), TAUQ2( * ),
+      REAL*10   PHI( * ), THETA( * )
+      REAL*10   TAUP1( * ), TAUP2( * ), TAUQ1( * ), TAUQ2( * ),
      $                   WORK( * ), X11( LDX11, * ), X12( LDX12, * ),
      $                   X21( LDX21, * ), X22( LDX22, * )
 *     ..
@@ -304,21 +304,21 @@
 *  ====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   REALONE
+      REAL*10   REALONE
       PARAMETER          ( REALONE = 1.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            COLMAJOR, LQUERY
       INTEGER            I, LWORKMIN, LWORKOPT
-      DOUBLE PRECISION   Z1, Z2, Z3, Z4
+      REAL*10   Z1, Z2, Z3, Z4
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DLARF, DLARFGP, DSCAL, XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DNRM2
+      REAL*10   DNRM2
       LOGICAL            LSAME
       EXTERNAL           DNRM2, LSAME
 *     ..

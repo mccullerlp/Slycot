@@ -25,7 +25,7 @@
 *       INTEGER            LDA, LDX, LDY, M, N, NB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), D( * ), E( * ), TAUP( * ),
+*       REAL*10   A( LDA, * ), D( * ), E( * ), TAUP( * ),
 *      $                   TAUQ( * ), X( LDX, * ), Y( LDY, * )
 *       ..
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the m by n general matrix to be reduced.
 *>          On exit, the first NB rows and columns of the matrix are
 *>          overwritten; the rest of the array is unchanged.
@@ -96,35 +96,35 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (NB)
+*>          D is REAL*10 array, dimension (NB)
 *>          The diagonal elements of the first NB rows and columns of
 *>          the reduced matrix.  D(i) = A(i,i).
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (NB)
+*>          E is REAL*10 array, dimension (NB)
 *>          The off-diagonal elements of the first NB rows and columns of
 *>          the reduced matrix.
 *> \endverbatim
 *>
 *> \param[out] TAUQ
 *> \verbatim
-*>          TAUQ is DOUBLE PRECISION array, dimension (NB)
+*>          TAUQ is REAL*10 array, dimension (NB)
 *>          The scalar factors of the elementary reflectors which
 *>          represent the orthogonal matrix Q. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] TAUP
 *> \verbatim
-*>          TAUP is DOUBLE PRECISION array, dimension (NB)
+*>          TAUP is REAL*10 array, dimension (NB)
 *>          The scalar factors of the elementary reflectors which
 *>          represent the orthogonal matrix P. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NB)
+*>          X is REAL*10 array, dimension (LDX,NB)
 *>          The m-by-nb matrix X required to update the unreduced part
 *>          of A.
 *> \endverbatim
@@ -137,7 +137,7 @@
 *>
 *> \param[out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension (LDY,NB)
+*>          Y is REAL*10 array, dimension (LDY,NB)
 *>          The n-by-nb matrix Y required to update the unreduced part
 *>          of A.
 *> \endverbatim
@@ -216,14 +216,14 @@
       INTEGER            LDA, LDX, LDY, M, N, NB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), D( * ), E( * ), TAUP( * ),
+      REAL*10   A( LDA, * ), D( * ), E( * ), TAUP( * ),
      $                   TAUQ( * ), X( LDX, * ), Y( LDY, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..

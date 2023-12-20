@@ -14,7 +14,7 @@
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*),ZY(*)
+*       COMPLEX*20 ZX(*),ZY(*)
 *       ..
 *
 *
@@ -37,7 +37,7 @@
 *>
 *> \param[in,out] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -48,7 +48,7 @@
 *>
 *> \param[in,out] ZY
 *> \verbatim
-*>          ZY is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*>          ZY is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -87,13 +87,13 @@
       INTEGER INCX,INCY,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*),ZY(*)
+      COMPLEX*20 ZX(*),ZY(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      COMPLEX*16 ZTEMP
+      COMPLEX*20 ZTEMP
       INTEGER I,IX,IY
 *     ..
       IF (N.LE.0) RETURN

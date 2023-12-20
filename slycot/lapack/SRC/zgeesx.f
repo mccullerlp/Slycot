@@ -25,12 +25,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBVS, SENSE, SORT
 *       INTEGER            INFO, LDA, LDVS, LWORK, N, SDIM
-*       DOUBLE PRECISION   RCONDE, RCONDV
+*       REAL*10   RCONDE, RCONDV
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            BWORK( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), VS( LDVS, * ), W( * ), WORK( * )
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), VS( LDVS, * ), W( * ), WORK( * )
 *       ..
 *       .. Function Arguments ..
 *       LOGICAL            SELECT
@@ -83,7 +83,7 @@
 *>
 *> \param[in] SELECT
 *> \verbatim
-*>          SELECT is a LOGICAL FUNCTION of one COMPLEX*16 argument
+*>          SELECT is a LOGICAL FUNCTION of one COMPLEX*20 argument
 *>          SELECT must be declared EXTERNAL in the calling subroutine.
 *>          If SORT = 'S', SELECT is used to select eigenvalues to order
 *>          to the top left of the Schur form.
@@ -110,7 +110,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the N-by-N matrix A.
 *>          On exit, A is overwritten by its Schur form T.
 *> \endverbatim
@@ -131,14 +131,14 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>          W contains the computed eigenvalues, in the same order
 *>          that they appear on the diagonal of the output Schur form T.
 *> \endverbatim
 *>
 *> \param[out] VS
 *> \verbatim
-*>          VS is COMPLEX*16 array, dimension (LDVS,N)
+*>          VS is COMPLEX*20 array, dimension (LDVS,N)
 *>          If JOBVS = 'V', VS contains the unitary matrix Z of Schur
 *>          vectors.
 *>          If JOBVS = 'N', VS is not referenced.
@@ -153,7 +153,7 @@
 *>
 *> \param[out] RCONDE
 *> \verbatim
-*>          RCONDE is DOUBLE PRECISION
+*>          RCONDE is REAL*10
 *>          If SENSE = 'E' or 'B', RCONDE contains the reciprocal
 *>          condition number for the average of the selected eigenvalues.
 *>          Not referenced if SENSE = 'N' or 'V'.
@@ -161,7 +161,7 @@
 *>
 *> \param[out] RCONDV
 *> \verbatim
-*>          RCONDV is DOUBLE PRECISION
+*>          RCONDV is REAL*10
 *>          If SENSE = 'V' or 'B', RCONDV contains the reciprocal
 *>          condition number for the selected right invariant subspace.
 *>          Not referenced if SENSE = 'N' or 'E'.
@@ -169,7 +169,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -193,7 +193,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] BWORK
@@ -244,12 +244,12 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBVS, SENSE, SORT
       INTEGER            INFO, LDA, LDVS, LWORK, N, SDIM
-      DOUBLE PRECISION   RCONDE, RCONDV
+      REAL*10   RCONDE, RCONDV
 *     ..
 *     .. Array Arguments ..
       LOGICAL            BWORK( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), VS( LDVS, * ), W( * ), WORK( * )
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), VS( LDVS, * ), W( * ), WORK( * )
 *     ..
 *     .. Function Arguments ..
       LOGICAL            SELECT
@@ -259,7 +259,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -267,10 +267,10 @@
      $                   WANTSV, WANTVS
       INTEGER            HSWORK, I, IBAL, ICOND, IERR, IEVAL, IHI, ILO,
      $                   ITAU, IWRK, LWRK, MAXWRK, MINWRK
-      DOUBLE PRECISION   ANRM, BIGNUM, CSCALE, EPS, SMLNUM
+      REAL*10   ANRM, BIGNUM, CSCALE, EPS, SMLNUM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   DUM( 1 )
+      REAL*10   DUM( 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, DLASCL, XERBLA, ZCOPY, ZGEBAK, ZGEBAL,
@@ -279,7 +279,7 @@
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           LSAME, ILAENV, DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

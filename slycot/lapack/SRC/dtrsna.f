@@ -29,7 +29,7 @@
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   S( * ), SEP( * ), T( LDT, * ), VL( LDVL, * ),
+*       REAL*10   S( * ), SEP( * ), T( LDT, * ), VL( LDVL, * ),
 *      $                   VR( LDVR, * ), WORK( LDWORK, * )
 *       ..
 *
@@ -92,7 +92,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          The upper quasi-triangular matrix T, in Schur canonical form.
 *> \endverbatim
 *>
@@ -104,7 +104,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,M)
+*>          VL is REAL*10 array, dimension (LDVL,M)
 *>          If JOB = 'E' or 'B', VL must contain left eigenvectors of T
 *>          (or of any Q*T*Q**T with Q orthogonal), corresponding to the
 *>          eigenpairs specified by HOWMNY and SELECT. The eigenvectors
@@ -122,7 +122,7 @@
 *>
 *> \param[in] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,M)
+*>          VR is REAL*10 array, dimension (LDVR,M)
 *>          If JOB = 'E' or 'B', VR must contain right eigenvectors of T
 *>          (or of any Q*T*Q**T with Q orthogonal), corresponding to the
 *>          eigenpairs specified by HOWMNY and SELECT. The eigenvectors
@@ -140,7 +140,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (MM)
+*>          S is REAL*10 array, dimension (MM)
 *>          If JOB = 'E' or 'B', the reciprocal condition numbers of the
 *>          selected eigenvalues, stored in consecutive elements of the
 *>          array. For a complex conjugate pair of eigenvalues two
@@ -153,7 +153,7 @@
 *>
 *> \param[out] SEP
 *> \verbatim
-*>          SEP is DOUBLE PRECISION array, dimension (MM)
+*>          SEP is REAL*10 array, dimension (MM)
 *>          If JOB = 'V' or 'B', the estimated reciprocal condition
 *>          numbers of the selected eigenvectors, stored in consecutive
 *>          elements of the array. For a complex eigenvector two
@@ -181,7 +181,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LDWORK,N+6)
+*>          WORK is REAL*10 array, dimension (LDWORK,N+6)
 *>          If JOB = 'E', WORK is not referenced.
 *> \endverbatim
 *>
@@ -274,29 +274,29 @@
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   S( * ), SEP( * ), T( LDT, * ), VL( LDVL, * ),
+      REAL*10   S( * ), SEP( * ), T( LDT, * ), VL( LDVL, * ),
      $                   VR( LDVR, * ), WORK( LDWORK, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            PAIR, SOMCON, WANTBH, WANTS, WANTSP
       INTEGER            I, IERR, IFST, ILST, J, K, KASE, KS, N2, NN
-      DOUBLE PRECISION   BIGNUM, COND, CS, DELTA, DUMM, EPS, EST, LNRM,
+      REAL*10   BIGNUM, COND, CS, DELTA, DUMM, EPS, EST, LNRM,
      $                   MU, PROD, PROD1, PROD2, RNRM, SCALE, SMLNUM, SN
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
-      DOUBLE PRECISION   DUMMY( 1 )
+      REAL*10   DUMMY( 1 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT, DLAMCH, DLAPY2, DNRM2
+      REAL*10   DDOT, DLAMCH, DLAPY2, DNRM2
       EXTERNAL           LSAME, DDOT, DLAMCH, DLAPY2, DNRM2
 *     ..
 *     .. External Subroutines ..

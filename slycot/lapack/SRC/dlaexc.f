@@ -26,7 +26,7 @@
 *       INTEGER            INFO, J1, LDQ, LDT, N, N1, N2
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Q( LDQ, * ), T( LDT, * ), WORK( * )
+*       REAL*10   Q( LDQ, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          On entry, the upper quasi-triangular matrix T, in Schur
 *>          canonical form.
 *>          On exit, the updated matrix T, again in Schur canonical form.
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if WANTQ is .TRUE., the orthogonal matrix Q.
 *>          On exit, if WANTQ is .TRUE., the updated matrix Q.
 *>          If WANTQ is .FALSE., Q is not referenced.
@@ -110,7 +110,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -145,31 +145,31 @@
       INTEGER            INFO, J1, LDQ, LDT, N, N1, N2
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Q( LDQ, * ), T( LDT, * ), WORK( * )
+      REAL*10   Q( LDQ, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   TEN
+      REAL*10   TEN
       PARAMETER          ( TEN = 1.0D+1 )
       INTEGER            LDD, LDX
       PARAMETER          ( LDD = 4, LDX = 2 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            IERR, J2, J3, J4, K, ND
-      DOUBLE PRECISION   CS, DNORM, EPS, SCALE, SMLNUM, SN, T11, T22,
+      REAL*10   CS, DNORM, EPS, SCALE, SMLNUM, SN, T11, T22,
      $                   T33, TAU, TAU1, TAU2, TEMP, THRESH, WI1, WI2,
      $                   WR1, WR2, XNORM
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   D( LDD, 4 ), U( 3 ), U1( 3 ), U2( 3 ),
+      REAL*10   D( LDD, 4 ), U( 3 ), U1( 3 ), U2( 3 ),
      $                   X( LDX, 2 )
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLANGE
+      REAL*10   DLAMCH, DLANGE
       EXTERNAL           DLAMCH, DLANGE
 *     ..
 *     .. External Subroutines ..

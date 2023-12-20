@@ -24,11 +24,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          UPLO
 *       INTEGER            INFO, LDA, N
-*       DOUBLE PRECISION   ANORM, RCOND
+*       REAL*10   ANORM, RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), E ( * ), WORK( * )
+*       REAL*10   A( LDA, * ), E ( * ), WORK( * )
 *       ..
 *
 *
@@ -72,7 +72,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          Diagonal of the block diagonal matrix D and factors U or L
 *>          as computed by DSYTRF_RK and DSYTRF_BK:
 *>            a) ONLY diagonal elements of the symmetric block diagonal
@@ -91,7 +91,7 @@
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, contains the superdiagonal (or subdiagonal)
 *>          elements of the symmetric block diagonal matrix D
 *>          with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -112,13 +112,13 @@
 *>
 *> \param[in] ANORM
 *> \verbatim
-*>          ANORM is DOUBLE PRECISION
+*>          ANORM is REAL*10
 *>          The 1-norm of the original matrix A.
 *> \endverbatim
 *>
 *> \param[out] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          The reciprocal of the condition number of the matrix A,
 *>          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
 *>          estimate of the 1-norm of inv(A) computed in this routine.
@@ -126,7 +126,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -176,23 +176,23 @@
 *     .. Scalar Arguments ..
       CHARACTER          UPLO
       INTEGER            INFO, LDA, N
-      DOUBLE PRECISION   ANORM, RCOND
+      REAL*10   ANORM, RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), E( * ), WORK( * )
+      REAL*10   A( LDA, * ), E( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I, KASE
-      DOUBLE PRECISION   AINVNM
+      REAL*10   AINVNM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )

@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, N
-*       DOUBLE PRECISION   SCALE
+*       REAL*10   SCALE
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), JPIV( * )
-*       COMPLEX*16         A( LDA, * ), RHS( * )
+*       COMPLEX*20         A( LDA, * ), RHS( * )
 *       ..
 *
 *
@@ -55,7 +55,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the  LU part of the factorization of the n-by-n
 *>          matrix A computed by ZGETC2:  A = P * L * U * Q
 *> \endverbatim
@@ -68,7 +68,7 @@
 *>
 *> \param[in,out] RHS
 *> \verbatim
-*>          RHS is COMPLEX*16 array, dimension N.
+*>          RHS is COMPLEX*20 array, dimension N.
 *>          On entry, the right hand side vector b.
 *>          On exit, the solution vector X.
 *> \endverbatim
@@ -89,7 +89,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>           On exit, SCALE contains the scale factor. SCALE is chosen
 *>           0 <= SCALE <= 1 to prevent overflow in the solution.
 *> \endverbatim
@@ -119,30 +119,30 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), JPIV( * )
-      COMPLEX*16         A( LDA, * ), RHS( * )
+      COMPLEX*20         A( LDA, * ), RHS( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   BIGNUM, EPS, SMLNUM
-      COMPLEX*16         TEMP
+      REAL*10   BIGNUM, EPS, SMLNUM
+      COMPLEX*20         TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZLASWP, ZSCAL, DLABAD
 *     ..
 *     .. External Functions ..
       INTEGER            IZAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           IZAMAX, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

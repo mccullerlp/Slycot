@@ -25,7 +25,7 @@
 *       INTEGER            N, INFO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( 0: * )
+*       REAL*10   A( 0: * )
 *
 *
 *> \par Purpose:
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( N*(N+1)/2 );
+*>          A is REAL*10 array, dimension ( N*(N+1)/2 );
 *>          On entry, the symmetric matrix A in RFP format. RFP format is
 *>          described by TRANSR, UPLO, and N as follows: If TRANSR = 'N'
 *>          then RFP A is (0:N,0:k-1) when N is even; k=N/2. RFP A is
@@ -205,12 +205,12 @@
       INTEGER            N, INFO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( 0: * )
+      REAL*10   A( 0: * )
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

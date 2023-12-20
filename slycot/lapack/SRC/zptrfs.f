@@ -26,9 +26,9 @@
 *       INTEGER            INFO, LDB, LDX, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   BERR( * ), D( * ), DF( * ), FERR( * ),
+*       REAL*10   BERR( * ), D( * ), DF( * ), FERR( * ),
 *      $                   RWORK( * )
-*       COMPLEX*16         B( LDB, * ), E( * ), EF( * ), WORK( * ),
+*       COMPLEX*20         B( LDB, * ), E( * ), EF( * ), WORK( * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -73,27 +73,27 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n real diagonal elements of the tridiagonal matrix A.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N-1)
+*>          E is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) off-diagonal elements of the tridiagonal matrix A
 *>          (see UPLO).
 *> \endverbatim
 *>
 *> \param[in] DF
 *> \verbatim
-*>          DF is DOUBLE PRECISION array, dimension (N)
+*>          DF is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the diagonal matrix D from
 *>          the factorization computed by ZPTTRF.
 *> \endverbatim
 *>
 *> \param[in] EF
 *> \verbatim
-*>          EF is COMPLEX*16 array, dimension (N-1)
+*>          EF is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) off-diagonal elements of the unit bidiagonal
 *>          factor U or L from the factorization computed by ZPTTRF
 *>          (see UPLO).
@@ -101,7 +101,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          The right hand side matrix B.
 *> \endverbatim
 *>
@@ -113,7 +113,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,NRHS)
+*>          X is COMPLEX*20 array, dimension (LDX,NRHS)
 *>          On entry, the solution matrix X, as computed by ZPTTRS.
 *>          On exit, the improved solution matrix X.
 *> \endverbatim
@@ -126,7 +126,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -137,7 +137,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -145,12 +145,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -190,9 +190,9 @@
       INTEGER            INFO, LDB, LDX, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   BERR( * ), D( * ), DF( * ), FERR( * ),
+      REAL*10   BERR( * ), D( * ), DF( * ), FERR( * ),
      $                   RWORK( * )
-      COMPLEX*16         B( LDB, * ), E( * ), EF( * ), WORK( * ),
+      COMPLEX*20         B( LDB, * ), E( * ), EF( * ), WORK( * ),
      $                   X( LDX, * )
 *     ..
 *
@@ -201,25 +201,25 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
-      DOUBLE PRECISION   THREE
+      REAL*10   THREE
       PARAMETER          ( THREE = 3.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            COUNT, I, IX, J, NZ
-      DOUBLE PRECISION   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN
-      COMPLEX*16         BI, CX, DX, EX, ZDUM
+      REAL*10   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN
+      COMPLEX*20         BI, CX, DX, EX, ZDUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, IDAMAX, DLAMCH
 *     ..
 *     .. External Subroutines ..
@@ -229,7 +229,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DCONJG, DIMAG, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

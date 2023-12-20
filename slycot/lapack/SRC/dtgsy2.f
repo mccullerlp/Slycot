@@ -26,11 +26,11 @@
 *       CHARACTER          TRANS
 *       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF, M, N,
 *      $                   PQ
-*       DOUBLE PRECISION   RDSCAL, RDSUM, SCALE
+*       REAL*10   RDSCAL, RDSUM, SCALE
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), C( LDC, * ),
 *      $                   D( LDD, * ), E( LDE, * ), F( LDF, * )
 *       ..
 *
@@ -119,7 +119,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, M)
+*>          A is REAL*10 array, dimension (LDA, M)
 *>          On entry, A contains an upper quasi triangular matrix.
 *> \endverbatim
 *>
@@ -131,7 +131,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, B contains an upper quasi triangular matrix.
 *> \endverbatim
 *>
@@ -143,7 +143,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC, N)
+*>          C is REAL*10 array, dimension (LDC, N)
 *>          On entry, C contains the right-hand-side of the first matrix
 *>          equation in (1).
 *>          On exit, if IJOB = 0, C has been overwritten by the
@@ -158,7 +158,7 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (LDD, M)
+*>          D is REAL*10 array, dimension (LDD, M)
 *>          On entry, D contains an upper triangular matrix.
 *> \endverbatim
 *>
@@ -170,7 +170,7 @@
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (LDE, N)
+*>          E is REAL*10 array, dimension (LDE, N)
 *>          On entry, E contains an upper triangular matrix.
 *> \endverbatim
 *>
@@ -182,7 +182,7 @@
 *>
 *> \param[in,out] F
 *> \verbatim
-*>          F is DOUBLE PRECISION array, dimension (LDF, N)
+*>          F is REAL*10 array, dimension (LDF, N)
 *>          On entry, F contains the right-hand-side of the second matrix
 *>          equation in (1).
 *>          On exit, if IJOB = 0, F has been overwritten by the
@@ -197,7 +197,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          On exit, 0 <= SCALE <= 1. If 0 < SCALE < 1, the solutions
 *>          R and L (C and F on entry) will hold the solutions to a
 *>          slightly perturbed system but the input matrices A, B, D and
@@ -208,7 +208,7 @@
 *>
 *> \param[in,out] RDSUM
 *> \verbatim
-*>          RDSUM is DOUBLE PRECISION
+*>          RDSUM is REAL*10
 *>          On entry, the sum of squares of computed contributions to
 *>          the Dif-estimate under computation by DTGSYL, where the
 *>          scaling factor RDSCAL (see below) has been factored out.
@@ -220,7 +220,7 @@
 *>
 *> \param[in,out] RDSCAL
 *> \verbatim
-*>          RDSCAL is DOUBLE PRECISION
+*>          RDSCAL is REAL*10
 *>          On entry, scaling factor used to prevent overflow in RDSUM.
 *>          On exit, RDSCAL is updated w.r.t. the current contributions
 *>          in RDSUM.
@@ -280,11 +280,11 @@
       CHARACTER          TRANS
       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF, M, N,
      $                   PQ
-      DOUBLE PRECISION   RDSCAL, RDSUM, SCALE
+      REAL*10   RDSCAL, RDSUM, SCALE
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), C( LDC, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), C( LDC, * ),
      $                   D( LDD, * ), E( LDE, * ), F( LDF, * )
 *     ..
 *
@@ -295,18 +295,18 @@
 *     .. Parameters ..
       INTEGER            LDZ
       PARAMETER          ( LDZ = 8 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN
       INTEGER            I, IE, IERR, II, IS, ISP1, J, JE, JJ, JS, JSP1,
      $                   K, MB, NB, P, Q, ZDIM
-      DOUBLE PRECISION   ALPHA, SCALOC
+      REAL*10   ALPHA, SCALOC
 *     ..
 *     .. Local Arrays ..
       INTEGER            IPIV( LDZ ), JPIV( LDZ )
-      DOUBLE PRECISION   RHS( LDZ ), Z( LDZ, LDZ )
+      REAL*10   RHS( LDZ ), Z( LDZ, LDZ )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

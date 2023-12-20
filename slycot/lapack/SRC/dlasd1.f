@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDU, LDVT, NL, NR, SQRE
-*       DOUBLE PRECISION   ALPHA, BETA
+*       REAL*10   ALPHA, BETA
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IDXQ( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), U( LDU, * ), VT( LDVT, * ), WORK( * )
+*       REAL*10   D( * ), U( LDU, * ), VT( LDVT, * ), WORK( * )
 *       ..
 *
 *
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array,
+*>          D is REAL*10 array,
 *>                        dimension (N = NL+NR+1).
 *>         On entry D(1:NL,1:NL) contains the singular values of the
 *>         upper block; and D(NL+2:N) contains the singular values of
@@ -113,20 +113,20 @@
 *>
 *> \param[in,out] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>         Contains the diagonal element associated with the added row.
 *> \endverbatim
 *>
 *> \param[in,out] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION
+*>          BETA is REAL*10
 *>         Contains the off-diagonal element associated with the added
 *>         row.
 *> \endverbatim
 *>
 *> \param[in,out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension(LDU,N)
+*>          U is REAL*10 array, dimension(LDU,N)
 *>         On entry U(1:NL, 1:NL) contains the left singular vectors of
 *>         the upper block; U(NL+2:N, NL+2:N) contains the left singular
 *>         vectors of the lower block. On exit U contains the left
@@ -141,7 +141,7 @@
 *>
 *> \param[in,out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension(LDVT,M)
+*>          VT is REAL*10 array, dimension(LDVT,M)
 *>         where M = N + SQRE.
 *>         On entry VT(1:NL+1, 1:NL+1)**T contains the right singular
 *>         vectors of the upper block; VT(NL+2:M, NL+2:M)**T contains
@@ -171,7 +171,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension( 3*M**2 + 2*M )
+*>          WORK is REAL*10 array, dimension( 3*M**2 + 2*M )
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -208,24 +208,24 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDU, LDVT, NL, NR, SQRE
-      DOUBLE PRECISION   ALPHA, BETA
+      REAL*10   ALPHA, BETA
 *     ..
 *     .. Array Arguments ..
       INTEGER            IDXQ( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), U( LDU, * ), VT( LDVT, * ), WORK( * )
+      REAL*10   D( * ), U( LDU, * ), VT( LDVT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
 *
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            COLTYP, I, IDX, IDXC, IDXP, IQ, ISIGMA, IU2,
      $                   IVT2, IZ, K, LDQ, LDU2, LDVT2, M, N, N1, N2
-      DOUBLE PRECISION   ORGNRM
+      REAL*10   ORGNRM
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLAMRG, DLASCL, DLASD2, DLASD3, XERBLA

@@ -11,11 +11,11 @@
 *       SUBROUTINE ZDSCAL(N,DA,ZX,INCX)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION DA
+*       REAL*10 DA
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*)
+*       COMPLEX*20 ZX(*)
 *       ..
 *
 *
@@ -38,13 +38,13 @@
 *>
 *> \param[in] DA
 *> \verbatim
-*>          DA is DOUBLE PRECISION
+*>          DA is REAL*10
 *>           On entry, DA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in,out] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -81,11 +81,11 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION DA
+      REAL*10 DA
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*)
+      COMPLEX*20 ZX(*)
 *     ..
 *
 *  =====================================================================
@@ -93,7 +93,7 @@
 *     .. Local Scalars ..
       INTEGER I,NINCX
 *     .. Parameters ..
-      DOUBLE PRECISION ONE
+      REAL*10 ONE
       PARAMETER (ONE=1.0D+0)
 *     ..
 *     .. Intrinsic Functions ..

@@ -25,8 +25,8 @@
 *       INTEGER            LDA, LDW, N, NB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   E( * )
-*       COMPLEX*16         A( LDA, * ), TAU( * ), W( LDW, * )
+*       REAL*10   E( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), W( LDW, * )
 *       ..
 *
 *
@@ -74,7 +74,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          n-by-n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -104,7 +104,7 @@
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          If UPLO = 'U', E(n-nb:n-1) contains the superdiagonal
 *>          elements of the last NB columns of the reduced matrix;
 *>          if UPLO = 'L', E(1:nb) contains the subdiagonal elements of
@@ -113,7 +113,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N-1)
+*>          TAU is COMPLEX*20 array, dimension (N-1)
 *>          The scalar factors of the elementary reflectors, stored in
 *>          TAU(n-nb:n-1) if UPLO = 'U', and in TAU(1:nb) if UPLO = 'L'.
 *>          See Further Details.
@@ -121,7 +121,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (LDW,NB)
+*>          W is COMPLEX*20 array, dimension (LDW,NB)
 *>          The n-by-nb matrix W required to update the unreduced part
 *>          of A.
 *> \endverbatim
@@ -206,28 +206,28 @@
       INTEGER            LDA, LDW, N, NB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   E( * )
-      COMPLEX*16         A( LDA, * ), TAU( * ), W( LDW, * )
+      REAL*10   E( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), W( LDW, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE, HALF
+      COMPLEX*20         ZERO, ONE, HALF
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE = ( 1.0D+0, 0.0D+0 ),
      $                   HALF = ( 0.5D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IW
-      COMPLEX*16         ALPHA
+      COMPLEX*20         ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZAXPY, ZGEMV, ZHEMV, ZLACGV, ZLARFG, ZSCAL
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      COMPLEX*16         ZDOTC
+      COMPLEX*20         ZDOTC
       EXTERNAL           LSAME, ZDOTC
 *     ..
 *     .. Intrinsic Functions ..

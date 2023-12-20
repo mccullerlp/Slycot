@@ -25,7 +25,7 @@
 *       INTEGER          I1, I2, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION A( LDA, N )
+*       REAL*10 A( LDA, N )
 *
 *
 *> \par Purpose:
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,*)
+*>          A is REAL*10 array, dimension (LDA,*)
 *>          On entry, the N-by-N matrix A. On exit, the permuted matrix
 *>          where the rows I1 and I2 and columns I1 and I2 are interchanged.
 *>          If UPLO = 'U', the interchanges are applied to the upper
@@ -107,14 +107,14 @@
       INTEGER          I1, I2, LDA, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A( LDA, * )
+      REAL*10 A( LDA, * )
 *
 *  =====================================================================
 *
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
-      DOUBLE PRECISION   TMP
+      REAL*10   TMP
 *
 *     .. External Functions ..
       LOGICAL            LSAME

@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            LDA, N
-*       DOUBLE PRECISION   SCALE
+*       REAL*10   SCALE
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), JPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), RHS( * )
+*       REAL*10   A( LDA, * ), RHS( * )
 *       ..
 *
 *
@@ -54,7 +54,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the  LU part of the factorization of the n-by-n
 *>          matrix A computed by DGETC2:  A = P * L * U * Q
 *> \endverbatim
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] RHS
 *> \verbatim
-*>          RHS is DOUBLE PRECISION array, dimension (N).
+*>          RHS is REAL*10 array, dimension (N).
 *>          On entry, the right hand side vector b.
 *>          On exit, the solution vector X.
 *> \endverbatim
@@ -88,7 +88,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          On exit, SCALE contains the scale factor. SCALE is chosen
 *>          0 <= SCALE <= 1 to prevent overflow in the solution.
 *> \endverbatim
@@ -118,29 +118,29 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            LDA, N
-      DOUBLE PRECISION   SCALE
+      REAL*10   SCALE
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), JPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), RHS( * )
+      REAL*10   A( LDA, * ), RHS( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, TWO
+      REAL*10   ONE, TWO
       PARAMETER          ( ONE = 1.0D+0, TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   BIGNUM, EPS, SMLNUM, TEMP
+      REAL*10   BIGNUM, EPS, SMLNUM, TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASWP, DSCAL, DLABAD
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           IDAMAX, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

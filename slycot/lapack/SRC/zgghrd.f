@@ -26,7 +26,7 @@
 *       INTEGER            IHI, ILO, INFO, LDA, LDB, LDQ, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -111,7 +111,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, the N-by-N general matrix to be reduced.
 *>          On exit, the upper triangle and the first subdiagonal of A
 *>          are overwritten with the upper Hessenberg matrix H, and the
@@ -126,7 +126,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, the N-by-N upper triangular matrix B.
 *>          On exit, the upper triangular matrix T = Q**H B Z.  The
 *>          elements below the diagonal are set to zero.
@@ -140,7 +140,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ, N)
+*>          Q is COMPLEX*20 array, dimension (LDQ, N)
 *>          On entry, if COMPQ = 'V', the unitary matrix Q1, typically
 *>          from the QR factorization of B.
 *>          On exit, if COMPQ='I', the unitary matrix Q, and if
@@ -157,7 +157,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the unitary matrix Z1.
 *>          On exit, if COMPZ='I', the unitary matrix Z, and if
 *>          COMPZ = 'V', the product Z1*Z.
@@ -211,22 +211,22 @@
       INTEGER            IHI, ILO, INFO, LDA, LDB, LDQ, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                   CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            ILQ, ILZ
       INTEGER            ICOMPQ, ICOMPZ, JCOL, JROW
-      DOUBLE PRECISION   C
-      COMPLEX*16         CTEMP, S
+      REAL*10   C
+      COMPLEX*20         CTEMP, S
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

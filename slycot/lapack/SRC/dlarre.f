@@ -26,12 +26,12 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          RANGE
 *       INTEGER            IL, INFO, IU, M, N, NSPLIT
-*       DOUBLE PRECISION  PIVMIN, RTOL1, RTOL2, SPLTOL, VL, VU
+*       REAL*10  PIVMIN, RTOL1, RTOL2, SPLTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IBLOCK( * ), ISPLIT( * ), IWORK( * ),
 *      $                   INDEXW( * )
-*       DOUBLE PRECISION   D( * ), E( * ), E2( * ), GERS( * ),
+*       REAL*10   D( * ), E( * ), E2( * ), GERS( * ),
 *      $                   W( * ),WERR( * ), WGAP( * ), WORK( * )
 *       ..
 *
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>          If RANGE='V', the lower bound for the eigenvalues.
 *>          Eigenvalues less than or equal to VL, or greater than VU,
 *>          will not be returned.  VL < VU.
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>          If RANGE='V', the upper bound for the eigenvalues.
 *>          Eigenvalues less than or equal to VL, or greater than VU,
 *>          will not be returned.  VL < VU.
@@ -113,7 +113,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the N diagonal elements of the tridiagonal
 *>          matrix T.
 *>          On exit, the N diagonal elements of the diagonal
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, the first (N-1) entries contain the subdiagonal
 *>          elements of the tridiagonal matrix T; E(N) need not be set.
 *>          On exit, E contains the subdiagonal elements of the unit
@@ -132,7 +132,7 @@
 *>
 *> \param[in,out] E2
 *> \verbatim
-*>          E2 is DOUBLE PRECISION array, dimension (N)
+*>          E2 is REAL*10 array, dimension (N)
 *>          On entry, the first (N-1) entries contain the SQUARES of the
 *>          subdiagonal elements of the tridiagonal matrix T;
 *>          E2(N) need not be set.
@@ -142,12 +142,12 @@
 *>
 *> \param[in] RTOL1
 *> \verbatim
-*>          RTOL1 is DOUBLE PRECISION
+*>          RTOL1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] RTOL2
 *> \verbatim
-*>          RTOL2 is DOUBLE PRECISION
+*>          RTOL2 is REAL*10
 *>           Parameters for bisection.
 *>           An interval [LEFT,RIGHT] has converged if
 *>           RIGHT-LEFT < MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )
@@ -155,7 +155,7 @@
 *>
 *> \param[in] SPLTOL
 *> \verbatim
-*>          SPLTOL is DOUBLE PRECISION
+*>          SPLTOL is REAL*10
 *>          The threshold for splitting.
 *> \endverbatim
 *>
@@ -184,7 +184,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          The first M elements contain the eigenvalues. The
 *>          eigenvalues of each of the blocks, L_i D_i L_i^T, are
 *>          sorted in ascending order ( DLARRE may use the
@@ -193,13 +193,13 @@
 *>
 *> \param[out] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION array, dimension (N)
+*>          WERR is REAL*10 array, dimension (N)
 *>          The error bound on the corresponding eigenvalue in W.
 *> \endverbatim
 *>
 *> \param[out] WGAP
 *> \verbatim
-*>          WGAP is DOUBLE PRECISION array, dimension (N)
+*>          WGAP is REAL*10 array, dimension (N)
 *>          The separation from the right neighbor eigenvalue in W.
 *>          The gap is only with respect to the eigenvalues of the same block
 *>          as each block has its own representation tree.
@@ -225,20 +225,20 @@
 *>
 *> \param[out] GERS
 *> \verbatim
-*>          GERS is DOUBLE PRECISION array, dimension (2*N)
+*>          GERS is REAL*10 array, dimension (2*N)
 *>          The N Gerschgorin intervals (the i-th Gerschgorin interval
 *>          is (GERS(2*i-1), GERS(2*i)).
 *> \endverbatim
 *>
 *> \param[out] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot in the Sturm sequence for T.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (6*N)
+*>          WORK is REAL*10 array, dimension (6*N)
 *>          Workspace.
 *> \endverbatim
 *>
@@ -310,19 +310,19 @@
 *     .. Scalar Arguments ..
       CHARACTER          RANGE
       INTEGER            IL, INFO, IU, M, N, NSPLIT
-      DOUBLE PRECISION  PIVMIN, RTOL1, RTOL2, SPLTOL, VL, VU
+      REAL*10  PIVMIN, RTOL1, RTOL2, SPLTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IBLOCK( * ), ISPLIT( * ), IWORK( * ),
      $                   INDEXW( * )
-      DOUBLE PRECISION   D( * ), E( * ), E2( * ), GERS( * ),
+      REAL*10   D( * ), E( * ), E2( * ), GERS( * ),
      $                   W( * ),WERR( * ), WGAP( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   FAC, FOUR, FOURTH, FUDGE, HALF, HNDRD,
+      REAL*10   FAC, FOUR, FOURTH, FUDGE, HALF, HNDRD,
      $                   MAXGROWTH, ONE, PERT, TWO, ZERO
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0,
      $                     TWO = 2.0D0, FOUR=4.0D0,
@@ -339,7 +339,7 @@
       INTEGER            CNT, CNT1, CNT2, I, IBEGIN, IDUM, IEND, IINFO,
      $                   IN, INDL, INDU, IRANGE, J, JBLK, MB, MM,
      $                   WBEGIN, WEND
-      DOUBLE PRECISION   AVGAP, BSRTOL, CLWDTH, DMAX, DPIVOT, EABS,
+      REAL*10   AVGAP, BSRTOL, CLWDTH, DMAX, DPIVOT, EABS,
      $                   EMAX, EOLD, EPS, GL, GU, ISLEFT, ISRGHT, RTL,
      $                   RTOL, S1, S2, SAFMIN, SGNDEF, SIGMA, SPDIAM,
      $                   TAU, TMP, TMP1
@@ -351,7 +351,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION            DLAMCH
+      REAL*10            DLAMCH
       EXTERNAL           DLAMCH, LSAME
 
 *     ..

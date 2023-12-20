@@ -29,8 +29,8 @@
 *                  INFO
 *     ..
 *     .. Array Arguments ..
-*      DOUBLE PRECISION  A( LDA, * ), U( LDU, * ), V( LDV, * ), WORK( * )
-*      DOUBLE PRECISION  S( * ), RWORK( * )
+*      REAL*10  A( LDA, * ), U( LDU, * ), V( LDV, * ), WORK( * )
+*      REAL*10  S( * ), RWORK( * )
 *      INTEGER     IWORK( * )
 *       ..
 *
@@ -138,7 +138,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array of dimensions LDA x N
+*>          A is REAL*10 array of dimensions LDA x N
 *>          On entry, the input matrix A.
 *>          On exit, if JOBU .NE. 'N' or JOBV .NE. 'N', the lower triangle of A contains
 *>          the Householder vectors as stored by DGEQP3. If JOBU = 'F', these Householder
@@ -154,13 +154,13 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array of dimension N.
+*>          S is REAL*10 array of dimension N.
 *>          The singular values of A, ordered so that S(i) >= S(i+1).
 *> \endverbatim
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension
+*>          U is REAL*10 array, dimension
 *>          LDU x M if JOBU = 'A'; see the description of LDU. In this case,
 *>          on exit, U contains the M left singular vectors.
 *>          LDU x N if JOBU = 'S', 'U', 'R' ; see the description of LDU. In this
@@ -182,7 +182,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension
+*>          V is REAL*10 array, dimension
 *>          LDV x N if JOBV = 'A', 'V', 'R' or if JOBA = 'E' .
 *>          If JOBV = 'A', or 'V',  V contains the N-by-N orthogonal matrix  V**T;
 *>          If JOBV = 'R', V contains the first NUMRANK rows of V**T (the right
@@ -240,7 +240,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (max(2, LWORK)), used as a workspace.
+*>          WORK is REAL*10 array, dimension (max(2, LWORK)), used as a workspace.
 *>          On exit, if, on entry, LWORK.NE.-1, WORK(1:N) contains parameters
 *>          needed to recover the Q factor from the QR factorization computed by
 *>          DGEQP3.
@@ -309,7 +309,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (max(1, LRWORK)).
+*>          RWORK is REAL*10 array, dimension (max(1, LRWORK)).
 *>          On exit,
 *>          1. If JOBA = 'E', RWORK(1) contains an estimate of the condition
 *>          number of column scaled A. If A = C * D where D is diagonal and C
@@ -419,14 +419,14 @@
      $            INFO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A( LDA, * ), U( LDU, * ), V( LDV, * ), WORK( * )
-      DOUBLE PRECISION S( * ), RWORK( * )
+      REAL*10 A( LDA, * ), U( LDU, * ), V( LDV, * ), WORK( * )
+      REAL*10 S( * ), RWORK( * )
       INTEGER          IWORK( * )
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION ZERO,         ONE
+      REAL*10 ZERO,         ONE
       PARAMETER      ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     .. Local Scalars ..
       INTEGER     IERR, IWOFF, NR, N1, OPTRATIO, p, q
@@ -438,9 +438,9 @@
       LOGICAL     ACCLA,  ACCLM, ACCLH, ASCALED, CONDA, DNTWU,  DNTWV,
      $            LQUERY, LSVC0, LSVEC, ROWPRM,  RSVEC, RTRANS, WNTUA,
      $            WNTUF,  WNTUR, WNTUS, WNTVA,   WNTVR
-      DOUBLE PRECISION BIG, EPSLN, RTMP, SCONDA, SFMIN
+      REAL*10 BIG, EPSLN, RTMP, SCONDA, SFMIN
 *     .. Local Arrays
-      DOUBLE PRECISION RDUMMY(1)
+      REAL*10 RDUMMY(1)
 *     ..
 *     .. External Subroutines (BLAS, LAPACK)
       EXTERNAL    DGELQF, DGEQP3, DGEQRF, DGESVD, DLACPY, DLAPMT,
@@ -450,7 +450,7 @@
 *     .. External Functions (BLAS, LAPACK)
       LOGICAL    LSAME
       INTEGER    IDAMAX
-      DOUBLE PRECISION  DLANGE, DNRM2, DLAMCH
+      REAL*10  DLANGE, DNRM2, DLAMCH
       EXTERNAL    DLANGE, LSAME, IDAMAX, DNRM2, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

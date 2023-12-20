@@ -26,7 +26,7 @@
 *      LOGICAL, INTENT( IN ) :: ILQ, ILZ
 *      INTEGER, INTENT( IN ) :: K, LDA, LDB, LDQ, LDZ, ISTARTM, ISTOPM,
 *     $    NQ, NZ, QSTART, ZSTART, IHI
-*      COMPLEX*16 :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ, * )
+*      COMPLEX*20 :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -86,7 +86,7 @@
 *>
 *> \param[inout] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *> \endverbatim
 *>
 *> \param[in] LDA
@@ -98,7 +98,7 @@
 *
 *> \param[inout] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *> \endverbatim
 *>
 *> \param[in] LDB
@@ -123,7 +123,7 @@
 *
 *> \param[inout] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,NQ)
+*>          Q is COMPLEX*20 array, dimension (LDQ,NQ)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -148,7 +148,7 @@
 *
 *> \param[inout] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,NZ)
+*>          Z is COMPLEX*20 array, dimension (LDZ,NZ)
 *> \endverbatim
 *>
 *> \param[in] LDZ
@@ -176,18 +176,18 @@
       LOGICAL, INTENT( IN ) :: ILQ, ILZ
       INTEGER, INTENT( IN ) :: K, LDA, LDB, LDQ, LDZ, ISTARTM, ISTOPM,
      $         NQ, NZ, QSTART, ZSTART, IHI
-      COMPLEX*16 :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ, * )
+      COMPLEX*20 :: A( LDA, * ), B( LDB, * ), Q( LDQ, * ), Z( LDZ, * )
 *
 *     Parameters
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ), CONE = ( 1.0D+0,
      $                     0.0D+0 ) )
-      DOUBLE PRECISION :: ZERO, ONE, HALF
+      REAL*10 :: ZERO, ONE, HALF
       PARAMETER( ZERO = 0.0D0, ONE = 1.0D0, HALF = 0.5D0 )
 *
 *     Local variables
-      DOUBLE PRECISION :: C
-      COMPLEX*16 :: S, TEMP
+      REAL*10 :: C
+      COMPLEX*20 :: S, TEMP
 *
 *     External Functions
       EXTERNAL :: ZLARTG, ZROT

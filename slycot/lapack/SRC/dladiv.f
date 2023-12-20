@@ -21,7 +21,7 @@
 *       SUBROUTINE DLADIV( A, B, C, D, P, Q )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   A, B, C, D, P, Q
+*       REAL*10   A, B, C, D, P, Q
 *       ..
 *
 *
@@ -46,33 +46,33 @@
 *
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION
+*>          A is REAL*10
 *> \endverbatim
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION
+*>          B is REAL*10
 *> \endverbatim
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION
+*>          C is REAL*10
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION
+*>          D is REAL*10
 *>          The scalars a, b, c, and d in the above expression.
 *> \endverbatim
 *>
 *> \param[out] P
 *> \verbatim
-*>          P is DOUBLE PRECISION
+*>          P is REAL*10
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION
+*>          Q is REAL*10
 *>          The scalars p and q in the above expression.
 *> \endverbatim
 *
@@ -94,24 +94,24 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B, C, D, P, Q
+      REAL*10   A, B, C, D, P, Q
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   BS
+      REAL*10   BS
       PARAMETER          ( BS = 2.0D0 )
-      DOUBLE PRECISION   HALF
+      REAL*10   HALF
       PARAMETER          ( HALF = 0.5D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   AA, BB, CC, DD, AB, CD, S, OV, UN, BE, EPS
+      REAL*10   AA, BB, CC, DD, AB, CD, S, OV, UN, BE, EPS
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..
@@ -180,20 +180,20 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B, C, D, P, Q
+      REAL*10   A, B, C, D, P, Q
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   R, T
+      REAL*10   R, T
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLADIV2
+      REAL*10   DLADIV2
       EXTERNAL           DLADIV2
 *     ..
 *     .. Executable Statements ..
@@ -212,24 +212,24 @@
 
 *> \ingroup doubleOTHERauxiliary
 
-      DOUBLE PRECISION FUNCTION DLADIV2( A, B, C, D, R, T )
+      REAL*10 FUNCTION DLADIV2( A, B, C, D, R, T )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   A, B, C, D, R, T
+      REAL*10   A, B, C, D, R, T
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION   BR
+      REAL*10   BR
 *     ..
 *     .. Executable Statements ..
 *

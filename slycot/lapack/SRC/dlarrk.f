@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER   INFO, IW, N
-*       DOUBLE PRECISION    PIVMIN, RELTOL, GL, GU, W, WERR
+*       REAL*10    PIVMIN, RELTOL, GL, GU, W, WERR
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E2( * )
+*       REAL*10   D( * ), E2( * )
 *       ..
 *
 *
@@ -65,36 +65,36 @@
 *>
 *> \param[in] GL
 *> \verbatim
-*>          GL is DOUBLE PRECISION
+*>          GL is REAL*10
 *> \endverbatim
 *>
 *> \param[in] GU
 *> \verbatim
-*>          GU is DOUBLE PRECISION
+*>          GU is REAL*10
 *>          An upper and a lower bound on the eigenvalue.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] E2
 *> \verbatim
-*>          E2 is DOUBLE PRECISION array, dimension (N-1)
+*>          E2 is REAL*10 array, dimension (N-1)
 *>          The (n-1) squared off-diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot allowed in the Sturm sequence for T.
 *> \endverbatim
 *>
 *> \param[in] RELTOL
 *> \verbatim
-*>          RELTOL is DOUBLE PRECISION
+*>          RELTOL is REAL*10
 *>          The minimum relative width of an interval.  When an interval
 *>          is narrower than RELTOL times the larger (in
 *>          magnitude) endpoint, then it is considered to be
@@ -104,12 +104,12 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION
+*>          W is REAL*10
 *> \endverbatim
 *>
 *> \param[out] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION
+*>          WERR is REAL*10
 *>          The error bound on the corresponding eigenvalue approximation
 *>          in W.
 *> \endverbatim
@@ -125,7 +125,7 @@
 *  =========================
 *>
 *> \verbatim
-*>  FUDGE   DOUBLE PRECISION, default = 2
+*>  FUDGE   REAL*10, default = 2
 *>          A "fudge factor" to widen the Gershgorin intervals.
 *> \endverbatim
 *
@@ -149,26 +149,26 @@
 *
 *     .. Scalar Arguments ..
       INTEGER   INFO, IW, N
-      DOUBLE PRECISION    PIVMIN, RELTOL, GL, GU, W, WERR
+      REAL*10    PIVMIN, RELTOL, GL, GU, W, WERR
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E2( * )
+      REAL*10   D( * ), E2( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   FUDGE, HALF, TWO, ZERO
+      REAL*10   FUDGE, HALF, TWO, ZERO
       PARAMETER          ( HALF = 0.5D0, TWO = 2.0D0,
      $                     FUDGE = TWO, ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER   I, IT, ITMAX, NEGCNT
-      DOUBLE PRECISION   ATOLI, EPS, LEFT, MID, RIGHT, RTOLI, TMP1,
+      REAL*10   ATOLI, EPS, LEFT, MID, RIGHT, RTOLI, TMP1,
      $                   TMP2, TNORM
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL   DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

@@ -24,7 +24,7 @@
 *       INTEGER   INFO, LDA, LDB, LDT, N, M, L
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16   A( LDA, * ), B( LDB, * ), T( LDT, * )
+*       COMPLEX*20   A( LDA, * ), B( LDB, * ), T( LDT, * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,M)
+*>          A is COMPLEX*20 array, dimension (LDA,M)
 *>          On entry, the lower triangular M-by-M matrix A.
 *>          On exit, the elements on and below the diagonal of the array
 *>          contain the lower triangular matrix L.
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          On entry, the pentagonal M-by-N matrix B.  The first N-L columns
 *>          are rectangular, and the last L columns are lower trapezoidal.
 *>          On exit, B contains the pentagonal matrix V.  See Further Details.
@@ -93,7 +93,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,M)
+*>          T is COMPLEX*20 array, dimension (LDT,M)
 *>          The N-by-N upper triangular factor T of the block reflector.
 *>          See Further Details.
 *> \endverbatim
@@ -183,18 +183,18 @@
       INTEGER        INFO, LDA, LDB, LDT, N, M, L
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16     A( LDA, * ), B( LDB, * ), T( LDT, * )
+      COMPLEX*20     A( LDA, * ), B( LDB, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16  ONE, ZERO
+      COMPLEX*20  ONE, ZERO
       PARAMETER( ZERO = ( 0.0D+0, 0.0D+0 ),ONE  = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER   I, J, P, MP, NP
-      COMPLEX*16   ALPHA
+      COMPLEX*20   ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL  ZLARFG, ZGEMV, ZGERC, ZTRMV, XERBLA

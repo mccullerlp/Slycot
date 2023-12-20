@@ -24,7 +24,7 @@
 *       INTEGER            L, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -63,7 +63,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the leading M-by-N upper trapezoidal part of the
 *>          array A must contain the matrix to be factorized.
 *>          On exit, the leading M-by-M upper triangular part of A
@@ -80,13 +80,13 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (M)
+*>          TAU is COMPLEX*20 array, dimension (M)
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (M)
+*>          WORK is COMPLEX*20 array, dimension (M)
 *> \endverbatim
 *
 *  Authors:
@@ -146,18 +146,18 @@
       INTEGER            L, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), TAU( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      COMPLEX*16         ALPHA
+      COMPLEX*20         ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZLACGV, ZLARFG, ZLARZ

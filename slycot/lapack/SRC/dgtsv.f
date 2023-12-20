@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), D( * ), DL( * ), DU( * )
+*       REAL*10   B( LDB, * ), D( * ), DL( * ), DU( * )
 *       ..
 *
 *
@@ -62,7 +62,7 @@
 *>
 *> \param[in,out] DL
 *> \verbatim
-*>          DL is DOUBLE PRECISION array, dimension (N-1)
+*>          DL is REAL*10 array, dimension (N-1)
 *>          On entry, DL must contain the (n-1) sub-diagonal elements of
 *>          A.
 *>
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, D must contain the diagonal elements of A.
 *>
 *>          On exit, D is overwritten by the n diagonal elements of U.
@@ -81,7 +81,7 @@
 *>
 *> \param[in,out] DU
 *> \verbatim
-*>          DU is DOUBLE PRECISION array, dimension (N-1)
+*>          DU is REAL*10 array, dimension (N-1)
 *>          On entry, DU must contain the (n-1) super-diagonal elements
 *>          of A.
 *>
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          On entry, the N by NRHS matrix of right hand side matrix B.
 *>          On exit, if INFO = 0, the N by NRHS solution matrix X.
 *> \endverbatim
@@ -133,18 +133,18 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), D( * ), DL( * ), DU( * )
+      REAL*10   B( LDB, * ), D( * ), DL( * ), DU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   FACT, TEMP
+      REAL*10   FACT, TEMP
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX

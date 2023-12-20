@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), W( LDW, * )
+*       REAL*10   A( LDA, * ), W( LDW, * )
 *       ..
 *
 *
@@ -88,7 +88,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 *>          n-by-n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -133,7 +133,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (LDW,NB)
+*>          W is REAL*10 array, dimension (LDW,NB)
 *> \endverbatim
 *>
 *> \param[in] LDW
@@ -184,21 +184,21 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), W( LDW, * )
+      REAL*10   A( LDA, * ), W( LDW, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   EIGHT, SEVTEN
+      REAL*10   EIGHT, SEVTEN
       PARAMETER          ( EIGHT = 8.0D+0, SEVTEN = 17.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            IMAX, J, JB, JJ, JMAX, JP, K, KK, KKW, KP,
      $                   KSTEP, KW
-      DOUBLE PRECISION   ABSAKK, ALPHA, COLMAX, D11, D21, D22, R1,
+      REAL*10   ABSAKK, ALPHA, COLMAX, D11, D21, D22, R1,
      $                   ROWMAX, T
 *     ..
 *     .. External Functions ..

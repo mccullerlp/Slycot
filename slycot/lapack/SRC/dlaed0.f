@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), Q( LDQ, * ), QSTORE( LDQS, * ),
+*       REAL*10   D( * ), E( * ), Q( LDQ, * ), QSTORE( LDQS, * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -69,21 +69,21 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry, the main diagonal of the tridiagonal matrix.
 *>         On exit, its eigenvalues.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>         The off-diagonal elements of the tridiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>         On entry, Q must contain an N-by-N orthogonal matrix.
 *>         If ICOMPQ = 0    Q is not referenced.
 *>         If ICOMPQ = 1    On entry, Q is a subset of the columns of the
@@ -105,7 +105,7 @@
 *>
 *> \param[out] QSTORE
 *> \verbatim
-*>          QSTORE is DOUBLE PRECISION array, dimension (LDQS, N)
+*>          QSTORE is REAL*10 array, dimension (LDQS, N)
 *>         Referenced only when ICOMPQ = 1.  Used to store parts of
 *>         the eigenvector matrix when the updating matrix multiplies
 *>         take place.
@@ -120,7 +120,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array,
+*>          WORK is REAL*10 array,
 *>         If ICOMPQ = 0 or 1, the dimension of WORK must be at least
 *>                     1 + 3*N + 2*N*lg N + 3*N**2
 *>                     ( lg( N ) = smallest integer k
@@ -179,14 +179,14 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), Q( LDQ, * ), QSTORE( LDQS, * ),
+      REAL*10   D( * ), E( * ), Q( LDQ, * ), QSTORE( LDQS, * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.D0, ONE = 1.D0, TWO = 2.D0 )
 *     ..
 *     .. Local Scalars ..
@@ -194,7 +194,7 @@
      $                   IGIVPT, INDXQ, IPERM, IPRMPT, IQ, IQPTR, IWREM,
      $                   J, K, LGN, MATSIZ, MSD2, SMLSIZ, SMM1, SPM1,
      $                   SPM2, SUBMAT, SUBPBS, TLVLS
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DGEMM, DLACPY, DLAED1, DLAED7, DSTEQR,

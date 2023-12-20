@@ -25,11 +25,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBQ, JOBU, JOBV
 *       INTEGER            INFO, K, L, LDA, LDB, LDQ, LDU, LDV, M, N, P, LWORK
-*       DOUBLE PRECISION   TOLA, TOLB
+*       REAL*10   TOLA, TOLB
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   TAU( * ), U( LDU, * ), V( LDV, * ), WORK( * )
 *       ..
 *
@@ -108,7 +108,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A contains the triangular (or trapezoidal) matrix
 *>          described in the Purpose section.
@@ -122,7 +122,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, B contains the triangular matrix described in
 *>          the Purpose section.
@@ -136,12 +136,12 @@
 *>
 *> \param[in] TOLA
 *> \verbatim
-*>          TOLA is DOUBLE PRECISION
+*>          TOLA is REAL*10
 *> \endverbatim
 *>
 *> \param[in] TOLB
 *> \verbatim
-*>          TOLB is DOUBLE PRECISION
+*>          TOLB is REAL*10
 *>
 *>          TOLA and TOLB are the thresholds to determine the effective
 *>          numerical rank of matrix B and a subblock of A. Generally,
@@ -168,7 +168,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU,M)
+*>          U is REAL*10 array, dimension (LDU,M)
 *>          If JOBU = 'U', U contains the orthogonal matrix U.
 *>          If JOBU = 'N', U is not referenced.
 *> \endverbatim
@@ -182,7 +182,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,P)
+*>          V is REAL*10 array, dimension (LDV,P)
 *>          If JOBV = 'V', V contains the orthogonal matrix V.
 *>          If JOBV = 'N', V is not referenced.
 *> \endverbatim
@@ -196,7 +196,7 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          If JOBQ = 'Q', Q contains the orthogonal matrix Q.
 *>          If JOBQ = 'N', Q is not referenced.
 *> \endverbatim
@@ -215,12 +215,12 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (N)
+*>          TAU is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -280,18 +280,18 @@
       CHARACTER          JOBQ, JOBU, JOBV
       INTEGER            INFO, K, L, LDA, LDB, LDQ, LDU, LDV, M, N, P,
      $                   LWORK
-      DOUBLE PRECISION   TOLA, TOLB
+      REAL*10   TOLA, TOLB
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   TAU( * ), U( LDU, * ), V( LDV, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

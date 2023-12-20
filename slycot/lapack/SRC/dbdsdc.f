@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IQ( * ), IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), Q( * ), U( LDU, * ),
+*       REAL*10   D( * ), E( * ), Q( * ), U( LDU, * ),
 *      $                   VT( LDVT, * ), WORK( * )
 *       ..
 *
@@ -86,14 +86,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the bidiagonal matrix B.
 *>          On exit, if INFO=0, the singular values of B.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the elements of E contain the offdiagonal
 *>          elements of the bidiagonal matrix whose SVD is desired.
 *>          On exit, E has been destroyed.
@@ -101,7 +101,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU,N)
+*>          U is REAL*10 array, dimension (LDU,N)
 *>          If  COMPQ = 'I', then:
 *>             On exit, if INFO = 0, U contains the left singular vectors
 *>             of the bidiagonal matrix.
@@ -117,7 +117,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension (LDVT,N)
+*>          VT is REAL*10 array, dimension (LDVT,N)
 *>          If  COMPQ = 'I', then:
 *>             On exit, if INFO = 0, VT**T contains the right singular
 *>             vectors of the bidiagonal matrix.
@@ -133,12 +133,12 @@
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ)
+*>          Q is REAL*10 array, dimension (LDQ)
 *>          If  COMPQ = 'P', then:
 *>             On exit, if INFO = 0, Q and IQ contain the left
 *>             and right singular vectors in a compact form,
 *>             requiring O(N log N) space instead of 2*N**2.
-*>             In particular, Q contains all the DOUBLE PRECISION data in
+*>             In particular, Q contains all the REAL*10 data in
 *>             LDQ >= N*(11 + 2*SMLSIZ + 8*INT(LOG_2(N/(SMLSIZ+1))))
 *>             words of memory, where SMLSIZ is returned by ILAENV and
 *>             is equal to the maximum size of the subproblems at the
@@ -163,7 +163,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          If COMPQ = 'N' then LWORK >= (4 * N).
 *>          If COMPQ = 'P' then LWORK >= (6 * N).
 *>          If COMPQ = 'I' then LWORK >= (3 * N**2 + 4 * N).
@@ -213,7 +213,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IQ( * ), IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), Q( * ), U( LDU, * ),
+      REAL*10   D( * ), E( * ), Q( * ), U( LDU, * ),
      $                   VT( LDVT, * ), WORK( * )
 *     ..
 *
@@ -223,7 +223,7 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -231,12 +231,12 @@
      $                   ICOMPQ, IERR, II, IS, IU, IUPLO, IVT, J, K, KK,
      $                   MLVL, NM1, NSIZE, PERM, POLES, QSTART, SMLSIZ,
      $                   SMLSZP, SQRE, START, WSTART, Z
-      DOUBLE PRECISION   CS, EPS, ORGNRM, P, R, SN
+      REAL*10   CS, EPS, ORGNRM, P, R, SN
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            ILAENV
-      DOUBLE PRECISION   DLAMCH, DLANST
+      REAL*10   DLAMCH, DLANST
       EXTERNAL           LSAME, ILAENV, DLAMCH, DLANST
 *     ..
 *     .. External Subroutines ..

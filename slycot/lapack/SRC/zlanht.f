@@ -18,15 +18,15 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLANHT( NORM, N, D, E )
+*       REAL*10 FUNCTION ZLANHT( NORM, N, D, E )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM
 *       INTEGER            N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * )
-*       COMPLEX*16         E( * )
+*       REAL*10   D( * )
+*       COMPLEX*20         E( * )
 *       ..
 *
 *
@@ -76,13 +76,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N-1)
+*>          E is COMPLEX*20 array, dimension (N-1)
 *>          The (n-1) sub-diagonal or super-diagonal elements of A.
 *> \endverbatim
 *
@@ -97,7 +97,7 @@
 *> \ingroup complex16OTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLANHT( NORM, N, D, E )
+      REAL*10 FUNCTION ZLANHT( NORM, N, D, E )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -108,19 +108,19 @@
       INTEGER            N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * )
-      COMPLEX*16         E( * )
+      REAL*10   D( * )
+      COMPLEX*20         E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      DOUBLE PRECISION   ANORM, SCALE, SUM
+      REAL*10   ANORM, SCALE, SUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN

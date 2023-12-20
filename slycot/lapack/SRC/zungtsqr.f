@@ -25,7 +25,7 @@
 *       INTEGER           INFO, LDA, LDT, LWORK, M, N, MB, NB
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16        A( LDA, * ), T( LDT, * ), WORK( * )
+*       COMPLEX*20        A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *> \par Purpose:
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>
 *>          On entry:
 *>
@@ -102,7 +102,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is COMPLEX*16 array,
+*>          T is COMPLEX*20 array,
 *>          dimension (LDT, N * NIRB)
 *>          where NIRB = Number_of_input_row_blocks
 *>                     = MAX( 1, CEIL((M-N)/(MB-N)) )
@@ -127,7 +127,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) COMPLEX*16 array, dimension (MAX(2,LWORK))
+*>          (workspace) COMPLEX*20 array, dimension (MAX(2,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -182,13 +182,13 @@
       INTEGER           INFO, LDA, LDT, LWORK, M, N, MB, NB
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16        A( LDA, * ), T( LDT, * ), WORK( * )
+      COMPLEX*20        A( LDA, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                     CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

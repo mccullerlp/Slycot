@@ -23,10 +23,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, K, KSTART, KSTOP, LDQ, LDS, N
-*       DOUBLE PRECISION   RHO
+*       REAL*10   RHO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), DLAMDA( * ), Q( LDQ, * ), S( LDS, * ),
+*       REAL*10   D( * ), DLAMDA( * ), Q( LDQ, * ), S( LDS, * ),
 *      $                   W( * )
 *       ..
 *
@@ -73,14 +73,14 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          D(I) contains the updated eigenvalues
 *>          for KSTART <= I <= KSTOP.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -91,14 +91,14 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>          The value of the parameter in the rank one update equation.
 *>          RHO >= 0 required.
 *> \endverbatim
 *>
 *> \param[in] DLAMDA
 *> \verbatim
-*>          DLAMDA is DOUBLE PRECISION array, dimension (K)
+*>          DLAMDA is REAL*10 array, dimension (K)
 *>          The first K elements of this array contain the old roots
 *>          of the deflated updating problem.  These are the poles
 *>          of the secular equation.
@@ -106,14 +106,14 @@
 *>
 *> \param[in] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (K)
+*>          W is REAL*10 array, dimension (K)
 *>          The first K elements of this array contain the components
 *>          of the deflation-adjusted updating vector.
 *> \endverbatim
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (LDS, K)
+*>          S is REAL*10 array, dimension (LDS, K)
 *>          Will contain the eigenvectors of the repaired matrix which
 *>          will be stored for subsequent Z vector calculation and
 *>          multiplied by the previously accumulated eigenvectors
@@ -160,10 +160,10 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, K, KSTART, KSTOP, LDQ, LDS, N
-      DOUBLE PRECISION   RHO
+      REAL*10   RHO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), DLAMDA( * ), Q( LDQ, * ), S( LDS, * ),
+      REAL*10   D( * ), DLAMDA( * ), Q( LDQ, * ), S( LDS, * ),
      $                   W( * )
 *     ..
 *
@@ -171,10 +171,10 @@
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMC3, DNRM2
+      REAL*10   DLAMC3, DNRM2
       EXTERNAL           DLAMC3, DNRM2
 *     ..
 *     .. External Subroutines ..

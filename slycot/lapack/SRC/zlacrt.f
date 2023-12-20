@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, INCY, N
-*       COMPLEX*16         C, S
+*       COMPLEX*20         C, S
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         CX( * ), CY( * )
+*       COMPLEX*20         CX( * ), CY( * )
 *       ..
 *
 *
@@ -53,7 +53,7 @@
 *>
 *> \param[in,out] CX
 *> \verbatim
-*>          CX is COMPLEX*16 array, dimension (N)
+*>          CX is COMPLEX*20 array, dimension (N)
 *>          On input, the vector x.
 *>          On output, CX is overwritten with c*x + s*y.
 *> \endverbatim
@@ -66,7 +66,7 @@
 *>
 *> \param[in,out] CY
 *> \verbatim
-*>          CY is COMPLEX*16 array, dimension (N)
+*>          CY is COMPLEX*20 array, dimension (N)
 *>          On input, the vector y.
 *>          On output, CY is overwritten with -s*x + c*y.
 *> \endverbatim
@@ -79,12 +79,12 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is COMPLEX*16
+*>          C is COMPLEX*20
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is COMPLEX*16
+*>          S is COMPLEX*20
 *>          C and S define the matrix
 *>             [  C   S  ].
 *>             [ -S   C  ]
@@ -109,17 +109,17 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, INCY, N
-      COMPLEX*16         C, S
+      COMPLEX*20         C, S
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         CX( * ), CY( * )
+      COMPLEX*20         CX( * ), CY( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IX, IY
-      COMPLEX*16         CTEMP
+      COMPLEX*20         CTEMP
 *     ..
 *     .. Executable Statements ..
 *

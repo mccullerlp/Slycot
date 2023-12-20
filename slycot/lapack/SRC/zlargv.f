@@ -24,8 +24,8 @@
 *       INTEGER            INCC, INCX, INCY, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * )
-*       COMPLEX*16         X( * ), Y( * )
+*       REAL*10   C( * )
+*       COMPLEX*20         X( * ), Y( * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+*>          X is COMPLEX*20 array, dimension (1+(N-1)*INCX)
 *>          On entry, the vector x.
 *>          On exit, x(i) is overwritten by r(i), for i = 1,...,n.
 *> \endverbatim
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (1+(N-1)*INCY)
+*>          Y is COMPLEX*20 array, dimension (1+(N-1)*INCY)
 *>          On entry, the vector y.
 *>          On exit, the sines of the plane rotations.
 *> \endverbatim
@@ -86,7 +86,7 @@
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+*>          C is REAL*10 array, dimension (1+(N-1)*INCC)
 *>          The cosines of the plane rotations.
 *> \endverbatim
 *>
@@ -128,28 +128,28 @@
       INTEGER            INCC, INCX, INCY, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * )
-      COMPLEX*16         X( * ), Y( * )
+      REAL*10   C( * )
+      COMPLEX*20         X( * ), Y( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   TWO, ONE, ZERO
+      REAL*10   TWO, ONE, ZERO
       PARAMETER          ( TWO = 2.0D+0, ONE = 1.0D+0, ZERO = 0.0D+0 )
-      COMPLEX*16         CZERO
+      COMPLEX*20         CZERO
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
 *     LOGICAL            FIRST
 
       INTEGER            COUNT, I, IC, IX, IY, J
-      DOUBLE PRECISION   CS, D, DI, DR, EPS, F2, F2S, G2, G2S, SAFMIN,
+      REAL*10   CS, D, DI, DR, EPS, F2, F2S, G2, G2S, SAFMIN,
      $                   SAFMN2, SAFMX2, SCALE
-      COMPLEX*16         F, FF, FS, G, GS, R, SN
+      COMPLEX*20         F, FF, FS, G, GS, R, SN
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLAPY2
+      REAL*10   DLAMCH, DLAPY2
       EXTERNAL           DLAMCH, DLAPY2
 *     ..
 *     .. Intrinsic Functions ..
@@ -157,7 +157,7 @@
      $                   MAX, SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   ABS1, ABSSQ
+      REAL*10   ABS1, ABSSQ
 *     ..
 *     .. Save statement ..
 *     SAVE               FIRST, SAFMX2, SAFMIN, SAFMN2

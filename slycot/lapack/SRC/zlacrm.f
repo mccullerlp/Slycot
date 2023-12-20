@@ -24,8 +24,8 @@
 *       INTEGER            LDA, LDB, LDC, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   B( LDB, * ), RWORK( * )
-*       COMPLEX*16         A( LDA, * ), C( LDC, * )
+*       REAL*10   B( LDB, * ), RWORK( * )
+*       COMPLEX*20         A( LDA, * ), C( LDC, * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, N)
+*>          A is COMPLEX*20 array, dimension (LDA, N)
 *>          On entry, A contains the M by N matrix A.
 *> \endverbatim
 *>
@@ -72,7 +72,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, B contains the N by N matrix B.
 *> \endverbatim
 *>
@@ -84,7 +84,7 @@
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC, N)
+*>          C is COMPLEX*20 array, dimension (LDC, N)
 *>          On exit, C contains the M by N matrix C.
 *> \endverbatim
 *>
@@ -96,7 +96,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*M*N)
+*>          RWORK is REAL*10 array, dimension (2*M*N)
 *> \endverbatim
 *
 *  Authors:
@@ -120,14 +120,14 @@
       INTEGER            LDA, LDB, LDC, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   B( LDB, * ), RWORK( * )
-      COMPLEX*16         A( LDA, * ), C( LDC, * )
+      REAL*10   B( LDB, * ), RWORK( * )
+      COMPLEX*20         A( LDA, * ), C( LDC, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D0, ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..

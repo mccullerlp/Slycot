@@ -8,13 +8,13 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DASUM(N,DX,INCX)
+*       REAL*10 FUNCTION DASUM(N,DX,INCX)
 *
 *       .. Scalar Arguments ..
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DX(*)
+*       REAL*10 DX(*)
 *       ..
 *
 *
@@ -37,7 +37,7 @@
 *>
 *> \param[in] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          DX is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -67,7 +67,7 @@
 *> \endverbatim
 *>
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DASUM(N,DX,INCX)
+      REAL*10 FUNCTION DASUM(N,DX,INCX)
 *
 *  -- Reference BLAS level1 routine --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -77,13 +77,13 @@
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DX(*)
+      REAL*10 DX(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION DTEMP
+      REAL*10 DTEMP
       INTEGER I,M,MP1,NINCX
 *     ..
 *     .. Intrinsic Functions ..

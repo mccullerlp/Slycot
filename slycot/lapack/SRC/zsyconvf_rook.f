@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), E( * )
+*       COMPLEX*20         A( LDA, * ), E( * )
 *       ..
 *
 *
@@ -80,7 +80,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>
 *>          1) If WAY ='C':
 *>
@@ -133,7 +133,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N)
+*>          E is COMPLEX*20 array, dimension (N)
 *>
 *>          1) If WAY ='C':
 *>
@@ -208,13 +208,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), E( * )
+      COMPLEX*20         A( LDA, * ), E( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO
+      COMPLEX*20         ZERO
       PARAMETER          ( ZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..
 *     .. External Functions ..

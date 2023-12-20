@@ -26,8 +26,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   VN1( * ), VN2( * )
-*       COMPLEX*16         A( LDA, * ), AUXV( * ), F( LDF, * ), TAU( * )
+*       REAL*10   VN1( * ), VN2( * )
+*       COMPLEX*20         A( LDA, * ), AUXV( * ), F( LDF, * ), TAU( * )
 *       ..
 *
 *
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, block A(OFFSET+1:M,1:KB) is the triangular
 *>          factor obtained and block A(1:OFFSET,1:N) has been
@@ -108,31 +108,31 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (KB)
+*>          TAU is COMPLEX*20 array, dimension (KB)
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[in,out] VN1
 *> \verbatim
-*>          VN1 is DOUBLE PRECISION array, dimension (N)
+*>          VN1 is REAL*10 array, dimension (N)
 *>          The vector with the partial column norms.
 *> \endverbatim
 *>
 *> \param[in,out] VN2
 *> \verbatim
-*>          VN2 is DOUBLE PRECISION array, dimension (N)
+*>          VN2 is REAL*10 array, dimension (N)
 *>          The vector with the exact column norms.
 *> \endverbatim
 *>
 *> \param[in,out] AUXV
 *> \verbatim
-*>          AUXV is COMPLEX*16 array, dimension (NB)
+*>          AUXV is COMPLEX*20 array, dimension (NB)
 *>          Auxiliary vector.
 *> \endverbatim
 *>
 *> \param[in,out] F
 *> \verbatim
-*>          F is COMPLEX*16 array, dimension (LDF,NB)
+*>          F is COMPLEX*20 array, dimension (LDF,NB)
 *>          Matrix F**H = L * Y**H * A.
 *> \endverbatim
 *>
@@ -184,23 +184,23 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   VN1( * ), VN2( * )
-      COMPLEX*16         A( LDA, * ), AUXV( * ), F( LDF, * ), TAU( * )
+      REAL*10   VN1( * ), VN2( * )
+      COMPLEX*20         A( LDA, * ), AUXV( * ), F( LDF, * ), TAU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
-      COMPLEX*16         CZERO, CONE
+      REAL*10   ZERO, ONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0,
      $                   CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            ITEMP, J, K, LASTRK, LSTICC, PVT, RK
-      DOUBLE PRECISION   TEMP, TEMP2, TOL3Z
-      COMPLEX*16         AKK
+      REAL*10   TEMP, TEMP2, TOL3Z
+      COMPLEX*20         AKK
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZGEMM, ZGEMV, ZLARFG, ZSWAP
@@ -210,7 +210,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DLAMCH, DZNRM2
+      REAL*10   DLAMCH, DZNRM2
       EXTERNAL           IDAMAX, DLAMCH, DZNRM2
 *     ..
 *     .. Executable Statements ..

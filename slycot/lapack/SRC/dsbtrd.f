@@ -26,7 +26,7 @@
 *       INTEGER            INFO, KD, LDAB, LDQ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), D( * ), E( * ), Q( LDQ, * ),
+*       REAL*10   AB( LDAB, * ), D( * ), E( * ), Q( LDQ, * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -74,7 +74,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the symmetric band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -97,20 +97,20 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The off-diagonal elements of the tridiagonal matrix T:
 *>          E(i) = T(i,i+1) if UPLO = 'U'; E(i) = T(i+1,i) if UPLO = 'L'.
 *> \endverbatim
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          On entry, if VECT = 'U', then Q must contain an N-by-N
 *>          matrix X; if VECT = 'N' or 'V', then Q need not be set.
 *>
@@ -129,7 +129,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N)
+*>          WORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -170,14 +170,14 @@
       INTEGER            INFO, KD, LDAB, LDQ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), D( * ), E( * ), Q( LDQ, * ),
+      REAL*10   AB( LDAB, * ), D( * ), E( * ), Q( LDQ, * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -185,7 +185,7 @@
       INTEGER            I, I2, IBL, INCA, INCX, IQAEND, IQB, IQEND, J,
      $                   J1, J1END, J1INC, J2, JEND, JIN, JINC, K, KD1,
      $                   KDM1, KDN, L, LAST, LEND, NQ, NR, NRT
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLAR2V, DLARGV, DLARTG, DLARTV, DLASET, DROT,

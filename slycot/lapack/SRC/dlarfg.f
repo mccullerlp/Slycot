@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, N
-*       DOUBLE PRECISION   ALPHA, TAU
+*       REAL*10   ALPHA, TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   X( * )
+*       REAL*10   X( * )
 *       ..
 *
 *
@@ -66,14 +66,14 @@
 *>
 *> \param[in,out] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>          On entry, the value alpha.
 *>          On exit, it is overwritten with the value beta.
 *> \endverbatim
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension
+*>          X is REAL*10 array, dimension
 *>                         (1+(N-2)*abs(INCX))
 *>          On entry, the vector x.
 *>          On exit, it is overwritten with the vector v.
@@ -87,7 +87,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>          The value tau.
 *> \endverbatim
 *
@@ -110,24 +110,24 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, N
-      DOUBLE PRECISION   ALPHA, TAU
+      REAL*10   ALPHA, TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   X( * )
+      REAL*10   X( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J, KNT
-      DOUBLE PRECISION   BETA, RSAFMN, SAFMIN, XNORM
+      REAL*10   BETA, RSAFMN, SAFMIN, XNORM
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, DLAPY2, DNRM2
+      REAL*10   DLAMCH, DLAPY2, DNRM2
       EXTERNAL           DLAMCH, DLAPY2, DNRM2
 *     ..
 *     .. Intrinsic Functions ..

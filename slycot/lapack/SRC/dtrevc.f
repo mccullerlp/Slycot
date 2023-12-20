@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
-*       DOUBLE PRECISION   T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
+*       REAL*10   T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -102,7 +102,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          The upper quasi-triangular matrix T in Schur canonical form.
 *> \endverbatim
 *>
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,MM)
+*>          VL is REAL*10 array, dimension (LDVL,MM)
 *>          On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
 *>          contain an N-by-N matrix Q (usually the orthogonal matrix Q
 *>          of Schur vectors returned by DHSEQR).
@@ -140,7 +140,7 @@
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,MM)
+*>          VR is REAL*10 array, dimension (LDVR,MM)
 *>          On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
 *>          contain an N-by-N matrix Q (usually the orthogonal matrix Q
 *>          of Schur vectors returned by DHSEQR).
@@ -182,7 +182,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -230,27 +230,27 @@
 *     ..
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
-      DOUBLE PRECISION   T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
+      REAL*10   T( LDT, * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            ALLV, BOTHV, LEFTV, OVER, PAIR, RIGHTV, SOMEV
       INTEGER            I, IERR, II, IP, IS, J, J1, J2, JNXT, K, KI, N2
-      DOUBLE PRECISION   BETA, BIGNUM, EMAX, OVFL, REC, REMAX, SCALE,
+      REAL*10   BETA, BIGNUM, EMAX, OVFL, REC, REMAX, SCALE,
      $                   SMIN, SMLNUM, ULP, UNFL, VCRIT, VMAX, WI, WR,
      $                   XNORM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DDOT, DLAMCH
+      REAL*10   DDOT, DLAMCH
       EXTERNAL           LSAME, IDAMAX, DDOT, DLAMCH
 *     ..
 *     .. External Subroutines ..
@@ -261,7 +261,7 @@
       INTRINSIC          ABS, MAX, SQRT
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   X( 2, 2 )
+      REAL*10   X( 2, 2 )
 *     ..
 *     .. Executable Statements ..
 *

@@ -10,7 +10,7 @@
 *       INTEGER           INFO, LDA, M, N, MB, NB, LDT, LWORK
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16        A( LDA, * ), T( LDT, * ), WORK( * )
+*       COMPLEX*20        A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the elements on and above the diagonal
 *>          of the array contain the N-by-N upper triangular matrix R;
@@ -85,7 +85,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array,
+*>          T is COMPLEX*20 array,
 *>          dimension (LDT, N * Number_of_row_blocks)
 *>          where Number_of_row_blocks = CEIL((M-N)/(MB-N))
 *>          The blocked upper triangular block reflectors stored in compact form
@@ -101,7 +101,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>         (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>         (workspace) COMPLEX*20 array, dimension (MAX(1,LWORK))
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -172,7 +172,7 @@
       INTEGER           INFO, LDA, M, N, MB, NB, LDT, LWORK
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16        A( LDA, * ), WORK( * ), T(LDT, *)
+      COMPLEX*20        A( LDA, * ), WORK( * ), T(LDT, *)
 *     ..
 *
 *  =====================================================================

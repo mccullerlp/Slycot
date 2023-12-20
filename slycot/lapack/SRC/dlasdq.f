@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDC, LDU, LDVT, N, NCC, NCVT, NRU, SQRE
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( LDC, * ), D( * ), E( * ), U( LDU, * ),
+*       REAL*10   C( LDC, * ), D( * ), E( * ), U( LDU, * ),
 *      $                   VT( LDVT, * ), WORK( * )
 *       ..
 *
@@ -107,7 +107,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>        On entry, D contains the diagonal entries of the
 *>        bidiagonal matrix whose SVD is desired. On normal exit,
 *>        D contains the singular values in ascending order.
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array.
+*>          E is REAL*10 array.
 *>        dimension is (N-1) if SQRE = 0 and N if SQRE = 1.
 *>        On entry, the entries of E contain the offdiagonal entries
 *>        of the bidiagonal matrix whose SVD is desired. On normal
@@ -127,7 +127,7 @@
 *>
 *> \param[in,out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension (LDVT, NCVT)
+*>          VT is REAL*10 array, dimension (LDVT, NCVT)
 *>        On entry, contains a matrix which on exit has been
 *>        premultiplied by P**T, dimension N-by-NCVT if SQRE = 0
 *>        and (N+1)-by-NCVT if SQRE = 1 (not referenced if NCVT=0).
@@ -143,7 +143,7 @@
 *>
 *> \param[in,out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU, N)
+*>          U is REAL*10 array, dimension (LDU, N)
 *>        On entry, contains a  matrix which on exit has been
 *>        postmultiplied by Q, dimension NRU-by-N if SQRE = 0
 *>        and NRU-by-(N+1) if SQRE = 1 (not referenced if NRU=0).
@@ -159,7 +159,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC, NCC)
+*>          C is REAL*10 array, dimension (LDC, NCC)
 *>        On entry, contains an N-by-NCC matrix which on exit
 *>        has been premultiplied by Q**T  dimension N-by-NCC if SQRE = 0
 *>        and (N+1)-by-NCC if SQRE = 1 (not referenced if NCC=0).
@@ -175,7 +175,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *>        Workspace. Only referenced if one of NCVT, NRU, or NCC is
 *>        nonzero, and if N is at least 2.
 *> \endverbatim
@@ -218,20 +218,20 @@
       INTEGER            INFO, LDC, LDU, LDVT, N, NCC, NCVT, NRU, SQRE
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( LDC, * ), D( * ), E( * ), U( LDU, * ),
+      REAL*10   C( LDC, * ), D( * ), E( * ), U( LDU, * ),
      $                   VT( LDVT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            ROTATE
       INTEGER            I, ISUB, IUPLO, J, NP1, SQRE1
-      DOUBLE PRECISION   CS, R, SMIN, SN
+      REAL*10   CS, R, SMIN, SN
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DBDSQR, DLARTG, DLASR, DSWAP, XERBLA

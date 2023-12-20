@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISEED( 4 )
-*       COMPLEX*16         X( * )
+*       COMPLEX*20         X( * )
 *       ..
 *
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>          The generated random numbers.
 *> \endverbatim
 *
@@ -106,24 +106,24 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISEED( 4 )
-      COMPLEX*16         X( * )
+      COMPLEX*20         X( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO
+      REAL*10   ZERO, ONE, TWO
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, TWO = 2.0D+0 )
       INTEGER            LV
       PARAMETER          ( LV = 128 )
-      DOUBLE PRECISION   TWOPI
+      REAL*10   TWOPI
       PARAMETER  ( TWOPI = 6.28318530717958647692528676655900576839D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IL, IV
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   U( LV )
+      REAL*10   U( LV )
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DCMPLX, EXP, LOG, MIN, SQRT

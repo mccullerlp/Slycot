@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLANGB( NORM, N, KL, KU, AB, LDAB,
+*       REAL*10 FUNCTION DLANGB( NORM, N, KL, KU, AB, LDAB,
 *                        WORK )
 *
 *       .. Scalar Arguments ..
@@ -26,7 +26,7 @@
 *       INTEGER            KL, KU, LDAB, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+*       REAL*10   AB( LDAB, * ), WORK( * )
 *       ..
 *
 *
@@ -88,7 +88,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          The band matrix A, stored in rows 1 to KL+KU+1.  The j-th
 *>          column of A is stored in the j-th column of the array AB as
 *>          follows:
@@ -103,7 +103,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= N when NORM = 'I'; otherwise, WORK is not
 *>          referenced.
 *> \endverbatim
@@ -119,7 +119,7 @@
 *> \ingroup doubleGBauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLANGB( NORM, N, KL, KU, AB, LDAB,
+      REAL*10 FUNCTION DLANGB( NORM, N, KL, KU, AB, LDAB,
      $                 WORK )
 *
 *  -- LAPACK auxiliary routine --
@@ -131,19 +131,19 @@
       INTEGER            KL, KU, LDAB, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), WORK( * )
+      REAL*10   AB( LDAB, * ), WORK( * )
 *     ..
 *
 * =====================================================================
 *
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J, K, L
-      DOUBLE PRECISION   SCALE, SUM, VALUE, TEMP
+      REAL*10   SCALE, SUM, VALUE, TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASSQ

@@ -21,7 +21,7 @@
 *       SUBROUTINE DLARTGP( F, G, CS, SN, R )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   CS, F, G, R, SN
+*       REAL*10   CS, F, G, R, SN
 *       ..
 *
 *
@@ -49,31 +49,31 @@
 *
 *> \param[in] F
 *> \verbatim
-*>          F is DOUBLE PRECISION
+*>          F is REAL*10
 *>          The first component of vector to be rotated.
 *> \endverbatim
 *>
 *> \param[in] G
 *> \verbatim
-*>          G is DOUBLE PRECISION
+*>          G is REAL*10
 *>          The second component of vector to be rotated.
 *> \endverbatim
 *>
 *> \param[out] CS
 *> \verbatim
-*>          CS is DOUBLE PRECISION
+*>          CS is REAL*10
 *>          The cosine of the rotation.
 *> \endverbatim
 *>
 *> \param[out] SN
 *> \verbatim
-*>          SN is DOUBLE PRECISION
+*>          SN is REAL*10
 *>          The sine of the rotation.
 *> \endverbatim
 *>
 *> \param[out] R
 *> \verbatim
-*>          R is DOUBLE PRECISION
+*>          R is REAL*10
 *>          The nonzero component of the rotated vector.
 *>
 *>  This version has a few statements commented out for thread safety
@@ -98,26 +98,26 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   CS, F, G, R, SN
+      REAL*10   CS, F, G, R, SN
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
 *     LOGICAL            FIRST
       INTEGER            COUNT, I
-      DOUBLE PRECISION   EPS, F1, G1, SAFMIN, SAFMN2, SAFMX2, SCALE
+      REAL*10   EPS, F1, G1, SAFMIN, SAFMN2, SAFMX2, SCALE
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

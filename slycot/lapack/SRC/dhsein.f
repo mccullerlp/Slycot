@@ -29,7 +29,7 @@
 *       .. Array Arguments ..
 *       LOGICAL            SELECT( * )
 *       INTEGER            IFAILL( * ), IFAILR( * )
-*       DOUBLE PRECISION   H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
+*       REAL*10   H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
 *      $                   WI( * ), WORK( * ), WR( * )
 *       ..
 *
@@ -106,7 +106,7 @@
 *>
 *> \param[in] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>          The upper Hessenberg matrix H.
 *>          If a NaN is detected in H, the routine will return with INFO=-6.
 *> \endverbatim
@@ -119,12 +119,12 @@
 *>
 *> \param[in,out] WR
 *> \verbatim
-*>          WR is DOUBLE PRECISION array, dimension (N)
+*>          WR is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[in] WI
 *> \verbatim
-*>          WI is DOUBLE PRECISION array, dimension (N)
+*>          WI is REAL*10 array, dimension (N)
 *>
 *>          On entry, the real and imaginary parts of the eigenvalues of
 *>          H; a complex conjugate pair of eigenvalues must be stored in
@@ -136,7 +136,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension (LDVL,MM)
+*>          VL is REAL*10 array, dimension (LDVL,MM)
 *>          On entry, if INITV = 'U' and SIDE = 'L' or 'B', VL must
 *>          contain starting vectors for the inverse iteration for the
 *>          left eigenvectors; the starting vector for each eigenvector
@@ -160,7 +160,7 @@
 *>
 *> \param[in,out] VR
 *> \verbatim
-*>          VR is DOUBLE PRECISION array, dimension (LDVR,MM)
+*>          VR is REAL*10 array, dimension (LDVR,MM)
 *>          On entry, if INITV = 'U' and SIDE = 'R' or 'B', VR must
 *>          contain starting vectors for the inverse iteration for the
 *>          right eigenvectors; the starting vector for each eigenvector
@@ -199,7 +199,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension ((N+2)*N)
+*>          WORK is REAL*10 array, dimension ((N+2)*N)
 *> \endverbatim
 *>
 *> \param[out] IFAILL
@@ -272,25 +272,25 @@
 *     .. Array Arguments ..
       LOGICAL            SELECT( * )
       INTEGER            IFAILL( * ), IFAILR( * )
-      DOUBLE PRECISION   H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
+      REAL*10   H( LDH, * ), VL( LDVL, * ), VR( LDVR, * ),
      $                   WI( * ), WORK( * ), WR( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            BOTHV, FROMQR, LEFTV, NOINIT, PAIR, RIGHTV
       INTEGER            I, IINFO, K, KL, KLN, KR, KSI, KSR, LDWORK
-      DOUBLE PRECISION   BIGNUM, EPS3, HNORM, SMLNUM, ULP, UNFL, WKI,
+      REAL*10   BIGNUM, EPS3, HNORM, SMLNUM, ULP, UNFL, WKI,
      $                   WKR
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
-      DOUBLE PRECISION   DLAMCH, DLANHS
+      REAL*10   DLAMCH, DLANHS
       EXTERNAL           LSAME, DLAMCH, DLANHS, DISNAN
 *     ..
 *     .. External Subroutines ..

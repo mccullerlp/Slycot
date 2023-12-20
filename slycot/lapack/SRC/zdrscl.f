@@ -22,10 +22,10 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INCX, N
-*       DOUBLE PRECISION   SA
+*       REAL*10   SA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         SX( * )
+*       COMPLEX*20         SX( * )
 *       ..
 *
 *
@@ -50,14 +50,14 @@
 *>
 *> \param[in] SA
 *> \verbatim
-*>          SA is DOUBLE PRECISION
+*>          SA is REAL*10
 *>          The scalar a which is used to divide each component of x.
 *>          SA must be >= 0, or the subroutine will divide by zero.
 *> \endverbatim
 *>
 *> \param[in,out] SX
 *> \verbatim
-*>          SX is COMPLEX*16 array, dimension
+*>          SX is COMPLEX*20 array, dimension
 *>                         (1+(N-1)*abs(INCX))
 *>          The n-element vector x.
 *> \endverbatim
@@ -88,24 +88,24 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INCX, N
-      DOUBLE PRECISION   SA
+      REAL*10   SA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         SX( * )
+      COMPLEX*20         SX( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            DONE
-      DOUBLE PRECISION   BIGNUM, CDEN, CDEN1, CNUM, CNUM1, MUL, SMLNUM
+      REAL*10   BIGNUM, CDEN, CDEN1, CNUM, CNUM1, MUL, SMLNUM
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

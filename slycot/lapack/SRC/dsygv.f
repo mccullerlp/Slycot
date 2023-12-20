@@ -26,7 +26,7 @@
 *       INTEGER            INFO, ITYPE, LDA, LDB, LWORK, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), W( * ), WORK( * )
+*       REAL*10   A( LDA, * ), B( LDB, * ), W( * ), WORK( * )
 *       ..
 *
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of A contains the
 *>          upper triangular part of the matrix A.  If UPLO = 'L',
@@ -101,7 +101,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the symmetric positive definite matrix B.
 *>          If UPLO = 'U', the leading N-by-N upper triangular part of B
 *>          contains the upper triangular part of the matrix B.
@@ -121,13 +121,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -182,13 +182,13 @@
       INTEGER            INFO, ITYPE, LDA, LDB, LWORK, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), W( * ), WORK( * )
+      REAL*10   A( LDA, * ), B( LDB, * ), W( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

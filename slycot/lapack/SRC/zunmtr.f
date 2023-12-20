@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDA, LDC, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -90,7 +90,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension
+*>          A is COMPLEX*20 array, dimension
 *>                               (LDA,M) if SIDE = 'L'
 *>                               (LDA,N) if SIDE = 'R'
 *>          The vectors which define the elementary reflectors, as
@@ -106,7 +106,7 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension
+*>          TAU is COMPLEX*20 array, dimension
 *>                               (M-1) if SIDE = 'L'
 *>                               (N-1) if SIDE = 'R'
 *>          TAU(i) must contain the scalar factor of the elementary
@@ -115,7 +115,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC,N)
+*>          C is COMPLEX*20 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q.
 *> \endverbatim
@@ -128,7 +128,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -178,7 +178,7 @@
       INTEGER            INFO, LDA, LDC, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

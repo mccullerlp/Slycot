@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( 0: * ), B( LDB, * )
+*       COMPLEX*20         A( 0: * ), B( LDB, * )
 *       ..
 *
 *
@@ -71,7 +71,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( N*(N+1)/2 );
+*>          A is COMPLEX*20 array, dimension ( N*(N+1)/2 );
 *>          The triangular factor U or L from the Cholesky factorization
 *>          of RFP A = U**H*U or RFP A = L*L**H, as computed by ZPFTRF.
 *>          See note below for more details about RFP A.
@@ -79,7 +79,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -227,13 +227,13 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( 0: * ), B( LDB, * )
+      COMPLEX*20         A( 0: * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

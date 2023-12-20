@@ -8,13 +8,13 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DZASUM(N,ZX,INCX)
+*       REAL*10 FUNCTION DZASUM(N,ZX,INCX)
 *
 *       .. Scalar Arguments ..
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 ZX(*)
+*       COMPLEX*20 ZX(*)
 *       ..
 *
 *
@@ -38,7 +38,7 @@
 *>
 *> \param[in,out] ZX
 *> \verbatim
-*>          ZX is COMPLEX*16 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          ZX is COMPLEX*20 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -68,7 +68,7 @@
 *> \endverbatim
 *>
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DZASUM(N,ZX,INCX)
+      REAL*10 FUNCTION DZASUM(N,ZX,INCX)
 *
 *  -- Reference BLAS level1 routine --
 *  -- Reference BLAS is a software package provided by Univ. of Tennessee,    --
@@ -78,17 +78,17 @@
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 ZX(*)
+      COMPLEX*20 ZX(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION STEMP
+      REAL*10 STEMP
       INTEGER I,NINCX
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION DCABS1
+      REAL*10 DCABS1
       EXTERNAL DCABS1
 *     ..
       DZASUM = 0.0d0

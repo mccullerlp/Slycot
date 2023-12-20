@@ -23,10 +23,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TYPE
 *       INTEGER            INFO, KL, KU, LDA, M, N
-*       DOUBLE PRECISION   CFROM, CTO
+*       REAL*10   CFROM, CTO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * )
+*       REAL*10   A( LDA, * )
 *       ..
 *
 *
@@ -79,12 +79,12 @@
 *>
 *> \param[in] CFROM
 *> \verbatim
-*>          CFROM is DOUBLE PRECISION
+*>          CFROM is REAL*10
 *> \endverbatim
 *>
 *> \param[in] CTO
 *> \verbatim
-*>          CTO is DOUBLE PRECISION
+*>          CTO is REAL*10
 *>
 *>          The matrix A is multiplied by CTO/CFROM. A(I,J) is computed
 *>          without over/underflow if the final result CTO*A(I,J)/CFROM
@@ -106,7 +106,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The matrix to be multiplied by CTO/CFROM.  See TYPE for the
 *>          storage type.
 *> \endverbatim
@@ -148,26 +148,26 @@
 *     .. Scalar Arguments ..
       CHARACTER          TYPE
       INTEGER            INFO, KL, KU, LDA, M, N
-      DOUBLE PRECISION   CFROM, CTO
+      REAL*10   CFROM, CTO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * )
+      REAL*10   A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            DONE
       INTEGER            I, ITYPE, J, K1, K2, K3, K4
-      DOUBLE PRECISION   BIGNUM, CFROM1, CFROMC, CTO1, CTOC, MUL, SMLNUM
+      REAL*10   BIGNUM, CFROM1, CFROMC, CTO1, CTOC, MUL, SMLNUM
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH, DISNAN
 *     ..
 *     .. Intrinsic Functions ..

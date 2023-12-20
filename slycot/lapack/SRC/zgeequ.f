@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, M, N
-*       DOUBLE PRECISION   AMAX, COLCND, ROWCND
+*       REAL*10   AMAX, COLCND, ROWCND
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * ), R( * )
-*       COMPLEX*16         A( LDA, * )
+*       REAL*10   C( * ), R( * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -65,7 +65,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          The M-by-N matrix whose equilibration factors are
 *>          to be computed.
 *> \endverbatim
@@ -78,20 +78,20 @@
 *>
 *> \param[out] R
 *> \verbatim
-*>          R is DOUBLE PRECISION array, dimension (M)
+*>          R is REAL*10 array, dimension (M)
 *>          If INFO = 0 or INFO > M, R contains the row scale factors
 *>          for A.
 *> \endverbatim
 *>
 *> \param[out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>          If INFO = 0,  C contains the column scale factors for A.
 *> \endverbatim
 *>
 *> \param[out] ROWCND
 *> \verbatim
-*>          ROWCND is DOUBLE PRECISION
+*>          ROWCND is REAL*10
 *>          If INFO = 0 or INFO > M, ROWCND contains the ratio of the
 *>          smallest R(i) to the largest R(i).  If ROWCND >= 0.1 and
 *>          AMAX is neither too large nor too small, it is not worth
@@ -100,7 +100,7 @@
 *>
 *> \param[out] COLCND
 *> \verbatim
-*>          COLCND is DOUBLE PRECISION
+*>          COLCND is REAL*10
 *>          If INFO = 0, COLCND contains the ratio of the smallest
 *>          C(i) to the largest C(i).  If COLCND >= 0.1, it is not
 *>          worth scaling by C.
@@ -108,7 +108,7 @@
 *>
 *> \param[out] AMAX
 *> \verbatim
-*>          AMAX is DOUBLE PRECISION
+*>          AMAX is REAL*10
 *>          Absolute value of largest matrix element.  If AMAX is very
 *>          close to overflow or very close to underflow, the matrix
 *>          should be scaled.
@@ -144,26 +144,26 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, M, N
-      DOUBLE PRECISION   AMAX, COLCND, ROWCND
+      REAL*10   AMAX, COLCND, ROWCND
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * ), R( * )
-      COMPLEX*16         A( LDA, * )
+      REAL*10   C( * ), R( * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   BIGNUM, RCMAX, RCMIN, SMLNUM
-      COMPLEX*16         ZDUM
+      REAL*10   BIGNUM, RCMAX, RCMIN, SMLNUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..
@@ -173,7 +173,7 @@
       INTRINSIC          ABS, DBLE, DIMAG, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

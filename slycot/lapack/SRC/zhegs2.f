@@ -25,7 +25,7 @@
 *       INTEGER            INFO, ITYPE, LDA, LDB, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          n by n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -94,7 +94,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>          The triangular factor from the Cholesky factorization of B,
 *>          as returned by ZPOTRF.
 *>          B is modified by the routine but restored on exit.
@@ -135,22 +135,22 @@
       INTEGER            INFO, ITYPE, LDA, LDB, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, HALF
+      REAL*10   ONE, HALF
       PARAMETER          ( ONE = 1.0D+0, HALF = 0.5D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            K
-      DOUBLE PRECISION   AKK, BKK
-      COMPLEX*16         CT
+      REAL*10   AKK, BKK
+      COMPLEX*20         CT
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZAXPY, ZDSCAL, ZHER2, ZLACGV, ZTRMV,

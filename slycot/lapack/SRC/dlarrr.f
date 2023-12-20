@@ -24,7 +24,7 @@
 *       INTEGER            N, INFO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
+*       REAL*10   D( * ), E( * )
 *       ..
 *
 *
@@ -50,13 +50,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The N diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, the first (N-1) entries contain the subdiagonal
 *>          elements of the tridiagonal matrix T; E(N) is set to ZERO.
 *> \endverbatim
@@ -100,26 +100,26 @@
       INTEGER            N, INFO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
+      REAL*10   D( * ), E( * )
 *     ..
 *
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, RELCOND
+      REAL*10   ZERO, RELCOND
       PARAMETER          ( ZERO = 0.0D0,
      $                     RELCOND = 0.999D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
       LOGICAL            YESREL
-      DOUBLE PRECISION   EPS, SAFMIN, SMLNUM, RMIN, TMP, TMP2,
+      REAL*10   EPS, SAFMIN, SMLNUM, RMIN, TMP, TMP2,
      $          OFFDIG, OFFDIG2
 
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

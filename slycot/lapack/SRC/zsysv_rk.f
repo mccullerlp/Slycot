@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), E( * ), WORK( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), E( * ), WORK( * )
 *       ..
 *
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.
 *>            If UPLO = 'U': the leading N-by-N upper triangular part
 *>            of A contains the upper triangular part of the matrix A,
@@ -113,7 +113,7 @@
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N)
+*>          E is COMPLEX*20 array, dimension (N)
 *>          On exit, contains the output computed by the factorization
 *>          routine ZSYTRF_RK, i.e. the superdiagonal (or subdiagonal)
 *>          elements of the symmetric block diagonal matrix D
@@ -139,7 +139,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the N-by-NRHS right hand side matrix B.
 *>          On exit, if INFO = 0, the N-by-NRHS solution matrix X.
 *> \endverbatim
@@ -152,7 +152,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension ( MAX(1,LWORK) ).
+*>          WORK is COMPLEX*20 array, dimension ( MAX(1,LWORK) ).
 *>          Work array used in the factorization stage.
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
@@ -236,7 +236,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), E( * ), WORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), E( * ), WORK( * )
 *     ..
 *
 *  =====================================================================

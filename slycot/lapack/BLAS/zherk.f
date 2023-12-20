@@ -11,12 +11,12 @@
 *       SUBROUTINE ZHERK(UPLO,TRANS,N,K,ALPHA,A,LDA,BETA,C,LDC)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION ALPHA,BETA
+*       REAL*10 ALPHA,BETA
 *       INTEGER K,LDA,LDC,N
 *       CHARACTER TRANS,UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A(LDA,*),C(LDC,*)
+*       COMPLEX*20 A(LDA,*),C(LDC,*)
 *       ..
 *
 *
@@ -84,13 +84,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION .
+*>          ALPHA is REAL*10 .
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, ka ), where ka is
+*>          A is COMPLEX*20 array, dimension ( LDA, ka ), where ka is
 *>           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
 *>           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
 *>           part of the array  A  must contain the matrix  A,  otherwise
@@ -109,13 +109,13 @@
 *>
 *> \param[in] BETA
 *> \verbatim
-*>          BETA is DOUBLE PRECISION.
+*>          BETA is REAL*10.
 *>           On entry, BETA specifies the scalar beta.
 *> \endverbatim
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension ( LDC, N )
+*>          C is COMPLEX*20 array, dimension ( LDC, N )
 *>           Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
 *>           upper triangular part of the array C must contain the upper
 *>           triangular part  of the  hermitian matrix  and the strictly
@@ -176,12 +176,12 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA,BETA
+      REAL*10 ALPHA,BETA
       INTEGER K,LDA,LDC,N
       CHARACTER TRANS,UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),C(LDC,*)
+      COMPLEX*20 A(LDA,*),C(LDC,*)
 *     ..
 *
 *  =====================================================================
@@ -197,13 +197,13 @@
       INTRINSIC DBLE,DCMPLX,DCONJG,MAX
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
-      DOUBLE PRECISION RTEMP
+      COMPLEX*20 TEMP
+      REAL*10 RTEMP
       INTEGER I,INFO,J,L,NROWA
       LOGICAL UPPER
 *     ..
 *     .. Parameters ..
-      DOUBLE PRECISION ONE,ZERO
+      REAL*10 ONE,ZERO
       PARAMETER (ONE=1.0D+0,ZERO=0.0D+0)
 *     ..
 *

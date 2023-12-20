@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * ), IWORK( * )
-*       DOUBLE PRECISION   B( LDB, * ), BERR( * ), D( * ), DF( * ),
+*       REAL*10   B( LDB, * ), BERR( * ), D( * ), DF( * ),
 *      $                   DL( * ), DLF( * ), DU( * ), DU2( * ), DUF( * ),
 *      $                   FERR( * ), WORK( * ), X( LDX, * )
 *       ..
@@ -71,45 +71,45 @@
 *>
 *> \param[in] DL
 *> \verbatim
-*>          DL is DOUBLE PRECISION array, dimension (N-1)
+*>          DL is REAL*10 array, dimension (N-1)
 *>          The (n-1) subdiagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] DU
 *> \verbatim
-*>          DU is DOUBLE PRECISION array, dimension (N-1)
+*>          DU is REAL*10 array, dimension (N-1)
 *>          The (n-1) superdiagonal elements of A.
 *> \endverbatim
 *>
 *> \param[in] DLF
 *> \verbatim
-*>          DLF is DOUBLE PRECISION array, dimension (N-1)
+*>          DLF is REAL*10 array, dimension (N-1)
 *>          The (n-1) multipliers that define the matrix L from the
 *>          LU factorization of A as computed by DGTTRF.
 *> \endverbatim
 *>
 *> \param[in] DF
 *> \verbatim
-*>          DF is DOUBLE PRECISION array, dimension (N)
+*>          DF is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the upper triangular matrix U from
 *>          the LU factorization of A.
 *> \endverbatim
 *>
 *> \param[in] DUF
 *> \verbatim
-*>          DUF is DOUBLE PRECISION array, dimension (N-1)
+*>          DUF is REAL*10 array, dimension (N-1)
 *>          The (n-1) elements of the first superdiagonal of U.
 *> \endverbatim
 *>
 *> \param[in] DU2
 *> \verbatim
-*>          DU2 is DOUBLE PRECISION array, dimension (N-2)
+*>          DU2 is REAL*10 array, dimension (N-2)
 *>          The (n-2) elements of the second superdiagonal of U.
 *> \endverbatim
 *>
@@ -124,7 +124,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+*>          B is REAL*10 array, dimension (LDB,NRHS)
 *>          The right hand side matrix B.
 *> \endverbatim
 *>
@@ -136,7 +136,7 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+*>          X is REAL*10 array, dimension (LDX,NRHS)
 *>          On entry, the solution matrix X, as computed by DGTTRS.
 *>          On exit, the improved solution matrix X.
 *> \endverbatim
@@ -149,7 +149,7 @@
 *>
 *> \param[out] FERR
 *> \verbatim
-*>          FERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          FERR is REAL*10 array, dimension (NRHS)
 *>          The estimated forward error bound for each solution vector
 *>          X(j) (the j-th column of the solution matrix X).
 *>          If XTRUE is the true solution corresponding to X(j), FERR(j)
@@ -162,7 +162,7 @@
 *>
 *> \param[out] BERR
 *> \verbatim
-*>          BERR is DOUBLE PRECISION array, dimension (NRHS)
+*>          BERR is REAL*10 array, dimension (NRHS)
 *>          The componentwise relative backward error of each solution
 *>          vector X(j) (i.e., the smallest relative change in
 *>          any element of A or B that makes X(j) an exact solution).
@@ -170,7 +170,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*N)
+*>          WORK is REAL*10 array, dimension (3*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -217,7 +217,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * ), IWORK( * )
-      DOUBLE PRECISION   B( LDB, * ), BERR( * ), D( * ), DF( * ),
+      REAL*10   B( LDB, * ), BERR( * ), D( * ), DF( * ),
      $                   DL( * ), DLF( * ), DU( * ), DU2( * ), DUF( * ),
      $                   FERR( * ), WORK( * ), X( LDX, * )
 *     ..
@@ -227,18 +227,18 @@
 *     .. Parameters ..
       INTEGER            ITMAX
       PARAMETER          ( ITMAX = 5 )
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0D+0 )
-      DOUBLE PRECISION   THREE
+      REAL*10   THREE
       PARAMETER          ( THREE = 3.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN
       CHARACTER          TRANSN, TRANST
       INTEGER            COUNT, I, J, KASE, NZ
-      DOUBLE PRECISION   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN
+      REAL*10   EPS, LSTRES, S, SAFE1, SAFE2, SAFMIN
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -251,7 +251,7 @@
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           LSAME, DLAMCH
 *     ..
 *     .. Executable Statements ..

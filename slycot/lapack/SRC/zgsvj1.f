@@ -22,13 +22,13 @@
 *                          EPS, SFMIN, TOL, NSWEEP, WORK, LWORK, INFO )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   EPS, SFMIN, TOL
+*       REAL*10   EPS, SFMIN, TOL
 *       INTEGER            INFO, LDA, LDV, LWORK, M, MV, N, N1, NSWEEP
 *       CHARACTER*1        JOBV
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), D( N ), V( LDV, * ), WORK( LWORK )
-*       DOUBLE PRECISION   SVA( N )
+*       COMPLEX*20         A( LDA, * ), D( N ), V( LDV, * ), WORK( LWORK )
+*       REAL*10   SVA( N )
 *       ..
 *
 *
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, M-by-N matrix A, such that A*diag(D) represents
 *>          the input matrix.
 *>          On exit,
@@ -124,7 +124,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (N)
+*>          D is COMPLEX*20 array, dimension (N)
 *>          The array D accumulates the scaling factors from the fast scaled
 *>          Jacobi rotations.
 *>          On entry, A*diag(D) represents the input matrix.
@@ -137,7 +137,7 @@
 *>
 *> \param[in,out] SVA
 *> \verbatim
-*>          SVA is DOUBLE PRECISION array, dimension (N)
+*>          SVA is REAL*10 array, dimension (N)
 *>          On entry, SVA contains the Euclidean norms of the columns of
 *>          the matrix A*diag(D).
 *>          On exit, SVA contains the Euclidean norms of the columns of
@@ -154,7 +154,7 @@
 *>
 *> \param[in,out] V
 *> \verbatim
-*>          V is COMPLEX*16 array, dimension (LDV,N)
+*>          V is COMPLEX*20 array, dimension (LDV,N)
 *>          If JOBV = 'V' then N rows of V are post-multipled by a
 *>                           sequence of Jacobi rotations.
 *>          If JOBV = 'A' then MV rows of V are post-multipled by a
@@ -172,19 +172,19 @@
 *>
 *> \param[in] EPS
 *> \verbatim
-*>          EPS is DOUBLE PRECISION
+*>          EPS is REAL*10
 *>          EPS = DLAMCH('Epsilon')
 *> \endverbatim
 *>
 *> \param[in] SFMIN
 *> \verbatim
-*>          SFMIN is DOUBLE PRECISION
+*>          SFMIN is REAL*10
 *>          SFMIN = DLAMCH('Safe Minimum')
 *> \endverbatim
 *>
 *> \param[in] TOL
 *> \verbatim
-*>          TOL is DOUBLE PRECISION
+*>          TOL is REAL*10
 *>          TOL is the threshold for Jacobi rotations. For a pair
 *>          A(:,p), A(:,q) of pivot columns, the Jacobi rotation is
 *>          applied only if ABS(COS(angle(A(:,p),A(:,q)))) > TOL.
@@ -199,7 +199,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (LWORK)
+*>          WORK is COMPLEX*20 array, dimension (LWORK)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -240,24 +240,24 @@
 *
       IMPLICIT NONE
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   EPS, SFMIN, TOL
+      REAL*10   EPS, SFMIN, TOL
       INTEGER            INFO, LDA, LDV, LWORK, M, MV, N, N1, NSWEEP
       CHARACTER*1        JOBV
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), D( N ), V( LDV, * ), WORK( LWORK )
-      DOUBLE PRECISION   SVA( N )
+      COMPLEX*20         A( LDA, * ), D( N ), V( LDV, * ), WORK( LWORK )
+      REAL*10   SVA( N )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Parameters ..
-      DOUBLE PRECISION   ZERO, HALF, ONE
+      REAL*10   ZERO, HALF, ONE
       PARAMETER          ( ZERO = 0.0D0, HALF = 0.5D0, ONE = 1.0D0)
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         AAPQ, OMPQ
-      DOUBLE PRECISION   AAPP, AAPP0, AAPQ1, AAQQ, APOAQ, AQOAP, BIG,
+      COMPLEX*20         AAPQ, OMPQ
+      REAL*10   AAPP, AAPP0, AAPQ1, AAQQ, APOAQ, AQOAP, BIG,
      $                   BIGTHETA, CS, MXAAPQ, MXSINJ, ROOTBIG,
      $                   ROOTEPS, ROOTSFMIN, ROOTTOL, SMALL, SN, T,
      $                   TEMP1, THETA, THSIGN
@@ -271,8 +271,8 @@
       INTRINSIC          ABS, CONJG, MAX, DBLE, MIN, SIGN, SQRT
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DZNRM2
-      COMPLEX*16         ZDOTC
+      REAL*10   DZNRM2
+      COMPLEX*20         ZDOTC
       INTEGER            IDAMAX
       LOGICAL            LSAME
       EXTERNAL           IDAMAX, LSAME, ZDOTC, DZNRM2

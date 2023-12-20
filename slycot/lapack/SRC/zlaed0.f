@@ -26,8 +26,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-*       COMPLEX*16         Q( LDQ, * ), QSTORE( LDQS, * )
+*       REAL*10   D( * ), E( * ), RWORK( * )
+*       COMPLEX*20         Q( LDQ, * ), QSTORE( LDQS, * )
 *       ..
 *
 *
@@ -60,21 +60,21 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>         On entry, the diagonal elements of the tridiagonal matrix.
 *>         On exit, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>         On entry, the off-diagonal elements of the tridiagonal matrix.
 *>         On exit, E has been destroyed.
 *> \endverbatim
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is COMPLEX*16 array, dimension (LDQ,N)
+*>          Q is COMPLEX*20 array, dimension (LDQ,N)
 *>         On entry, Q must contain an QSIZ x N matrix whose columns
 *>         unitarily orthonormal. It is a part of the unitary matrix
 *>         that reduces the full dense Hermitian matrix to a
@@ -98,7 +98,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array,
+*>          RWORK is REAL*10 array,
 *>                               dimension (1 + 3*N + 2*N*lg N + 3*N**2)
 *>                        ( lg( N ) = smallest integer k
 *>                                    such that 2^k >= N )
@@ -106,7 +106,7 @@
 *>
 *> \param[out] QSTORE
 *> \verbatim
-*>          QSTORE is COMPLEX*16 array, dimension (LDQS, N)
+*>          QSTORE is COMPLEX*20 array, dimension (LDQS, N)
 *>         Used to store parts of
 *>         the eigenvector matrix when the updating matrix multiplies
 *>         take place.
@@ -152,8 +152,8 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), RWORK( * )
-      COMPLEX*16         Q( LDQ, * ), QSTORE( LDQS, * )
+      REAL*10   D( * ), E( * ), RWORK( * )
+      COMPLEX*20         Q( LDQ, * ), QSTORE( LDQS, * )
 *     ..
 *
 *  =====================================================================
@@ -161,7 +161,7 @@
 *  Warning:      N could be as big as QSIZ!
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -169,7 +169,7 @@
      $                   IGIVPT, INDXQ, IPERM, IPRMPT, IQ, IQPTR, IWREM,
      $                   J, K, LGN, LL, MATSIZ, MSD2, SMLSIZ, SMM1,
      $                   SPM1, SPM2, SUBMAT, SUBPBS, TLVLS
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DSTEQR, XERBLA, ZCOPY, ZLACRM, ZLAED7

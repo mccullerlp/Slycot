@@ -21,7 +21,7 @@
 *       SUBROUTINE DLARTGS( X, Y, SIGMA, CS, SN )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION        CS, SIGMA, SN, X, Y
+*       REAL*10        CS, SIGMA, SN, X, Y
 *       ..
 *
 *
@@ -47,31 +47,31 @@
 *
 *> \param[in] X
 *> \verbatim
-*>          X is DOUBLE PRECISION
+*>          X is REAL*10
 *>          The (1,1) entry of an upper bidiagonal matrix.
 *> \endverbatim
 *>
 *> \param[in] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION
+*>          Y is REAL*10
 *>          The (1,2) entry of an upper bidiagonal matrix.
 *> \endverbatim
 *>
 *> \param[in] SIGMA
 *> \verbatim
-*>          SIGMA is DOUBLE PRECISION
+*>          SIGMA is REAL*10
 *>          The shift.
 *> \endverbatim
 *>
 *> \param[out] CS
 *> \verbatim
-*>          CS is DOUBLE PRECISION
+*>          CS is REAL*10
 *>          The cosine of the rotation.
 *> \endverbatim
 *>
 *> \param[out] SN
 *> \verbatim
-*>          SN is DOUBLE PRECISION
+*>          SN is REAL*10
 *>          The sine of the rotation.
 *> \endverbatim
 *
@@ -93,23 +93,23 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION        CS, SIGMA, SN, X, Y
+      REAL*10        CS, SIGMA, SN, X, Y
 *     ..
 *
 *  ===================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION        NEGONE, ONE, ZERO
+      REAL*10        NEGONE, ONE, ZERO
       PARAMETER          ( NEGONE = -1.0D0, ONE = 1.0D0, ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION        R, S, THRESH, W, Z
+      REAL*10        R, S, THRESH, W, Z
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLARTGP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION        DLAMCH
+      REAL*10        DLAMCH
       EXTERNAL           DLAMCH
 *     .. Executable Statements ..
 *

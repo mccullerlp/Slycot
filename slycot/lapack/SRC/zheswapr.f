@@ -25,7 +25,7 @@
 *       INTEGER          I1, I2, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16          A( LDA, N )
+*       COMPLEX*20          A( LDA, N )
 *
 *
 *> \par Purpose:
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the NB diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by CSYTRF.
 *>
@@ -109,7 +109,7 @@
       INTEGER          I1, I2, LDA, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16          A( LDA, N )
+      COMPLEX*20          A( LDA, N )
 *
 *  =====================================================================
 *
@@ -117,7 +117,7 @@
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I
-      COMPLEX*16            TMP
+      COMPLEX*20            TMP
 *
 *     .. External Functions ..
       LOGICAL            LSAME

@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ), WORK( * )
+*       REAL*10   A( LDA, * ), WORK( * )
 *       ..
 *
 *
@@ -35,7 +35,7 @@
 *>
 *> \verbatim
 *>
-*> DSYTRI2 computes the inverse of a DOUBLE PRECISION symmetric indefinite matrix
+*> DSYTRI2 computes the inverse of a REAL*10 symmetric indefinite matrix
 *> A using the factorization A = U*D*U**T or A = L*D*L**T computed by
 *> DSYTRF. DSYTRI2 sets the LEADING DIMENSION of the workspace
 *> before calling DSYTRI2X that actually computes the inverse.
@@ -61,7 +61,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the block diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by DSYTRF.
 *>
@@ -88,7 +88,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N+NB+1)*(NB+3)
+*>          WORK is REAL*10 array, dimension (N+NB+1)*(NB+3)
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -135,7 +135,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), WORK( * )
+      REAL*10   A( LDA, * ), WORK( * )
 *     ..
 *
 *  =====================================================================

@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            IEEE
 *       INTEGER            I0, N0, PP
-*       DOUBLE PRECISION   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2, TAU, SIGMA, EPS
+*       REAL*10   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2, TAU, SIGMA, EPS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Z( * )
+*       REAL*10   Z( * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( 4*N )
+*>          Z is REAL*10 array, dimension ( 4*N )
 *>        Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
 *>        an extra argument.
 *> \endverbatim
@@ -70,49 +70,49 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>        This is the shift.
 *> \endverbatim
 *>
 *> \param[in] SIGMA
 *> \verbatim
-*>          SIGMA is DOUBLE PRECISION
+*>          SIGMA is REAL*10
 *>        This is the accumulated shift up to this step.
 *> \endverbatim
 *>
 *> \param[out] DMIN
 *> \verbatim
-*>          DMIN is DOUBLE PRECISION
+*>          DMIN is REAL*10
 *>        Minimum value of d.
 *> \endverbatim
 *>
 *> \param[out] DMIN1
 *> \verbatim
-*>          DMIN1 is DOUBLE PRECISION
+*>          DMIN1 is REAL*10
 *>        Minimum value of d, excluding D( N0 ).
 *> \endverbatim
 *>
 *> \param[out] DMIN2
 *> \verbatim
-*>          DMIN2 is DOUBLE PRECISION
+*>          DMIN2 is REAL*10
 *>        Minimum value of d, excluding D( N0 ) and D( N0-1 ).
 *> \endverbatim
 *>
 *> \param[out] DN
 *> \verbatim
-*>          DN is DOUBLE PRECISION
+*>          DN is REAL*10
 *>        d(N0), the last value of d.
 *> \endverbatim
 *>
 *> \param[out] DNM1
 *> \verbatim
-*>          DNM1 is DOUBLE PRECISION
+*>          DNM1 is REAL*10
 *>        d(N0-1).
 *> \endverbatim
 *>
 *> \param[out] DNM2
 *> \verbatim
-*>          DNM2 is DOUBLE PRECISION
+*>          DNM2 is REAL*10
 *>        d(N0-2).
 *> \endverbatim
 *>
@@ -124,7 +124,7 @@
 *>
 *> \param[in] EPS
 *> \verbatim
-*>          EPS is DOUBLE PRECISION
+*>          EPS is REAL*10
 *>        This is the value of epsilon used.
 *> \endverbatim
 *>
@@ -149,22 +149,22 @@
 *     .. Scalar Arguments ..
       LOGICAL            IEEE
       INTEGER            I0, N0, PP
-      DOUBLE PRECISION   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2, TAU,
+      REAL*10   DMIN, DMIN1, DMIN2, DN, DNM1, DNM2, TAU,
      $                   SIGMA, EPS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Z( * )
+      REAL*10   Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameter ..
-      DOUBLE PRECISION   ZERO, HALF
+      REAL*10   ZERO, HALF
       PARAMETER          ( ZERO = 0.0D0, HALF = 0.5 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            J4, J4P2
-      DOUBLE PRECISION   D, EMIN, TEMP, DTHRESH
+      REAL*10   D, EMIN, TEMP, DTHRESH
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          MIN

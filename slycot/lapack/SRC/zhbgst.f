@@ -26,8 +26,8 @@
 *       INTEGER            INFO, KA, KB, LDAB, LDBB, LDX, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
 *      $                   X( LDX, * )
 *       ..
 *
@@ -86,7 +86,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first ka+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -106,7 +106,7 @@
 *>
 *> \param[in] BB
 *> \verbatim
-*>          BB is COMPLEX*16 array, dimension (LDBB,N)
+*>          BB is COMPLEX*20 array, dimension (LDBB,N)
 *>          The banded factor S from the split Cholesky factorization of
 *>          B, as returned by ZPBSTF, stored in the first kb+1 rows of
 *>          the array.
@@ -120,7 +120,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (LDX,N)
+*>          X is COMPLEX*20 array, dimension (LDX,N)
 *>          If VECT = 'V', the n-by-n matrix X.
 *>          If VECT = 'N', the array X is not referenced.
 *> \endverbatim
@@ -134,12 +134,12 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (N)
+*>          WORK is COMPLEX*20 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N)
+*>          RWORK is REAL*10 array, dimension (N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -172,16 +172,16 @@
       INTEGER            INFO, KA, KB, LDAB, LDBB, LDX, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+      REAL*10   RWORK( * )
+      COMPLEX*20         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
      $                   X( LDX, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
-      DOUBLE PRECISION   ONE
+      COMPLEX*20         CZERO, CONE
+      REAL*10   ONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ), ONE = 1.0D+0 )
 *     ..
@@ -189,8 +189,8 @@
       LOGICAL            UPDATE, UPPER, WANTX
       INTEGER            I, I0, I1, I2, INCA, J, J1, J1T, J2, J2T, K,
      $                   KA1, KB1, KBT, L, M, NR, NRT, NX
-      DOUBLE PRECISION   BII
-      COMPLEX*16         RA, RA1, T
+      REAL*10   BII
+      COMPLEX*20         RA, RA1, T
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

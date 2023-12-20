@@ -25,11 +25,11 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            IEEE
 *       INTEGER            I0, ITER, N0, NDIV, NFAIL, PP
-*       DOUBLE PRECISION   DESIG, DMIN, DMIN1, DMIN2, DN, DN1, DN2, G,
+*       REAL*10   DESIG, DMIN, DMIN1, DMIN2, DN, DN1, DN2, G,
 *      $                   QMAX, SIGMA, TAU
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   Z( * )
+*       REAL*10   Z( * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( 4*N0 )
+*>          Z is REAL*10 array, dimension ( 4*N0 )
 *>         Z holds the qd array.
 *> \endverbatim
 *>
@@ -75,25 +75,25 @@
 *>
 *> \param[out] DMIN
 *> \verbatim
-*>          DMIN is DOUBLE PRECISION
+*>          DMIN is REAL*10
 *>         Minimum value of d.
 *> \endverbatim
 *>
 *> \param[out] SIGMA
 *> \verbatim
-*>          SIGMA is DOUBLE PRECISION
+*>          SIGMA is REAL*10
 *>         Sum of shifts used in current segment.
 *> \endverbatim
 *>
 *> \param[in,out] DESIG
 *> \verbatim
-*>          DESIG is DOUBLE PRECISION
+*>          DESIG is REAL*10
 *>         Lower order part of SIGMA
 *> \endverbatim
 *>
 *> \param[in] QMAX
 *> \verbatim
-*>          QMAX is DOUBLE PRECISION
+*>          QMAX is REAL*10
 *>         Maximum value of q.
 *> \endverbatim
 *>
@@ -129,37 +129,37 @@
 *>
 *> \param[in,out] DMIN1
 *> \verbatim
-*>          DMIN1 is DOUBLE PRECISION
+*>          DMIN1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] DMIN2
 *> \verbatim
-*>          DMIN2 is DOUBLE PRECISION
+*>          DMIN2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] DN
 *> \verbatim
-*>          DN is DOUBLE PRECISION
+*>          DN is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] DN1
 *> \verbatim
-*>          DN1 is DOUBLE PRECISION
+*>          DN1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] DN2
 *> \verbatim
-*>          DN2 is DOUBLE PRECISION
+*>          DN2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] G
 *> \verbatim
-*>          G is DOUBLE PRECISION
+*>          G is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION
+*>          TAU is REAL*10
 *>
 *>         These are passed as arguments in order to save their values
 *>         between calls to DLASQ3.
@@ -187,31 +187,31 @@
 *     .. Scalar Arguments ..
       LOGICAL            IEEE
       INTEGER            I0, ITER, N0, NDIV, NFAIL, PP
-      DOUBLE PRECISION   DESIG, DMIN, DMIN1, DMIN2, DN, DN1, DN2, G,
+      REAL*10   DESIG, DMIN, DMIN1, DMIN2, DN, DN1, DN2, G,
      $                   QMAX, SIGMA, TAU
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   Z( * )
+      REAL*10   Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   CBIAS
+      REAL*10   CBIAS
       PARAMETER          ( CBIAS = 1.50D0 )
-      DOUBLE PRECISION   ZERO, QURTR, HALF, ONE, TWO, HUNDRD
+      REAL*10   ZERO, QURTR, HALF, ONE, TWO, HUNDRD
       PARAMETER          ( ZERO = 0.0D0, QURTR = 0.250D0, HALF = 0.5D0,
      $                     ONE = 1.0D0, TWO = 2.0D0, HUNDRD = 100.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            IPN4, J4, N0IN, NN, TTYPE
-      DOUBLE PRECISION   EPS, S, T, TEMP, TOL, TOL2
+      REAL*10   EPS, S, T, TEMP, TOL, TOL2
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLASQ4, DLASQ5, DLASQ6
 *     ..
 *     .. External Function ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       LOGICAL            DISNAN
       EXTERNAL           DISNAN, DLAMCH
 *     ..

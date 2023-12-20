@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            INDEX( * )
-*       DOUBLE PRECISION   A( * )
+*       REAL*10   A( * )
 *       ..
 *
 *
@@ -56,7 +56,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (N1+N2)
+*>          A is REAL*10 array, dimension (N1+N2)
 *>         The first N1 elements of A contain a list of numbers which
 *>         are sorted in either ascending or descending order.  Likewise
 *>         for the final N2 elements.
@@ -106,7 +106,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            INDEX( * )
-      DOUBLE PRECISION   A( * )
+      REAL*10   A( * )
 *     ..
 *
 *  =====================================================================

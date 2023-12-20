@@ -11,11 +11,11 @@
 *       SUBROUTINE DSCAL(N,DA,DX,INCX)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION DA
+*       REAL*10 DA
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DX(*)
+*       REAL*10 DX(*)
 *       ..
 *
 *
@@ -39,13 +39,13 @@
 *>
 *> \param[in] DA
 *> \verbatim
-*>          DA is DOUBLE PRECISION
+*>          DA is REAL*10
 *>           On entry, DA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in,out] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          DX is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -82,11 +82,11 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION DA
+      REAL*10 DA
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DX(*)
+      REAL*10 DX(*)
 *     ..
 *
 *  =====================================================================
@@ -94,7 +94,7 @@
 *     .. Local Scalars ..
       INTEGER I,M,MP1,NINCX
 *     .. Parameters ..
-      DOUBLE PRECISION ONE
+      REAL*10 ONE
       PARAMETER (ONE=1.0D+0)
 *     ..
 *     .. Intrinsic Functions ..

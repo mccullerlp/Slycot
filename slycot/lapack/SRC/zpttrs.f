@@ -25,8 +25,8 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * )
-*       COMPLEX*16         B( LDB, * ), E( * )
+*       REAL*10   D( * )
+*       COMPLEX*20         B( LDB, * ), E( * )
 *       ..
 *
 *
@@ -71,14 +71,14 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the diagonal matrix D from the
 *>          factorization A = U**H *D*U or A = L*D*L**H.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (N-1)
+*>          E is COMPLEX*20 array, dimension (N-1)
 *>          If UPLO = 'U', the (n-1) superdiagonal elements of the unit
 *>          bidiagonal factor U from the factorization A = U**H*D*U.
 *>          If UPLO = 'L', the (n-1) subdiagonal elements of the unit
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side vectors B for the system of
 *>          linear equations.
 *>          On exit, the solution vectors, X.
@@ -128,8 +128,8 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * )
-      COMPLEX*16         B( LDB, * ), E( * )
+      REAL*10   D( * )
+      COMPLEX*20         B( LDB, * ), E( * )
 *     ..
 *
 *  =====================================================================

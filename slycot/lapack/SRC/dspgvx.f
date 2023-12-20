@@ -25,11 +25,11 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          JOBZ, RANGE, UPLO
 *       INTEGER            IL, INFO, ITYPE, IU, LDZ, M, N
-*       DOUBLE PRECISION   ABSTOL, VL, VU
+*       REAL*10   ABSTOL, VL, VU
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IFAIL( * ), IWORK( * )
-*       DOUBLE PRECISION   AP( * ), BP( * ), W( * ), WORK( * ),
+*       REAL*10   AP( * ), BP( * ), W( * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          AP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          A, packed columnwise in a linear array.  The j-th column of A
 *>          is stored in the array AP as follows:
@@ -103,7 +103,7 @@
 *>
 *> \param[in,out] BP
 *> \verbatim
-*>          BP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+*>          BP is REAL*10 array, dimension (N*(N+1)/2)
 *>          On entry, the upper or lower triangle of the symmetric matrix
 *>          B, packed columnwise in a linear array.  The j-th column of B
 *>          is stored in the array BP as follows:
@@ -117,7 +117,7 @@
 *>
 *> \param[in] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION
+*>          VL is REAL*10
 *>
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -126,7 +126,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>          VU is DOUBLE PRECISION
+*>          VU is REAL*10
 *>
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for eigenvalues. VL < VU.
@@ -155,7 +155,7 @@
 *>
 *> \param[in] ABSTOL
 *> \verbatim
-*>          ABSTOL is DOUBLE PRECISION
+*>          ABSTOL is REAL*10
 *>          The absolute error tolerance for the eigenvalues.
 *>          An approximate eigenvalue is accepted as converged
 *>          when it is determined to lie in an interval [a,b]
@@ -184,14 +184,14 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          On normal exit, the first M elements contain the selected
 *>          eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, max(1,M))
+*>          Z is REAL*10 array, dimension (LDZ, max(1,M))
 *>          If JOBZ = 'N', then Z is not referenced.
 *>          If JOBZ = 'V', then if INFO = 0, the first M columns of Z
 *>          contain the orthonormal eigenvectors of the matrix A
@@ -218,7 +218,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (8*N)
+*>          WORK is REAL*10 array, dimension (8*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -277,11 +277,11 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
       INTEGER            IL, INFO, ITYPE, IU, LDZ, M, N
-      DOUBLE PRECISION   ABSTOL, VL, VU
+      REAL*10   ABSTOL, VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IFAIL( * ), IWORK( * )
-      DOUBLE PRECISION   AP( * ), BP( * ), W( * ), WORK( * ),
+      REAL*10   AP( * ), BP( * ), W( * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
 *

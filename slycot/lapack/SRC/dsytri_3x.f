@@ -26,7 +26,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       DOUBLE PRECISION   A( LDA, * ),  E( * ), WORK( N+NB+1, * )
+*       REAL*10   A( LDA, * ),  E( * ), WORK( N+NB+1, * )
 *       ..
 *
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, diagonal of the block diagonal matrix D and
 *>          factors U or L as computed by DSYTRF_RK and DSYTRF_BK:
 *>            a) ONLY diagonal elements of the symmetric block diagonal
@@ -95,7 +95,7 @@
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>          On entry, contains the superdiagonal (or subdiagonal)
 *>          elements of the symmetric block diagonal matrix D
 *>          with 1-by-1 or 2-by-2 diagonal blocks, where
@@ -116,7 +116,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (N+NB+1,NB+3).
+*>          WORK is REAL*10 array, dimension (N+NB+1,NB+3).
 *> \endverbatim
 *>
 *> \param[in] NB
@@ -167,19 +167,19 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), E( * ), WORK( N+NB+1, * )
+      REAL*10   A( LDA, * ), E( * ), WORK( N+NB+1, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            CUT, I, ICOUNT, INVD, IP, K, NNB, J, U11
-      DOUBLE PRECISION   AK, AKKP1, AKP1, D, T, U01_I_J, U01_IP1_J,
+      REAL*10   AK, AKKP1, AKP1, D, T, U01_I_J, U01_IP1_J,
      $                   U11_I_J, U11_IP1_J
 *     ..
 *     .. External Functions ..

@@ -23,11 +23,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, K, LDQ, N, N1
-*       DOUBLE PRECISION   RHO
+*       REAL*10   RHO
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            CTOT( * ), INDX( * )
-*       DOUBLE PRECISION   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
+*       REAL*10   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
 *      $                   S( * ), W( * )
 *       ..
 *
@@ -78,14 +78,14 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          D(I) contains the updated eigenvalues for
 *>          1 <= I <= K.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+*>          Q is REAL*10 array, dimension (LDQ,N)
 *>          Initially the first K columns are used as workspace.
 *>          On output the columns 1 to K contain
 *>          the updated eigenvectors.
@@ -99,14 +99,14 @@
 *>
 *> \param[in] RHO
 *> \verbatim
-*>          RHO is DOUBLE PRECISION
+*>          RHO is REAL*10
 *>          The value of the parameter in the rank one update equation.
 *>          RHO >= 0 required.
 *> \endverbatim
 *>
 *> \param[in,out] DLAMDA
 *> \verbatim
-*>          DLAMDA is DOUBLE PRECISION array, dimension (K)
+*>          DLAMDA is REAL*10 array, dimension (K)
 *>          The first K elements of this array contain the old roots
 *>          of the deflated updating problem.  These are the poles
 *>          of the secular equation. May be changed on output by
@@ -116,7 +116,7 @@
 *>
 *> \param[in] Q2
 *> \verbatim
-*>          Q2 is DOUBLE PRECISION array, dimension (LDQ2*N)
+*>          Q2 is REAL*10 array, dimension (LDQ2*N)
 *>          The first K columns of this matrix contain the non-deflated
 *>          eigenvectors for the split problem.
 *> \endverbatim
@@ -140,7 +140,7 @@
 *>
 *> \param[in,out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (K)
+*>          W is REAL*10 array, dimension (K)
 *>          The first K elements of this array contain the components
 *>          of the deflation-adjusted updating vector. Destroyed on
 *>          output.
@@ -148,7 +148,7 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N1 + 1)*K
+*>          S is REAL*10 array, dimension (N1 + 1)*K
 *>          Will contain the eigenvectors of the repaired matrix which
 *>          will be multiplied by the previously accumulated eigenvectors
 *>          to update the system.
@@ -189,26 +189,26 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, K, LDQ, N, N1
-      DOUBLE PRECISION   RHO
+      REAL*10   RHO
 *     ..
 *     .. Array Arguments ..
       INTEGER            CTOT( * ), INDX( * )
-      DOUBLE PRECISION   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
+      REAL*10   D( * ), DLAMDA( * ), Q( LDQ, * ), Q2( * ),
      $                   S( * ), W( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D0, ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, II, IQ2, J, N12, N2, N23
-      DOUBLE PRECISION   TEMP
+      REAL*10   TEMP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMC3, DNRM2
+      REAL*10   DLAMC3, DNRM2
       EXTERNAL           DLAMC3, DNRM2
 *     ..
 *     .. External Subroutines ..

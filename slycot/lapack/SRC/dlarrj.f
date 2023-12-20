@@ -24,11 +24,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            IFIRST, ILAST, INFO, N, OFFSET
-*       DOUBLE PRECISION   PIVMIN, RTOL, SPDIAM
+*       REAL*10   PIVMIN, RTOL, SPDIAM
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   D( * ), E2( * ), W( * ),
+*       REAL*10   D( * ), E2( * ), W( * ),
 *      $                   WERR( * ), WORK( * )
 *       ..
 *
@@ -58,13 +58,13 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The N diagonal elements of T.
 *> \endverbatim
 *>
 *> \param[in] E2
 *> \verbatim
-*>          E2 is DOUBLE PRECISION array, dimension (N-1)
+*>          E2 is REAL*10 array, dimension (N-1)
 *>          The Squares of the (N-1) subdiagonal elements of T.
 *> \endverbatim
 *>
@@ -82,7 +82,7 @@
 *>
 *> \param[in] RTOL
 *> \verbatim
-*>          RTOL is DOUBLE PRECISION
+*>          RTOL is REAL*10
 *>          Tolerance for the convergence of the bisection intervals.
 *>          An interval [LEFT,RIGHT] has converged if
 *>          RIGHT-LEFT < RTOL*MAX(|LEFT|,|RIGHT|).
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          On input, W( IFIRST-OFFSET ) through W( ILAST-OFFSET ) are
 *>          estimates of the eigenvalues of L D L^T indexed IFIRST through
 *>          ILAST.
@@ -106,7 +106,7 @@
 *>
 *> \param[in,out] WERR
 *> \verbatim
-*>          WERR is DOUBLE PRECISION array, dimension (N)
+*>          WERR is REAL*10 array, dimension (N)
 *>          On input, WERR( IFIRST-OFFSET ) through WERR( ILAST-OFFSET ) are
 *>          the errors in the estimates of the corresponding elements in W.
 *>          On output, these errors are refined.
@@ -114,7 +114,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *>          Workspace.
 *> \endverbatim
 *>
@@ -126,13 +126,13 @@
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>          The minimum pivot in the Sturm sequence for T.
 *> \endverbatim
 *>
 *> \param[in] SPDIAM
 *> \verbatim
-*>          SPDIAM is DOUBLE PRECISION
+*>          SPDIAM is REAL*10
 *>          The spectral diameter of T.
 *> \endverbatim
 *>
@@ -172,18 +172,18 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            IFIRST, ILAST, INFO, N, OFFSET
-      DOUBLE PRECISION   PIVMIN, RTOL, SPDIAM
+      REAL*10   PIVMIN, RTOL, SPDIAM
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E2( * ), W( * ),
+      REAL*10   D( * ), E2( * ), W( * ),
      $                   WERR( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, HALF
+      REAL*10   ZERO, ONE, TWO, HALF
       PARAMETER        ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   HALF = 0.5D0 )
       INTEGER   MAXITR
@@ -191,7 +191,7 @@
 *     .. Local Scalars ..
       INTEGER            CNT, I, I1, I2, II, ITER, J, K, NEXT, NINT,
      $                   OLNINT, P, PREV, SAVI1
-      DOUBLE PRECISION   DPLUS, FAC, LEFT, MID, RIGHT, S, TMP, WIDTH
+      REAL*10   DPLUS, FAC, LEFT, MID, RIGHT, S, TMP, WIDTH
 *
 *     ..
 *     .. Intrinsic Functions ..

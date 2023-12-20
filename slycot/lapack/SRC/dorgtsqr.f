@@ -25,7 +25,7 @@
 *       INTEGER           INFO, LDA, LDT, LWORK, M, N, MB, NB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION  A( LDA, * ), T( LDT, * ), WORK( * )
+*       REAL*10  A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *> \par Purpose:
@@ -77,7 +77,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>
 *>          On entry:
 *>
@@ -102,7 +102,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array,
+*>          T is REAL*10 array,
 *>          dimension (LDT, N * NIRB)
 *>          where NIRB = Number_of_input_row_blocks
 *>                     = MAX( 1, CEIL((M-N)/(MB-N)) )
@@ -127,7 +127,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) DOUBLE PRECISION array, dimension (MAX(2,LWORK))
+*>          (workspace) REAL*10 array, dimension (MAX(2,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -182,13 +182,13 @@
       INTEGER           INFO, LDA, LDT, LWORK, M, N, MB, NB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION  A( LDA, * ), T( LDT, * ), WORK( * )
+      REAL*10  A( LDA, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDB, N, NRHS
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         AP( * ), B( LDB, * )
+*       COMPLEX*20         AP( * ), B( LDB, * )
 *       ..
 *
 *
@@ -64,7 +64,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          AP is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>          The triangular factor U or L from the Cholesky factorization
 *>          A = U**H * U or A = L * L**H, packed columnwise in a linear
 *>          array.  The j-th column of U or L is stored in the array AP
@@ -75,7 +75,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the right hand side matrix B.
 *>          On exit, the solution matrix X.
 *> \endverbatim
@@ -115,7 +115,7 @@
       INTEGER            INFO, LDB, N, NRHS
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         AP( * ), B( LDB, * )
+      COMPLEX*20         AP( * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

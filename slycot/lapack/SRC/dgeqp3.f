@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -55,7 +55,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, the upper triangle of the array contains the
 *>          min(M,N)-by-N upper trapezoidal matrix R; the elements below
@@ -82,13 +82,13 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (min(M,N))
+*>          TAU is REAL*10 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -158,7 +158,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
@@ -177,7 +177,7 @@
 *     ..
 *     .. External Functions ..
       INTEGER            ILAENV
-      DOUBLE PRECISION   DNRM2
+      REAL*10   DNRM2
       EXTERNAL           ILAENV, DNRM2
 *     ..
 *     .. Intrinsic Functions ..

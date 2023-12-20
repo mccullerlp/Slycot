@@ -24,7 +24,7 @@
 *       INTEGER   INFO, LDA, LDT, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16   A( LDA, * ), T( LDT, * )
+*       COMPLEX*20   A( LDA, * ), T( LDT, * )
 *       ..
 *
 *
@@ -54,7 +54,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the complex M-by-N matrix A.  On exit, the elements on and
 *>          above the diagonal contain the N-by-N upper triangular matrix R; the
 *>          elements below the diagonal are the columns of V.  See below for
@@ -69,7 +69,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N)
+*>          T is COMPLEX*20 array, dimension (LDT,N)
 *>          The N-by-N upper triangular factor of the block reflector.
 *>          The elements on and above the diagonal contain the block
 *>          reflector T; the elements below the diagonal are not used.
@@ -133,18 +133,18 @@
       INTEGER   INFO, LDA, LDT, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16   A( LDA, * ), T( LDT, * )
+      COMPLEX*20   A( LDA, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16  ONE, ZERO
+      COMPLEX*20  ONE, ZERO
       PARAMETER( ONE = (1.0D+00,0.0D+00), ZERO = (0.0D+00,0.0D+00) )
 *     ..
 *     .. Local Scalars ..
       INTEGER   I, K
-      COMPLEX*16   AII, ALPHA
+      COMPLEX*20   AII, ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL  ZLARFG, ZGEMV, ZGERC, ZTRMV, XERBLA

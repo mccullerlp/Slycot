@@ -24,7 +24,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * )
+*       REAL*10   D( * ), E( * ), WORK( * )
 *       ..
 *
 *
@@ -58,7 +58,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>        On entry, D contains the diagonal elements of the
 *>        bidiagonal matrix whose SVD is desired. On normal exit,
 *>        D contains the singular values in decreasing order.
@@ -66,7 +66,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N)
+*>          E is REAL*10 array, dimension (N)
 *>        On entry, elements E(1:N-1) contain the off-diagonal elements
 *>        of the bidiagonal matrix whose SVD is desired.
 *>        On exit, E is overwritten.
@@ -74,7 +74,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -114,24 +114,24 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * )
+      REAL*10   D( * ), E( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IINFO
-      DOUBLE PRECISION   EPS, SCALE, SAFMIN, SIGMN, SIGMX
+      REAL*10   EPS, SCALE, SAFMIN, SIGMN, SIGMX
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DLAS2, DLASCL, DLASQ2, DLASRT, XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

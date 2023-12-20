@@ -11,11 +11,11 @@
 *       SUBROUTINE DAXPY(N,DA,DX,INCX,DY,INCY)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION DA
+*       REAL*10 DA
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DX(*),DY(*)
+*       REAL*10 DX(*),DY(*)
 *       ..
 *
 *
@@ -39,13 +39,13 @@
 *>
 *> \param[in] DA
 *> \verbatim
-*>          DA is DOUBLE PRECISION
+*>          DA is REAL*10
 *>           On entry, DA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          DX is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -56,7 +56,7 @@
 *>
 *> \param[in,out] DY
 *> \verbatim
-*>          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*>          DY is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -92,11 +92,11 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION DA
+      REAL*10 DA
       INTEGER INCX,INCY,N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DX(*),DY(*)
+      REAL*10 DX(*),DY(*)
 *     ..
 *
 *  =====================================================================

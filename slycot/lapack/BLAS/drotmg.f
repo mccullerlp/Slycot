@@ -11,10 +11,10 @@
 *       SUBROUTINE DROTMG(DD1,DD2,DX1,DY1,DPARAM)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION DD1,DD2,DX1,DY1
+*       REAL*10 DD1,DD2,DX1,DY1
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DPARAM(5)
+*       REAL*10 DPARAM(5)
 *       ..
 *
 *
@@ -47,27 +47,27 @@
 *
 *> \param[in,out] DD1
 *> \verbatim
-*>          DD1 is DOUBLE PRECISION
+*>          DD1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] DD2
 *> \verbatim
-*>          DD2 is DOUBLE PRECISION
+*>          DD2 is REAL*10
 *> \endverbatim
 *>
 *> \param[in,out] DX1
 *> \verbatim
-*>          DX1 is DOUBLE PRECISION
+*>          DX1 is REAL*10
 *> \endverbatim
 *>
 *> \param[in] DY1
 *> \verbatim
-*>          DY1 is DOUBLE PRECISION
+*>          DY1 is REAL*10
 *> \endverbatim
 *>
 *> \param[out] DPARAM
 *> \verbatim
-*>          DPARAM is DOUBLE PRECISION array, dimension (5)
+*>          DPARAM is REAL*10 array, dimension (5)
 *>     DPARAM(1)=DFLAG
 *>     DPARAM(2)=DH11
 *>     DPARAM(3)=DH21
@@ -93,16 +93,16 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION DD1,DD2,DX1,DY1
+      REAL*10 DD1,DD2,DX1,DY1
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DPARAM(5)
+      REAL*10 DPARAM(5)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION DFLAG,DH11,DH12,DH21,DH22,DP1,DP2,DQ1,DQ2,DTEMP,
+      REAL*10 DFLAG,DH11,DH12,DH21,DH22,DP1,DP2,DQ1,DQ2,DTEMP,
      $                 DU,GAM,GAMSQ,ONE,RGAMSQ,TWO,ZERO
 *     ..
 *     .. Intrinsic Functions ..

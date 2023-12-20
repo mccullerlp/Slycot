@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -65,14 +65,14 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the diagonal elements of the tridiagonal matrix.
 *>          On exit, if INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix.
 *>          On exit, E has been destroyed.
@@ -80,7 +80,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          On entry, if  COMPZ = 'V', then Z contains the orthogonal
 *>          matrix used in the reduction to tridiagonal form.
 *>          On exit, if INFO = 0, then if  COMPZ = 'V', Z contains the
@@ -99,7 +99,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (max(1,2*N-2))
+*>          WORK is REAL*10 array, dimension (max(1,2*N-2))
 *>          If COMPZ = 'N', then WORK is not referenced.
 *> \endverbatim
 *>
@@ -138,13 +138,13 @@
       INTEGER            INFO, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+      REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TWO, THREE
+      REAL*10   ZERO, ONE, TWO, THREE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TWO = 2.0D0,
      $                   THREE = 3.0D0 )
       INTEGER            MAXIT
@@ -154,12 +154,12 @@
       INTEGER            I, ICOMPZ, II, ISCALE, J, JTOT, K, L, L1, LEND,
      $                   LENDM1, LENDP1, LENDSV, LM1, LSV, M, MM, MM1,
      $                   NM1, NMAXIT
-      DOUBLE PRECISION   ANORM, B, C, EPS, EPS2, F, G, P, R, RT1, RT2,
+      REAL*10   ANORM, B, C, EPS, EPS2, F, G, P, R, RT1, RT2,
      $                   S, SAFMAX, SAFMIN, SSFMAX, SSFMIN, TST
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DLAMCH, DLANST, DLAPY2
+      REAL*10   DLAMCH, DLANST, DLAPY2
       EXTERNAL           LSAME, DLAMCH, DLANST, DLAPY2
 *     ..
 *     .. External Subroutines ..

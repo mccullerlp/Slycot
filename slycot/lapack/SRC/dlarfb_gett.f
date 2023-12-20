@@ -27,7 +27,7 @@
 *       INTEGER            K, LDA, LDB, LDT, LDWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), T( LDT, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), T( LDT, * ),
 *      $                   WORK( LDWORK, * )
 *       ..
 *
@@ -84,7 +84,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,K)
+*>          T is REAL*10 array, dimension (LDT,K)
 *>          The upper-triangular K-by-K matrix T in the representation
 *>          of the block reflector.
 *> \endverbatim
@@ -97,7 +97,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>
 *>          On entry:
 *>           a) In the K-by-N upper-trapezoidal part A: input matrix A.
@@ -118,7 +118,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>
 *>          On entry:
 *>            a) In the M-by-(N-K) right block: input matrix B.
@@ -138,7 +138,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array,
+*>          WORK is REAL*10 array,
 *>          dimension (LDWORK,max(K,N-K))
 *> \endverbatim
 *>
@@ -400,14 +400,14 @@
       INTEGER            K, LDA, LDB, LDT, LDWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), T( LDT, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), T( LDT, * ),
      $                   WORK( LDWORK, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

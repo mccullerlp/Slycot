@@ -25,7 +25,7 @@
 *       INTEGER            LDA, LDB, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+*       REAL*10   A( LDA, * ), B( LDB, * )
 *       ..
 *
 *
@@ -64,7 +64,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          The m by n matrix A.  If UPLO = 'U', only the upper triangle
 *>          or trapezoid is accessed; if UPLO = 'L', only the lower
 *>          triangle or trapezoid is accessed.
@@ -78,7 +78,7 @@
 *>
 *> \param[out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On exit, B = A in the locations specified by UPLO.
 *> \endverbatim
 *>
@@ -110,7 +110,7 @@
       INTEGER            LDA, LDB, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+      REAL*10   A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

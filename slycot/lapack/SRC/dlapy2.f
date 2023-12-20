@@ -18,10 +18,10 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLAPY2( X, Y )
+*       REAL*10 FUNCTION DLAPY2( X, Y )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   X, Y
+*       REAL*10   X, Y
 *       ..
 *
 *
@@ -39,12 +39,12 @@
 *
 *> \param[in] X
 *> \verbatim
-*>          X is DOUBLE PRECISION
+*>          X is REAL*10
 *> \endverbatim
 *>
 *> \param[in] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION
+*>          Y is REAL*10
 *>          X and Y specify the values x and y.
 *> \endverbatim
 *
@@ -59,26 +59,26 @@
 *> \ingroup OTHERauxiliary
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLAPY2( X, Y )
+      REAL*10 FUNCTION DLAPY2( X, Y )
 *
 *  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   X, Y
+      REAL*10   X, Y
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D0 )
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   W, XABS, YABS, Z, HUGEVAL
+      REAL*10   W, XABS, YABS, Z, HUGEVAL
       LOGICAL            X_IS_NAN, Y_IS_NAN
 *     ..
 *     .. External Functions ..
@@ -86,7 +86,7 @@
       EXTERNAL           DISNAN
 *     ..
 *     .. External Subroutines ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN, SQRT

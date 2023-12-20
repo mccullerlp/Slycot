@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( 0: * )
+*       COMPLEX*20         A( 0: * )
 *       ..
 *
 *
@@ -72,7 +72,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( N*(N+1)/2 );
+*>          A is COMPLEX*20 array, dimension ( N*(N+1)/2 );
 *>          On entry, the triangular matrix A in RFP format. RFP format
 *>          is described by TRANSR, UPLO, and N as follows: If TRANSR =
 *>          'N' then RFP A is (0:N,0:k-1) when N is even; k=N/2. RFP A is
@@ -228,13 +228,13 @@
       INTEGER            INFO, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( 0: * )
+      COMPLEX*20         A( 0: * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

@@ -22,11 +22,11 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, N
-*       DOUBLE PRECISION   LAMBDA, TOL
+*       REAL*10   LAMBDA, TOL
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IN( * )
-*       DOUBLE PRECISION   A( * ), B( * ), C( * ), D( * )
+*       REAL*10   A( * ), B( * ), C( * ), D( * )
 *       ..
 *
 *
@@ -64,7 +64,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (N)
+*>          A is REAL*10 array, dimension (N)
 *>          On entry, A must contain the diagonal elements of T.
 *>
 *>          On exit, A is overwritten by the n diagonal elements of the
@@ -73,13 +73,13 @@
 *>
 *> \param[in] LAMBDA
 *> \verbatim
-*>          LAMBDA is DOUBLE PRECISION
+*>          LAMBDA is REAL*10
 *>          On entry, the scalar lambda.
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (N-1)
+*>          B is REAL*10 array, dimension (N-1)
 *>          On entry, B must contain the (n-1) super-diagonal elements of
 *>          T.
 *>
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N-1)
+*>          C is REAL*10 array, dimension (N-1)
 *>          On entry, C must contain the (n-1) sub-diagonal elements of
 *>          T.
 *>
@@ -99,7 +99,7 @@
 *>
 *> \param[in] TOL
 *> \verbatim
-*>          TOL is DOUBLE PRECISION
+*>          TOL is REAL*10
 *>          On entry, a relative tolerance used to indicate whether or
 *>          not the matrix (T - lambda*I) is nearly singular. TOL should
 *>          normally be chose as approximately the largest relative error
@@ -112,7 +112,7 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N-2)
+*>          D is REAL*10 array, dimension (N-2)
 *>          On exit, D is overwritten by the (n-2) second super-diagonal
 *>          elements of the matrix U of the factorization of T.
 *> \endverbatim
@@ -160,28 +160,28 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, N
-      DOUBLE PRECISION   LAMBDA, TOL
+      REAL*10   LAMBDA, TOL
 *     ..
 *     .. Array Arguments ..
       INTEGER            IN( * )
-      DOUBLE PRECISION   A( * ), B( * ), C( * ), D( * )
+      REAL*10   A( * ), B( * ), C( * ), D( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO
+      REAL*10   ZERO
       PARAMETER          ( ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            K
-      DOUBLE PRECISION   EPS, MULT, PIV1, PIV2, SCALE1, SCALE2, TEMP, TL
+      REAL*10   EPS, MULT, PIV1, PIV2, SCALE1, SCALE2, TEMP, TL
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..

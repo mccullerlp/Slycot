@@ -14,7 +14,7 @@
 *       INTEGER INCX,N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DX(*)
+*       REAL*10 DX(*)
 *       ..
 *
 *
@@ -37,7 +37,7 @@
 *>
 *> \param[in] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          DX is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -77,13 +77,13 @@
       INTEGER INCX,N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DX(*)
+      REAL*10 DX(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION DMAX
+      REAL*10 DMAX
       INTEGER I,IX
 *     ..
 *     .. Intrinsic Functions ..

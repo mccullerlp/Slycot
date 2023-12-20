@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANSR, DIAG, SIDE, TRANS, UPLO
 *       INTEGER            LDB, M, N
-*       DOUBLE PRECISION   ALPHA
+*       REAL*10   ALPHA
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( 0: * ), B( 0: LDB-1, 0: * )
+*       REAL*10   A( 0: * ), B( 0: LDB-1, 0: * )
 *       ..
 *
 *
@@ -131,7 +131,7 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION
+*>          ALPHA is REAL*10
 *>           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
 *>           zero then  A is not referenced and  B need not be set before
 *>           entry.
@@ -140,7 +140,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (NT)
+*>          A is REAL*10 array, dimension (NT)
 *>           NT = N*(N+1)/2. On entry, the matrix A in RFP Format.
 *>           RFP Format is described by TRANSR, UPLO and N as follows:
 *>           If TRANSR='N' then RFP A is (0:N,0:K-1) when N is even;
@@ -159,7 +159,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>           Before entry,  the leading  m by n part of the array  B must
 *>           contain  the  right-hand  side  matrix  B,  and  on exit  is
 *>           overwritten by the solution matrix  X.
@@ -282,17 +282,17 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANSR, DIAG, SIDE, TRANS, UPLO
       INTEGER            LDB, M, N
-      DOUBLE PRECISION   ALPHA
+      REAL*10   ALPHA
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( 0: * ), B( 0: LDB-1, 0: * )
+      REAL*10   A( 0: * ), B( 0: LDB-1, 0: * )
 *     ..
 *
 *  =====================================================================
 *
 *     ..
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..

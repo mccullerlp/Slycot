@@ -24,11 +24,11 @@
 *     .. Scalar Arguments ..
 *      CHARACTER          JOBZ, RANGE, UPLO
 *      INTEGER            IL, INFO, IU, LDZ, N, NS
-*      DOUBLE PRECISION   VL, VU
+*      REAL*10   VL, VU
 *     ..
 *     .. Array Arguments ..
 *      INTEGER            IWORK( * )
-*      DOUBLE PRECISION   D( * ), E( * ), S( * ), WORK( * ),
+*      REAL*10   D( * ), E( * ), S( * ), WORK( * ),
 *                         Z( LDZ, * )
 *       ..
 *
@@ -104,20 +104,20 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The n diagonal elements of the bidiagonal matrix B.
 *> \endverbatim
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (max(1,N-1))
+*>          E is REAL*10 array, dimension (max(1,N-1))
 *>          The (n-1) superdiagonal elements of the bidiagonal matrix
 *>          B in elements 1 to N-1.
 *> \endverbatim
 *>
 *> \param[in] VL
 *> \verbatim
-*>         VL is DOUBLE PRECISION
+*>         VL is REAL*10
 *>          If RANGE='V', the lower bound of the interval to
 *>          be searched for singular values. VU > VL.
 *>          Not referenced if RANGE = 'A' or 'I'.
@@ -125,7 +125,7 @@
 *>
 *> \param[in] VU
 *> \verbatim
-*>         VU is DOUBLE PRECISION
+*>         VU is REAL*10
 *>          If RANGE='V', the upper bound of the interval to
 *>          be searched for singular values. VU > VL.
 *>          Not referenced if RANGE = 'A' or 'I'.
@@ -158,14 +158,14 @@
 *>
 *> \param[out] S
 *> \verbatim
-*>          S is DOUBLE PRECISION array, dimension (N)
+*>          S is REAL*10 array, dimension (N)
 *>          The first NS elements contain the selected singular values in
 *>          ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (2*N,K)
+*>          Z is REAL*10 array, dimension (2*N,K)
 *>          If JOBZ = 'V', then if INFO = 0 the first NS columns of Z
 *>          contain the singular vectors of the matrix B corresponding to
 *>          the selected singular values, with U in rows 1 to N and V
@@ -187,7 +187,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (14*N)
+*>          WORK is REAL*10 array, dimension (14*N)
 *> \endverbatim
 *>
 *> \param[out] IWORK
@@ -231,21 +231,21 @@
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO
       INTEGER            IL, INFO, IU, LDZ, N, NS
-      DOUBLE PRECISION   VL, VU
+      REAL*10   VL, VU
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   D( * ), E( * ), S( * ), WORK( * ),
+      REAL*10   D( * ), E( * ), S( * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, TEN, HNDRD, MEIGTH
+      REAL*10   ZERO, ONE, TEN, HNDRD, MEIGTH
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0, TEN = 10.0D0,
      $                     HNDRD = 100.0D0, MEIGTH = -0.1250D0 )
-      DOUBLE PRECISION   FUDGE
+      REAL*10   FUDGE
       PARAMETER          ( FUDGE = 2.0D0 )
 *     ..
 *     .. Local Scalars ..
@@ -255,14 +255,14 @@
      $                   IETGK, IIFAIL, IIWORK, ILTGK, IROWU, IROWV,
      $                   IROWZ, ISBEG, ISPLT, ITEMP, IUTGK, J, K,
      $                   NTGK, NRU, NRV, NSL
-      DOUBLE PRECISION   ABSTOL, EPS, EMIN, MU, NRMU, NRMV, ORTOL, SMAX,
+      REAL*10   ABSTOL, EPS, EMIN, MU, NRMU, NRMV, ORTOL, SMAX,
      $                   SMIN, SQRT2, THRESH, TOL, ULP,
      $                   VLTGK, VUTGK, ZJTJI
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
       INTEGER            IDAMAX
-      DOUBLE PRECISION   DDOT, DLAMCH, DNRM2
+      REAL*10   DDOT, DLAMCH, DNRM2
       EXTERNAL           IDAMAX, LSAME, DAXPY, DDOT, DLAMCH, DNRM2
 *     ..
 *     .. External Subroutines ..

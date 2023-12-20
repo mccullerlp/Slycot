@@ -24,8 +24,8 @@
 *       INTEGER            INCC, INCX, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   C( * )
-*       COMPLEX*16         S( * ), X( * ), Y( * ), Z( * )
+*       REAL*10   C( * )
+*       COMPLEX*20         S( * ), X( * ), Y( * ), Z( * )
 *       ..
 *
 *
@@ -56,19 +56,19 @@
 *>
 *> \param[in,out] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+*>          X is COMPLEX*20 array, dimension (1+(N-1)*INCX)
 *>          The vector x; the elements of x are assumed to be real.
 *> \endverbatim
 *>
 *> \param[in,out] Y
 *> \verbatim
-*>          Y is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+*>          Y is COMPLEX*20 array, dimension (1+(N-1)*INCX)
 *>          The vector y; the elements of y are assumed to be real.
 *> \endverbatim
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+*>          Z is COMPLEX*20 array, dimension (1+(N-1)*INCX)
 *>          The vector z.
 *> \endverbatim
 *>
@@ -80,13 +80,13 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+*>          C is REAL*10 array, dimension (1+(N-1)*INCC)
 *>          The cosines of the plane rotations.
 *> \endverbatim
 *>
 *> \param[in] S
 *> \verbatim
-*>          S is COMPLEX*16 array, dimension (1+(N-1)*INCC)
+*>          S is COMPLEX*20 array, dimension (1+(N-1)*INCC)
 *>          The sines of the plane rotations.
 *> \endverbatim
 *>
@@ -117,17 +117,17 @@
       INTEGER            INCC, INCX, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   C( * )
-      COMPLEX*16         S( * ), X( * ), Y( * ), Z( * )
+      REAL*10   C( * )
+      COMPLEX*20         S( * ), X( * ), Y( * ), Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, IC, IX
-      DOUBLE PRECISION   CI, SII, SIR, T1I, T1R, T5, T6, XI, YI, ZII,
+      REAL*10   CI, SII, SIR, T1I, T1R, T5, T6, XI, YI, ZII,
      $                   ZIR
-      COMPLEX*16         SI, T2, T3, T4, ZI
+      COMPLEX*20         SI, T2, T3, T4, ZI
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DBLE, DCMPLX, DCONJG, DIMAG

@@ -32,8 +32,8 @@
 *       INTEGER            N, KD, IB, LDAB, LHOUS, LWORK, INFO
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
-*       COMPLEX*16         AB( LDAB, * ), HOUS( * ), WORK( * )
+*       REAL*10   D( * ), E( * )
+*       COMPLEX*20         AB( LDAB, * ), HOUS( * ), WORK( * )
 *       ..
 *
 *
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first KD+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -119,20 +119,20 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of the tridiagonal matrix T.
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The off-diagonal elements of the tridiagonal matrix T:
 *>          E(i) = T(i,i+1) if UPLO = 'U'; E(i) = T(i+1,i) if UPLO = 'L'.
 *> \endverbatim
 *>
 *> \param[out] HOUS
 *> \verbatim
-*>          HOUS is COMPLEX*16 array, dimension LHOUS, that
+*>          HOUS is COMPLEX*20 array, dimension LHOUS, that
 *>          store the Householder representation.
 *> \endverbatim
 *>
@@ -152,7 +152,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension LWORK.
+*>          WORK is COMPLEX*20 array, dimension LWORK.
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -244,15 +244,15 @@
       INTEGER            N, KD, LDAB, LHOUS, LWORK, INFO
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
-      COMPLEX*16         AB( LDAB, * ), HOUS( * ), WORK( * )
+      REAL*10   D( * ), E( * )
+      COMPLEX*20         AB( LDAB, * ), HOUS( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   RZERO
-      COMPLEX*16         ZERO, ONE
+      REAL*10   RZERO
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( RZERO = 0.0D+0,
      $                   ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   ONE  = ( 1.0D+0, 0.0D+0 ) )
@@ -266,8 +266,8 @@
      $                   ABDPOS, ABOFDPOS, DPOS, OFDPOS, AWPOS, 
      $                   INDA, INDW, APOS, SIZEA, LDA, INDV, INDTAU,
      $                   SIZEV, SIZETAU, LDV, LHMIN, LWMIN
-      DOUBLE PRECISION   ABSTMP
-      COMPLEX*16         TMP
+      REAL*10   ABSTMP
+      COMPLEX*20         TMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZHB2ST_KERNELS, ZLACPY, ZLASET, XERBLA

@@ -24,7 +24,7 @@
 *       INTEGER   INFO, LDA, M, N, LDT
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16   A( LDA, * ), T( LDT, * )
+*       COMPLEX*20   A( LDA, * ), T( LDT, * )
 *       ..
 *
 *
@@ -57,7 +57,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the complex M-by-N matrix A.  On exit, the elements on and
 *>          below the diagonal contain the N-by-N lower triangular matrix L; the
 *>          elements above the diagonal are the rows of V.  See below for
@@ -72,7 +72,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N)
+*>          T is COMPLEX*20 array, dimension (LDT,N)
 *>          The N-by-N upper triangular factor of the block reflector.
 *>          The elements on and above the diagonal contain the block
 *>          reflector T; the elements below the diagonal are not used.
@@ -137,13 +137,13 @@
       INTEGER   INFO, LDA, M, N, LDT
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16   A( LDA, * ), T( LDT, * )
+      COMPLEX*20   A( LDA, * ), T( LDT, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16   ONE, ZERO
+      COMPLEX*20   ONE, ZERO
       PARAMETER ( ONE = (1.0D+00,0.0D+00) )
       PARAMETER ( ZERO = (0.0D+00,0.0D+00))
 *     ..

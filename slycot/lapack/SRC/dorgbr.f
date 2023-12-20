@@ -25,7 +25,7 @@
 *       INTEGER            INFO, K, LDA, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+*       REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -94,7 +94,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the vectors which define the elementary reflectors,
 *>          as returned by DGEBRD.
 *>          On exit, the M-by-N matrix Q or P**T.
@@ -108,7 +108,7 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension
+*>          TAU is REAL*10 array, dimension
 *>                                (min(M,K)) if VECT = 'Q'
 *>                                (min(N,K)) if VECT = 'P'
 *>          TAU(i) must contain the scalar factor of the elementary
@@ -118,7 +118,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -164,13 +164,13 @@
       INTEGER            INFO, K, LDA, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+      REAL*10   A( LDA, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..

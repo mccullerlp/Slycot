@@ -8,13 +8,13 @@
 !  Definition:
 !  ===========
 !
-!       DOUBLE PRECISION FUNCTION DNRM2(N,X,INCX)
+!       REAL*10 FUNCTION DNRM2(N,X,INCX)
 !
 !       .. Scalar Arguments ..
 !       INTEGER INCX,N
 !       ..
 !       .. Array Arguments ..
-!       DOUBLE PRECISION X(*)
+!       REAL*10 X(*)
 !       ..
 !
 !
@@ -40,7 +40,7 @@
 !>
 !> \param[in] X
 !> \verbatim
-!>          X is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+!>          X is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 !> \endverbatim
 !>
 !> \param[in] INCX

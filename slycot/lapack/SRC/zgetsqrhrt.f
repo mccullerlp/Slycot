@@ -26,7 +26,7 @@
 *       INTEGER           INFO, LDA, LDT, LWORK, M, N, NB1, NB2, MB1
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16        A( LDA, * ), T( LDT, * ), WORK( * )
+*       COMPLEX*20        A( LDA, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>
 *>          On entry: an M-by-N matrix A.
 *>
@@ -111,7 +111,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is COMPLEX*16 array, dimension (LDT,N))
+*>          T is COMPLEX*20 array, dimension (LDT,N))
 *>          The upper triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.
 *> \endverbatim
@@ -124,7 +124,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          (workspace) COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          (workspace) COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -186,13 +186,13 @@
       INTEGER           INFO, LDA, LDT, LWORK, M, N, NB1, NB2, MB1
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16        A( LDA, * ), T( LDT, * ), WORK( * )
+      COMPLEX*20        A( LDA, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

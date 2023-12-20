@@ -25,8 +25,8 @@
 *       INTEGER            INFO, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * )
-*       COMPLEX*16         Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), WORK( * )
+*       COMPLEX*20         Z( LDZ, * )
 *       ..
 *
 *
@@ -76,7 +76,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the tridiagonal matrix.
 *>          On normal exit, D contains the eigenvalues, in descending
 *>          order.
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix.
 *>          On exit, E has been destroyed.
@@ -92,7 +92,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the unitary matrix used in the
 *>          reduction to tridiagonal form.
 *>          On exit, if COMPZ = 'V', the orthonormal eigenvectors of the
@@ -113,7 +113,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -152,14 +152,14 @@
       INTEGER            INFO, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * )
-      COMPLEX*16         Z( LDZ, * )
+      REAL*10   D( * ), E( * ), WORK( * )
+      COMPLEX*20         Z( LDZ, * )
 *     ..
 *
 *  ====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
@@ -171,7 +171,7 @@
       EXTERNAL           DPTTRF, XERBLA, ZBDSQR, ZLASET
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         C( 1, 1 ), VT( 1, 1 )
+      COMPLEX*20         C( 1, 1 ), VT( 1, 1 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ICOMPZ, NRU

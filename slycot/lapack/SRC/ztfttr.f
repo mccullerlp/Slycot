@@ -25,7 +25,7 @@
 *       INTEGER            INFO, N, LDA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( 0: LDA-1, 0: * ), ARF( 0: * )
+*       COMPLEX*20         A( 0: LDA-1, 0: * ), ARF( 0: * )
 *       ..
 *
 *
@@ -63,14 +63,14 @@
 *>
 *> \param[in] ARF
 *> \verbatim
-*>          ARF is COMPLEX*16 array, dimension ( N*(N+1)/2 ),
+*>          ARF is COMPLEX*20 array, dimension ( N*(N+1)/2 ),
 *>          On entry, the upper or lower triangular matrix A stored in
 *>          RFP format. For a further discussion see Notes below.
 *> \endverbatim
 *>
 *> \param[out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, N )
+*>          A is COMPLEX*20 array, dimension ( LDA, N )
 *>          On exit, the triangular matrix A.  If UPLO = 'U', the
 *>          leading N-by-N upper triangular part of the array A contains
 *>          the upper triangular matrix, and the strictly lower
@@ -223,7 +223,7 @@
       INTEGER            INFO, N, LDA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( 0: LDA-1, 0: * ), ARF( 0: * )
+      COMPLEX*20         A( 0: LDA-1, 0: * ), ARF( 0: * )
 *     ..
 *
 *  =====================================================================

@@ -25,8 +25,8 @@
 *       INTEGER            INFO, LDA, LWORK, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
-*       COMPLEX*16         A( LDA, * ), TAUP( * ), TAUQ( * ), WORK( * )
+*       REAL*10   D( * ), E( * )
+*       COMPLEX*20         A( LDA, * ), TAUP( * ), TAUQ( * ), WORK( * )
 *       ..
 *
 *
@@ -58,7 +58,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N general matrix to be reduced.
 *>          On exit,
 *>          if m >= n, the diagonal and the first superdiagonal are
@@ -86,14 +86,14 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (min(M,N))
+*>          D is REAL*10 array, dimension (min(M,N))
 *>          The diagonal elements of the bidiagonal matrix B:
 *>          D(i) = A(i,i).
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (min(M,N)-1)
+*>          E is REAL*10 array, dimension (min(M,N)-1)
 *>          The off-diagonal elements of the bidiagonal matrix B:
 *>          if m >= n, E(i) = A(i,i+1) for i = 1,2,...,n-1;
 *>          if m < n, E(i) = A(i+1,i) for i = 1,2,...,m-1.
@@ -101,21 +101,21 @@
 *>
 *> \param[out] TAUQ
 *> \verbatim
-*>          TAUQ is COMPLEX*16 array, dimension (min(M,N))
+*>          TAUQ is COMPLEX*20 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors which
 *>          represent the unitary matrix Q. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] TAUP
 *> \verbatim
-*>          TAUP is COMPLEX*16 array, dimension (min(M,N))
+*>          TAUP is COMPLEX*20 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors which
 *>          represent the unitary matrix P. See Further Details.
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -211,14 +211,14 @@
       INTEGER            INFO, LDA, LWORK, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
-      COMPLEX*16         A( LDA, * ), TAUP( * ), TAUQ( * ), WORK( * )
+      REAL*10   D( * ), E( * )
+      COMPLEX*20         A( LDA, * ), TAUP( * ), TAUQ( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE
+      COMPLEX*20         ONE
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..

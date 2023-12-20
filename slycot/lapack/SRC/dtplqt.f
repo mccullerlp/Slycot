@@ -25,7 +25,7 @@
 *       INTEGER           INFO, LDA, LDB, LDT, N, M, L, MB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION  A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
+*       REAL*10  A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,M)
+*>          A is REAL*10 array, dimension (LDA,M)
 *>          On entry, the lower triangular M-by-M matrix A.
 *>          On exit, the elements on and below the diagonal of the array
 *>          contain the lower triangular matrix L.
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the pentagonal M-by-N matrix B.  The first N-L columns
 *>          are rectangular, and the last L columns are lower trapezoidal.
 *>          On exit, B contains the pentagonal matrix V.  See Further Details.
@@ -101,7 +101,7 @@
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,N)
+*>          T is REAL*10 array, dimension (LDT,N)
 *>          The lower triangular block reflectors stored in compact form
 *>          as a sequence of upper triangular blocks.  See Further Details.
 *> \endverbatim
@@ -114,7 +114,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MB*M)
+*>          WORK is REAL*10 array, dimension (MB*M)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -195,7 +195,7 @@
       INTEGER INFO, LDA, LDB, LDT, N, M, L, MB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
+      REAL*10 A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * )
 *     ..
 *
 * =====================================================================

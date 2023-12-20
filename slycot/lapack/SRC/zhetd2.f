@@ -25,8 +25,8 @@
 *       INTEGER            INFO, LDA, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * )
-*       COMPLEX*16         A( LDA, * ), TAU( * )
+*       REAL*10   D( * ), E( * )
+*       COMPLEX*20         A( LDA, * ), TAU( * )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          n-by-n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -88,21 +88,21 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          The diagonal elements of the tridiagonal matrix T:
 *>          D(i) = A(i,i).
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          The off-diagonal elements of the tridiagonal matrix T:
 *>          E(i) = A(i,i+1) if UPLO = 'U', E(i) = A(i+1,i) if UPLO = 'L'.
 *> \endverbatim
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is COMPLEX*16 array, dimension (N-1)
+*>          TAU is COMPLEX*20 array, dimension (N-1)
 *>          The scalar factors of the elementary reflectors (see Further
 *>          Details).
 *> \endverbatim
@@ -182,14 +182,14 @@
       INTEGER            INFO, LDA, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * )
-      COMPLEX*16         A( LDA, * ), TAU( * )
+      REAL*10   D( * ), E( * )
+      COMPLEX*20         A( LDA, * ), TAU( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO, HALF
+      COMPLEX*20         ONE, ZERO, HALF
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ),
      $                   HALF = ( 0.5D+0, 0.0D+0 ) )
@@ -197,14 +197,14 @@
 *     .. Local Scalars ..
       LOGICAL            UPPER
       INTEGER            I
-      COMPLEX*16         ALPHA, TAUI
+      COMPLEX*20         ALPHA, TAUI
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZAXPY, ZHEMV, ZHER2, ZLARFG
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      COMPLEX*16         ZDOTC
+      COMPLEX*20         ZDOTC
       EXTERNAL           LSAME, ZDOTC
 *     ..
 *     .. Intrinsic Functions ..

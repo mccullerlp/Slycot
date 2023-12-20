@@ -25,7 +25,7 @@
 *       INTEGER            ICOMPQ, INFO, K, LDDIFR
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), DIFL( * ), DIFR( LDDIFR, * ),
+*       REAL*10   D( * ), DIFL( * ), DIFR( LDDIFR, * ),
 *      $                   DSIGMA( * ), VF( * ), VL( * ), WORK( * ),
 *      $                   Z( * )
 *       ..
@@ -67,13 +67,13 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension ( K )
+*>          D is REAL*10 array, dimension ( K )
 *>          On output, D contains the updated singular values.
 *> \endverbatim
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension ( K )
+*>          Z is REAL*10 array, dimension ( K )
 *>          On entry, the first K elements of this array contain the
 *>          components of the deflation-adjusted updating row vector.
 *>          On exit, Z is updated.
@@ -81,7 +81,7 @@
 *>
 *> \param[in,out] VF
 *> \verbatim
-*>          VF is DOUBLE PRECISION array, dimension ( K )
+*>          VF is REAL*10 array, dimension ( K )
 *>          On entry, VF contains  information passed through DBEDE8.
 *>          On exit, VF contains the first K components of the first
 *>          components of all right singular vectors of the bidiagonal
@@ -90,7 +90,7 @@
 *>
 *> \param[in,out] VL
 *> \verbatim
-*>          VL is DOUBLE PRECISION array, dimension ( K )
+*>          VL is REAL*10 array, dimension ( K )
 *>          On entry, VL contains  information passed through DBEDE8.
 *>          On exit, VL contains the first K components of the last
 *>          components of all right singular vectors of the bidiagonal
@@ -99,13 +99,13 @@
 *>
 *> \param[out] DIFL
 *> \verbatim
-*>          DIFL is DOUBLE PRECISION array, dimension ( K )
+*>          DIFL is REAL*10 array, dimension ( K )
 *>          On exit, DIFL(I) = D(I) - DSIGMA(I).
 *> \endverbatim
 *>
 *> \param[out] DIFR
 *> \verbatim
-*>          DIFR is DOUBLE PRECISION array,
+*>          DIFR is REAL*10 array,
 *>                   dimension ( LDDIFR, 2 ) if ICOMPQ = 1 and
 *>                   dimension ( K ) if ICOMPQ = 0.
 *>          On exit, DIFR(I,1) = D(I) - DSIGMA(I+1), DIFR(K,1) is not
@@ -123,7 +123,7 @@
 *>
 *> \param[in,out] DSIGMA
 *> \verbatim
-*>          DSIGMA is DOUBLE PRECISION array, dimension ( K )
+*>          DSIGMA is REAL*10 array, dimension ( K )
 *>          On entry, the first K elements of this array contain the old
 *>          roots of the deflated updating problem.  These are the poles
 *>          of the secular equation.
@@ -133,7 +133,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (3*K)
+*>          WORK is REAL*10 array, dimension (3*K)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -172,7 +172,7 @@
       INTEGER            ICOMPQ, INFO, K, LDDIFR
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), DIFL( * ), DIFR( LDDIFR, * ),
+      REAL*10   D( * ), DIFL( * ), DIFR( LDDIFR, * ),
      $                   DSIGMA( * ), VF( * ), VL( * ), WORK( * ),
      $                   Z( * )
 *     ..
@@ -180,18 +180,18 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IWK1, IWK2, IWK2I, IWK3, IWK3I, J
-      DOUBLE PRECISION   DIFLJ, DIFRJ, DJ, DSIGJ, DSIGJP, RHO, TEMP
+      REAL*10   DIFLJ, DIFRJ, DJ, DSIGJ, DSIGJP, RHO, TEMP
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DCOPY, DLASCL, DLASD4, DLASET, XERBLA
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DDOT, DLAMC3, DNRM2
+      REAL*10   DDOT, DLAMC3, DNRM2
       EXTERNAL           DDOT, DLAMC3, DNRM2
 *     ..
 *     .. Intrinsic Functions ..

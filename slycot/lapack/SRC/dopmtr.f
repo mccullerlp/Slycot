@@ -26,7 +26,7 @@
 *       INTEGER            INFO, LDC, M, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AP( * ), C( LDC, * ), TAU( * ), WORK( * )
+*       REAL*10   AP( * ), C( LDC, * ), TAU( * ), WORK( * )
 *       ..
 *
 *
@@ -91,7 +91,7 @@
 *>
 *> \param[in] AP
 *> \verbatim
-*>          AP is DOUBLE PRECISION array, dimension
+*>          AP is REAL*10 array, dimension
 *>                               (M*(M+1)/2) if SIDE = 'L'
 *>                               (N*(N+1)/2) if SIDE = 'R'
 *>          The vectors which define the elementary reflectors, as
@@ -101,7 +101,7 @@
 *>
 *> \param[in] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (M-1) if SIDE = 'L'
+*>          TAU is REAL*10 array, dimension (M-1) if SIDE = 'L'
 *>                                     or (N-1) if SIDE = 'R'
 *>          TAU(i) must contain the scalar factor of the elementary
 *>          reflector H(i), as returned by DSPTRD.
@@ -109,7 +109,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 *> \endverbatim
@@ -122,7 +122,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension
+*>          WORK is REAL*10 array, dimension
 *>                                   (N) if SIDE = 'L'
 *>                                   (M) if SIDE = 'R'
 *> \endverbatim
@@ -157,19 +157,19 @@
       INTEGER            INFO, LDC, M, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AP( * ), C( LDC, * ), TAU( * ), WORK( * )
+      REAL*10   AP( * ), C( LDC, * ), TAU( * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            FORWRD, LEFT, NOTRAN, UPPER
       INTEGER            I, I1, I2, I3, IC, II, JC, MI, NI, NQ
-      DOUBLE PRECISION   AII
+      REAL*10   AII
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

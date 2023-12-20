@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDZ, N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+*       REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -75,7 +75,7 @@
 *>
 *> \param[in,out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>          On entry, the n diagonal elements of the tridiagonal
 *>          matrix.
 *>          On normal exit, D contains the eigenvalues, in descending
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          On entry, the (n-1) subdiagonal elements of the tridiagonal
 *>          matrix.
 *>          On exit, E has been destroyed.
@@ -92,7 +92,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the orthogonal matrix used in the
 *>          reduction to tridiagonal form.
 *>          On exit, if COMPZ = 'V', the orthonormal eigenvectors of the
@@ -113,7 +113,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -152,13 +152,13 @@
       INTEGER            INFO, LDZ, N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   D( * ), E( * ), WORK( * ), Z( LDZ, * )
+      REAL*10   D( * ), E( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
 *     ..
 *     .. External Functions ..
@@ -169,7 +169,7 @@
       EXTERNAL           DBDSQR, DLASET, DPTTRF, XERBLA
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   C( 1, 1 ), VT( 1, 1 )
+      REAL*10   C( 1, 1 ), VT( 1, 1 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, ICOMPZ, NRU

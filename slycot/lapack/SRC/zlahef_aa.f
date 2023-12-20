@@ -27,7 +27,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER      IPIV( * )
-*       COMPLEX*16   A( LDA, * ), H( LDH, * ), WORK( * )
+*       COMPLEX*20   A( LDA, * ), H( LDH, * ), WORK( * )
 *       ..
 *
 *
@@ -84,7 +84,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,M) for
+*>          A is COMPLEX*20 array, dimension (LDA,M) for
 *>          the first panel, while dimension (LDA,M+1) for the
 *>          remaining panels.
 *>
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 workspace, dimension (LDH,NB).
+*>          H is COMPLEX*20 workspace, dimension (LDH,NB).
 *>
 *> \endverbatim
 *>
@@ -124,7 +124,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 workspace, dimension (M).
+*>          WORK is COMPLEX*20 workspace, dimension (M).
 *> \endverbatim
 *>
 *
@@ -154,17 +154,17 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER      IPIV( * )
-      COMPLEX*16   A( LDA, * ), H( LDH, * ), WORK( * )
+      COMPLEX*20   A( LDA, * ), H( LDH, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *     .. Parameters ..
-      COMPLEX*16   ZERO, ONE
+      COMPLEX*20   ZERO, ONE
       PARAMETER    ( ZERO = (0.0D+0, 0.0D+0), ONE = (1.0D+0, 0.0D+0) )
 *
 *     .. Local Scalars ..
       INTEGER      J, K, K1, I1, I2, MJ
-      COMPLEX*16   PIV, ALPHA
+      COMPLEX*20   PIV, ALPHA
 *     ..
 *     .. External Functions ..
       LOGICAL      LSAME

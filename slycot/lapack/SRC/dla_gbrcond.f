@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_GBRCOND( TRANS, N, KL, KU, AB, LDAB,
+*       REAL*10 FUNCTION DLA_GBRCOND( TRANS, N, KL, KU, AB, LDAB,
 *                                              AFB, LDAFB, IPIV, CMODE, C,
 *                                              INFO, WORK, IWORK )
 *
@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * ), IPIV( * )
-*       DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
+*       REAL*10   AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
 *      $                   C( * )
 *       ..
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>     On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 *>     The j-th column of A is stored in the j-th column of the
 *>     array AB as follows:
@@ -97,7 +97,7 @@
 *>
 *> \param[in] AFB
 *> \verbatim
-*>          AFB is DOUBLE PRECISION array, dimension (LDAFB,N)
+*>          AFB is REAL*10 array, dimension (LDAFB,N)
 *>     Details of the LU factorization of the band matrix A, as
 *>     computed by DGBTRF.  U is stored as an upper triangular
 *>     band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
@@ -130,7 +130,7 @@
 *>
 *> \param[in] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (N)
+*>          C is REAL*10 array, dimension (N)
 *>     The vector C in the formula op(A) * op2(C).
 *> \endverbatim
 *>
@@ -143,7 +143,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (5*N).
+*>          WORK is REAL*10 array, dimension (5*N).
 *>     Workspace.
 *> \endverbatim
 *>
@@ -164,7 +164,7 @@
 *> \ingroup doubleGBcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_GBRCOND( TRANS, N, KL, KU, AB, LDAB,
+      REAL*10 FUNCTION DLA_GBRCOND( TRANS, N, KL, KU, AB, LDAB,
      $                                       AFB, LDAFB, IPIV, CMODE, C,
      $                                       INFO, WORK, IWORK )
 *
@@ -178,7 +178,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * ), IPIV( * )
-      DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
+      REAL*10   AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
      $                   C( * )
 *     ..
 *
@@ -187,7 +187,7 @@
 *     .. Local Scalars ..
       LOGICAL            NOTRANS
       INTEGER            KASE, I, J, KD, KE
-      DOUBLE PRECISION   AINVNM, TMP
+      REAL*10   AINVNM, TMP
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )

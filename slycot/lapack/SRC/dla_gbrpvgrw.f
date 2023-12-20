@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
+*       REAL*10 FUNCTION DLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
 *                                               LDAB, AFB, LDAFB )
 *
 *       .. Scalar Arguments ..
 *       INTEGER            N, KL, KU, NCOLS, LDAB, LDAFB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * )
+*       REAL*10   AB( LDAB, * ), AFB( LDAFB, * )
 *       ..
 *
 *
@@ -72,7 +72,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>     On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 *>     The j-th column of A is stored in the j-th column of the
 *>     array AB as follows:
@@ -87,7 +87,7 @@
 *>
 *> \param[in] AFB
 *> \verbatim
-*>          AFB is DOUBLE PRECISION array, dimension (LDAFB,N)
+*>          AFB is REAL*10 array, dimension (LDAFB,N)
 *>     Details of the LU factorization of the band matrix A, as
 *>     computed by DGBTRF.  U is stored as an upper triangular
 *>     band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
@@ -112,7 +112,7 @@
 *> \ingroup doubleGBcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
+      REAL*10 FUNCTION DLA_GBRPVGRW( N, KL, KU, NCOLS, AB,
      $                                        LDAB, AFB, LDAFB )
 *
 *  -- LAPACK computational routine --
@@ -123,14 +123,14 @@
       INTEGER            N, KL, KU, NCOLS, LDAB, LDAFB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), AFB( LDAFB, * )
+      REAL*10   AB( LDAB, * ), AFB( LDAFB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J, KD
-      DOUBLE PRECISION   AMAX, UMAX, RPVGRW
+      REAL*10   AMAX, UMAX, RPVGRW
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MAX, MIN

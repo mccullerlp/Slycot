@@ -22,10 +22,10 @@
 !
 !       .. Scalar Arguments ..
 !       INTEGER            INCX, N
-!       DOUBLE PRECISION   SCALE, SUMSQ
+!       REAL*10   SCALE, SUMSQ
 !       ..
 !       .. Array Arguments ..
-!       DOUBLE PRECISION   X( * )
+!       REAL*10   X( * )
 !       ..
 !
 !
@@ -70,7 +70,7 @@
 !>
 !> \param[in] X
 !> \verbatim
-!>          X is DOUBLE PRECISION array, dimension (1+(N-1)*abs(INCX))
+!>          X is REAL*10 array, dimension (1+(N-1)*abs(INCX))
 !>          The vector for which a scaled sum of squares is computed.
 !>             x( i )  = X( 1 + ( i - 1 )*INCX ), 1 <= i <= n.
 !> \endverbatim
@@ -88,7 +88,7 @@
 !>
 !> \param[in,out] SCALE
 !> \verbatim
-!>          SCALE is DOUBLE PRECISION
+!>          SCALE is REAL*10
 !>          On entry, the value  scale  in the equation above.
 !>          On exit, SCALE is overwritten with  scl , the scaling factor
 !>          for the sum of squares.
@@ -96,7 +96,7 @@
 !>
 !> \param[in,out] SUMSQ
 !> \verbatim
-!>          SUMSQ is DOUBLE PRECISION
+!>          SUMSQ is REAL*10
 !>          On entry, the value  sumsq  in the equation above.
 !>          On exit, SUMSQ is overwritten with  smsq , the basic sum of
 !>          squares from which  scl  has been factored out.

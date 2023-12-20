@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISEED( 4 )
-*       DOUBLE PRECISION   X( N )
+*       REAL*10   X( N )
 *       ..
 *
 *
@@ -60,7 +60,7 @@
 *>
 *> \param[out] X
 *> \verbatim
-*>          X is DOUBLE PRECISION array, dimension (N)
+*>          X is REAL*10 array, dimension (N)
 *>          The generated random numbers.
 *> \endverbatim
 *
@@ -102,16 +102,16 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISEED( 4 )
-      DOUBLE PRECISION   X( N )
+      REAL*10   X( N )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D0 )
       INTEGER            LV, IPW2
-      DOUBLE PRECISION   R
+      REAL*10   R
       PARAMETER          ( LV = 128, IPW2 = 4096, R = ONE / IPW2 )
 *     ..
 *     .. Local Scalars ..

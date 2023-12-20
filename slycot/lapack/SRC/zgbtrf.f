@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         AB( LDAB, * )
+*       COMPLEX*20         AB( LDAB, * )
 *       ..
 *
 *
@@ -69,7 +69,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>          On entry, the matrix A in band storage, in rows KL+1 to
 *>          2*KL+KU+1; rows 1 to KL of the array need not be set.
 *>          The j-th column of A is stored in the j-th column of the
@@ -151,13 +151,13 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         AB( LDAB, * )
+      COMPLEX*20         AB( LDAB, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ONE, ZERO
+      COMPLEX*20         ONE, ZERO
       PARAMETER          ( ONE = ( 1.0D+0, 0.0D+0 ),
      $                   ZERO = ( 0.0D+0, 0.0D+0 ) )
       INTEGER            NBMAX, LDWORK
@@ -166,10 +166,10 @@
 *     .. Local Scalars ..
       INTEGER            I, I2, I3, II, IP, J, J2, J3, JB, JJ, JM, JP,
      $                   JU, K2, KM, KV, NB, NW
-      COMPLEX*16         TEMP
+      COMPLEX*20         TEMP
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         WORK13( LDWORK, NBMAX ),
+      COMPLEX*20         WORK13( LDWORK, NBMAX ),
      $                   WORK31( LDWORK, NBMAX )
 *     ..
 *     .. External Functions ..

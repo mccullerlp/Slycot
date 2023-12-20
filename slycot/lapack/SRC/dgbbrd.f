@@ -26,7 +26,7 @@
 *       INTEGER            INFO, KL, KU, LDAB, LDC, LDPT, LDQ, M, N, NCC
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   AB( LDAB, * ), C( LDC, * ), D( * ), E( * ),
+*       REAL*10   AB( LDAB, * ), C( LDC, * ), D( * ), E( * ),
 *      $                   PT( LDPT, * ), Q( LDQ, * ), WORK( * )
 *       ..
 *
@@ -89,7 +89,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+*>          AB is REAL*10 array, dimension (LDAB,N)
 *>          On entry, the m-by-n band matrix A, stored in rows 1 to
 *>          KL+KU+1. The j-th column of A is stored in the j-th column of
 *>          the array AB as follows:
@@ -106,19 +106,19 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (min(M,N))
+*>          D is REAL*10 array, dimension (min(M,N))
 *>          The diagonal elements of the bidiagonal matrix B.
 *> \endverbatim
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (min(M,N)-1)
+*>          E is REAL*10 array, dimension (min(M,N)-1)
 *>          The superdiagonal elements of the bidiagonal matrix B.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,M)
+*>          Q is REAL*10 array, dimension (LDQ,M)
 *>          If VECT = 'Q' or 'B', the m-by-m orthogonal matrix Q.
 *>          If VECT = 'N' or 'P', the array Q is not referenced.
 *> \endverbatim
@@ -132,7 +132,7 @@
 *>
 *> \param[out] PT
 *> \verbatim
-*>          PT is DOUBLE PRECISION array, dimension (LDPT,N)
+*>          PT is REAL*10 array, dimension (LDPT,N)
 *>          If VECT = 'P' or 'B', the n-by-n orthogonal matrix P'.
 *>          If VECT = 'N' or 'Q', the array PT is not referenced.
 *> \endverbatim
@@ -146,7 +146,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,NCC)
+*>          C is REAL*10 array, dimension (LDC,NCC)
 *>          On entry, an m-by-ncc matrix C.
 *>          On exit, C is overwritten by Q**T*C.
 *>          C is not referenced if NCC = 0.
@@ -161,7 +161,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*max(M,N))
+*>          WORK is REAL*10 array, dimension (2*max(M,N))
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -194,21 +194,21 @@
       INTEGER            INFO, KL, KU, LDAB, LDC, LDPT, LDQ, M, N, NCC
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   AB( LDAB, * ), C( LDC, * ), D( * ), E( * ),
+      REAL*10   AB( LDAB, * ), C( LDC, * ), D( * ), E( * ),
      $                   PT( LDPT, * ), Q( LDQ, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            WANTB, WANTC, WANTPT, WANTQ
       INTEGER            I, INCA, J, J1, J2, KB, KB1, KK, KLM, KLU1,
      $                   KUN, L, MINMN, ML, ML0, MN, MU, MU0, NR, NRT
-      DOUBLE PRECISION   RA, RB, RC, RS
+      REAL*10   RA, RB, RC, RS
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLARGV, DLARTG, DLARTV, DLASET, DROT, XERBLA

@@ -25,7 +25,7 @@
 *       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
 *      $                   WORK( * )
 *       ..
 *
@@ -87,7 +87,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, if M <= N, the upper triangle of the subarray
 *>          A(1:M,N-M+1:N) contains the M-by-M upper triangular matrix R;
@@ -106,14 +106,14 @@
 *>
 *> \param[out] TAUA
 *> \verbatim
-*>          TAUA is DOUBLE PRECISION array, dimension (min(M,N))
+*>          TAUA is REAL*10 array, dimension (min(M,N))
 *>          The scalar factors of the elementary reflectors which
 *>          represent the orthogonal matrix Q (see Further Details).
 *> \endverbatim
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB,N)
+*>          B is REAL*10 array, dimension (LDB,N)
 *>          On entry, the P-by-N matrix B.
 *>          On exit, the elements on and above the diagonal of the array
 *>          contain the min(P,N)-by-N upper trapezoidal matrix T (T is
@@ -130,14 +130,14 @@
 *>
 *> \param[out] TAUB
 *> \verbatim
-*>          TAUB is DOUBLE PRECISION array, dimension (min(P,N))
+*>          TAUB is REAL*10 array, dimension (min(P,N))
 *>          The scalar factors of the elementary reflectors which
 *>          represent the orthogonal matrix Z (see Further Details).
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -220,7 +220,7 @@
       INTEGER            INFO, LDA, LDB, LWORK, M, N, P
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), TAUA( * ), TAUB( * ),
      $                   WORK( * )
 *     ..
 *

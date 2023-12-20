@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_GERCOND_X( TRANS, N, A, LDA, AF,
+*       REAL*10 FUNCTION ZLA_GERCOND_X( TRANS, N, A, LDA, AF,
 *                                                LDAF, IPIV, X, INFO,
 *                                                WORK, RWORK )
 *
@@ -28,8 +28,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
-*       DOUBLE PRECISION   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
+*       REAL*10   RWORK( * )
 *       ..
 *
 *
@@ -39,7 +39,7 @@
 *> \verbatim
 *>
 *>    ZLA_GERCOND_X computes the infinity norm condition number of
-*>    op(A) * diag(X) where X is a COMPLEX*16 vector.
+*>    op(A) * diag(X) where X is a COMPLEX*20 vector.
 *> \endverbatim
 *
 *  Arguments:
@@ -63,7 +63,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>     On entry, the N-by-N matrix A.
 *> \endverbatim
 *>
@@ -75,7 +75,7 @@
 *>
 *> \param[in] AF
 *> \verbatim
-*>          AF is COMPLEX*16 array, dimension (LDAF,N)
+*>          AF is COMPLEX*20 array, dimension (LDAF,N)
 *>     The factors L and U from the factorization
 *>     A = P*L*U as computed by ZGETRF.
 *> \endverbatim
@@ -96,7 +96,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>     The vector X in the formula op(A) * diag(X).
 *> \endverbatim
 *>
@@ -109,13 +109,13 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N).
+*>          WORK is COMPLEX*20 array, dimension (2*N).
 *>     Workspace.
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N).
+*>          RWORK is REAL*10 array, dimension (N).
 *>     Workspace.
 *> \endverbatim
 *
@@ -130,7 +130,7 @@
 *> \ingroup complex16GEcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_GERCOND_X( TRANS, N, A, LDA, AF,
+      REAL*10 FUNCTION ZLA_GERCOND_X( TRANS, N, A, LDA, AF,
      $                                         LDAF, IPIV, X, INFO,
      $                                         WORK, RWORK )
 *
@@ -144,8 +144,8 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
-      DOUBLE PRECISION   RWORK( * )
+      COMPLEX*20         A( LDA, * ), AF( LDAF, * ), WORK( * ), X( * )
+      REAL*10   RWORK( * )
 *     ..
 *
 *  =====================================================================
@@ -153,9 +153,9 @@
 *     .. Local Scalars ..
       LOGICAL            NOTRANS
       INTEGER            KASE
-      DOUBLE PRECISION   AINVNM, ANORM, TMP
+      REAL*10   AINVNM, ANORM, TMP
       INTEGER            I, J
-      COMPLEX*16         ZDUM
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -171,7 +171,7 @@
       INTRINSIC          ABS, MAX, REAL, DIMAG
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

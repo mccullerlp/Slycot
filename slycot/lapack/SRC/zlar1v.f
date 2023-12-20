@@ -25,14 +25,14 @@
 *       .. Scalar Arguments ..
 *       LOGICAL            WANTNC
 *       INTEGER   B1, BN, N, NEGCNT, R
-*       DOUBLE PRECISION   GAPTOL, LAMBDA, MINGMA, NRMINV, PIVMIN, RESID,
+*       REAL*10   GAPTOL, LAMBDA, MINGMA, NRMINV, PIVMIN, RESID,
 *      $                   RQCORR, ZTZ
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            ISUPPZ( * )
-*       DOUBLE PRECISION   D( * ), L( * ), LD( * ), LLD( * ),
+*       REAL*10   D( * ), L( * ), LD( * ), LLD( * ),
 *      $                  WORK( * )
-*       COMPLEX*16       Z( * )
+*       COMPLEX*20       Z( * )
 *       ..
 *
 *
@@ -81,7 +81,7 @@
 *>
 *> \param[in] LAMBDA
 *> \verbatim
-*>          LAMBDA is DOUBLE PRECISION
+*>          LAMBDA is REAL*10
 *>           The shift. In order to compute an accurate eigenvector,
 *>           LAMBDA should be a good approximation to an eigenvalue
 *>           of L D L**T.
@@ -89,45 +89,45 @@
 *>
 *> \param[in] L
 *> \verbatim
-*>          L is DOUBLE PRECISION array, dimension (N-1)
+*>          L is REAL*10 array, dimension (N-1)
 *>           The (n-1) subdiagonal elements of the unit bidiagonal matrix
 *>           L, in elements 1 to N-1.
 *> \endverbatim
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension (N)
+*>          D is REAL*10 array, dimension (N)
 *>           The n diagonal elements of the diagonal matrix D.
 *> \endverbatim
 *>
 *> \param[in] LD
 *> \verbatim
-*>          LD is DOUBLE PRECISION array, dimension (N-1)
+*>          LD is REAL*10 array, dimension (N-1)
 *>           The n-1 elements L(i)*D(i).
 *> \endverbatim
 *>
 *> \param[in] LLD
 *> \verbatim
-*>          LLD is DOUBLE PRECISION array, dimension (N-1)
+*>          LLD is REAL*10 array, dimension (N-1)
 *>           The n-1 elements L(i)*L(i)*D(i).
 *> \endverbatim
 *>
 *> \param[in] PIVMIN
 *> \verbatim
-*>          PIVMIN is DOUBLE PRECISION
+*>          PIVMIN is REAL*10
 *>           The minimum pivot in the Sturm sequence.
 *> \endverbatim
 *>
 *> \param[in] GAPTOL
 *> \verbatim
-*>          GAPTOL is DOUBLE PRECISION
+*>          GAPTOL is REAL*10
 *>           Tolerance that indicates when eigenvector entries are negligible
 *>           w.r.t. their contribution to the residual.
 *> \endverbatim
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (N)
+*>          Z is COMPLEX*20 array, dimension (N)
 *>           On input, all entries of Z must be set to 0.
 *>           On output, Z contains the (scaled) r-th column of the
 *>           inverse. The scaling is such that Z(R) equals 1.
@@ -148,13 +148,13 @@
 *>
 *> \param[out] ZTZ
 *> \verbatim
-*>          ZTZ is DOUBLE PRECISION
+*>          ZTZ is REAL*10
 *>           The square of the 2-norm of Z.
 *> \endverbatim
 *>
 *> \param[out] MINGMA
 *> \verbatim
-*>          MINGMA is DOUBLE PRECISION
+*>          MINGMA is REAL*10
 *>           The reciprocal of the largest (in magnitude) diagonal
 *>           element of the inverse of L D L**T - sigma I.
 *> \endverbatim
@@ -181,27 +181,27 @@
 *>
 *> \param[out] NRMINV
 *> \verbatim
-*>          NRMINV is DOUBLE PRECISION
+*>          NRMINV is REAL*10
 *>           NRMINV = 1/SQRT( ZTZ )
 *> \endverbatim
 *>
 *> \param[out] RESID
 *> \verbatim
-*>          RESID is DOUBLE PRECISION
+*>          RESID is REAL*10
 *>           The residual of the FP vector.
 *>           RESID = ABS( MINGMA )/SQRT( ZTZ )
 *> \endverbatim
 *>
 *> \param[out] RQCORR
 *> \verbatim
-*>          RQCORR is DOUBLE PRECISION
+*>          RQCORR is REAL*10
 *>           The Rayleigh Quotient correction to LAMBDA.
 *>           RQCORR = MINGMA*TMP
 *> \endverbatim
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (4*N)
+*>          WORK is REAL*10 array, dimension (4*N)
 *> \endverbatim
 *
 *  Authors:
@@ -235,22 +235,22 @@
 *     .. Scalar Arguments ..
       LOGICAL            WANTNC
       INTEGER   B1, BN, N, NEGCNT, R
-      DOUBLE PRECISION   GAPTOL, LAMBDA, MINGMA, NRMINV, PIVMIN, RESID,
+      REAL*10   GAPTOL, LAMBDA, MINGMA, NRMINV, PIVMIN, RESID,
      $                   RQCORR, ZTZ
 *     ..
 *     .. Array Arguments ..
       INTEGER            ISUPPZ( * )
-      DOUBLE PRECISION   D( * ), L( * ), LD( * ), LLD( * ),
+      REAL*10   D( * ), L( * ), LD( * ), LLD( * ),
      $                  WORK( * )
-      COMPLEX*16       Z( * )
+      COMPLEX*20       Z( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D0, ONE = 1.0D0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D0, 0.0D0 ) )
 
 *     ..
@@ -258,11 +258,11 @@
       LOGICAL            SAWNAN1, SAWNAN2
       INTEGER            I, INDLPL, INDP, INDS, INDUMN, NEG1, NEG2, R1,
      $                   R2
-      DOUBLE PRECISION   DMINUS, DPLUS, EPS, S, TMP
+      REAL*10   DMINUS, DPLUS, EPS, S, TMP
 *     ..
 *     .. External Functions ..
       LOGICAL DISNAN
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DISNAN, DLAMCH
 *     ..
 *     .. Intrinsic Functions ..

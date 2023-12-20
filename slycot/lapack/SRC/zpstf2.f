@@ -21,13 +21,13 @@
 *       SUBROUTINE ZPSTF2( UPLO, N, A, LDA, PIV, RANK, TOL, WORK, INFO )
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION   TOL
+*       REAL*10   TOL
 *       INTEGER            INFO, LDA, N, RANK
 *       CHARACTER          UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * )
-*       DOUBLE PRECISION   WORK( 2*N )
+*       COMPLEX*20         A( LDA, * )
+*       REAL*10   WORK( 2*N )
 *       INTEGER            PIV( N )
 *       ..
 *
@@ -70,7 +70,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 *>          n by n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -98,7 +98,7 @@
 *>
 *> \param[in] TOL
 *> \verbatim
-*>          TOL is DOUBLE PRECISION
+*>          TOL is REAL*10
 *>          User defined tolerance. If TOL < 0, then N*U*MAX( A( K,K ) )
 *>          will be used. The algorithm terminates at the (K-1)st step
 *>          if the pivot <= TOL.
@@ -112,7 +112,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (2*N)
+*>          WORK is REAL*10 array, dimension (2*N)
 *>          Work space.
 *> \endverbatim
 *>
@@ -145,32 +145,32 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION   TOL
+      REAL*10   TOL
       INTEGER            INFO, LDA, N, RANK
       CHARACTER          UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * )
-      DOUBLE PRECISION   WORK( 2*N )
+      COMPLEX*20         A( LDA, * )
+      REAL*10   WORK( 2*N )
       INTEGER            PIV( N )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         ZTEMP
-      DOUBLE PRECISION   AJJ, DSTOP, DTEMP
+      COMPLEX*20         ZTEMP
+      REAL*10   AJJ, DSTOP, DTEMP
       INTEGER            I, ITEMP, J, PVT
       LOGICAL            UPPER
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       LOGICAL            LSAME, DISNAN
       EXTERNAL           DLAMCH, LSAME, DISNAN
 *     ..

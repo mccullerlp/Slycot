@@ -25,10 +25,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANS
 *       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF, M, N
-*       DOUBLE PRECISION   RDSCAL, RDSUM, SCALE
+*       REAL*10   RDSCAL, RDSUM, SCALE
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), C( LDC, * ),
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), C( LDC, * ),
 *      $                   D( LDD, * ), E( LDE, * ), F( LDF, * )
 *       ..
 *
@@ -115,7 +115,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA, M)
+*>          A is COMPLEX*20 array, dimension (LDA, M)
 *>          On entry, A contains an upper triangular matrix.
 *> \endverbatim
 *>
@@ -127,7 +127,7 @@
 *>
 *> \param[in] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB, N)
+*>          B is COMPLEX*20 array, dimension (LDB, N)
 *>          On entry, B contains an upper triangular matrix.
 *> \endverbatim
 *>
@@ -139,7 +139,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is COMPLEX*16 array, dimension (LDC, N)
+*>          C is COMPLEX*20 array, dimension (LDC, N)
 *>          On entry, C contains the right-hand-side of the first matrix
 *>          equation in (1).
 *>          On exit, if IJOB = 0, C has been overwritten by the solution
@@ -154,7 +154,7 @@
 *>
 *> \param[in] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension (LDD, M)
+*>          D is COMPLEX*20 array, dimension (LDD, M)
 *>          On entry, D contains an upper triangular matrix.
 *> \endverbatim
 *>
@@ -166,7 +166,7 @@
 *>
 *> \param[in] E
 *> \verbatim
-*>          E is COMPLEX*16 array, dimension (LDE, N)
+*>          E is COMPLEX*20 array, dimension (LDE, N)
 *>          On entry, E contains an upper triangular matrix.
 *> \endverbatim
 *>
@@ -178,7 +178,7 @@
 *>
 *> \param[in,out] F
 *> \verbatim
-*>          F is COMPLEX*16 array, dimension (LDF, N)
+*>          F is COMPLEX*20 array, dimension (LDF, N)
 *>          On entry, F contains the right-hand-side of the second matrix
 *>          equation in (1).
 *>          On exit, if IJOB = 0, F has been overwritten by the solution
@@ -193,7 +193,7 @@
 *>
 *> \param[out] SCALE
 *> \verbatim
-*>          SCALE is DOUBLE PRECISION
+*>          SCALE is REAL*10
 *>          On exit, 0 <= SCALE <= 1. If 0 < SCALE < 1, the solutions
 *>          R and L (C and F on entry) will hold the solutions to a
 *>          slightly perturbed system but the input matrices A, B, D and
@@ -204,7 +204,7 @@
 *>
 *> \param[in,out] RDSUM
 *> \verbatim
-*>          RDSUM is DOUBLE PRECISION
+*>          RDSUM is REAL*10
 *>          On entry, the sum of squares of computed contributions to
 *>          the Dif-estimate under computation by ZTGSYL, where the
 *>          scaling factor RDSCAL (see below) has been factored out.
@@ -217,7 +217,7 @@
 *>
 *> \param[in,out] RDSCAL
 *> \verbatim
-*>          RDSCAL is DOUBLE PRECISION
+*>          RDSCAL is REAL*10
 *>          On entry, scaling factor used to prevent overflow in RDSUM.
 *>          On exit, RDSCAL is updated w.r.t. the current contributions
 *>          in RDSUM.
@@ -264,29 +264,29 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANS
       INTEGER            IJOB, INFO, LDA, LDB, LDC, LDD, LDE, LDF, M, N
-      DOUBLE PRECISION   RDSCAL, RDSUM, SCALE
+      REAL*10   RDSCAL, RDSUM, SCALE
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), C( LDC, * ),
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), C( LDC, * ),
      $                   D( LDD, * ), E( LDE, * ), F( LDF, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       INTEGER            LDZ
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, LDZ = 2 )
 *     ..
 *     .. Local Scalars ..
       LOGICAL            NOTRAN
       INTEGER            I, IERR, J, K
-      DOUBLE PRECISION   SCALOC
-      COMPLEX*16         ALPHA
+      REAL*10   SCALOC
+      COMPLEX*20         ALPHA
 *     ..
 *     .. Local Arrays ..
       INTEGER            IPIV( LDZ ), JPIV( LDZ )
-      COMPLEX*16         RHS( LDZ ), Z( LDZ, LDZ )
+      COMPLEX*20         RHS( LDZ ), Z( LDZ, LDZ )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

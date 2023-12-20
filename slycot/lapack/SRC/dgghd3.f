@@ -26,7 +26,7 @@
 *       INTEGER            IHI, ILO, INFO, LDA, LDB, LDQ, LDZ, N, LWORK
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+*       REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
 *      $                   Z( LDZ, * ), WORK( * )
 *       ..
 *
@@ -117,7 +117,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA, N)
+*>          A is REAL*10 array, dimension (LDA, N)
 *>          On entry, the N-by-N general matrix to be reduced.
 *>          On exit, the upper triangle and the first subdiagonal of A
 *>          are overwritten with the upper Hessenberg matrix H, and the
@@ -132,7 +132,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is DOUBLE PRECISION array, dimension (LDB, N)
+*>          B is REAL*10 array, dimension (LDB, N)
 *>          On entry, the N-by-N upper triangular matrix B.
 *>          On exit, the upper triangular matrix T = Q**T B Z.  The
 *>          elements below the diagonal are set to zero.
@@ -146,7 +146,7 @@
 *>
 *> \param[in,out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+*>          Q is REAL*10 array, dimension (LDQ, N)
 *>          On entry, if COMPQ = 'V', the orthogonal matrix Q1,
 *>          typically from the QR factorization of B.
 *>          On exit, if COMPQ='I', the orthogonal matrix Q, and if
@@ -163,7 +163,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+*>          Z is REAL*10 array, dimension (LDZ, N)
 *>          On entry, if COMPZ = 'V', the orthogonal matrix Z1.
 *>          On exit, if COMPZ='I', the orthogonal matrix Z, and if
 *>          COMPZ = 'V', the product Z1*Z.
@@ -179,7 +179,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (LWORK)
+*>          WORK is REAL*10 array, dimension (LWORK)
 *>          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -239,14 +239,14 @@
       INTEGER            IHI, ILO, INFO, LDA, LDB, LDQ, LDZ, N, LWORK
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
+      REAL*10   A( LDA, * ), B( LDB, * ), Q( LDQ, * ),
      $                   Z( LDZ, * ), WORK( * )
 *     ..
 *
 * =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
@@ -255,7 +255,7 @@
       INTEGER            COLA, I, IERR, J, J0, JCOL, JJ, JROW, K,
      $                   KACC22, LEN, LWKOPT, N2NB, NB, NBLST, NBMIN,
      $                   NH, NNB, NX, PPW, PPWO, PW, TOP, TOPQ
-      DOUBLE PRECISION   C, C1, C2, S, S1, S2, TEMP, TEMP1, TEMP2, TEMP3
+      REAL*10   C, C1, C2, S, S1, S2, TEMP, TEMP1, TEMP2, TEMP3
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME

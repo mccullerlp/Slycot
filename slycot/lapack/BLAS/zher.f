@@ -11,12 +11,12 @@
 *       SUBROUTINE ZHER(UPLO,N,ALPHA,X,INCX,A,LDA)
 *
 *       .. Scalar Arguments ..
-*       DOUBLE PRECISION ALPHA
+*       REAL*10 ALPHA
 *       INTEGER INCX,LDA,N
 *       CHARACTER UPLO
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16 A(LDA,*),X(*)
+*       COMPLEX*20 A(LDA,*),X(*)
 *       ..
 *
 *
@@ -59,13 +59,13 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is DOUBLE PRECISION.
+*>          ALPHA is REAL*10.
 *>           On entry, ALPHA specifies the scalar alpha.
 *> \endverbatim
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension at least
+*>          X is COMPLEX*20 array, dimension at least
 *>           ( 1 + ( n - 1 )*abs( INCX ) ).
 *>           Before entry, the incremented array X must contain the n
 *>           element vector x.
@@ -80,7 +80,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension ( LDA, N )
+*>          A is COMPLEX*20 array, dimension ( LDA, N )
 *>           Before entry with  UPLO = 'U' or 'u', the leading n by n
 *>           upper triangular part of the array A must contain the upper
 *>           triangular part of the hermitian matrix and the strictly
@@ -138,22 +138,22 @@
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 *
 *     .. Scalar Arguments ..
-      DOUBLE PRECISION ALPHA
+      REAL*10 ALPHA
       INTEGER INCX,LDA,N
       CHARACTER UPLO
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16 A(LDA,*),X(*)
+      COMPLEX*20 A(LDA,*),X(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16 ZERO
+      COMPLEX*20 ZERO
       PARAMETER (ZERO= (0.0D+0,0.0D+0))
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16 TEMP
+      COMPLEX*20 TEMP
       INTEGER I,INFO,IX,J,JX,KX
 *     ..
 *     .. External Functions ..

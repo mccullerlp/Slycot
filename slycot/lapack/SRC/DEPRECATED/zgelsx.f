@@ -23,12 +23,12 @@
 *
 *       .. Scalar Arguments ..
 *       INTEGER            INFO, LDA, LDB, M, N, NRHS, RANK
-*       DOUBLE PRECISION   RCOND
+*       REAL*10   RCOND
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            JPVT( * )
-*       DOUBLE PRECISION   RWORK( * )
-*       COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+*       REAL*10   RWORK( * )
+*       COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *       ..
 *
 *
@@ -92,7 +92,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix A.
 *>          On exit, A has been overwritten by details of its
 *>          complete orthogonal factorization.
@@ -106,7 +106,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,NRHS)
+*>          B is COMPLEX*20 array, dimension (LDB,NRHS)
 *>          On entry, the M-by-NRHS right hand side matrix B.
 *>          On exit, the N-by-NRHS solution matrix X.
 *>          If m >= n and RANK = n, the residual sum-of-squares for
@@ -135,7 +135,7 @@
 *>
 *> \param[in] RCOND
 *> \verbatim
-*>          RCOND is DOUBLE PRECISION
+*>          RCOND is REAL*10
 *>          RCOND is used to determine the effective rank of A, which
 *>          is defined as the order of the largest leading triangular
 *>          submatrix R11 in the QR factorization with pivoting of A,
@@ -152,13 +152,13 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension
+*>          WORK is COMPLEX*20 array, dimension
 *>                      (min(M,N) + max( N, 2*min(M,N)+NRHS )),
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (2*N)
+*>          RWORK is REAL*10 array, dimension (2*N)
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -188,12 +188,12 @@
 *
 *     .. Scalar Arguments ..
       INTEGER            INFO, LDA, LDB, M, N, NRHS, RANK
-      DOUBLE PRECISION   RCOND
+      REAL*10   RCOND
 *     ..
 *     .. Array Arguments ..
       INTEGER            JPVT( * )
-      DOUBLE PRECISION   RWORK( * )
-      COMPLEX*16         A( LDA, * ), B( LDB, * ), WORK( * )
+      REAL*10   RWORK( * )
+      COMPLEX*20         A( LDA, * ), B( LDB, * ), WORK( * )
 *     ..
 *
 *  =====================================================================
@@ -201,25 +201,25 @@
 *     .. Parameters ..
       INTEGER            IMAX, IMIN
       PARAMETER          ( IMAX = 1, IMIN = 2 )
-      DOUBLE PRECISION   ZERO, ONE, DONE, NTDONE
+      REAL*10   ZERO, ONE, DONE, NTDONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, DONE = ZERO,
      $                   NTDONE = ONE )
-      COMPLEX*16         CZERO, CONE
+      COMPLEX*20         CZERO, CONE
       PARAMETER          ( CZERO = ( 0.0D+0, 0.0D+0 ),
      $                   CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IASCL, IBSCL, ISMAX, ISMIN, J, K, MN
-      DOUBLE PRECISION   ANRM, BIGNUM, BNRM, SMAX, SMAXPR, SMIN, SMINPR,
+      REAL*10   ANRM, BIGNUM, BNRM, SMAX, SMAXPR, SMIN, SMINPR,
      $                   SMLNUM
-      COMPLEX*16         C1, C2, S1, S2, T1, T2
+      COMPLEX*20         C1, C2, S1, S2, T1, T2
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           XERBLA, ZGEQPF, ZLAIC1, ZLASCL, ZLASET, ZLATZM,
      $                   ZTRSM, ZTZRQF, ZUNM2R
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH, ZLANGE
+      REAL*10   DLAMCH, ZLANGE
       EXTERNAL           DLAMCH, ZLANGE
 *     ..
 *     .. Intrinsic Functions ..

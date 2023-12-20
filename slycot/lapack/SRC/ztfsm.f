@@ -24,10 +24,10 @@
 *       .. Scalar Arguments ..
 *       CHARACTER          TRANSR, DIAG, SIDE, TRANS, UPLO
 *       INTEGER            LDB, M, N
-*       COMPLEX*16         ALPHA
+*       COMPLEX*20         ALPHA
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( 0: * ), B( 0: LDB-1, 0: * )
+*       COMPLEX*20         A( 0: * ), B( 0: LDB-1, 0: * )
 *       ..
 *
 *
@@ -131,7 +131,7 @@
 *>
 *> \param[in] ALPHA
 *> \verbatim
-*>          ALPHA is COMPLEX*16
+*>          ALPHA is COMPLEX*20
 *>           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
 *>           zero then  A is not referenced and  B need not be set before
 *>           entry.
@@ -140,7 +140,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (N*(N+1)/2)
+*>          A is COMPLEX*20 array, dimension (N*(N+1)/2)
 *>           NT = N*(N+1)/2. On entry, the matrix A in RFP Format.
 *>           RFP Format is described by TRANSR, UPLO and N as follows:
 *>           If TRANSR='N' then RFP A is (0:N,0:K-1) when N is even;
@@ -159,7 +159,7 @@
 *>
 *> \param[in,out] B
 *> \verbatim
-*>          B is COMPLEX*16 array, dimension (LDB,N)
+*>          B is COMPLEX*20 array, dimension (LDB,N)
 *>           Before entry,  the leading  m by n part of the array  B must
 *>           contain  the  right-hand  side  matrix  B,  and  on exit  is
 *>           overwritten by the solution matrix  X.
@@ -303,16 +303,16 @@
 *     .. Scalar Arguments ..
       CHARACTER          TRANSR, DIAG, SIDE, TRANS, UPLO
       INTEGER            LDB, M, N
-      COMPLEX*16         ALPHA
+      COMPLEX*20         ALPHA
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( 0: * ), B( 0: LDB-1, 0: * )
+      COMPLEX*20         A( 0: * ), B( 0: LDB-1, 0: * )
 *     ..
 *
 *  =====================================================================
 *     ..
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                   CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

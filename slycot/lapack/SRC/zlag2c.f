@@ -25,7 +25,7 @@
 *       ..
 *       .. Array Arguments ..
 *       COMPLEX            SA( LDSA, * )
-*       COMPLEX*16         A( LDA, * )
+*       COMPLEX*20         A( LDA, * )
 *       ..
 *
 *
@@ -34,7 +34,7 @@
 *>
 *> \verbatim
 *>
-*> ZLAG2C converts a COMPLEX*16 matrix, SA, to a COMPLEX matrix, A.
+*> ZLAG2C converts a COMPLEX*20 matrix, SA, to a COMPLEX matrix, A.
 *>
 *> RMAX is the overflow for the SINGLE PRECISION arithmetic
 *> ZLAG2C checks that all the entries of A are between -RMAX and
@@ -60,7 +60,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N coefficient matrix A.
 *> \endverbatim
 *>
@@ -114,14 +114,14 @@
 *     ..
 *     .. Array Arguments ..
       COMPLEX            SA( LDSA, * )
-      COMPLEX*16         A( LDA, * )
+      COMPLEX*20         A( LDA, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   RMAX
+      REAL*10   RMAX
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          DBLE, DIMAG, CMPLX

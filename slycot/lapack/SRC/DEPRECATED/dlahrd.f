@@ -24,7 +24,7 @@
 *       INTEGER            K, LDA, LDT, LDY, N, NB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), T( LDT, NB ), TAU( NB ),
+*       REAL*10   A( LDA, * ), T( LDT, NB ), TAU( NB ),
 *      $                   Y( LDY, NB )
 *       ..
 *
@@ -67,7 +67,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N-K+1)
+*>          A is REAL*10 array, dimension (LDA,N-K+1)
 *>          On entry, the n-by-(n-k+1) general matrix A.
 *>          On exit, the elements on and above the k-th subdiagonal in
 *>          the first NB columns are overwritten with the corresponding
@@ -85,14 +85,14 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (NB)
+*>          TAU is REAL*10 array, dimension (NB)
 *>          The scalar factors of the elementary reflectors. See Further
 *>          Details.
 *> \endverbatim
 *>
 *> \param[out] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (LDT,NB)
+*>          T is REAL*10 array, dimension (LDT,NB)
 *>          The upper triangular matrix T.
 *> \endverbatim
 *>
@@ -104,7 +104,7 @@
 *>
 *> \param[out] Y
 *> \verbatim
-*>          Y is DOUBLE PRECISION array, dimension (LDY,NB)
+*>          Y is REAL*10 array, dimension (LDY,NB)
 *>          The n-by-nb matrix Y.
 *> \endverbatim
 *>
@@ -173,19 +173,19 @@
       INTEGER            K, LDA, LDT, LDY, N, NB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), T( LDT, NB ), TAU( NB ),
+      REAL*10   A( LDA, * ), T( LDT, NB ), TAU( NB ),
      $                   Y( LDY, NB )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I
-      DOUBLE PRECISION   EI
+      REAL*10   EI
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DCOPY, DGEMV, DLARFG, DSCAL, DTRMV

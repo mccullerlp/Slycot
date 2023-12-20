@@ -12,7 +12,7 @@
 *     INTEGER           INFO, LDA, M, N, K, LDT, TSIZE, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-*     DOUBLE PRECISION  A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
+*     REAL*10  A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
 *     ..
 *
 *> \par Purpose:
@@ -72,7 +72,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,K)
+*>          A is REAL*10 array, dimension (LDA,K)
 *>          Part of the data structure to represent Q as returned by DGEQR.
 *> \endverbatim
 *>
@@ -86,7 +86,7 @@
 *>
 *> \param[in] T
 *> \verbatim
-*>          T is DOUBLE PRECISION array, dimension (MAX(5,TSIZE)).
+*>          T is REAL*10 array, dimension (MAX(5,TSIZE)).
 *>          Part of the data structure to represent Q as returned by DGEQR.
 *> \endverbatim
 *>
@@ -98,7 +98,7 @@
 *>
 *> \param[in,out] C
 *> \verbatim
-*>          C is DOUBLE PRECISION array, dimension (LDC,N)
+*>          C is REAL*10 array, dimension (LDC,N)
 *>          On entry, the M-by-N matrix C.
 *>          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
 *> \endverbatim
@@ -111,7 +111,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>         (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+*>         (workspace) REAL*10 array, dimension (MAX(1,LWORK))
 *> \endverbatim
 *>
 *> \param[in] LWORK
@@ -179,7 +179,7 @@
       INTEGER            INFO, LDA, M, N, K, TSIZE, LWORK, LDC
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
+      REAL*10   A( LDA, * ), T( * ), C( LDC, * ), WORK( * )
 *     ..
 *
 * =====================================================================

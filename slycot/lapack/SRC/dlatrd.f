@@ -25,7 +25,7 @@
 *       INTEGER            LDA, LDW, N, NB
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( LDA, * ), E( * ), TAU( * ), W( LDW, * )
+*       REAL*10   A( LDA, * ), E( * ), TAU( * ), W( LDW, * )
 *       ..
 *
 *
@@ -73,7 +73,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension (LDA,N)
+*>          A is REAL*10 array, dimension (LDA,N)
 *>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
 *>          n-by-n upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
@@ -103,7 +103,7 @@
 *>
 *> \param[out] E
 *> \verbatim
-*>          E is DOUBLE PRECISION array, dimension (N-1)
+*>          E is REAL*10 array, dimension (N-1)
 *>          If UPLO = 'U', E(n-nb:n-1) contains the superdiagonal
 *>          elements of the last NB columns of the reduced matrix;
 *>          if UPLO = 'L', E(1:nb) contains the subdiagonal elements of
@@ -112,7 +112,7 @@
 *>
 *> \param[out] TAU
 *> \verbatim
-*>          TAU is DOUBLE PRECISION array, dimension (N-1)
+*>          TAU is REAL*10 array, dimension (N-1)
 *>          The scalar factors of the elementary reflectors, stored in
 *>          TAU(n-nb:n-1) if UPLO = 'U', and in TAU(1:nb) if UPLO = 'L'.
 *>          See Further Details.
@@ -120,7 +120,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (LDW,NB)
+*>          W is REAL*10 array, dimension (LDW,NB)
 *>          The n-by-nb matrix W required to update the unreduced part
 *>          of A.
 *> \endverbatim
@@ -205,25 +205,25 @@
       INTEGER            LDA, LDW, N, NB
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( LDA, * ), E( * ), TAU( * ), W( LDW, * )
+      REAL*10   A( LDA, * ), E( * ), TAU( * ), W( LDW, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE, HALF
+      REAL*10   ZERO, ONE, HALF
       PARAMETER          ( ZERO = 0.0D+0, ONE = 1.0D+0, HALF = 0.5D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, IW
-      DOUBLE PRECISION   ALPHA
+      REAL*10   ALPHA
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DAXPY, DGEMV, DLARFG, DSCAL, DSYMV
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME
-      DOUBLE PRECISION   DDOT
+      REAL*10   DDOT
       EXTERNAL           LSAME, DDOT
 *     ..
 *     .. Intrinsic Functions ..

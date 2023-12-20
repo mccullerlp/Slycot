@@ -28,7 +28,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   H( LDH, * ), SI( * ), SR( * ), U( LDU, * ),
+*       REAL*10   H( LDH, * ), SI( * ), SR( * ), U( LDU, * ),
 *      $                   V( LDV, * ), WH( LDWH, * ), WV( LDWV, * ),
 *      $                   Z( LDZ, * )
 *       ..
@@ -107,12 +107,12 @@
 *>
 *> \param[in,out] SR
 *> \verbatim
-*>          SR is DOUBLE PRECISION array, dimension (NSHFTS)
+*>          SR is REAL*10 array, dimension (NSHFTS)
 *> \endverbatim
 *>
 *> \param[in,out] SI
 *> \verbatim
-*>          SI is DOUBLE PRECISION array, dimension (NSHFTS)
+*>          SI is REAL*10 array, dimension (NSHFTS)
 *>             SR contains the real parts and SI contains the imaginary
 *>             parts of the NSHFTS shifts of origin that define the
 *>             multi-shift QR sweep.  On output SR and SI may be
@@ -121,7 +121,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is DOUBLE PRECISION array, dimension (LDH,N)
+*>          H is REAL*10 array, dimension (LDH,N)
 *>             On input H contains a Hessenberg matrix.  On output a
 *>             multi-shift QR sweep with shifts SR(J)+i*SI(J) is applied
 *>             to the isolated diagonal block in rows and columns KTOP
@@ -149,7 +149,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (LDZ,IHIZ)
+*>          Z is REAL*10 array, dimension (LDZ,IHIZ)
 *>             If WANTZ = .TRUE., then the QR Sweep orthogonal
 *>             similarity transformation is accumulated into
 *>             Z(ILOZ:IHIZ,ILOZ:IHIZ) from the right.
@@ -165,7 +165,7 @@
 *>
 *> \param[out] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDV,NSHFTS/2)
+*>          V is REAL*10 array, dimension (LDV,NSHFTS/2)
 *> \endverbatim
 *>
 *> \param[in] LDV
@@ -177,7 +177,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU,2*NSHFTS)
+*>          U is REAL*10 array, dimension (LDU,2*NSHFTS)
 *> \endverbatim
 *>
 *> \param[in] LDU
@@ -196,7 +196,7 @@
 *>
 *> \param[out] WV
 *> \verbatim
-*>          WV is DOUBLE PRECISION array, dimension (LDWV,2*NSHFTS)
+*>          WV is REAL*10 array, dimension (LDWV,2*NSHFTS)
 *> \endverbatim
 *>
 *> \param[in] LDWV
@@ -215,7 +215,7 @@
 *>
 *> \param[out] WH
 *> \verbatim
-*>          WH is DOUBLE PRECISION array, dimension (LDWH,NH)
+*>          WH is REAL*10 array, dimension (LDWH,NH)
 *> \endverbatim
 *>
 *> \param[in] LDWH
@@ -274,18 +274,18 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   H( LDH, * ), SI( * ), SR( * ), U( LDU, * ),
+      REAL*10   H( LDH, * ), SI( * ), SR( * ), U( LDU, * ),
      $                   V( LDV, * ), WH( LDWH, * ), WV( LDWV, * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  ================================================================
 *     .. Parameters ..
-      DOUBLE PRECISION   ZERO, ONE
+      REAL*10   ZERO, ONE
       PARAMETER          ( ZERO = 0.0d0, ONE = 1.0d0 )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   ALPHA, BETA, H11, H12, H21, H22, REFSUM,
+      REAL*10   ALPHA, BETA, H11, H12, H21, H22, REFSUM,
      $                   SAFMAX, SAFMIN, SCL, SMLNUM, SWAP, T1, T2,
      $                   T3, TST1, TST2, ULP
       INTEGER            I, I2, I4, INCOL, J, JBOT, JCOL, JLEN,
@@ -295,7 +295,7 @@
       LOGICAL            ACCUM, BMP22
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. Intrinsic Functions ..
@@ -303,7 +303,7 @@
       INTRINSIC          ABS, DBLE, MAX, MIN, MOD
 *     ..
 *     .. Local Arrays ..
-      DOUBLE PRECISION   VT( 3 )
+      REAL*10   VT( 3 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DGEMM, DLABAD, DLACPY, DLAQR1, DLARFG, DLASET,

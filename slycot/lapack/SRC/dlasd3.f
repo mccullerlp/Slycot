@@ -28,7 +28,7 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            CTOT( * ), IDXC( * )
-*       DOUBLE PRECISION   D( * ), DSIGMA( * ), Q( LDQ, * ), U( LDU, * ),
+*       REAL*10   D( * ), DSIGMA( * ), Q( LDQ, * ), U( LDU, * ),
 *      $                   U2( LDU2, * ), VT( LDVT, * ), VT2( LDVT2, * ),
 *      $                   Z( * )
 *       ..
@@ -87,14 +87,14 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is DOUBLE PRECISION array, dimension(K)
+*>          D is REAL*10 array, dimension(K)
 *>         On exit the square roots of the roots of the secular equation,
 *>         in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Q
 *> \verbatim
-*>          Q is DOUBLE PRECISION array, dimension (LDQ,K)
+*>          Q is REAL*10 array, dimension (LDQ,K)
 *> \endverbatim
 *>
 *> \param[in] LDQ
@@ -105,7 +105,7 @@
 *>
 *> \param[in,out] DSIGMA
 *> \verbatim
-*>          DSIGMA is DOUBLE PRECISION array, dimension(K)
+*>          DSIGMA is REAL*10 array, dimension(K)
 *>         The first K elements of this array contain the old roots
 *>         of the deflated updating problem.  These are the poles
 *>         of the secular equation.
@@ -113,7 +113,7 @@
 *>
 *> \param[out] U
 *> \verbatim
-*>          U is DOUBLE PRECISION array, dimension (LDU, N)
+*>          U is REAL*10 array, dimension (LDU, N)
 *>         The last N - K columns of this matrix contain the deflated
 *>         left singular vectors.
 *> \endverbatim
@@ -126,7 +126,7 @@
 *>
 *> \param[in] U2
 *> \verbatim
-*>          U2 is DOUBLE PRECISION array, dimension (LDU2, N)
+*>          U2 is REAL*10 array, dimension (LDU2, N)
 *>         The first K columns of this matrix contain the non-deflated
 *>         left singular vectors for the split problem.
 *> \endverbatim
@@ -139,7 +139,7 @@
 *>
 *> \param[out] VT
 *> \verbatim
-*>          VT is DOUBLE PRECISION array, dimension (LDVT, M)
+*>          VT is REAL*10 array, dimension (LDVT, M)
 *>         The last M - K columns of VT**T contain the deflated
 *>         right singular vectors.
 *> \endverbatim
@@ -152,7 +152,7 @@
 *>
 *> \param[in,out] VT2
 *> \verbatim
-*>          VT2 is DOUBLE PRECISION array, dimension (LDVT2, N)
+*>          VT2 is REAL*10 array, dimension (LDVT2, N)
 *>         The first K columns of VT2**T contain the non-deflated
 *>         right singular vectors for the split problem.
 *> \endverbatim
@@ -188,7 +188,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is DOUBLE PRECISION array, dimension (K)
+*>          Z is REAL*10 array, dimension (K)
 *>         The first K elements of this array contain the components
 *>         of the deflation-adjusted updating row vector.
 *> \endverbatim
@@ -232,7 +232,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            CTOT( * ), IDXC( * )
-      DOUBLE PRECISION   D( * ), DSIGMA( * ), Q( LDQ, * ), U( LDU, * ),
+      REAL*10   D( * ), DSIGMA( * ), Q( LDQ, * ), U( LDU, * ),
      $                   U2( LDU2, * ), VT( LDVT, * ), VT2( LDVT2, * ),
      $                   Z( * )
 *     ..
@@ -240,16 +240,16 @@
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO, NEGONE
+      REAL*10   ONE, ZERO, NEGONE
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0,
      $                   NEGONE = -1.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            CTEMP, I, J, JC, KTEMP, M, N, NLP1, NLP2, NRP1
-      DOUBLE PRECISION   RHO, TEMP
+      REAL*10   RHO, TEMP
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMC3, DNRM2
+      REAL*10   DLAMC3, DNRM2
       EXTERNAL           DLAMC3, DNRM2
 *     ..
 *     .. External Subroutines ..

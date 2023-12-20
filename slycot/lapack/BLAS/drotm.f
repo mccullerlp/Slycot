@@ -14,7 +14,7 @@
 *       INTEGER INCX,INCY,N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION DPARAM(5),DX(*),DY(*)
+*       REAL*10 DPARAM(5),DX(*),DY(*)
 *       ..
 *
 *
@@ -51,7 +51,7 @@
 *>
 *> \param[in,out] DX
 *> \verbatim
-*>          DX is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+*>          DX is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
 *> \endverbatim
 *>
 *> \param[in] INCX
@@ -62,7 +62,7 @@
 *>
 *> \param[in,out] DY
 *> \verbatim
-*>          DY is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
+*>          DY is REAL*10 array, dimension ( 1 + ( N - 1 )*abs( INCY ) )
 *> \endverbatim
 *>
 *> \param[in] INCY
@@ -73,7 +73,7 @@
 *>
 *> \param[in] DPARAM
 *> \verbatim
-*>          DPARAM is DOUBLE PRECISION array, dimension (5)
+*>          DPARAM is REAL*10 array, dimension (5)
 *>     DPARAM(1)=DFLAG
 *>     DPARAM(2)=DH11
 *>     DPARAM(3)=DH21
@@ -102,13 +102,13 @@
       INTEGER INCX,INCY,N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION DPARAM(5),DX(*),DY(*)
+      REAL*10 DPARAM(5),DX(*),DY(*)
 *     ..
 *
 *  =====================================================================
 *
 *     .. Local Scalars ..
-      DOUBLE PRECISION DFLAG,DH11,DH12,DH21,DH22,TWO,W,Z,ZERO
+      REAL*10 DFLAG,DH11,DH12,DH21,DH22,TWO,W,Z,ZERO
       INTEGER I,KX,KY,NSTEPS
 *     ..
 *     .. Data statements ..

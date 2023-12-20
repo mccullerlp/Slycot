@@ -18,7 +18,7 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION ZLA_GBRCOND_X( TRANS, N, KL, KU, AB,
+*       REAL*10 FUNCTION ZLA_GBRCOND_X( TRANS, N, KL, KU, AB,
 *                                                LDAB, AFB, LDAFB, IPIV,
 *                                                X, INFO, WORK, RWORK )
 *
@@ -28,9 +28,9 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IPIV( * )
-*       COMPLEX*16         AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
+*       COMPLEX*20         AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
 *      $                   X( * )
-*       DOUBLE PRECISION   RWORK( * )
+*       REAL*10   RWORK( * )
 *
 *
 *
@@ -40,7 +40,7 @@
 *> \verbatim
 *>
 *>    ZLA_GBRCOND_X Computes the infinity norm condition number of
-*>    op(A) * diag(X) where X is a COMPLEX*16 vector.
+*>    op(A) * diag(X) where X is a COMPLEX*20 vector.
 *> \endverbatim
 *
 *  Arguments:
@@ -76,7 +76,7 @@
 *>
 *> \param[in] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB,N)
+*>          AB is COMPLEX*20 array, dimension (LDAB,N)
 *>     On entry, the matrix A in band storage, in rows 1 to KL+KU+1.
 *>     The j-th column of A is stored in the j-th column of the
 *>     array AB as follows:
@@ -91,7 +91,7 @@
 *>
 *> \param[in] AFB
 *> \verbatim
-*>          AFB is COMPLEX*16 array, dimension (LDAFB,N)
+*>          AFB is COMPLEX*20 array, dimension (LDAFB,N)
 *>     Details of the LU factorization of the band matrix A, as
 *>     computed by ZGBTRF.  U is stored as an upper triangular
 *>     band matrix with KL+KU superdiagonals in rows 1 to KL+KU+1,
@@ -115,7 +115,7 @@
 *>
 *> \param[in] X
 *> \verbatim
-*>          X is COMPLEX*16 array, dimension (N)
+*>          X is COMPLEX*20 array, dimension (N)
 *>     The vector X in the formula op(A) * diag(X).
 *> \endverbatim
 *>
@@ -128,13 +128,13 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (2*N).
+*>          WORK is COMPLEX*20 array, dimension (2*N).
 *>     Workspace.
 *> \endverbatim
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (N).
+*>          RWORK is REAL*10 array, dimension (N).
 *>     Workspace.
 *> \endverbatim
 *
@@ -149,7 +149,7 @@
 *> \ingroup complex16GBcomputational
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION ZLA_GBRCOND_X( TRANS, N, KL, KU, AB,
+      REAL*10 FUNCTION ZLA_GBRCOND_X( TRANS, N, KL, KU, AB,
      $                                         LDAB, AFB, LDAFB, IPIV,
      $                                         X, INFO, WORK, RWORK )
 *
@@ -163,9 +163,9 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      COMPLEX*16         AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
+      COMPLEX*20         AB( LDAB, * ), AFB( LDAFB, * ), WORK( * ),
      $                   X( * )
-      DOUBLE PRECISION   RWORK( * )
+      REAL*10   RWORK( * )
 *
 *
 *  =====================================================================
@@ -173,8 +173,8 @@
 *     .. Local Scalars ..
       LOGICAL            NOTRANS
       INTEGER            KASE, I, J
-      DOUBLE PRECISION   AINVNM, ANORM, TMP
-      COMPLEX*16         ZDUM
+      REAL*10   AINVNM, ANORM, TMP
+      COMPLEX*20         ZDUM
 *     ..
 *     .. Local Arrays ..
       INTEGER            ISAVE( 3 )
@@ -190,7 +190,7 @@
       INTRINSIC          ABS, MAX
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function Definitions ..
       CABS1( ZDUM ) = ABS( DBLE( ZDUM ) ) + ABS( DIMAG( ZDUM ) )

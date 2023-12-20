@@ -26,7 +26,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         H( LDH, * ), W( * ), Z( LDZ, * )
+*       COMPLEX*20         H( LDH, * ), W( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -82,7 +82,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>          On entry, the upper Hessenberg matrix H.
 *>          On exit, if INFO is zero and if WANTT is .TRUE., then H
 *>          is upper triangular in rows and columns ILO:IHI.  If INFO
@@ -99,7 +99,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>          The computed eigenvalues ILO to IHI are stored in the
 *>          corresponding elements of W. If WANTT is .TRUE., the
 *>          eigenvalues are stored in the same order as on the diagonal
@@ -121,7 +121,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,N)
+*>          Z is COMPLEX*20 array, dimension (LDZ,N)
 *>          If WANTZ is .TRUE., on entry Z must contain the current
 *>          matrix Z of transformations accumulated by CHSEQR, and on
 *>          exit Z has been updated; transformations are applied only to
@@ -203,43 +203,43 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         H( LDH, * ), W( * ), Z( LDZ, * )
+      COMPLEX*20         H( LDH, * ), W( * ), Z( LDZ, * )
 *     ..
 *
 *  =========================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0d0, 0.0d0 ),
      $                   ONE = ( 1.0d0, 0.0d0 ) )
-      DOUBLE PRECISION   RZERO, RONE, HALF
+      REAL*10   RZERO, RONE, HALF
       PARAMETER          ( RZERO = 0.0d0, RONE = 1.0d0, HALF = 0.5d0 )
-      DOUBLE PRECISION   DAT1
+      REAL*10   DAT1
       PARAMETER          ( DAT1 = 3.0d0 / 4.0d0 )
       INTEGER            KEXSH
       PARAMETER          ( KEXSH = 10 )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         CDUM, H11, H11S, H22, SC, SUM, T, T1, TEMP, U,
+      COMPLEX*20         CDUM, H11, H11S, H22, SC, SUM, T, T1, TEMP, U,
      $                   V2, X, Y
-      DOUBLE PRECISION   AA, AB, BA, BB, H10, H21, RTEMP, S, SAFMAX,
+      REAL*10   AA, AB, BA, BB, H10, H21, RTEMP, S, SAFMAX,
      $                   SAFMIN, SMLNUM, SX, T2, TST, ULP
       INTEGER            I, I1, I2, ITS, ITMAX, J, JHI, JLO, K, L, M,
      $                   NH, NZ, KDEFL
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         V( 2 )
+      COMPLEX*20         V( 2 )
 *     ..
 *     .. External Functions ..
-      COMPLEX*16         ZLADIV
-      DOUBLE PRECISION   DLAMCH
+      COMPLEX*20         ZLADIV
+      REAL*10   DLAMCH
       EXTERNAL           ZLADIV, DLAMCH
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           DLABAD, ZCOPY, ZLARFG, ZSCAL
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, DBLE, DCONJG, DIMAG, MAX, MIN, SQRT

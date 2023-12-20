@@ -26,7 +26,7 @@
 *       LOGICAL            WANTT, WANTZ
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
+*       COMPLEX*20         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
 *       ..
 *
 *
@@ -96,7 +96,7 @@
 *>
 *> \param[in,out] H
 *> \verbatim
-*>          H is COMPLEX*16 array, dimension (LDH,N)
+*>          H is COMPLEX*20 array, dimension (LDH,N)
 *>           On entry, the upper Hessenberg matrix H.
 *>           On exit, if INFO = 0 and WANTT is .TRUE., then H
 *>           contains the upper triangular matrix T from the Schur
@@ -117,7 +117,7 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is COMPLEX*16 array, dimension (N)
+*>          W is COMPLEX*20 array, dimension (N)
 *>           The computed eigenvalues of H(ILO:IHI,ILO:IHI) are stored
 *>           in W(ILO:IHI). If WANTT is .TRUE., then the eigenvalues are
 *>           stored in the same order as on the diagonal of the Schur
@@ -139,7 +139,7 @@
 *>
 *> \param[in,out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ,IHI)
+*>          Z is COMPLEX*20 array, dimension (LDZ,IHI)
 *>           If WANTZ is .FALSE., then Z is not referenced.
 *>           If WANTZ is .TRUE., then Z(ILO:IHI,ILOZ:IHIZ) is
 *>           replaced by Z(ILO:IHI,ILOZ:IHIZ)*U where U is the
@@ -157,7 +157,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension LWORK
+*>          WORK is COMPLEX*20 array, dimension LWORK
 *>           On exit, if LWORK = -1, WORK(1) returns an estimate of
 *>           the optimal value for LWORK.
 *> \endverbatim
@@ -254,7 +254,7 @@
       LOGICAL            WANTT, WANTZ
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
+      COMPLEX*20         H( LDH, * ), W( * ), WORK( * ), Z( LDZ, * )
 *     ..
 *
 *  ================================================================
@@ -281,17 +281,17 @@
 *
 *     ==== The constant WILK1 is used to form the exceptional
 *     .    shifts. ====
-      DOUBLE PRECISION   WILK1
+      REAL*10   WILK1
       PARAMETER          ( WILK1 = 0.75d0 )
-      COMPLEX*16         ZERO, ONE
+      COMPLEX*20         ZERO, ONE
       PARAMETER          ( ZERO = ( 0.0d0, 0.0d0 ),
      $                   ONE = ( 1.0d0, 0.0d0 ) )
-      DOUBLE PRECISION   TWO
+      REAL*10   TWO
       PARAMETER          ( TWO = 2.0d0 )
 *     ..
 *     .. Local Scalars ..
-      COMPLEX*16         AA, BB, CC, CDUM, DD, DET, RTDISC, SWAP, TR2
-      DOUBLE PRECISION   S
+      COMPLEX*20         AA, BB, CC, CDUM, DD, DET, RTDISC, SWAP, TR2
+      REAL*10   S
       INTEGER            I, INF, IT, ITMAX, K, KACC22, KBOT, KDU, KS,
      $                   KT, KTOP, KU, KV, KWH, KWTOP, KWV, LD, LS,
      $                   LWKOPT, NDEC, NDFL, NH, NHO, NIBBLE, NMIN, NS,
@@ -304,7 +304,7 @@
       EXTERNAL           ILAENV
 *     ..
 *     .. Local Arrays ..
-      COMPLEX*16         ZDUM( 1, 1 )
+      COMPLEX*20         ZDUM( 1, 1 )
 *     ..
 *     .. External Subroutines ..
       EXTERNAL           ZLACPY, ZLAHQR, ZLAQR2, ZLAQR5
@@ -314,7 +314,7 @@
      $                   SQRT
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( CDUM ) = ABS( DBLE( CDUM ) ) + ABS( DIMAG( CDUM ) )

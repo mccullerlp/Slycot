@@ -24,7 +24,7 @@
 *       INTEGER            INFO, LDA, M, N
 *       ..
 *       .. Array Arguments ..
-*       COMPLEX*16         A( LDA, * ), D( * )
+*       COMPLEX*20         A( LDA, * ), D( * )
 *       ..
 *
 *
@@ -114,7 +114,7 @@
 *>
 *> \param[in,out] A
 *> \verbatim
-*>          A is COMPLEX*16 array, dimension (LDA,N)
+*>          A is COMPLEX*20 array, dimension (LDA,N)
 *>          On entry, the M-by-N matrix to be factored.
 *>          On exit, the factors L and U from the factorization
 *>          A-S=L*U; the unit diagonal elements of L are not stored.
@@ -128,7 +128,7 @@
 *>
 *> \param[out] D
 *> \verbatim
-*>          D is COMPLEX*16 array, dimension min(M,N)
+*>          D is COMPLEX*20 array, dimension min(M,N)
 *>          The diagonal elements of the diagonal M-by-N sign matrix S,
 *>          D(i) = S(i,i), where 1 <= i <= min(M,N). The elements can be
 *>          only ( +1.0, 0.0 ) or (-1.0, 0.0 ).
@@ -174,24 +174,24 @@
       INTEGER            INFO, LDA, M, N
 *     ..
 *     .. Array Arguments ..
-      COMPLEX*16         A( LDA, * ), D( * )
+      COMPLEX*20         A( LDA, * ), D( * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE
+      REAL*10   ONE
       PARAMETER          ( ONE = 1.0D+0 )
-      COMPLEX*16         CONE
+      COMPLEX*20         CONE
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ) )
 *     ..
 *     .. Local Scalars ..
-      DOUBLE PRECISION   SFMIN
+      REAL*10   SFMIN
       INTEGER            I, IINFO, N1, N2
-      COMPLEX*16         Z
+      COMPLEX*20         Z
 *     ..
 *     .. External Functions ..
-      DOUBLE PRECISION   DLAMCH
+      REAL*10   DLAMCH
       EXTERNAL           DLAMCH
 *     ..
 *     .. External Subroutines ..
@@ -201,7 +201,7 @@
       INTRINSIC          ABS, DBLE, DCMPLX, DIMAG, DSIGN, MAX, MIN
 *     ..
 *     .. Statement Functions ..
-      DOUBLE PRECISION   CABS1
+      REAL*10   CABS1
 *     ..
 *     .. Statement Function definitions ..
       CABS1( Z ) = ABS( DBLE( Z ) ) + ABS( DIMAG( Z ) )

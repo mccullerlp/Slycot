@@ -29,8 +29,8 @@
 *       ..
 *       .. Array Arguments ..
 *       INTEGER            IWORK( * )
-*       DOUBLE PRECISION   RWORK( * ), W( * )
-*       COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+*       REAL*10   RWORK( * ), W( * )
+*       COMPLEX*20         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
 *      $                   Z( LDZ, * )
 *       ..
 *
@@ -93,7 +93,7 @@
 *>
 *> \param[in,out] AB
 *> \verbatim
-*>          AB is COMPLEX*16 array, dimension (LDAB, N)
+*>          AB is COMPLEX*20 array, dimension (LDAB, N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix A, stored in the first ka+1 rows of the array.  The
 *>          j-th column of A is stored in the j-th column of the array AB
@@ -112,7 +112,7 @@
 *>
 *> \param[in,out] BB
 *> \verbatim
-*>          BB is COMPLEX*16 array, dimension (LDBB, N)
+*>          BB is COMPLEX*20 array, dimension (LDBB, N)
 *>          On entry, the upper or lower triangle of the Hermitian band
 *>          matrix B, stored in the first kb+1 rows of the array.  The
 *>          j-th column of B is stored in the j-th column of the array BB
@@ -132,13 +132,13 @@
 *>
 *> \param[out] W
 *> \verbatim
-*>          W is DOUBLE PRECISION array, dimension (N)
+*>          W is REAL*10 array, dimension (N)
 *>          If INFO = 0, the eigenvalues in ascending order.
 *> \endverbatim
 *>
 *> \param[out] Z
 *> \verbatim
-*>          Z is COMPLEX*16 array, dimension (LDZ, N)
+*>          Z is COMPLEX*20 array, dimension (LDZ, N)
 *>          If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
 *>          eigenvectors, with the i-th column of Z holding the
 *>          eigenvector associated with W(i). The eigenvectors are
@@ -155,7 +155,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+*>          WORK is COMPLEX*20 array, dimension (MAX(1,LWORK))
 *>          On exit, if INFO=0, WORK(1) returns the optimal LWORK.
 *> \endverbatim
 *>
@@ -176,7 +176,7 @@
 *>
 *> \param[out] RWORK
 *> \verbatim
-*>          RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK))
+*>          RWORK is REAL*10 array, dimension (MAX(1,LRWORK))
 *>          On exit, if INFO=0, RWORK(1) returns the optimal LRWORK.
 *> \endverbatim
 *>
@@ -261,15 +261,15 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IWORK( * )
-      DOUBLE PRECISION   RWORK( * ), W( * )
-      COMPLEX*16         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
+      REAL*10   RWORK( * ), W( * )
+      COMPLEX*20         AB( LDAB, * ), BB( LDBB, * ), WORK( * ),
      $                   Z( LDZ, * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      COMPLEX*16         CONE, CZERO
+      COMPLEX*20         CONE, CZERO
       PARAMETER          ( CONE = ( 1.0D+0, 0.0D+0 ),
      $                   CZERO = ( 0.0D+0, 0.0D+0 ) )
 *     ..

@@ -18,14 +18,14 @@
 *  Definition:
 *  ===========
 *
-*       DOUBLE PRECISION FUNCTION DLANSF( NORM, TRANSR, UPLO, N, A, WORK )
+*       REAL*10 FUNCTION DLANSF( NORM, TRANSR, UPLO, N, A, WORK )
 *
 *       .. Scalar Arguments ..
 *       CHARACTER          NORM, TRANSR, UPLO
 *       INTEGER            N
 *       ..
 *       .. Array Arguments ..
-*       DOUBLE PRECISION   A( 0: * ), WORK( 0: * )
+*       REAL*10   A( 0: * ), WORK( 0: * )
 *       ..
 *
 *
@@ -93,7 +93,7 @@
 *>
 *> \param[in] A
 *> \verbatim
-*>          A is DOUBLE PRECISION array, dimension ( N*(N+1)/2 );
+*>          A is REAL*10 array, dimension ( N*(N+1)/2 );
 *>          On entry, the upper (if UPLO = 'U') or lower (if UPLO = 'L')
 *>          part of the symmetric matrix A stored in RFP format. See the
 *>          "Notes" below for more details.
@@ -102,7 +102,7 @@
 *>
 *> \param[out] WORK
 *> \verbatim
-*>          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+*>          WORK is REAL*10 array, dimension (MAX(1,LWORK)),
 *>          where LWORK >= N when NORM = 'I' or '1' or 'O'; otherwise,
 *>          WORK is not referenced.
 *> \endverbatim
@@ -205,7 +205,7 @@
 *> \endverbatim
 *
 *  =====================================================================
-      DOUBLE PRECISION FUNCTION DLANSF( NORM, TRANSR, UPLO, N, A, WORK )
+      REAL*10 FUNCTION DLANSF( NORM, TRANSR, UPLO, N, A, WORK )
 *
 *  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
@@ -216,18 +216,18 @@
       INTEGER            N
 *     ..
 *     .. Array Arguments ..
-      DOUBLE PRECISION   A( 0: * ), WORK( 0: * )
+      REAL*10   A( 0: * ), WORK( 0: * )
 *     ..
 *
 *  =====================================================================
 *
 *     .. Parameters ..
-      DOUBLE PRECISION   ONE, ZERO
+      REAL*10   ONE, ZERO
       PARAMETER          ( ONE = 1.0D+0, ZERO = 0.0D+0 )
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J, IFM, ILU, NOE, N1, K, L, LDA
-      DOUBLE PRECISION   SCALE, S, VALUE, AA, TEMP
+      REAL*10   SCALE, S, VALUE, AA, TEMP
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
